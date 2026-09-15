@@ -25,16 +25,25 @@ de progression en bas d'écran. Coût : un `scroll` listener en `requestAnimatio
 custom properties — aucune image, aucun canvas.
 
 **Couleur.** Un monde froid : abysse `#03090E`, turquoise de cenote `#4FE0D2`.
-Une seule couleur chaude sur tout le site — l'ambre `#F5C77E` — **réservée exclusivement à la
-réservation**. Dans un monde bleu nuit, l'action de réservation est littéralement la seule
-lumière chaude à l'écran. On ne peut pas la rater, et on n'a besoin d'aucune flèche pour la désigner.
+Une seule surface éclairée sur tout le site — un blanc chaud `#F7EFE3`, à plat —
+**réservée exclusivement à la réservation**. Dans un monde bleu nuit, l'action de réservation
+est littéralement la seule chose allumée à l'écran. On ne peut pas la rater, et on n'a besoin
+d'aucune flèche pour la désigner.
+
+*Première version :* un dégradé doré beige→tan, en pilule, avec un halo au survol. Écarté —
+le dégradé faisait daté et la teinte sableuse virait au terne sur le fond marine. Six
+traitements ont été comparés sur le vrai fond de la maquette (ambre plat, ambre brûlé, contour
+qui se remplit, blanc chaud), et le gain décisif n'est pas venu de la teinte mais de la
+**typographie** : le bouton est désormais composé en IBM Plex Mono capitales, la même fonte que
+toutes les données d'instrument de la page. Le CTA se lit comme une commande d'ordinateur de
+plongée plutôt que comme un bouton web générique.
 
 **Typographie.** *Instrument Serif* en display (contraste élevé, un peu théâtral, très peu vu),
 *Inter* en texte, *IBM Plex Mono* pour toutes les données d'instrument (coordonnées, profondeurs,
 températures) — le lexique visuel d'un ordinateur de plongée.
 
 **Réservation.** Une **ardoise de plongeur** : fond sombre rayé, lignes en pointillés,
-tampon « Not confirmed » légèrement de travers, total en ambre.
+tampon « Not confirmed » légèrement de travers, total dans le même blanc chaud que l'action.
 
 **Risque assumé.** Les sites sombres peuvent paraître « niche » et fatiguer en plein soleil sur mobile —
 c'est-à-dire exactement la situation d'un touriste à Tulum. À arbitrer.

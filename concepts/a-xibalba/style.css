@@ -2,7 +2,7 @@
    KAY DIVING — Concept A · "XIBALBA"
    Idea: the page IS a dive. Scrolling is descending. A depth gauge tracks you,
    the water darkens as you go, and the only warm light in this world is the
-   torch — reserved exclusively for the booking action.
+   the lit surface — reserved exclusively for the booking action.
    ========================================================================== */
 
 :root{
@@ -23,10 +23,10 @@
   --turq-deep:#1FA8AE;
   --turq-glow:#A9F5EC;
 
-  /* Torchlight — the ONLY warm colour. Booking only. */
-  --torch:#F5C77E;
-  --torch-lo:#DFA44C;
-  --torch-hi:#FFE4B4;
+  /* The lit surface — the only lit thing in the abyss. Booking only. */
+  --lit:#F7EFE3;
+  --lit-hi:#FFFBF4;
+  --lit-ink:#06161F;
 
   --line:rgba(169,245,236,.14);
   --line-soft:rgba(169,245,236,.07);
@@ -34,7 +34,6 @@
   --glass-hi:rgba(255,255,255,.075);
 
   --grad-turq:linear-gradient(112deg,var(--turq-glow),var(--turq) 46%,var(--turq-deep));
-  --grad-torch:linear-gradient(116deg,var(--torch-hi),var(--torch) 48%,var(--torch-lo));
 
   --display:"Instrument Serif","Iowan Old Style","Times New Roman",serif;
   --body:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
@@ -116,20 +115,24 @@ ul{list-style:none;padding:0}
 .data b{color:var(--foam);font-weight:500}
 
 /* ---------------------------------------------------------------- Buttons */
+/* Buttons are set in the same mono as every instrument reading on the page:
+   a control on a dive computer, not a generic web button. */
 .btn{
-  --pad:.92em 1.55em;
-  display:inline-flex;align-items:center;justify-content:center;gap:.7ch;
-  padding:var(--pad);border-radius:999px;font-weight:500;font-size:.94rem;
-  letter-spacing:.01em;transition:transform .35s var(--ease),box-shadow .35s var(--ease),background .3s;
-  white-space:nowrap;
+  --pad:1em 1.75em;
+  display:inline-flex;align-items:center;justify-content:center;gap:.85ch;
+  padding:var(--pad);border-radius:11px;
+  font-family:var(--mono);font-weight:500;font-size:.78rem;
+  letter-spacing:.1em;text-transform:uppercase;white-space:nowrap;
+  transition:transform .3s var(--ease),background .25s,color .25s,border-color .25s;
 }
-.btn--sm{--pad:.6em 1.1em;font-size:.85rem}
+.btn--sm{--pad:.64em 1.05em;font-size:.68rem;letter-spacing:.09em}
 .btn:hover{transform:translateY(-2px)}
+.btn svg{flex:none}
 .btn--ghost{border:1px solid var(--line);color:var(--foam);background:var(--glass)}
-.btn--ghost:hover{background:var(--glass-hi);border-color:rgba(169,245,236,.3)}
-/* The torch: the only lit action in the abyss */
-.btn--torch{background:var(--grad-torch);color:#2A1B06;font-weight:600;box-shadow:0 0 0 rgba(245,199,126,0)}
-.btn--torch:hover{box-shadow:0 14px 40px -12px rgba(245,199,126,.55),0 0 26px -6px rgba(245,199,126,.35)}
+.btn--ghost:hover{background:var(--glass-hi);border-color:rgba(169,245,236,.32)}
+/* The lit action: warm white, flat, no gradient, no halo. */
+.btn--lit{background:var(--lit);color:var(--lit-ink)}
+.btn--lit:hover{background:var(--lit-hi)}
 
 /* ------------------------------------------------------------- Depth gauge */
 .gauge{
@@ -396,7 +399,7 @@ select.field{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xml
 .srow__v.sm{font-size:.86rem}
 .slate__total{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;padding-top:1.1rem;border-top:1px solid var(--line);margin-top:auto}
 .slate__total .k{font-family:var(--mono);font-size:.64rem;letter-spacing:.2em;text-transform:uppercase;color:var(--foam-52)}
-.slate__total .v{font-family:var(--display);font-size:clamp(2rem,4.6vw,2.9rem);line-height:1;color:var(--torch)}
+.slate__total .v{font-family:var(--display);font-size:clamp(2rem,4.6vw,2.9rem);line-height:1;color:var(--lit)}
 .slate__fine{font-size:.74rem;color:var(--foam-34);margin-top:.7rem;line-height:1.5}
 .slate .btn{width:100%;margin-top:1.2rem}
 
