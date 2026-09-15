@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-label="Shallow, sunlit water at Casa Cenote with mangrove roots and small fish">
+  <defs>
+    <linearGradient id="sw" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#CFFBEC"/><stop offset=".16" stop-color="#7CE6D0"/>
+      <stop offset=".48" stop-color="#2FB4AE"/><stop offset=".8" stop-color="#136A75"/>
+      <stop offset="1" stop-color="#0A3F4E"/>
+    </linearGradient>
+    <linearGradient id="dap" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity=".85"/><stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="sb" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="10"/></filter>
+    <filter id="sb2" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="3"/></filter>
+    <radialGradient id="sv" cx=".5" cy=".4" r=".8">
+      <stop offset=".58" stop-color="#03202B" stop-opacity="0"/><stop offset="1" stop-color="#03202B" stop-opacity=".5"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#sw)"/>
+
+  <!-- surface with caustic ripples, seen from just below -->
+  <g filter="url(#sb2)" opacity=".75">
+    <path d="M0 26 C90 10 150 40 250 24 C350 8 420 38 520 22 C620 6 690 36 790 20 C890 4 960 34 1060 18 C1130 7 1170 24 1200 16 L1200 0 L0 0 Z" fill="#EFFFFA" opacity=".9"/>
+    <path d="M0 62 C100 46 170 76 270 60 C370 44 440 74 540 58 C640 42 710 72 810 56 C910 40 980 70 1080 54 C1140 44 1175 58 1200 52" stroke="#EFFFFA" stroke-width="3" fill="none" opacity=".5"/>
+    <path d="M0 96 C110 82 180 108 290 94 C400 80 470 106 580 92 C690 78 760 104 870 90 C970 78 1040 98 1130 88" stroke="#EFFFFA" stroke-width="2" fill="none" opacity=".3"/>
+  </g>
+  <g filter="url(#sb)" opacity=".5">
+    <path d="M150 0 L210 0 L184 430 L108 414 Z" fill="url(#dap)"/>
+    <path d="M430 0 L478 0 L500 470 L418 458 Z" fill="url(#dap)"/>
+    <path d="M700 0 L744 0 L800 440 L724 452 Z" fill="url(#dap)"/>
+    <path d="M950 0 L1000 0 L1080 400 L1004 416 Z" fill="url(#dap)"/>
+  </g>
+
+  <!-- mangrove roots hanging from above -->
+  <g stroke="#06303C" fill="none" stroke-linecap="round" opacity=".92">
+    <path d="M90 0 C104 120 66 200 96 330 C112 400 92 440 104 500" stroke-width="7"/>
+    <path d="M96 150 C130 190 126 250 150 300" stroke-width="4"/>
+    <path d="M92 250 C58 292 62 340 44 386" stroke-width="3.6"/>
+    <path d="M280 0 C266 96 300 164 278 262 C264 328 282 368 272 424" stroke-width="5.4"/>
+    <path d="M278 120 C246 158 250 210 228 254" stroke-width="3.2"/>
+    <path d="M1080 0 C1064 110 1100 186 1076 300 C1060 372 1080 412 1068 476" stroke-width="6.4"/>
+    <path d="M1076 170 C1112 212 1108 268 1132 316" stroke-width="3.8"/>
+    <path d="M1072 288 C1038 330 1042 376 1022 420" stroke-width="3"/>
+    <path d="M880 0 C894 84 862 142 886 222" stroke-width="4"/>
+  </g>
+
+  <!-- sandy shallow floor -->
+  <path d="M0 800 V690 C130 668 250 700 400 682 C540 666 660 696 810 678 C950 662 1070 692 1200 672 V800 Z" fill="#0E566A" opacity=".9"/>
+  <path d="M0 800 V734 C140 716 270 744 420 728 C570 712 690 740 840 724 C980 710 1080 732 1200 716 V800 Z" fill="#0A3F4E"/>
+
+  <!-- small fish -->
+  <g fill="#06303C" opacity=".8">
+    <path d="M520 300 l17 -6 -3 6 3 6z"/><path d="M556 284 l15 -6 -3 6 3 6z"/>
+    <path d="M548 324 l16 -6 -3 6 3 6z"/><path d="M588 308 l14 -5 -3 5 3 5z"/>
+    <path d="M512 346 l15 -6 -3 6 3 6z"/><path d="M594 346 l13 -5 -3 5 3 5z"/>
+    <path d="M626 292 l15 -6 -3 6 3 6z"/><path d="M620 332 l13 -5 -3 5 3 5z"/>
+  </g>
+  <!-- snorkeller at the surface -->
+  <g transform="translate(700 96) scale(1.25)" fill="#06303C" opacity=".72">
+    <ellipse cx="55" cy="20" rx="25" ry="6.6"/>
+    <circle cx="78" cy="18" r="6"/>
+    <path d="M72 22 q12 2 20 -1 l1.5 3.2 q-10 4 -21 1z"/>
+    <path d="M31 19 l-16 -6.6 -2 3.8 14 5.8z"/>
+    <path d="M31 21.4 l-16 6.6 -2 -3.8 14 -5.8z"/>
+  </g>
+  <rect width="1200" height="800" fill="url(#sv)"/>
+</svg>

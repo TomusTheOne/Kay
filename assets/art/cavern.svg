@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-label="Cavern dive inside a Tulum cenote: stalactites and stalagmites framing a distant blue exit">
+  <defs>
+    <radialGradient id="exit" cx=".62" cy=".5" r=".46">
+      <stop offset="0" stop-color="#B8FBF0" stop-opacity=".95"/>
+      <stop offset=".3" stop-color="#43C9CC" stop-opacity=".6"/>
+      <stop offset=".72" stop-color="#0C5E77" stop-opacity=".22"/>
+      <stop offset="1" stop-color="#03121B" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="dark" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#06131C"/><stop offset="1" stop-color="#01080D"/>
+    </linearGradient>
+    <linearGradient id="torch" x1="0" y1="0" x2="1" y2=".4">
+      <stop offset="0" stop-color="#FFE9C2" stop-opacity=".8"/>
+      <stop offset="1" stop-color="#FFD79A" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="b1" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="26"/></filter>
+    <filter id="b2" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="9"/></filter>
+  </defs>
+
+  <rect width="1200" height="800" fill="#02090F"/>
+  <ellipse cx="744" cy="400" rx="330" ry="250" fill="url(#exit)" filter="url(#b1)"/>
+
+  <!-- ceiling with stalactites -->
+  <path fill="url(#dark)" d="M0 0 H1200 V196 C1120 206 1064 176 1000 196 C932 218 884 188 820 206 C760 222 714 196 652 214 C588 232 540 206 476 222 C412 238 366 212 300 226 C232 240 84 214 0 232 Z"/>
+  <g fill="url(#dark)">
+    <path d="M78 228 l16 138 13 -138z"/><path d="M164 236 l11 86 10 -86z"/>
+    <path d="M262 224 l19 190 15 -190z"/><path d="M352 218 l12 104 11 -104z"/>
+    <path d="M448 226 l22 236 16 -236z"/><path d="M556 210 l13 120 11 -120z"/>
+    <path d="M640 216 l17 164 14 -164z"/><path d="M736 206 l11 78 10 -78z"/>
+    <path d="M848 208 l20 208 15 -208z"/><path d="M952 198 l13 112 11 -112z"/>
+    <path d="M1048 194 l24 250 17 -250z"/><path d="M1146 202 l14 130 12 -130z"/>
+  </g>
+
+  <!-- floor with stalagmites -->
+  <path fill="url(#dark)" d="M0 800 V636 C86 622 140 650 214 634 C288 618 340 644 414 628 C486 612 540 638 612 624 C688 608 742 634 816 620 C892 606 948 630 1024 616 C1098 602 1144 624 1200 612 V800 Z"/>
+  <g fill="url(#dark)">
+    <path d="M120 638 l14 -112 12 112z"/><path d="M296 630 l18 -164 14 164z"/>
+    <path d="M492 624 l12 -92 11 92z"/><path d="M690 620 l20 -186 15 186z"/>
+    <path d="M900 616 l13 -104 12 104z"/><path d="M1090 610 l17 -142 14 142z"/>
+  </g>
+
+  <!-- columns -->
+  <path fill="url(#dark)" d="M370 222 l10 178 -5 224 12 6 6 -230 9 -180z"/>
+  <path fill="url(#dark)" d="M1012 196 l9 200 -6 220 13 6 5 -226 10 -202z"/>
+
+  <!-- diver with torch, heading out -->
+  <g transform="translate(560 424) scale(1.4)">
+    <path d="M96 22 L250 -34 L262 46 L96 28 Z" fill="url(#torch)" filter="url(#b2)"/>
+    <g fill="#01080D">
+      <ellipse cx="55" cy="20" rx="27" ry="7.6"/>
+      <circle cx="81" cy="17" r="6.6"/>
+      <rect x="43" y="8" width="21" height="9.4" rx="4.7"/>
+      <path d="M75 21 q13 1 22 -3 l1.6 3.6 q-10 5 -22 2.4z"/>
+      <path d="M29 19.4 l-17 -7.4 -2.2 4.2 14.8 6.4z"/>
+      <path d="M29 21.6 l-17 7.4 -2.2 -4.2 14.8 -6.4z"/>
+    </g>
+    <circle cx="99" cy="19" r="3.2" fill="#FFF0D0" opacity=".95"/>
+  </g>
+
+  <!-- guideline -->
+  <path d="M300 470 C440 452 600 470 760 436 C900 406 1030 420 1200 392" stroke="#FFD79A" stroke-width="1.4" fill="none" opacity=".34" stroke-dasharray="1 9"/>
+
+  <g fill="#DFFAF4" opacity=".3">
+    <circle cx="620" cy="352" r="1.6"/><circle cx="700" cy="300" r="2"/><circle cx="790" cy="358" r="1.4"/>
+    <circle cx="520" cy="392" r="1.5"/><circle cx="860" cy="456" r="1.7"/><circle cx="440" cy="480" r="1.3"/>
+  </g>
+</svg>

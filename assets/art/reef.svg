@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-label="The Mesoamerican reef off Tulum: coral heads, a sea turtle and a school of fish under rays of light">
+  <defs>
+    <linearGradient id="rg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#9FF2E4"/><stop offset=".2" stop-color="#4FCBD2"/>
+      <stop offset=".55" stop-color="#1583A0"/><stop offset="1" stop-color="#063A52"/>
+    </linearGradient>
+    <linearGradient id="rray" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#F2FFFC" stop-opacity=".7"/><stop offset="1" stop-color="#F2FFFC" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="coral" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0A4256"/><stop offset="1" stop-color="#03202F"/>
+    </linearGradient>
+    <filter id="rb" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="17"/></filter>
+    <radialGradient id="rv" cx=".5" cy=".4" r=".8">
+      <stop offset=".55" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".45"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#rg)"/>
+
+  <g filter="url(#rb)" opacity=".8">
+    <path d="M180 0 L250 0 L196 560 L96 540 Z" fill="url(#rray)"/>
+    <path d="M460 0 L520 0 L530 600 L436 584 Z" fill="url(#rray)"/>
+    <path d="M760 0 L806 0 L890 540 L804 556 Z" fill="url(#rray)" opacity=".7"/>
+    <path d="M1010 0 L1060 0 L1158 500 L1076 516 Z" fill="url(#rray)" opacity=".5"/>
+  </g>
+
+  <!-- sandy floor -->
+  <path d="M0 800 V700 C120 680 240 704 380 690 C520 676 640 700 790 686 C930 672 1060 694 1200 678 V800 Z" fill="#0B4B60" opacity=".85"/>
+
+  <!-- coral heads -->
+  <g fill="url(#coral)">
+    <path d="M70 700 C60 640 104 620 96 566 C138 592 150 646 146 700 Z"/>
+    <path d="M250 692 C238 636 276 600 300 552 C318 606 330 650 322 692 Z"/>
+    <path d="M980 686 C966 630 1004 604 1018 556 C1044 608 1054 648 1046 686 Z"/>
+    <path d="M1120 678 C1112 640 1140 620 1148 590 C1170 622 1176 654 1170 678 Z"/>
+  </g>
+  <!-- sea fans -->
+  <g stroke="#04212F" fill="none" stroke-linecap="round" opacity=".9">
+    <path d="M420 690 C416 640 448 616 442 574" stroke-width="5"/>
+    <path d="M442 620 C466 606 480 584 482 560" stroke-width="3"/>
+    <path d="M436 650 C412 634 400 610 398 586" stroke-width="3"/>
+    <path d="M700 686 C704 644 678 618 686 582" stroke-width="5"/>
+    <path d="M690 630 C666 618 656 596 656 572" stroke-width="3"/>
+    <path d="M696 656 C720 640 730 618 730 596" stroke-width="3"/>
+  </g>
+
+  <!-- sea turtle -->
+  <g transform="translate(560 300) rotate(-8) scale(1.5)" fill="#03202F">
+    <ellipse cx="60" cy="30" rx="42" ry="27"/>
+    <path d="M100 26 q16 -4 24 4 q-8 10 -24 6z"/>
+    <circle cx="118" cy="28" r="1.8" fill="#9FF2E4"/>
+    <path d="M56 6 q22 -26 50 -22 q-16 18 -38 26z"/>
+    <path d="M56 54 q22 26 50 22 q-16 -18 -38 -26z"/>
+    <path d="M22 16 q-22 -8 -32 4 q14 10 30 8z"/>
+    <path d="M22 44 q-22 8 -32 -4 q14 -10 30 -8z"/>
+  </g>
+  <g fill="#1583A0" opacity=".55" transform="translate(560 300) rotate(-8) scale(1.5)">
+    <path d="M40 18 l16 6 -14 8 -12 -8z"/><path d="M62 14 l18 6 -16 9 -14 -9z"/>
+    <path d="M52 34 l16 6 -14 8 -12 -8z"/><path d="M74 32 l16 5 -14 8 -12 -8z"/>
+  </g>
+
+  <!-- school of fish -->
+  <g fill="#04212F" opacity=".72">
+    <path d="M240 200 l16 -6 -3 6 3 6z"/><path d="M276 184 l16 -6 -3 6 3 6z"/>
+    <path d="M266 222 l16 -6 -3 6 3 6z"/><path d="M304 206 l16 -6 -3 6 3 6z"/>
+    <path d="M232 244 l16 -6 -3 6 3 6z"/><path d="M300 250 l16 -6 -3 6 3 6z"/>
+    <path d="M340 190 l16 -6 -3 6 3 6z"/><path d="M336 232 l16 -6 -3 6 3 6z"/>
+    <path d="M204 216 l16 -6 -3 6 3 6z"/><path d="M370 214 l16 -6 -3 6 3 6z"/>
+  </g>
+  <rect width="1200" height="800" fill="url(#rv)"/>
+</svg>

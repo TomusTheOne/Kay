@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-label="Sunbeams piercing the turquoise water of a Tulum cenote, limestone walls and a descending diver">
+  <defs>
+    <linearGradient id="cw" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#8FF0E2"/>
+      <stop offset=".14" stop-color="#3EC4C6"/>
+      <stop offset=".42" stop-color="#0E6E85"/>
+      <stop offset=".74" stop-color="#07293A"/>
+      <stop offset="1" stop-color="#020C13"/>
+    </linearGradient>
+    <linearGradient id="beam" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#EAFFFB" stop-opacity=".92"/>
+      <stop offset=".35" stop-color="#B6F4EC" stop-opacity=".42"/>
+      <stop offset="1" stop-color="#7FE0DC" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="rock" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0A1D26"/>
+      <stop offset="1" stop-color="#010A10"/>
+    </linearGradient>
+    <radialGradient id="mouth" cx=".5" cy="0" r=".9">
+      <stop offset="0" stop-color="#F2FFFC" stop-opacity=".85"/>
+      <stop offset=".45" stop-color="#9BEFE4" stop-opacity=".28"/>
+      <stop offset="1" stop-color="#4FD0CE" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="vig" cx=".5" cy=".42" r=".78">
+      <stop offset=".55" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#000" stop-opacity=".62"/>
+    </radialGradient>
+    <filter id="soft" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="14"/></filter>
+    <filter id="softer" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="30"/></filter>
+  </defs>
+
+  <rect width="1200" height="800" fill="url(#cw)"/>
+
+  <!-- glow at the cenote mouth -->
+  <ellipse cx="600" cy="40" rx="430" ry="210" fill="url(#mouth)" filter="url(#softer)"/>
+
+  <!-- light shafts -->
+  <g filter="url(#soft)">
+    <path d="M520 0 L575 0 L520 780 L392 780 Z" fill="url(#beam)" opacity=".8"/>
+    <path d="M600 0 L648 0 L672 800 L566 800 Z" fill="url(#beam)"/>
+    <path d="M672 0 L706 0 L836 760 L742 772 Z" fill="url(#beam)" opacity=".72"/>
+    <path d="M470 0 L500 0 L352 700 L286 664 Z" fill="url(#beam)" opacity=".5"/>
+    <path d="M735 0 L760 0 L950 620 L890 646 Z" fill="url(#beam)" opacity=".34"/>
+  </g>
+
+  <!-- left limestone wall + stalactites -->
+  <path fill="url(#rock)" d="M0 0 H286 C268 62 292 104 268 150 C246 192 282 228 260 272 C238 320 274 356 250 404 C228 452 262 492 236 548 C214 598 244 640 222 800 H0 Z"/>
+  <g fill="url(#rock)">
+    <path d="M258 146 l13 74 11 -74z"/><path d="M236 272 l10 96 9 -96z"/>
+    <path d="M250 404 l14 62 10 -62z"/><path d="M226 548 l9 58 8 -58z"/>
+    <path d="M272 60 l9 48 8 -48z"/>
+  </g>
+
+  <!-- right limestone wall -->
+  <path fill="url(#rock)" d="M1200 0 H930 C952 54 926 96 950 142 C974 190 938 224 962 274 C986 326 950 360 974 412 C998 468 962 500 986 560 C1008 618 978 656 1000 800 H1200 Z"/>
+  <g fill="url(#rock)">
+    <path d="M944 138 l12 82 10 -82z"/><path d="M956 274 l11 64 9 -64z"/>
+    <path d="M968 412 l13 70 10 -70z"/><path d="M980 560 l10 52 9 -52z"/>
+  </g>
+
+  <!-- hanging roots -->
+  <g stroke="#020C13" fill="none" stroke-linecap="round" opacity=".9">
+    <path d="M330 0 C338 70 320 120 334 186" stroke-width="3"/>
+    <path d="M382 0 C374 54 392 96 380 148" stroke-width="2.2"/>
+    <path d="M868 0 C860 64 878 108 866 170" stroke-width="2.8"/>
+    <path d="M820 0 C828 46 812 84 824 128" stroke-width="2"/>
+    <path d="M640 0 C648 40 630 68 642 104" stroke-width="1.8" opacity=".55"/>
+  </g>
+
+  <!-- diver silhouette, descending -->
+  <g transform="translate(648 392) rotate(22) scale(1.55)" fill="#010A10" opacity=".92">
+    <ellipse cx="55" cy="20" rx="27" ry="7.6"/>
+    <circle cx="81" cy="17" r="6.6"/>
+    <rect x="43" y="8" width="21" height="9.4" rx="4.7"/>
+    <path d="M75 21 q11 2 19 -1 l1.6 3.4 q-10 4.2 -20.6 1.2z"/>
+    <path d="M29 19.4 l-17 -7.4 -2.2 4.2 14.8 6.4z"/>
+    <path d="M29 21.6 l-17 7.4 -2.2 -4.2 14.8 -6.4z"/>
+  </g>
+  <g fill="#DFFAF4" opacity=".5">
+    <circle cx="716" cy="368" r="3.4"/><circle cx="734" cy="336" r="2.4"/>
+    <circle cx="726" cy="300" r="4.2"/><circle cx="746" cy="262" r="2.2"/>
+    <circle cx="738" cy="222" r="3"/>
+  </g>
+
+  <!-- suspended particles -->
+  <g fill="#EAFFFB" opacity=".38">
+    <circle cx="430" cy="210" r="1.7"/><circle cx="512" cy="322" r="2.1"/><circle cx="596" cy="188" r="1.4"/>
+    <circle cx="664" cy="268" r="1.9"/><circle cx="742" cy="196" r="1.5"/><circle cx="480" cy="452" r="1.8"/>
+    <circle cx="612" cy="510" r="1.4"/><circle cx="700" cy="440" r="1.6"/><circle cx="538" cy="596" r="1.5"/>
+    <circle cx="790" cy="342" r="1.3"/><circle cx="378" cy="358" r="1.4"/><circle cx="846" cy="470" r="1.5"/>
+  </g>
+
+  <rect width="1200" height="800" fill="url(#vig)"/>
+</svg>
