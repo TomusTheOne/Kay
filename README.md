@@ -62,14 +62,16 @@ honnêtement trois directions.
 
 ### Poids réel (mesuré, hors webfonts)
 
-| | brut | gzip |
-|---|---|---|
-| A — Xibalba | 85 Ko | **22 Ko** |
-| B — Luz | 71 Ko | **19 Ko** |
-| C — Bitácora | 82 Ko | **21 Ko** |
+| | code (gzip) | images | premier affichage |
+|---|---|---|---|
+| **A — Xibalba** | 16 Ko | 297 Ko AVIF (12 fichiers, tous en `lazy` sauf le hero) | **33 Ko** |
+| B — Luz | 19 Ko | 6 Ko (SVG) | 25 Ko |
+| C — Bitácora | 21 Ko | 6 Ko (SVG) | 27 Ko |
 
-Toutes les images sont des **SVG dessinés à la main** : aucun problème de licence, et
-l'ensemble des six scènes pèse moins qu'une vignette JPEG.
+Le chiffre qui compte est le **premier affichage** : ce que le navigateur télécharge avant
+que la page soit lisible. Sur le concept A c'est 33 Ko — le code plus la seule photo du hero
+(16 Ko en AVIF). Les onze autres images sont en `loading="lazy"` et n'arrivent que si on
+descend. Les illustrations restantes sont des **SVG dessinés à la main**, sans licence à gérer.
 
 ---
 
@@ -86,8 +88,15 @@ l'ensemble des six scènes pèse moins qu'une vignette JPEG.
 - les cenotes et leurs profondeurs, les niveaux de certification exigés, la limite cavern de 21 m,
   les températures d'eau, les chiffres du système Sac Actun, les faits sur le récif mésoaméricain.
 
-**Illustrations plutôt que photos** : les mises en page sont construites pour recevoir
-les vraies photos de Kay — les blocs image ont déjà les bons ratios.
+**Photos réelles depuis le concept A** : 5 photos fournies par Kay sont intégrées
+(hero, plaque du manifeste, 3 cartes de plongée, récif, bandeau final, galerie), servies
+en AVIF avec repli WebP via `<picture>`. Il reste **une seule illustration** dans le concept A :
+la carte « The Pit », faute de photo du puits. Les concepts B et C tournent encore
+entièrement sur les illustrations.
+
+⚠️ **Résolution** : les fichiers fournis font ~860 px de large (compression Instagram).
+Suffisant pour la maquette, insuffisant pour la production — il faudra les **originaux**
+pour servir du 2× sur le hero et les grands blocs.
 
 **Copie en anglais** parce que c'est la langue de réservation du tourisme plongée à Tulum.
 Les trois concepts sont câblés pour EN / ES / FR (`hreflang` déjà en place).

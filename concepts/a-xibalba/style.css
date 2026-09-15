@@ -80,6 +80,8 @@ body::after{
 }
 
 img,svg{display:block;max-width:100%}
+/* let the <img> be laid out by the container, not by <picture> */
+picture{display:contents}
 a{color:inherit;text-decoration:none}
 button,input,select{font:inherit;color:inherit}
 button{background:none;border:none;cursor:pointer}
@@ -339,8 +341,8 @@ body.open .drawer{opacity:1;visibility:visible}
 
 /* ---------------------------------------------------------------- Gallery */
 .gal{
-  display:grid;grid-template-columns:repeat(4,1fr);gap:10px;
-  grid-auto-rows:clamp(115px,12.5vw,172px);
+  display:grid;grid-template-columns:repeat(3,1fr);gap:10px;
+  grid-auto-rows:clamp(150px,17vw,240px);
   grid-auto-flow:dense;
 }
 .gal__t{
@@ -348,7 +350,7 @@ body.open .drawer{opacity:1;visibility:visible}
   border:1px solid var(--line-soft);background:var(--glass);
 }
 /* two tall tiles break the grid out of a flat contact sheet */
-.gal__t:nth-child(1),.gal__t:nth-child(6){grid-row:span 2}
+.gal__t:nth-child(1){grid-row:span 2}
 .gal__t img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
 .gal__t:hover img{transform:scale(1.06)}
 .gal__t figcaption{
@@ -359,10 +361,8 @@ body.open .drawer{opacity:1;visibility:visible}
   transition:opacity .35s var(--ease),transform .35s var(--ease);
 }
 .gal__t:hover figcaption,.gal__t:focus-within figcaption{opacity:1;transform:none}
-@media (max-width:900px){.gal{grid-template-columns:repeat(3,1fr)}}
 @media (max-width:620px){
   .gal{grid-template-columns:repeat(2,1fr);gap:7px}
-  .gal__t:nth-child(1),.gal__t:nth-child(6){grid-row:span 1}
   .gal__t figcaption{display:none}
 }
 

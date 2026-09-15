@@ -127,6 +127,12 @@ Six scènes SVG dessinées à la main pour la maquette :
 | `halocline.svg` | plongeur traversant l'halocline |
 | `reef.svg` | récif mésoaméricain : tortue, gorgones, rais de lumière |
 
+> **Mise à jour — le concept A tourne désormais sur les photos de Kay.** Cinq images
+> fournies par le client remplacent les illustrations : Angelita en hero, le guide portant
+> son bloc sur la plaque 4:5, le cenote de Casa en carte, le récif, le bandeau final et
+> les cinq tuiles de la galerie. Seule « The Pit » reste illustrée, faute de photo du puits.
+> Les scènes SVG restent en place pour les concepts B et C, et comme solution de repli.
+
 **Pourquoi du SVG plutôt que des photos de banque d'images :** aucune licence à gérer,
 23 Ko pour l'ensemble (6 Ko gzip), net à toutes les résolutions, et surtout — une maquette
 avec de belles photos achetées ment sur le rendu final. Ici, ce que vous jugez est la
