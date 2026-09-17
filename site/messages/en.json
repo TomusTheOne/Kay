@@ -234,5 +234,25 @@
     "whatsapp": "WhatsApp",
     "email": "Email",
     "place": "Tulum, Quintana Roo, MX"
+  },
+  "booking": {
+    "thanks": {
+      "tag": "Payment received",
+      "h2": "You are on the boat.",
+      "p": "Your deposit is in and the date is held. A guide will message you on WhatsApp within a few hours with the meeting point, the time and the conditions for that week. The balance is settled on the day.",
+      "cta": "Back to the site"
+    },
+    "pending": {
+      "tag": "Payment pending",
+      "h2": "Almost there.",
+      "p": "Your bank or the payment method you chose has not confirmed yet — with OXXO or a transfer this can take a few hours. We hold the date meanwhile and write to you the moment it clears.",
+      "cta": "Back to the site"
+    },
+    "failed": {
+      "tag": "Payment not completed",
+      "h2": "That did not go through.",
+      "p": "Nothing was charged and no date is held. Cards issued outside Mexico are sometimes refused on a first attempt — try again, or write to us on WhatsApp and we will hold the date by hand.",
+      "cta": "Try again"
+    }
   }
 }

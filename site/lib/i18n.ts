@@ -48,6 +48,8 @@ export interface Dictionary {
   faq: { tag: string; h2: string; items: Qa[] };
   cta: Record<"kicker" | "h2" | "lede" | "instagram", string>;
   footer: Record<"blurb" | "dive" | "cenotes" | "find" | "whatsapp" | "email" | "place", string>;
+  booking: Record<"thanks" | "pending" | "failed",
+                  Record<"tag" | "h2" | "p" | "cta", string>>;
 }
 
 const dictionaries: Record<Locale, () => Promise<Dictionary>> = {

@@ -1,4 +1,4 @@
-import { BOOKABLE, ADDONS, PICKUPS } from "@/content/dives";
+import { BOOKABLE, ADDONS, PICKUPS } from "../content/dives.ts";
 
 export interface BookingInput {
   dive: string; date: string; cert: string; divers: number;

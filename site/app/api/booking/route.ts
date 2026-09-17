@@ -1,17 +1,20 @@
 import { NextResponse } from "next/server";
 import { MercadoPagoConfig, Preference } from "mercadopago";
+import { eq } from "drizzle-orm";
 import { quote, validate, DEPOSIT_RATE, type BookingInput } from "@/lib/pricing";
+import { getDb, bookings } from "@/db";
 
 /**
  * Mercado Pago México settles in MXN. The site quotes USD because that is what
  * Tulum dive tourism runs on, so the deposit is converted here at a rate we
- * control. Swap this for a live FX lookup when the volume justifies it.
+ * control. Swap for a live FX lookup when the volume justifies it.
  */
 const USD_TO_MXN = Number(process.env.USD_TO_MXN ?? 17.5);
 
 export async function POST(req: Request) {
   const token = process.env.MP_ACCESS_TOKEN;
-  if (!token) {
+  const db = getDb();
+  if (!token || !db) {
     return NextResponse.json({ error: "payments not configured" }, { status: 503 });
   }
 
@@ -25,9 +28,27 @@ export async function POST(req: Request) {
   const q = quote(input);
   if (!q) return NextResponse.json({ error: "unknown dive or pickup" }, { status: 422 });
 
-  const origin = new URL(req.url).origin;
   const depositMxn = Math.round(q.depositUsd * USD_TO_MXN);
 
+  // The row goes in first. If checkout creation then fails we are left with an
+  // abandoned pending booking, which is harmless; the reverse — a payment with
+  // nothing to attach it to — is not.
+  const [booking] = await db.insert(bookings).values({
+    dive: q.dive.slug,
+    diveDate: input.date,
+    divers: q.divers,
+    certification: input.cert ?? "",
+    pickup: input.pickup,
+    addons: input.addons ?? [],
+    name: input.name.trim(),
+    email: input.email.trim().toLowerCase(),
+    locale: input.locale ?? "en",
+    totalUsdCents: q.totalUsd * 100,
+    depositUsdCents: q.depositUsd * 100,
+    depositMxnCents: depositMxn * 100,
+  }).returning();
+
+  const origin = new URL(req.url).origin;
   const client = new MercadoPagoConfig({ accessToken: token });
 
   try {
@@ -41,29 +62,30 @@ export async function POST(req: Request) {
           unit_price: depositMxn,
           currency_id: "MXN",
         }],
-        payer: { name: input.name, email: input.email },
+        payer: { name: booking.name, email: booking.email },
+        // Our own id travels with the payment and comes back on the webhook.
+        external_reference: booking.id,
         back_urls: {
-          success: `${origin}/${input.locale}/booking/thanks`,
-          pending: `${origin}/${input.locale}/booking/pending`,
-          failure: `${origin}/${input.locale}/booking/failed`,
+          success: `${origin}/${booking.locale}/booking/thanks`,
+          pending: `${origin}/${booking.locale}/booking/pending`,
+          failure: `${origin}/${booking.locale}/booking/failed`,
         },
         auto_return: "approved",
         statement_descriptor: "KAY DIVING",
         notification_url: `${origin}/api/mp-webhook`,
-        // Echoed back on the webhook so the booking can be reconciled.
-        metadata: {
-          dive: q.dive.slug, date: input.date, divers: q.divers,
-          cert: input.cert, pickup: input.pickup, addons: input.addons ?? [],
-          total_usd: q.totalUsd, deposit_usd: q.depositUsd, email: input.email, name: input.name,
-        },
       },
     });
 
-    // TODO(persistence): write a `pending` booking row keyed on pref.id before
-    // returning, so the webhook has something to reconcile against.
-    return NextResponse.json({ checkoutUrl: pref.init_point, preferenceId: pref.id });
+    await db.update(bookings)
+      .set({ preferenceId: pref.id })
+      .where(eq(bookings.id, booking.id));
+
+    return NextResponse.json({ checkoutUrl: pref.init_point, bookingId: booking.id });
   } catch (err) {
     console.error("mercadopago preference failed", err);
+    await db.update(bookings)
+      .set({ status: "cancelled" })
+      .where(eq(bookings.id, booking.id));
     return NextResponse.json({ error: "checkout unavailable" }, { status: 502 });
   }
 }
