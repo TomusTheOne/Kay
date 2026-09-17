@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-label="A diver crossing the halocline, the shimmering layer where fresh water meets salt water">
+  <defs>
+    <linearGradient id="hg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#6FE0DA"/><stop offset=".3" stop-color="#1E9BAE"/>
+      <stop offset=".47" stop-color="#0B5C78"/><stop offset=".53" stop-color="#7B6B4E"/>
+      <stop offset=".62" stop-color="#2B3A4A"/><stop offset="1" stop-color="#030E16"/>
+    </linearGradient>
+    <linearGradient id="shimmer" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#FFF6DE" stop-opacity="0"/>
+      <stop offset=".22" stop-color="#FFF6DE" stop-opacity=".75"/>
+      <stop offset=".5" stop-color="#EAFFFB" stop-opacity=".95"/>
+      <stop offset=".78" stop-color="#FFF6DE" stop-opacity=".7"/>
+      <stop offset="1" stop-color="#FFF6DE" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="hb" x="-20%" y="-60%" width="140%" height="220%"><feGaussianBlur stdDeviation="11"/></filter>
+    <filter id="hb2" x="-20%" y="-60%" width="140%" height="220%"><feGaussianBlur stdDeviation="3"/></filter>
+    <radialGradient id="hv" cx=".5" cy=".5" r=".8">
+      <stop offset=".5" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".55"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#hg)"/>
+
+  <!-- the boundary -->
+  <g filter="url(#hb)">
+    <path d="M0 404 C180 386 320 424 500 406 C680 388 820 428 1000 408 C1100 397 1150 404 1200 398 L1200 424 C1140 430 1090 420 1000 430 C820 450 680 410 500 428 C320 446 180 408 0 426 Z" fill="url(#shimmer)"/>
+  </g>
+  <path d="M0 412 C180 394 320 432 500 414 C680 396 820 436 1000 416 C1100 405 1150 412 1200 406" stroke="url(#shimmer)" stroke-width="2.2" fill="none" filter="url(#hb2)"/>
+  <path d="M0 440 C200 424 340 458 520 442 C700 426 840 462 1010 446 C1110 436 1160 442 1200 436" stroke="url(#shimmer)" stroke-width="1.2" fill="none" opacity=".45" filter="url(#hb2)"/>
+
+  <!-- diver crossing -->
+  <g transform="translate(470 356) rotate(34) scale(1.7)" fill="#020B12" opacity=".94">
+    <ellipse cx="55" cy="20" rx="27" ry="7.6"/>
+    <circle cx="81" cy="17" r="6.6"/>
+    <rect x="43" y="8" width="21" height="9.4" rx="4.7"/>
+    <path d="M75 21 q11 2 19 -1 l1.6 3.4 q-10 4.2 -20.6 1.2z"/>
+    <path d="M29 19.4 l-17 -7.4 -2.2 4.2 14.8 6.4z"/>
+    <path d="M29 21.6 l-17 7.4 -2.2 -4.2 14.8 -6.4z"/>
+  </g>
+  <g fill="#DFFAF4" opacity=".45">
+    <circle cx="530" cy="332" r="3.6"/><circle cx="548" cy="292" r="2.6"/><circle cx="540" cy="250" r="4.4"/>
+    <circle cx="562" cy="208" r="2.2"/><circle cx="552" cy="166" r="3"/>
+  </g>
+  <rect width="1200" height="800" fill="url(#hv)"/>
+</svg>
