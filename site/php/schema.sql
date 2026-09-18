@@ -10,6 +10,10 @@ CREATE TABLE IF NOT EXISTS bookings (
   dive_date          DATE         NOT NULL,
   divers             TINYINT      NOT NULL,
   certification      VARCHAR(64)  NOT NULL DEFAULT '',
+  pickup             VARCHAR(32)  NOT NULL DEFAULT 'meeting-point',
+  -- one of the fixed departures, or 'other' when the diver proposed a time
+  start_slot         VARCHAR(16)  NOT NULL DEFAULT '0800',
+  start_note         VARCHAR(120) NOT NULL DEFAULT '',
 
   -- who
   name               VARCHAR(160) NOT NULL,

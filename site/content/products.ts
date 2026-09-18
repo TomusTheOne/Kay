@@ -12,6 +12,15 @@ export type Kind = "dive" | "course" | "snorkel";
 
 export interface Option { dives: number; price: number }
 
+/** A cenote you can pick inside Cenote Diving. */
+export interface Site {
+  slug: string;
+  minM: number | null;
+  maxM: number | null;
+  /** past 30 m, so it needs Advanced or a Deep speciality */
+  deep: boolean;
+}
+
 export interface Product {
   slug: string;
   kind: Kind;
@@ -24,15 +33,35 @@ export interface Product {
   photo: string | null;
   art: string;
   extraIncludes: string[];
+  sites?: Site[];
+}
+
+export interface Pickup {
+  slug: string;
+  /** USD, per booking — it is one van, not one seat */
+  price: number;
+  /** outside town Kay can only do the drive back */
+  returnOnly: boolean;
+}
+
+export interface Schedule {
+  slug: string;
+  start: string | null;
+  end: string | null;
 }
 
 export const PRODUCTS = data.products as Product[];
 export const BOOKABLE = PRODUCTS;
 export const ALWAYS_INCLUDED = data.alwaysIncluded as string[];
 export const GALLERY = data.gallery as { photo: string; tall: boolean }[];
+export const PICKUPS = data.pickups as Pickup[];
+export const SCHEDULES = data.schedules as Schedule[];
+export const SCHEDULE_LIMITS = data.scheduleLimits as {
+  twoDiveLatestStart: string;
+  casaCenoteSingleLatestStart: string;
+};
 
-/** Deepest Kay actually dives, confirmed by them. The per-product figures are
-    the depths printed for each course or tour, which are course limits. */
+/** Deepest site Kay names: Cenote Angelita at 35–38 m. */
 export const MAX_DEPTH_M = data.maxDepthM;
 
 export const SHOP = {

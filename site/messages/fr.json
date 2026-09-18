@@ -12,13 +12,14 @@
     "reserve": "Reserve",
     "reserveLong": "Reserve a dive",
     "menu": "Menu",
-    "language": "Language"
+    "language": "Language",
+    "logistics": "Getting there"
   },
   "hero": {
     "kicker": "Tulum · Quintana Roo · Riviera Maya",
     "l1": "Explore the",
     "l2": "Mayan underworld.",
-    "lede": "Kay Diving guides cenote and reef dives around Tulum — from a first breath underwater to a PADI certification. Our guides do not just take you down; they tell you the history of the place while you are in it.",
+    "lede": "Kay Diving guides cenote and reef dives around Tulum — from a first breath underwater to a PADI certification, and down to Angelita at thirty-eight metres. Our guides do not just take you down; they tell you the history of the place while you are in it.",
     "cta2": "See what we run",
     "alt": "A diver silhouetted against the turquoise glow of a Tulum cenote, among bare branches rising through the water",
     "water": "WATER",
@@ -58,7 +59,7 @@
     "level": {
       "none": "No certification needed",
       "open-water": "Open Water required",
-      "open-water-plus": "Open Water · Advanced for the deeper sites"
+      "open-water-plus": "Open Water · Advanced or Deep for Angelita and El Pit"
     },
     "places": {
       "casa-cenote": "Casa Cenote",
@@ -71,7 +72,7 @@
       "discover-scuba": {
         "name": "Discover Scuba",
         "tagline": "No PADI? No problem.",
-        "text": "Your first glimpse of the underwater world. Learn the basics of scuba, then go and explore an open-air cenote with crystal clear water. No certification, no previous experience — just a guide, shallow water and a very good morning.",
+        "text": "Your first glimpse of the underwater world. Learn the basics of scuba, then go and explore an open-air cenote with crystal clear water, no deeper than seven metres. No certification, no previous experience — just a guide, shallow water and a very good morning.",
         "alt": "The open, jungle-fringed surface of Casa Cenote near Tulum"
       },
       "reef-cenote": {
@@ -83,8 +84,8 @@
       "cenote-diving": {
         "name": "Cenote Diving",
         "tagline": "Explore the Mayan underworld.",
-        "text": "Into some of the most beautiful flooded caverns in the world. Which cenotes you dive depends on what you have done before — we choose them once we know your level, and we say so honestly if a site is not yet for you.",
-        "alt": "A diver descending past bare branches in a Tulum cenote"
+        "text": "Into some of the most beautiful flooded caverns in the world. You choose the cenotes with us, and which ones are open to you depends on your certification — Angelita and El Pit are the two that pass thirty metres.",
+        "alt": "A diver descending past bare branches at Cenote Angelita, Tulum"
       },
       "advanced-ow": {
         "name": "Advanced Open Water",
@@ -104,17 +105,31 @@
         "text": "For anyone who wants a little adventure and a lot of calm. Three different cenotes across half a day, finishing at one of the best local taquerías in town. No experience needed, and no tank.",
         "alt": "A cenote near Tulum seen from the bank, jungle reflected in still water"
       }
+    },
+    "sitesTag": "The deep two",
+    "sites": {
+      "angelita": {
+        "name": "Cenote Angelita",
+        "depth": "35–38 m",
+        "note": "The hydrogen sulphide cloud, with dead branches rising through it."
+      },
+      "el-pit": {
+        "name": "Cenote El Pit",
+        "depth": "30–32 m",
+        "note": "Light falls the whole way down the shaft and simply stands there."
+      },
+      "others": {
+        "name": "The other cenotes",
+        "depth": "to 18 m",
+        "note": "Chosen with you to match your level and what you want from the day."
+      }
     }
   },
   "included": {
     "tag": "In every price",
     "h2": "What you are not<br>paying extra for.",
-    "intro": "Dive centres in Tulum quote in very different ways. Here is exactly what our prices already cover.",
+    "intro": "Dive centres in Tulum quote in very different ways. Here is exactly what our prices already cover — and the one thing that is charged separately.",
     "items": {
-      "transport": {
-        "name": "Hotel transport",
-        "text": "Picked up from your hotel and driven to the dive sites. Not an add-on, not a zone surcharge."
-      },
       "equipment": {
         "name": "Equipment",
         "text": "High quality gear, fitted before you get in. Bring a swimsuit and reef-safe sunscreen."
@@ -125,7 +140,11 @@
       },
       "snacks": {
         "name": "Snacks & water",
-        "text": "Food and water between dives. Cenote mornings are longer than people expect."
+        "text": "Food and water between dives. Cenote mornings run longer than people expect."
+      },
+      "site-transport": {
+        "name": "Transport to the sites",
+        "text": "From the meeting point to every cenote and back, all day. Hotel pickup is separate — see below."
       },
       "materials": {
         "name": "Learning materials",
@@ -164,16 +183,17 @@
     "s1": "01 — What you want to do",
     "s2": "02 — How many dives",
     "s3": "03 — Date",
-    "s4": "04 — Your level",
-    "s5": "05 — How many of you",
-    "s6": "06 — Name",
-    "s7": "07 — Email",
+    "s4": "04 — Start time",
+    "s5": "05 — Your level",
+    "s6": "06 — How many of you",
+    "s7": "07 — Getting there",
     "namePh": "Your name",
     "mailPh": "you@email.com",
     "certs": [
       "Not certified yet",
       "Open Water",
       "Advanced Open Water",
+      "Deep speciality",
       "Rescue / Divemaster",
       "Cave or cavern certified"
     ],
@@ -187,10 +207,15 @@
     "rDivers": "Divers",
     "rTotal": "Total",
     "halfDayLabel": "Half day",
-    "fine": "Transport, equipment, cenote entrance and snacks included. Prices per person in USD.",
+    "fine": "Equipment, cenote entrance, transport to the sites and snacks included. Prices per person in USD; pickup is per booking.",
     "submit": "Reserve with a deposit",
     "submitting": "Opening checkout…",
-    "error": "Something went wrong opening the checkout. Try again, or write to us on WhatsApp."
+    "error": "Something went wrong opening the checkout. Try again, or write to us on WhatsApp.",
+    "s8": "08 — Name",
+    "s9": "09 — Email",
+    "rPickup": "Getting there",
+    "rTime": "Start",
+    "timeOther": "Another time — we will check"
   },
   "faq": {
     "tag": "Before you come",
@@ -198,15 +223,23 @@
     "items": [
       {
         "q": "Do I need to be certified to dive here?",
-        "a": "Not to start. Discover Scuba takes people who have never breathed underwater, and the snorkel tour needs nothing at all. For cenote diving and the reef you need an Open Water certification, and the deeper cenote sites need Advanced — we will tell you honestly which sites are open to you."
-      },
-      {
-        "q": "What is actually included in the price?",
-        "a": "Transport from your hotel to the dive sites, high quality equipment, the cenote entrance fee, and snacks and water. Both courses also include the learning materials. Nothing else is added on the day beyond the balance of the price you saw."
+        "a": "Not to start. Discover Scuba takes people who have never breathed underwater, and the snorkel tour needs nothing at all. Cenote diving and the reef need an Open Water certification. For the two deep cenotes — Angelita and El Pit — you need Advanced Open Water or a Deep speciality; either one is enough."
       },
       {
         "q": "How deep do the dives go?",
-        "a": "The figures on each card are the planned depth for that course or tour: about 9 metres (30 ft) for Discover Scuba and the Open Water course, 18 metres (60 ft) for cenote diving, and 27 metres (90 ft) on the Advanced course. Beyond those, the deepest cenotes we dive reach 40 metres — Cenote El Pit keeps going well past the recreational limit — and we only take divers there who hold the certification for it. We will tell you honestly which sites are open to you."
+        "a": "Discover Scuba stays at seven metres (25 ft). The Open Water course and the reef stay around nine metres. Most cenote dives are planned to eighteen metres. The two deep ones go further: Cenote Angelita reaches 35–38 metres and Cenote El Pit 30–32. The Advanced course works to 27 metres (90 ft)."
+      },
+      {
+        "q": "What is actually included in the price?",
+        "a": "High quality equipment, the cenote entrance fees, transport from the meeting point to every site and back, and snacks and water. Both courses also include the learning materials. Hotel pickup is the one thing charged separately — see below."
+      },
+      {
+        "q": "Can you pick me up from my hotel?",
+        "a": "We meet at Easy Chango Dive Center in Tulum at no extra cost. If you are staying in Tulum town we can collect you and drop you back for $20 for the whole booking. If you are outside town or in the hotel zone we cannot collect you, but we can drive you back afterwards for $10."
+      },
+      {
+        "q": "What time do you start?",
+        "a": "Three departures: 08:00–13:00, 08:30–13:30 and 09:00–14:00. You can suggest another time when you book — we check it and confirm. Two cenote dives have to start by 13:30 at the latest, and a single dive at Casa Cenote can start as late as 15:00."
       },
       {
         "q": "What is the difference between cavern and cave diving?",
@@ -243,7 +276,9 @@
     "find": "Find us",
     "whatsapp": "WhatsApp",
     "email": "Email",
-    "place": "Tulum, Quintana Roo, MX"
+    "place": "Tulum, Quintana Roo, MX",
+    "phone": "Phone",
+    "meet": "Meeting point"
   },
   "booking": {
     "thanks": {
@@ -264,6 +299,34 @@
       "p": "Nothing was charged and no date is held. Cards issued outside Mexico are sometimes refused on a first attempt — try again, or write to us on WhatsApp and we will hold the date by hand.",
       "cta": "Try again"
     }
+  },
+  "logistics": {
+    "tag": "Getting there",
+    "h2": "Where we meet,<br>and when.",
+    "meetTag": "Meeting point",
+    "meetText": "We meet at Easy Chango Dive Center in Tulum. Coming to us costs nothing, and it is where the day starts.",
+    "pickupTag": "If you would rather be collected",
+    "pickups": {
+      "meeting-point": {
+        "name": "Easy Chango Dive Center",
+        "text": "The meeting point. No extra charge.",
+        "price": "Included"
+      },
+      "tulum-town": {
+        "name": "Anywhere in Tulum town",
+        "text": "We collect you before the tour and drop you back after.",
+        "price": "+$20"
+      },
+      "outside-town": {
+        "name": "Outside town or the hotel zone",
+        "text": "We cannot collect you out there, but we can drive you back afterwards.",
+        "price": "+$10 return only"
+      }
+    },
+    "timesTag": "Start times",
+    "timesText": "Three fixed departures. You can also suggest another time — tell us when booking and we will check whether it works before confirming.",
+    "limitsTag": "The last departures",
+    "limits": "Two cenote dives start by 13:30 at the latest. A single dive, at Casa Cenote only, can start as late as 15:00."
   },
   "_translated": false,
   "_note": "TRADUCTION FRANÇAISE À FAIRE"

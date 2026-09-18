@@ -47,11 +47,15 @@ $bookingId   = sprintf(
 // abandoned pending booking, which is harmless; the reverse — a payment with
 // nothing to attach it to — is not.
 $db = kay_db();
+$slots = array_column(kay_catalogue()['schedules'], 'slug');
+$slot  = in_array($input['slot'] ?? '', $slots, true) ? (string) $input['slot'] : '0800';
+
 $db->prepare(
     'INSERT INTO bookings
-       (id, product, dives, dive_date, divers, certification, name, email, locale,
+       (id, product, dives, dive_date, divers, certification, pickup, start_slot,
+        start_note, name, email, locale,
         total_usd_cents, deposit_usd_cents, deposit_mxn_cents)
-     VALUES (?,?,?,?,?,?,?,?,?,?,?,?)'
+     VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)'
 )->execute([
     $bookingId,
     $quote['product']['slug'],
@@ -59,6 +63,9 @@ $db->prepare(
     $input['date'],
     $quote['divers'],
     mb_substr(trim((string) ($input['cert'] ?? '')), 0, 64),
+    $quote['pickup']['slug'],
+    $slot,
+    mb_substr(trim((string) ($input['slotNote'] ?? '')), 0, 120),
     mb_substr(trim((string) $input['name']), 0, 160),
     mb_strtolower(trim((string) $input['email'])),
     $locale,

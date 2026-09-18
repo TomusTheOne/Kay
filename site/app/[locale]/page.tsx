@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import { isLocale, getDictionary, pathFor, LOCALES } from "@/lib/i18n";
-import { PRODUCTS, ALWAYS_INCLUDED, GALLERY, SHOP } from "@/content/products";
+import { PRODUCTS, ALWAYS_INCLUDED, GALLERY, PICKUPS, SCHEDULES, SHOP } from "@/content/products";
 import Surface from "@/components/Surface";
 import Gauge from "@/components/Gauge";
 import Reveals from "@/components/Reveals";
@@ -41,6 +41,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
     { href: "#about", label: t.nav.about },
     { href: "#products", label: t.nav.products },
     { href: "#included", label: t.nav.included },
+    { href: "#logistics", label: t.nav.logistics },
     { href: "#gallery", label: t.nav.gallery },
     { href: "#faq", label: t.nav.faq },
   ];
@@ -62,7 +63,8 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         name: "Kay Diving",
         description: t.meta.description,
         url: `${SHOP.domain}${pathFor(locale)}`,
-        priceRange: `$${cheapest}–$460`,
+        telephone: SHOP.phone,
+        priceRange: `$${cheapest}–$${Math.max(...PRODUCTS.flatMap((p) => p.options.map((o) => o.price)))}`,
         image: `${SHOP.domain}/assets/photos/hero.webp`,
         address: { "@type": "PostalAddress", addressLocality: "Tulum",
                    addressRegion: "Quintana Roo", addressCountry: "MX" },
@@ -187,6 +189,18 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                     <p className="data" style={{ color: "var(--turq)", marginTop: "-.25rem" }}>{copy.tagline}</p>
                     <p className="dive__txt">{copy.text}</p>
 
+                    {p.sites && (
+                      <div className="sites">
+                        <p className="sites__t">{t.products.sitesTag}</p>
+                        {p.sites.filter((x) => x.deep).map((x) => (
+                          <div className="sites__r" key={x.slug}>
+                            <span>{t.products.sites[x.slug].name}</span>
+                            <b>{t.products.sites[x.slug].depth}</b>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+
                     <dl className="spec">
                       <div><dt>{t.products.needs}</dt><dd>{t.products.level[p.level]}</dd></div>
                       <div><dt>{t.products.where}</dt>
@@ -232,6 +246,52 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
           </div>
         </section>
 
+        {/* ------------------------------------------------------- logistics */}
+        <section className="bay shell" id="logistics">
+          <div className="head2">
+            <div data-rise>
+              <p className="tag">{t.logistics.tag}</p>
+              <h2 className="dsp dsp-lg" style={{ marginTop: "1.1rem" }}
+                  dangerouslySetInnerHTML={{ __html: t.logistics.h2 }} />
+            </div>
+            <div data-rise data-rise-d="1" style={{ maxWidth: "38ch" }}>
+              <p className="tag tag--plain">{t.logistics.meetTag}</p>
+              <p className="muted" style={{ marginTop: ".6rem" }}>{t.logistics.meetText}</p>
+            </div>
+          </div>
+
+          <div className="split" style={{ alignItems: "start" }}>
+            <div data-rise>
+              <p className="tag tag--plain">{t.logistics.pickupTag}</p>
+              <ul className="pick" style={{ marginTop: "1.1rem" }}>
+                {PICKUPS.map((p) => (
+                  <li key={p.slug}>
+                    <div>
+                      <b>{t.logistics.pickups[p.slug].name}</b>
+                      <span>{t.logistics.pickups[p.slug].text}</span>
+                    </div>
+                    <em>{t.logistics.pickups[p.slug].price}</em>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div data-rise data-rise-d="1">
+              <p className="tag tag--plain">{t.logistics.timesTag}</p>
+              <div className="slots" style={{ marginTop: "1.1rem" }}>
+                {SCHEDULES.filter((s) => s.start).map((s) => (
+                  <span className="slot" key={s.slug}>{s.start}–{s.end}</span>
+                ))}
+              </div>
+              <p className="muted" style={{ marginTop: "1.1rem" }}>{t.logistics.timesText}</p>
+              <div style={{ marginTop: "1.8rem", paddingLeft: "1.2rem", borderLeft: "2px solid var(--turq)" }}>
+                <p className="tag tag--plain">{t.logistics.limitsTag}</p>
+                <p className="muted" style={{ marginTop: ".6rem" }}>{t.logistics.limits}</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* --------------------------------------------------------- gallery */}
         <section className="bay shell" id="gallery">
           <div className="head2">
@@ -273,7 +333,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
             <p className="muted" data-rise data-rise-d="1" style={{ maxWidth: "38ch" }}>{t.book.intro}</p>
           </div>
           <div data-rise>
-            <Booking t={t.book} products={t.products} locale={locale} />
+            <Booking t={t.book} products={t.products} logistics={t.logistics} locale={locale} />
           </div>
         </section>
 
@@ -331,7 +391,9 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
             </ul></div>
             <div><h4>{t.footer.find}</h4><ul>
               <li><a href={SHOP.instagram} rel="noopener">@kaydivingtulum</a></li>
-              <li><a href="#book">{t.footer.whatsapp}</a></li><li><a href="#book">{t.footer.email}</a></li>
+              <li><a href={`tel:${SHOP.phone}`}>{SHOP.phoneDisplay}</a></li>
+              <li><a href={`https://wa.me/${SHOP.phone.replace(/\D/g, "")}`} rel="noopener">{t.footer.whatsapp}</a></li>
+              <li><span className="muted" style={{ fontSize: ".9rem" }}>{t.footer.meet}: {SHOP.meetingPoint}</span></li>
               <li><span className="muted" style={{ fontSize: ".9rem" }}>{t.footer.place}</span></li>
             </ul></div>
           </div>

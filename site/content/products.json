@@ -1,6 +1,6 @@
 {
-  "_comment": "Single source of truth for what Kay sells. Read by the TypeScript site AND by the PHP endpoints, so a price can never disagree between the page and the charge. Figures come from the 2026 menu PDF.",
-  "maxDepthM": 40,
+  "_comment": "Single source of truth for what Kay sells. Read by the TypeScript site AND by the PHP endpoints, so a price can never disagree between the page and the charge. Figures come from the 2026 menu PDF, corrected by Kay's own answers where the menu was wrong or silent.",
+  "maxDepthM": 38,
   "shop": {
     "lat": 20.2114,
     "lon": -87.4654,
@@ -8,51 +8,241 @@
     "visibilityM": "30 m+",
     "sacActunKm": 376,
     "instagram": "https://www.instagram.com/kaydivingtulum",
-    "agency": "PADI"
+    "agency": "PADI",
+    "phone": "+525554547479",
+    "phoneDisplay": "+52 55 5454 7479",
+    "meetingPoint": "Easy Chango Dive Center"
   },
-  "alwaysIncluded": ["transport", "equipment", "entrance", "snacks"],
+  "alwaysIncluded": [
+    "equipment",
+    "entrance",
+    "snacks",
+    "site-transport"
+  ],
   "products": [
-    { "slug": "discover-scuba", "kind": "dive", "level": "none",
-      "maxDepthFt": 30, "maxDepthM": 9, "diveTime": "45 min",
-      "locations": ["casa-cenote"],
-      "options": [{ "dives": 1, "price": 100 }, { "dives": 2, "price": 140 }],
-      "photo": "card-casa", "art": "casa-cenote", "extraIncludes": [] },
-
-    { "slug": "reef-cenote", "kind": "dive", "level": "open-water",
-      "maxDepthFt": 30, "maxDepthM": 9, "diveTime": "45 min",
-      "locations": ["casa-cenote", "tankah-reef"],
-      "options": [{ "dives": 2, "price": 140 }],
-      "photo": "reef-turtle", "art": "reef", "extraIncludes": [] },
-
-    { "slug": "cenote-diving", "kind": "dive", "level": "open-water-plus",
-      "maxDepthFt": 60, "maxDepthM": 18, "diveTime": "30–45 min",
-      "locations": ["by-level"],
-      "options": [{ "dives": 2, "price": 150 }, { "dives": 3, "price": 170 }],
-      "photo": "card-angelita", "art": "cavern", "extraIncludes": [] },
-
-    { "slug": "advanced-ow", "kind": "course", "level": "open-water",
-      "maxDepthFt": 90, "maxDepthM": 27, "diveTime": "30–45 min",
-      "locations": ["casa-cenote", "el-pit", "tankah-reef"],
-      "options": [{ "dives": 5, "price": 460 }],
-      "photo": "card-dosojos", "art": "the-pit", "extraIncludes": ["materials"] },
-
-    { "slug": "open-water", "kind": "course", "level": "none",
-      "maxDepthFt": 30, "maxDepthM": 9, "diveTime": "30–45 min",
-      "locations": ["casa-cenote", "tankah-reef"],
-      "options": [{ "dives": 5, "price": 450 }],
-      "photo": "guide", "art": "cenote-shaft", "extraIncludes": ["materials", "padi-licence"] },
-
-    { "slug": "snorkel", "kind": "snorkel", "level": "none",
-      "maxDepthFt": null, "maxDepthM": null, "diveTime": null,
-      "locations": ["favourite-cenotes"],
-      "options": [{ "dives": 0, "price": 80 }],
-      "photo": "gallery-5", "art": "casa-cenote", "extraIncludes": ["snorkel-mask"] }
+    {
+      "slug": "discover-scuba",
+      "kind": "dive",
+      "level": "none",
+      "maxDepthFt": 25,
+      "maxDepthM": 7,
+      "diveTime": "45 min",
+      "locations": [
+        "casa-cenote"
+      ],
+      "options": [
+        {
+          "dives": 1,
+          "price": 100
+        },
+        {
+          "dives": 2,
+          "price": 140
+        }
+      ],
+      "photo": "card-casa",
+      "art": "casa-cenote",
+      "extraIncludes": []
+    },
+    {
+      "slug": "reef-cenote",
+      "kind": "dive",
+      "level": "open-water",
+      "maxDepthFt": 30,
+      "maxDepthM": 9,
+      "diveTime": "45 min",
+      "locations": [
+        "casa-cenote",
+        "tankah-reef"
+      ],
+      "options": [
+        {
+          "dives": 2,
+          "price": 140
+        }
+      ],
+      "photo": "reef-turtle",
+      "art": "reef",
+      "extraIncludes": []
+    },
+    {
+      "slug": "cenote-diving",
+      "kind": "dive",
+      "level": "open-water-plus",
+      "maxDepthFt": 125,
+      "maxDepthM": 38,
+      "diveTime": "30–45 min",
+      "locations": [
+        "by-level"
+      ],
+      "options": [
+        {
+          "dives": 2,
+          "price": 150
+        },
+        {
+          "dives": 3,
+          "price": 170
+        }
+      ],
+      "photo": "card-angelita",
+      "art": "cavern",
+      "extraIncludes": [],
+      "sites": [
+        {
+          "slug": "angelita",
+          "minM": 35,
+          "maxM": 38,
+          "deep": true
+        },
+        {
+          "slug": "el-pit",
+          "minM": 30,
+          "maxM": 32,
+          "deep": true
+        },
+        {
+          "slug": "others",
+          "minM": null,
+          "maxM": 18,
+          "deep": false
+        }
+      ]
+    },
+    {
+      "slug": "advanced-ow",
+      "kind": "course",
+      "level": "open-water",
+      "maxDepthFt": 90,
+      "maxDepthM": 27,
+      "diveTime": "30–45 min",
+      "locations": [
+        "casa-cenote",
+        "el-pit",
+        "tankah-reef"
+      ],
+      "options": [
+        {
+          "dives": 5,
+          "price": 460
+        }
+      ],
+      "photo": "card-dosojos",
+      "art": "the-pit",
+      "extraIncludes": [
+        "materials"
+      ]
+    },
+    {
+      "slug": "open-water",
+      "kind": "course",
+      "level": "none",
+      "maxDepthFt": 30,
+      "maxDepthM": 9,
+      "diveTime": "30–45 min",
+      "locations": [
+        "casa-cenote",
+        "tankah-reef"
+      ],
+      "options": [
+        {
+          "dives": 5,
+          "price": 450
+        }
+      ],
+      "photo": "guide",
+      "art": "cenote-shaft",
+      "extraIncludes": [
+        "materials",
+        "padi-licence"
+      ]
+    },
+    {
+      "slug": "snorkel",
+      "kind": "snorkel",
+      "level": "none",
+      "maxDepthFt": null,
+      "maxDepthM": null,
+      "diveTime": null,
+      "locations": [
+        "favourite-cenotes"
+      ],
+      "options": [
+        {
+          "dives": 0,
+          "price": 80
+        }
+      ],
+      "photo": "gallery-5",
+      "art": "casa-cenote",
+      "extraIncludes": [
+        "snorkel-mask"
+      ]
+    }
   ],
   "gallery": [
-    { "photo": "gallery-2", "tall": true },
-    { "photo": "gallery-1", "tall": false },
-    { "photo": "gallery-4", "tall": false },
-    { "photo": "gallery-3", "tall": false },
-    { "photo": "gallery-5", "tall": false }
-  ]
+    {
+      "photo": "gallery-2",
+      "tall": true
+    },
+    {
+      "photo": "gallery-1",
+      "tall": false
+    },
+    {
+      "photo": "gallery-4",
+      "tall": false
+    },
+    {
+      "photo": "gallery-3",
+      "tall": false
+    },
+    {
+      "photo": "gallery-5",
+      "tall": false
+    }
+  ],
+  "pickups": [
+    {
+      "slug": "meeting-point",
+      "price": 0,
+      "returnOnly": false
+    },
+    {
+      "slug": "tulum-town",
+      "price": 20,
+      "returnOnly": false
+    },
+    {
+      "slug": "outside-town",
+      "price": 10,
+      "returnOnly": true
+    }
+  ],
+  "schedules": [
+    {
+      "slug": "0800",
+      "start": "08:00",
+      "end": "13:00"
+    },
+    {
+      "slug": "0830",
+      "start": "08:30",
+      "end": "13:30"
+    },
+    {
+      "slug": "0900",
+      "start": "09:00",
+      "end": "14:00"
+    },
+    {
+      "slug": "other",
+      "start": null,
+      "end": null
+    }
+  ],
+  "scheduleLimits": {
+    "twoDiveLatestStart": "13:30",
+    "casaCenoteSingleLatestStart": "15:00"
+  }
 }

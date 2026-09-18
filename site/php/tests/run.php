@@ -33,11 +33,25 @@ require __DIR__ . '/../lib/mercadopago.php';
 echo "\nPricing is recomputed from the menu, never taken from the client\n";
 
 $base = ['product' => 'cenote-diving', 'option' => 3, 'date' => '2099-12-01',
-         'cert' => 'Advanced', 'divers' => 3, 'name' => 'T', 'email' => 't@e.com', 'locale' => 'en'];
+         'cert' => 'Advanced', 'divers' => 3, 'pickup' => 'meeting-point',
+         'name' => 'T', 'email' => 't@e.com', 'locale' => 'en'];
 
 $q = kay_quote($base);
 check('cenote diving, 3 dives, 3 divers', $q['total_usd'], 510);
 check('deposit is 30%',                   $q['deposit_usd'], 153);
+
+echo "\nPickup is charged per booking, not per diver\n";
+check('meeting point is free',      kay_quote(['pickup' => 'meeting-point'] + $base)['total_usd'], 510);
+check('town pickup adds 20 once',   kay_quote(['pickup' => 'tulum-town'] + $base)['total_usd'], 530);
+check('return-only adds 10 once',   kay_quote(['pickup' => 'outside-town'] + $base)['total_usd'], 520);
+check('pickup does not scale with divers',
+      kay_quote(['pickup' => 'tulum-town', 'divers' => 6] + $base)['total_usd'], 170 * 6 + 20);
+check('an unknown pickup is refused', kay_quote(['pickup' => 'helicopter'] + $base), null);
+check('a missing pickup is refused',  kay_quote(['product' => 'snorkel', 'option' => 0,
+                                                 'divers' => 1, 'date' => '2099-12-01',
+                                                 'name' => 'T', 'email' => 't@e.com']), null);
+
+echo "\nMenu prices, with the free meeting point\n";
 
 // Every price on the menu, exactly as printed.
 $menu = [
@@ -68,9 +82,14 @@ check('divers clamp low',  kay_quote(['divers' => 0] + $base)['total_usd'],
 check('divers clamp high', kay_quote(['divers' => 9999] + $base)['total_usd'],
                            kay_quote(['divers' => 8] + $base)['total_usd']);
 
+echo "\nDepths match what Kay confirmed\n";
+check('discover scuba is 7 m, not 9',  kay_find_product('discover-scuba')['maxDepthM'], 7);
+check('cenote diving reaches 38 m',    kay_find_product('cenote-diving')['maxDepthM'], 38);
+check('angelita is the deep one',      kay_catalogue()['maxDepthM'], 38);
+
 echo "\nValidation refuses a past date and a malformed email\n";
-$ok = ['product' => 'reef-cenote', 'option' => 2, 'date' => '2099-01-01',
-       'cert' => 'OW', 'divers' => 2, 'name' => 'Ana', 'email' => 'a@b.co', 'locale' => 'en'];
+$ok = ['product' => 'reef-cenote', 'option' => 2, 'date' => '2099-01-01', 'cert' => 'OW',
+       'divers' => 2, 'pickup' => 'meeting-point', 'name' => 'Ana', 'email' => 'a@b.co', 'locale' => 'en'];
 check('a good payload passes', kay_validate($ok), null);
 check('malformed email',       kay_validate(['email' => 'nope'] + $ok), 'email');
 check('empty name',            kay_validate(['name' => ''] + $ok), 'name');
@@ -82,10 +101,11 @@ $db = kay_db();
 $id = '11111111-2222-4333-8444-555555555555';
 $db->prepare('DELETE FROM bookings WHERE id = ?')->execute([$id]);
 $db->prepare(
-    'INSERT INTO bookings (id, product, dives, dive_date, divers, name, email,
-                           total_usd_cents, deposit_usd_cents, deposit_mxn_cents)
-     VALUES (?,?,?,?,?,?,?,?,?,?)'
-)->execute([$id, 'cenote-diving', 3, '2099-12-01', 3, 'Test', 't@example.com', 51000, 15300, 267750]);
+    'INSERT INTO bookings (id, product, dives, dive_date, divers, pickup, start_slot,
+                           name, email, total_usd_cents, deposit_usd_cents, deposit_mxn_cents)
+     VALUES (?,?,?,?,?,?,?,?,?,?,?,?)'
+)->execute([$id, 'cenote-diving', 3, '2099-12-01', 3, 'tulum-town', '0830',
+            'Test', 't@example.com', 53000, 15900, 278250]);
 
 $settle = static function (string $status) use ($db, $id): int {
     $s = $db->prepare("UPDATE bookings SET status = ?, payment_id = 'PAY-1',

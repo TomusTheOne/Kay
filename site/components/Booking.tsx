@@ -1,30 +1,38 @@
 "use client";
 import { useMemo, useState } from "react";
-import { PRODUCTS, type Product } from "@/content/products";
+import { PRODUCTS, PICKUPS, SCHEDULES, type Product } from "@/content/products";
 import type { Dictionary } from "@/lib/i18n";
 
 const money = (n: number) => "$" + n.toLocaleString("en-US");
 const tomorrow = () => new Date(Date.now() + 864e5).toISOString().slice(0, 10);
 
 export default function Booking({
-  t, products, locale,
-}: { t: Dictionary["book"]; products: Dictionary["products"]; locale: string }) {
+  t, products, logistics, locale,
+}: {
+  t: Dictionary["book"]; products: Dictionary["products"];
+  logistics: Dictionary["logistics"]; locale: string;
+}) {
   const [product, setProduct] = useState<Product>(PRODUCTS[0]);
   const [dives, setDives] = useState<number>(PRODUCTS[0].options[0].dives);
   const [date, setDate] = useState("");
+  const [slot, setSlot] = useState(SCHEDULES[0].slug);
+  const [slotNote, setSlotNote] = useState("");
   const [cert, setCert] = useState(t.certs[0]);
   const [divers, setDivers] = useState(2);
+  const [pickup, setPickup] = useState(PICKUPS[0].slug);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [state, setState] = useState<"idle" | "sending" | "error">("idle");
 
   const option = product.options.find((o) => o.dives === dives) ?? product.options[0];
-  const total = useMemo(() => option.price * divers, [option, divers]);
+  const pick = PICKUPS.find((p) => p.slug === pickup)!;
 
-  function pick(p: Product) {
+  // Pickup is per booking — one van, not one seat.
+  const total = useMemo(() => option.price * divers + pick.price, [option, divers, pick]);
+
+  function choose(p: Product) {
     setProduct(p);
-    // The previous dive count may not exist on the new product.
-    setDives(p.options[0].dives);
+    setDives(p.options[0].dives);   // the old size may not exist on the new product
   }
 
   async function submit(e: React.FormEvent) {
@@ -35,8 +43,8 @@ export default function Booking({
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify({
-          product: product.slug, option: option.dives,
-          date, cert, divers, name, email, locale,
+          product: product.slug, option: option.dives, date, slot, slotNote,
+          cert, divers, pickup, name, email, locale,
         }),
       });
       if (!res.ok) throw new Error(String(res.status));
@@ -56,6 +64,9 @@ export default function Booking({
   const sizeLabel = (n: number) =>
     n === 0 ? products.halfDay : `${n} ${n === 1 ? products.dive : products.dives}`;
 
+  const slotLabel = (s: (typeof SCHEDULES)[number]) =>
+    s.start ? `${s.start}–${s.end}` : t.timeOther;
+
   return (
     <div className="slate-wrap">
       <form className="book" onSubmit={submit} noValidate>
@@ -66,7 +77,7 @@ export default function Booking({
               {PRODUCTS.map((p) => (
                 <label className="pill" key={p.slug}>
                   <input type="radio" name="product" checked={product.slug === p.slug}
-                         onChange={() => pick(p)} />
+                         onChange={() => choose(p)} />
                   <span>{products.items[p.slug].name}</span>
                 </label>
               ))}
@@ -95,33 +106,65 @@ export default function Booking({
                      value={date} onChange={(e) => setDate(e.target.value)} />
             </div>
             <div className="fgroup">
-              <label className="flabel" htmlFor="cert">{t.s4}</label>
-              <select className="field" id="cert" value={cert} onChange={(e) => setCert(e.target.value)}>
-                {t.certs.map((c) => <option key={c}>{c}</option>)}
+              <label className="flabel" htmlFor="slot">{t.s4}</label>
+              <select className="field" id="slot" value={slot} onChange={(e) => setSlot(e.target.value)}>
+                {SCHEDULES.map((s) => <option key={s.slug} value={s.slug}>{slotLabel(s)}</option>)}
               </select>
             </div>
           </div>
 
+          {slot === "other" && (
+            <div className="fgroup">
+              <label className="flabel" htmlFor="slotnote">{t.timeOther}</label>
+              <input className="field" id="slotnote" value={slotNote}
+                     onChange={(e) => setSlotNote(e.target.value)} placeholder="10:30?" />
+            </div>
+          )}
+
           <div className="row2">
             <div className="fgroup">
-              <span className="flabel">{t.s5}</span>
+              <label className="flabel" htmlFor="cert">{t.s5}</label>
+              <select className="field" id="cert" value={cert} onChange={(e) => setCert(e.target.value)}>
+                {t.certs.map((c) => <option key={c}>{c}</option>)}
+              </select>
+            </div>
+            <div className="fgroup">
+              <span className="flabel">{t.s6}</span>
               <div className="step">
                 <button type="button" aria-label="−" onClick={() => setDivers((n) => Math.max(1, n - 1))}>−</button>
                 <output>{divers}</output>
                 <button type="button" aria-label="+" onClick={() => setDivers((n) => Math.min(8, n + 1))}>+</button>
               </div>
             </div>
-            <div className="fgroup">
-              <label className="flabel" htmlFor="name">{t.s6}</label>
-              <input className="field" id="name" autoComplete="name" placeholder={t.namePh}
-                     value={name} onChange={(e) => setName(e.target.value)} />
-            </div>
           </div>
 
           <div className="fgroup">
-            <label className="flabel" htmlFor="mail">{t.s7}</label>
-            <input className="field" id="mail" type="email" autoComplete="email" placeholder={t.mailPh}
-                   value={email} onChange={(e) => setEmail(e.target.value)} />
+            <span className="flabel">{t.s7}</span>
+            <div className="pills" role="radiogroup" aria-label={t.s7}>
+              {PICKUPS.map((p) => (
+                <label className="pill" key={p.slug}>
+                  <input type="radio" name="pickup" checked={pickup === p.slug}
+                         onChange={() => setPickup(p.slug)} />
+                  <span>
+                    {logistics.pickups[p.slug].name}
+                    {p.price ? ` · +$${p.price}` : ""}
+                  </span>
+                </label>
+              ))}
+            </div>
+          </div>
+
+          <div className="row2">
+            <div className="fgroup">
+              <label className="flabel" htmlFor="name">{t.s8}</label>
+              <input className="field" id="name" autoComplete="name" placeholder={t.namePh}
+                     value={name} onChange={(e) => setName(e.target.value)} />
+            </div>
+            <div className="fgroup">
+              <label className="flabel" htmlFor="mail">{t.s9}</label>
+              <input className="field" id="mail" type="email" autoComplete="email" placeholder={t.mailPh}
+                     value={email} onChange={(e) => setEmail(e.target.value)} />
+            </div>
           </div>
         </div>
 
@@ -134,9 +177,11 @@ export default function Booking({
             <Row k={t.rProduct} v={products.items[product.slug].name} sm />
             <Row k={t.rOption}  v={sizeLabel(option.dives)} />
             <Row k={t.rDate}    v={fmtDate} />
+            <Row k={t.rTime}    v={slotLabel(SCHEDULES.find((s) => s.slug === slot)!)} sm />
             <Row k={t.rDepth}   v={product.maxDepthM ? `${product.maxDepthM} m` : t.halfDayLabel} />
             <Row k={t.rLevel}   v={products.level[product.level]} sm />
             <Row k={t.rDivers}  v={String(divers)} />
+            <Row k={t.rPickup}  v={logistics.pickups[pickup].name} sm />
           </div>
           <div className="slate__total">
             <span className="k">{t.rTotal}</span><span className="v">{money(total)}</span>

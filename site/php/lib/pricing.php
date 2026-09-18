@@ -33,7 +33,7 @@ function kay_find_product(string $slug): ?array
 }
 
 /**
- * @return array{product:array,option:array,divers:int,total_usd:int,deposit_usd:int}|null
+ * @return array{product:array,option:array,pickup:array,divers:int,total_usd:int,deposit_usd:int}|null
  */
 function kay_quote(array $input): ?array
 {
@@ -58,12 +58,25 @@ function kay_quote(array $input): ?array
     $divers = (int) ($input['divers'] ?? 0);
     $divers = max(1, min(8, $divers));
 
-    $total = $option['price'] * $divers;
+    // Pickup is charged per booking, not per diver: it is one van, not one seat.
+    $pickup = null;
+    foreach (kay_catalogue()['pickups'] as $candidate) {
+        if ($candidate['slug'] === ($input['pickup'] ?? '')) {
+            $pickup = $candidate;
+            break;
+        }
+    }
+    if ($pickup === null) {
+        return null;
+    }
+
+    $total = $option['price'] * $divers + $pickup['price'];
     $rate  = (float) kay_config()['deposit_rate'];
 
     return [
         'product'     => $product,
         'option'      => $option,
+        'pickup'      => $pickup,
         'divers'      => $divers,
         'total_usd'   => $total,
         'deposit_usd' => (int) round($total * $rate),

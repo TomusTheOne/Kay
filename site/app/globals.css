@@ -499,3 +499,25 @@ select.field{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xml
 .prices b{font-family:var(--display);font-size:1.5rem;line-height:1;color:var(--foam);font-weight:400}
 .prices__note{padding-top:.5rem}
 .prices__note span{font-size:.58rem;letter-spacing:.18em;color:var(--foam-34)}
+
+/* ------------------------------------------------- Deep sites on a card --- */
+.sites{border:1px solid var(--line-soft);border-radius:10px;padding:.7rem .8rem;background:var(--glass)}
+.sites__t{font-family:var(--mono);font-size:.56rem;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--turq);margin-bottom:.45rem}
+.sites__r{display:flex;justify-content:space-between;gap:.8rem;align-items:baseline;padding-block:.2rem}
+.sites__r span{font-size:.82rem;color:var(--foam-72)}
+.sites__r b{font-family:var(--mono);font-size:.76rem;color:var(--foam);white-space:nowrap}
+
+/* ------------------------------------------------------- Pickup options --- */
+.pick{display:flex;flex-direction:column;border-top:1px solid var(--line-soft)}
+.pick li{display:flex;justify-content:space-between;gap:1.5rem;align-items:flex-start;
+  padding-block:1rem;border-bottom:1px solid var(--line-soft)}
+.pick b{display:block;font-weight:500;font-size:1rem}
+.pick span{display:block;font-size:.88rem;color:var(--foam-52);margin-top:.25rem;line-height:1.5}
+.pick em{font-family:var(--mono);font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--turq);font-style:normal;white-space:nowrap;flex:none;padding-top:.15rem}
+
+/* ----------------------------------------------------------- Start slots -- */
+.slots{display:flex;flex-wrap:wrap;gap:.5rem}
+.slot{font-family:var(--mono);font-size:.82rem;letter-spacing:.06em;padding:.55em .9em;
+  border:1px solid var(--line);border-radius:999px;background:var(--glass);color:var(--foam)}

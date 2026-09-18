@@ -26,7 +26,7 @@ export interface Outcome { tag: string; h2: string; p: string; cta: string }
 
 export interface Dictionary {
   meta: { title: string; description: string };
-  nav: Record<"about" | "products" | "included" | "gallery" | "faq"
+  nav: Record<"about" | "products" | "included" | "logistics" | "gallery" | "faq"
             | "reserve" | "reserveLong" | "menu" | "language", string>;
   hero: Record<"kicker" | "l1" | "l2" | "lede" | "cta2" | "alt"
              | "water" | "viz" | "from" | "agency" | "agencyLabel", string>;
@@ -37,9 +37,19 @@ export interface Dictionary {
     tag: string; h2: string; intro: string;
     from: string; dive: string; dives: string; perDiver: string;
     depth: string; time: string; where: string; needs: string; halfDay: string;
+    sitesTag: string;
     level: Record<string, string>;
     places: Record<string, string>;
     items: Record<string, ProductCopy>;
+    sites: Record<string, { name: string; depth: string; note: string }>;
+  };
+  logistics: {
+    tag: string; h2: string;
+    meetTag: string; meetText: string;
+    pickupTag: string;
+    pickups: Record<string, { name: string; text: string; price: string }>;
+    timesTag: string; timesText: string;
+    limitsTag: string; limits: string;
   };
   included: {
     tag: string; h2: string; intro: string;
@@ -50,7 +60,8 @@ export interface Dictionary {
   book: Record<string, string> & { certs: string[] };
   faq: { tag: string; h2: string; items: Qa[] };
   cta: Record<"kicker" | "h2" | "lede" | "instagram", string>;
-  footer: Record<"blurb" | "explore" | "learn" | "find" | "whatsapp" | "email" | "place", string>;
+  footer: Record<"blurb" | "explore" | "learn" | "find" | "whatsapp" | "email"
+                | "place" | "phone" | "meet", string>;
   booking: Record<"thanks" | "pending" | "failed", Outcome>;
 }
 
