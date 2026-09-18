@@ -40,6 +40,14 @@ function kay_config(): array
         'deposit_rate' => 0.30,   // share taken up front, balance on the day
         'usd_to_mxn'   => 17.5,   // Mercado Pago México settles in MXN
         'site_url'     => 'https://kaydiving.com',
+
+        // Email is deliberately NOT in $required: a missing key must stop
+        // confirmations, never bookings. With no mail_api_key the sender
+        // logs what it would have sent and the payment still goes through.
+        'mail_provider'  => 'brevo',            // 'brevo' | 'resend' | 'off'
+        'mail_from'      => 'contact@kaydiving.com',
+        'mail_from_name' => 'Kay Diving Tulum',
+        'mail_to_shop'   => 'contact@kaydiving.com',
     ];
     return $config;
 }

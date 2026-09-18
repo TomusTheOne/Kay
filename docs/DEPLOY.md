@@ -2,7 +2,9 @@
 
 Le site est **exporté en HTML statique** et les deux endpoints de paiement sont
 écrits en **PHP 8.2**. Tout tourne sur ton hébergement STARTER existant, avec la
-base MySQL déjà incluse. Pas de prestataire supplémentaire.
+base MySQL déjà incluse. Aucun hébergeur supplémentaire — le seul service
+extérieur est l'envoi des e-mails de confirmation (§6), gratuit, et qui ne sert
+qu'à ça.
 
 ```
 /home/xxx/kay-config.php     ← les secrets, JAMAIS servis par le web
@@ -12,8 +14,9 @@ base MySQL déjà incluse. Pas de prestataire supplémentaire.
         ├── assets/  _next/
         └── api/
             ├── booking.php  ← crée la réservation et ouvre le paiement
-            ├── webhook.php  ← reçoit la confirmation Mercado Pago
-            ├── lib/
+            ├── webhook.php  ← reçoit la confirmation Mercado Pago, envoie les e-mails
+            ├── lib/         ← config, pricing, db, mercadopago, mail, notify
+            ├── messages/    ← les textes, les mêmes que ceux du site
             └── products.json
 ```
 
@@ -73,7 +76,7 @@ Un workflow GitHub build le site et l'envoie en FTP à chaque push sur `main`.
 
 | Nom | Valeur |
 |---|---|
-| `SITE_URL` | `https://ton-domaine.com` — sans slash final |
+| `SITE_URL` | `https://kaydiving.com` — sans slash final |
 | `FTP_SERVER_DIR` | `/www/` — ou `/www/kaydiving/` si multisite |
 
 > ⚠️ `FTP_SERVER_DIR` doit pointer **exactement** sur le bon dossier. Le
@@ -87,7 +90,7 @@ Déploiement manuel possible : onglet *Actions* → *Build and deploy to OVH* �
 
 ```bash
 cd site
-NEXT_PUBLIC_SITE_URL=https://ton-domaine.com npm run build:deploy
+NEXT_PUBLIC_SITE_URL=https://kaydiving.com npm run build:deploy
 # puis envoyer le contenu de site/out/ dans www/ par FileZilla
 ```
 
@@ -97,7 +100,7 @@ NEXT_PUBLIC_SITE_URL=https://ton-domaine.com npm run build:deploy
 
 1. [Panneau développeur](https://www.mercadopago.com.mx/developers/panel) → créer une application
 2. Récupérer le **jeton d'accès de production**
-3. **Webhooks** → URL : `https://ton-domaine.com/api/webhook.php`
+3. **Webhooks** → URL : `https://kaydiving.com/api/webhook.php`
 4. Cocher l'événement **Paiements**
 5. Copier le **secret de signature**
 6. Reporter les deux dans `kay-config.php`
@@ -117,6 +120,70 @@ FROM bookings ORDER BY created_at DESC LIMIT 5;
 ```
 
 La ligne doit passer de `pending` à `paid`.
+
+---
+
+## 6. Les e-mails de confirmation
+
+Dès qu'un acompte est encaissé, deux e-mails partent : la confirmation au
+plongeur, et la ligne de feuille de route à Kay (`contact@kaydiving.com`).
+
+**Pourquoi pas le `mail()` de PHP.** Il fait partir le message depuis le serveur
+web d'OVH, pas depuis la boîte `contact@kaydiving.com`. Rien ne signe donc le
+message pour `kaydiving.com` : pas de DKIM, un SPF qui ne s'aligne pas, et Gmail
+classe une confirmation de réservation en spam une fois sur deux. En prime, on
+n'a aucune trace : quand un plongeur écrit « je n'ai jamais rien reçu », on n'a
+rien à lui répondre.
+
+**Deux choix, tous les deux gratuits.** `mail_provider` dans `kay-config.php` :
+
+| | `brevo` | `resend` |
+|---|---|---|
+| Gratuit | 300 e-mails/jour, à vie | 100/jour, 3 000/mois |
+| Mention ajoutée | « Sent with Brevo » en bas | aucune |
+| Interface | complète, en français, Kay peut s'y connecter | orientée développeur |
+| L'enlever | plan Starter + option « Remove logo », ~9 €/mois | — |
+
+Pour un centre de plongée, 300/jour comme 100/jour sont très au-dessus du besoin
+(deux e-mails par réservation). Le vrai arbitrage est la mention en bas de
+l'e-mail contre l'interface. Basculer de l'un à l'autre, c'est une ligne dans
+`kay-config.php` — le code parle aux deux.
+
+### Mise en place (Brevo)
+
+1. Créer le compte sur [brevo.com](https://www.brevo.com) avec
+   `contact@kaydiving.com`
+2. **Senders, Domains & Dedicated IPs** → *Authenticate your domain* →
+   `kaydiving.com`
+3. Brevo donne deux ou trois enregistrements DNS (un code Brevo, un DKIM, et un
+   DMARC si le domaine n'en a pas). Les ajouter dans **OVH → Domaines →
+   kaydiving.com → Zone DNS**.
+4. Attendre la validation (quelques minutes à quelques heures), puis vérifier que
+   le domaine est bien coché « authenticated »
+5. **SMTP & API** → créer une clé API v3 → la reporter dans `mail_api_key`
+
+> ⚠️ Le domaine a déjà une adresse e-mail chez OVH (MX Plan). Tout continue de
+> fonctionner : Brevo n'envoie **que** les e-mails sortants du site, la réception
+> de `contact@kaydiving.com` reste chez OVH. Ne touche pas aux enregistrements
+> `MX`, seulement à ceux que Brevo demande. S'il existe déjà un enregistrement
+> SPF (`v=spf1 ...`), ne pas en créer un second : il ne peut y en avoir qu'un.
+
+### Tant que ce n'est pas configuré
+
+Sans `mail_api_key`, le site prend quand même les réservations : l'envoi est
+journalisé (`kay: mail not configured, would have sent: ...`) et le paiement
+aboutit normalement. C'est volontaire — une clé manquante ne doit jamais coûter
+une réservation. Mais avant d'ouvrir au public, le plongeur doit recevoir sa
+confirmation.
+
+### Tester
+
+```bash
+cd site && php php/tests/run.php   # le rendu des deux e-mails est couvert
+```
+
+Pour un vrai envoi, fais une réservation de test Mercado Pago de bout en bout :
+l'e-mail part au moment où le webhook passe la ligne en `paid`.
 
 ---
 
@@ -142,19 +209,25 @@ La ligne doit passer de `pending` à `paid`.
 cd site && npm test      # php php/tests/run.php
 ```
 
-32 assertions : chaque prix du menu, le refus d'un total envoyé par le client,
-les tailles non vendues, les dates passées, l'idempotence du règlement, et les
-signatures invalides. Il faut une base MySQL joignable et un `kay-config.php`.
+73 assertions : chaque prix du menu, le refus d'un total envoyé par le client,
+les tailles non vendues, les dates passées, l'idempotence du règlement, les
+signatures invalides, et le contenu des deux e-mails — le bon produit, les trois
+montants qui s'additionnent, le ramassage payé, et le fait qu'un `<script>` tapé
+dans le formulaire ressorte en texte. Il faut une base MySQL joignable et un
+`kay-config.php`.
 
 ---
 
 ## Avant d'ouvrir au public
 
-- [ ] Réponses de Kay intégrées *(profondeur 40 m, Discover Scuba 7 m ou 30 ft)*
-- [ ] Téléphone, adresse et horaires réels remplacent les valeurs provisoires
+- [x] Réponses de Kay intégrées *(38 m max, Discover Scuba 7 m, ramassage payant)*
+- [x] Téléphone, point de rendez-vous et e-mail réels dans le pied de page
+- [ ] Adresse postale et horaires d'ouverture *(toujours manquants)*
 - [ ] Traductions **ES** et **FR** — aujourd'hui les deux affichent l'anglais
 - [ ] Paiement testé de bout en bout avec les cartes de test
-- [ ] E-mail de confirmation *(pas encore développé — `TODO(email)` dans `webhook.php`)*
+- [x] E-mails de confirmation développés et testés
+- [ ] Clé API d'envoi renseignée et domaine authentifié *(§6)* — sans elle, le
+      plongeur paie et ne reçoit rien
 - [ ] Google Search Console : propriété ajoutée, sitemap soumis
 - [ ] Fiche Google Business Profile cohérente avec le site
 - [ ] Droits sur les photos confirmés si certaines sont des reposts

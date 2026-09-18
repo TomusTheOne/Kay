@@ -5,6 +5,8 @@ require __DIR__ . '/lib/config.php';
 require __DIR__ . '/lib/pricing.php';
 require __DIR__ . '/lib/db.php';
 require __DIR__ . '/lib/mercadopago.php';
+require __DIR__ . '/lib/mail.php';
+require __DIR__ . '/lib/notify.php';
 
 if (($_SERVER['REQUEST_METHOD'] ?? '') !== 'POST') {
     kay_fail(405, 'method not allowed');
@@ -60,6 +62,17 @@ if ($statement->rowCount() === 0) {
     kay_ok(['ok' => true, 'alreadyHandled' => true]);
 }
 
-// TODO(email): confirmation to the diver and the day sheet line to Kay.
 error_log("kay: booking $bookingId settled as $next (payment $paymentId)");
+
+// Only a cleared deposit earns a confirmation. A refund or a rejection is
+// Kay's conversation to have, not an automatic email.
+if ($next === 'paid') {
+    $row = kay_db()->prepare('SELECT * FROM bookings WHERE id = ?');
+    $row->execute([$bookingId]);
+    $booking = $row->fetch();
+    if (is_array($booking)) {
+        kay_notify_booking($booking);
+    }
+}
+
 kay_ok(['ok' => true, 'status' => $next]);

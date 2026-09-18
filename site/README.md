@@ -63,16 +63,22 @@ Kay's 2026 menu PDF. Prose is theirs where they wrote it — the About and Why U
 paragraphs, the taglines — and generic where it is educational (halocline, cavern
 versus cave, water temperature).
 
-Two things in the menu contradict themselves and were resolved rather than copied:
+Three things in the menu were wrong or contradicted themselves, and Kay settled
+each one:
 
 - **Discover Scuba** — the blurb says "maximum depth of 7 metres / 25 ft", the spec
-  says `DEPHTH: 30 FT`. The site uses 30 ft / 9 m, from the spec. Worth confirming.
+  says `DEPHTH: 30 FT`. Kay confirms the blurb; the site uses **7 m / 25 ft**.
+- **Transport** — the menu prints hotel transport as included in every price. It is
+  not. The meeting point is free, anywhere in Tulum town is +$20 for the booking,
+  and outside town Kay can only do the drive back, +$10. The copy says so now.
 - **Open Water Course** — the menu reuses the Discover Scuba paragraph word for word.
   The site has its own copy rather than repeating the duplication.
 
 ## Known gaps
 
-- No confirmation email yet — marked `TODO(email)` in the webhook.
+- Confirmation emails are built and tested, but nothing is actually sent until
+  `mail_api_key` is filled in and the domain is authenticated — see
+  `docs/DEPLOY.md` §6. Until then the send is logged and the booking still works.
 - No admin view. Kay reads bookings from the database until one exists.
 - The payment flow cannot be exercised end to end without a public HTTPS origin
   for the webhook, so it is untested against the real Mercado Pago.

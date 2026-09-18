@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Cenote & Reef Diving in Tulum | Kay Diving — PADI Courses & Guided Dives",
-    "description": "Guided cenote and reef diving in Tulum, from a first try dive to PADI Open Water and Advanced. Hotel transport, equipment, cenote entrance and snacks included. From $80."
+    "description": "Guided cenote and reef diving in Tulum, from a first try dive to PADI Open Water and Advanced. Equipment, cenote entrance, transport to the dive sites and snacks included. From $80."
   },
   "nav": {
     "about": "About",
@@ -46,7 +46,7 @@
   "products": {
     "tag": "What we run",
     "h2": "Six ways<br>into the water.",
-    "intro": "Every price below already includes transport from your hotel, equipment, the cenote entrance fee, and snacks and water. There is nothing to add on the day except the balance.",
+    "intro": "Every price below already includes your equipment, the cenote entrance fees, transport between the dive sites and snacks in the water. Hotel pickup is the one thing quoted separately — see Getting there.",
     "from": "from",
     "dive": "dive",
     "dives": "dives",
@@ -270,7 +270,7 @@
     "instagram": "See it on Instagram"
   },
   "footer": {
-    "blurb": "Guided cenote and reef diving and PADI courses in Tulum, Quintana Roo. Transport, equipment, cenote entrance and snacks included in every price.",
+    "blurb": "Guided cenote and reef diving and PADI courses in Tulum, Quintana Roo. Equipment, cenote entrance, transport to the dive sites and snacks included in every price.",
     "explore": "Dives & courses",
     "learn": "Learn",
     "find": "Find us",
@@ -327,6 +327,54 @@
     "timesText": "Three fixed departures. You can also suggest another time — tell us when booking and we will check whether it works before confirming.",
     "limitsTag": "The last departures",
     "limits": "Two cenote dives start by 13:30 at the latest. A single dive, at Casa Cenote only, can start as late as 15:00."
+  },
+  "emails": {
+    "common": {
+      "dive": "dive",
+      "dives": "dives",
+      "halfDay": "Half day",
+      "divers": "divers",
+      "diver": "diver",
+      "slotOther": "Time to be confirmed — we will write to you",
+      "noCert": "Not stated"
+    },
+    "diver": {
+      "subject": "Your dive is booked — {date}",
+      "preheader": "Deposit received. Everything for the day is below.",
+      "kicker": "Booking confirmed",
+      "hi": "Hi {name},",
+      "lede": "Your deposit has gone through and {date} is held for you. Here is exactly what we have on file.",
+      "detailsTag": "Your booking",
+      "whatLabel": "What",
+      "dateLabel": "Date",
+      "timeLabel": "Start",
+      "peopleLabel": "People",
+      "certLabel": "Certification",
+      "meetLabel": "Meeting point",
+      "pickupLabel": "Pickup",
+      "moneyTag": "Payment",
+      "totalLabel": "Total",
+      "paidLabel": "Deposit paid",
+      "balanceLabel": "Balance on the day",
+      "balanceNote": "Settled in cash or by card when you arrive.",
+      "nextTag": "What happens next",
+      "nextText": "A guide writes to you on WhatsApp within a few hours to confirm the details and ask the few medical questions we ask before every dive. If anything above is wrong, just reply to this email.",
+      "bringTag": "Bring",
+      "bringText": "A swimsuit, a towel, and your certification card if you hold one. Sunscreen is not allowed in the cenotes — the water is drinking water.",
+      "refLabel": "Booking reference",
+      "signoff": "See you in the water,",
+      "team": "Kay Diving Tulum",
+      "footer": "You are receiving this because you booked a dive at {site}."
+    },
+    "shop": {
+      "subject": "PAID · {date} · {product} × {divers}",
+      "title": "New booking · {product}",
+      "contactTag": "Diver",
+      "nameLabel": "Name",
+      "emailLabel": "Email",
+      "localeLabel": "Wrote in",
+      "action": "Message them on WhatsApp and put them on the day sheet."
+    }
   },
   "_translated": false,
   "_note": "TRADUCTION ESPAGNOLE À FAIRE"

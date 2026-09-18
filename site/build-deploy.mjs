@@ -5,8 +5,10 @@
  *   php/            the two endpoints         → www/api/
  *   public-htaccess the Apache configuration  → www/.htaccess
  *
- * products.json is copied from content/ so the PHP reads the same catalogue
- * the site was built from, and the test runner is left behind.
+ * products.json and messages/ are copied from the source of truth, so the PHP
+ * reads the same catalogue and the same copy the site was built from — a
+ * confirmation email cannot name a product differently from the page that
+ * sold it. The test runner is left behind.
  */
 import { cp, rm, mkdir, readdir } from "node:fs/promises";
 import { existsSync } from "node:fs";
@@ -26,8 +28,12 @@ for (const f of ["booking.php", "webhook.php"]) {
 for (const f of await readdir("php/lib")) {
   await cp(`php/lib/${f}`, `${OUT}/api/lib/${f}`);
 }
-// One catalogue, read by the build and by the endpoints.
+// One catalogue and one set of strings, read by the build and by the endpoints.
 await cp("content/products.json", `${OUT}/api/products.json`);
+await mkdir(`${OUT}/api/messages`, { recursive: true });
+for (const f of await readdir("messages")) {
+  await cp(`messages/${f}`, `${OUT}/api/messages/${f}`);
+}
 await cp("public-htaccess", `${OUT}/.htaccess`);
 
 console.log("Deploy bundle ready in out/ — upload its contents to www/");

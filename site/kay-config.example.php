@@ -28,4 +28,21 @@ return [
 
     // No trailing slash.
     'site_url' => 'https://kaydiving.com',
+
+    // ---------------------------------------------------------------- email
+    // Confirmations are sent over a provider's HTTPS API, not PHP mail():
+    // mail() leaves the message unsigned for kaydiving.com, so Gmail treats
+    // a booking confirmation as spam. See docs/DEPLOY.md for the two DNS
+    // records the provider asks for.
+    //
+    //   brevo   300/day free forever, adds a "Sent with Brevo" line
+    //   resend  100/day and 3000/month free, adds nothing
+    //   off     no email at all; bookings still work
+    'mail_provider'  => 'brevo',
+    'mail_api_key'   => '',
+    // Must be an address on the authenticated domain.
+    'mail_from'      => 'contact@kaydiving.com',
+    'mail_from_name' => 'Kay Diving Tulum',
+    // Where the day-sheet copy lands. Kay's own inbox, if it differs.
+    'mail_to_shop'   => 'contact@kaydiving.com',
 ];

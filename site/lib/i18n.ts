@@ -63,6 +63,14 @@ export interface Dictionary {
   footer: Record<"blurb" | "explore" | "learn" | "find" | "whatsapp" | "email"
                 | "place" | "phone" | "meet", string>;
   booking: Record<"thanks" | "pending" | "failed", Outcome>;
+  /* Sent by php/lib/notify.php once a deposit clears. The strings live with
+     the rest of the copy so a translation stays one file, not two. */
+  emails: {
+    common: Record<"dive" | "dives" | "halfDay" | "divers" | "diver"
+                 | "slotOther" | "noCert", string>;
+    diver: Record<string, string>;
+    shop: Record<string, string>;
+  };
 }
 
 const dictionaries: Record<Locale, () => Promise<Dictionary>> = {

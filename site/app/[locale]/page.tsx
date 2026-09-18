@@ -64,6 +64,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         description: t.meta.description,
         url: `${SHOP.domain}${pathFor(locale)}`,
         telephone: SHOP.phone,
+        email: SHOP.email,
         priceRange: `$${cheapest}–$${Math.max(...PRODUCTS.flatMap((p) => p.options.map((o) => o.price)))}`,
         image: `${SHOP.domain}/assets/photos/hero.webp`,
         address: { "@type": "PostalAddress", addressLocality: "Tulum",
@@ -393,6 +394,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
               <li><a href={SHOP.instagram} rel="noopener">@kaydivingtulum</a></li>
               <li><a href={`tel:${SHOP.phone}`}>{SHOP.phoneDisplay}</a></li>
               <li><a href={`https://wa.me/${SHOP.phone.replace(/\D/g, "")}`} rel="noopener">{t.footer.whatsapp}</a></li>
+              <li><a href={`mailto:${SHOP.email}`}>{SHOP.email}</a></li>
               <li><span className="muted" style={{ fontSize: ".9rem" }}>{t.footer.meet}: {SHOP.meetingPoint}</span></li>
               <li><span className="muted" style={{ fontSize: ".9rem" }}>{t.footer.place}</span></li>
             </ul></div>
