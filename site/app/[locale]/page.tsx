@@ -38,12 +38,14 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
   if (!isLocale(locale)) notFound();
   const t = await getDictionary(locale);
 
+  /* The gallery is data-driven: empty it in products.json and the section and
+     its nav entry disappear together, rather than leaving a link to nothing. */
   const nav = [
     { href: "#about", label: t.nav.about },
     { href: "#products", label: t.nav.products },
     { href: "#included", label: t.nav.included },
     { href: "#logistics", label: t.nav.logistics },
-    { href: "#gallery", label: t.nav.gallery },
+    ...(GALLERY.length ? [{ href: "#gallery", label: t.nav.gallery }] : []),
     { href: "#faq", label: t.nav.faq },
   ];
 
@@ -351,6 +353,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         </section>
 
         {/* --------------------------------------------------------- gallery */}
+        {GALLERY.length > 0 && (
         <section className="bay shell" id="gallery">
           <div className="head2">
             <div data-rise>
@@ -372,6 +375,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
             ))}
           </div>
         </section>
+        )}
 
         {/* ----------------------------------------------------------- quote */}
         <section className="bay shell">

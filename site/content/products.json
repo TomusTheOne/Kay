@@ -66,7 +66,7 @@
           "price": 140
         }
       ],
-      "photo": "reef-turtle",
+      "photo": null,
       "art": "reef",
       "extraIncludes": []
     },
@@ -132,7 +132,7 @@
           "price": 460
         }
       ],
-      "photo": "card-dosojos",
+      "photo": null,
       "art": "the-pit",
       "extraIncludes": [
         "materials"
@@ -178,35 +178,14 @@
           "price": 80
         }
       ],
-      "photo": "gallery-5",
+      "photo": null,
       "art": "casa-cenote",
       "extraIncludes": [
         "snorkel-mask"
       ]
     }
   ],
-  "gallery": [
-    {
-      "photo": "gallery-2",
-      "tall": true
-    },
-    {
-      "photo": "gallery-1",
-      "tall": false
-    },
-    {
-      "photo": "gallery-4",
-      "tall": false
-    },
-    {
-      "photo": "gallery-3",
-      "tall": false
-    },
-    {
-      "photo": "gallery-5",
-      "tall": false
-    }
-  ],
+  "gallery": [],
   "pickups": [
     {
       "slug": "meeting-point",

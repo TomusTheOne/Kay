@@ -87,3 +87,10 @@ each one:
 - The static maquettes under `../concepts/` still carry the invented dive names and
   prices from before the menu arrived. They are design references only — do not
   show them as the offer.
+- **Only four photographs exist**, in `assets/source/`, and all four are on the
+  page already: the hero, and the cards for Discover Scuba, Cenote Diving and
+  the Open Water course. Reef & Cenote, Advanced and the Snorkel tour show the
+  hand-drawn scene each one declares in `products.json`. The gallery is empty
+  and its section does not render — a gallery re-showing the same four images
+  would be padding. `scripts/photos.py` rebuilds every slot from the sources;
+  add slots there and entries to `gallery` in `products.json` after a shoot.

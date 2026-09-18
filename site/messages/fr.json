@@ -79,13 +79,13 @@
         "name": "Reef & Cenote",
         "tagline": "Two worlds unveiled at once.",
         "text": "One day, both halves of what makes this coast worth diving: the reef off Tankah, then the fresh water of Casa Cenote. Salt and sweet, turtles and stalactites, in a single morning.",
-        "alt": "A green turtle swimming over coral on the reef off Tulum"
+        "alt": "A hand-drawn scene of the Tankah reef and a cenote, side by side"
       },
       "cenote-diving": {
         "name": "Cenote Diving",
         "tagline": "Explore the Mayan underworld.",
         "text": "Into some of the most beautiful flooded caverns in the world. You choose the cenotes with us, and which ones are open to you depends on your certification — Angelita and El Pit are the two that pass thirty metres.",
-        "alt": "A diver descending past bare branches at Cenote Angelita, Tulum"
+        "alt": "A diver under the surface of a Tulum cenote, light falling through the mangrove roots"
       },
       "advanced-ow": {
         "name": "Advanced Open Water",
@@ -164,13 +164,7 @@
     "tag": "From the water",
     "h2": "What it actually<br>looks like down there.",
     "intro": "Shot by the guides on working days — no models, no staging. More of it, most days, on",
-    "captions": {
-      "gallery-1": "Cenote light",
-      "gallery-2": "Your guide, before the first dive",
-      "gallery-3": "Tankah reef · green turtle",
-      "gallery-4": "Cenote wall",
-      "gallery-5": "Casa Cenote · morning"
-    }
+    "captions": {}
   },
   "quote": {
     "text": "Three quarters of our planet are water. Let's go and explore them together.",
