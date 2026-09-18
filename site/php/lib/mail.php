@@ -16,9 +16,11 @@ declare(strict_types=1);
  *
  * Two providers are supported because the choice is a trade, not a winner:
  *
- *   brevo   300 emails/day free, forever, and a dashboard Kay can read.
- *           Free messages carry a "Sent with Brevo" line at the bottom.
- *   resend  100/day and 3,000/month free, no added footer, developer UI.
+ *   resend  100/day and 3,000/month free, and nothing added to the message.
+ *           Its return path lives on a send.<domain> subdomain, so the MX
+ *           records of the mailbox already hosted at OVH stay untouched.
+ *   brevo   300/day free and a fuller dashboard, but every free message
+ *           carries a "Sent with Brevo" line at the bottom.
  *
  * Switching is one line in kay-config.php. 'off' disables sending, which is
  * what the test runner and a half-configured host use.
@@ -49,32 +51,7 @@ function kay_send_email(array $message): bool
         return false;
     }
 
-    $from     = (string) ($config['mail_from'] ?? 'contact@kaydiving.com');
-    $fromName = (string) ($config['mail_from_name'] ?? 'Kay Diving Tulum');
-    $replyTo  = (string) ($message['replyTo'] ?? $from);
-    $toName   = (string) ($message['toName'] ?? '');
-
-    if ($provider === 'brevo') {
-        $headers = ['api-key: ' . $config['mail_api_key'], 'Content-Type: application/json', 'Accept: application/json'];
-        $body = [
-            'sender'      => ['name' => $fromName, 'email' => $from],
-            'to'          => [array_filter(['email' => $message['to'], 'name' => $toName])],
-            'replyTo'     => ['email' => $replyTo],
-            'subject'     => $message['subject'],
-            'htmlContent' => $message['html'],
-            'textContent' => $message['text'],
-        ];
-    } else {
-        $headers = ['Authorization: Bearer ' . $config['mail_api_key'], 'Content-Type: application/json'];
-        $body = [
-            'from'     => sprintf('%s <%s>', $fromName, $from),
-            'to'       => [$message['to']],
-            'reply_to' => $replyTo,
-            'subject'  => $message['subject'],
-            'html'     => $message['html'],
-            'text'     => $message['text'],
-        ];
-    }
+    [$headers, $body] = kay_mail_payload($provider, $message, $config);
 
     $ch = curl_init(KAY_MAIL_ENDPOINTS[$provider]);
     curl_setopt_array($ch, [
@@ -103,4 +80,47 @@ function kay_send_email(array $message): bool
         return false;
     }
     return true;
+}
+
+/**
+ * The request each provider expects. Separated from the sending so the field
+ * names can be asserted in the test runner: a typo here would otherwise only
+ * show up as a 422 in the error log, after a real diver paid.
+ *
+ * @return array{0:string[],1:array} headers, body
+ */
+function kay_mail_payload(string $provider, array $message, array $config): array
+{
+    $from     = (string) ($config['mail_from'] ?? 'contact@kaydiving.com');
+    $fromName = (string) ($config['mail_from_name'] ?? 'Kay Diving Tulum');
+    $replyTo  = (string) ($message['replyTo'] ?? $from);
+    $toName   = (string) ($message['toName'] ?? '');
+    $key      = (string) ($config['mail_api_key'] ?? '');
+
+    if ($provider === 'brevo') {
+        return [
+            ['api-key: ' . $key, 'Content-Type: application/json', 'Accept: application/json'],
+            [
+                'sender'      => ['name' => $fromName, 'email' => $from],
+                'to'          => [array_filter(['email' => $message['to'], 'name' => $toName])],
+                'replyTo'     => ['email' => $replyTo],
+                'subject'     => $message['subject'],
+                'htmlContent' => $message['html'],
+                'textContent' => $message['text'],
+            ],
+        ];
+    }
+
+    return [
+        ['Authorization: Bearer ' . $key, 'Content-Type: application/json'],
+        [
+            // Resend wants the sender as one RFC 5322 string, not a pair.
+            'from'     => sprintf('%s <%s>', $fromName, $from),
+            'to'       => [$message['to']],
+            'reply_to' => $replyTo,
+            'subject'  => $message['subject'],
+            'html'     => $message['html'],
+            'text'     => $message['text'],
+        ],
+    ];
 }

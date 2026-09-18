@@ -44,7 +44,7 @@ function kay_config(): array
         // Email is deliberately NOT in $required: a missing key must stop
         // confirmations, never bookings. With no mail_api_key the sender
         // logs what it would have sent and the payment still goes through.
-        'mail_provider'  => 'brevo',            // 'brevo' | 'resend' | 'off'
+        'mail_provider'  => 'resend',           // 'resend' | 'brevo' | 'off'
         'mail_from'      => 'contact@kaydiving.com',
         'mail_from_name' => 'Kay Diving Tulum',
         'mail_to_shop'   => 'contact@kaydiving.com',

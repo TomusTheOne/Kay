@@ -137,36 +137,54 @@ rien à lui répondre.
 
 **Deux choix, tous les deux gratuits.** `mail_provider` dans `kay-config.php` :
 
-| | `brevo` | `resend` |
+| | `resend` *(par défaut)* | `brevo` |
 |---|---|---|
-| Gratuit | 300 e-mails/jour, à vie | 100/jour, 3 000/mois |
-| Mention ajoutée | « Sent with Brevo » en bas | aucune |
-| Interface | complète, en français, Kay peut s'y connecter | orientée développeur |
-| L'enlever | plan Starter + option « Remove logo », ~9 €/mois | — |
+| Gratuit | 100/jour, 3 000/mois | 300/jour, à vie |
+| Mention ajoutée | **aucune** | « Sent with Brevo » en bas |
+| Domaines vérifiés | 3 sur le gratuit | 1 |
+| Enregistrements DNS | sur `send.kaydiving.com` | sur `kaydiving.com` |
+| Interface | orientée développeur, en anglais | complète, en français |
 
-Pour un centre de plongée, 300/jour comme 100/jour sont très au-dessus du besoin
-(deux e-mails par réservation). Le vrai arbitrage est la mention en bas de
-l'e-mail contre l'interface. Basculer de l'un à l'autre, c'est une ligne dans
-`kay-config.php` — le code parle aux deux.
+Pour un centre de plongée, 100/jour comme 300/jour sont très au-dessus du besoin
+(deux e-mails par réservation, donc ~50 réservations/jour avant de toucher le
+plafond). Basculer de l'un à l'autre, c'est une ligne dans `kay-config.php` — le
+code parle aux deux, et le runner de tests vérifie les deux formats de requête.
 
-### Mise en place (Brevo)
+### Mise en place (Resend)
 
-1. Créer le compte sur [brevo.com](https://www.brevo.com) avec
-   `contact@kaydiving.com`
-2. **Senders, Domains & Dedicated IPs** → *Authenticate your domain* →
-   `kaydiving.com`
-3. Brevo donne deux ou trois enregistrements DNS (un code Brevo, un DKIM, et un
-   DMARC si le domaine n'en a pas). Les ajouter dans **OVH → Domaines →
-   kaydiving.com → Zone DNS**.
-4. Attendre la validation (quelques minutes à quelques heures), puis vérifier que
-   le domaine est bien coché « authenticated »
-5. **SMTP & API** → créer une clé API v3 → la reporter dans `mail_api_key`
+1. Créer le compte sur [resend.com](https://resend.com)
+2. **Domains** → *Add Domain* → `kaydiving.com`, région `us-east-1` ou `eu-west-1`
+   *(l'Europe si tu préfères que les données restent dans l'UE)*
+3. Resend affiche trois enregistrements à coller dans **OVH → Domaines →
+   kaydiving.com → Zone DNS**. Recopie ceux que ton tableau de bord affiche, pas
+   ceux d'un tutoriel : les valeurs sont propres à ton compte. En général :
 
-> ⚠️ Le domaine a déjà une adresse e-mail chez OVH (MX Plan). Tout continue de
-> fonctionner : Brevo n'envoie **que** les e-mails sortants du site, la réception
-> de `contact@kaydiving.com` reste chez OVH. Ne touche pas aux enregistrements
-> `MX`, seulement à ceux que Brevo demande. S'il existe déjà un enregistrement
-> SPF (`v=spf1 ...`), ne pas en créer un second : il ne peut y en avoir qu'un.
+   | Type | Nom | Rôle |
+   |---|---|---|
+   | `MX` | `send.kaydiving.com` | chemin de retour (bounces) |
+   | `TXT` | `send.kaydiving.com` | SPF du sous-domaine d'envoi |
+   | `TXT` | `resend._domainkey.kaydiving.com` | signature DKIM |
+
+4. Attendre le passage en **Verified** (quelques minutes, jusqu'à 24 h)
+5. **API Keys** → *Create API Key*, droit **Sending access** suffit → la reporter
+   dans `mail_api_key`
+
+> ✅ **C'est précisément pourquoi Resend va mieux ici.** Ton domaine a déjà une
+> boîte chez OVH (MX Plan), donc un `MX` et sans doute un `SPF` sur la racine.
+> Resend pose son `MX` et son `SPF` sur le sous-domaine `send.kaydiving.com` :
+> la racine n'est pas touchée du tout. Rien à fusionner, rien à casser, ta boîte
+> `contact@kaydiving.com` continue de recevoir exactement comme avant. Seul le
+> DKIM s'ajoute à la racine, et un DKIM ne rentre en conflit avec rien.
+>
+> Les e-mails partent quand même **de** `contact@kaydiving.com` : c'est le chemin
+> de retour technique qui passe par `send.`, pas l'adresse affichée.
+
+### Si tu préfères Brevo
+
+Même principe, mais les enregistrements se posent sur la racine, donc attention :
+s'il existe déjà un `SPF` (`v=spf1 ...`), **ne pas en créer un second** — il ne
+peut y en avoir qu'un, il faut fusionner les deux dans la même ligne. Mettre
+`mail_provider => 'brevo'` et la clé API v3 dans `mail_api_key`.
 
 ### Tant que ce n'est pas configuré
 
@@ -209,11 +227,12 @@ l'e-mail part au moment où le webhook passe la ligne en `paid`.
 cd site && npm test      # php php/tests/run.php
 ```
 
-73 assertions : chaque prix du menu, le refus d'un total envoyé par le client,
+82 assertions : chaque prix du menu, le refus d'un total envoyé par le client,
 les tailles non vendues, les dates passées, l'idempotence du règlement, les
 signatures invalides, et le contenu des deux e-mails — le bon produit, les trois
 montants qui s'additionnent, le ramassage payé, et le fait qu'un `<script>` tapé
-dans le formulaire ressorte en texte. Il faut une base MySQL joignable et un
+dans le formulaire ressorte en texte, plus le format de requête attendu par
+chacun des deux fournisseurs d'e-mail. Il faut une base MySQL joignable et un
 `kay-config.php`.
 
 ---

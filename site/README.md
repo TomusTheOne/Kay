@@ -77,7 +77,7 @@ each one:
 ## Known gaps
 
 - Confirmation emails are built and tested, but nothing is actually sent until
-  `mail_api_key` is filled in and the domain is authenticated — see
+  `mail_api_key` is filled in and `kaydiving.com` is verified with Resend — see
   `docs/DEPLOY.md` §6. Until then the send is logged and the booking still works.
 - No admin view. Kay reads bookings from the database until one exists.
 - The payment flow cannot be exercised end to end without a public HTTPS origin

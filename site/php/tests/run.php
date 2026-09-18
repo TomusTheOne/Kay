@@ -242,6 +242,25 @@ foreach (['en', 'es', 'fr'] as $locale) {
     check("$locale renders", strlen($one['diver']['html']) > 1000, true);
 }
 
+echo "\nEach provider gets the request shape it actually expects\n";
+
+$fake = ['mail_api_key' => 'KEY', 'mail_from' => 'contact@kaydiving.com',
+         'mail_from_name' => 'Kay Diving Tulum'];
+
+[$headers, $body] = kay_mail_payload('resend', $diver, $fake);
+check('resend authorises with a bearer token', $headers[0], 'Authorization: Bearer KEY');
+check('resend takes the sender as one string', $body['from'], 'Kay Diving Tulum <contact@kaydiving.com>');
+check('resend takes recipients as a list',     $body['to'], ['ana@example.com']);
+check('resend spells it reply_to',             $body['reply_to'], 'contact@kaydiving.com');
+check('resend spells the body html',           isset($body['html'], $body['text']), true);
+
+[$headers, $body] = kay_mail_payload('brevo', $diver, $fake);
+check('brevo authorises with its own header',  $headers[0], 'api-key: KEY');
+check('brevo takes the sender as a pair',      $body['sender'],
+      ['name' => 'Kay Diving Tulum', 'email' => 'contact@kaydiving.com']);
+check('brevo names the recipient',             $body['to'][0]['name'], 'Ana Ruiz');
+check('brevo spells it htmlContent',           isset($body['htmlContent'], $body['textContent']), true);
+
 echo "\nMail is off until it is configured, and says so rather than failing\n";
 check('nothing is sent while unconfigured', kay_send_email($diver), false);
 
