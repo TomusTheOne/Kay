@@ -242,9 +242,8 @@ chacun des deux fournisseurs d'e-mail. Il faut une base MySQL joignable et un
 - [x] Réponses de Kay intégrées *(38 m max, Discover Scuba 7 m, ramassage payant)*
 - [x] Téléphone, point de rendez-vous et e-mail réels dans le pied de page
 - [ ] Adresse postale et horaires d'ouverture *(toujours manquants)*
-- [x] Une seule langue en ligne (`publishedLocales`), pour ne pas publier trois
-      fois le même texte anglais sous trois `hreflang`
-- [ ] Traductions **ES** et **FR**, puis les ajouter à `publishedLocales`
+- [x] Traductions **ES** et **FR** faites et publiées — les trois langues sont
+      dans `publishedLocales`, avec `hreflang` réciproque et `x-default`
 - [x] Carte Open Graph 1200×630, `hreflang`, `canonical`, sitemap, JSON-LD
 - [ ] DNS du domaine pointé sur l'hébergement, et **`www` résolu aussi**
       *(le `.htaccess` le redirige vers l'apex, encore faut-il qu'il existe)*

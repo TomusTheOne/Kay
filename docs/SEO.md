@@ -18,9 +18,9 @@ production — le reste est la feuille de route, pas une description.
 
 | | |
 |---|---|
-| Pages | **une seule**, `/en/`, en anglais |
+| Pages | **trois** : `/en/`, `/es/`, `/fr/` |
 | `canonical` | auto-référent sur `/en/` |
-| `hreflang` | `en` + `x-default`, tous deux vers `/en/` |
+| `hreflang` | `en` · `es` · `fr` réciproques + `x-default` vers `/en/` |
 | `sitemap.xml` | généré, `<lastmod>` piloté par `contentUpdated` |
 | `robots.txt` | `Disallow: /api/` seulement, et il déclare le sitemap |
 | JSON-LD | `WebSite` + `WebPage` + `SportsActivityLocation` + `ItemList`/`Product`/`Offer` + `FAQPage`, tous liés par `@id` |
@@ -32,15 +32,11 @@ production — le reste est la feuille de route, pas une description.
 
 **Pas encore livré, et pourquoi :**
 
-- **`/es/` et `/fr/` ne sont pas publiées.** Les fichiers de traduction sont
-  encore des copies de l'anglais. Trois URLs portant le même texte anglais, avec
-  chacune son `hreflang`, c'est du contenu dupliqué : ça coûte du classement au
-  lieu d'en gagner. Les locales publiées sont listées dans
-  `content/products.json → publishedLocales`, et `build-deploy.mjs` **refuse de
-  construire** si une locale y figure alors que son fichier de messages est
-  encore marqué `_translated: false`. Le jour où la traduction est faite, on
-  ajoute la locale à la liste : routes, sitemap, `hreflang`, sélecteur de langue
-  et Open Graph suivent tout seuls.
+- ~~`/es/` et `/fr/` ne sont pas publiées~~ — **elles le sont maintenant.** Les
+  trois locales sont dans `content/products.json → publishedLocales`, et
+  `build-deploy.mjs` refuse toujours de construire si une locale y figure alors
+  que son fichier de messages est encore marqué `_translated: false`. Le garde
+  reste utile pour la prochaine langue.
 - **Les pages intérieures** (`/cenote-diving/angelita/`, `/courses/...`,
   `/journal/...`) décrites plus bas n'existent pas. Le site est une page unique
   avec des ancres. C'est suffisant pour ouvrir ; c'est le principal levier de

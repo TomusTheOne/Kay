@@ -53,8 +53,11 @@ pricing, and webhook idempotency. Runs against a real Postgres.
 `Dictionary` type is declared rather than inferred, so a missing key fails the
 build instead of printing `undefined` to a visitor.
 
-**`es.json` and `fr.json` are currently English copies** flagged `_translated: false`.
-The routing, metadata and `hreflang` are live; the words are not.
+**All three languages are live.** Spanish is Mexican Spanish and uses `tú`;
+French uses `vous`, as a business addressing a customer. PADI programme names
+(Open Water, Advanced Open Water, Discover Scuba, Deep) and place names
+(Tulum, Casa Cenote, Cenote Angelita, El Pit) stay in their original form,
+which is how dive centres write them in both markets.
 
 ## Where the content comes from
 

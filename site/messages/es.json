@@ -1,375 +1,375 @@
 {
   "meta": {
-    "title": "Cenote & Reef Diving in Tulum | Kay Diving — PADI Courses & Guided Dives",
-    "description": "Guided cenote and reef diving in Tulum, from a first try dive to PADI Open Water and Advanced. Equipment, cenote entrance, transport to the dive sites and snacks included. From $80."
+    "title": "Buceo en cenotes y arrecife en Tulum | Kay Diving — Cursos PADI",
+    "description": "Buceo guiado en cenotes y arrecife en Tulum, desde tu primera inmersión hasta PADI Open Water y Advanced. Equipo, entrada a los cenotes, transporte a los sitios y snacks incluidos. Desde $80."
   },
   "nav": {
-    "about": "About",
-    "products": "Dives & courses",
-    "included": "What's included",
-    "gallery": "Gallery",
-    "faq": "Questions",
-    "reserve": "Reserve",
-    "reserveLong": "Reserve a dive",
-    "menu": "Menu",
-    "language": "Language",
-    "logistics": "Getting there"
+    "about": "Nosotros",
+    "products": "Buceos y cursos",
+    "included": "Qué incluye",
+    "gallery": "Galería",
+    "faq": "Preguntas",
+    "reserve": "Reservar",
+    "reserveLong": "Reservar un buceo",
+    "menu": "Menú",
+    "language": "Idioma",
+    "logistics": "Cómo llegar"
   },
   "hero": {
     "kicker": "Tulum · Quintana Roo · Riviera Maya",
-    "l1": "Explore the",
-    "l2": "Mayan underworld.",
-    "lede": "Kay Diving guides cenote and reef dives around Tulum — from a first breath underwater to a PADI certification, and down to Angelita at thirty-eight metres. Our guides do not just take you down; they tell you the history of the place while you are in it.",
-    "cta2": "See what we run",
-    "alt": "A diver silhouetted against the turquoise glow of a Tulum cenote, among bare branches rising through the water",
-    "water": "WATER",
-    "viz": "VIZ",
-    "from": "FROM",
+    "l1": "Explora el",
+    "l2": "inframundo maya.",
+    "lede": "Kay Diving guía inmersiones en cenotes y arrecife alrededor de Tulum — desde tu primera respiración bajo el agua hasta una certificación PADI, y hasta Angelita a treinta y ocho metros. Nuestros guías no solo te llevan abajo: te cuentan la historia del lugar mientras estás dentro.",
+    "cta2": "Ver lo que hacemos",
+    "alt": "Un buzo en silueta contra el resplandor turquesa de un cenote de Tulum, entre ramas desnudas que suben por el agua",
+    "water": "AGUA",
+    "viz": "VIS",
+    "from": "DESDE",
     "agency": "PADI",
-    "agencyLabel": "COURSES"
+    "agencyLabel": "CURSOS"
   },
   "gauge": {
-    "surface": "Surface",
+    "surface": "Superficie",
     "cavern": "Cenote",
-    "deep": "Deep"
+    "deep": "Profundo"
   },
   "about": {
-    "tag": "About us",
-    "h2": "Three quarters of our planet are water. Let's go and explore them together.",
-    "p1": "At Kay Diving we are passionate about the Mayan underworld. Our guides will not only take you on a personalised experience, they will teach you about the magical history of this place. We also take pride in our responsibility towards the environment, making conscious decisions about the way we protect this beautiful planet.",
-    "p2": "The Riviera Maya has some of the most beautiful diving sites in the world, and some very good dive centres. What we take special pride in is making the tour yours — so that you feel at home, and the day is built around you rather than around a schedule.",
-    "questionTag": "Before you arrive",
-    "question": "We send you a few questions before the dive. What you have done before, what you want out of the day, what makes you uneasy. It is the difference between a dive that suits you and a dive that merely happens.",
-    "plateAlt": "A Kay Diving guide carrying a tank down to the water in Tulum",
-    "plateNote": "PERSONALISED · every tour built around you"
+    "tag": "Nosotros",
+    "h2": "Tres cuartas partes de nuestro planeta son agua. Vamos a explorarlas juntos.",
+    "p1": "En Kay Diving nos apasiona el inframundo maya. Nuestros guías no solo te llevan a una experiencia personalizada: te enseñan la historia mágica de este lugar. También nos enorgullece nuestra responsabilidad con el entorno, tomando decisiones conscientes sobre cómo protegemos este hermoso planeta.",
+    "p2": "La Riviera Maya tiene algunos de los sitios de buceo más bonitos del mundo, y muy buenos centros de buceo. Lo que nos distingue es hacer que el tour sea tuyo — que te sientas en casa, y que el día se arme alrededor de ti y no alrededor de un horario.",
+    "questionTag": "Antes de llegar",
+    "question": "Te mandamos unas preguntas antes del buceo. Qué has hecho antes, qué esperas del día, qué te inquieta. Es la diferencia entre un buceo hecho a tu medida y un buceo que simplemente ocurre.",
+    "plateAlt": "Un guía de Kay Diving llevando un tanque al agua en Tulum",
+    "plateNote": "PERSONALIZADO · cada tour armado alrededor de ti"
   },
   "products": {
-    "tag": "What we run",
-    "h2": "Six ways<br>into the water.",
-    "intro": "Every price below already includes your equipment, the cenote entrance fees, transport between the dive sites and snacks in the water. Hotel pickup is the one thing quoted separately — see Getting there.",
-    "from": "from",
-    "dive": "dive",
-    "dives": "dives",
-    "perDiver": "per diver",
-    "depth": "Max depth",
-    "time": "Dive time",
-    "where": "Where",
-    "needs": "You need",
-    "halfDay": "Half day",
+    "tag": "Lo que hacemos",
+    "h2": "Seis formas<br>de entrar al agua.",
+    "intro": "Cada precio de abajo ya incluye tu equipo, las entradas a los cenotes, el transporte entre los sitios y snacks en el agua. La única cosa que se cotiza aparte es el pickup en tu hotel — mira Cómo llegar.",
+    "from": "desde",
+    "dive": "inmersión",
+    "dives": "inmersiones",
+    "perDiver": "por persona",
+    "depth": "Prof. máx.",
+    "time": "Tiempo de fondo",
+    "where": "Dónde",
+    "needs": "Necesitas",
+    "halfDay": "Medio día",
     "level": {
-      "none": "No certification needed",
-      "open-water": "Open Water required",
-      "open-water-plus": "Open Water · Advanced or Deep for Angelita and El Pit"
+      "none": "Sin certificación",
+      "open-water": "Open Water requerido",
+      "open-water-plus": "Open Water · Advanced o Deep para Angelita y El Pit"
     },
     "places": {
       "casa-cenote": "Casa Cenote",
-      "tankah-reef": "Tankah reef",
+      "tankah-reef": "Arrecife de Tankah",
       "el-pit": "Cenote El Pit",
-      "by-level": "Chosen to match your level",
-      "favourite-cenotes": "Our favourite cenotes near Tulum"
+      "by-level": "Elegidos según tu nivel",
+      "favourite-cenotes": "Nuestros cenotes favoritos cerca de Tulum"
     },
     "items": {
       "discover-scuba": {
         "name": "Discover Scuba",
-        "tagline": "No PADI? No problem.",
-        "text": "Your first glimpse of the underwater world. Learn the basics of scuba, then go and explore an open-air cenote with crystal clear water, no deeper than seven metres. No certification, no previous experience — just a guide, shallow water and a very good morning.",
-        "alt": "The open, jungle-fringed surface of Casa Cenote near Tulum"
+        "tagline": "¿Sin PADI? Sin problema.",
+        "text": "Tu primer vistazo al mundo submarino. Aprendes lo básico del buceo y luego exploras un cenote a cielo abierto de agua cristalina, sin pasar de siete metros. Sin certificación, sin experiencia previa — solo un guía, agua poco profunda y una muy buena mañana.",
+        "alt": "La superficie abierta de Casa Cenote, rodeada de selva, cerca de Tulum"
       },
       "reef-cenote": {
-        "name": "Reef & Cenote",
-        "tagline": "Two worlds unveiled at once.",
-        "text": "One day, both halves of what makes this coast worth diving: the reef off Tankah, then the fresh water of Casa Cenote. Salt and sweet, turtles and stalactites, in a single morning.",
-        "alt": "A hand-drawn scene of the Tankah reef and a cenote, side by side"
+        "name": "Arrecife y Cenote",
+        "tagline": "Dos mundos en una mañana.",
+        "text": "Un día, las dos mitades de lo que hace que valga la pena bucear esta costa: el arrecife frente a Tankah y luego el agua dulce de Casa Cenote. Salada y dulce, tortugas y estalactitas, en una sola mañana.",
+        "alt": "Una escena dibujada a mano del arrecife de Tankah y un cenote, lado a lado"
       },
       "cenote-diving": {
-        "name": "Cenote Diving",
-        "tagline": "Explore the Mayan underworld.",
-        "text": "Into some of the most beautiful flooded caverns in the world. You choose the cenotes with us, and which ones are open to you depends on your certification — Angelita and El Pit are the two that pass thirty metres.",
-        "alt": "A diver under the surface of a Tulum cenote, light falling through the mangrove roots"
+        "name": "Buceo en Cenotes",
+        "tagline": "Explora el inframundo maya.",
+        "text": "Dentro de algunas de las cavernas inundadas más bonitas del mundo. Eliges los cenotes con nosotros, y cuáles están abiertos para ti depende de tu certificación — Angelita y El Pit son los dos que pasan de treinta metros.",
+        "alt": "Un buzo bajo la superficie de un cenote de Tulum, con la luz cayendo entre las raíces de mangle"
       },
       "advanced-ow": {
         "name": "Advanced Open Water",
-        "tagline": "Climb the experience ladder.",
-        "text": "The next step: five specialty dives taking you to thirty metres, across Casa Cenote, Cenote El Pit and the Tankah reef. Learning materials included.",
-        "alt": "A diver near the surface of a Tulum cenote beside a rock wall"
+        "tagline": "Sube un escalón de experiencia.",
+        "text": "El siguiente paso: cinco inmersiones de especialidad que te llevan a treinta metros, entre Casa Cenote, el Cenote El Pit y el arrecife de Tankah. Material de estudio incluido.",
+        "alt": "Un buzo cerca de la superficie de un cenote de Tulum, junto a una pared de roca"
       },
       "open-water": {
-        "name": "Open Water Course",
-        "tagline": "Join the fun, become a certified diver.",
-        "text": "The full PADI Open Water licence over five dives, between Casa Cenote and the Tankah reef. No previous experience needed. You leave with a certification that works anywhere in the world.",
-        "alt": "A Kay Diving guide carrying a tank to the water"
+        "name": "Curso Open Water",
+        "tagline": "Únete y hazte buzo certificado.",
+        "text": "La certificación PADI Open Water completa en cinco inmersiones, entre Casa Cenote y el arrecife de Tankah. No necesitas experiencia previa. Te vas con una certificación válida en cualquier parte del mundo.",
+        "alt": "Un guía de Kay Diving llevando un tanque al agua"
       },
       "snorkel": {
-        "name": "Snorkel tour",
-        "tagline": "Connect with nature.",
-        "text": "For anyone who wants a little adventure and a lot of calm. Three different cenotes across half a day, finishing at one of the best local taquerías in town. No experience needed, and no tank.",
-        "alt": "A cenote near Tulum seen from the bank, jungle reflected in still water"
+        "name": "Tour de snorkel",
+        "tagline": "Conecta con la naturaleza.",
+        "text": "Para quien quiere un poco de aventura y mucha calma. Tres cenotes distintos en medio día, terminando en una de las mejores taquerías del pueblo. Sin experiencia y sin tanque.",
+        "alt": "Un cenote cerca de Tulum visto desde la orilla, con la selva reflejada en el agua quieta"
       }
     },
-    "sitesTag": "The deep two",
+    "sitesTag": "Los dos profundos",
     "sites": {
       "angelita": {
         "name": "Cenote Angelita",
         "depth": "35–38 m",
-        "note": "The hydrogen sulphide cloud, with dead branches rising through it."
+        "note": "La nube de ácido sulfhídrico, con ramas muertas que la atraviesan hacia arriba."
       },
       "el-pit": {
         "name": "Cenote El Pit",
         "depth": "30–32 m",
-        "note": "Light falls the whole way down the shaft and simply stands there."
+        "note": "La luz baja por todo el tiro y se queda ahí, quieta."
       },
       "others": {
-        "name": "The other cenotes",
-        "depth": "to 18 m",
-        "note": "Chosen with you to match your level and what you want from the day."
+        "name": "Los demás cenotes",
+        "depth": "hasta 18 m",
+        "note": "Elegidos contigo según tu nivel y lo que quieras del día."
       }
     }
   },
   "included": {
-    "tag": "In every price",
-    "h2": "What you are not<br>paying extra for.",
-    "intro": "Dive centres in Tulum quote in very different ways. Here is exactly what our prices already cover — and the one thing that is charged separately.",
+    "tag": "En cada precio",
+    "h2": "Lo que no pagas<br>por separado.",
+    "intro": "Los centros de buceo en Tulum cotizan de maneras muy distintas. Esto es exactamente lo que nuestros precios ya cubren — y lo único que se cobra aparte.",
     "items": {
       "equipment": {
-        "name": "Equipment",
-        "text": "High quality gear, fitted before you get in. Bring a swimsuit and reef-safe sunscreen."
+        "name": "Equipo",
+        "text": "Equipo de calidad, ajustado antes de entrar. Trae traje de baño y bloqueador biodegradable."
       },
       "entrance": {
-        "name": "Cenote entrance",
-        "text": "The entry fee to every cenote on your day is in the price. No cash gate to pay at the door."
+        "name": "Entrada a los cenotes",
+        "text": "La entrada a cada cenote de tu día va en el precio. Nada que pagar en efectivo en la puerta."
       },
       "snacks": {
-        "name": "Snacks & water",
-        "text": "Food and water between dives. Cenote mornings run longer than people expect."
+        "name": "Snacks y agua",
+        "text": "Comida y agua entre inmersiones. Las mañanas de cenote se alargan más de lo que la gente espera."
       },
       "site-transport": {
-        "name": "Transport to the sites",
-        "text": "From the meeting point to every cenote and back, all day. Hotel pickup is separate — see below."
+        "name": "Transporte a los sitios",
+        "text": "Del punto de encuentro a cada cenote y de regreso, todo el día. El pickup en hotel va aparte — mira abajo."
       },
       "materials": {
-        "name": "Learning materials",
-        "text": "On both courses, everything you need to study is included."
+        "name": "Material de estudio",
+        "text": "En los dos cursos, todo lo que necesitas para estudiar está incluido."
       },
       "snorkel-mask": {
-        "name": "Snorkel & mask",
-        "text": "Provided on the snorkel tour."
+        "name": "Snorkel y visor",
+        "text": "Incluidos en el tour de snorkel."
       },
       "padi-licence": {
-        "name": "PADI licence",
-        "text": "The Open Water course ends with a certification recognised worldwide."
+        "name": "Certificación PADI",
+        "text": "El curso Open Water termina con una certificación reconocida en todo el mundo."
       }
     }
   },
   "gallery": {
-    "tag": "From the water",
-    "h2": "What it actually<br>looks like down there.",
-    "intro": "Shot by the guides on working days — no models, no staging. More of it, most days, on",
+    "tag": "Desde el agua",
+    "h2": "Cómo se ve<br>realmente allá abajo.",
+    "intro": "Fotos tomadas por los guías en días de trabajo — sin modelos, sin montaje. Más, casi a diario, en",
     "captions": {}
   },
   "quote": {
-    "text": "Three quarters of our planet are water. Let's go and explore them together.",
+    "text": "Tres cuartas partes de nuestro planeta son agua. Vamos a explorarlas juntos.",
     "cite": "Kay Diving · Tulum"
   },
   "book": {
-    "tag": "Reservations",
-    "h2": "Book your<br>day in the water.",
-    "intro": "A deposit holds the date. We confirm by WhatsApp within a few hours, send you our few questions, and you settle the balance on the day.",
-    "s1": "01 — What you want to do",
-    "s2": "02 — How many dives",
-    "s3": "03 — Date",
-    "s4": "04 — Start time",
-    "s5": "05 — Your level",
-    "s6": "06 — How many of you",
-    "s7": "07 — Getting there",
-    "namePh": "Your name",
-    "mailPh": "you@email.com",
+    "tag": "Reservaciones",
+    "h2": "Reserva tu<br>día en el agua.",
+    "intro": "Un anticipo aparta la fecha. Confirmamos por WhatsApp en unas horas, te mandamos nuestras preguntas y liquidas el resto el mismo día.",
+    "s1": "01 — Qué quieres hacer",
+    "s2": "02 — Cuántas inmersiones",
+    "s3": "03 — Fecha",
+    "s4": "04 — Hora de salida",
+    "s5": "05 — Tu nivel",
+    "s6": "06 — Cuántos son",
+    "s7": "07 — Cómo llegas",
+    "namePh": "Tu nombre",
+    "mailPh": "tu@correo.com",
     "certs": [
-      "Not certified yet",
+      "Aún sin certificar",
       "Open Water",
       "Advanced Open Water",
-      "Deep speciality",
+      "Especialidad Deep",
       "Rescue / Divemaster",
-      "Cave or cavern certified"
+      "Certificación de cueva o caverna"
     ],
-    "slate": "Dive slate",
-    "stamp": "Not confirmed",
-    "rProduct": "Experience",
-    "rOption": "Dives",
-    "rDate": "Date",
-    "rDepth": "Max depth",
-    "rLevel": "You need",
-    "rDivers": "Divers",
+    "slate": "Pizarra de buceo",
+    "stamp": "Sin confirmar",
+    "rProduct": "Experiencia",
+    "rOption": "Inmersiones",
+    "rDate": "Fecha",
+    "rDepth": "Prof. máx.",
+    "rLevel": "Necesitas",
+    "rDivers": "Buzos",
     "rTotal": "Total",
-    "halfDayLabel": "Half day",
-    "fine": "Equipment, cenote entrance, transport to the sites and snacks included. Prices per person in USD; pickup is per booking.",
-    "submit": "Reserve with a deposit",
-    "submitting": "Opening checkout…",
-    "error": "Something went wrong opening the checkout. Try again, or write to us on WhatsApp.",
-    "s8": "08 — Name",
-    "s9": "09 — Email",
-    "rPickup": "Getting there",
-    "rTime": "Start",
-    "timeOther": "Another time — we will check"
+    "halfDayLabel": "Medio día",
+    "fine": "Equipo, entrada a los cenotes, transporte a los sitios y snacks incluidos. Precios por persona en USD; el pickup es por reservación.",
+    "submit": "Reservar con anticipo",
+    "submitting": "Abriendo el pago…",
+    "error": "Algo falló al abrir el pago. Inténtalo de nuevo o escríbenos por WhatsApp.",
+    "s8": "08 — Nombre",
+    "s9": "09 — Correo",
+    "rPickup": "Cómo llegas",
+    "rTime": "Salida",
+    "timeOther": "Otra hora — la revisamos"
   },
   "faq": {
-    "tag": "Before you come",
-    "h2": "Questions<br>worth asking.",
+    "tag": "Antes de venir",
+    "h2": "Preguntas que<br>vale la pena hacer.",
     "items": [
       {
-        "q": "Do I need to be certified to dive here?",
-        "a": "Not to start. Discover Scuba takes people who have never breathed underwater, and the snorkel tour needs nothing at all. Cenote diving and the reef need an Open Water certification. For the two deep cenotes — Angelita and El Pit — you need Advanced Open Water or a Deep speciality; either one is enough."
+        "q": "¿Necesito estar certificado para bucear aquí?",
+        "a": "No para empezar. Discover Scuba recibe a gente que nunca ha respirado bajo el agua, y el tour de snorkel no necesita nada. El buceo en cenotes y el arrecife piden certificación Open Water. Para los dos cenotes profundos — Angelita y El Pit — necesitas Advanced Open Water o la especialidad Deep; con cualquiera de las dos basta."
       },
       {
-        "q": "How deep do the dives go?",
-        "a": "Discover Scuba stays at seven metres (25 ft). The Open Water course and the reef stay around nine metres. Most cenote dives are planned to eighteen metres. The two deep ones go further: Cenote Angelita reaches 35–38 metres and Cenote El Pit 30–32. The Advanced course works to 27 metres (90 ft)."
+        "q": "¿Hasta qué profundidad van las inmersiones?",
+        "a": "Discover Scuba se queda en siete metros (25 ft). El curso Open Water y el arrecife rondan los nueve metros. La mayoría de las inmersiones en cenote se planean a dieciocho metros. Las dos profundas van más allá: el Cenote Angelita llega a 35–38 metros y el Cenote El Pit a 30–32. El curso Advanced trabaja hasta 27 metros (90 ft)."
       },
       {
-        "q": "What is actually included in the price?",
-        "a": "High quality equipment, the cenote entrance fees, transport from the meeting point to every site and back, and snacks and water. Both courses also include the learning materials. Hotel pickup is the one thing charged separately — see below."
+        "q": "¿Qué incluye realmente el precio?",
+        "a": "Equipo de calidad, las entradas a los cenotes, el transporte del punto de encuentro a cada sitio y de regreso, y snacks y agua. Los dos cursos incluyen además el material de estudio. El pickup en hotel es lo único que se cobra aparte — mira abajo."
       },
       {
-        "q": "Can you pick me up from my hotel?",
-        "a": "We meet at Easy Chango Dive Center in Tulum at no extra cost. If you are staying in Tulum town we can collect you and drop you back for $20 for the whole booking. If you are outside town or in the hotel zone we cannot collect you, but we can drive you back afterwards for $10."
+        "q": "¿Pueden pasar por mí a mi hotel?",
+        "a": "Nos vemos en Easy Chango Dive Center, en Tulum, sin costo extra. Si te quedas en el pueblo de Tulum podemos pasar por ti y regresarte por $20 por toda la reservación. Si estás fuera del pueblo o en la zona hotelera no podemos ir por ti, pero sí podemos regresarte después por $10."
       },
       {
-        "q": "What time do you start?",
-        "a": "Three departures: 08:00–13:00, 08:30–13:30 and 09:00–14:00. You can suggest another time when you book — we check it and confirm. Two cenote dives have to start by 13:30 at the latest, and a single dive at Casa Cenote can start as late as 15:00."
+        "q": "¿A qué hora salen?",
+        "a": "Tres salidas: 8:00–13:00, 8:30–13:30 y 9:00–14:00. Puedes proponer otra hora al reservar — la revisamos y confirmamos. Dos inmersiones en cenote tienen que salir a más tardar a la 1:30 p. m., y una sola inmersión en Casa Cenote puede salir hasta las 3:00 p. m."
       },
       {
-        "q": "What is the difference between cavern and cave diving?",
-        "a": "Cavern diving stays inside the natural daylight zone, within reach of the entrance and always with a direct route to the surface. Cave diving goes beyond daylight and needs its own certification — a different qualification entirely, and not something an Open Water card covers."
+        "q": "¿Cuál es la diferencia entre buceo en caverna y en cueva?",
+        "a": "El buceo en caverna se queda dentro de la zona de luz natural, cerca de la entrada y siempre con una ruta directa a la superficie. El buceo en cueva va más allá de la luz del día y necesita su propia certificación — una formación completamente distinta, que una tarjeta de Open Water no cubre."
       },
       {
-        "q": "How cold is the water?",
-        "a": "Cenotes sit at roughly 24–25 °C every day of the year, and the reef is a little warmer. Wetsuits are part of the equipment we provide — tell us if you run cold."
+        "q": "¿Qué tan fría está el agua?",
+        "a": "Los cenotes están entre 24 y 25 °C todos los días del año, y el arrecife un poco más templado. Los trajes son parte del equipo que damos — dinos si eres de los que sienten frío."
       },
       {
-        "q": "What is a halocline?",
-        "a": "Fresh rainwater floating on heavier salt water. The boundary between them refracts light, so swimming through it looks like the water has turned to oil or frosted glass — then it closes behind you and the view snaps back. It is one of the strangest things you will see underwater."
+        "q": "¿Qué es una haloclina?",
+        "a": "Agua dulce de lluvia flotando sobre agua salada, más pesada. El límite entre las dos refracta la luz, así que nadar a través se ve como si el agua se hubiera vuelto aceite o vidrio esmerilado — luego se cierra detrás de ti y la vista vuelve de golpe. Es una de las cosas más extrañas que verás bajo el agua."
       },
       {
-        "q": "Why do you send questions before the dive?",
-        "a": "Because a tour built around you is better than a tour built around a schedule. We want to know what you have done before, what you are hoping for, and what makes you uneasy — so the day fits, rather than merely happening."
+        "q": "¿Por qué mandan preguntas antes del buceo?",
+        "a": "Porque un tour armado alrededor de ti es mejor que un tour armado alrededor de un horario. Queremos saber qué has hecho antes, qué esperas y qué te inquieta — para que el día te quede a la medida en vez de simplemente ocurrir."
       },
       {
-        "q": "When is the best time of year to come?",
-        "a": "Cenotes are sheltered from wind and swell, so they dive well all year. Light beams in the cenotes are strongest around the middle of the day. Reef conditions are generally best in the spring and early summer."
+        "q": "¿Cuál es la mejor época del año para venir?",
+        "a": "Los cenotes están resguardados del viento y del oleaje, así que se bucean bien todo el año. Los haces de luz dentro de los cenotes son más fuertes a media jornada. Las condiciones del arrecife suelen ser mejores en primavera y a principios de verano."
       }
     ]
   },
   "cta": {
-    "kicker": "Tulum · year-round",
-    "h2": "Let's go and explore them together.",
-    "lede": "Tell us your dates and what you have done before. We will tell you honestly which sites are worth your time that week.",
-    "instagram": "See it on Instagram"
+    "kicker": "Tulum · todo el año",
+    "h2": "Vamos a explorarlas juntos.",
+    "lede": "Dinos tus fechas y qué has buceado antes. Te diremos con honestidad qué sitios valen la pena esa semana.",
+    "instagram": "Míralo en Instagram"
   },
   "footer": {
-    "blurb": "Guided cenote and reef diving and PADI courses in Tulum, Quintana Roo. Equipment, cenote entrance, transport to the dive sites and snacks included in every price.",
-    "explore": "Dives & courses",
-    "learn": "Learn",
-    "find": "Find us",
+    "blurb": "Buceo guiado en cenotes y arrecife y cursos PADI en Tulum, Quintana Roo. Equipo, entrada a los cenotes, transporte a los sitios y snacks incluidos en cada precio.",
+    "explore": "Buceos y cursos",
+    "learn": "Aprender",
+    "find": "Encuéntranos",
     "whatsapp": "WhatsApp",
-    "email": "Email",
+    "email": "Correo",
     "place": "Tulum, Quintana Roo, MX",
-    "phone": "Phone",
-    "meet": "Meeting point"
+    "phone": "Teléfono",
+    "meet": "Punto de encuentro"
   },
   "booking": {
     "thanks": {
-      "tag": "Payment received",
-      "h2": "You are on the boat.",
-      "p": "Your deposit is in and the date is held. A guide will message you on WhatsApp within a few hours with the meeting point, the time, and the few questions we ask before every dive. The balance is settled on the day.",
-      "cta": "Back to the site"
+      "tag": "Pago recibido",
+      "h2": "Ya estás dentro.",
+      "p": "Tu anticipo entró y la fecha está apartada. Un guía te escribe por WhatsApp en unas horas con el punto de encuentro, la hora y las pocas preguntas que hacemos antes de cada buceo. El resto se liquida el mismo día.",
+      "cta": "Volver al sitio"
     },
     "pending": {
-      "tag": "Payment pending",
-      "h2": "Almost there.",
-      "p": "Your bank or the payment method you chose has not confirmed yet — with OXXO or a transfer this can take a few hours. We hold the date meanwhile and write to you the moment it clears.",
-      "cta": "Back to the site"
+      "tag": "Pago pendiente",
+      "h2": "Casi listo.",
+      "p": "Tu banco o el método de pago que elegiste todavía no confirma — con OXXO o transferencia esto puede tardar unas horas. Mientras tanto apartamos la fecha y te escribimos en cuanto se acredite.",
+      "cta": "Volver al sitio"
     },
     "failed": {
-      "tag": "Payment not completed",
-      "h2": "That did not go through.",
-      "p": "Nothing was charged and no date is held. Cards issued outside Mexico are sometimes refused on a first attempt — try again, or write to us on WhatsApp and we will hold the date by hand.",
-      "cta": "Try again"
+      "tag": "Pago no completado",
+      "h2": "Eso no pasó.",
+      "p": "No se cobró nada y no hay fecha apartada. Las tarjetas emitidas fuera de México a veces se rechazan en el primer intento — inténtalo otra vez, o escríbenos por WhatsApp y apartamos la fecha a mano.",
+      "cta": "Intentar de nuevo"
     }
   },
   "logistics": {
-    "tag": "Getting there",
-    "h2": "Where we meet,<br>and when.",
-    "meetTag": "Meeting point",
-    "meetText": "We meet at Easy Chango Dive Center in Tulum. Coming to us costs nothing, and it is where the day starts.",
-    "pickupTag": "If you would rather be collected",
+    "tag": "Cómo llegar",
+    "h2": "Dónde nos vemos,<br>y a qué hora.",
+    "meetTag": "Punto de encuentro",
+    "meetText": "Nos vemos en Easy Chango Dive Center, en Tulum. Llegar con nosotros no cuesta nada, y es donde empieza el día.",
+    "pickupTag": "Si prefieres que pasemos por ti",
     "pickups": {
       "meeting-point": {
         "name": "Easy Chango Dive Center",
-        "text": "The meeting point. No extra charge.",
-        "price": "Included"
+        "text": "El punto de encuentro. Sin costo extra.",
+        "price": "Incluido"
       },
       "tulum-town": {
-        "name": "Anywhere in Tulum town",
-        "text": "We collect you before the tour and drop you back after.",
+        "name": "Cualquier punto del pueblo de Tulum",
+        "text": "Pasamos por ti antes del tour y te dejamos de regreso después.",
         "price": "+$20"
       },
       "outside-town": {
-        "name": "Outside town or the hotel zone",
-        "text": "We cannot collect you out there, but we can drive you back afterwards.",
-        "price": "+$10 return only"
+        "name": "Fuera del pueblo o en la zona hotelera",
+        "text": "Hasta allá no podemos ir por ti, pero sí podemos regresarte después.",
+        "price": "+$10 solo regreso"
       }
     },
-    "timesTag": "Start times",
-    "timesText": "Three fixed departures. You can also suggest another time — tell us when booking and we will check whether it works before confirming.",
-    "limitsTag": "The last departures",
-    "limits": "Two cenote dives start by 13:30 at the latest. A single dive, at Casa Cenote only, can start as late as 15:00."
+    "timesTag": "Horarios de salida",
+    "timesText": "Tres salidas fijas. También puedes proponer otra hora — dínoslo al reservar y la revisamos antes de confirmar.",
+    "limitsTag": "Las últimas salidas",
+    "limits": "Dos inmersiones en cenote salen a más tardar a la 1:30 p. m. Una sola inmersión, solo en Casa Cenote, puede salir hasta las 3:00 p. m."
   },
   "emails": {
     "common": {
-      "dive": "dive",
-      "dives": "dives",
-      "halfDay": "Half day",
-      "divers": "divers",
-      "diver": "diver",
-      "slotOther": "Time to be confirmed — we will write to you",
-      "noCert": "Not stated"
+      "dive": "inmersión",
+      "dives": "inmersiones",
+      "halfDay": "Medio día",
+      "divers": "buzos",
+      "diver": "buzo",
+      "slotOther": "Hora por confirmar — te escribimos",
+      "noCert": "No indicada"
     },
     "diver": {
-      "subject": "Your dive is booked — {date}",
-      "preheader": "Deposit received. Everything for the day is below.",
-      "kicker": "Booking confirmed",
-      "hi": "Hi {name},",
-      "lede": "Your deposit has gone through and {date} is held for you. Here is exactly what we have on file.",
-      "detailsTag": "Your booking",
-      "whatLabel": "What",
-      "dateLabel": "Date",
-      "timeLabel": "Start",
-      "peopleLabel": "People",
-      "certLabel": "Certification",
-      "meetLabel": "Meeting point",
+      "subject": "Tu buceo está reservado — {date}",
+      "preheader": "Anticipo recibido. Abajo está todo para el día.",
+      "kicker": "Reservación confirmada",
+      "hi": "Hola {name}:",
+      "lede": "Tu anticipo pasó y el {date} queda apartado para ti. Esto es exactamente lo que tenemos registrado.",
+      "detailsTag": "Tu reservación",
+      "whatLabel": "Qué",
+      "dateLabel": "Fecha",
+      "timeLabel": "Salida",
+      "peopleLabel": "Personas",
+      "certLabel": "Certificación",
+      "meetLabel": "Punto de encuentro",
       "pickupLabel": "Pickup",
-      "moneyTag": "Payment",
+      "moneyTag": "Pago",
       "totalLabel": "Total",
-      "paidLabel": "Deposit paid",
-      "balanceLabel": "Balance on the day",
-      "balanceNote": "Settled in cash or by card when you arrive.",
-      "nextTag": "What happens next",
-      "nextText": "A guide writes to you on WhatsApp within a few hours to confirm the details and ask the few medical questions we ask before every dive. If anything above is wrong, just reply to this email.",
-      "bringTag": "Bring",
-      "bringText": "A swimsuit, a towel, and your certification card if you hold one. Sunscreen is not allowed in the cenotes — the water is drinking water.",
-      "refLabel": "Booking reference",
-      "signoff": "See you in the water,",
+      "paidLabel": "Anticipo pagado",
+      "balanceLabel": "Resto el mismo día",
+      "balanceNote": "Se liquida en efectivo o con tarjeta al llegar.",
+      "nextTag": "Qué sigue",
+      "nextText": "Un guía te escribe por WhatsApp en unas horas para confirmar los detalles y hacerte las pocas preguntas médicas que hacemos antes de cada buceo. Si algo de arriba está mal, solo responde a este correo.",
+      "bringTag": "Trae",
+      "bringText": "Traje de baño, una toalla y tu tarjeta de certificación si tienes una. El bloqueador no se permite en los cenotes — esa agua es agua potable.",
+      "refLabel": "Referencia de reservación",
+      "signoff": "Nos vemos en el agua,",
       "team": "Kay Diving Tulum",
-      "footer": "You are receiving this because you booked a dive at {site}."
+      "footer": "Recibes este correo porque reservaste un buceo en {site}."
     },
     "shop": {
-      "subject": "PAID · {date} · {product} × {divers}",
-      "title": "New booking · {product}",
-      "contactTag": "Diver",
-      "nameLabel": "Name",
-      "emailLabel": "Email",
-      "localeLabel": "Wrote in",
-      "action": "Message them on WhatsApp and put them on the day sheet."
+      "subject": "PAGADO · {date} · {product} × {divers}",
+      "title": "Nueva reservación · {product}",
+      "contactTag": "Buzo",
+      "nameLabel": "Nombre",
+      "emailLabel": "Correo",
+      "localeLabel": "Escribió en",
+      "action": "Escríbele por WhatsApp y ponlo en la hoja del día."
     }
   },
-  "_translated": false,
-  "_note": "TRADUCTION ESPAGNOLE À FAIRE"
+  "_translated": true,
+  "_note": "Traducción al español de México, revisada con el inglés clave por clave. Los nombres PADI y los topónimos se quedan en su forma original."
 }

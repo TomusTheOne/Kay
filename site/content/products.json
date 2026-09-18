@@ -2,7 +2,9 @@
   "_comment": "Single source of truth for what Kay sells. Read by the TypeScript site AND by the PHP endpoints, so a price can never disagree between the page and the charge. Figures come from the 2026 menu PDF, corrected by Kay's own answers where the menu was wrong or silent.",
   "contentUpdated": "2026-09-18",
   "publishedLocales": [
-    "en"
+    "en",
+    "es",
+    "fr"
   ],
   "maxDepthM": 38,
   "shop": {

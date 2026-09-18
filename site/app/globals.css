@@ -166,10 +166,18 @@ ul{list-style:none;padding:0}
 .gauge__dot{width:7px;height:7px;border-radius:50%;background:var(--turq);box-shadow:0 0 12px var(--turq);flex:none;margin-right:6px;align-self:center}
 .gauge__num{font-family:var(--mono);font-size:.95rem;font-weight:600;color:var(--foam);line-height:1}
 .gauge__u{font-family:var(--mono);font-size:.6rem;color:var(--foam-34)}
+/* The caption is wider than the 56px rail it hangs off — 87px in English,
+   109px in Spanish — so it reaches into the page's left margin. That margin
+   is (100vw - shell)/2, and below roughly 1500px it is not wide enough: the
+   caption ran into the hero paragraph. It was doing that in English too,
+   at 1280px, long before there was a Spanish page to notice it with.
+   Shown only where it genuinely fits, which no translation can undo. */
 .gauge__cap{
   position:absolute;bottom:-3.3rem;left:0;font-family:var(--mono);font-size:.55rem;
   letter-spacing:.24em;text-transform:uppercase;color:var(--foam-34);writing-mode:horizontal-tb;
+  display:none;
 }
+@media (min-width:1500px){ .gauge__cap{display:block} }
 @media (max-width:1180px){
   .gauge{top:auto;bottom:0;left:0;right:0;transform:none;width:100%;height:auto;
     display:flex;align-items:center;gap:.7rem;padding:.5rem clamp(12px,4vw,20px) calc(.5rem + env(safe-area-inset-bottom,0px));
