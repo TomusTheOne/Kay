@@ -1,0 +1,73 @@
+# ============================================================================
+# Kay Diving — Apache configuration for OVH shared hosting.
+# The site is a static export, so Next's own headers() and middleware never
+# run: everything they used to do lives here.
+# ============================================================================
+
+Options -Indexes
+DirectoryIndex index.html
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # --- HTTPS only -----------------------------------------------------------
+  RewriteCond %{HTTPS} !=on
+  RewriteCond %{HTTP:X-Forwarded-Proto} !https
+  RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+
+  # --- The bare root goes to the default locale -----------------------------
+  RewriteRule ^$ /en/ [R=302,L]
+
+  # --- Leave the PHP endpoints and real files alone -------------------------
+  RewriteCond %{REQUEST_URI} ^/api/ [OR]
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+</IfModule>
+
+# --- Security headers -------------------------------------------------------
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Strict-Transport-Security "max-age=63072000; includeSubDomains; preload"
+  Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+  # Do not advertise the stack.
+  Header unset X-Powered-By
+  Header always unset X-Powered-By
+</IfModule>
+
+# --- Caching ----------------------------------------------------------------
+<IfModule mod_expires.c>
+  ExpiresActive On
+  # Content-hashed by Next: safe to keep for a year.
+  <FilesMatch "\.(js|css|woff2)$">
+    ExpiresDefault "access plus 1 year"
+    Header append Cache-Control "public, immutable"
+  </FilesMatch>
+  # Photographs and illustrations are never edited in place.
+  <FilesMatch "\.(avif|webp|jpg|jpeg|png|svg|ico)$">
+    ExpiresDefault "access plus 1 year"
+    Header append Cache-Control "public, immutable"
+  </FilesMatch>
+  # HTML must always be revalidated, or a price change never reaches anyone.
+  <FilesMatch "\.html$">
+    ExpiresDefault "access plus 0 seconds"
+    Header set Cache-Control "public, max-age=0, must-revalidate"
+  </FilesMatch>
+</IfModule>
+
+# --- Compression ------------------------------------------------------------
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml \
+    application/javascript application/json image/svg+xml
+</IfModule>
+
+# --- Nothing sensitive is ever served ---------------------------------------
+<FilesMatch "^(\.env.*|.*\.sql|.*\.json\.bak|composer\.(json|lock))$">
+  Require all denied
+</FilesMatch>
+# The PHP test runner has no business being reachable.
+RedirectMatch 404 ^/api/tests/
+
+ErrorDocument 404 /404.html

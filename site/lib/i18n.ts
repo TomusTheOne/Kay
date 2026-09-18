@@ -6,9 +6,13 @@ export function isLocale(v: string): v is Locale {
   return (LOCALES as readonly string[]).includes(v);
 }
 
-/** Only the default locale sits at the root; the others get a prefix. */
+/**
+ * Every locale gets its own prefix. Static export writes en/index.html,
+ * es/index.html and fr/index.html; .htaccess sends the bare root to the
+ * default one. Trailing slashes throughout, to match trailingSlash: true.
+ */
 export function pathFor(locale: Locale, path = "/") {
-  return locale === DEFAULT_LOCALE ? path : `/${locale}${path === "/" ? "" : path}`;
+  return path === "/" ? `/${locale}/` : `/${locale}${path}`;
 }
 
 /* ---------------------------------------------------------------- shapes --

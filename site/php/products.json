@@ -1,0 +1,58 @@
+{
+  "_comment": "Single source of truth for what Kay sells. Read by the TypeScript site AND by the PHP endpoints, so a price can never disagree between the page and the charge. Figures come from the 2026 menu PDF.",
+  "maxDepthM": 40,
+  "shop": {
+    "lat": 20.2114,
+    "lon": -87.4654,
+    "waterTempC": 25,
+    "visibilityM": "30 m+",
+    "sacActunKm": 376,
+    "instagram": "https://www.instagram.com/kaydivingtulum",
+    "agency": "PADI"
+  },
+  "alwaysIncluded": ["transport", "equipment", "entrance", "snacks"],
+  "products": [
+    { "slug": "discover-scuba", "kind": "dive", "level": "none",
+      "maxDepthFt": 30, "maxDepthM": 9, "diveTime": "45 min",
+      "locations": ["casa-cenote"],
+      "options": [{ "dives": 1, "price": 100 }, { "dives": 2, "price": 140 }],
+      "photo": "card-casa", "art": "casa-cenote", "extraIncludes": [] },
+
+    { "slug": "reef-cenote", "kind": "dive", "level": "open-water",
+      "maxDepthFt": 30, "maxDepthM": 9, "diveTime": "45 min",
+      "locations": ["casa-cenote", "tankah-reef"],
+      "options": [{ "dives": 2, "price": 140 }],
+      "photo": "reef-turtle", "art": "reef", "extraIncludes": [] },
+
+    { "slug": "cenote-diving", "kind": "dive", "level": "open-water-plus",
+      "maxDepthFt": 60, "maxDepthM": 18, "diveTime": "30–45 min",
+      "locations": ["by-level"],
+      "options": [{ "dives": 2, "price": 150 }, { "dives": 3, "price": 170 }],
+      "photo": "card-angelita", "art": "cavern", "extraIncludes": [] },
+
+    { "slug": "advanced-ow", "kind": "course", "level": "open-water",
+      "maxDepthFt": 90, "maxDepthM": 27, "diveTime": "30–45 min",
+      "locations": ["casa-cenote", "el-pit", "tankah-reef"],
+      "options": [{ "dives": 5, "price": 460 }],
+      "photo": "card-dosojos", "art": "the-pit", "extraIncludes": ["materials"] },
+
+    { "slug": "open-water", "kind": "course", "level": "none",
+      "maxDepthFt": 30, "maxDepthM": 9, "diveTime": "30–45 min",
+      "locations": ["casa-cenote", "tankah-reef"],
+      "options": [{ "dives": 5, "price": 450 }],
+      "photo": "guide", "art": "cenote-shaft", "extraIncludes": ["materials", "padi-licence"] },
+
+    { "slug": "snorkel", "kind": "snorkel", "level": "none",
+      "maxDepthFt": null, "maxDepthM": null, "diveTime": null,
+      "locations": ["favourite-cenotes"],
+      "options": [{ "dives": 0, "price": 80 }],
+      "photo": "gallery-5", "art": "casa-cenote", "extraIncludes": ["snorkel-mask"] }
+  ],
+  "gallery": [
+    { "photo": "gallery-2", "tall": true },
+    { "photo": "gallery-1", "tall": false },
+    { "photo": "gallery-4", "tall": false },
+    { "photo": "gallery-3", "tall": false },
+    { "photo": "gallery-5", "tall": false }
+  ]
+}

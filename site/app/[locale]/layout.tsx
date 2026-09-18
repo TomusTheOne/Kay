@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Instrument_Serif, Inter, IBM_Plex_Mono } from "next/font/google";
 import { notFound } from "next/navigation";
-import { LOCALES, isLocale, getDictionary, pathFor, type Locale } from "@/lib/i18n";
+import { LOCALES, DEFAULT_LOCALE, isLocale, getDictionary, pathFor, type Locale } from "@/lib/i18n";
 import { SHOP } from "@/content/products";
 import "../globals.css";
 
@@ -39,7 +39,7 @@ export async function generateMetadata(
       canonical: url,
       languages: {
         ...Object.fromEntries(LOCALES.map((l) => [l, `${SHOP.domain}${pathFor(l)}`])),
-        "x-default": SHOP.domain,
+        "x-default": `${SHOP.domain}${pathFor(DEFAULT_LOCALE)}`,
       },
     },
     openGraph: {

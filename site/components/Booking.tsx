@@ -31,7 +31,7 @@ export default function Booking({
     e.preventDefault();
     setState("sending");
     try {
-      const res = await fetch("/api/booking", {
+      const res = await fetch("/api/booking.php", {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify({

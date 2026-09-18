@@ -13,3 +13,5 @@ export default function robots(): MetadataRoute.Robots {
     host: SHOP.domain,
   };
 }
+
+export const dynamic = "force-static";
