@@ -79,7 +79,7 @@
         "name": "Arrecife y Cenote",
         "tagline": "Dos mundos en una mañana.",
         "text": "Un día, las dos mitades de lo que hace que valga la pena bucear esta costa: el arrecife frente a Tankah y luego el agua dulce de Casa Cenote. Salada y dulce, tortugas y estalactitas, en una sola mañana.",
-        "alt": "Una escena dibujada a mano del arrecife de Tankah y un cenote, lado a lado"
+        "alt": "Dos buzos sobre el agua dulce y verde de Casa Cenote, cerca de Tulum"
       },
       "cenote-diving": {
         "name": "Buceo en Cenotes",
@@ -164,7 +164,11 @@
     "tag": "Desde el agua",
     "h2": "Cómo se ve<br>realmente allá abajo.",
     "intro": "Fotos tomadas por los guías en días de trabajo — sin modelos, sin montaje. Más, casi a diario, en",
-    "captions": {}
+    "captions": {
+      "gallery-3": "Bajando · un cenote de Tulum",
+      "gallery-1": "Tiburones toro frente a la costa",
+      "gallery-2": "Tiburones a contraluz"
+    }
   },
   "quote": {
     "text": "Tres cuartas partes de nuestro planeta son agua. Vamos a explorarlas juntos.",

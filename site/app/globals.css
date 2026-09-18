@@ -378,8 +378,12 @@ body.open .drawer{opacity:1;visibility:visible}
   position:relative;margin:0;overflow:hidden;border-radius:14px;
   border:1px solid var(--line-soft);background:var(--glass);
 }
-/* two tall tiles break the grid out of a flat contact sheet */
+/* the first tile is tall, which breaks the grid out of a flat contact sheet */
 .gal__t:nth-child(1){grid-row:span 2}
+/* ...but a tile spanning two rows needs four photographs to fill three
+   columns. With three it left a hole bottom-right, so three photographs get
+   two columns: tall on the left, the other two stacked on the right. */
+.gal[data-count="3"]{grid-template-columns:repeat(2,1fr)}
 .gal__t img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
 .gal__t:hover img{transform:scale(1.06)}
 .gal__t figcaption{

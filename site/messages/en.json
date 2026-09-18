@@ -79,7 +79,7 @@
         "name": "Reef & Cenote",
         "tagline": "Two worlds unveiled at once.",
         "text": "One day, both halves of what makes this coast worth diving: the reef off Tankah, then the fresh water of Casa Cenote. Salt and sweet, turtles and stalactites, in a single morning.",
-        "alt": "A hand-drawn scene of the Tankah reef and a cenote, side by side"
+        "alt": "Two divers over the green freshwater of Casa Cenote near Tulum"
       },
       "cenote-diving": {
         "name": "Cenote Diving",
@@ -164,7 +164,11 @@
     "tag": "From the water",
     "h2": "What it actually<br>looks like down there.",
     "intro": "Shot by the guides on working days — no models, no staging. More of it, most days, on",
-    "captions": {}
+    "captions": {
+      "gallery-3": "Going down · a Tulum cenote",
+      "gallery-1": "Bull sharks off the coast",
+      "gallery-2": "Sharks against the surface light"
+    }
   },
   "quote": {
     "text": "Three quarters of our planet are water. Let's go and explore them together.",

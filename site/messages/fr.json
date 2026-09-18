@@ -79,7 +79,7 @@
         "name": "Récif & Cenote",
         "tagline": "Deux mondes en une matinée.",
         "text": "Une journée, les deux moitiés de ce qui fait l'intérêt de cette côte : le récif au large de Tankah, puis l'eau douce de Casa Cenote. Salé et doux, tortues et stalactites, en une seule matinée.",
-        "alt": "Une scène dessinée à la main du récif de Tankah et d'un cenote, côte à côte"
+        "alt": "Deux plongeurs au-dessus de l'eau douce et verte de Casa Cenote, près de Tulum"
       },
       "cenote-diving": {
         "name": "Plongée en cenote",
@@ -164,7 +164,11 @@
     "tag": "Depuis l'eau",
     "h2": "À quoi ça ressemble<br>vraiment, en bas.",
     "intro": "Photos prises par les guides des jours de sortie — sans modèles, sans mise en scène. Davantage, presque tous les jours, sur",
-    "captions": {}
+    "captions": {
+      "gallery-3": "La descente · un cenote de Tulum",
+      "gallery-1": "Requins bouledogues au large",
+      "gallery-2": "Requins à contre-jour"
+    }
   },
   "quote": {
     "text": "Les trois quarts de notre planète sont de l'eau. Allons les explorer ensemble.",

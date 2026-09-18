@@ -68,7 +68,7 @@
           "price": 140
         }
       ],
-      "photo": null,
+      "photo": "card-reef",
       "art": "reef",
       "extraIncludes": []
     },
@@ -187,7 +187,20 @@
       ]
     }
   ],
-  "gallery": [],
+  "gallery": [
+    {
+      "photo": "gallery-3",
+      "tall": true
+    },
+    {
+      "photo": "gallery-1",
+      "tall": false
+    },
+    {
+      "photo": "gallery-2",
+      "tall": false
+    }
+  ],
   "pickups": [
     {
       "slug": "meeting-point",

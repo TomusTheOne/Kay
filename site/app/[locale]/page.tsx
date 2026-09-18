@@ -366,7 +366,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
               <a href={SHOP.instagram} rel="noopener" className="tq">@kaydivingtulum</a>.
             </p>
           </div>
-          <div className="gal" data-rise>
+          <div className="gal" data-count={GALLERY.length} data-rise>
             {GALLERY.map((g) => (
               <figure className="gal__t" key={g.photo}>
                 <Plate photo={g.photo} art="cenote-shaft" alt={t.gallery.captions[g.photo]} />

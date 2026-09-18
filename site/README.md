@@ -97,10 +97,14 @@ each one:
   The emblem is line art: below about 40px it stops reading as a diving helmet,
   which is why the header mark is 40px and the favicon is the kit's cropped
   helmet-and-goggles rather than the whole thing.
-- **Only four photographs exist**, in `assets/source/`, and all four are on the
-  page already: the hero, and the cards for Discover Scuba, Cenote Diving and
-  the Open Water course. Reef & Cenote, Advanced and the Snorkel tour show the
-  hand-drawn scene each one declares in `products.json`. The gallery is empty
-  and its section does not render — a gallery re-showing the same four images
-  would be padding. `scripts/photos.py` rebuilds every slot from the sources;
-  add slots there and entries to `gallery` in `products.json` after a shoot.
+- **Eight photographs exist** in `assets/source/`. Four cards carry one —
+  Discover Scuba, Reef & Cenote, Cenote Diving, Open Water — plus the hero, the
+  band and three gallery tiles. **Advanced Open Water and the Snorkel tour still
+  show the hand-drawn scene** they declare in `products.json`: there is no
+  photograph of either yet. `scripts/photos.py` rebuilds every slot from the
+  sources with a focal point per slot; add slots there and entries to `gallery`
+  after a shoot.
+- **Two gallery photographs are bull sharks, and no product sells a shark
+  dive.** They sit in the gallery, which is "from the water" and promises
+  nothing bookable. If Kay runs shark dives they are a missing product, not a
+  missing photograph.

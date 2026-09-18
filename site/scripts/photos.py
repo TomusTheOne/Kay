@@ -34,10 +34,12 @@ SLOTS = {
     "card-angelita": ("mangrove",   960,  660, 0.48, 0.50),
     "guide":         ("guide",      900, 1125, 0.50, 0.45),
 
-    # No gallery slots. There are four photographs and all four are already
-    # on the page above; a gallery re-showing them in slightly different
-    # crops reads as padding. Add the slots back here, and the entries to
-    # products.json, once there are photographs the page has not used yet.
+    # Casa Cenote's green water — the freshwater half of Reef & Cenote.
+    "card-reef":     ("casa-green",  960,  660, 0.42, 0.58),
+    # The gallery, at last carrying photographs the page has not used above.
+    "gallery-1":     ("sharks",       900, 556, 0.52, 0.55),
+    "gallery-2":     ("sharks-light", 880, 1100, 0.50, 0.45),
+    "gallery-3":     ("deep-descent", 880, 1100, 0.50, 0.50),
 }
 
 
