@@ -57,7 +57,11 @@ jobs:
       # than from a command line other processes could read.
       #
       # `mirror --reverse --delete` makes the server match site/out exactly:
-      # whatever left the build leaves the server.
+      # whatever left the build leaves the server. Both sides are entered with
+      # lcd/cd and mirrored as "." — given a source path and a directory
+      # target, lftp puts the source INSIDE the target, which is how the first
+      # attempt created /www/out. cmd:fail-exit also means a wrong
+      # FTP_SERVER_DIR stops at the cd instead of mirroring somewhere else.
       - name: Upload to OVH over SFTP
         env:
           SFTP_HOST:  ${{ secrets.FTP_SERVER }}
@@ -100,6 +104,9 @@ jobs:
           set cmd:fail-exit yes
           open sftp://$SFTP_HOST
           user "$SFTP_USER" "$SSHPASS"
-          mirror --reverse --delete --verbose=1 --no-perms --exclude '^\.well-known/' ./site/out $SERVER_DIR
+          lcd ./site/out
+          cd $SERVER_DIR
+          pwd
+          mirror --reverse --delete --verbose=1 --no-perms --exclude '^\.well-known/' . .
           bye
           LFTP
