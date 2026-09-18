@@ -465,6 +465,12 @@ select.field{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xml
 .slate__total{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;padding-top:1.1rem;border-top:1px solid var(--line);margin-top:auto}
 .slate__total .k{font-family:var(--mono);font-size:.64rem;letter-spacing:.2em;text-transform:uppercase;color:var(--foam-52)}
 .slate__total .v{font-family:var(--display);font-size:clamp(2rem,4.6vw,2.9rem);line-height:1;color:var(--lit)}
+.slate__total .v i{font-family:var(--mono);font-style:normal;font-size:.3em;letter-spacing:.14em;
+  margin-left:.4em;vertical-align:.62em;color:var(--foam-52)}
+/* What the card is actually debited, in the currency it is debited in. */
+.slate__dep{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;margin-top:.6rem}
+.slate__dep .k{font-family:var(--mono);font-size:.64rem;letter-spacing:.2em;text-transform:uppercase;color:var(--foam-52)}
+.slate__dep .v{font-family:var(--mono);font-size:.95rem;color:var(--turq);font-variant-numeric:tabular-nums}
 .slate__fine{font-size:.74rem;color:var(--foam-34);margin-top:.7rem;line-height:1.5}
 .slate .btn{width:100%;margin-top:1.2rem}
 

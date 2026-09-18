@@ -1,6 +1,6 @@
 "use client";
 import { useMemo, useState } from "react";
-import { PRODUCTS, PICKUPS, SCHEDULES, type Product } from "@/content/products";
+import { PRODUCTS, PICKUPS, SCHEDULES, DEPOSIT_RATE, type Product } from "@/content/products";
 import type { Dictionary } from "@/lib/i18n";
 
 const money = (n: number) => "$" + n.toLocaleString("en-US");
@@ -40,6 +40,14 @@ export default function Booking({
 
   // Pickup is per booking — one van, not one seat.
   const total = useMemo(() => option.price * divers + pick.price, [option, divers, pick]);
+
+  /* Mercado Pago debits PESOS. Sending a diver to a checkout showing a number
+     they have never seen — with a currency the page never mentioned — is how a
+     booking turns into a chargeback, so the slate says it before they leave. */
+  const deposit = useMemo(
+    () => Math.round((option.priceMxn * divers + pick.priceMxn) * DEPOSIT_RATE),
+    [option, divers, pick],
+  );
 
   function choose(p: Product) {
     setProduct(p);
@@ -200,7 +208,15 @@ export default function Booking({
             <Row k={t.rPickup}  v={logistics.pickups[pickup].name} sm />
           </div>
           <div className="slate__total">
-            <span className="k">{t.rTotal}</span><span className="v">{money(total)}</span>
+            {/* The currency is spelled out because a peso figure sits directly
+                below it: "$280" over "$1,380 MXN" reads like the deposit costs
+                more than the dive. */}
+            <span className="k">{t.rTotal}</span>
+            <span className="v">{money(total)}<i>USD</i></span>
+          </div>
+          <div className="slate__dep">
+            <span className="k">{t.rDeposit}</span>
+            <span className="v">{money(deposit)} MXN</span>
           </div>
           <p className="slate__fine">{t.fine}</p>
           {outOfSeason && (

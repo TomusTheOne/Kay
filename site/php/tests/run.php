@@ -49,6 +49,18 @@ echo "\nPesos are Kay's own figures, never a converted dollar price\n";
 // currencies are carried and the peso one is what gets charged.
 check('3 x 3 cenote dives in pesos', kay_quote($base)['total_mxn'], 12000);
 check('the deposit in pesos',        kay_quote($base)['deposit_mxn'], 3600);
+
+// The slate in the browser computes the deposit from DEPOSIT_RATE in
+// content/products.ts, which reads the same key. If the rate ever moves back
+// into kay-config.php the two drift, and the diver is quoted one figure while
+// Mercado Pago charges another.
+check('the rate comes from the catalogue, not the host config',
+      kay_deposit_rate(), 0.3);
+check('and the quote uses that rate, not a literal',
+      kay_quote($base)['deposit_mxn'],
+      (int) round(kay_quote($base)['total_mxn'] * kay_deposit_rate()));
+check('products.json is where it lives',
+      isset(kay_catalogue()['depositRate']), true);
 $ds1 = kay_quote(['product' => 'discover-scuba', 'option' => 1, 'divers' => 1] + $base);
 check('discover scuba, one dive, in dollars', $ds1['total_usd'], 140);
 check('...and the 2300 pesos he actually asks', $ds1['total_mxn'], 2300);
@@ -139,10 +151,11 @@ $id = '11111111-2222-4333-8444-555555555555';
 $db->prepare('DELETE FROM bookings WHERE id = ?')->execute([$id]);
 $db->prepare(
     'INSERT INTO bookings (id, product, dives, dive_date, divers, pickup, start_slot,
-                           name, email, total_usd_cents, deposit_usd_cents, deposit_mxn_cents)
-     VALUES (?,?,?,?,?,?,?,?,?,?,?,?)'
+                           name, email, total_usd_cents, total_mxn_cents,
+                           deposit_usd_cents, deposit_mxn_cents)
+     VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)'
 )->execute([$id, 'cenote-diving', 3, '2099-12-01', 3, 'tulum-town', '0830',
-            'Test', 't@example.com', 53000, 15900, 278250]);
+            'Test', 't@example.com', 77000, 1232000, 23100, 369600]);
 
 $settle = static function (string $status) use ($db, $id): int {
     $s = $db->prepare("UPDATE bookings SET status = ?, payment_id = 'PAY-1',
@@ -215,9 +228,12 @@ $row = [
     'name'              => 'Ana Ruiz',
     'email'             => 'ana@example.com',
     'locale'            => 'en',
-    'total_usd_cents'   => 53000,
-    'deposit_usd_cents' => 15900,
-    'deposit_mxn_cents' => 278250,
+    // The real catalogue figures: 3 cenote dives x 3 divers (4,000 MXN / $250
+    // each) plus the Tulum-town pickup, deposit at 30%.
+    'total_usd_cents'   => 77000,
+    'total_mxn_cents'   => 1232000,
+    'deposit_usd_cents' => 23100,
+    'deposit_mxn_cents' => 369600,
 ];
 $mail  = kay_booking_emails($row);
 $diver = $mail['diver'];
@@ -237,10 +253,23 @@ check('it names the product, not the slug', str_contains($diver['html'], 'Cenote
 check('no slug leaks into the email',       str_contains($diver['html'], 'cenote-diving'), false);
 check('it counts the dives',                str_contains($diver['html'], '3 dives'), true);
 
-// Money comes from the stored row, and the three figures agree.
-check('the total is shown',   str_contains($diver['html'], '$530 USD'), true);
-check('the deposit is shown', str_contains($diver['html'], '$159 USD'), true);
-check('the balance is total minus deposit', str_contains($diver['html'], '$371 USD'), true);
+// Money comes from the stored row, and the figures agree in both currencies.
+check('the total is shown in pesos',   str_contains($diver['html'], '$12,320 MXN'), true);
+check('and in dollars beside it',      str_contains($diver['html'], '$770 USD'), true);
+// The card was debited in pesos, so that is the only figure called "paid" —
+// quoting a dollar deposit nobody was charged is how a diver disputes a charge.
+check('the deposit is shown as charged', str_contains($diver['html'], '$3,696 MXN'), true);
+check('no dollar deposit is claimed',    str_contains($diver['html'], '$231 USD'), false);
+check('the balance is total minus deposit', str_contains($diver['html'], '$8,624 MXN'), true);
+check('the balance is also in dollars',     str_contains($diver['html'], '$539 USD'), true);
+
+// Kay's day sheet carries the same two figures, so the till matches the email.
+check('the shop sees what was charged', str_contains($shop['html'], '$3,696 MXN'), true);
+check('and what is still owed',         str_contains($shop['html'], '$8,624 MXN'), true);
+
+// A row written before the peso column existed must still produce an email.
+$legacy = kay_booking_emails(['total_mxn_cents' => 0] + $row);
+check('an old row falls back to dollars', str_contains($legacy['diver']['html'], '$770 USD'), true);
 
 // The pickup the diver paid for is the pickup the email names.
 check('the pickup is named',     str_contains($diver['html'], 'Anywhere in Tulum town'), true);

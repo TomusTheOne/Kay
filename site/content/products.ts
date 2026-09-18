@@ -78,6 +78,13 @@ export const SCHEDULE_LIMITS = data.scheduleLimits as {
 export const MAX_DEPTH_M = data.maxDepthM;
 
 /**
+ * Share taken at booking, the balance settled on the day. The slate and
+ * php/lib/pricing.php both read it from here, so the figure the diver is
+ * shown is the figure Mercado Pago is asked to charge.
+ */
+export const DEPOSIT_RATE = data.depositRate as number;
+
+/**
  * The day the offer last changed, for <lastmod> in the sitemap. Deliberately
  * not the build date: a redeploy that changes nothing must not tell Google the
  * page is new, or the signal stops meaning anything. Bump it when prices,

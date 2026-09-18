@@ -55,8 +55,8 @@ $db->prepare(
     'INSERT INTO bookings
        (id, product, dives, dive_date, divers, certification, pickup, start_slot,
         start_note, name, email, locale,
-        total_usd_cents, deposit_usd_cents, deposit_mxn_cents)
-     VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)'
+        total_usd_cents, total_mxn_cents, deposit_usd_cents, deposit_mxn_cents)
+     VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)'
 )->execute([
     $bookingId,
     $quote['product']['slug'],
@@ -71,6 +71,7 @@ $db->prepare(
     mb_strtolower(trim((string) $input['email'])),
     $locale,
     $quote['total_usd'] * 100,
+    $quote['total_mxn'] * 100,
     $quote['deposit_usd'] * 100,
     $depositMxn * 100,
 ]);
@@ -81,7 +82,7 @@ $response = kay_mp_request('POST', '/checkout/preferences', [
     'items' => [[
         'id'          => $quote['product']['slug'],
         'title'       => sprintf('Kay Diving — %s × %d', $quote['product']['slug'], $quote['divers']),
-        'description' => sprintf('Deposit %d%% · balance on the day', (int) round($config['deposit_rate'] * 100)),
+        'description' => sprintf('Deposit %d%% · balance on the day', (int) round(kay_deposit_rate() * 100)),
         'quantity'    => 1,
         'unit_price'  => $depositMxn,
         'currency_id' => 'MXN',

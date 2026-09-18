@@ -37,11 +37,9 @@ function kay_config(): array
     }
 
     $config = $loaded + [
-        'deposit_rate' => 0.30,   // share taken up front, balance on the day
-        // No exchange rate. Kay quotes in both currencies and the catalogue
-        // carries both, so nothing here converts one into the other — a rate
-        // sitting between his price list and the card is how a 3200-peso dive
-        // becomes a 3500-peso charge.
+        // No deposit rate and no exchange rate. Both belong in products.json
+        // beside the prices: a second copy on the host is how the page comes
+        // to quote one figure while the card is charged another.
         'site_url'     => 'https://kaydiving.com',
 
         // Email is deliberately NOT in $required: a missing key must stop

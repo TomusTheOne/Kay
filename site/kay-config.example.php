@@ -21,10 +21,9 @@ return [
     // Webhook signing secret. Without it every notification is rejected.
     'mp_webhook_secret' => '',
 
-    // Share taken at booking; the balance is settled on the day.
-    'deposit_rate' => 0.30,
-    // No exchange rate: prices are carried in both currencies in
-    // content/products.json, and the peso figure is charged as Kay wrote it.
+    // No deposit rate and no exchange rate here. Both live in
+    // content/products.json beside the prices they apply to, so the page and
+    // the card are always computed from the same number.
 
     // No trailing slash.
     'site_url' => 'https://kaydiving.com',

@@ -20,8 +20,11 @@ CREATE TABLE IF NOT EXISTS bookings (
   email              VARCHAR(190) NOT NULL,
   locale             CHAR(2)      NOT NULL DEFAULT 'en',
 
-  -- money, in cents so nothing is ever a float
+  -- Money, in cents so nothing is ever a float. Both currencies are stored
+  -- because Kay quotes both and the card is charged in pesos: a row that kept
+  -- only dollars could not say what was actually debited.
   total_usd_cents    INT UNSIGNED NOT NULL,
+  total_mxn_cents    INT UNSIGNED NOT NULL,
   deposit_usd_cents  INT UNSIGNED NOT NULL,
   deposit_mxn_cents  INT UNSIGNED NOT NULL,
 

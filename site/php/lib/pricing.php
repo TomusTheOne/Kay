@@ -22,6 +22,17 @@ function kay_catalogue(): array
     return $data;
 }
 
+/**
+ * The share taken up front. It lives in products.json, beside the prices it
+ * applies to, so the slate in the browser and the amount sent to Mercado Pago
+ * are computed from one number. Putting a copy in kay-config.php would be the
+ * same trap the exchange rate was: an edit here, a stale value on the host.
+ */
+function kay_deposit_rate(): float
+{
+    return (float) kay_catalogue()['depositRate'];
+}
+
 function kay_find_product(string $slug): ?array
 {
     foreach (kay_catalogue()['products'] as $product) {
@@ -77,7 +88,7 @@ function kay_quote(array $input): ?array
     // price is carried in the catalogue beside the dollar one and charged as
     // it stands, so no rate sits between his price list and the card.
     $totalMxn = $option['priceMxn'] * $divers + $pickup['priceMxn'];
-    $rate     = (float) kay_config()['deposit_rate'];
+    $rate     = kay_deposit_rate();
 
     return [
         'product'     => $product,

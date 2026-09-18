@@ -168,9 +168,25 @@ function kay_booking_emails(array $row): array
     $slot    = kay_slot_label((string) $row['start_slot'], (string) ($row['start_note'] ?? ''), $m);
     $cert    = trim((string) ($row['certification'] ?? '')) ?: $c['noCert'];
 
-    $total   = (int) round($row['total_usd_cents'] / 100);
-    $paid    = (int) round($row['deposit_usd_cents'] / 100);
-    $balance = $total - $paid;
+    // The card was debited in PESOS — that is the figure on the diver's
+    // statement, so it is the figure the email leads with. Dollars are shown
+    // beside it because Kay quotes both, not because anything is converted.
+    $totalUsd   = (int) round($row['total_usd_cents'] / 100);
+    $totalMxn   = (int) round(($row['total_mxn_cents'] ?? 0) / 100);
+    $paidUsd    = (int) round($row['deposit_usd_cents'] / 100);
+    $paidMxn    = (int) round($row['deposit_mxn_cents'] / 100);
+    $balanceUsd = $totalUsd - $paidUsd;
+    $balanceMxn = $totalMxn - $paidMxn;
+
+    // '$3,200 MXN · $200 USD', or just the pesos if a row predates the column.
+    $both = static fn(int $mxn, int $usd): string => $mxn > 0
+        ? '$' . number_format($mxn) . ' MXN · $' . number_format($usd) . ' USD'
+        : '$' . number_format($usd) . ' USD';
+
+    $totalLine   = $both($totalMxn, $totalUsd);
+    $balanceLine = $both($balanceMxn, $balanceUsd);
+    // Only one currency ever left the diver's account.
+    $paidLine    = '$' . number_format($paidMxn) . ' MXN';
 
     $what = sprintf('%s · %s', $productName, kay_dives_label($dives, $c));
     $who  = $divers . ' ' . ($divers === 1 ? $c['diver'] : $c['divers']);
@@ -189,9 +205,9 @@ function kay_booking_emails(array $row): array
         $d['pickupLabel'] => kay_e(trim($pickupName . ' ' . $pickupPrice)),
     ];
     $money = [
-        $d['totalLabel']   => '$' . $total . ' USD',
-        $d['paidLabel']    => '<span style="color:#1FA8AE;">$' . $paid . ' USD</span>',
-        $d['balanceLabel'] => '$' . $balance . ' USD',
+        $d['totalLabel']   => kay_e($totalLine),
+        $d['paidLabel']    => '<span style="color:#1FA8AE;">' . kay_e($paidLine) . '</span>',
+        $d['balanceLabel'] => kay_e($balanceLine),
     ];
 
     $inner = kay_mail_header($d['kicker'], $productName)
@@ -225,9 +241,9 @@ function kay_booking_emails(array $row): array
         $d['meetLabel'] . ': ' . $shop['meetingPoint'],
         $d['pickupLabel'] . ': ' . trim($pickupName . ' ' . $pickupPrice),
         '',
-        $d['totalLabel'] . ': $' . $total . ' USD',
-        $d['paidLabel'] . ': $' . $paid . ' USD',
-        $d['balanceLabel'] . ': $' . $balance . ' USD',
+        $d['totalLabel'] . ': ' . $totalLine,
+        $d['paidLabel'] . ': ' . $paidLine,
+        $d['balanceLabel'] . ': ' . $balanceLine,
         $d['balanceNote'],
         '',
         $d['nextTag'] . ' — ' . $d['nextText'],
@@ -247,8 +263,8 @@ function kay_booking_emails(array $row): array
         $d['peopleLabel'] => kay_e($who),
         $d['certLabel']   => kay_e($cert),
         $d['pickupLabel'] => kay_e(trim($pickupName . ' ' . $pickupPrice)),
-        $d['paidLabel']   => '$' . $paid . ' USD',
-        $d['balanceLabel'] => '$' . $balance . ' USD',
+        $d['paidLabel']   => kay_e($paidLine),
+        $d['balanceLabel'] => kay_e($balanceLine),
     ];
     $contact = [
         $s['nameLabel']   => kay_e((string) $row['name']),
