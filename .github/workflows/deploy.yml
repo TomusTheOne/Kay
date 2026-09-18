@@ -76,6 +76,17 @@ jobs:
           test -n "$SSHPASS"    || { echo "::error::FTP_PASSWORD secret is empty";     exit 1; }
           test -n "$SERVER_DIR" || { echo "::error::FTP_SERVER_DIR variable is empty"; exit 1; }
 
+          # Over FTP the user is chrooted and /www is its own root. Over SFTP
+          # it is not: an absolute /www is the real filesystem root and does
+          # not exist, which is what stopped the third attempt. The login
+          # directory IS the account root — the same place kay-config.php
+          # lives — so the target is taken relative to it.
+          TARGET="${SERVER_DIR#/}"; TARGET="${TARGET%/}"
+          # An empty target would mean the account root, and `mirror --delete`
+          # there would delete kay-config.php along with everything else.
+          test -n "$TARGET" || { echo "::error::FTP_SERVER_DIR resolves to the account root — refusing to mirror there"; exit 1; }
+          echo "Deploying into ./$TARGET (from FTP_SERVER_DIR=$SERVER_DIR)"
+
           sudo apt-get update -qq
           sudo apt-get install -y -qq lftp sshpass
 
@@ -105,7 +116,7 @@ jobs:
           open sftp://$SFTP_HOST
           user "$SFTP_USER" "$SSHPASS"
           lcd ./site/out
-          cd $SERVER_DIR
+          cd $TARGET
           pwd
           mirror --reverse --delete --verbose=1 --no-perms --exclude '^\.well-known/' . .
           bye
