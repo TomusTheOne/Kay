@@ -10,16 +10,21 @@ DirectoryIndex index.html
 <IfModule mod_rewrite.c>
   RewriteEngine On
 
-  # --- HTTPS only -----------------------------------------------------------
+  # --- One host, so the same page is never indexed twice ---------------------
+  # Three names resolve to this same document root: the domain, its www form,
+  # and the technical <account>.clusterNNN.hosting.ovh.net that OVH creates.
+  # Left alone, Google can index all three and split the ranking between them.
+  # Anything that is not the canonical host goes there, and straight to https,
+  # so a wrong host on http costs one redirect rather than two.
+  # The host is written by build-deploy.mjs from the same SITE_URL the pages
+  # are built with, so this and <link rel="canonical"> cannot disagree.
+  RewriteCond %{HTTP_HOST} !^__CANONICAL_HOST_RE__$ [NC]
+  RewriteRule ^(.*)$ https://__CANONICAL_HOST__/$1 [R=301,L]
+
+  # --- HTTPS only, for requests already on the right host --------------------
   RewriteCond %{HTTPS} !=on
   RewriteCond %{HTTP:X-Forwarded-Proto} !https
   RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
-
-  # --- One host, so the same page is never indexed twice ---------------------
-  # www and bare resolve to the same document root; without this Google sees
-  # two sites and splits the ranking between them.
-  RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
-  RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
 
   # --- The bare root goes to the default locale -----------------------------
   RewriteRule ^$ /en/ [R=302,L]

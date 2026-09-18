@@ -10,7 +10,7 @@
  * confirmation email cannot name a product differently from the page that
  * sold it. The test runner is left behind.
  */
-import { cp, rm, mkdir, readdir, readFile } from "node:fs/promises";
+import { cp, rm, mkdir, readdir, readFile, writeFile } from "node:fs/promises";
 import { existsSync } from "node:fs";
 
 const OUT = "out";
@@ -49,8 +49,6 @@ await mkdir(`${OUT}/api/messages`, { recursive: true });
 for (const f of await readdir("messages")) {
   await cp(`messages/${f}`, `${OUT}/api/messages/${f}`);
 }
-await cp("public-htaccess", `${OUT}/.htaccess`);
-
 /* Last gate before upload: every URL a crawler reads must be absolute. This
    catches a mistyped or missing NEXT_PUBLIC_SITE_URL, which would otherwise
    ship a sitemap and canonicals pointing nowhere — and nothing would look
@@ -61,7 +59,21 @@ if (!/^https:\/\/[^/]+\./.test(loc)) {
   console.error(`sitemap.xml declares "${loc}" — NEXT_PUBLIC_SITE_URL is missing or wrong.`);
   process.exit(1);
 }
-console.log(`Canonical host: ${new URL(loc).origin}`);
+
+/* Apache redirects to the same host the pages call canonical. Taking it from
+   the built sitemap rather than a second setting means the two cannot drift. */
+const host = new URL(loc).host;
+const htaccess = await readFile("public-htaccess", "utf8");
+if (!htaccess.includes("__CANONICAL_HOST__") || !htaccess.includes("__CANONICAL_HOST_RE__")) {
+  console.error("public-htaccess no longer carries the canonical-host placeholders.");
+  process.exit(1);
+}
+await writeFile(`${OUT}/.htaccess`, htaccess
+  // The RewriteCond is a regex: an unescaped dot would also match kaydivingXcom.
+  .replaceAll("__CANONICAL_HOST_RE__", host.replace(/[.+*?^$()[\]{}|\\]/g, "\\$&"))
+  .replaceAll("__CANONICAL_HOST__", host));
+
+console.log(`Canonical host: ${host} — every other hostname 301s to it`);
 
 console.log("Deploy bundle ready in out/ — upload its contents to www/");
 console.log("Remember: kay-config.php belongs ABOVE www/, never inside it.");
