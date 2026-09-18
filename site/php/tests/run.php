@@ -166,9 +166,25 @@ echo "\nWebhook signatures reject anything not signed with our secret\n";
 $sign = static function (string $id, string $rid, string $ts, string $key = 'test-secret'): string {
     return hash_hmac('sha256', "id:$id;request-id:$rid;ts:$ts;", $key);
 };
-$now = (string) time();
+// Mercado Pago timestamps notifications in MILLISECONDS. The earlier version
+// of this test signed with seconds on both sides, so it confirmed my own
+// arithmetic rather than Mercado Pago's — and passed while every real
+// notification would have been refused as fifty-five thousand years old.
+$nowMs  = (string) (time() * 1000);
+$nowSec = (string) time();
 $_SERVER['HTTP_X_REQUEST_ID'] = 'REQ-1';
 
+$_SERVER['HTTP_X_SIGNATURE'] = "ts=$nowMs,v1=" . $sign('PAY-1', 'REQ-1', $nowMs);
+check('a notification timestamped in ms passes', kay_mp_signature_valid('PAY-1'), true);
+
+$_SERVER['HTTP_X_SIGNATURE'] = "ts=$nowSec,v1=" . $sign('PAY-1', 'REQ-1', $nowSec);
+check('...and one in seconds still does',        kay_mp_signature_valid('PAY-1'), true);
+
+$oldMs = (string) ((time() - 3600) * 1000);
+$_SERVER['HTTP_X_SIGNATURE'] = "ts=$oldMs,v1=" . $sign('PAY-1', 'REQ-1', $oldMs);
+check('an hour-old one in ms is still refused',  kay_mp_signature_valid('PAY-1'), false);
+
+$now = $nowMs;
 $_SERVER['HTTP_X_SIGNATURE'] = "ts=$now,v1=" . $sign('PAY-1', 'REQ-1', $now);
 check('a correctly signed notification passes', kay_mp_signature_valid('PAY-1'), true);
 check('a different payment id fails',           kay_mp_signature_valid('PAY-2'), false);

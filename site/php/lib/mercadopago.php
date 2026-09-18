@@ -70,9 +70,20 @@ function kay_mp_signature_valid(string $dataId): bool
         return false;
     }
 
+    // Mercado Pago sends this in MILLISECONDS — its own documentation shows
+    // ts:1742505638683, thirteen digits. Compared against time(), which is
+    // seconds, every real notification looked fifty-five thousand years old
+    // and was refused: the diver would pay, the booking would sit at pending
+    // for ever, and Mercado Pago would retry into a 401 until it gave up.
+    // Seconds are accepted too, in case the format ever changes back.
+    $ts = (int) $parts['ts'];
+    if ($ts > 1e12) {
+        $ts = intdiv($ts, 1000);
+    }
+
     // Reject anything more than five minutes old, so a captured notification
     // cannot be replayed later.
-    if (abs(time() - (int) $parts['ts']) > 300) {
+    if (abs(time() - $ts) > 300) {
         error_log('kay: webhook signature timestamp outside tolerance');
         return false;
     }
