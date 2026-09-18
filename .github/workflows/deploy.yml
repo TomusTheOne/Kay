@@ -39,15 +39,6 @@ jobs:
       # OVH's shared hosting answers AUTH TLS with "500 This security scheme is
       # not implemented" — it does not do explicit FTPS. It does do SFTP, once
       # the box is ticked in the FTP-SSH tab, with the same credentials. Plain
-      # FTP would have worked too and is not acceptable: it puts the password
-      # on the wire in clear on every deploy.
-      #
-      # SamKirkland's action dropped SFTP support, so this is lftp directly.
-      # `mirror --reverse --delete` makes the server match site/out exactly:
-      # files removed from the build are removed from the server.
-      # OVH's shared hosting answers AUTH TLS with "500 This security scheme is
-      # not implemented" — it does not do explicit FTPS. It does do SFTP, once
-      # the box is ticked in the FTP-SSH tab, with the same credentials. Plain
       # FTP would also have worked and is not acceptable: it would put the
       # password on the wire in clear on every deploy.
       #
@@ -113,6 +104,18 @@ jobs:
           set net:max-retries 2
           set net:timeout 20
           set cmd:fail-exit yes
+          # Every deploy used to serve a few seconds of 403: .htaccess sets
+          # Options -Indexes, so while mirror was overwriting en/index.html in
+          # place the directory had no index to serve and Apache refused the
+          # request. Uploading to .in.<name> and renaming afterwards means the
+          # live file is replaced instead of being absent while it transfers.
+          #
+          # Not strictly atomic: OpenSSH's sftp-server speaks protocol 3, whose
+          # RENAME cannot overwrite, so lftp sends REMOVE then RENAME. The gap
+          # is one round trip per file rather than the length of a transfer —
+          # and Next's export rewrites every mtime, so mirror re-uploads the
+          # whole site each time and that difference is the whole window.
+          set xfer:use-temp-file yes
           open sftp://$SFTP_HOST
           user "$SFTP_USER" "$SSHPASS"
           lcd ./site/out
