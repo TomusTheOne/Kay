@@ -155,14 +155,30 @@ Déjà implémenté dans les maquettes :
 
 | | FCP | LCP | CLS |
 |---|---|---|---|
-| Réseau rapide | 400 ms | **400 ms** | **0.000** |
-| 4G lente (1,6 Mb/s, 150 ms de latence) | 2 012 ms | **2 012 ms** | **0.000** |
+| Réseau rapide | ~400 ms | **~400 ms** | **0.000** |
+| 4G lente (1,6 Mb/s, 150 ms de latence) | ~1 900 ms | **~1 900 ms** | **0.000 – 0.007** |
+
+Le CLS résiduel (0,007 sur 10 chargements sur 12) est le seul décalage réel qui
+subsiste : le titre du hero est en Instrument Serif à 74 px, et quand la police
+se substitue à la police de repli, les deux boutons et la bande de données
+dessous descendent de quelques pixels. C'est quatorze fois sous le seuil de
+Google.
 
 Les seuils « bon » de Google sont LCP < 2 500 ms et CLS < 0,1 : les deux sont
 tenus, y compris dans le scénario dégradé. Poids total au premier chargement :
 **312 Ko gzippés** (152 Ko de JS, 107 Ko de polices, 20 Ko de HTML, 8 Ko de CSS).
-Le CLS à zéro vient des polices auto-hébergées par `next/font` et des `width`/
-`height` posés sur chaque image — rien ne bouge après le premier rendu.
+Ces chiffres tiennent aux polices auto-hébergées par `next/font` et aux
+`width`/`height` posés sur chaque image. Un décalage quatre fois plus gros
+(0,030) venait du voile de caustiques du hero, dimensionné en pourcentage de
+son parent : quand le titre se recomposait, sa boîte était recalculée. Il est
+maintenant dimensionné en `svh`, donc indépendant du contenu.
+
+**Responsive, vérifié par la mesure** de 320 px à 2560 px — treize tailles, plus
+le paysage téléphone et les deux orientations d'iPad : aucun défilement
+horizontal, aucun débordement, aucun texte tronqué. Le contenu se reflue aussi
+à 400 % de zoom (critère WCAG 1.4.10). Sur pointeur tactile, les champs du
+formulaire sont à 16 px — en dessous, Safari iOS zoome tout seul au focus et ne
+revient pas — et le compteur de plongeurs passe à 44 × 44.
 
 
 Budget cible (mobile, 4G) :

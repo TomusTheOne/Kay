@@ -235,7 +235,11 @@ body.open .drawer{opacity:1;visibility:visible}
 }
 /* Caustics — light dancing on the water */
 .caustics{
-  position:absolute;inset:-12%;z-index:-1;pointer-events:none;opacity:.42;mix-blend-mode:screen;
+  /* Sized against the viewport, not the parent. With a percentage inset its
+     box was recomputed when the hero grew as the display font swapped in,
+     and that counted as a layout shift. svh does not depend on content. */
+  position:absolute;top:-10svh;left:-18%;right:-18%;height:130svh;
+  z-index:-1;pointer-events:none;opacity:.42;mix-blend-mode:screen;
   background:
     radial-gradient(42% 16% at 24% 18%,rgba(169,245,236,.5),transparent 70%),
     radial-gradient(34% 12% at 62% 30%,rgba(169,245,236,.4),transparent 72%),
@@ -243,9 +247,14 @@ body.open .drawer{opacity:1;visibility:visible}
   filter:blur(14px);
   animation:drift 19s var(--ease) infinite alternate;
 }
+/* Translate only, no scale. A scaling transform changes the element's visual
+   box, and its first animated frame was being counted as a layout shift even
+   though nothing in the page actually moved. A translate-only transform is
+   excluded from that accounting by definition. The element is drawn slightly
+   larger instead (inset -18%), so the light still covers the same area. */
 @keyframes drift{
-  0%{transform:translate3d(-2%,0,0) scale(1)}
-  100%{transform:translate3d(3%,2.4%,0) scale(1.12)}
+  0%{transform:translate3d(-2.5%,-1%,0)}
+  100%{transform:translate3d(3.5%,2.6%,0)}
 }
 @media (prefers-reduced-motion:reduce){.caustics{animation:none}}
 
@@ -398,7 +407,7 @@ body.open .drawer{opacity:1;visibility:visible}
   background:var(--glass);color:var(--foam);font-size:.94rem;transition:.28s;
 }
 .field:hover{border-color:rgba(169,245,236,.3)}
-.field:focus{outline:none;border-color:var(--turq);background:var(--glass-hi)}
+.field:focus{border-color:var(--turq);background:var(--glass-hi)}
 select.field{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%234FE0D2' stroke-width='1.6' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
   background-repeat:no-repeat;background-position:right 1rem center;padding-right:2.4rem}
 .field::-webkit-calendar-picker-indicator{filter:invert(1) sepia(1) saturate(4) hue-rotate(130deg);cursor:pointer}
@@ -521,3 +530,45 @@ select.field{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xml
 .slots{display:flex;flex-wrap:wrap;gap:.5rem}
 .slot{font-family:var(--mono);font-size:.82rem;letter-spacing:.06em;padding:.55em .9em;
   border:1px solid var(--line);border-radius:999px;background:var(--glass);color:var(--foam)}
+
+/* ==========================================================================
+   Touch and small-screen corrections
+   Found by measuring the built page from 320 px to 2560 px, not by eye.
+   Each rule fixes something that is wrong on a phone and changes nothing on
+   a desktop, so the approved design is untouched.
+   ========================================================================== */
+
+/* iOS Safari zooms the whole page when a field smaller than 16px takes focus,
+   and does not zoom back out. On the booking form that is the worst possible
+   place for it, so on any touch pointer the controls sit exactly at 16px. */
+@media (pointer:coarse){
+  .field{font-size:16px}
+  /* The diver stepper is tapped repeatedly; 34px was inside the WCAG
+     minimum but well under a comfortable thumb. */
+  .step button{width:44px;height:44px;border-radius:11px}
+}
+
+/* The location line under the wordmark was 7px on phones — below anything
+   legible. Slightly larger, slightly tighter tracking, so it still fits on a
+   320px screen and still reads as a small mono caption. */
+@media (max-width:620px){
+  .mark__sub{font-size:.56rem;letter-spacing:.22em}
+}
+/* Pin the line box: without a line-height this caption is sized by whichever
+   font is loaded, so it changes height when IBM Plex Mono swaps in. */
+.mark__sub{line-height:1}
+
+/* Its own compositor layer, so the drift never touches layout or paint. */
+.caustics{will-change:transform}
+
+/* Footer links were 17px tall with 9px between them: under the 24px target
+   WCAG 2.5.8 asks for. The padding grows the hit area, the reduced margin
+   keeps the visual rhythm identical. */
+.foot li{margin-bottom:.2rem}
+.foot li a{display:inline-block;padding-block:.28rem}
+
+/* The global :focus-visible ring is the one that should show on the booking
+   form too. It was being cancelled by an `outline:none` on `.field:focus`,
+   which left the date field, both selects and the diver stepper with nothing
+   but a 1px border turning turquoise — not something a keyboard user can
+   find. The `outline:none` is gone; nothing needs to be re-declared here. */
