@@ -34,7 +34,8 @@ if ($quote === null) {
 }
 
 $config      = kay_config();
-$depositMxn  = (int) round($quote['deposit_usd'] * (float) $config['usd_to_mxn']);
+// Straight from the catalogue's peso price — see kay_quote().
+$depositMxn  = $quote['deposit_mxn'];
 $locale      = in_array($input['locale'] ?? 'en', ['en', 'es', 'fr'], true) ? $input['locale'] : 'en';
 $bookingId   = sprintf(
     '%04x%04x-%04x-4%03x-%04x-%04x%04x%04x',

@@ -62,6 +62,9 @@ export interface Dictionary {
     from: string; dive: string; dives: string; perDiver: string;
     depth: string; time: string; where: string; needs: string; halfDay: string;
     sitesTag: string;
+    /** Months a seasonal product runs, keyed by product slug. */
+    seasonValue: Record<string, string>;
+    seasonTag: string;
     level: Record<string, string>;
     places: Record<string, string>;
     items: Record<string, ProductCopy>;

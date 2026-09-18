@@ -10,7 +10,16 @@ import data from "./products.json";
 export type Level = "none" | "open-water" | "open-water-plus";
 export type Kind = "dive" | "course" | "snorkel";
 
-export interface Option { dives: number; price: number }
+export interface Option {
+  dives: number;
+  /** USD, what the page shows */
+  price: number;
+  /** MXN, what Mercado Pago charges — Kay's own figure, not a conversion */
+  priceMxn: number;
+}
+
+/** Months a product is sold in. Wraps the year end when fromMonth > toMonth. */
+export interface Season { fromMonth: number; toMonth: number }
 
 /** A cenote you can pick inside Cenote Diving. */
 export interface Site {
@@ -34,12 +43,16 @@ export interface Product {
   art: string;
   extraIncludes: string[];
   sites?: Site[];
+  /** Set only on products that are not sold all year. */
+  season?: Season;
 }
 
 export interface Pickup {
   slug: string;
   /** USD, per booking — it is one van, not one seat */
   price: number;
+  /** MXN, Kay's rate of 16 applied to the dollar figure he quoted */
+  priceMxn: number;
   /** outside town Kay can only do the drive back */
   returnOnly: boolean;
 }

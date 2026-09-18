@@ -27,6 +27,17 @@ export default function Booking({
   const option = product.options.find((o) => o.dives === dives) ?? product.options[0];
   const pick = PICKUPS.find((p) => p.slug === pickup)!;
 
+  /* A seasonal product refuses a date outside its months, and the endpoint
+     refuses it again — but being told after the payment page has opened is
+     no good, so the form says so here and will not submit. The window wraps
+     the year end, which makes it a union rather than a range. */
+  const outOfSeason = useMemo(() => {
+    if (!product.season || !date) return false;
+    const month = Number(date.slice(5, 7));
+    const { fromMonth: f, toMonth: to } = product.season;
+    return !(f <= to ? month >= f && month <= to : month >= f || month <= to);
+  }, [product, date]);
+
   // Pickup is per booking — one van, not one seat.
   const total = useMemo(() => option.price * divers + pick.price, [option, divers, pick]);
 
@@ -37,6 +48,7 @@ export default function Booking({
 
   async function submit(e: React.FormEvent) {
     e.preventDefault();
+    if (outOfSeason) return;
     setState("sending");
     try {
       const res = await fetch("/api/booking.php", {
@@ -178,7 +190,11 @@ export default function Booking({
             <Row k={t.rOption}  v={sizeLabel(option.dives)} />
             <Row k={t.rDate}    v={fmtDate} />
             <Row k={t.rTime}    v={slotLabel(SCHEDULES.find((s) => s.slug === slot)!)} sm />
-            <Row k={t.rDepth}   v={product.maxDepthM ? `${product.maxDepthM} m` : t.halfDayLabel} />
+            {/* "Half day" only fits the snorkel tour. A dive whose depth Kay has
+                not given yet shows a dash rather than borrowing that label. */}
+            <Row k={t.rDepth}   v={product.maxDepthM ? `${product.maxDepthM} m`
+                                   : product.kind === "snorkel" ? t.halfDayLabel : "—"} />
+            {product.season && <Row k={t.rSeason} v={products.seasonValue[product.slug]} sm />}
             <Row k={t.rLevel}   v={products.level[product.level]} sm />
             <Row k={t.rDivers}  v={String(divers)} />
             <Row k={t.rPickup}  v={logistics.pickups[pickup].name} sm />
@@ -187,10 +203,16 @@ export default function Booking({
             <span className="k">{t.rTotal}</span><span className="v">{money(total)}</span>
           </div>
           <p className="slate__fine">{t.fine}</p>
+          {outOfSeason && (
+            <p className="slate__fine" role="alert" style={{ color: "var(--turq)" }}>
+              {t.outOfSeason.replace("{season}", products.seasonValue[product.slug])}
+            </p>
+          )}
           {state === "error" && (
             <p className="slate__fine" role="alert" style={{ color: "var(--turq)" }}>{t.error}</p>
           )}
-          <button className="btn btn--lit" type="submit" disabled={state === "sending"}>
+          <button className="btn btn--lit" type="submit"
+                  disabled={state === "sending" || outOfSeason}>
             {state === "sending" ? t.submitting : t.submit}
           </button>
         </aside>

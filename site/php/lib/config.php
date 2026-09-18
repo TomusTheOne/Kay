@@ -38,7 +38,10 @@ function kay_config(): array
 
     $config = $loaded + [
         'deposit_rate' => 0.30,   // share taken up front, balance on the day
-        'usd_to_mxn'   => 17.5,   // Mercado Pago México settles in MXN
+        // No exchange rate. Kay quotes in both currencies and the catalogue
+        // carries both, so nothing here converts one into the other — a rate
+        // sitting between his price list and the card is how a 3200-peso dive
+        // becomes a 3500-peso charge.
         'site_url'     => 'https://kaydiving.com',
 
         // Email is deliberately NOT in $required: a missing key must stop

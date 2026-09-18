@@ -59,20 +59,22 @@
     "level": {
       "none": "Aucun niveau requis",
       "open-water": "Open Water requis",
-      "open-water-plus": "Open Water · Advanced ou Deep pour Angelita et El Pit"
+      "open-water-plus": "Open Water · Advanced ou Deep pour Angelita et El Pit",
+      "advanced": "Advanced Open Water requis"
     },
     "places": {
       "casa-cenote": "Casa Cenote",
       "tankah-reef": "Récif de Tankah",
       "el-pit": "Cenote El Pit",
       "by-level": "Choisis selon votre niveau",
-      "favourite-cenotes": "Nos cenotes préférés près de Tulum"
+      "favourite-cenotes": "Nos cenotes préférés près de Tulum",
+      "playa-del-carmen": "Playa del Carmen · à 45 min de Tulum"
     },
     "items": {
       "discover-scuba": {
         "name": "Discover Scuba",
         "tagline": "Pas de PADI ? Aucun souci.",
-        "text": "Votre premier aperçu du monde sous-marin. Vous apprenez les bases de la plongée, puis vous explorez un cenote à ciel ouvert à l'eau limpide, sans dépasser sept mètres. Aucune certification, aucune expérience — juste un guide, de l'eau peu profonde et une très belle matinée.",
+        "text": "Votre premier aperçu du monde sous-marin. Vous apprenez les bases de la plongée, puis vous explorez un cenote à ciel ouvert à l'eau limpide, sans dépasser sept mètres. Aucune certification, aucune expérience — juste un guide, de l'eau peu profonde et une très belle matinée. La deuxième plongée n'a lieu que si l'état de la mer le permet ce jour-là.",
         "alt": "La surface dégagée de Casa Cenote, bordée de jungle, près de Tulum"
       },
       "reef-cenote": {
@@ -104,6 +106,12 @@
         "tagline": "Reconnectez-vous à la nature.",
         "text": "Pour qui veut un peu d'aventure et beaucoup de calme. Trois cenotes différents sur une demi-journée, avec un arrêt final dans l'une des meilleures taquerías du coin. Sans expérience et sans bloc.",
         "alt": "La lumière tombant en rais entre les racines de palétuvier dans un cenote de Tulum"
+      },
+      "bull-sharks": {
+        "name": "Requins bouledogues",
+        "tagline": "La saison qu'on n'oublie pas.",
+        "text": "Chaque hiver les requins bouledogues remontent le long de la côte au large de Playa del Carmen, et nous faisons les quarante-cinq minutes de route pour aller les voir. Deux plongées depuis le bateau : la première avec les requins, la seconde sur un récif peu profond, entre huit et vingt mètres. Advanced Open Water ou équivalent, sans exception.",
+        "alt": "Des requins bouledogues dans l'eau bleue au large de Playa del Carmen, rémoras à leurs flancs"
       }
     },
     "sitesTag": "Les deux profonds",
@@ -123,6 +131,10 @@
         "depth": "jusqu'à 18 m",
         "note": "Choisis avec vous selon votre niveau et ce que vous attendez de la journée."
       }
+    },
+    "seasonTag": "Saison",
+    "seasonValue": {
+      "bull-sharks": "de novembre à mars"
     }
   },
   "included": {
@@ -167,9 +179,8 @@
     "captions": {
       "gallery-1": "La descente · un cenote de Tulum",
       "gallery-2": "La bouche de la caverne, vue d'en bas",
-      "gallery-3": "Requins bouledogues au large",
-      "gallery-4": "Sous le ponton · Casa Cenote",
-      "gallery-5": "Requins à contre-jour"
+      "gallery-3": "Sous le ponton · Casa Cenote",
+      "gallery-4": "Requins à contre-jour"
     }
   },
   "quote": {
@@ -215,7 +226,9 @@
     "s9": "09 — E-mail",
     "rPickup": "Le rendez-vous",
     "rTime": "Départ",
-    "timeOther": "Autre horaire — on vérifie"
+    "timeOther": "Autre horaire — on vérifie",
+    "outOfSeason": "Les requins bouledogues ne sont là que {season}. Choisissez une date dans la saison, ou écrivez-nous et nous vous dirons quand ils arrivent.",
+    "rSeason": "Saison"
   },
   "faq": {
     "tag": "Avant de venir",

@@ -104,7 +104,15 @@ each one:
   a card falls back to if a photograph is ever removed. `scripts/photos.py` rebuilds every slot from the
   sources with a focal point per slot; add slots there and entries to `gallery`
   after a shoot.
-- **Two gallery photographs are bull sharks, and no product sells a shark
-  dive.** They sit in the gallery, which is "from the water" and promises
-  nothing bookable. If Kay runs shark dives they are a missing product, not a
-  missing photograph.
+- **Prices are carried in both currencies** in `content/products.json`. Kay
+  works at 16 pesos to the dollar everywhere except Discover Scuba's single
+  dive, which he rounded to 2300 — so no single rate reproduces his list, and
+  there is no rate in the code. The peso figure is what Mercado Pago charges.
+- **The bull shark dive is seasonal**, November to March, and the window wraps
+  the year end. `kay_validate()` refuses a date outside it and the booking form
+  disables its own submit button, because being told after the payment page has
+  opened is no use. Kay says the migration moves the dates from year to year,
+  so the copy says the exact dates are confirmed when you book.
+- **Kay has not given the depth of the shark dive itself** — only of the second
+  dive, on the reef, at 8-20 m. `maxDepthM` is null and the card shows the
+  season instead, rather than a guessed number.

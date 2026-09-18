@@ -40,15 +40,28 @@ $base = ['product' => 'cenote-diving', 'option' => 3, 'date' => '2099-12-01',
          'name' => 'T', 'email' => 't@e.com', 'locale' => 'en'];
 
 $q = kay_quote($base);
-check('cenote diving, 3 dives, 3 divers', $q['total_usd'], 510);
-check('deposit is 30%',                   $q['deposit_usd'], 153);
+check('cenote diving, 3 dives, 3 divers', $q['total_usd'], 750);
+check('deposit is 30%',                   $q['deposit_usd'], 225);
+
+echo "\nPesos are Kay's own figures, never a converted dollar price\n";
+// He works at 16 to the dollar everywhere but Discover Scuba's single dive,
+// which he rounded to 2300. A single rate cannot reproduce that, so both
+// currencies are carried and the peso one is what gets charged.
+check('3 x 3 cenote dives in pesos', kay_quote($base)['total_mxn'], 12000);
+check('the deposit in pesos',        kay_quote($base)['deposit_mxn'], 3600);
+$ds1 = kay_quote(['product' => 'discover-scuba', 'option' => 1, 'divers' => 1] + $base);
+check('discover scuba, one dive, in dollars', $ds1['total_usd'], 140);
+check('...and the 2300 pesos he actually asks', $ds1['total_mxn'], 2300);
+check('which is NOT 140 x 16',                 $ds1['total_mxn'] === 140 * 16, false);
 
 echo "\nPickup is charged per booking, not per diver\n";
-check('meeting point is free',      kay_quote(['pickup' => 'meeting-point'] + $base)['total_usd'], 510);
-check('town pickup adds 20 once',   kay_quote(['pickup' => 'tulum-town'] + $base)['total_usd'], 530);
-check('return-only adds 10 once',   kay_quote(['pickup' => 'outside-town'] + $base)['total_usd'], 520);
+check('meeting point is free',      kay_quote(['pickup' => 'meeting-point'] + $base)['total_usd'], 750);
+check('town pickup adds 20 once',   kay_quote(['pickup' => 'tulum-town'] + $base)['total_usd'], 770);
+check('return-only adds 10 once',   kay_quote(['pickup' => 'outside-town'] + $base)['total_usd'], 760);
 check('pickup does not scale with divers',
-      kay_quote(['pickup' => 'tulum-town', 'divers' => 6] + $base)['total_usd'], 170 * 6 + 20);
+      kay_quote(['pickup' => 'tulum-town', 'divers' => 6] + $base)['total_usd'], 250 * 6 + 20);
+check('and not in pesos either',
+      kay_quote(['pickup' => 'tulum-town', 'divers' => 6] + $base)['total_mxn'], 4000 * 6 + 320);
 check('an unknown pickup is refused', kay_quote(['pickup' => 'helicopter'] + $base), null);
 check('a missing pickup is refused',  kay_quote(['product' => 'snorkel', 'option' => 0,
                                                  'divers' => 1, 'date' => '2099-12-01',
@@ -57,22 +70,26 @@ check('a missing pickup is refused',  kay_quote(['product' => 'snorkel', 'option
 echo "\nMenu prices, with the free meeting point\n";
 
 // Every price on the menu, exactly as printed.
+// Kay's 2026 list, both currencies, exactly as he wrote them.
 $menu = [
-    ['discover-scuba', 1, 100], ['discover-scuba', 2, 140],
-    ['reef-cenote',    2, 140],
-    ['cenote-diving',  2, 150], ['cenote-diving',  3, 170],
-    ['advanced-ow',    5, 460],
-    ['open-water',     5, 450],
-    ['snorkel',        0,  80],
+    ['discover-scuba', 1, 140, 2300], ['discover-scuba', 2, 200, 3200],
+    ['reef-cenote',    2, 200, 3200],
+    ['cenote-diving',  2, 200, 3200], ['cenote-diving',  3, 250, 4000],
+    ['advanced-ow',    5, 550, 8800],
+    ['open-water',     5, 600, 9600],
+    ['snorkel',        0, 125, 2000],
+    ['bull-sharks',    2, 250, 4000],
 ];
-foreach ($menu as [$slug, $dives, $price]) {
+foreach ($menu as [$slug, $dives, $usd, $mxn]) {
     $r = kay_quote(['product' => $slug, 'option' => $dives, 'divers' => 1] + $base);
-    check("menu price $slug ($dives)", $r['total_usd'], $price);
+    check("menu price $slug ($dives) in USD", $r['total_usd'], $usd);
+    check("menu price $slug ($dives) in MXN", $r['total_mxn'], $mxn);
 }
 
 // A hostile payload carrying its own total changes nothing.
-$tampered = kay_quote($base + ['total_usd' => 1, 'price' => 1, 'deposit_usd' => 0]);
-check('a client-supplied total is ignored', $tampered['total_usd'], 510);
+$tampered = kay_quote($base + ['total_usd' => 1, 'price' => 1, 'priceMxn' => 1, 'deposit_usd' => 0]);
+check('a client-supplied total is ignored',      $tampered['total_usd'], 750);
+check('nor can the peso price be sent from the browser', $tampered['total_mxn'], 12000);
 
 // Unknown product, or a size that product is not sold in, is refused.
 check('unknown product refused',  kay_quote(['product' => 'free-dive', 'option' => 2] + $base), null);
@@ -98,6 +115,23 @@ check('malformed email',       kay_validate(['email' => 'nope'] + $ok), 'email')
 check('empty name',            kay_validate(['name' => ''] + $ok), 'name');
 check('nonsense date',         kay_validate(['date' => '2099-13-45'] + $ok), 'date');
 check('past date',             kay_validate(['date' => '2000-01-01'] + $ok), 'date-past');
+
+echo "\nA seasonal dive cannot be booked out of season\n";
+// The bull sharks are off Playa del Carmen from November to March. The window
+// wraps the year end, so it is a union of months, not a range — a July date
+// must be refused and a January one accepted.
+$shark = ['product' => 'bull-sharks', 'option' => 2, 'cert' => 'Advanced', 'divers' => 2,
+          'pickup' => 'meeting-point', 'name' => 'Ana', 'email' => 'a@b.co', 'locale' => 'en'];
+check('July is refused',      kay_validate(['date' => '2099-07-15'] + $shark), 'out-of-season');
+check('October is refused',   kay_validate(['date' => '2099-10-31'] + $shark), 'out-of-season');
+check('November is fine',     kay_validate(['date' => '2099-11-01'] + $shark), null);
+check('December is fine',     kay_validate(['date' => '2099-12-20'] + $shark), null);
+check('January is fine',      kay_validate(['date' => '2099-01-10'] + $shark), null);
+check('March is fine',        kay_validate(['date' => '2099-03-31'] + $shark), null);
+check('April is refused',     kay_validate(['date' => '2099-04-01'] + $shark), 'out-of-season');
+// Everything else is sold all year and must not pick up the restriction.
+check('a cenote dive in July is fine',
+      kay_validate(['date' => '2099-07-15', 'product' => 'cenote-diving', 'option' => 2] + $shark), null);
 
 echo "\nA booking settles exactly once, however often the webhook fires\n";
 $db = kay_db();

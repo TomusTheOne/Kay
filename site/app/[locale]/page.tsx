@@ -137,6 +137,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
             brand: { "@id": `${SHOP.domain}/#business` },
             offers: p.options.map((o) => ({
               "@type": "Offer", price: String(o.price), priceCurrency: "USD",
+              ...(p.season ? { availabilityStarts: `--${String(p.season.fromMonth).padStart(2, "0")}-01` } : {}),
               availability: "https://schema.org/InStock",
               url: `${url}#book`,
               priceValidUntil,
@@ -240,8 +241,13 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                 <article className="dive" key={p.slug} data-rise data-rise-d={i % 4 || undefined}>
                   <div className="dive__media">
                     <Plate photo={p.photo} art={p.art} alt={copy.alt} />
+                    {/* Depth when there is one; "half day" belongs to the snorkel
+                        tour alone. A dive whose depth Kay has not given yet shows
+                        its season instead of borrowing someone else's label. */}
                     <span className="dive__depth">
-                      {p.maxDepthM ? `MAX ${p.maxDepthM} M · ${p.maxDepthFt} FT` : t.products.halfDay.toUpperCase()}
+                      {p.maxDepthM ? `MAX ${p.maxDepthM} M · ${p.maxDepthFt} FT`
+                        : p.kind === "snorkel" ? t.products.halfDay.toUpperCase()
+                        : t.products.seasonValue[p.slug]?.toUpperCase() ?? ""}
                     </span>
                   </div>
                   <div className="dive__body">
@@ -266,6 +272,8 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                       <div><dt>{t.products.where}</dt>
                         <dd>{p.locations.map((l) => t.products.places[l]).join(" · ")}</dd></div>
                       {p.diveTime && <div><dt>{t.products.time}</dt><dd>{p.diveTime}</dd></div>}
+                      {p.season && <div><dt>{t.products.seasonTag}</dt>
+                        <dd>{t.products.seasonValue[p.slug]}</dd></div>}
                     </dl>
 
                     <ul className="prices">

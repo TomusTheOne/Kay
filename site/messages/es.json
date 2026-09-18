@@ -59,20 +59,22 @@
     "level": {
       "none": "Sin certificación",
       "open-water": "Open Water requerido",
-      "open-water-plus": "Open Water · Advanced o Deep para Angelita y El Pit"
+      "open-water-plus": "Open Water · Advanced o Deep para Angelita y El Pit",
+      "advanced": "Advanced Open Water requerido"
     },
     "places": {
       "casa-cenote": "Casa Cenote",
       "tankah-reef": "Arrecife de Tankah",
       "el-pit": "Cenote El Pit",
       "by-level": "Elegidos según tu nivel",
-      "favourite-cenotes": "Nuestros cenotes favoritos cerca de Tulum"
+      "favourite-cenotes": "Nuestros cenotes favoritos cerca de Tulum",
+      "playa-del-carmen": "Playa del Carmen · a 45 min de Tulum"
     },
     "items": {
       "discover-scuba": {
         "name": "Discover Scuba",
         "tagline": "¿Sin PADI? Sin problema.",
-        "text": "Tu primer vistazo al mundo submarino. Aprendes lo básico del buceo y luego exploras un cenote a cielo abierto de agua cristalina, sin pasar de siete metros. Sin certificación, sin experiencia previa — solo un guía, agua poco profunda y una muy buena mañana.",
+        "text": "Tu primer vistazo al mundo submarino. Aprendes lo básico del buceo y luego exploras un cenote a cielo abierto de agua cristalina, sin pasar de siete metros. Sin certificación, sin experiencia previa — solo un guía, agua poco profunda y una muy buena mañana. La segunda inmersión solo se hace si las condiciones del mar son óptimas ese día.",
         "alt": "La superficie abierta de Casa Cenote, rodeada de selva, cerca de Tulum"
       },
       "reef-cenote": {
@@ -104,6 +106,12 @@
         "tagline": "Conecta con la naturaleza.",
         "text": "Para quien quiere un poco de aventura y mucha calma. Tres cenotes distintos en medio día, terminando en una de las mejores taquerías del pueblo. Sin experiencia y sin tanque.",
         "alt": "La luz del sol cayendo en haces entre las raíces de mangle en un cenote de Tulum"
+      },
+      "bull-sharks": {
+        "name": "Tiburón Toro",
+        "tagline": "La temporada que nadie olvida.",
+        "text": "Cada invierno los tiburones toro llegan a la costa frente a Playa del Carmen, y manejamos los cuarenta y cinco minutos para ir a verlos. Dos inmersiones desde el barco: la primera con los tiburones, la segunda en un arrecife bajo, entre ocho y veinte metros. Advanced Open Water o equivalente, sin excepciones.",
+        "alt": "Tiburones toro en el agua azul frente a Playa del Carmen, con rémoras al costado"
       }
     },
     "sitesTag": "Los dos profundos",
@@ -123,6 +131,10 @@
         "depth": "hasta 18 m",
         "note": "Elegidos contigo según tu nivel y lo que quieras del día."
       }
+    },
+    "seasonTag": "Temporada",
+    "seasonValue": {
+      "bull-sharks": "de noviembre a marzo"
     }
   },
   "included": {
@@ -167,9 +179,8 @@
     "captions": {
       "gallery-1": "Bajando · un cenote de Tulum",
       "gallery-2": "La boca de la caverna, desde abajo",
-      "gallery-3": "Tiburones toro frente a la costa",
-      "gallery-4": "Bajo la plataforma · Casa Cenote",
-      "gallery-5": "Tiburones a contraluz"
+      "gallery-3": "Bajo la plataforma · Casa Cenote",
+      "gallery-4": "Tiburones a contraluz"
     }
   },
   "quote": {
@@ -215,7 +226,9 @@
     "s9": "09 — Correo",
     "rPickup": "Cómo llegas",
     "rTime": "Salida",
-    "timeOther": "Otra hora — la revisamos"
+    "timeOther": "Otra hora — la revisamos",
+    "outOfSeason": "Los tiburones toro solo están aquí {season}. Elige una fecha dentro de la temporada, o escríbenos y te decimos cuándo llegan.",
+    "rSeason": "Temporada"
   },
   "faq": {
     "tag": "Antes de venir",

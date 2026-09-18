@@ -23,8 +23,8 @@ return [
 
     // Share taken at booking; the balance is settled on the day.
     'deposit_rate' => 0.30,
-    // Mercado Pago México settles in MXN; the site quotes USD.
-    'usd_to_mxn'   => 17.5,
+    // No exchange rate: prices are carried in both currencies in
+    // content/products.json, and the peso figure is charged as Kay wrote it.
 
     // No trailing slash.
     'site_url' => 'https://kaydiving.com',

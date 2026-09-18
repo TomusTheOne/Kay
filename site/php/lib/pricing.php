@@ -70,8 +70,14 @@ function kay_quote(array $input): ?array
         return null;
     }
 
-    $total = $option['price'] * $divers + $pickup['price'];
-    $rate  = (float) kay_config()['deposit_rate'];
+    $total    = $option['price'] * $divers + $pickup['price'];
+    // Mercado Pago settles in pesos, and Kay quotes in pesos. Charging a
+    // converted dollar figure would have billed 3500 MXN for a dive he sells
+    // at 3200 — his rate is 16, not the 17.5 that was configured. The peso
+    // price is carried in the catalogue beside the dollar one and charged as
+    // it stands, so no rate sits between his price list and the card.
+    $totalMxn = $option['priceMxn'] * $divers + $pickup['priceMxn'];
+    $rate     = (float) kay_config()['deposit_rate'];
 
     return [
         'product'     => $product,
@@ -79,7 +85,9 @@ function kay_quote(array $input): ?array
         'pickup'      => $pickup,
         'divers'      => $divers,
         'total_usd'   => $total,
+        'total_mxn'   => $totalMxn,
         'deposit_usd' => (int) round($total * $rate),
+        'deposit_mxn' => (int) round($totalMxn * $rate),
     ];
 }
 
@@ -101,6 +109,23 @@ function kay_validate(array $input): ?string
     }
     if ($parsed < new DateTimeImmutable('today')) {
         return 'date-past';
+    }
+
+    // A product with a season cannot be booked outside it. The bull sharks are
+    // only off Playa del Carmen from November to March; without this the form
+    // would happily take a deposit in July for a dive nobody can run.
+    $product = kay_find_product((string) ($input['product'] ?? ''));
+    if ($product !== null && !empty($product['season'])) {
+        $month = (int) $parsed->format('n');
+        $from  = (int) $product['season']['fromMonth'];
+        $to    = (int) $product['season']['toMonth'];
+        // The window wraps the year end, so it is a union, not a range.
+        $inSeason = $from <= $to
+            ? ($month >= $from && $month <= $to)
+            : ($month >= $from || $month <= $to);
+        if (!$inSeason) {
+            return 'out-of-season';
+        }
     }
     return null;
 }

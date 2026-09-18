@@ -40,11 +40,13 @@
       "options": [
         {
           "dives": 1,
-          "price": 100
+          "price": 140,
+          "priceMxn": 2300
         },
         {
           "dives": 2,
-          "price": 140
+          "price": 200,
+          "priceMxn": 3200
         }
       ],
       "photo": "card-casa",
@@ -65,7 +67,8 @@
       "options": [
         {
           "dives": 2,
-          "price": 140
+          "price": 200,
+          "priceMxn": 3200
         }
       ],
       "photo": "card-reef",
@@ -85,11 +88,13 @@
       "options": [
         {
           "dives": 2,
-          "price": 150
+          "price": 200,
+          "priceMxn": 3200
         },
         {
           "dives": 3,
-          "price": 170
+          "price": 250,
+          "priceMxn": 4000
         }
       ],
       "photo": "card-angelita",
@@ -131,7 +136,8 @@
       "options": [
         {
           "dives": 5,
-          "price": 460
+          "price": 550,
+          "priceMxn": 8800
         }
       ],
       "photo": "card-advanced",
@@ -154,7 +160,8 @@
       "options": [
         {
           "dives": 5,
-          "price": 450
+          "price": 600,
+          "priceMxn": 9600
         }
       ],
       "photo": "guide",
@@ -177,7 +184,8 @@
       "options": [
         {
           "dives": 0,
-          "price": 80
+          "price": 125,
+          "priceMxn": 2000
         }
       ],
       "photo": "card-snorkel",
@@ -185,6 +193,31 @@
       "extraIncludes": [
         "snorkel-mask"
       ]
+    },
+    {
+      "slug": "bull-sharks",
+      "kind": "dive",
+      "level": "advanced",
+      "maxDepthFt": null,
+      "maxDepthM": null,
+      "diveTime": null,
+      "locations": [
+        "playa-del-carmen"
+      ],
+      "options": [
+        {
+          "dives": 2,
+          "price": 250,
+          "priceMxn": 4000
+        }
+      ],
+      "photo": "card-sharks",
+      "art": "reef",
+      "extraIncludes": [],
+      "season": {
+        "fromMonth": 11,
+        "toMonth": 3
+      }
     }
   ],
   "gallery": [
@@ -203,27 +236,26 @@
     {
       "photo": "gallery-4",
       "tall": false
-    },
-    {
-      "photo": "gallery-5",
-      "tall": false
     }
   ],
   "pickups": [
     {
       "slug": "meeting-point",
       "price": 0,
-      "returnOnly": false
+      "returnOnly": false,
+      "priceMxn": 0
     },
     {
       "slug": "tulum-town",
       "price": 20,
-      "returnOnly": false
+      "returnOnly": false,
+      "priceMxn": 320
     },
     {
       "slug": "outside-town",
       "price": 10,
-      "returnOnly": true
+      "returnOnly": true,
+      "priceMxn": 160
     }
   ],
   "schedules": [

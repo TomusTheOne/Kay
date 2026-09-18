@@ -59,20 +59,22 @@
     "level": {
       "none": "No certification needed",
       "open-water": "Open Water required",
-      "open-water-plus": "Open Water · Advanced or Deep for Angelita and El Pit"
+      "open-water-plus": "Open Water · Advanced or Deep for Angelita and El Pit",
+      "advanced": "Advanced Open Water required"
     },
     "places": {
       "casa-cenote": "Casa Cenote",
       "tankah-reef": "Tankah reef",
       "el-pit": "Cenote El Pit",
       "by-level": "Chosen to match your level",
-      "favourite-cenotes": "Our favourite cenotes near Tulum"
+      "favourite-cenotes": "Our favourite cenotes near Tulum",
+      "playa-del-carmen": "Playa del Carmen · 45 min from Tulum"
     },
     "items": {
       "discover-scuba": {
         "name": "Discover Scuba",
         "tagline": "No PADI? No problem.",
-        "text": "Your first glimpse of the underwater world. Learn the basics of scuba, then go and explore an open-air cenote with crystal clear water, no deeper than seven metres. No certification, no previous experience — just a guide, shallow water and a very good morning.",
+        "text": "Your first glimpse of the underwater world. Learn the basics of scuba, then go and explore an open-air cenote with crystal clear water, no deeper than seven metres. No certification, no previous experience — just a guide, shallow water and a very good morning. The second dive only runs if the sea is right that day.",
         "alt": "The open, jungle-fringed surface of Casa Cenote near Tulum"
       },
       "reef-cenote": {
@@ -104,6 +106,12 @@
         "tagline": "Connect with nature.",
         "text": "For anyone who wants a little adventure and a lot of calm. Three different cenotes across half a day, finishing at one of the best local taquerías in town. No experience needed, and no tank.",
         "alt": "Sunlight falling in shafts through mangrove roots into a Tulum cenote"
+      },
+      "bull-sharks": {
+        "name": "Bull Sharks",
+        "tagline": "The season nobody forgets.",
+        "text": "Every winter the bull sharks come to the coast off Playa del Carmen, and we drive the forty-five minutes to meet them. Two dives from the boat: the first with the sharks, the second on a shallow reef between eight and twenty metres. Advanced Open Water or equivalent, no exceptions.",
+        "alt": "Bull sharks in the blue water off Playa del Carmen, remoras alongside"
       }
     },
     "sitesTag": "The deep two",
@@ -123,6 +131,10 @@
         "depth": "to 18 m",
         "note": "Chosen with you to match your level and what you want from the day."
       }
+    },
+    "seasonTag": "Season",
+    "seasonValue": {
+      "bull-sharks": "November to March"
     }
   },
   "included": {
@@ -167,9 +179,8 @@
     "captions": {
       "gallery-1": "Going down · a Tulum cenote",
       "gallery-2": "The cavern mouth, from below",
-      "gallery-3": "Bull sharks off the coast",
-      "gallery-4": "Under the platform · Casa Cenote",
-      "gallery-5": "Sharks against the surface light"
+      "gallery-3": "Under the platform · Casa Cenote",
+      "gallery-4": "Sharks against the surface light"
     }
   },
   "quote": {
@@ -215,7 +226,9 @@
     "s9": "09 — Email",
     "rPickup": "Getting there",
     "rTime": "Start",
-    "timeOther": "Another time — we will check"
+    "timeOther": "Another time — we will check",
+    "outOfSeason": "The bull sharks are only here from {season}. Pick a date inside the season, or write to us and we will tell you when they arrive.",
+    "rSeason": "Season"
   },
   "faq": {
     "tag": "Before you come",

@@ -384,6 +384,9 @@ body.open .drawer{opacity:1;visibility:visible}
    columns. With three it left a hole bottom-right, so three photographs get
    two columns: tall on the left, the other two stacked on the right. */
 .gal[data-count="3"]{grid-template-columns:repeat(2,1fr)}
+/* Four: the tall one on the left, two beside it, and the fourth stretched
+   across both columns underneath. Still no hole. */
+.gal[data-count="4"] .gal__t:nth-child(4){grid-column:span 2}
 .gal__t img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
 .gal__t:hover img{transform:scale(1.06)}
 .gal__t figcaption{
