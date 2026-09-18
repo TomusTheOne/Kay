@@ -11,25 +11,34 @@ import postgres from "postgres";
 
 const sql = postgres(process.env.DATABASE_URL, { max: 1 });
 
-test("pricing is recomputed from slugs, never taken from the client", async () => {
+test("pricing is recomputed from the menu, never taken from the client", async () => {
   const { quote } = await import("../lib/pricing.ts");
 
   const base = {
-    dive: "angelita", date: "2026-12-01", cert: "Advanced", divers: 3,
-    pickup: "tulum", addons: ["nitrox"], name: "T", email: "t@e.com", locale: "en",
+    product: "cenote-diving", option: 3, date: "2026-12-01", cert: "Advanced",
+    divers: 3, name: "T", email: "t@e.com", locale: "en",
   };
+  // Cenote Diving, 3 dives, $170 each × 3 divers
   const q = quote(base);
-  // 240×3 dive + 25 pickup + 35×3 nitrox (per diver) = 850
-  assert.equal(q.totalUsd, 850);
-  assert.equal(q.depositUsd, 255);            // 30 %
+  assert.equal(q.totalUsd, 510);
+  assert.equal(q.depositUsd, 153);            // 30 %
+
+  // Every price on the menu, exactly as printed.
+  assert.equal(quote({ ...base, product: "discover-scuba", option: 1, divers: 1 }).totalUsd, 100);
+  assert.equal(quote({ ...base, product: "discover-scuba", option: 2, divers: 1 }).totalUsd, 140);
+  assert.equal(quote({ ...base, product: "reef-cenote",    option: 2, divers: 1 }).totalUsd, 140);
+  assert.equal(quote({ ...base, product: "cenote-diving",  option: 2, divers: 1 }).totalUsd, 150);
+  assert.equal(quote({ ...base, product: "advanced-ow",    option: 5, divers: 1 }).totalUsd, 460);
+  assert.equal(quote({ ...base, product: "open-water",     option: 5, divers: 1 }).totalUsd, 450);
+  assert.equal(quote({ ...base, product: "snorkel",        option: 0, divers: 1 }).totalUsd, 80);
 
   // A hostile payload carrying its own total changes nothing.
-  const tampered = quote({ ...base, totalUsd: 1, price: 1, depositUsd: 0 });
-  assert.equal(tampered.totalUsd, 850);
+  assert.equal(quote({ ...base, totalUsd: 1, price: 1, depositUsd: 0 }).totalUsd, 510);
 
-  // Unknown slugs are refused rather than silently priced at zero.
-  assert.equal(quote({ ...base, dive: "free-dive" }), null);
-  assert.equal(quote({ ...base, pickup: "moon" }), null);
+  // Unknown product, or a size that product is not sold in, is refused.
+  assert.equal(quote({ ...base, product: "free-dive" }), null);
+  assert.equal(quote({ ...base, product: "snorkel", option: 4 }), null);
+  assert.equal(quote({ ...base, product: "reef-cenote", option: 1 }), null);
 
   // Diver count is clamped, so 0 or 9999 cannot distort the charge.
   assert.equal(quote({ ...base, divers: 0 }).totalUsd, quote({ ...base, divers: 1 }).totalUsd);
@@ -38,8 +47,8 @@ test("pricing is recomputed from slugs, never taken from the client", async () =
 
 test("validate refuses a past date and a malformed email", async () => {
   const { validate } = await import("../lib/pricing.ts");
-  const ok = { dive: "reef", date: "2099-01-01", cert: "OW", divers: 2,
-               pickup: "shop", addons: [], name: "Ana", email: "a@b.co", locale: "en" };
+  const ok = { product: "reef-cenote", option: 2, date: "2099-01-01", cert: "OW",
+               divers: 2, name: "Ana", email: "a@b.co", locale: "en" };
   assert.equal(validate(ok), null);
   assert.equal(validate({ ...ok, email: "nope" }), "email");
   assert.equal(validate({ ...ok, name: "" }), "name");
@@ -48,10 +57,10 @@ test("validate refuses a past date and a malformed email", async () => {
 
 test("a booking settles exactly once, however often the webhook fires", async () => {
   const [row] = await sql`
-    insert into bookings (dive, dive_date, divers, certification, pickup,
+    insert into bookings (product, dives, dive_date, divers, certification,
                           name, email, total_usd_cents, deposit_usd_cents, deposit_mxn_cents)
-    values ('angelita','2026-12-01',3,'Advanced','tulum',
-            'Test','t@example.com', 84000, 25200, 441000)
+    values ('cenote-diving',3,'2026-12-01',3,'Advanced',
+            'Test','t@example.com', 51000, 15300, 267750)
     returning id, status`;
   assert.equal(row.status, "pending");
 

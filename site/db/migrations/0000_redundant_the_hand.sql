@@ -1,12 +1,11 @@
 CREATE TYPE "public"."booking_status" AS ENUM('pending', 'paid', 'cancelled', 'refunded');--> statement-breakpoint
 CREATE TABLE "bookings" (
 	"id" uuid PRIMARY KEY DEFAULT gen_random_uuid() NOT NULL,
-	"dive" text NOT NULL,
+	"product" text NOT NULL,
+	"dives" integer NOT NULL,
 	"dive_date" date NOT NULL,
 	"divers" integer NOT NULL,
 	"certification" text NOT NULL,
-	"pickup" text NOT NULL,
-	"addons" jsonb DEFAULT '[]'::jsonb NOT NULL,
 	"name" text NOT NULL,
 	"email" text NOT NULL,
 	"locale" text DEFAULT 'en' NOT NULL,
@@ -14,7 +13,7 @@ CREATE TABLE "bookings" (
 	"deposit_usd_cents" integer NOT NULL,
 	"deposit_mxn_cents" integer NOT NULL,
 	"status" "booking_status" DEFAULT 'pending' NOT NULL,
-	"preference_id" text NOT NULL,
+	"preference_id" text,
 	"payment_id" text,
 	"created_at" timestamp with time zone DEFAULT now() NOT NULL,
 	"paid_at" timestamp with time zone

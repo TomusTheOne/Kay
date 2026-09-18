@@ -1,16 +1,16 @@
-import { BOOKABLE, ADDONS, PICKUPS } from "../content/dives.ts";
+import { PRODUCTS } from "../content/products.ts";
 
 export interface BookingInput {
-  dive: string; date: string; cert: string; divers: number;
-  pickup: string; addons: string[]; name: string; email: string; locale: string;
+  product: string; option: number; date: string; cert: string;
+  divers: number; name: string; email: string; locale: string;
 }
 
 export interface Quote {
-  dive: (typeof BOOKABLE)[number];
+  product: (typeof PRODUCTS)[number];
+  option: { dives: number; price: number };
   divers: number;
   totalUsd: number;
   depositUsd: number;
-  lines: { label: string; amount: number }[];
 }
 
 /** Share of the total taken up front. The rest is settled on the day. */
@@ -19,26 +19,21 @@ export const DEPOSIT_RATE = Number(process.env.DEPOSIT_RATE ?? 0.3);
 /**
  * Prices are recomputed here from slugs alone. The browser sends choices,
  * never amounts — a tampered payload cannot lower what is charged.
+ *
+ * Transport, equipment, cenote entrance and snacks are included in every
+ * price on the menu, so there is nothing to add on top.
  */
 export function quote(input: BookingInput): Quote | null {
-  const dive = BOOKABLE.find((d) => d.slug === input.dive);
-  const pick = PICKUPS.find((p) => p.slug === input.pickup);
-  if (!dive || !pick) return null;
+  const product = PRODUCTS.find((p) => p.slug === input.product);
+  if (!product) return null;
+
+  const option = product.options.find((o) => o.dives === Number(input.option));
+  if (!option) return null;
 
   const divers = Math.min(8, Math.max(1, Math.trunc(input.divers)));
-  const chosen = ADDONS.filter((a) => input.addons?.includes(a.slug));
+  const totalUsd = option.price * divers;
 
-  const lines = [
-    { label: `${dive.slug} × ${divers}`, amount: dive.price * divers },
-    ...(pick.price ? [{ label: `pickup ${pick.slug}`, amount: pick.price }] : []),
-    ...chosen.map((a) => ({
-      label: a.slug + (a.perDiver ? ` × ${divers}` : ""),
-      amount: a.price * (a.perDiver ? divers : 1),
-    })),
-  ];
-
-  const totalUsd = lines.reduce((s, l) => s + l.amount, 0);
-  return { dive, divers, totalUsd, depositUsd: Math.round(totalUsd * DEPOSIT_RATE), lines };
+  return { product, option, divers, totalUsd, depositUsd: Math.round(totalUsd * DEPOSIT_RATE) };
 }
 
 export function validate(input: BookingInput): string | null {

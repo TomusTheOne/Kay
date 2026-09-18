@@ -1,5 +1,5 @@
 import {
-  pgTable, uuid, text, integer, date, timestamp, jsonb, index, pgEnum,
+  pgTable, uuid, text, integer, date, timestamp, index, pgEnum,
 } from "drizzle-orm/pg-core";
 
 /**
@@ -17,12 +17,12 @@ export const bookings = pgTable("bookings", {
   id: uuid("id").primaryKey().defaultRandom(),
 
   // what was booked
-  dive: text("dive").notNull(),
+  product: text("product").notNull(),
+  /** the chosen size: number of dives, 0 for the half-day snorkel tour */
+  dives: integer("dives").notNull(),
   diveDate: date("dive_date").notNull(),
   divers: integer("divers").notNull(),
   certification: text("certification").notNull(),
-  pickup: text("pickup").notNull(),
-  addons: jsonb("addons").$type<string[]>().notNull().default([]),
 
   // who
   name: text("name").notNull(),

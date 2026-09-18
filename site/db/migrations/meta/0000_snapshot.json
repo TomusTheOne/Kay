@@ -1,5 +1,5 @@
 {
-  "id": "40db67c4-a54b-4bbc-9fe8-29d9840c00b7",
+  "id": "9fc0eb85-ffd2-404d-ba42-8e91af305b12",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -15,9 +15,15 @@
           "notNull": true,
           "default": "gen_random_uuid()"
         },
-        "dive": {
-          "name": "dive",
+        "product": {
+          "name": "product",
           "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "dives": {
+          "name": "dives",
+          "type": "integer",
           "primaryKey": false,
           "notNull": true
         },
@@ -38,19 +44,6 @@
           "type": "text",
           "primaryKey": false,
           "notNull": true
-        },
-        "pickup": {
-          "name": "pickup",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "addons": {
-          "name": "addons",
-          "type": "jsonb",
-          "primaryKey": false,
-          "notNull": true,
-          "default": "'[]'::jsonb"
         },
         "name": {
           "name": "name",
@@ -101,7 +94,7 @@
           "name": "preference_id",
           "type": "text",
           "primaryKey": false,
-          "notNull": true
+          "notNull": false
         },
         "payment_id": {
           "name": "payment_id",

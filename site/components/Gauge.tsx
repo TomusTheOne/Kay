@@ -1,7 +1,10 @@
 "use client";
 import { useEffect, useState } from "react";
+import { MAX_DEPTH_M } from "@/content/products";
 
-const MAX_DEPTH = 40;
+/* The deepest thing Kay runs is the Advanced course at 90 ft. The gauge
+   must not imply depths they do not offer. */
+const MAX_DEPTH = MAX_DEPTH_M;
 
 /** Scroll is a descent: the gauge counts metres and the water darkens with it. */
 export default function Gauge({ zones }: { zones: [number, string][] }) {
@@ -32,9 +35,9 @@ export default function Gauge({ zones }: { zones: [number, string][] }) {
   return (
     <aside className="gauge" aria-hidden="true">
       <div className="gauge__rail">
-        {[0, 25, 50, 75, 100].map((p, i) => (
+        {[0, 33, 66, 100].map((p) => (
           <i key={p} className="gauge__tick" style={{ "--p": p } as React.CSSProperties}>
-            <span>{i * 10}</span>
+            <span>{Math.round((p / 100) * MAX_DEPTH)}</span>
           </i>
         ))}
         <div className="gauge__marker">

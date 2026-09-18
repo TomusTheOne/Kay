@@ -1,13 +1,12 @@
 {
   "meta": {
-    "title": "Cenote Diving in Tulum | Kay Diving — Small-Group Cavern & Reef Dives",
-    "description": "Cenote and cavern diving in Tulum with a maximum of four divers per guide. Dive Dos Ojos, Angelita, The Pit and the Tulum reef with Kay Diving. Book online."
+    "title": "Cenote & Reef Diving in Tulum | Kay Diving — PADI Courses & Guided Dives",
+    "description": "Guided cenote and reef diving in Tulum, from a first try dive to PADI Open Water and Advanced. Hotel transport, equipment, cenote entrance and snacks included. From $80."
   },
   "nav": {
-    "underworld": "The underworld",
-    "dives": "Cenote dives",
-    "reef": "The reef",
-    "courses": "Courses",
+    "about": "About",
+    "products": "Dives & courses",
+    "included": "What's included",
     "gallery": "Gallery",
     "faq": "Questions",
     "reserve": "Reserve",
@@ -16,111 +15,129 @@
     "language": "Language"
   },
   "hero": {
-    "kicker": "Tulum · Quintana Roo · Sistema Sac Actun",
-    "l1": "Descend into",
-    "l2": "the Mayan underworld.",
-    "lede": "Kay Diving takes four divers at a time into the flooded caverns beneath Tulum — the cenotes the Maya believed were doorways to Xibalba. Certified guides, no crowds, and a reef that begins eight hundred metres offshore.",
-    "cta2": "See the cenotes",
-    "alt": "A diver silhouetted against the turquoise glow of Cenote Angelita, Tulum, among bare branches rising through the hydrogen sulphide cloud",
+    "kicker": "Tulum · Quintana Roo · Riviera Maya",
+    "l1": "Explore the",
+    "l2": "Mayan underworld.",
+    "lede": "Kay Diving guides cenote and reef dives around Tulum — from a first breath underwater to a PADI certification. Our guides do not just take you down; they tell you the history of the place while you are in it.",
+    "cta2": "See what we run",
+    "alt": "A diver silhouetted against the turquoise glow of a Tulum cenote, among bare branches rising through the water",
     "water": "WATER",
     "viz": "VIZ",
-    "sacActun": "SAC ACTUN",
-    "max": "MAX",
-    "divers": "DIVERS"
+    "from": "FROM",
+    "agency": "PADI",
+    "agencyLabel": "COURSES"
   },
   "gauge": {
     "surface": "Surface",
-    "cavern": "Cavern zone",
-    "deep": "Deep",
-    "abyss": "The abyss"
+    "cavern": "Cenote",
+    "deep": "Deep"
   },
-  "underworld": {
-    "tag": "The underworld",
-    "h2": "Cenotes were never just swimming holes. They were the door.",
-    "p1": "In the Popol Vuh, Xibalba is the place beneath — reached through caves and through water. Every cenote in the Yucatán was a mouth of the earth: somewhere to leave an offering, somewhere you did not swim for fun.",
-    "p2": "The limestone is still doing what it has always done. Rain falls, dissolves the rock, and drains into one of the largest flooded cave systems on the planet. We take you a respectful distance inside it — on a guideline, within daylight, four divers at a time.",
-    "plateAlt": "A Kay Diving guide carrying a tank down to the water at the dive centre in Tulum",
-    "plateNote": "FOUR DIVERS · one guide, never more",
-    "stat1": "Divers per guide,<br>maximum",
-    "stat2": "Water, every day<br>of the year",
-    "stat3": "Cenotes in<br>rotation",
-    "stat4": "Sac Actun,<br>mapped so far"
+  "about": {
+    "tag": "About us",
+    "h2": "Three quarters of our planet are water. Let's go and explore them together.",
+    "p1": "At Kay Diving we are passionate about the Mayan underworld. Our guides will not only take you on a personalised experience, they will teach you about the magical history of this place. We also take pride in our responsibility towards the environment, making conscious decisions about the way we protect this beautiful planet.",
+    "p2": "The Riviera Maya has some of the most beautiful diving sites in the world, and some very good dive centres. What we take special pride in is making the tour yours — so that you feel at home, and the day is built around you rather than around a schedule.",
+    "questionTag": "Before you arrive",
+    "question": "We send you a few questions before the dive. What you have done before, what you want out of the day, what makes you uneasy. It is the difference between a dive that suits you and a dive that merely happens.",
+    "plateAlt": "A Kay Diving guide carrying a tank down to the water in Tulum",
+    "plateNote": "PERSONALISED · every tour built around you"
   },
-  "dives": {
-    "tag": "The descent",
-    "h2": "Four ways<br>into the water.",
-    "intro": "Every dive is guided, every group is small, and every price below includes gear, cenote entry, transport from Tulum and the guide.",
+  "products": {
+    "tag": "What we run",
+    "h2": "Six ways<br>into the water.",
+    "intro": "Every price below already includes transport from your hotel, equipment, the cenote entrance fee, and snacks and water. There is nothing to add on the day except the balance.",
     "from": "from",
-    "tanksLabel": "dives",
+    "dive": "dive",
+    "dives": "dives",
+    "perDiver": "per diver",
+    "depth": "Max depth",
+    "time": "Dive time",
+    "where": "Where",
+    "needs": "You need",
+    "halfDay": "Half day",
     "level": {
-      "open-water": "OPEN WATER",
-      "advanced": "ADVANCED",
-      "deep": "DEEP"
+      "none": "No certification needed",
+      "open-water": "Open Water required",
+      "open-water-plus": "Open Water · Advanced for the deeper sites"
+    },
+    "places": {
+      "casa-cenote": "Casa Cenote",
+      "tankah-reef": "Tankah reef",
+      "el-pit": "Cenote El Pit",
+      "by-level": "Chosen to match your level",
+      "favourite-cenotes": "Our favourite cenotes near Tulum"
     },
     "items": {
-      "first-light": {
-        "name": "First light",
-        "text": "Casa Cenote and Car Wash. Open, bright, shallow — mangrove roots, a resident crocodile called Panchito, and your first halocline. The gentlest possible introduction.",
-        "alt": "The open, jungle-fringed surface of Casa Cenote near Tulum, with a rope hanging over turquoise water"
+      "discover-scuba": {
+        "name": "Discover Scuba",
+        "tagline": "No PADI? No problem.",
+        "text": "Your first glimpse of the underwater world. Learn the basics of scuba, then go and explore an open-air cenote with crystal clear water. No certification, no previous experience — just a guide, shallow water and a very good morning.",
+        "alt": "The open, jungle-fringed surface of Casa Cenote near Tulum"
       },
-      "decorated": {
-        "name": "The decorated ones",
-        "text": "Dos Ojos and Dreamgate. The most ornamented cavern in the Riviera Maya — stalactites so fine they look like glass, and a bat cave you surface inside.",
-        "alt": "A diver near the surface of a Tulum cenote beside a rock wall hung with orange leaves"
+      "reef-cenote": {
+        "name": "Reef & Cenote",
+        "tagline": "Two worlds unveiled at once.",
+        "text": "One day, both halves of what makes this coast worth diving: the reef off Tankah, then the fresh water of Casa Cenote. Salt and sweet, turtles and stalactites, in a single morning.",
+        "alt": "A green turtle swimming over coral on the reef off Tulum"
       },
-      "angelita": {
-        "name": "The river under the river",
-        "text": "Angelita. At thirty metres a cloud of hydrogen sulphide lies across the shaft like a riverbank, with dead branches rising through it. You swim down into weather.",
-        "alt": "A diver descending past bare branches at Cenote Angelita, Tulum"
+      "cenote-diving": {
+        "name": "Cenote Diving",
+        "tagline": "Explore the Mayan underworld.",
+        "text": "Into some of the most beautiful flooded caverns in the world. Which cenotes you dive depends on what you have done before — we choose them once we know your level, and we say so honestly if a site is not yet for you.",
+        "alt": "A diver descending past bare branches in a Tulum cenote"
       },
-      "the-pit": {
-        "name": "Where the light falls forever",
-        "text": "The Pit. The deepest cenote in Sac Actun. Late morning, the beams reach all the way down the shaft and stand there like columns. Nothing else in diving looks like it.",
-        "alt": "The deep shaft of Cenote The Pit with a single column of light"
+      "advanced-ow": {
+        "name": "Advanced Open Water",
+        "tagline": "Climb the experience ladder.",
+        "text": "The next step: five specialty dives taking you to thirty metres, across Casa Cenote, Cenote El Pit and the Tankah reef. Learning materials included.",
+        "alt": "A diver near the surface of a Tulum cenote beside a rock wall"
       },
-      "reef": {
-        "name": "The reef",
-        "text": "Two tanks off Tulum beach. Turtles on the seagrass, eagle rays over the sand channels, and the second largest reef on earth a kilometre from shore.",
-        "alt": "A green turtle swimming over coral on the Mesoamerican reef off Tulum"
+      "open-water": {
+        "name": "Open Water Course",
+        "tagline": "Join the fun, become a certified diver.",
+        "text": "The full PADI Open Water licence over five dives, between Casa Cenote and the Tankah reef. No previous experience needed. You leave with a certification that works anywhere in the world.",
+        "alt": "A Kay Diving guide carrying a tank to the water"
+      },
+      "snorkel": {
+        "name": "Snorkel tour",
+        "tagline": "Connect with nature.",
+        "text": "For anyone who wants a little adventure and a lot of calm. Three different cenotes across half a day, finishing at one of the best local taquerías in town. No experience needed, and no tank.",
+        "alt": "A cenote near Tulum seen from the bank, jungle reflected in still water"
       }
     }
   },
-  "reef": {
-    "tag": "Salt water",
-    "h2": "The second largest reef on earth starts here.",
-    "lede": "The Mesoamerican Barrier Reef runs from Isla Contoy to Honduras and passes within a kilometre of Tulum beach. Twenty minutes in the boat, two tanks, turtles more often than not.",
-    "t1": "Green and loggerhead turtles on the seagrass beds year-round.",
-    "t2": "Eagle rays and nurse sharks over the sand channels.",
-    "t3": "Reef-safe sunscreen only — we will hand you some if you forget.",
-    "t4": "Bull sharks off Playa del Carmen, November to March.",
-    "cta": "Add a reef day"
-  },
-  "courses": {
-    "tag": "Learn here",
-    "h2": "Certifications,<br>taught slowly.",
-    "intro": "Courses run with two students maximum. Nobody is pushed through a schedule — you leave when the skills are actually yours.",
-    "days": "days",
-    "day": "day",
+  "included": {
+    "tag": "In every price",
+    "h2": "What you are not<br>paying extra for.",
+    "intro": "Dive centres in Tulum quote in very different ways. Here is exactly what our prices already cover.",
     "items": {
-      "open-water": {
-        "level": "Entry level",
-        "name": "Open Water",
-        "text": "Four days, pool to reef. The certification that unlocks cavern diving with us."
+      "transport": {
+        "name": "Hotel transport",
+        "text": "Picked up from your hotel and driven to the dive sites. Not an add-on, not a zone surcharge."
       },
-      "advanced": {
-        "level": "Level 2",
-        "name": "Advanced",
-        "text": "Deep and navigation plus three specialities. Opens Angelita and The Pit."
+      "equipment": {
+        "name": "Equipment",
+        "text": "High quality gear, fitted before you get in. Bring a swimsuit and reef-safe sunscreen."
       },
-      "cavern": {
-        "level": "Speciality",
-        "name": "Cavern Diver",
-        "text": "Guideline, light protocol, silt management. Dive the caverns without a guide."
+      "entrance": {
+        "name": "Cenote entrance",
+        "text": "The entry fee to every cenote on your day is in the price. No cash gate to pay at the door."
       },
-      "nitrox": {
-        "level": "Speciality",
-        "name": "Nitrox",
-        "text": "Longer, safer bottom times on repetitive cenote days. One evening plus theory."
+      "snacks": {
+        "name": "Snacks & water",
+        "text": "Food and water between dives. Cenote mornings are longer than people expect."
+      },
+      "materials": {
+        "name": "Learning materials",
+        "text": "On both courses, everything you need to study is included."
+      },
+      "snorkel-mask": {
+        "name": "Snorkel & mask",
+        "text": "Provided on the snorkel tour."
+      },
+      "padi-licence": {
+        "name": "PADI licence",
+        "text": "The Open Water course ends with a certification recognised worldwide."
       }
     }
   },
@@ -129,65 +146,50 @@
     "h2": "What it actually<br>looks like down there.",
     "intro": "Shot by the guides on working days — no models, no staging. More of it, most days, on",
     "captions": {
-      "gallery-1": "Angelita · 30 m",
-      "gallery-2": "Your guide, 07:10",
-      "gallery-3": "Tulum reef · green turtle",
-      "gallery-4": "Cenote wall · orange leaves",
+      "gallery-1": "Cenote light",
+      "gallery-2": "Your guide, before the first dive",
+      "gallery-3": "Tankah reef · green turtle",
+      "gallery-4": "Cenote wall",
       "gallery-5": "Casa Cenote · morning"
     }
   },
   "quote": {
-    "text": "The cenote does not care that you paid for it. You go in quietly, you touch nothing, you leave it exactly as you found it — and it shows you something almost nobody gets to see.",
-    "cite": "The Kay Diving guides · Tulum"
+    "text": "Three quarters of our planet are water. Let's go and explore them together.",
+    "cite": "Kay Diving · Tulum"
   },
   "book": {
     "tag": "Reservations",
-    "h2": "Write your<br>dive slate.",
-    "intro": "A deposit secures the date. We confirm by WhatsApp within a few hours and you settle the rest on the day.",
-    "s1": "01 — Choose your water",
-    "s2": "02 — Date",
-    "s3": "03 — Your level",
-    "s4": "04 — Divers",
-    "s5": "05 — Pick-up",
-    "s6": "06 — Add to the day",
-    "s7": "07 — Name",
-    "s8": "08 — Email",
+    "h2": "Book your<br>day in the water.",
+    "intro": "A deposit holds the date. We confirm by WhatsApp within a few hours, send you our few questions, and you settle the balance on the day.",
+    "s1": "01 — What you want to do",
+    "s2": "02 — How many dives",
+    "s3": "03 — Date",
+    "s4": "04 — Your level",
+    "s5": "05 — How many of you",
+    "s6": "06 — Name",
+    "s7": "07 — Email",
     "namePh": "Your name",
     "mailPh": "you@email.com",
     "certs": [
+      "Not certified yet",
       "Open Water",
       "Advanced Open Water",
       "Rescue / Divemaster",
-      "Cavern or Cave certified",
-      "Not certified yet"
+      "Cave or cavern certified"
     ],
-    "pickup": {
-      "shop": "Meet at the shop — included",
-      "tulum": "Tulum hotel zone",
-      "akumal": "Akumal or Playa"
-    },
-    "addons": {
-      "photos": "Photo set",
-      "private": "Private guide",
-      "nitrox": "Nitrox",
-      "third": "Third dive"
-    },
     "slate": "Dive slate",
     "stamp": "Not confirmed",
-    "rDive": "Dive",
+    "rProduct": "Experience",
+    "rOption": "Dives",
     "rDate": "Date",
     "rDepth": "Max depth",
-    "rLevel": "Required",
+    "rLevel": "You need",
     "rDivers": "Divers",
-    "rPickup": "Pick-up",
-    "rExtras": "Extras",
     "rTotal": "Total",
-    "none": "None",
-    "fine": "Gear, cenote entry, guide and water included. Prices in USD, indicative.",
+    "halfDayLabel": "Half day",
+    "fine": "Transport, equipment, cenote entrance and snacks included. Prices per person in USD.",
     "submit": "Reserve with a deposit",
     "submitting": "Opening checkout…",
-    "doneTitle": "Slate received.",
-    "doneText": "We read every request ourselves. Expect a WhatsApp message within a few hours with the conditions for your date and a confirmation.",
     "error": "Something went wrong opening the checkout. Try again, or write to us on WhatsApp."
   },
   "faq": {
@@ -195,53 +197,59 @@
     "h2": "Questions<br>worth asking.",
     "items": [
       {
-        "q": "Do I need to be a certified diver to dive a cenote?",
-        "a": "For cavern diving, yes — Open Water is the minimum, and for Angelita or The Pit you need Advanced. If you are not certified we run guided cenote snorkelling and Discover Scuba sessions in the open, daylight sections, which are genuinely beautiful in their own right."
+        "q": "Do I need to be certified to dive here?",
+        "a": "Not to start. Discover Scuba takes people who have never breathed underwater, and the snorkel tour needs nothing at all. For cenote diving and the reef you need an Open Water certification, and the deeper cenote sites need Advanced — we will tell you honestly which sites are open to you."
       },
       {
-        "q": "What is the difference between cavern diving and cave diving?",
-        "a": "Cavern diving stays inside the natural daylight zone — within roughly 60 metres of the entrance, no deeper than 21 metres, always on a permanent guideline, always with a direct route to the surface. Cave diving goes beyond daylight and needs a dedicated cave certification. Everything we guide is cavern."
+        "q": "What is actually included in the price?",
+        "a": "Transport from your hotel to the dive sites, high quality equipment, the cenote entrance fee, and snacks and water. Both courses also include the learning materials. Nothing else is added on the day beyond the balance of the price you saw."
+      },
+      {
+        "q": "How deep do the dives go?",
+        "a": "Discover Scuba and the Open Water course stay at about 9 metres (30 ft). Cenote diving plans to 18 metres (60 ft). The Advanced course goes to 27 metres (90 ft), which is the deepest we run."
+      },
+      {
+        "q": "What is the difference between cavern and cave diving?",
+        "a": "Cavern diving stays inside the natural daylight zone, within reach of the entrance and always with a direct route to the surface. Cave diving goes beyond daylight and needs its own certification — a different qualification entirely, and not something an Open Water card covers."
       },
       {
         "q": "How cold is the water?",
-        "a": "Around 24–25 °C in the cenotes, every day of the year, and 26–29 °C on the reef. A 3 mm wetsuit suits most divers; we carry 5 mm if you run cold, at no extra cost."
+        "a": "Cenotes sit at roughly 24–25 °C every day of the year, and the reef is a little warmer. Wetsuits are part of the equipment we provide — tell us if you run cold."
       },
       {
         "q": "What is a halocline?",
-        "a": "Fresh rainwater floating on heavier salt water. The boundary between them refracts light, so swimming through it looks like the water has turned to oil or frosted glass — then it closes behind you and the view snaps back. It is one of the strangest things you will ever see underwater."
+        "a": "Fresh rainwater floating on heavier salt water. The boundary between them refracts light, so swimming through it looks like the water has turned to oil or frosted glass — then it closes behind you and the view snaps back. It is one of the strangest things you will see underwater."
+      },
+      {
+        "q": "Why do you send questions before the dive?",
+        "a": "Because a tour built around you is better than a tour built around a schedule. We want to know what you have done before, what you are hoping for, and what makes you uneasy — so the day fits, rather than merely happening."
       },
       {
         "q": "When is the best time of year to come?",
-        "a": "Cenotes are sheltered from wind and swell, so they dive well all year. If you are chasing the light beams, aim for 11:00–13:00 between March and September. Reef conditions are best from March to June."
-      },
-      {
-        "q": "How many divers will be in my group?",
-        "a": "Four, maximum, per guide — in the caverns that is a safety decision as much as a comfort one. Courses run with two students."
+        "a": "Cenotes are sheltered from wind and swell, so they dive well all year. Light beams in the cenotes are strongest around the middle of the day. Reef conditions are generally best in the spring and early summer."
       }
     ]
   },
   "cta": {
     "kicker": "Tulum · year-round",
-    "h2": "The door is open all year.",
-    "lede": "Tell us your dates and your certification level. We will tell you honestly which cenotes are worth your time that week.",
+    "h2": "Let's go and explore them together.",
+    "lede": "Tell us your dates and what you have done before. We will tell you honestly which sites are worth your time that week.",
     "instagram": "See it on Instagram"
   },
   "footer": {
-    "blurb": "Small-group cenote, cavern and reef diving in Tulum, Quintana Roo.",
-    "dive": "Dive",
-    "cenotes": "Cenotes",
+    "blurb": "Guided cenote and reef diving and PADI courses in Tulum, Quintana Roo. Transport, equipment, cenote entrance and snacks included in every price.",
+    "explore": "Dives & courses",
+    "learn": "Learn",
     "find": "Find us",
     "whatsapp": "WhatsApp",
     "email": "Email",
     "place": "Tulum, Quintana Roo, MX"
   },
-  "_translated": false,
-  "_note": "TRADUCTION ESPAGNOLE À FAIRE",
   "booking": {
     "thanks": {
       "tag": "Payment received",
       "h2": "You are on the boat.",
-      "p": "Your deposit is in and the date is held. A guide will message you on WhatsApp within a few hours with the meeting point, the time and the conditions for that week. The balance is settled on the day.",
+      "p": "Your deposit is in and the date is held. A guide will message you on WhatsApp within a few hours with the meeting point, the time, and the few questions we ask before every dive. The balance is settled on the day.",
       "cta": "Back to the site"
     },
     "pending": {
@@ -256,5 +264,7 @@
       "p": "Nothing was charged and no date is held. Cards issued outside Mexico are sometimes refused on a first attempt — try again, or write to us on WhatsApp and we will hold the date by hand.",
       "cta": "Try again"
     }
-  }
+  },
+  "_translated": false,
+  "_note": "TRADUCTION ESPAGNOLE À FAIRE"
 }

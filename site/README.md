@@ -56,6 +56,20 @@ build instead of printing `undefined` to a visitor.
 **`es.json` and `fr.json` are currently English copies** flagged `_translated: false`.
 The routing, metadata and `hreflang` are live; the words are not.
 
+## Where the content comes from
+
+Every price, depth, location and inclusion in `content/products.ts` is taken from
+Kay's 2026 menu PDF. Prose is theirs where they wrote it — the About and Why Us
+paragraphs, the taglines — and generic where it is educational (halocline, cavern
+versus cave, water temperature).
+
+Two things in the menu contradict themselves and were resolved rather than copied:
+
+- **Discover Scuba** — the blurb says "maximum depth of 7 metres / 25 ft", the spec
+  says `DEPHTH: 30 FT`. The site uses 30 ft / 9 m, from the spec. Worth confirming.
+- **Open Water Course** — the menu reuses the Discover Scuba paragraph word for word.
+  The site has its own copy rather than repeating the duplication.
+
 ## Known gaps
 
 - No confirmation email yet — marked `TODO(email)` in the webhook.
@@ -63,4 +77,7 @@ The routing, metadata and `hreflang` are live; the words are not.
 - The payment flow cannot be exercised end to end without a public HTTPS origin
   for the webhook, so it is untested against the real Mercado Pago.
 - Mercado Pago level 3 caps at roughly 10,000 UDIS (~87,000 MXN) a month. Raising
-  it needs an RFC.
+  it needs an RFC. Accepted for now; revisit when the cap is actually reached.
+- The static maquettes under `../concepts/` still carry the invented dive names and
+  prices from before the menu arrived. They are design references only — do not
+  show them as the offer.

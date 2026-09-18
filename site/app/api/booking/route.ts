@@ -26,7 +26,7 @@ export async function POST(req: Request) {
   if (bad) return NextResponse.json({ error: bad }, { status: 422 });
 
   const q = quote(input);
-  if (!q) return NextResponse.json({ error: "unknown dive or pickup" }, { status: 422 });
+  if (!q) return NextResponse.json({ error: "unknown product or option" }, { status: 422 });
 
   const depositMxn = Math.round(q.depositUsd * USD_TO_MXN);
 
@@ -34,12 +34,11 @@ export async function POST(req: Request) {
   // abandoned pending booking, which is harmless; the reverse — a payment with
   // nothing to attach it to — is not.
   const [booking] = await db.insert(bookings).values({
-    dive: q.dive.slug,
+    product: q.product.slug,
+    dives: q.option.dives,
     diveDate: input.date,
     divers: q.divers,
     certification: input.cert ?? "",
-    pickup: input.pickup,
-    addons: input.addons ?? [],
     name: input.name.trim(),
     email: input.email.trim().toLowerCase(),
     locale: input.locale ?? "en",
@@ -55,8 +54,8 @@ export async function POST(req: Request) {
     const pref = await new Preference(client).create({
       body: {
         items: [{
-          id: q.dive.slug,
-          title: `Kay Diving — ${q.dive.slug} (${q.divers})`,
+          id: q.product.slug,
+          title: `Kay Diving — ${q.product.slug} × ${q.divers}`,
           description: `Deposit ${Math.round(DEPOSIT_RATE * 100)}% · balance on the day`,
           quantity: 1,
           unit_price: depositMxn,

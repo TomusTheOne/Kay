@@ -1,1 +1,0 @@
-ALTER TABLE "bookings" ALTER COLUMN "preference_id" DROP NOT NULL;

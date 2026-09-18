@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Instrument_Serif, Inter, IBM_Plex_Mono } from "next/font/google";
 import { notFound } from "next/navigation";
 import { LOCALES, isLocale, getDictionary, pathFor, type Locale } from "@/lib/i18n";
-import { SHOP } from "@/content/dives";
+import { SHOP } from "@/content/products";
 import "../globals.css";
 
 /* Self-hosted at build time: no third-party request, no flash, no layout shift. */

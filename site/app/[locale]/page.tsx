@@ -1,24 +1,23 @@
 import { notFound } from "next/navigation";
 import { isLocale, getDictionary, pathFor, LOCALES } from "@/lib/i18n";
-import { DIVES, COURSES, GALLERY, SHOP } from "@/content/dives";
+import { PRODUCTS, ALWAYS_INCLUDED, GALLERY, SHOP } from "@/content/products";
 import Surface from "@/components/Surface";
 import Gauge from "@/components/Gauge";
 import Reveals from "@/components/Reveals";
 import Booking from "@/components/Booking";
 
-/** A photograph when we have one, the hand-drawn scene when we do not. */
-function Plate({ photo, art, alt, eager = false, className = "" }: {
-  photo: string | null; art: string; alt: string; eager?: boolean; className?: string;
+function Plate({ photo, art, alt, eager = false }: {
+  photo: string | null; art: string; alt: string; eager?: boolean;
 }) {
   if (!photo) {
-    return <img className={className} src={`/assets/art/${art}.svg`} alt={alt}
+    return <img src={`/assets/art/${art}.svg`} alt={alt}
                 loading={eager ? undefined : "lazy"} width={1200} height={800} />;
   }
   return (
     <picture>
       <source srcSet={`/assets/photos/${photo}.avif`} type="image/avif" />
       <source srcSet={`/assets/photos/${photo}.webp`} type="image/webp" />
-      <img className={className} src={`/assets/photos/${photo}.webp`} alt={alt}
+      <img src={`/assets/photos/${photo}.webp`} alt={alt}
            fetchPriority={eager ? "high" : undefined}
            loading={eager ? undefined : "lazy"} decoding={eager ? undefined : "async"}
            width={1200} height={800} />
@@ -39,14 +38,20 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
   const t = await getDictionary(locale);
 
   const nav = [
-    { href: "#underworld", label: t.nav.underworld },
-    { href: "#dives", label: t.nav.dives },
-    { href: "#reef", label: t.nav.reef },
-    { href: "#courses", label: t.nav.courses },
+    { href: "#about", label: t.nav.about },
+    { href: "#products", label: t.nav.products },
+    { href: "#included", label: t.nav.included },
     { href: "#gallery", label: t.nav.gallery },
     { href: "#faq", label: t.nav.faq },
   ];
-  const cards = DIVES.filter((d) => d.slug !== "reef");
+
+  const cheapest = Math.min(...PRODUCTS.flatMap((p) => p.options.map((o) => o.price)));
+
+  /** Every include line on the page, in menu order, without duplicates. */
+  const includeKeys = [
+    ...ALWAYS_INCLUDED,
+    ...[...new Set(PRODUCTS.flatMap((p) => p.extraIncludes ?? []))],
+  ];
 
   const ld = {
     "@context": "https://schema.org",
@@ -57,7 +62,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         name: "Kay Diving",
         description: t.meta.description,
         url: `${SHOP.domain}${pathFor(locale)}`,
-        priceRange: "$$",
+        priceRange: `$${cheapest}–$460`,
         image: `${SHOP.domain}/assets/photos/hero.webp`,
         address: { "@type": "PostalAddress", addressLocality: "Tulum",
                    addressRegion: "Quintana Roo", addressCountry: "MX" },
@@ -66,18 +71,23 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       },
       {
         "@type": "ItemList",
-        itemListElement: DIVES.map((d, i) => ({
+        itemListElement: PRODUCTS.map((p, i) => ({
           "@type": "ListItem", position: i + 1,
           item: {
-            "@type": "Product", name: t.dives.items[d.slug].name, description: t.dives.items[d.slug].text,
-            offers: { "@type": "Offer", price: String(d.price), priceCurrency: "USD",
-                      availability: "https://schema.org/InStock" },
+            "@type": "Product",
+            name: t.products.items[p.slug].name,
+            description: t.products.items[p.slug].text,
+            offers: p.options.map((o) => ({
+              "@type": "Offer", price: String(o.price), priceCurrency: "USD",
+              availability: "https://schema.org/InStock",
+              ...(o.dives ? { name: `${o.dives} ${o.dives === 1 ? t.products.dive : t.products.dives}` } : {}),
+            })),
           },
         })),
       },
       {
         "@type": "FAQPage",
-        mainEntity: t.faq.items.map((q: { q: string; a: string }) => ({
+        mainEntity: t.faq.items.map((q) => ({
           "@type": "Question", name: q.q,
           acceptedAnswer: { "@type": "Answer", text: q.a },
         })),
@@ -90,7 +100,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       <script type="application/ld+json"
               dangerouslySetInnerHTML={{ __html: JSON.stringify(ld) }} />
       <Reveals />
-      <Gauge zones={[[6, t.gauge.surface], [18, t.gauge.cavern], [30, t.gauge.deep], [99, t.gauge.abyss]]} />
+      <Gauge zones={[[8, t.gauge.surface], [19, t.gauge.cavern], [99, t.gauge.deep]]} />
       <Surface locale={locale} nav={nav} reserve={t.nav.reserve} reserveLong={t.nav.reserveLong}
                menuLabel={t.nav.menu} langLabel={t.nav.language} />
 
@@ -118,118 +128,105 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
             <p className="lede hero__lede">{t.hero.lede}</p>
             <div className="hero__cta">
               <a className="btn btn--lit" href="#book">{t.nav.reserveLong} <Arrow /></a>
-              <a className="btn btn--ghost" href="#dives">{t.hero.cta2}</a>
+              <a className="btn btn--ghost" href="#products">{t.hero.cta2}</a>
             </div>
             <p className="strip data">
               <span>{SHOP.lat.toFixed(2)}°N {Math.abs(SHOP.lon).toFixed(2)}°W</span><i className="dot" />
               <span>{t.hero.water} <b>{SHOP.waterTempC}°C</b></span><i className="dot" />
               <span>{t.hero.viz} <b>{SHOP.visibilityM}</b></span><i className="dot" />
-              <span>{t.hero.sacActun} <b>{SHOP.sacActunKm} KM</b></span><i className="dot" />
-              <span>{t.hero.max} <b>{SHOP.maxDiversPerGuide} {t.hero.divers}</b></span>
+              <span>{t.hero.agencyLabel} <b>{SHOP.agency}</b></span><i className="dot" />
+              <span>{t.hero.from} <b>${cheapest}</b></span>
             </p>
           </div>
         </section>
 
-        {/* ------------------------------------------------------ underworld */}
-        <section className="bay shell" id="underworld">
+        {/* ----------------------------------------------------------- about */}
+        <section className="bay shell" id="about">
           <div className="split">
             <div className="plate" data-rise>
-              <Plate photo="guide" art="cavern" alt={t.underworld.plateAlt} />
-              <div className="plate__note data">{t.underworld.plateNote}</div>
+              <Plate photo="guide" art="cavern" alt={t.about.plateAlt} />
+              <div className="plate__note data">{t.about.plateNote}</div>
             </div>
             <div data-rise data-rise-d="1">
-              <p className="tag">{t.underworld.tag}</p>
-              <h2 className="dsp dsp-lg" style={{ marginTop: "1.1rem" }}>{t.underworld.h2}</h2>
-              <p className="lede" style={{ marginTop: "1.4rem" }}>{t.underworld.p1}</p>
-              <p className="lede" style={{ marginTop: "1rem" }}>{t.underworld.p2}</p>
-              <div className="tally">
-                {[[String(SHOP.maxDiversPerGuide), t.underworld.stat1],
-                  [`${SHOP.waterTempC}°`, t.underworld.stat2],
-                  [String(SHOP.cenotesInRotation), t.underworld.stat3],
-                  [`${SHOP.sacActunKm}`, t.underworld.stat4]].map(([n, l]) => (
-                  <div key={l}>
-                    <div className="tally__n">{n}</div>
-                    <div className="tally__l" dangerouslySetInnerHTML={{ __html: l }} />
-                  </div>
-                ))}
+              <p className="tag">{t.about.tag}</p>
+              <h2 className="dsp dsp-lg" style={{ marginTop: "1.1rem" }}>{t.about.h2}</h2>
+              <p className="lede" style={{ marginTop: "1.4rem" }}>{t.about.p1}</p>
+              <p className="lede" style={{ marginTop: "1rem" }}>{t.about.p2}</p>
+              <div style={{ marginTop: "2rem", paddingLeft: "1.2rem", borderLeft: "2px solid var(--turq)" }}>
+                <p className="tag tag--plain">{t.about.questionTag}</p>
+                <p className="lede" style={{ marginTop: ".7rem" }}>{t.about.question}</p>
               </div>
             </div>
           </div>
         </section>
 
-        {/* ----------------------------------------------------------- dives */}
-        <section className="bay shell" id="dives">
+        {/* -------------------------------------------------------- products */}
+        <section className="bay shell" id="products">
           <div className="head2">
             <div data-rise>
-              <p className="tag">{t.dives.tag}</p>
+              <p className="tag">{t.products.tag}</p>
               <h2 className="dsp dsp-lg" style={{ marginTop: "1.1rem", maxWidth: "16ch" }}
-                  dangerouslySetInnerHTML={{ __html: t.dives.h2 }} />
+                  dangerouslySetInnerHTML={{ __html: t.products.h2 }} />
             </div>
-            <p className="muted" data-rise data-rise-d="1" style={{ maxWidth: "38ch" }}>{t.dives.intro}</p>
+            <p className="muted" data-rise data-rise-d="1" style={{ maxWidth: "40ch" }}>{t.products.intro}</p>
           </div>
+
           <div className="dives">
-            {cards.map((d, i) => (
-              <article className="dive" key={d.slug} data-rise data-rise-d={i || undefined}>
-                <div className="dive__media">
-                  <Plate photo={d.photo} art={d.art} alt={t.dives.items[d.slug].alt} />
-                  <span className="dive__depth">MAX {d.maxDepth} M · {t.dives.level[d.level]}</span>
-                </div>
-                <div className="dive__body">
-                  <h3 className="dive__name">{t.dives.items[d.slug].name}</h3>
-                  <p className="dive__txt">{t.dives.items[d.slug].text}</p>
-                  <div className="dive__foot">
-                    <span className="dive__price data">{t.dives.from} <b>${d.price}</b></span>
-                    <span className="dive__go">{d.tanks} {t.dives.tanksLabel} <Arrow /></span>
+            {PRODUCTS.map((p, i) => {
+              const copy = t.products.items[p.slug];
+              return (
+                <article className="dive" key={p.slug} data-rise data-rise-d={i % 4 || undefined}>
+                  <div className="dive__media">
+                    <Plate photo={p.photo} art={p.art} alt={copy.alt} />
+                    <span className="dive__depth">
+                      {p.maxDepthM ? `MAX ${p.maxDepthM} M · ${p.maxDepthFt} FT` : t.products.halfDay.toUpperCase()}
+                    </span>
                   </div>
-                </div>
-              </article>
-            ))}
+                  <div className="dive__body">
+                    <h3 className="dive__name">{copy.name}</h3>
+                    <p className="data" style={{ color: "var(--turq)", marginTop: "-.25rem" }}>{copy.tagline}</p>
+                    <p className="dive__txt">{copy.text}</p>
+
+                    <dl className="spec">
+                      <div><dt>{t.products.needs}</dt><dd>{t.products.level[p.level]}</dd></div>
+                      <div><dt>{t.products.where}</dt>
+                        <dd>{p.locations.map((l) => t.products.places[l]).join(" · ")}</dd></div>
+                      {p.diveTime && <div><dt>{t.products.time}</dt><dd>{p.diveTime}</dd></div>}
+                    </dl>
+
+                    <ul className="prices">
+                      {p.options.map((o) => (
+                        <li key={o.dives}>
+                          <span>{o.dives
+                            ? `${o.dives} ${o.dives === 1 ? t.products.dive : t.products.dives}`
+                            : t.products.halfDay}</span>
+                          <b>${o.price}</b>
+                        </li>
+                      ))}
+                      <li className="prices__note"><span>{t.products.perDiver}</span></li>
+                    </ul>
+                  </div>
+                </article>
+              );
+            })}
           </div>
         </section>
 
-        {/* ------------------------------------------------------------ reef */}
-        <section className="bay shell" id="reef">
-          <div className="feat feat--rev">
-            <div className="feat__media" data-rise>
-              <Plate photo="reef-turtle" art="reef" alt={t.dives.items.reef.alt} />
-            </div>
-            <div data-rise data-rise-d="1">
-              <p className="tag">{t.reef.tag}</p>
-              <h2 className="dsp dsp-lg" style={{ marginTop: "1.1rem" }}>{t.reef.h2}</h2>
-              <p className="lede" style={{ marginTop: "1.3rem" }}>{t.reef.lede}</p>
-              <ul className="ticks">
-                {[t.reef.t1, t.reef.t2, t.reef.t3, t.reef.t4].map((x: string) => (
-                  <li key={x}>
-                    <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                      <path d="M3 8.5l3.2 3.2L13 5" stroke="currentColor" strokeWidth="1.7"
-                            strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
-                    <span>{x}</span>
-                  </li>
-                ))}
-              </ul>
-              <a className="btn btn--ghost" href="#book" style={{ marginTop: "2rem" }}>{t.reef.cta}</a>
-            </div>
-          </div>
-        </section>
-
-        {/* --------------------------------------------------------- courses */}
-        <section className="bay shell" id="courses">
+        {/* -------------------------------------------------------- included */}
+        <section className="bay shell" id="included">
           <div className="head2">
             <div data-rise>
-              <p className="tag">{t.courses.tag}</p>
+              <p className="tag">{t.included.tag}</p>
               <h2 className="dsp dsp-lg" style={{ marginTop: "1.1rem" }}
-                  dangerouslySetInnerHTML={{ __html: t.courses.h2 }} />
+                  dangerouslySetInnerHTML={{ __html: t.included.h2 }} />
             </div>
-            <p className="muted" data-rise data-rise-d="1" style={{ maxWidth: "38ch" }}>{t.courses.intro}</p>
+            <p className="muted" data-rise data-rise-d="1" style={{ maxWidth: "38ch" }}>{t.included.intro}</p>
           </div>
           <div className="courses" data-rise>
-            {COURSES.map((c) => (
-              <article className="course" key={c.slug}>
-                <p className="course__lvl">{t.courses.items[c.slug].level}</p>
-                <h3 className="course__n">{t.courses.items[c.slug].name}</h3>
-                <p className="course__d">{t.courses.items[c.slug].text}</p>
-                <p className="course__p">${c.price} · {c.days} {c.days === "1" ? t.courses.day : t.courses.days}</p>
+            {includeKeys.map((k) => (
+              <article className="course" key={k}>
+                <h3 className="course__n">{t.included.items[k].name}</h3>
+                <p className="course__d">{t.included.items[k].text}</p>
               </article>
             ))}
           </div>
@@ -276,8 +273,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
             <p className="muted" data-rise data-rise-d="1" style={{ maxWidth: "38ch" }}>{t.book.intro}</p>
           </div>
           <div data-rise>
-            <Booking t={{ ...t.book, level: t.dives.level, ...Object.fromEntries(DIVES.map((d) => [d.slug, t.dives.items[d.slug]])) }}
-                     locale={locale} />
+            <Booking t={t.book} products={t.products} locale={locale} />
           </div>
         </section>
 
@@ -291,7 +287,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
             </div>
           </div>
           <div className="faq" data-rise>
-            {t.faq.items.map((q: { q: string; a: string }, i: number) => (
+            {t.faq.items.map((q, i) => (
               <details key={q.q} open={i === 0}>
                 <summary>{q.q}</summary>
                 <p>{q.a}</p>
@@ -315,19 +311,23 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         </section>
       </main>
 
-      {/* ---------------------------------------------------------- footer */}
       <footer className="foot">
         <div className="shell">
           <div className="foot__grid">
             <div>
-              <p className="muted" style={{ fontSize: ".9rem", maxWidth: "34ch" }}>{t.footer.blurb}</p>
+              <p className="muted" style={{ fontSize: ".9rem", maxWidth: "36ch" }}>{t.footer.blurb}</p>
             </div>
-            <div><h4>{t.footer.dive}</h4><ul>
-              <li><a href="#dives">{t.nav.dives}</a></li><li><a href="#reef">{t.nav.reef}</a></li>
-              <li><a href="#courses">{t.nav.courses}</a></li><li><a href="#book">{t.nav.reserve}</a></li>
+            <div><h4>{t.footer.explore}</h4><ul>
+              {PRODUCTS.filter((p) => p.kind !== "course").map((p) => (
+                <li key={p.slug}><a href="#products">{t.products.items[p.slug].name}</a></li>
+              ))}
             </ul></div>
-            <div><h4>{t.footer.cenotes}</h4><ul>
-              {cards.map((d) => <li key={d.slug}><a href="#dives">{t.dives.items[d.slug].name}</a></li>)}
+            <div><h4>{t.footer.learn}</h4><ul>
+              {PRODUCTS.filter((p) => p.kind === "course").map((p) => (
+                <li key={p.slug}><a href="#products">{t.products.items[p.slug].name}</a></li>
+              ))}
+              <li><a href="#included">{t.nav.included}</a></li>
+              <li><a href="#faq">{t.nav.faq}</a></li>
             </ul></div>
             <div><h4>{t.footer.find}</h4><ul>
               <li><a href={SHOP.instagram} rel="noopener">@kaydivingtulum</a></li>

@@ -1,33 +1,31 @@
 "use client";
 import { useMemo, useState } from "react";
-import { BOOKABLE, ADDONS, PICKUPS, type Dive } from "@/content/dives";
-
-type T = Record<string, any>;
+import { PRODUCTS, type Product } from "@/content/products";
+import type { Dictionary } from "@/lib/i18n";
 
 const money = (n: number) => "$" + n.toLocaleString("en-US");
 const tomorrow = () => new Date(Date.now() + 864e5).toISOString().slice(0, 10);
 
-export default function Booking({ t, locale }: { t: T; locale: string }) {
-  const [dive, setDive] = useState<Dive>(BOOKABLE[0]);
+export default function Booking({
+  t, products, locale,
+}: { t: Dictionary["book"]; products: Dictionary["products"]; locale: string }) {
+  const [product, setProduct] = useState<Product>(PRODUCTS[0]);
+  const [dives, setDives] = useState<number>(PRODUCTS[0].options[0].dives);
   const [date, setDate] = useState("");
-  const [cert, setCert] = useState<string>(t.certs[0]);
+  const [cert, setCert] = useState(t.certs[0]);
   const [divers, setDivers] = useState(2);
-  const [pickup, setPickup] = useState(PICKUPS[0].slug);
-  const [addons, setAddons] = useState<string[]>([]);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [state, setState] = useState<"idle" | "sending" | "error">("idle");
 
-  const total = useMemo(() => {
-    const pick = PICKUPS.find((p) => p.slug === pickup)!.price;
-    const extras = ADDONS
-      .filter((a) => addons.includes(a.slug))
-      .reduce((s, a) => s + a.price * (a.perDiver ? divers : 1), 0);
-    return dive.price * divers + pick + extras;
-  }, [dive, divers, pickup, addons]);
+  const option = product.options.find((o) => o.dives === dives) ?? product.options[0];
+  const total = useMemo(() => option.price * divers, [option, divers]);
 
-  const toggleAddon = (slug: string) =>
-    setAddons((v) => (v.includes(slug) ? v.filter((s) => s !== slug) : [...v, slug]));
+  function pick(p: Product) {
+    setProduct(p);
+    // The previous dive count may not exist on the new product.
+    setDives(p.options[0].dives);
+  }
 
   async function submit(e: React.FormEvent) {
     e.preventDefault();
@@ -37,7 +35,8 @@ export default function Booking({ t, locale }: { t: T; locale: string }) {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify({
-          dive: dive.slug, date, cert, divers, pickup, addons, name, email, locale,
+          product: product.slug, option: option.dives,
+          date, cert, divers, name, email, locale,
         }),
       });
       if (!res.ok) throw new Error(String(res.status));
@@ -50,45 +49,62 @@ export default function Booking({ t, locale }: { t: T; locale: string }) {
   }
 
   const fmtDate = date
-    ? new Date(date + "T00:00:00").toLocaleDateString(locale === "en" ? "en-GB" : locale, {
-        day: "2-digit", month: "short", year: "numeric",
-      })
+    ? new Date(date + "T00:00:00").toLocaleDateString(locale === "en" ? "en-GB" : locale,
+        { day: "2-digit", month: "short", year: "numeric" })
     : "—";
 
+  const sizeLabel = (n: number) =>
+    n === 0 ? products.halfDay : `${n} ${n === 1 ? products.dive : products.dives}`;
+
   return (
-    <div className="slate-wrap" id="slateWrap">
+    <div className="slate-wrap">
       <form className="book" onSubmit={submit} noValidate>
         <div className="book__form">
           <div className="fgroup">
             <span className="flabel">{t.s1}</span>
             <div className="pills" role="radiogroup" aria-label={t.s1}>
-              {BOOKABLE.map((d) => (
-                <label className="pill" key={d.slug}>
-                  <input type="radio" name="exp" checked={dive.slug === d.slug}
-                         onChange={() => setDive(d)} />
-                  <span>{t[d.slug].name} · ${d.price}</span>
+              {PRODUCTS.map((p) => (
+                <label className="pill" key={p.slug}>
+                  <input type="radio" name="product" checked={product.slug === p.slug}
+                         onChange={() => pick(p)} />
+                  <span>{products.items[p.slug].name}</span>
                 </label>
               ))}
             </div>
           </div>
 
+          {product.options.length > 1 && (
+            <div className="fgroup">
+              <span className="flabel">{t.s2}</span>
+              <div className="pills" role="radiogroup" aria-label={t.s2}>
+                {product.options.map((o) => (
+                  <label className="pill" key={o.dives}>
+                    <input type="radio" name="option" checked={dives === o.dives}
+                           onChange={() => setDives(o.dives)} />
+                    <span>{sizeLabel(o.dives)} · ${o.price}</span>
+                  </label>
+                ))}
+              </div>
+            </div>
+          )}
+
           <div className="row2">
             <div className="fgroup">
-              <label className="flabel" htmlFor="date">{t.s2}</label>
+              <label className="flabel" htmlFor="date">{t.s3}</label>
               <input className="field" type="date" id="date" min={tomorrow()}
                      value={date} onChange={(e) => setDate(e.target.value)} />
             </div>
             <div className="fgroup">
-              <label className="flabel" htmlFor="cert">{t.s3}</label>
+              <label className="flabel" htmlFor="cert">{t.s4}</label>
               <select className="field" id="cert" value={cert} onChange={(e) => setCert(e.target.value)}>
-                {t.certs.map((c: string) => <option key={c}>{c}</option>)}
+                {t.certs.map((c) => <option key={c}>{c}</option>)}
               </select>
             </div>
           </div>
 
           <div className="row2">
             <div className="fgroup">
-              <span className="flabel">{t.s4}</span>
+              <span className="flabel">{t.s5}</span>
               <div className="step">
                 <button type="button" aria-label="−" onClick={() => setDivers((n) => Math.max(1, n - 1))}>−</button>
                 <output>{divers}</output>
@@ -96,41 +112,16 @@ export default function Booking({ t, locale }: { t: T; locale: string }) {
               </div>
             </div>
             <div className="fgroup">
-              <label className="flabel" htmlFor="pickup">{t.s5}</label>
-              <select className="field" id="pickup" value={pickup} onChange={(e) => setPickup(e.target.value)}>
-                {PICKUPS.map((p) => (
-                  <option key={p.slug} value={p.slug}>
-                    {t.pickup[p.slug]}{p.price ? ` — $${p.price}` : ""}
-                  </option>
-                ))}
-              </select>
+              <label className="flabel" htmlFor="name">{t.s6}</label>
+              <input className="field" id="name" autoComplete="name" placeholder={t.namePh}
+                     value={name} onChange={(e) => setName(e.target.value)} />
             </div>
           </div>
 
           <div className="fgroup">
-            <span className="flabel">{t.s6}</span>
-            <div className="pills">
-              {ADDONS.map((a) => (
-                <label className="pill" key={a.slug}>
-                  <input type="checkbox" checked={addons.includes(a.slug)}
-                         onChange={() => toggleAddon(a.slug)} />
-                  <span>{t.addons[a.slug]} · +${a.price}</span>
-                </label>
-              ))}
-            </div>
-          </div>
-
-          <div className="row2">
-            <div className="fgroup">
-              <label className="flabel" htmlFor="name">{t.s7}</label>
-              <input className="field" id="name" autoComplete="name" placeholder={t.namePh}
-                     value={name} onChange={(e) => setName(e.target.value)} />
-            </div>
-            <div className="fgroup">
-              <label className="flabel" htmlFor="mail">{t.s8}</label>
-              <input className="field" id="mail" type="email" autoComplete="email" placeholder={t.mailPh}
-                     value={email} onChange={(e) => setEmail(e.target.value)} />
-            </div>
+            <label className="flabel" htmlFor="mail">{t.s7}</label>
+            <input className="field" id="mail" type="email" autoComplete="email" placeholder={t.mailPh}
+                   value={email} onChange={(e) => setEmail(e.target.value)} />
           </div>
         </div>
 
@@ -140,19 +131,20 @@ export default function Booking({ t, locale }: { t: T; locale: string }) {
             <span className="slate__stamp">{t.stamp}</span>
           </div>
           <div className="slate__rows">
-            <Row k={t.rDive}   v={t[dive.slug].name} sm />
-            <Row k={t.rDate}   v={fmtDate} />
-            <Row k={t.rDepth}  v={`${dive.maxDepth} m`} />
-            <Row k={t.rLevel}  v={t.level?.[dive.level] ?? dive.level} sm />
-            <Row k={t.rDivers} v={String(divers)} />
-            <Row k={t.rPickup} v={t.pickup[pickup]} sm />
-            <Row k={t.rExtras} v={addons.length ? addons.map((s) => t.addons[s]).join(", ") : t.none} sm />
+            <Row k={t.rProduct} v={products.items[product.slug].name} sm />
+            <Row k={t.rOption}  v={sizeLabel(option.dives)} />
+            <Row k={t.rDate}    v={fmtDate} />
+            <Row k={t.rDepth}   v={product.maxDepthM ? `${product.maxDepthM} m` : t.halfDayLabel} />
+            <Row k={t.rLevel}   v={products.level[product.level]} sm />
+            <Row k={t.rDivers}  v={String(divers)} />
           </div>
           <div className="slate__total">
             <span className="k">{t.rTotal}</span><span className="v">{money(total)}</span>
           </div>
           <p className="slate__fine">{t.fine}</p>
-          {state === "error" && <p className="slate__fine" role="alert" style={{ color: "#F5C77E" }}>{t.error}</p>}
+          {state === "error" && (
+            <p className="slate__fine" role="alert" style={{ color: "var(--turq)" }}>{t.error}</p>
+          )}
           <button className="btn btn--lit" type="submit" disabled={state === "sending"}>
             {state === "sending" ? t.submitting : t.submit}
           </button>

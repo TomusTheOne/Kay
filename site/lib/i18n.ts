@@ -15,41 +15,39 @@ export function pathFor(locale: Locale, path = "/") {
    Declared rather than inferred from en.json, so a key missing from a
    translation is a compile error instead of "undefined" on a live page.     */
 
-export interface DiveCopy { name: string; text: string; alt: string }
-export interface CourseCopy { level: string; name: string; text: string }
+export interface ProductCopy { name: string; tagline: string; text: string; alt: string }
+export interface IncludeCopy { name: string; text: string }
 export interface Qa { q: string; a: string }
+export interface Outcome { tag: string; h2: string; p: string; cta: string }
 
 export interface Dictionary {
   meta: { title: string; description: string };
-  nav: Record<"underworld" | "dives" | "reef" | "courses" | "gallery" | "faq"
+  nav: Record<"about" | "products" | "included" | "gallery" | "faq"
             | "reserve" | "reserveLong" | "menu" | "language", string>;
   hero: Record<"kicker" | "l1" | "l2" | "lede" | "cta2" | "alt"
-             | "water" | "viz" | "sacActun" | "max" | "divers", string>;
-  gauge: Record<"surface" | "cavern" | "deep" | "abyss", string>;
-  underworld: Record<"tag" | "h2" | "p1" | "p2" | "plateAlt" | "plateNote"
-                   | "stat1" | "stat2" | "stat3" | "stat4", string>;
-  dives: {
-    tag: string; h2: string; intro: string; from: string; tanksLabel: string;
+             | "water" | "viz" | "from" | "agency" | "agencyLabel", string>;
+  gauge: Record<"surface" | "cavern" | "deep", string>;
+  about: Record<"tag" | "h2" | "p1" | "p2" | "questionTag" | "question"
+              | "plateAlt" | "plateNote", string>;
+  products: {
+    tag: string; h2: string; intro: string;
+    from: string; dive: string; dives: string; perDiver: string;
+    depth: string; time: string; where: string; needs: string; halfDay: string;
     level: Record<string, string>;
-    items: Record<string, DiveCopy>;
+    places: Record<string, string>;
+    items: Record<string, ProductCopy>;
   };
-  reef: Record<"tag" | "h2" | "lede" | "t1" | "t2" | "t3" | "t4" | "cta", string>;
-  courses: {
-    tag: string; h2: string; intro: string; days: string; day: string;
-    items: Record<string, CourseCopy>;
+  included: {
+    tag: string; h2: string; intro: string;
+    items: Record<string, IncludeCopy>;
   };
   gallery: { tag: string; h2: string; intro: string; captions: Record<string, string> };
   quote: { text: string; cite: string };
-  book: Record<string, string> & {
-    certs: string[];
-    pickup: Record<string, string>;
-    addons: Record<string, string>;
-  };
+  book: Record<string, string> & { certs: string[] };
   faq: { tag: string; h2: string; items: Qa[] };
   cta: Record<"kicker" | "h2" | "lede" | "instagram", string>;
-  footer: Record<"blurb" | "dive" | "cenotes" | "find" | "whatsapp" | "email" | "place", string>;
-  booking: Record<"thanks" | "pending" | "failed",
-                  Record<"tag" | "h2" | "p" | "cta", string>>;
+  footer: Record<"blurb" | "explore" | "learn" | "find" | "whatsapp" | "email" | "place", string>;
+  booking: Record<"thanks" | "pending" | "failed", Outcome>;
 }
 
 const dictionaries: Record<Locale, () => Promise<Dictionary>> = {
