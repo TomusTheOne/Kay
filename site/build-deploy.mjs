@@ -51,5 +51,17 @@ for (const f of await readdir("messages")) {
 }
 await cp("public-htaccess", `${OUT}/.htaccess`);
 
+/* Last gate before upload: every URL a crawler reads must be absolute. This
+   catches a mistyped or missing NEXT_PUBLIC_SITE_URL, which would otherwise
+   ship a sitemap and canonicals pointing nowhere — and nothing would look
+   broken to a human. */
+const sitemap = await readFile(`${OUT}/sitemap.xml`, "utf8");
+const loc = sitemap.match(/<loc>([^<]+)<\/loc>/)?.[1] ?? "";
+if (!/^https:\/\/[^/]+\./.test(loc)) {
+  console.error(`sitemap.xml declares "${loc}" — NEXT_PUBLIC_SITE_URL is missing or wrong.`);
+  process.exit(1);
+}
+console.log(`Canonical host: ${new URL(loc).origin}`);
+
 console.log("Deploy bundle ready in out/ — upload its contents to www/");
 console.log("Remember: kay-config.php belongs ABOVE www/, never inside it.");

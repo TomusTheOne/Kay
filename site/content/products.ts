@@ -84,6 +84,11 @@ export const PUBLISHED_LOCALES = data.publishedLocales as string[];
 
 export const SHOP = {
   ...data.shop,
-  /** Set NEXT_PUBLIC_SITE_URL once the domain is live. */
-  domain: (process.env.NEXT_PUBLIC_SITE_URL ?? "https://kaydiving.com").replace(/\/$/, ""),
+  /**
+   * Set NEXT_PUBLIC_SITE_URL once the domain is live. `||`, not `??`: an
+   * unset GitHub Actions variable expands to an EMPTY STRING, not undefined,
+   * and `??` would have happily accepted it — shipping a sitemap, canonicals,
+   * hreflang and og:image all pointing at "". Empty falls back too.
+   */
+  domain: (process.env.NEXT_PUBLIC_SITE_URL || "https://kaydiving.com").replace(/\/$/, ""),
 };
