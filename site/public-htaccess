@@ -106,5 +106,11 @@ RedirectMatch 404 ^/api/tests/
 # only for as long as PHP keeps running. One misconfiguration and they would
 # be served as source, with the database and Mercado Pago handling in them.
 RedirectMatch 404 ^/api/lib/
+# The catalogue the PHP reads off disk. It holds nothing secret — the same
+# prices are on the page — but it has no reason to be a public endpoint, and
+# nothing in the browser asks for it: the site compiles it into its bundle.
+RedirectMatch 404 ^/api/products\.json$
+# Same for the copy of the translations the confirmation emails render from.
+RedirectMatch 404 ^/api/messages/
 
 ErrorDocument 404 /404.html

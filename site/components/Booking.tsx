@@ -23,6 +23,7 @@ export default function Booking({
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [state, setState] = useState<"idle" | "sending" | "error">("idle");
+  const [error, setError] = useState("");
 
   const option = product.options.find((o) => o.dives === dives) ?? product.options[0];
   const pick = PICKUPS.find((p) => p.slug === pickup)!;
@@ -54,6 +55,15 @@ export default function Booking({
     setDives(p.options[0].dives);   // the old size may not exist on the new product
   }
 
+  /* The endpoint names what it refused — "date", "email", "name" — and the
+     form is noValidate, so the browser never catches these first. Showing one
+     message for every refusal told a diver who forgot the date that the
+     payment system was down, which is both wrong and unfixable by them. */
+  const reasons: Record<string, string> = {
+    date: t.errDate, "date-past": t.errDatePast,
+    email: t.errEmail, name: t.errName, "out-of-season": t.errSeason,
+  };
+
   async function submit(e: React.FormEvent) {
     e.preventDefault();
     if (outOfSeason) return;
@@ -67,11 +77,18 @@ export default function Booking({
           cert, divers, pickup, name, email, locale,
         }),
       });
-      if (!res.ok) throw new Error(String(res.status));
+      if (!res.ok) {
+        const body = await res.json().catch(() => ({}));
+        // Anything unrecognised is a real fault on our side, not theirs.
+        setError(reasons[body?.error] ?? t.error);
+        setState("error");
+        return;
+      }
       const { checkoutUrl } = await res.json();
       // Mercado Pago hosts the card form: no card data ever touches this site.
       location.href = checkoutUrl;
     } catch {
+      setError(t.error);
       setState("error");
     }
   }
@@ -225,7 +242,9 @@ export default function Booking({
             </p>
           )}
           {state === "error" && (
-            <p className="slate__fine" role="alert" style={{ color: "var(--turq)" }}>{t.error}</p>
+            <p className="slate__fine" role="alert" style={{ color: "var(--turq)" }}>
+              {error || t.error}
+            </p>
           )}
           <button className="btn btn--lit" type="submit"
                   disabled={state === "sending" || outOfSeason}>
