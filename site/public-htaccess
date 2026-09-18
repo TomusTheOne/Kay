@@ -27,7 +27,11 @@ DirectoryIndex index.html
   RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
 
   # --- The bare root goes to the default locale -----------------------------
-  RewriteRule ^$ /en/ [R=302,L]
+  # Absolute, because a relative target makes Apache build the Location from
+  # its own server name and port: the live site was answering
+  # "https://kaydiving.com:443/en/", a different URL to anything that links
+  # to it.
+  RewriteRule ^$ https://__CANONICAL_HOST__/en/ [R=302,L]
 
   # --- Leave the PHP endpoints and real files alone -------------------------
   RewriteCond %{REQUEST_URI} ^/api/ [OR]
@@ -97,5 +101,10 @@ DirectoryIndex index.html
 </FilesMatch>
 # The PHP test runner has no business being reachable.
 RedirectMatch 404 ^/api/tests/
+# Nor has the library: booking.php and webhook.php include these, nobody
+# fetches them. They execute to an empty body today, which is harmless — but
+# only for as long as PHP keeps running. One misconfiguration and they would
+# be served as source, with the database and Mercado Pago handling in them.
+RedirectMatch 404 ^/api/lib/
 
 ErrorDocument 404 /404.html
