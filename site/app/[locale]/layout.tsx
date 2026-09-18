@@ -63,8 +63,14 @@ export async function generateMetadata(
                    "max-snippet": -1, "max-video-preview": -1 },
     },
     icons: {
-      icon: "/favicon.ico",
-      apple: "/assets/og/apple-touch-icon.png",
+      // Kay's own kit. The .ico carries 16/32/48/64 for the tab, the SVG lets
+      // a modern browser scale it, and the emblem is cropped to the helmet
+      // below 48px — the full line art is unreadable at tab size.
+      icon: [
+        { url: "/favicon.ico", sizes: "any" },
+        { url: "/assets/brand/favicon.svg", type: "image/svg+xml" },
+      ],
+      apple: "/assets/brand/apple-touch-icon.png",
     },
     manifest: "/site.webmanifest",
   };

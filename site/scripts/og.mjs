@@ -24,6 +24,10 @@ const cheapest = Math.min(
 const heroDataUri =
   "data:image/webp;base64," +
   (await readFile("public/assets/photos/hero.webp")).toString("base64");
+// The emblem, two-tone, inlined so the card renders without a network fetch.
+const markDataUri =
+  "data:image/svg+xml;base64," +
+  (await readFile("public/assets/brand/icon.svg")).toString("base64");
 
 /** The card, at exactly the size the crawlers ask for. */
 const card = (t) => `<!doctype html><html><head><meta charset="utf-8">
@@ -39,10 +43,8 @@ const card = (t) => `<!doctype html><html><head><meta charset="utf-8">
       linear-gradient(180deg,rgba(3,9,14,.55) 0%,rgba(3,9,14,.12) 32%,rgba(3,9,14,.88) 78%,#03090E 100%)}
   .frame{position:absolute;inset:34px;border:1px solid rgba(169,245,236,.18);border-radius:10px}
   .pad{position:absolute;inset:74px;display:flex;flex-direction:column;justify-content:space-between}
-  .mark{display:flex;align-items:center;gap:14px}
-  .dot{width:26px;height:26px;border-radius:50%;
-       background:radial-gradient(circle at 34% 30%,#A9F5EC,#4FE0D2 46%,#1FA8AE);
-       box-shadow:0 0 22px rgba(79,224,210,.5)}
+  .mark{display:flex;align-items:center;gap:16px}
+  .dot{width:66px;height:66px;flex:none;background:url('${markDataUri}') center/contain no-repeat}
   .name{font-family:'Instrument Serif',serif;font-size:34px;letter-spacing:.01em;line-height:1}
   .place{font-size:12px;letter-spacing:.22em;color:#4FE0D2;margin-top:5px}
   h1{font-family:'Instrument Serif',serif;font-weight:400;font-size:74px;line-height:1.02;
@@ -96,26 +98,6 @@ for (const locale of LOCALES) {
   await writeFile(`${OUT}/${locale}.jpg`, buf);
   await page.close();
   console.log(`${OUT}/${locale}.jpg  1200×630  ${(buf.length / 1024).toFixed(0)} KB`);
-}
-
-/* The touch icon iOS puts on a home screen, and the 192/512 the manifest
-   asks for. The mark is the site's own: one lit bubble in the abyss. */
-const icon = (size) => `<!doctype html><html><head><meta charset="utf-8"><style>
-  *{margin:0;padding:0}
-  body{width:${size}px;height:${size}px;background:#03090E;
-       display:flex;align-items:center;justify-content:center}
-  .dot{width:${Math.round(size * 0.56)}px;height:${Math.round(size * 0.56)}px;border-radius:50%;
-       background:radial-gradient(circle at 34% 30%,#A9F5EC,#4FE0D2 46%,#1FA8AE);
-       box-shadow:0 0 ${Math.round(size * 0.16)}px rgba(79,224,210,.55)}
-</style></head><body><div class="dot"></div></body></html>`;
-
-for (const [name, size] of [["apple-touch-icon", 180], ["icon-192", 192], ["icon-512", 512]]) {
-  const page = await browser.newPage({ viewport: { width: size, height: size } });
-  await page.setContent(icon(size), { waitUntil: "load" });
-  const buf = await page.screenshot({ type: "png" });
-  await writeFile(`${OUT}/${name}.png`, buf);
-  await page.close();
-  console.log(`${OUT}/${name}.png  ${size}×${size}  ${(buf.length / 1024).toFixed(0)} KB`);
 }
 
 await browser.close();

@@ -87,6 +87,13 @@ each one:
 - The static maquettes under `../concepts/` still carry the invented dive names and
   prices from before the menu arrived. They are design references only — do not
   show them as the offer.
+- The brand kit lives in `assets/source/brand/` and `scripts/brand.mjs` builds
+  what the site serves from it, re-tinting the kit's blue `#4D85C4` to the
+  site's turquoise `#4FE0D2`. Changing `BRAND_TO` in that script re-tints the
+  header mark, the favicon, the touch icons and the maskable icon in one run.
+  The emblem is line art: below about 40px it stops reading as a diving helmet,
+  which is why the header mark is 40px and the favicon is the kit's cropped
+  helmet-and-goggles rather than the whole thing.
 - **Only four photographs exist**, in `assets/source/`, and all four are on the
   page already: the hero, and the cards for Discover Scuba, Cenote Diving and
   the Open Water course. Reef & Cenote, Advanced and the Snorkel tour show the

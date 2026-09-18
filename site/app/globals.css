@@ -190,7 +190,10 @@ ul{list-style:none;padding:0}
 }
 .surface.is-deep{background:rgba(3,9,14,.74);backdrop-filter:blur(18px) saturate(1.2);border-bottom-color:var(--line-soft)}
 .mark{display:flex;align-items:center;gap:.62rem}
-.mark__ico{width:29px;height:29px;flex:none}
+/* The emblem is line art: under ~40px it stops reading as a diving helmet.
+   Its two tones live in the file — scripts/brand.mjs writes them — because an
+   SVG in an <img> cannot take a colour from here. */
+.mark__ico{width:40px;height:40px;flex:none}
 .mark__txt{display:flex;flex-direction:column;line-height:1}
 .mark__name{font-family:var(--display);font-size:1.32rem;letter-spacing:.015em;white-space:nowrap}
 .mark__sub{font-family:var(--mono);font-size:.5rem;letter-spacing:.34em;color:var(--turq);margin-top:.28rem;white-space:nowrap}
@@ -215,7 +218,7 @@ body.open .burger span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
 @media (max-width:980px){.burger{display:block}}
 @media (max-width:620px){
   .surface__side .lang{display:none}
-  .mark__ico{width:25px;height:25px}
+  .mark__ico{width:34px;height:34px}
   .mark__name{font-size:1.14rem}
   .mark__sub{font-size:.44rem;letter-spacing:.26em}
 }

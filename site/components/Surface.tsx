@@ -38,18 +38,16 @@ export default function Surface({
     <>
       <header className="surface">
         <Link className="mark" href={pathFor(locale)} aria-label="Kay Diving">
-          <svg className="mark__ico" viewBox="0 0 64 64" aria-hidden="true">
-            <defs>
-              <linearGradient id="mk" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0" stopColor="#A9F5EC" /><stop offset=".55" stopColor="#4FE0D2" />
-                <stop offset="1" stopColor="#0E3241" />
-              </linearGradient>
-            </defs>
-            <circle cx="32" cy="32" r="19" fill="url(#mk)" />
-            <path d="M26 14 L38 14 L44 50 L20 50 Z" fill="#F2FFFC" opacity=".45" />
-            <circle cx="32" cy="32" r="19" fill="none" stroke="#03090E" strokeWidth="3" />
-            <circle cx="32" cy="32" r="23.5" fill="none" stroke="#4FE0D2" strokeWidth="2" opacity=".5" />
-          </svg>
+          {/* Kay's own emblem, two-tone. Not inlined — 21 KB gzipped of traced
+              line art has no business in every page's HTML — so it is an
+              <img>, one cached request, gzipped by the .htaccess. Its colours
+              are baked in by scripts/brand.mjs rather than set in CSS: an SVG
+              loaded through <img> is its own document and never sees the
+              page's currentColor. Below about 40px the helmet stops reading
+              as a helmet, which is why the mark is larger than the bubble it
+              replaces. */}
+          <img className="mark__ico" src="/assets/brand/icon.svg"
+               width="40" height="40" alt="" aria-hidden="true" />
           <span className="mark__txt">
             <b className="mark__name">Kay Diving</b>
             <span className="mark__sub">TULUM · MÉXICO</span>
