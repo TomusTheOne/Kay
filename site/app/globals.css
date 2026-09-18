@@ -102,7 +102,14 @@ ul{list-style:none;padding:0}
 .dsp-md{font-size:clamp(1.7rem,3vw,2.5rem)}
 .ital{font-style:italic}
 .tq{color:var(--turq)}
-.grad{background:var(--grad-turq);-webkit-background-clip:text;background-clip:text;color:transparent}
+/* background-clip:text paints the gradient only inside the element's box, and
+   with line-height .98 that box is shorter than the letters: measured on the
+   live hero, the glyphs reached 22px above it and 20px below, so the italic
+   descenders were cut off flat — the tail of the "y" in "Mayan" simply ended.
+   The padding grows the painted area; the negative margin gives it straight
+   back, so nothing moves. .2em covers the worst case at any font size. */
+.grad{background:var(--grad-turq);-webkit-background-clip:text;background-clip:text;color:transparent;
+  padding-block:.2em;margin-block:-.2em}
 
 .lede{font-size:clamp(1.05rem,.98rem+.5vw,1.28rem);color:var(--foam-72);max-width:62ch;line-height:1.6}
 .muted{color:var(--foam-52)}
