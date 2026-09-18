@@ -36,19 +36,70 @@ jobs:
           NEXT_PUBLIC_SITE_URL: ${{ vars.SITE_URL }}
         run: npm run build:deploy
 
-      - name: Upload to OVH
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-        with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          protocol: ftps
-          local-dir: ./site/out/
-          # The hosting carries three sites; this must point at the right one.
-          server-dir: ${{ vars.FTP_SERVER_DIR }}
-          # kay-config.php lives ABOVE this directory and is never touched.
-          # Anything listed here survives a deploy.
-          exclude: |
-            **/.git*
-            **/.git*/**
-            **/node_modules/**
+      # OVH's shared hosting answers AUTH TLS with "500 This security scheme is
+      # not implemented" — it does not do explicit FTPS. It does do SFTP, once
+      # the box is ticked in the FTP-SSH tab, with the same credentials. Plain
+      # FTP would have worked too and is not acceptable: it puts the password
+      # on the wire in clear on every deploy.
+      #
+      # SamKirkland's action dropped SFTP support, so this is lftp directly.
+      # `mirror --reverse --delete` makes the server match site/out exactly:
+      # files removed from the build are removed from the server.
+      # OVH's shared hosting answers AUTH TLS with "500 This security scheme is
+      # not implemented" — it does not do explicit FTPS. It does do SFTP, once
+      # the box is ticked in the FTP-SSH tab, with the same credentials. Plain
+      # FTP would also have worked and is not acceptable: it would put the
+      # password on the wire in clear on every deploy.
+      #
+      # SamKirkland's action dropped SFTP, so this is lftp directly. lftp runs
+      # SFTP through a real ssh, which cannot read a password without a
+      # terminal — hence sshpass, which takes it from the environment rather
+      # than from a command line other processes could read.
+      #
+      # `mirror --reverse --delete` makes the server match site/out exactly:
+      # whatever left the build leaves the server.
+      - name: Upload to OVH over SFTP
+        env:
+          SFTP_HOST:  ${{ secrets.FTP_SERVER }}
+          SFTP_USER:  ${{ secrets.FTP_USERNAME }}
+          SSHPASS:    ${{ secrets.FTP_PASSWORD }}
+          SERVER_DIR: ${{ vars.FTP_SERVER_DIR }}
+          HOST_KEY:   ${{ vars.SFTP_HOST_KEY }}
+        run: |
+          set -eu
+          test -n "$SFTP_HOST"  || { echo "::error::FTP_SERVER secret is empty";       exit 1; }
+          test -n "$SFTP_USER"  || { echo "::error::FTP_USERNAME secret is empty";     exit 1; }
+          test -n "$SSHPASS"    || { echo "::error::FTP_PASSWORD secret is empty";     exit 1; }
+          test -n "$SERVER_DIR" || { echo "::error::FTP_SERVER_DIR variable is empty"; exit 1; }
+
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq lftp sshpass
+
+          mkdir -p ~/.ssh && chmod 700 ~/.ssh
+          if [ -n "$HOST_KEY" ]; then
+            # Pinned. Set the SFTP_HOST_KEY variable to one ssh-keyscan line and
+            # the deploy refuses any server that answers with a different key.
+            printf '%s\n' "$HOST_KEY" > ~/.ssh/known_hosts
+          else
+            echo "::warning::SFTP_HOST_KEY is not set — the host key is trusted on first sight. Pin it once the first deploy has printed it."
+            ssh-keyscan -t ed25519,rsa "$SFTP_HOST" > ~/.ssh/known_hosts 2>/dev/null
+            echo "Host key seen (copy this into an SFTP_HOST_KEY variable to pin it):"
+            cat ~/.ssh/known_hosts
+          fi
+          chmod 600 ~/.ssh/known_hosts
+          test -s ~/.ssh/known_hosts || { echo "::error::no SSH host key for $SFTP_HOST — is SFTP enabled on the FTP user?"; exit 1; }
+
+          # No credential is ever passed as an argument: ssh gets the password
+          # from sshpass -e via the environment, and lftp is told it too so it
+          # does not try to prompt on a terminal that is not there — without
+          # that it warns "GetPass() failed" and falls back to anonymous.
+          lftp -f /dev/stdin <<LFTP
+          set sftp:connect-program "sshpass -e ssh -a -x -o StrictHostKeyChecking=yes -o PubkeyAuthentication=no -o PreferredAuthentications=password"
+          set net:max-retries 2
+          set net:timeout 20
+          set cmd:fail-exit yes
+          open sftp://$SFTP_HOST
+          user "$SFTP_USER" "$SSHPASS"
+          mirror --reverse --delete --verbose=1 --no-perms --exclude '^\.well-known/' ./site/out $SERVER_DIR
+          bye
+          LFTP
