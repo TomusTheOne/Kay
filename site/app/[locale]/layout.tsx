@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Instrument_Serif, Inter, IBM_Plex_Mono } from "next/font/google";
 import { notFound } from "next/navigation";
-import { LOCALES, DEFAULT_LOCALE, isLocale, getDictionary, pathFor, type Locale } from "@/lib/i18n";
+import { LIVE_LOCALES, DEFAULT_LOCALE, OG_LOCALE, isLocale, getDictionary, pathFor, type Locale } from "@/lib/i18n";
 import { SHOP } from "@/content/products";
 import "../globals.css";
 
@@ -19,8 +19,9 @@ const mono = IBM_Plex_Mono({
   variable: "--font-mono", display: "swap",
 });
 
+/** Only the translated locales are built at all — see LIVE_LOCALES. */
 export function generateStaticParams() {
-  return LOCALES.map((locale) => ({ locale }));
+  return LIVE_LOCALES.map((locale) => ({ locale }));
 }
 
 export async function generateMetadata(
@@ -38,17 +39,34 @@ export async function generateMetadata(
     alternates: {
       canonical: url,
       languages: {
-        ...Object.fromEntries(LOCALES.map((l) => [l, `${SHOP.domain}${pathFor(l)}`])),
+        ...Object.fromEntries(LIVE_LOCALES.map((l) => [l, `${SHOP.domain}${pathFor(l)}`])),
         "x-default": `${SHOP.domain}${pathFor(DEFAULT_LOCALE)}`,
       },
     },
     openGraph: {
       type: "website", siteName: "Kay Diving Tulum", url,
       title: t.meta.title, description: t.meta.description,
-      locale, images: [{ url: "/assets/photos/hero.webp", width: 861, height: 531 }],
+      locale: OG_LOCALE[locale],
+      alternateLocale: LIVE_LOCALES.filter((l) => l !== locale).map((l) => OG_LOCALE[l]),
+      // Built by scripts/og.mjs. A real 1200×630 JPEG, because the crawlers
+      // ask for that size and WhatsApp — where these links actually travel —
+      // is unreliable with WebP.
+      images: [{
+        url: `/assets/og/${locale}.jpg`, width: 1200, height: 630,
+        type: "image/jpeg", alt: t.hero.alt,
+      }],
     },
-    twitter: { card: "summary_large_image" },
-    robots: { index: true, follow: true },
+    twitter: { card: "summary_large_image", images: [`/assets/og/${locale}.jpg`] },
+    robots: {
+      index: true, follow: true,
+      googleBot: { index: true, follow: true, "max-image-preview": "large",
+                   "max-snippet": -1, "max-video-preview": -1 },
+    },
+    icons: {
+      icon: "/favicon.ico",
+      apple: "/assets/og/apple-touch-icon.png",
+    },
+    manifest: "/site.webmanifest",
   };
 }
 

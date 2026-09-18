@@ -64,6 +64,24 @@ export const SCHEDULE_LIMITS = data.scheduleLimits as {
 /** Deepest site Kay names: Cenote Angelita at 35–38 m. */
 export const MAX_DEPTH_M = data.maxDepthM;
 
+/**
+ * The day the offer last changed, for <lastmod> in the sitemap. Deliberately
+ * not the build date: a redeploy that changes nothing must not tell Google the
+ * page is new, or the signal stops meaning anything. Bump it when prices,
+ * depths or copy change.
+ */
+export const CONTENT_UPDATED = data.contentUpdated;
+
+/**
+ * Which locales actually go live. A locale whose messages are still the
+ * English originals must NOT ship: three URLs carrying the same English text,
+ * each claiming a different hreflang, is duplicate content — it costs ranking
+ * rather than earning it. Add "es" and "fr" here the day messages/es.json and
+ * messages/fr.json are really translated; build-deploy.mjs refuses to build if
+ * this list runs ahead of them.
+ */
+export const PUBLISHED_LOCALES = data.publishedLocales as string[];
+
 export const SHOP = {
   ...data.shop,
   /** Set NEXT_PUBLIC_SITE_URL once the domain is live. */

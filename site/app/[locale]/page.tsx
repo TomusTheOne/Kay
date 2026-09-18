@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
-import { isLocale, getDictionary, pathFor, LOCALES } from "@/lib/i18n";
-import { PRODUCTS, ALWAYS_INCLUDED, GALLERY, PICKUPS, SCHEDULES, SHOP } from "@/content/products";
+import { isLocale, getDictionary, pathFor, LIVE_LOCALES } from "@/lib/i18n";
+import { PRODUCTS, ALWAYS_INCLUDED, GALLERY, PICKUPS, SCHEDULES, SHOP,
+         CONTENT_UPDATED } from "@/content/products";
 import Surface from "@/components/Surface";
 import Gauge from "@/components/Gauge";
 import Reveals from "@/components/Reveals";
@@ -54,9 +55,39 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
     ...[...new Set(PRODUCTS.flatMap((p) => p.extraIncludes ?? []))],
   ];
 
+  /* ------------------------------------------------------------ structured data
+     One graph, cross-linked by @id, so Google reads a business that sells six
+     things on a page in three languages — rather than three unrelated blobs. */
+  const url = `${SHOP.domain}${pathFor(locale)}`;
+  const dearest = Math.max(...PRODUCTS.flatMap((p) => p.options.map((o) => o.price)));
+  /* Google warns on an Offer with no expiry. A year from the last content
+     change is honest: past that the prices genuinely need rechecking. */
+  const priceValidUntil = new Date(
+    new Date(CONTENT_UPDATED).setFullYear(new Date(CONTENT_UPDATED).getFullYear() + 1),
+  ).toISOString().slice(0, 10);
+
   const ld = {
     "@context": "https://schema.org",
     "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": `${SHOP.domain}/#website`,
+        url: SHOP.domain,
+        name: "Kay Diving Tulum",
+        inLanguage: locale,
+        publisher: { "@id": `${SHOP.domain}/#business` },
+      },
+      {
+        "@type": "WebPage",
+        "@id": `${url}#page`,
+        url,
+        name: t.meta.title,
+        description: t.meta.description,
+        inLanguage: locale,
+        isPartOf: { "@id": `${SHOP.domain}/#website` },
+        about: { "@id": `${SHOP.domain}/#business` },
+        primaryImageOfPage: `${SHOP.domain}/assets/og/${locale}.jpg`,
+      },
       {
         "@type": "SportsActivityLocation",
         "@id": `${SHOP.domain}/#business`,
@@ -65,24 +96,49 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         url: `${SHOP.domain}${pathFor(locale)}`,
         telephone: SHOP.phone,
         email: SHOP.email,
-        priceRange: `$${cheapest}–$${Math.max(...PRODUCTS.flatMap((p) => p.options.map((o) => o.price)))}`,
-        image: `${SHOP.domain}/assets/photos/hero.webp`,
+        priceRange: `$${cheapest}–$${dearest}`,
+        currenciesAccepted: "USD, MXN",
+        paymentAccepted: "Cash, Credit Card",
+        image: [
+          `${SHOP.domain}/assets/og/${locale}.jpg`,
+          `${SHOP.domain}/assets/photos/hero.webp`,
+        ],
         address: { "@type": "PostalAddress", addressLocality: "Tulum",
                    addressRegion: "Quintana Roo", addressCountry: "MX" },
         geo: { "@type": "GeoCoordinates", latitude: SHOP.lat, longitude: SHOP.lon },
+        areaServed: [
+          { "@type": "City", name: "Tulum" },
+          { "@type": "AdministrativeArea", name: "Quintana Roo" },
+        ],
+        knowsLanguage: LIVE_LOCALES as unknown as string[],
         sameAs: [SHOP.instagram],
+        hasOfferCatalog: {
+          "@type": "OfferCatalog",
+          name: t.products.tag,
+          itemListElement: PRODUCTS.map((p) => ({
+            "@type": "Offer",
+            itemOffered: { "@id": `${SHOP.domain}/#product-${p.slug}` },
+          })),
+        },
       },
       {
         "@type": "ItemList",
+        "@id": `${url}#catalogue`,
         itemListElement: PRODUCTS.map((p, i) => ({
           "@type": "ListItem", position: i + 1,
           item: {
             "@type": "Product",
+            "@id": `${SHOP.domain}/#product-${p.slug}`,
             name: t.products.items[p.slug].name,
             description: t.products.items[p.slug].text,
+            ...(p.photo ? { image: `${SHOP.domain}/assets/photos/${p.photo}.webp` } : {}),
+            brand: { "@id": `${SHOP.domain}/#business` },
             offers: p.options.map((o) => ({
               "@type": "Offer", price: String(o.price), priceCurrency: "USD",
               availability: "https://schema.org/InStock",
+              url: `${url}#book`,
+              priceValidUntil,
+              seller: { "@id": `${SHOP.domain}/#business` },
               ...(o.dives ? { name: `${o.dives} ${o.dives === 1 ? t.products.dive : t.products.dives}` } : {}),
             })),
           },
@@ -90,6 +146,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       },
       {
         "@type": "FAQPage",
+        "@id": `${url}#faq`,
         mainEntity: t.faq.items.map((q) => ({
           "@type": "Question", name: q.q,
           acceptedAnswer: { "@type": "Answer", text: q.a },
@@ -401,7 +458,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
           </div>
           <div className="foot__base data">
             <span>© {new Date().getFullYear()} Kay Diving · Tulum</span>
-            <span>{LOCALES.map((l) => l.toUpperCase()).join(" · ")}</span>
+            <span>{LIVE_LOCALES.map((l) => l.toUpperCase()).join(" · ")}</span>
           </div>
         </div>
       </footer>

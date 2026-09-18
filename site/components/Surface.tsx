@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { LOCALES, pathFor, type Locale } from "@/lib/i18n";
+import { LIVE_LOCALES, pathFor, type Locale } from "@/lib/i18n";
 
 type Nav = { href: string; label: string }[];
 
@@ -20,9 +20,12 @@ export default function Surface({
     return () => removeEventListener("keydown", onKey);
   }, [open]);
 
-  const langs = (
+  /* Only the translated locales are offered. A visitor clicking ES and
+     landing on English is worse than no switcher at all — and while one
+     locale is live there is nothing to switch to. */
+  const langs = LIVE_LOCALES.length < 2 ? null : (
     <div className="lang" role="group" aria-label={langLabel}>
-      {LOCALES.map((l) => (
+      {LIVE_LOCALES.map((l) => (
         <Link key={l} href={pathFor(l)} className={l === locale ? "on" : undefined}
               aria-current={l === locale ? "true" : undefined}>
           {l.toUpperCase()}

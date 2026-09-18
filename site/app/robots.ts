@@ -6,8 +6,11 @@ export default function robots(): MetadataRoute.Robots {
     rules: [{
       userAgent: "*",
       allow: "/",
-      // Payment outcome pages carry no content and must never be indexed.
-      disallow: ["/api/", "/en/booking/", "/es/booking/", "/fr/booking/"],
+      // Only the endpoints. The payment outcome pages are NOT listed here on
+      // purpose: they already carry <meta robots="noindex">, and a path
+      // blocked in robots.txt is never fetched, so that noindex would never
+      // be read. Blocking and noindexing the same URL cancels the noindex.
+      disallow: ["/api/"],
     }],
     sitemap: `${SHOP.domain}/sitemap.xml`,
     host: SHOP.domain,

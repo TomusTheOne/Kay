@@ -9,6 +9,51 @@ aucune question. C'est un terrain gagnable.
 
 ---
 
+## 0. Ce qui est réellement en ligne au lancement
+
+Ce document décrit la cible. Voici l'état exact du site tel qu'il part en
+production — le reste est la feuille de route, pas une description.
+
+**Livré :**
+
+| | |
+|---|---|
+| Pages | **une seule**, `/en/`, en anglais |
+| `canonical` | auto-référent sur `/en/` |
+| `hreflang` | `en` + `x-default`, tous deux vers `/en/` |
+| `sitemap.xml` | généré, `<lastmod>` piloté par `contentUpdated` |
+| `robots.txt` | `Disallow: /api/` seulement, et il déclare le sitemap |
+| JSON-LD | `WebSite` + `WebPage` + `SportsActivityLocation` + `ItemList`/`Product`/`Offer` + `FAQPage`, tous liés par `@id` |
+| Open Graph | carte **1200×630 JPEG** par langue, générée par `site/scripts/og.mjs` |
+| Hôte canonique | `www` → apex en 301 *(dans `.htaccess`)* |
+| HTTPS | forcé en 301, HSTS 2 ans |
+| Manifest + icônes | `site.webmanifest`, apple-touch 180, 192, 512 |
+| Pages de paiement | `noindex, nofollow`, et **volontairement pas** dans `robots.txt` |
+
+**Pas encore livré, et pourquoi :**
+
+- **`/es/` et `/fr/` ne sont pas publiées.** Les fichiers de traduction sont
+  encore des copies de l'anglais. Trois URLs portant le même texte anglais, avec
+  chacune son `hreflang`, c'est du contenu dupliqué : ça coûte du classement au
+  lieu d'en gagner. Les locales publiées sont listées dans
+  `content/products.json → publishedLocales`, et `build-deploy.mjs` **refuse de
+  construire** si une locale y figure alors que son fichier de messages est
+  encore marqué `_translated: false`. Le jour où la traduction est faite, on
+  ajoute la locale à la liste : routes, sitemap, `hreflang`, sélecteur de langue
+  et Open Graph suivent tout seuls.
+- **Les pages intérieures** (`/cenote-diving/angelita/`, `/courses/...`,
+  `/journal/...`) décrites plus bas n'existent pas. Le site est une page unique
+  avec des ancres. C'est suffisant pour ouvrir ; c'est le principal levier de
+  croissance ensuite.
+- **`AggregateRating` / `Review`** : rien, tant qu'il n'y a pas de vrais avis
+  vérifiables. Des avis inventés en JSON-LD sont une violation des règles Google.
+- **`openingHoursSpecification`** : manquant, on n'a pas encore les horaires.
+- **Photos** : les sources sont des exports Instagram (861×531 au plus grand).
+  La carte Open Graph est donc légèrement suragrandie. Des originaux haute
+  définition amélioreraient à la fois le partage et le rendu sur grand écran.
+
+---
+
 ## 1. Le principe directeur
 
 Les gens ne cherchent pas « centre de plongée Tulum ». Ils cherchent :
@@ -33,9 +78,10 @@ d'une trentaine de pages à fort potentiel.
 Sous-répertoires par langue, sur un seul domaine (cumule l'autorité, contrairement aux sous-domaines) :
 
 ```
-/                     EN  (x-default)
-/es/                  ES
-/fr/                  FR
+/          → 302 → /en/     la racine ne sert rien elle-même
+/en/                        EN  (x-default)
+/es/                        ES  — pas encore publiée
+/fr/                        FR  — pas encore publiée
 ```
 
 Anglais en langue par défaut : c'est la langue de réservation du tourisme plongée à Tulum.
@@ -104,6 +150,20 @@ Déjà implémenté dans les maquettes :
 ---
 
 ## 5. Performance — priorité n° 2 du brief, et facteur de ranking
+
+**Mesuré sur le build de production**, page `/en/` en 390 px, CPU bridé ×4 :
+
+| | FCP | LCP | CLS |
+|---|---|---|---|
+| Réseau rapide | 400 ms | **400 ms** | **0.000** |
+| 4G lente (1,6 Mb/s, 150 ms de latence) | 2 012 ms | **2 012 ms** | **0.000** |
+
+Les seuils « bon » de Google sont LCP < 2 500 ms et CLS < 0,1 : les deux sont
+tenus, y compris dans le scénario dégradé. Poids total au premier chargement :
+**312 Ko gzippés** (152 Ko de JS, 107 Ko de polices, 20 Ko de HTML, 8 Ko de CSS).
+Le CLS à zéro vient des polices auto-hébergées par `next/font` et des `width`/
+`height` posés sur chaque image — rien ne bouge après le premier rendu.
+
 
 Budget cible (mobile, 4G) :
 

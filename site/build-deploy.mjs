@@ -10,13 +10,28 @@
  * confirmation email cannot name a product differently from the page that
  * sold it. The test runner is left behind.
  */
-import { cp, rm, mkdir, readdir } from "node:fs/promises";
+import { cp, rm, mkdir, readdir, readFile } from "node:fs/promises";
 import { existsSync } from "node:fs";
 
 const OUT = "out";
 if (!existsSync(OUT)) {
   console.error("Run `npm run build` first — out/ does not exist.");
   process.exit(1);
+}
+
+/* A locale cannot be declared published while its messages are still the
+   English originals: that would ship three URLs of identical text, each
+   claiming a different hreflang, which costs ranking rather than earning it. */
+const { publishedLocales } = JSON.parse(await readFile("content/products.json", "utf8"));
+for (const locale of publishedLocales) {
+  const messages = JSON.parse(await readFile(`messages/${locale}.json`, "utf8"));
+  if (messages._translated === false) {
+    console.error(
+      `messages/${locale}.json is still flagged _translated: false, but "${locale}" ` +
+      `is listed in publishedLocales. Translate it, or drop it from the list.`,
+    );
+    process.exit(1);
+  }
 }
 
 await rm(`${OUT}/api`, { recursive: true, force: true });

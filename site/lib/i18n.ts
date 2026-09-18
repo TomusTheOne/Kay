@@ -1,10 +1,34 @@
+import { PUBLISHED_LOCALES } from "@/content/products";
+
+/** Every locale the site has copy slots for. */
 export const LOCALES = ["en", "es", "fr"] as const;
 export type Locale = (typeof LOCALES)[number];
 export const DEFAULT_LOCALE: Locale = "en";
 
+/**
+ * The locales that are actually built and indexed — the translated ones.
+ * Everything that faces a search engine (routes, sitemap, hreflang, the
+ * language switcher) reads this, never LOCALES, so an untranslated locale
+ * cannot leak out as a duplicate of the English page.
+ */
+export const LIVE_LOCALES = LOCALES.filter((l) =>
+  PUBLISHED_LOCALES.includes(l),
+) as readonly Locale[];
+
 export function isLocale(v: string): v is Locale {
   return (LOCALES as readonly string[]).includes(v);
 }
+
+/**
+ * Open Graph wants a full language_TERRITORY tag, not a bare code — a plain
+ * "es" is ignored by the crawlers. Mexico for Spanish, since that is where
+ * the shop is and who else reads the page.
+ */
+export const OG_LOCALE: Record<Locale, string> = {
+  en: "en_US",
+  es: "es_MX",
+  fr: "fr_FR",
+};
 
 /**
  * Every locale gets its own prefix. Static export writes en/index.html,
