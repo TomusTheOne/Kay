@@ -81,8 +81,13 @@ export const PRODUCTS: Product[] = [
 /** Everything on the menu carries these four. */
 export const ALWAYS_INCLUDED = ["transport", "equipment", "entrance", "snacks"] as const;
 
-/** Deepest thing they run: 90 ft. The scroll gauge must not imply more. */
-export const MAX_DEPTH_M = 27;
+/**
+ * Deepest Kay actually dives, confirmed by them: 40 m. The menu's per-product
+ * figures below are the depths printed for each course or tour, which are
+ * course limits rather than the deepest water they will take a qualified
+ * diver into — El Pit alone goes past 40 m.
+ */
+export const MAX_DEPTH_M = 40;
 
 export const GALLERY = [
   { photo: "gallery-2", tall: true },

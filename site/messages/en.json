@@ -4,19 +4,34 @@
     "description": "Guided cenote and reef diving in Tulum, from a first try dive to PADI Open Water and Advanced. Hotel transport, equipment, cenote entrance and snacks included. From $80."
   },
   "nav": {
-    "about": "About", "products": "Dives & courses", "included": "What's included",
-    "gallery": "Gallery", "faq": "Questions",
-    "reserve": "Reserve", "reserveLong": "Reserve a dive", "menu": "Menu", "language": "Language"
+    "about": "About",
+    "products": "Dives & courses",
+    "included": "What's included",
+    "gallery": "Gallery",
+    "faq": "Questions",
+    "reserve": "Reserve",
+    "reserveLong": "Reserve a dive",
+    "menu": "Menu",
+    "language": "Language"
   },
   "hero": {
     "kicker": "Tulum · Quintana Roo · Riviera Maya",
-    "l1": "Explore the", "l2": "Mayan underworld.",
+    "l1": "Explore the",
+    "l2": "Mayan underworld.",
     "lede": "Kay Diving guides cenote and reef dives around Tulum — from a first breath underwater to a PADI certification. Our guides do not just take you down; they tell you the history of the place while you are in it.",
     "cta2": "See what we run",
     "alt": "A diver silhouetted against the turquoise glow of a Tulum cenote, among bare branches rising through the water",
-    "water": "WATER", "viz": "VIZ", "from": "FROM", "agency": "PADI", "agencyLabel": "COURSES"
+    "water": "WATER",
+    "viz": "VIZ",
+    "from": "FROM",
+    "agency": "PADI",
+    "agencyLabel": "COURSES"
   },
-  "gauge": { "surface": "Surface", "cavern": "Cenote", "deep": "Deep" },
+  "gauge": {
+    "surface": "Surface",
+    "cavern": "Cenote",
+    "deep": "Deep"
+  },
   "about": {
     "tag": "About us",
     "h2": "Three quarters of our planet are water. Let's go and explore them together.",
@@ -31,8 +46,14 @@
     "tag": "What we run",
     "h2": "Six ways<br>into the water.",
     "intro": "Every price below already includes transport from your hotel, equipment, the cenote entrance fee, and snacks and water. There is nothing to add on the day except the balance.",
-    "from": "from", "dive": "dive", "dives": "dives", "perDiver": "per diver",
-    "depth": "Max depth", "time": "Dive time", "where": "Where", "needs": "You need",
+    "from": "from",
+    "dive": "dive",
+    "dives": "dives",
+    "perDiver": "per diver",
+    "depth": "Max depth",
+    "time": "Dive time",
+    "where": "Where",
+    "needs": "You need",
     "halfDay": "Half day",
     "level": {
       "none": "No certification needed",
@@ -90,17 +111,39 @@
     "h2": "What you are not<br>paying extra for.",
     "intro": "Dive centres in Tulum quote in very different ways. Here is exactly what our prices already cover.",
     "items": {
-      "transport": { "name": "Hotel transport", "text": "Picked up from your hotel and driven to the dive sites. Not an add-on, not a zone surcharge." },
-      "equipment": { "name": "Equipment", "text": "High quality gear, fitted before you get in. Bring a swimsuit and reef-safe sunscreen." },
-      "entrance": { "name": "Cenote entrance", "text": "The entry fee to every cenote on your day is in the price. No cash gate to pay at the door." },
-      "snacks": { "name": "Snacks & water", "text": "Food and water between dives. Cenote mornings are longer than people expect." },
-      "materials": { "name": "Learning materials", "text": "On both courses, everything you need to study is included." },
-      "snorkel-mask": { "name": "Snorkel & mask", "text": "Provided on the snorkel tour." },
-      "padi-licence": { "name": "PADI licence", "text": "The Open Water course ends with a certification recognised worldwide." }
+      "transport": {
+        "name": "Hotel transport",
+        "text": "Picked up from your hotel and driven to the dive sites. Not an add-on, not a zone surcharge."
+      },
+      "equipment": {
+        "name": "Equipment",
+        "text": "High quality gear, fitted before you get in. Bring a swimsuit and reef-safe sunscreen."
+      },
+      "entrance": {
+        "name": "Cenote entrance",
+        "text": "The entry fee to every cenote on your day is in the price. No cash gate to pay at the door."
+      },
+      "snacks": {
+        "name": "Snacks & water",
+        "text": "Food and water between dives. Cenote mornings are longer than people expect."
+      },
+      "materials": {
+        "name": "Learning materials",
+        "text": "On both courses, everything you need to study is included."
+      },
+      "snorkel-mask": {
+        "name": "Snorkel & mask",
+        "text": "Provided on the snorkel tour."
+      },
+      "padi-licence": {
+        "name": "PADI licence",
+        "text": "The Open Water course ends with a certification recognised worldwide."
+      }
     }
   },
   "gallery": {
-    "tag": "From the water", "h2": "What it actually<br>looks like down there.",
+    "tag": "From the water",
+    "h2": "What it actually<br>looks like down there.",
     "intro": "Shot by the guides on working days — no models, no staging. More of it, most days, on",
     "captions": {
       "gallery-1": "Cenote light",
@@ -115,46 +158,111 @@
     "cite": "Kay Diving · Tulum"
   },
   "book": {
-    "tag": "Reservations", "h2": "Book your<br>day in the water.",
+    "tag": "Reservations",
+    "h2": "Book your<br>day in the water.",
     "intro": "A deposit holds the date. We confirm by WhatsApp within a few hours, send you our few questions, and you settle the balance on the day.",
-    "s1": "01 — What you want to do", "s2": "02 — How many dives", "s3": "03 — Date",
-    "s4": "04 — Your level", "s5": "05 — How many of you", "s6": "06 — Name", "s7": "07 — Email",
-    "namePh": "Your name", "mailPh": "you@email.com",
-    "certs": ["Not certified yet", "Open Water", "Advanced Open Water", "Rescue / Divemaster", "Cave or cavern certified"],
-    "slate": "Dive slate", "stamp": "Not confirmed",
-    "rProduct": "Experience", "rOption": "Dives", "rDate": "Date", "rDepth": "Max depth",
-    "rLevel": "You need", "rDivers": "Divers", "rTotal": "Total",
+    "s1": "01 — What you want to do",
+    "s2": "02 — How many dives",
+    "s3": "03 — Date",
+    "s4": "04 — Your level",
+    "s5": "05 — How many of you",
+    "s6": "06 — Name",
+    "s7": "07 — Email",
+    "namePh": "Your name",
+    "mailPh": "you@email.com",
+    "certs": [
+      "Not certified yet",
+      "Open Water",
+      "Advanced Open Water",
+      "Rescue / Divemaster",
+      "Cave or cavern certified"
+    ],
+    "slate": "Dive slate",
+    "stamp": "Not confirmed",
+    "rProduct": "Experience",
+    "rOption": "Dives",
+    "rDate": "Date",
+    "rDepth": "Max depth",
+    "rLevel": "You need",
+    "rDivers": "Divers",
+    "rTotal": "Total",
     "halfDayLabel": "Half day",
     "fine": "Transport, equipment, cenote entrance and snacks included. Prices per person in USD.",
-    "submit": "Reserve with a deposit", "submitting": "Opening checkout…",
+    "submit": "Reserve with a deposit",
+    "submitting": "Opening checkout…",
     "error": "Something went wrong opening the checkout. Try again, or write to us on WhatsApp."
   },
   "faq": {
-    "tag": "Before you come", "h2": "Questions<br>worth asking.",
+    "tag": "Before you come",
+    "h2": "Questions<br>worth asking.",
     "items": [
-      { "q": "Do I need to be certified to dive here?", "a": "Not to start. Discover Scuba takes people who have never breathed underwater, and the snorkel tour needs nothing at all. For cenote diving and the reef you need an Open Water certification, and the deeper cenote sites need Advanced — we will tell you honestly which sites are open to you." },
-      { "q": "What is actually included in the price?", "a": "Transport from your hotel to the dive sites, high quality equipment, the cenote entrance fee, and snacks and water. Both courses also include the learning materials. Nothing else is added on the day beyond the balance of the price you saw." },
-      { "q": "How deep do the dives go?", "a": "Discover Scuba and the Open Water course stay at about 9 metres (30 ft). Cenote diving plans to 18 metres (60 ft). The Advanced course goes to 27 metres (90 ft), which is the deepest we run." },
-      { "q": "What is the difference between cavern and cave diving?", "a": "Cavern diving stays inside the natural daylight zone, within reach of the entrance and always with a direct route to the surface. Cave diving goes beyond daylight and needs its own certification — a different qualification entirely, and not something an Open Water card covers." },
-      { "q": "How cold is the water?", "a": "Cenotes sit at roughly 24–25 °C every day of the year, and the reef is a little warmer. Wetsuits are part of the equipment we provide — tell us if you run cold." },
-      { "q": "What is a halocline?", "a": "Fresh rainwater floating on heavier salt water. The boundary between them refracts light, so swimming through it looks like the water has turned to oil or frosted glass — then it closes behind you and the view snaps back. It is one of the strangest things you will see underwater." },
-      { "q": "Why do you send questions before the dive?", "a": "Because a tour built around you is better than a tour built around a schedule. We want to know what you have done before, what you are hoping for, and what makes you uneasy — so the day fits, rather than merely happening." },
-      { "q": "When is the best time of year to come?", "a": "Cenotes are sheltered from wind and swell, so they dive well all year. Light beams in the cenotes are strongest around the middle of the day. Reef conditions are generally best in the spring and early summer." }
+      {
+        "q": "Do I need to be certified to dive here?",
+        "a": "Not to start. Discover Scuba takes people who have never breathed underwater, and the snorkel tour needs nothing at all. For cenote diving and the reef you need an Open Water certification, and the deeper cenote sites need Advanced — we will tell you honestly which sites are open to you."
+      },
+      {
+        "q": "What is actually included in the price?",
+        "a": "Transport from your hotel to the dive sites, high quality equipment, the cenote entrance fee, and snacks and water. Both courses also include the learning materials. Nothing else is added on the day beyond the balance of the price you saw."
+      },
+      {
+        "q": "How deep do the dives go?",
+        "a": "The figures on each card are the planned depth for that course or tour: about 9 metres (30 ft) for Discover Scuba and the Open Water course, 18 metres (60 ft) for cenote diving, and 27 metres (90 ft) on the Advanced course. Beyond those, the deepest cenotes we dive reach 40 metres — Cenote El Pit keeps going well past the recreational limit — and we only take divers there who hold the certification for it. We will tell you honestly which sites are open to you."
+      },
+      {
+        "q": "What is the difference between cavern and cave diving?",
+        "a": "Cavern diving stays inside the natural daylight zone, within reach of the entrance and always with a direct route to the surface. Cave diving goes beyond daylight and needs its own certification — a different qualification entirely, and not something an Open Water card covers."
+      },
+      {
+        "q": "How cold is the water?",
+        "a": "Cenotes sit at roughly 24–25 °C every day of the year, and the reef is a little warmer. Wetsuits are part of the equipment we provide — tell us if you run cold."
+      },
+      {
+        "q": "What is a halocline?",
+        "a": "Fresh rainwater floating on heavier salt water. The boundary between them refracts light, so swimming through it looks like the water has turned to oil or frosted glass — then it closes behind you and the view snaps back. It is one of the strangest things you will see underwater."
+      },
+      {
+        "q": "Why do you send questions before the dive?",
+        "a": "Because a tour built around you is better than a tour built around a schedule. We want to know what you have done before, what you are hoping for, and what makes you uneasy — so the day fits, rather than merely happening."
+      },
+      {
+        "q": "When is the best time of year to come?",
+        "a": "Cenotes are sheltered from wind and swell, so they dive well all year. Light beams in the cenotes are strongest around the middle of the day. Reef conditions are generally best in the spring and early summer."
+      }
     ]
   },
   "cta": {
-    "kicker": "Tulum · year-round", "h2": "Let's go and explore them together.",
+    "kicker": "Tulum · year-round",
+    "h2": "Let's go and explore them together.",
     "lede": "Tell us your dates and what you have done before. We will tell you honestly which sites are worth your time that week.",
     "instagram": "See it on Instagram"
   },
   "footer": {
     "blurb": "Guided cenote and reef diving and PADI courses in Tulum, Quintana Roo. Transport, equipment, cenote entrance and snacks included in every price.",
-    "explore": "Dives & courses", "learn": "Learn", "find": "Find us",
-    "whatsapp": "WhatsApp", "email": "Email", "place": "Tulum, Quintana Roo, MX"
+    "explore": "Dives & courses",
+    "learn": "Learn",
+    "find": "Find us",
+    "whatsapp": "WhatsApp",
+    "email": "Email",
+    "place": "Tulum, Quintana Roo, MX"
   },
   "booking": {
-    "thanks": { "tag": "Payment received", "h2": "You are on the boat.", "p": "Your deposit is in and the date is held. A guide will message you on WhatsApp within a few hours with the meeting point, the time, and the few questions we ask before every dive. The balance is settled on the day.", "cta": "Back to the site" },
-    "pending": { "tag": "Payment pending", "h2": "Almost there.", "p": "Your bank or the payment method you chose has not confirmed yet — with OXXO or a transfer this can take a few hours. We hold the date meanwhile and write to you the moment it clears.", "cta": "Back to the site" },
-    "failed": { "tag": "Payment not completed", "h2": "That did not go through.", "p": "Nothing was charged and no date is held. Cards issued outside Mexico are sometimes refused on a first attempt — try again, or write to us on WhatsApp and we will hold the date by hand.", "cta": "Try again" }
+    "thanks": {
+      "tag": "Payment received",
+      "h2": "You are on the boat.",
+      "p": "Your deposit is in and the date is held. A guide will message you on WhatsApp within a few hours with the meeting point, the time, and the few questions we ask before every dive. The balance is settled on the day.",
+      "cta": "Back to the site"
+    },
+    "pending": {
+      "tag": "Payment pending",
+      "h2": "Almost there.",
+      "p": "Your bank or the payment method you chose has not confirmed yet — with OXXO or a transfer this can take a few hours. We hold the date meanwhile and write to you the moment it clears.",
+      "cta": "Back to the site"
+    },
+    "failed": {
+      "tag": "Payment not completed",
+      "h2": "That did not go through.",
+      "p": "Nothing was charged and no date is held. Cards issued outside Mexico are sometimes refused on a first attempt — try again, or write to us on WhatsApp and we will hold the date by hand.",
+      "cta": "Try again"
+    }
   }
 }

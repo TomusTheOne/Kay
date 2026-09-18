@@ -100,7 +100,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       <script type="application/ld+json"
               dangerouslySetInnerHTML={{ __html: JSON.stringify(ld) }} />
       <Reveals />
-      <Gauge zones={[[8, t.gauge.surface], [19, t.gauge.cavern], [99, t.gauge.deep]]} />
+      <Gauge zones={[[10, t.gauge.surface], [26, t.gauge.cavern], [99, t.gauge.deep]]} />
       <Surface locale={locale} nav={nav} reserve={t.nav.reserve} reserveLong={t.nav.reserveLong}
                menuLabel={t.nav.menu} langLabel={t.nav.language} />
 
