@@ -104,7 +104,9 @@ export const SHOP = {
   visibilityM: "30 m+",
   sacActunKm: 376,
   instagram: "https://www.instagram.com/kaydivingtulum",
-  domain: "https://kaydiving.com",
+  /** Set NEXT_PUBLIC_SITE_URL in the host's environment once the domain is live.
+      Everything canonical — sitemap, hreflang, Open Graph — reads from here. */
+  domain: (process.env.NEXT_PUBLIC_SITE_URL ?? "https://kaydiving.com").replace(/\/$/, ""),
   agency: "PADI",
 } as const;
 
