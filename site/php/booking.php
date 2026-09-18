@@ -5,6 +5,9 @@ require __DIR__ . '/lib/config.php';
 require __DIR__ . '/lib/pricing.php';
 require __DIR__ . '/lib/db.php';
 require __DIR__ . '/lib/mercadopago.php';
+// For the product name and the deposit line on Mercado Pago's own page: the
+// diver reads that screen while deciding whether to hand over a card.
+require __DIR__ . '/lib/notify.php';
 
 if (($_SERVER['REQUEST_METHOD'] ?? '') !== 'POST') {
     kay_fail(405, 'method not allowed');
@@ -78,11 +81,17 @@ $db->prepare(
 
 $site = rtrim((string) $config['site_url'], '/');
 
+[$mpTitle, $mpDescription] = kay_checkout_item($quote, $locale);
+
 $response = kay_mp_request('POST', '/checkout/preferences', [
     'items' => [[
         'id'          => $quote['product']['slug'],
-        'title'       => sprintf('Kay Diving — %s × %d', $quote['product']['slug'], $quote['divers']),
-        'description' => sprintf('Deposit %d%% · balance on the day', (int) round(kay_deposit_rate() * 100)),
+        // Mercado Pago's page showed "discover-scuba", the slug, to someone
+        // about to enter a card. It reads from the same messages/<locale>.json
+        // the site and the confirmation email do, so all three name the dive
+        // the same way, in the language the diver booked in.
+        'title'       => $mpTitle,
+        'description' => $mpDescription,
         'quantity'    => 1,
         'unit_price'  => $depositMxn,
         'currency_id' => 'MXN',

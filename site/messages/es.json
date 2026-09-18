@@ -220,6 +220,7 @@
     "rDeposit": "Anticipo ahora",
     "halfDayLabel": "Medio día",
     "fine": "Equipo, entrada a los cenotes, transporte a los sitios y snacks incluidos. Precios por persona en USD; el pickup es por reservación. El anticipo se cobra en pesos mexicanos y el resto se liquida el mismo día.",
+    "mpDescription": "Anticipo del {percent}% — el resto se liquida el mismo día.",
     "submit": "Reservar con anticipo",
     "submitting": "Abriendo el pago…",
     "error": "Algo falló al abrir el pago. Inténtalo de nuevo o escríbenos por WhatsApp.",

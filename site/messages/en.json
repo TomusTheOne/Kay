@@ -220,6 +220,7 @@
     "rDeposit": "Deposit now",
     "halfDayLabel": "Half day",
     "fine": "Equipment, cenote entrance, transport to the sites and snacks included. Prices per person in USD; pickup is per booking. The deposit is charged in Mexican pesos and the balance is settled on the day.",
+    "mpDescription": "Deposit of {percent}% — the balance is settled on the day.",
     "submit": "Reserve with a deposit",
     "submitting": "Opening checkout…",
     "error": "Something went wrong opening the checkout. Try again, or write to us on WhatsApp.",

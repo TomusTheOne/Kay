@@ -220,6 +220,7 @@
     "rDeposit": "Acompte",
     "halfDayLabel": "Demi-journée",
     "fine": "Équipement, entrée des cenotes, transport sur les sites et collations inclus. Tarifs par personne en USD ; la prise en charge est par réservation. L’acompte est débité en pesos mexicains et le solde se règle sur place le jour même.",
+    "mpDescription": "Acompte de {percent} % — le solde se règle sur place le jour même.",
     "submit": "Réserver avec un acompte",
     "submitting": "Ouverture du paiement…",
     "error": "L'ouverture du paiement a échoué. Réessayez, ou écrivez-nous sur WhatsApp.",

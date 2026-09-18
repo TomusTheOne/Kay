@@ -146,6 +146,24 @@ check('April is refused',     kay_validate(['date' => '2099-04-01'] + $shark), '
 check('a cenote dive in July is fine',
       kay_validate(['date' => '2099-07-15', 'product' => 'cenote-diving', 'option' => 2] + $shark), null);
 
+echo "\nMercado Pago's own page names the dive, never the slug\n";
+// It showed "discover-scuba" to someone about to enter a card.
+$item = kay_checkout_item(kay_quote($base), 'en');
+check('the product is named',      str_contains($item[0], 'Cenote Diving'), true);
+check('the slug does not leak',    str_contains($item[0], 'cenote-diving'), false);
+check('the party size is there',   str_contains($item[0], '3 divers'), true);
+$solo = kay_checkout_item(kay_quote(['divers' => 1] + $base), 'en');
+check('one diver reads as one',    str_contains($solo[0], '1 diver'), true);
+// Whoever booked in Spanish pays on a Spanish page.
+$es = kay_checkout_item(kay_quote($base), 'es');
+check('es names it in Spanish',    str_contains($es[0], 'Buceo en Cenotes'), true);
+check('es counts in Spanish',      str_contains($es[0], 'buzos'), true);
+$fr = kay_checkout_item(kay_quote($base), 'fr');
+check('fr names it in French',     str_contains($fr[0], 'Plongée'), true);
+// The deposit line carries the real rate, not a number typed twice.
+check('the description states the rate',
+      str_contains($item[1], (string) (int) round(kay_deposit_rate() * 100) . '%'), true);
+
 echo "\nA booking settles exactly once, however often the webhook fires\n";
 $db = kay_db();
 $id = '11111111-2222-4333-8444-555555555555';

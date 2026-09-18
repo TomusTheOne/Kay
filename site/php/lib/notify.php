@@ -29,6 +29,33 @@ function kay_messages(string $locale): array
 }
 
 /**
+ * What Mercado Pago prints on its own payment page, in the language the diver
+ * booked in. It used to print the slug: someone about to type a card number
+ * was shown "discover-scuba". Same source as the page and the confirmation
+ * email, so the dive is named identically in all three.
+ *
+ * @return array{0:string,1:string} title, description
+ */
+function kay_checkout_item(array $quote, string $locale): array
+{
+    $m    = kay_messages($locale);
+    $slug = (string) $quote['product']['slug'];
+
+    $name = (string) ($m['products']['items'][$slug]['name'] ?? $slug);
+    $word = (string) ((int) $quote['divers'] === 1
+        ? ($m['emails']['common']['diver']  ?? 'diver')
+        : ($m['emails']['common']['divers'] ?? 'divers'));
+
+    $description = strtr(
+        (string) ($m['book']['mpDescription']
+                  ?? 'Deposit of {percent}% — the balance is settled on the day.'),
+        ['{percent}' => (string) (int) round(kay_deposit_rate() * 100)]
+    );
+
+    return [sprintf('%s · %d %s', $name, (int) $quote['divers'], $word), $description];
+}
+
+/**
  * "Saturday 4 October 2026". Uses intl when the host has it — OVH's shared
  * PHP usually does — and falls back to English month names when it does not,
  * which is no worse than today, since es and fr are still English copies.
