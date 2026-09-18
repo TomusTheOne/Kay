@@ -41,21 +41,22 @@ $base = ['product' => 'cenote-diving', 'option' => 3, 'date' => '2099-12-01',
 
 $q = kay_quote($base);
 check('cenote diving, 3 dives, 3 divers', $q['total_usd'], 750);
-check('deposit is 30%',                   $q['deposit_usd'], 225);
+// TEMPORARY, revert with depositRate: at 30% this is 225.
+check('deposit is 1%',                    $q['deposit_usd'], 8);
 
 echo "\nPesos are Kay's own figures, never a converted dollar price\n";
 // He works at 16 to the dollar everywhere but Discover Scuba's single dive,
 // which he rounded to 2300. A single rate cannot reproduce that, so both
 // currencies are carried and the peso one is what gets charged.
 check('3 x 3 cenote dives in pesos', kay_quote($base)['total_mxn'], 12000);
-check('the deposit in pesos',        kay_quote($base)['deposit_mxn'], 3600);
+check('the deposit in pesos',        kay_quote($base)['deposit_mxn'], 120);   // TEMPORARY: 3600 at 30%
 
 // The slate in the browser computes the deposit from DEPOSIT_RATE in
 // content/products.ts, which reads the same key. If the rate ever moves back
 // into kay-config.php the two drift, and the diver is quoted one figure while
 // Mercado Pago charges another.
 check('the rate comes from the catalogue, not the host config',
-      kay_deposit_rate(), 0.3);
+      kay_deposit_rate(), 0.01);   // TEMPORARY: 0.3 in normal operation
 check('and the quote uses that rate, not a literal',
       kay_quote($base)['deposit_mxn'],
       (int) round(kay_quote($base)['total_mxn'] * kay_deposit_rate()));
