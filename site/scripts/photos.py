@@ -39,10 +39,17 @@ SLOTS = {
     # Light through the mangrove roots: what you see with your face in the
     # water and no tank on your back.
     "card-snorkel":  ("cenote-light", 960, 660, 0.50, 0.46),
-    # The gallery, at last carrying photographs the page has not used above.
-    "gallery-1":     ("sharks",       900, 556, 0.52, 0.55),
-    "gallery-2":     ("sharks-light", 880, 1100, 0.50, 0.45),
-    "gallery-3":     ("deep-descent", 880, 1100, 0.50, 0.50),
+    # Deep, dark, a stage bottle on the diver's side. The Advanced card was
+    # the last one still showing a drawing.
+    "card-advanced": ("deep-stage",   960, 660, 0.50, 0.62),
+    # The gallery, carrying only photographs the page has not used above.
+    # Five tiles is what the grid was drawn for: one tall on the left, four
+    # filling the two columns beside it.
+    "gallery-1":     ("deep-descent",      880, 1180, 0.50, 0.50),  # la tuile haute
+    "gallery-2":     ("cavern-silhouette", 900,  600, 0.52, 0.48),
+    "gallery-3":     ("sharks",            900,  600, 0.52, 0.55),
+    "gallery-4":     ("cavern-posts",      900,  600, 0.50, 0.52),
+    "gallery-5":     ("sharks-light",      900,  600, 0.50, 0.42),
 }
 
 

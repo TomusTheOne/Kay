@@ -91,7 +91,7 @@
         "name": "Advanced Open Water",
         "tagline": "Climb the experience ladder.",
         "text": "The next step: five specialty dives taking you to thirty metres, across Casa Cenote, Cenote El Pit and the Tankah reef. Learning materials included.",
-        "alt": "A diver near the surface of a Tulum cenote beside a rock wall"
+        "alt": "A diver deep in a dark Tulum cenote, a stage cylinder at their side and bubbles rising"
       },
       "open-water": {
         "name": "Open Water Course",
@@ -165,9 +165,11 @@
     "h2": "What it actually<br>looks like down there.",
     "intro": "Shot by the guides on working days — no models, no staging. More of it, most days, on",
     "captions": {
-      "gallery-3": "Going down · a Tulum cenote",
-      "gallery-1": "Bull sharks off the coast",
-      "gallery-2": "Sharks against the surface light"
+      "gallery-1": "Going down · a Tulum cenote",
+      "gallery-2": "The cavern mouth, from below",
+      "gallery-3": "Bull sharks off the coast",
+      "gallery-4": "Under the platform · Casa Cenote",
+      "gallery-5": "Sharks against the surface light"
     }
   },
   "quote": {

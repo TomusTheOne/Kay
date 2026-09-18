@@ -91,7 +91,7 @@
         "name": "Advanced Open Water",
         "tagline": "Sube un escalón de experiencia.",
         "text": "El siguiente paso: cinco inmersiones de especialidad que te llevan a treinta metros, entre Casa Cenote, el Cenote El Pit y el arrecife de Tankah. Material de estudio incluido.",
-        "alt": "Un buzo cerca de la superficie de un cenote de Tulum, junto a una pared de roca"
+        "alt": "Un buzo en lo profundo de un cenote oscuro de Tulum, con un tanque de etapa al costado y burbujas subiendo"
       },
       "open-water": {
         "name": "Curso Open Water",
@@ -165,9 +165,11 @@
     "h2": "Cómo se ve<br>realmente allá abajo.",
     "intro": "Fotos tomadas por los guías en días de trabajo — sin modelos, sin montaje. Más, casi a diario, en",
     "captions": {
-      "gallery-3": "Bajando · un cenote de Tulum",
-      "gallery-1": "Tiburones toro frente a la costa",
-      "gallery-2": "Tiburones a contraluz"
+      "gallery-1": "Bajando · un cenote de Tulum",
+      "gallery-2": "La boca de la caverna, desde abajo",
+      "gallery-3": "Tiburones toro frente a la costa",
+      "gallery-4": "Bajo la plataforma · Casa Cenote",
+      "gallery-5": "Tiburones a contraluz"
     }
   },
   "quote": {

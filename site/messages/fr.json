@@ -91,7 +91,7 @@
         "name": "Advanced Open Water",
         "tagline": "Montez d'un cran.",
         "text": "L'étape suivante : cinq plongées de spécialité qui vous emmènent à trente mètres, entre Casa Cenote, le Cenote El Pit et le récif de Tankah. Supports de cours inclus.",
-        "alt": "Un plongeur près de la surface d'un cenote de Tulum, le long d'une paroi rocheuse"
+        "alt": "Un plongeur au fond d'un cenote sombre de Tulum, un bloc relais au flanc et les bulles qui montent"
       },
       "open-water": {
         "name": "Formation Open Water",
@@ -165,9 +165,11 @@
     "h2": "À quoi ça ressemble<br>vraiment, en bas.",
     "intro": "Photos prises par les guides des jours de sortie — sans modèles, sans mise en scène. Davantage, presque tous les jours, sur",
     "captions": {
-      "gallery-3": "La descente · un cenote de Tulum",
-      "gallery-1": "Requins bouledogues au large",
-      "gallery-2": "Requins à contre-jour"
+      "gallery-1": "La descente · un cenote de Tulum",
+      "gallery-2": "La bouche de la caverne, vue d'en bas",
+      "gallery-3": "Requins bouledogues au large",
+      "gallery-4": "Sous le ponton · Casa Cenote",
+      "gallery-5": "Requins à contre-jour"
     }
   },
   "quote": {

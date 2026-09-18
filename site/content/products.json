@@ -134,7 +134,7 @@
           "price": 460
         }
       ],
-      "photo": null,
+      "photo": "card-advanced",
       "art": "the-pit",
       "extraIncludes": [
         "materials"
@@ -189,15 +189,23 @@
   ],
   "gallery": [
     {
-      "photo": "gallery-3",
+      "photo": "gallery-1",
       "tall": true
     },
     {
-      "photo": "gallery-1",
+      "photo": "gallery-2",
       "tall": false
     },
     {
-      "photo": "gallery-2",
+      "photo": "gallery-3",
+      "tall": false
+    },
+    {
+      "photo": "gallery-4",
+      "tall": false
+    },
+    {
+      "photo": "gallery-5",
       "tall": false
     }
   ],
