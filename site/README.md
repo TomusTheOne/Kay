@@ -97,11 +97,10 @@ each one:
   The emblem is line art: below about 40px it stops reading as a diving helmet,
   which is why the header mark is 40px and the favicon is the kit's cropped
   helmet-and-goggles rather than the whole thing.
-- **Eight photographs exist** in `assets/source/`. Four cards carry one —
-  Discover Scuba, Reef & Cenote, Cenote Diving, Open Water — plus the hero, the
-  band and three gallery tiles. **Advanced Open Water and the Snorkel tour still
-  show the hand-drawn scene** they declare in `products.json`: there is no
-  photograph of either yet. `scripts/photos.py` rebuilds every slot from the
+- **Nine photographs exist** in `assets/source/`. Five of the six cards carry
+  one, plus the hero, the band and three gallery tiles. **Only Advanced Open
+  Water still shows the hand-drawn scene** it declares in `products.json`:
+  there is no photograph of an Advanced dive yet. `scripts/photos.py` rebuilds every slot from the
   sources with a focal point per slot; add slots there and entries to `gallery`
   after a shoot.
 - **Two gallery photographs are bull sharks, and no product sells a shark

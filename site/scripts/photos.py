@@ -36,6 +36,9 @@ SLOTS = {
 
     # Casa Cenote's green water — the freshwater half of Reef & Cenote.
     "card-reef":     ("casa-green",  960,  660, 0.42, 0.58),
+    # Light through the mangrove roots: what you see with your face in the
+    # water and no tank on your back.
+    "card-snorkel":  ("cenote-light", 960, 660, 0.50, 0.46),
     # The gallery, at last carrying photographs the page has not used above.
     "gallery-1":     ("sharks",       900, 556, 0.52, 0.55),
     "gallery-2":     ("sharks-light", 880, 1100, 0.50, 0.45),
