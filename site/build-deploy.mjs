@@ -2,7 +2,7 @@
  * Assembles exactly what gets uploaded to OVH's www/ directory:
  *
  *   out/            the static export         → www/
- *   php/            the two endpoints         → www/api/
+ *   php/            the endpoints + send-live → www/api/
  *   public-htaccess the Apache configuration  → www/.htaccess
  *
  * products.json and messages/ are copied from the source of truth, so the PHP
@@ -37,7 +37,9 @@ for (const locale of publishedLocales) {
 await rm(`${OUT}/api`, { recursive: true, force: true });
 await mkdir(`${OUT}/api/lib`, { recursive: true });
 
-for (const f of ["booking.php", "webhook.php"]) {
+// send-live.php goes with them: it refuses to run over HTTP, and a way to
+// prove a confirmation reaches an inbox belongs on the host that sends it.
+for (const f of ["booking.php", "webhook.php", "send-live.php"]) {
   await cp(`php/${f}`, `${OUT}/api/${f}`);
 }
 for (const f of await readdir("php/lib")) {

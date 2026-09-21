@@ -106,6 +106,9 @@ RedirectMatch 404 ^/api/tests/
 # only for as long as PHP keeps running. One misconfiguration and they would
 # be served as source, with the database and Mercado Pago handling in them.
 RedirectMatch 404 ^/api/lib/
+# Refuses to run outside the command line anyway, but a script whose job is
+# to send mail does not get to rely on one guard.
+RedirectMatch 404 ^/api/send-live\.php$
 # The catalogue the PHP reads off disk. It holds nothing secret — the same
 # prices are on the page — but it has no reason to be a public endpoint, and
 # nothing in the browser asks for it: the site compiles it into its bundle.

@@ -12,8 +12,8 @@ declare(strict_types=1);
  * is the worst possible place to discover a wrong API key.
  *
  *   ssh <ftp-user>@<cluster>.hosting.ovh.net
- *   php www/api/tests/send-live.php you@example.com
- *   php www/api/tests/send-live.php you@example.com fr
+ *   php www/api/send-live.php you@example.com
+ *   php www/api/send-live.php you@example.com fr
  *
  * The booking it renders is invented and never touches the database.
  */
@@ -35,10 +35,10 @@ if ($to === '' || !filter_var($to, FILTER_VALIDATE_EMAIL)) {
     exit(1);
 }
 
-require __DIR__ . '/../lib/config.php';
-require __DIR__ . '/../lib/pricing.php';
-require __DIR__ . '/../lib/mail.php';
-require __DIR__ . '/../lib/notify.php';
+require __DIR__ . '/lib/config.php';
+require __DIR__ . '/lib/pricing.php';
+require __DIR__ . '/lib/mail.php';
+require __DIR__ . '/lib/notify.php';
 
 $config = kay_config();
 printf("provider : %s\n", $config['mail_provider'] ?? 'off');
