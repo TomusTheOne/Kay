@@ -259,6 +259,23 @@ placeholder : une build non configurée ne fait aucune requête tierce.
 Trois fournisseurs, tous sans cookie et autour de 1 Ko : `umami`, `plausible`,
 `cloudflare`. Changer d'avis, c'est une variable GitHub et un redéploiement.
 
+**Le tunnel.** `lib/analytics.ts` envoie un seul événement personnalisé,
+`checkout-opened`, juste avant la redirection vers Mercado Pago. Avec la vue
+de page que `/booking/thanks/` produit déjà au retour, trois nombres
+s'alignent par pays : visiteurs → checkouts ouverts → acomptes payés.
+
+Propriétés envoyées : `product`, `dives`, `divers`, `depositMxn`, `locale`.
+Ce qui a été réservé, jamais qui l'a réservé — ni nom, ni email.
+
+L'envoi est borné à 400 ms et se résout dans tous les cas, y compris si le
+fournisseur ne répond jamais : mesuré à 224 ms de redirection avec un
+fournisseur qui répond, 687 ms avec un fournisseur muet, 213 ms sans
+fournisseur du tout. Une panne d'analytics ne doit jamais coûter une
+réservation.
+
+Cloudflare Web Analytics ne gère que les vues de page, pas les événements
+personnalisés : avec ce fournisseur, le tunnel se réduit à deux nombres.
+
 GA4 a été écarté volontairement : ~90 Ko de JavaScript sur une page qui n'en
 charge aucun d'origine tierce, et des cookies qui obligent à un bandeau de
 consentement pour la moitié européenne des clients de Kay — un bandeau

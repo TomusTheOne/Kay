@@ -2,6 +2,7 @@
 import { useMemo, useState } from "react";
 import { PRODUCTS, PICKUPS, SCHEDULES, DEPOSIT_RATE, type Product } from "@/content/products";
 import type { Dictionary } from "@/lib/i18n";
+import { track } from "@/lib/analytics";
 
 const money = (n: number) => "$" + n.toLocaleString("en-US");
 const tomorrow = () => new Date(Date.now() + 864e5).toISOString().slice(0, 10);
@@ -85,6 +86,15 @@ export default function Booking({
         return;
       }
       const { checkoutUrl } = await res.json();
+      /* The last thing this site sees before Mercado Pago takes over. Paired
+         with the pageview /booking/thanks/ produces on the way back, it turns
+         two unrelated counts into a funnel: looked, opened a checkout, paid.
+         What was booked, never who booked it. Bounded at 400 ms, and it
+         resolves whatever happens, so the redirect below always runs. */
+      await track("checkout-opened", {
+        product: product.slug, dives: option.dives, divers,
+        depositMxn: deposit, locale,
+      });
       // Mercado Pago hosts the card form: no card data ever touches this site.
       location.href = checkoutUrl;
     } catch {
