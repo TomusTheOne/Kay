@@ -250,6 +250,38 @@ interne qui transforme le trafic informationnel en réservations.
 - Suivre : réservations envoyées / sessions, position moyenne sur le groupe « cenote diving Tulum »,
   et les Core Web Vitals en données terrain.
 
+### Ce qui est câblé
+
+`components/Analytics.tsx` émet la balise du fournisseur choisi, ou **rien du
+tout** si `ANALYTICS_PROVIDER` est vide — c'est le défaut, et ce n'est pas un
+placeholder : une build non configurée ne fait aucune requête tierce.
+
+Trois fournisseurs, tous sans cookie et autour de 1 Ko : `umami`, `plausible`,
+`cloudflare`. Changer d'avis, c'est une variable GitHub et un redéploiement.
+
+GA4 a été écarté volontairement : ~90 Ko de JavaScript sur une page qui n'en
+charge aucun d'origine tierce, et des cookies qui obligent à un bandeau de
+consentement pour la moitié européenne des clients de Kay — un bandeau
+par-dessus le hero, sur l'écran autour duquel tout le design est construit.
+
+### Vérification Search Console
+
+Passer par l'**enregistrement DNS TXT** chez OVH, pas par la balise ni par le
+fichier HTML. Deux raisons :
+
+1. Il crée une *propriété de domaine* : apex, `www`, http, https et les trois
+   langues dans un seul rapport. Une propriété par préfixe d'URL en ferait
+   trois, voire six.
+2. `/` renvoie un 302 vers `/en/`. Une vérification par balise ou par fichier
+   sur la racine a donc une redirection en travers.
+
+Et surtout : **ne jamais déposer le fichier de vérification par FTP.** Le
+déploiement synchronise `www/` avec `mirror --delete` — tout fichier absent de
+la build est supprimé au déploiement suivant, y compris celui-là. S'il faut
+absolument passer par un fichier, il va dans `site/public/`, versionné.
+
+La balise reste disponible pour qui préfère : variable `GSC_VERIFICATION`.
+
 ---
 
 ## 9. Arbitrage entre les trois concepts

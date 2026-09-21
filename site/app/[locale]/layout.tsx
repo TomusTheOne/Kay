@@ -3,6 +3,7 @@ import { Instrument_Serif, Inter, IBM_Plex_Mono } from "next/font/google";
 import { notFound } from "next/navigation";
 import { LIVE_LOCALES, DEFAULT_LOCALE, OG_LOCALE, isLocale, getDictionary, pathFor, type Locale } from "@/lib/i18n";
 import { SHOP } from "@/content/products";
+import Analytics from "@/components/Analytics";
 import "../globals.css";
 
 /* Self-hosted at build time: no third-party request, no flash, no layout shift. */
@@ -57,6 +58,15 @@ export async function generateMetadata(
       }],
     },
     twitter: { card: "summary_large_image", images: [`/assets/og/${locale}.jpg`] },
+    /* Search Console's meta-tag method, for whoever prefers it to a DNS
+       record. Prefer the DNS TXT record: it verifies the whole domain in one
+       property — apex, www, http and https, all three languages — and it
+       cannot be undone by a deploy. This tag only ever verifies the exact URL
+       it sits on, and "/" here is a 302 to "/en/", so a URL-prefix property on
+       the apex has a redirect in the way. */
+    verification: process.env.NEXT_PUBLIC_GSC_VERIFICATION
+      ? { google: process.env.NEXT_PUBLIC_GSC_VERIFICATION }
+      : undefined,
     robots: {
       index: true, follow: true,
       googleBot: { index: true, follow: true, "max-image-preview": "large",
@@ -86,7 +96,10 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale} className={`${display.variable} ${body.variable} ${mono.variable}`}>
-      <body>{children}</body>
+      <body>
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }

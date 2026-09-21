@@ -78,6 +78,22 @@ Un workflow GitHub build le site et l'envoie en FTP à chaque push sur `main`.
 |---|---|
 | `SITE_URL` | `https://kaydiving.com` — sans slash final |
 | `FTP_SERVER_DIR` | `/www/` — ou `/www/kaydiving/` si multisite |
+| `ANALYTICS_PROVIDER` | `umami`, `plausible` ou `cloudflare`. Vide = aucun script tiers |
+| `ANALYTICS_ID` | l'identifiant du site chez le fournisseur (voir plus bas) |
+| `ANALYTICS_SRC` | vide, sauf instance auto-hébergée |
+| `GSC_VERIFICATION` | le jeton `google-site-verification`, si tu vérifies par balise |
+
+Aucune des quatre dernières n'est un secret : elles finissent dans le HTML
+servi, visibles par n'importe qui. Les mettre en *Variables* plutôt qu'en
+*Secrets* permet de les relire sans les redéfinir.
+
+**`ANALYTICS_ID` selon le fournisseur :**
+
+| Fournisseur | Valeur à mettre |
+|---|---|
+| `umami` | le *Website ID* (UUID) affiché dans Umami → Settings → Websites |
+| `plausible` | le domaine tel que Plausible le connaît, ex. `kaydiving.com` |
+| `cloudflare` | le *token* du bandeau Web Analytics |
 
 > ⚠️ `FTP_SERVER_DIR` doit pointer **exactement** sur le bon dossier. Le
 > déploiement synchronise ce répertoire : mal réglé, il écraserait un de tes

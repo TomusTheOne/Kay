@@ -34,6 +34,14 @@ jobs:
         env:
           # Canonical URLs, hreflang, sitemap and Open Graph are baked in here.
           NEXT_PUBLIC_SITE_URL: ${{ vars.SITE_URL }}
+          # Analytics and Search Console. Variables, not secrets: both values
+          # end up in the served HTML for anyone to read, and a secret here
+          # would only make them harder to check. Leave the provider empty and
+          # no third-party script is emitted at all.
+          NEXT_PUBLIC_ANALYTICS_PROVIDER: ${{ vars.ANALYTICS_PROVIDER }}
+          NEXT_PUBLIC_ANALYTICS_ID:       ${{ vars.ANALYTICS_ID }}
+          NEXT_PUBLIC_ANALYTICS_SRC:      ${{ vars.ANALYTICS_SRC }}
+          NEXT_PUBLIC_GSC_VERIFICATION:   ${{ vars.GSC_VERIFICATION }}
         run: npm run build:deploy
 
       # OVH's shared hosting answers AUTH TLS with "500 This security scheme is
