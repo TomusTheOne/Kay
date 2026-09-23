@@ -49,8 +49,37 @@ function kay_config(): array
         'mail_from'      => 'contact@kaydiving.com',
         'mail_from_name' => 'Kay Diving Tulum',
         'mail_to_shop'   => 'contact@kaydiving.com',
+        // Where "today" is: the day sheet, the traffic days, the dashboard.
+        'timezone'       => 'America/Cancun',
     ];
     return $config;
+}
+
+/* ------------------------------------------------------------------ time --
+   The shop is in Tulum. "Today" on the day sheet is Tulum's today, whatever
+   timezone the server in Europe happens to run in.                          */
+
+function kay_tz(): DateTimeZone
+{
+    static $tz = null;
+    if ($tz === null) {
+        try {
+            $tz = new DateTimeZone((string) (kay_config()['timezone'] ?? 'America/Cancun'));
+        } catch (Exception) {
+            $tz = new DateTimeZone('America/Cancun');
+        }
+    }
+    return $tz;
+}
+
+function kay_now(): DateTimeImmutable
+{
+    return new DateTimeImmutable('now', kay_tz());
+}
+
+function kay_today(): string
+{
+    return kay_now()->format('Y-m-d');
 }
 
 /** JSON error, then stop. Never echoes internals back to the caller. */

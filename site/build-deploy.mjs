@@ -3,6 +3,7 @@
  *
  *   out/            the static export         → www/
  *   php/            the endpoints + send-live → www/api/
+ *   php/admin/      the admin space           → www/admin/
  *   public-htaccess the Apache configuration  → www/.htaccess
  *
  * products.json and messages/ are copied from the source of truth, so the PHP
@@ -39,11 +40,23 @@ await mkdir(`${OUT}/api/lib`, { recursive: true });
 
 // send-live.php goes with them: it refuses to run over HTTP, and a way to
 // prove a confirmation reaches an inbox belongs on the host that sends it.
-for (const f of ["booking.php", "webhook.php", "send-live.php"]) {
+// track.php is the traffic beacon every page posts to.
+for (const f of ["booking.php", "webhook.php", "send-live.php", "track.php"]) {
   await cp(`php/${f}`, `${OUT}/api/${f}`);
 }
 for (const f of await readdir("php/lib")) {
   await cp(`php/lib/${f}`, `${OUT}/api/lib/${f}`);
+}
+// The baseline schema: migration 1 reads it, so a fresh database needs
+// nothing but the admin's setup page. .htaccess refuses to serve any .sql.
+await cp("php/schema.sql", `${OUT}/api/schema.sql`);
+
+// The admin space, at /admin/. Its pages load the same library as the
+// endpoints, from api/lib/ — see php/admin/_boot.php.
+await rm(`${OUT}/admin`, { recursive: true, force: true });
+await mkdir(`${OUT}/admin`, { recursive: true });
+for (const f of await readdir("php/admin")) {
+  await cp(`php/admin/${f}`, `${OUT}/admin/${f}`);
 }
 // One catalogue and one set of strings, read by the build and by the endpoints.
 await cp("content/products.json", `${OUT}/api/products.json`);

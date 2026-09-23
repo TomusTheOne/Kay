@@ -12,11 +12,14 @@ qu'à ça.
         ├── .htaccess
         ├── en/  es/  fr/    ← les pages
         ├── assets/  _next/
+        ├── admin/           ← l'espace administrateur (docs/ADMIN.md)
         └── api/
             ├── booking.php  ← crée la réservation et ouvre le paiement
             ├── webhook.php  ← reçoit la confirmation Mercado Pago, envoie les e-mails
-            ├── lib/         ← config, pricing, db, mercadopago, mail, notify
+            ├── track.php    ← reçoit le signal de trafic de chaque page
+            ├── lib/         ← config, pricing, db, mercadopago, mail, notify, admin…
             ├── messages/    ← les textes, les mêmes que ceux du site
+            ├── schema.sql   ← la table de départ, jamais servie
             └── products.json
 ```
 
@@ -221,6 +224,21 @@ l'e-mail part au moment où le webhook passe la ligne en `paid`.
 
 ---
 
+## 7. L'espace administrateur
+
+`https://kaydiving.com/admin/` — réservations, clients, trafic. Il part avec
+chaque déploiement ; il reste une seule chose à faire, une fois :
+
+1. Ajouter à `kay-config.php` une ligne
+   `'admin_setup_token' => '…au moins 20 caractères au hasard…',`
+2. Ouvrir `/admin/`, saisir ce jeton et créer le premier compte.
+
+Les tables nécessaires se créent seules à cette première ouverture — pas de
+phpMyAdmin. Le guide complet (usage, trafic, sécurité) est dans
+[`docs/ADMIN.md`](ADMIN.md).
+
+---
+
 ## Comment c'est protégé
 
 - **Le prix est recalculé côté serveur** à partir des seuls identifiants produit.
@@ -243,13 +261,16 @@ l'e-mail part au moment où le webhook passe la ligne en `paid`.
 cd site && npm test      # php php/tests/run.php
 ```
 
-82 assertions : chaque prix du menu, le refus d'un total envoyé par le client,
-les tailles non vendues, les dates passées, l'idempotence du règlement, les
-signatures invalides, et le contenu des deux e-mails — le bon produit, les trois
-montants qui s'additionnent, le ramassage payé, et le fait qu'un `<script>` tapé
-dans le formulaire ressorte en texte, plus le format de requête attendu par
-chacun des deux fournisseurs d'e-mail. Il faut une base MySQL joignable et un
-`kay-config.php`.
+Chaque prix du menu, le refus d'un total envoyé par le client, les tailles non
+vendues, les dates passées, l'idempotence du règlement, les signatures
+invalides, et le contenu des deux e-mails — le bon produit, les trois montants
+qui s'additionnent, le ramassage payé, et le fait qu'un `<script>` tapé dans le
+formulaire ressorte en texte, plus le format de requête attendu par chacun des
+deux fournisseurs d'e-mail. Et l'admin : connexion, sessions, CSRF, prix des
+réservations manuelles, statuts, paiements, CRM, trafic (voir
+`docs/ADMIN.md`). Il faut une base MySQL joignable et un `kay-config.php`.
+Les tests nettoient ce qu'ils créent, et les données de trafic de test sont
+datées de 2001 pour ne jamais se mêler aux vraies.
 
 ---
 
@@ -270,6 +291,7 @@ chacun des deux fournisseurs d'e-mail. Il faut une base MySQL joignable et un
 - [ ] Google Search Console : propriété ajoutée, sitemap soumis
 - [ ] Fiche Google Business Profile cohérente avec le site
 - [ ] Droits sur les photos confirmés si certaines sont des reposts
+- [ ] `admin_setup_token` ajouté, premier compte admin créé *(§7)*
 
 ---
 

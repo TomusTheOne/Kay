@@ -93,3 +93,45 @@ function kay_mp_signature_valid(string $dataId): bool
 
     return hash_equals($expected, $parts['v1']);
 }
+
+/**
+ * Applies what Mercado Pago says happened to a payment to its booking, and
+ * returns the number of rows that moved: 1, or 0 when there was nothing to do.
+ *
+ * Idempotent: Mercado Pago retries, and a replay of an old notification must
+ * not resurrect a refunded booking or un-pay a paid one.
+ *
+ * A payment, though, is never dropped. 'paid' also lands on a booking that
+ * left 'pending' without ever being paid: a card refused and then retried on
+ * the same checkout (the refusal already moved the row to 'cancelled'), an
+ * OXXO cash payment approved days later, or a booking Kay confirmed or
+ * cancelled by hand in the admin meanwhile. Money that has been taken must be
+ * on the booking, where the admin shows it; if the booking was cancelled, Kay
+ * sees a paid booking and refunds it. `paid_at IS NULL` is what keeps this
+ * idempotent — a booking is paid once, and a retry finds nothing to move.
+ * 'refunded' is not in the list, and nothing but a pending row is ever moved
+ * to cancelled or refunded.
+ *
+ * 'confirmed' only exists once the admin has migrated the schema; before
+ * that it matches no row, which is exactly right.
+ */
+function kay_settle_payment(PDO $db, string $bookingId, string $next, string $paymentId): int
+{
+    if ($next === 'paid') {
+        $s = $db->prepare(
+            "UPDATE bookings
+                SET status = 'paid', payment_id = ?, paid_at = NOW()
+              WHERE id = ? AND paid_at IS NULL AND status IN ('pending','confirmed','cancelled')"
+        );
+        $s->execute([$paymentId, $bookingId]);
+        return $s->rowCount();
+    }
+
+    $s = $db->prepare(
+        "UPDATE bookings
+            SET status = ?, payment_id = ?, paid_at = NULL
+          WHERE id = ? AND status = 'pending'"
+    );
+    $s->execute([$next, $paymentId, $bookingId]);
+    return $s->rowCount();
+}

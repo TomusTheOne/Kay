@@ -48,16 +48,10 @@ if ($next === null) {
     kay_ok(['ok' => true, 'ignored' => $payment['status'] ?? 'unknown']);
 }
 
-// Idempotent: only a pending booking moves. Mercado Pago retries, and a replay
-// of an old notification must not resurrect a refunded booking.
-$statement = kay_db()->prepare(
-    "UPDATE bookings
-        SET status = ?, payment_id = ?, paid_at = IF(? = 'paid', NOW(), NULL)
-      WHERE id = ? AND status = 'pending'"
-);
-$statement->execute([$next, $paymentId, $next, $bookingId]);
+// See kay_settle_payment() for what may move, and why a payment is never lost.
+$settled = kay_settle_payment(kay_db(), $bookingId, $next, $paymentId);
 
-if ($statement->rowCount() === 0) {
+if ($settled === 0) {
     // Already handled, or no longer pending. Both are fine; 200 stops the retries.
     kay_ok(['ok' => true, 'alreadyHandled' => true]);
 }

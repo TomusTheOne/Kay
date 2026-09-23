@@ -252,6 +252,14 @@ interne qui transforme le trafic informationnel en réservations.
 
 ### Ce qui est câblé
 
+**Le comptage maison, toujours actif.** Chaque page envoie un signal à
+`/api/track.php`, enregistré dans la base de Kay et affiché dans l'onglet
+*Trafic* de l'admin : sources, pays, pages, appareils, et le tunnel
+visiteurs → formulaire vu → paiement ouvert → acompte payé. Sans cookie ni
+adresse IP, donc sans bandeau. Détails dans [`ADMIN.md`](ADMIN.md).
+
+Les fournisseurs tiers ci-dessous restent optionnels, en complément.
+
 `components/Analytics.tsx` émet la balise du fournisseur choisi, ou **rien du
 tout** si `ANALYTICS_PROVIDER` est vide — c'est le défaut, et ce n'est pas un
 placeholder : une build non configurée ne fait aucune requête tierce.

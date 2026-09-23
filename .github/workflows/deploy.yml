@@ -27,7 +27,7 @@ jobs:
 
       - name: Check PHP syntax
         run: |
-          for f in site/php/*.php site/php/lib/*.php; do php -l "$f"; done
+          for f in site/php/*.php site/php/lib/*.php site/php/admin/*.php; do php -l "$f"; done
 
       - name: Build the deploy bundle
         working-directory: site

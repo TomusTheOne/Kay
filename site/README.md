@@ -47,6 +47,15 @@ DATABASE_URL=postgres://... npm test
 Covers the two things that can lose money or let someone dive free: server-side
 pricing, and webhook idempotency. Runs against a real Postgres.
 
+## Admin, CRM and traffic
+
+`/admin/` is a server-rendered PHP back office on the same host and database:
+dashboard, day sheet, bookings (status, edits, cash payments, manual
+bookings, CSV), customers with a notes-and-follow-ups timeline, and the site's
+own cookieless traffic count. Its tables are created by `php/lib/migrate.php`
+the first time it is opened. Everything about it — setup, what the traffic
+count keeps and does not keep, security — is in `../docs/ADMIN.md`.
+
 ## Adding a language
 
 `lib/i18n.ts` holds the locale list; `messages/<locale>.json` holds the copy. The
@@ -82,7 +91,6 @@ each one:
 - Confirmation emails are built and tested, but nothing is actually sent until
   `mail_api_key` is filled in and `kaydiving.com` is verified with Resend — see
   `docs/DEPLOY.md` §6. Until then the send is logged and the booking still works.
-- No admin view. Kay reads bookings from the database until one exists.
 - The payment flow cannot be exercised end to end without a public HTTPS origin
   for the webhook, so it is untested against the real Mercado Pago.
 - Mercado Pago level 3 caps at roughly 10,000 UDIS (~87,000 MXN) a month. Raising

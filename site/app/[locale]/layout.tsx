@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { LIVE_LOCALES, DEFAULT_LOCALE, OG_LOCALE, isLocale, getDictionary, pathFor, type Locale } from "@/lib/i18n";
 import { SHOP } from "@/content/products";
 import Analytics from "@/components/Analytics";
+import Beacon from "@/components/Beacon";
 import "../globals.css";
 
 /* Self-hosted at build time: no third-party request, no flash, no layout shift. */
@@ -98,6 +99,7 @@ export default async function LocaleLayout({
     <html lang={locale} className={`${display.variable} ${body.variable} ${mono.variable}`}>
       <body>
         {children}
+        <Beacon />
         <Analytics />
       </body>
     </html>

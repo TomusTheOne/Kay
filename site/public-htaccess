@@ -5,7 +5,8 @@
 # ============================================================================
 
 Options -Indexes
-DirectoryIndex index.html
+# index.php for /admin/, which has no static page in front of it.
+DirectoryIndex index.html index.php
 
 <IfModule mod_rewrite.c>
   RewriteEngine On
@@ -115,5 +116,9 @@ RedirectMatch 404 ^/api/send-live\.php$
 RedirectMatch 404 ^/api/products\.json$
 # Same for the copy of the translations the confirmation emails render from.
 RedirectMatch 404 ^/api/messages/
+# The admin's bootstrap: it loads the library and sets headers, and has no
+# business being requested on its own. Every admin page that is meant to be
+# opened checks the session itself.
+RedirectMatch 404 ^/admin/_
 
 ErrorDocument 404 /404.html

@@ -44,4 +44,14 @@ return [
     'mail_from_name' => 'Kay Diving Tulum',
     // Where the day-sheet copy lands. Kay's own inbox, if it differs.
     'mail_to_shop'   => 'contact@kaydiving.com',
+
+    // ---------------------------------------------------------------- admin
+    // Lets /admin/setup.php create the first admin account, and later reset
+    // a forgotten password. At least 20 random characters, e.g. the output of
+    //   php -r 'echo bin2hex(random_bytes(16)), "\n";'
+    // Leave it empty to switch the setup page off entirely.
+    'admin_setup_token' => '',
+
+    // "Today" for the day sheet, the dashboard and the traffic reports.
+    'timezone' => 'America/Cancun',
 ];
