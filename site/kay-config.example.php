@@ -39,11 +39,15 @@ return [
     //   off     no email at all; bookings still work
     'mail_provider'  => 'resend',
     'mail_api_key'   => '',
-    // Must be an address on the authenticated domain.
+    // What the diver sees as the sender, and replies to. Must be an address
+    // on the domain the provider authenticates, or nothing sends.
     'mail_from'      => 'contact@kaydiving.com',
     'mail_from_name' => 'Kay Diving Tulum',
-    // Where the day-sheet copy lands. Kay's own inbox, if it differs.
-    'mail_to_shop'   => 'contact@kaydiving.com',
+    // Where a new booking lands. This is a different job from the one above:
+    // whoever runs the day reads it, and that is often a personal inbox
+    // rather than the address printed on the website. Any provider will do —
+    // it only receives.
+    'mail_to_shop'   => 'manager@example.com',
 
     // ---------------------------------------------------------------- admin
     // Lets /admin/setup.php create the first admin account, and later reset
