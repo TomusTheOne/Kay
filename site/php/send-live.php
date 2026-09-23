@@ -15,6 +15,11 @@ declare(strict_types=1);
  *   php www/api/send-live.php you@example.com
  *   php www/api/send-live.php you@example.com fr
  *
+ * With no address it sends to mail_to_shop — Kay's own inbox — so it can be
+ * run as a one-off scheduled task from the hosting panel by whoever does not
+ * have, or does not want, a terminal. That path cannot pass arguments, and a
+ * test nobody can run is a test that does not exist.
+ *
  * The booking it renders is invented and never touches the database.
  */
 
@@ -26,14 +31,8 @@ if (PHP_SAPI !== 'cli') {
     exit;
 }
 
-$to     = $argv[1] ?? '';
 $wanted = $argv[2] ?? 'en';
 $locale = in_array($wanted, ['en', 'es', 'fr'], true) ? $wanted : 'en';
-
-if ($to === '' || !filter_var($to, FILTER_VALIDATE_EMAIL)) {
-    fwrite(STDERR, "usage: php send-live.php <email> [en|es|fr]\n");
-    exit(1);
-}
 
 require __DIR__ . '/lib/config.php';
 require __DIR__ . '/lib/pricing.php';
@@ -41,6 +40,16 @@ require __DIR__ . '/lib/mail.php';
 require __DIR__ . '/lib/notify.php';
 
 $config = kay_config();
+
+// No address given: the shop's own inbox. That is what makes this runnable as
+// a scheduled task, which cannot pass arguments.
+$to = trim((string) ($argv[1] ?? $config['mail_to_shop'] ?? ''));
+if ($to === '' || !filter_var($to, FILTER_VALIDATE_EMAIL)) {
+    fwrite(STDERR, "usage: php send-live.php [email] [en|es|fr]\n");
+    fwrite(STDERR, "no address given and mail_to_shop is not a valid one either\n");
+    exit(1);
+}
+
 printf("provider : %s\n", $config['mail_provider'] ?? 'off');
 printf("from     : %s <%s>\n", $config['mail_from_name'], $config['mail_from']);
 printf("key      : %s\n", empty($config['mail_api_key'])
