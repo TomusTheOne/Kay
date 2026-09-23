@@ -227,11 +227,13 @@ l'e-mail part au moment où le webhook passe la ligne en `paid`.
 ## 7. L'espace administrateur
 
 `https://kaydiving.com/admin/` — réservations, clients, trafic. Il part avec
-chaque déploiement ; il reste une seule chose à faire, une fois :
+chaque déploiement ; il reste une seule chose à faire, une fois, **sans
+toucher à `kay-config.php`** :
 
-1. Ajouter à `kay-config.php` une ligne
-   `'admin_setup_token' => '…au moins 20 caractères au hasard…',`
-2. Ouvrir `/admin/`, saisir ce jeton et créer le premier compte.
+1. Créer sur ton ordinateur un fichier texte `kay-admin-token.txt` contenant
+   une phrase d'au moins 20 caractères.
+2. L'envoyer par FTP **à côté de `kay-config.php`** (pas dans `www/`).
+3. Ouvrir `/admin/`, taper la même phrase et créer le premier compte.
 
 Les tables nécessaires se créent seules à cette première ouverture — pas de
 phpMyAdmin. Le guide complet (usage, trafic, sécurité) est dans
@@ -291,7 +293,7 @@ datées de 2001 pour ne jamais se mêler aux vraies.
 - [ ] Google Search Console : propriété ajoutée, sitemap soumis
 - [ ] Fiche Google Business Profile cohérente avec le site
 - [ ] Droits sur les photos confirmés si certaines sont des reposts
-- [ ] `admin_setup_token` ajouté, premier compte admin créé *(§7)*
+- [ ] `kay-admin-token.txt` déposé par FTP, premier compte admin créé *(§7)*
 
 ---
 

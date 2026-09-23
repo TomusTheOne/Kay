@@ -418,7 +418,19 @@ $cleanAuth();
 check('a short password is refused', kay_password_problem('short') !== null, true);
 check('the email as password is refused', kay_password_problem($adminEmail . 'x', $adminEmail . 'x') !== null, true);
 check('a long one is fine',          kay_password_problem('a perfectly long one'), null);
-check('the setup token needs 20 characters to exist', strlen((string) kay_setup_token()) === 0 || strlen((string) kay_setup_token()) >= 20, true);
+check('the setup phrase needs 20 characters to exist', mb_strlen((string) kay_setup_token()) === 0 || mb_strlen((string) kay_setup_token()) >= 20, true);
+
+echo "\nThe setup phrase is read from a text file an FTP client can upload\n";
+$phraseFile = tempnam(sys_get_temp_dir(), 'kay');
+// What Windows Notepad writes: a byte order mark, the phrase, a line break.
+file_put_contents($phraseFile, "\xEF\xBB\xBFle mérou de Casa Cenote nage à 8 m\r\n\r\n");
+check('the phrase is exactly what was typed', kay_setup_token_from_file($phraseFile), 'le mérou de Casa Cenote nage à 8 m');
+unlink($phraseFile);
+check('no file, no phrase',                   kay_setup_token_from_file($phraseFile), '');
+check('it lives beside kay-config.php, above the web root',
+      realpath(dirname(kay_setup_token_path())), realpath(__DIR__ . '/../../..'));
+check('under the name it was given',
+      basename(kay_setup_token_path()), is_file(__DIR__ . '/../../../kay-admin-token.txt.txt') ? 'kay-admin-token.txt.txt' : 'kay-admin-token.txt');
 
 echo "\nA session is a random cookie whose hash alone is stored\n";
 $token = kay_session_open($db, $adminId);

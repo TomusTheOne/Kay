@@ -42,7 +42,7 @@ kay_page_start('Connexion', '', null);
     <button class="btn btn--primary btn--block">Se connecter</button>
   </form>
   <p class="muted small">Mot de passe oublié ? Un autre compte admin peut le changer depuis
-    « Compte », ou utilisez la <a href="setup.php">page de configuration</a> avec le jeton de
-    <code>kay-config.php</code>.</p>
+    « Compte », ou passez par la <a href="setup.php">page de configuration</a> (il faudra déposer
+    un fichier par FTP, la page explique comment).</p>
 </section>
 <?php kay_page_end();

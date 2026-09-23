@@ -51,9 +51,10 @@ return [
 
     // ---------------------------------------------------------------- admin
     // Lets /admin/setup.php create the first admin account, and later reset
-    // a forgotten password. At least 20 random characters, e.g. the output of
-    //   php -r 'echo bin2hex(random_bytes(16)), "\n";'
-    // Leave it empty to switch the setup page off entirely.
+    // a forgotten password. Easier and safer: leave this empty and upload a
+    // text file kay-admin-token.txt beside this one, holding a phrase of at
+    // least 20 characters — nothing typed in that file can break this one.
+    // See docs/ADMIN.md.
     'admin_setup_token' => '',
 
     // "Today" for the day sheet, the dashboard and the traffic reports.

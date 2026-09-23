@@ -18,31 +18,70 @@ MySQL, même PHP que les paiements — rien de plus à installer ni à payer.
 
 ---
 
-## Mise en route (une seule fois)
+## Mise en route (une seule fois, avec ton logiciel FTP)
 
-1. **Déployer** — un push sur `main` suffit ; l'admin part avec le site.
-2. **Ajouter le jeton** dans `kay-config.php` (au-dessus de `www/`, par FTP) :
+Il n'y a **aucun fichier existant à modifier** : on ajoute seulement un petit
+fichier texte sur le serveur, à côté de `kay-config.php`. Une faute de frappe
+dedans ne peut rien casser — au pire, la page d'installation dit qu'elle ne
+trouve pas la phrase.
 
-   ```php
-   'admin_setup_token' => 'une-longue-suite-de-caracteres-au-hasard',
-   ```
+**1. Préparer le fichier sur ton ordinateur**
 
-   Au moins 20 caractères. Pour en générer un :
-   `php -r 'echo bin2hex(random_bytes(16)), "\n";'` (ou n'importe quel
-   générateur de mots de passe).
-3. **Ouvrir** `https://kaydiving.com/admin/` → la page de configuration
-   demande le jeton, un nom, un e-mail et un mot de passe (10 caractères
-   minimum). C'est le premier compte.
-4. C'est tout. **Les tables sont créées automatiquement** à la première
-   ouverture : aucun passage par phpMyAdmin.
+- Windows : ouvre le **Bloc-notes**. Mac : ouvre **TextEdit**, puis menu
+  *Format → Convertir au format texte*.
+- Écris **une phrase de ton invention, d'au moins 20 caractères** — un
+  souvenir de plongée que toi seul connais, par exemple. Pas une phrase copiée
+  d'ici ou d'ailleurs : elle sert de clé. Note-la, tu vas la retaper.
+- Enregistre sous le nom **`kay-admin-token.txt`**, sur le Bureau par exemple.
+  *(Si Windows l'enregistre en `kay-admin-token.txt.txt`, ce n'est pas grave :
+  ce nom-là est accepté aussi.)*
+
+**2. L'envoyer sur le serveur avec FileZilla** (ou Cyberduck, WinSCP… le
+principe est le même)
+
+- Connecte-toi comme d'habitude : à gauche ton ordinateur, à droite le serveur.
+- À droite, reste au **premier niveau** : c'est là que tu vois le dossier
+  `www` **et** le fichier `kay-config.php`. **N'entre pas dans `www`.**
+- Fais glisser `kay-admin-token.txt` depuis la gauche vers la droite, dans
+  cette liste, à côté de `kay-config.php`.
+
+```
+/                         ← ici, le premier niveau
+├── kay-config.php
+├── kay-admin-token.txt   ← le fichier va ici
+└── www/                  ← pas dedans
+```
+
+> Pourquoi pas dans `www` ? Tout ce qui est dans `www` peut être téléchargé
+> par n'importe qui, et le déploiement automatique efface à chaque mise à jour
+> ce qu'il n'a pas mis lui-même. Si le fichier s'y retrouve par erreur, la
+> page d'installation le refuse et explique quoi faire.
+
+**3. Créer le compte**
+
+- Ouvre `https://kaydiving.com/admin/` dans ton navigateur.
+- Tape la même phrase, ton nom, ton e-mail et un mot de passe (10 caractères
+  minimum). C'est le premier compte.
+- **Les tables se créent toutes seules** à ce moment-là : rien à faire dans
+  phpMyAdmin.
+
+**4. Ensuite (facultatif)** — tu peux supprimer `kay-admin-token.txt` du
+serveur (clic droit → *Supprimer* dans FileZilla). Tant qu'il est là, sa
+phrase permet de réinitialiser un mot de passe oublié ; la page *Compte* te
+le rappelle. Tu pourras toujours le remettre le jour où tu en as besoin.
 
 Pour donner accès à quelqu'un d'autre : *Compte* → *Donner accès à
 quelqu'un*. Tous les comptes ont les mêmes droits.
 
-**Mot de passe oublié** : un autre compte peut en définir un nouveau… ou
-`/admin/setup.php` avec le jeton permet de le réinitialiser. Pour fermer
-cette porte, vider `admin_setup_token` une fois le compte créé — on le
-remettra le jour où il le faudra.
+**Mot de passe oublié** : un autre compte peut en définir un nouveau depuis
+*Compte*. Sinon, remets `kay-admin-token.txt` sur le serveur comme à l'étape
+2, puis ouvre `https://kaydiving.com/admin/setup.php` : la page propose de
+choisir un nouveau mot de passe.
+
+*(Pour qui préfère : la même phrase peut aussi être mise dans
+`kay-config.php`, clé `admin_setup_token`. Déconseillé si tu modifies ce
+fichier à la main : une virgule ou un guillemet de travers l'empêche d'être
+lu, et les réservations avec.)*
 
 ---
 
@@ -148,8 +187,9 @@ coexister.
   visite et 30 jours au plus. Changer de mot de passe déconnecte les autres
   appareils.
 - **Mots de passe** hachés en bcrypt (coût 12). Connexion bloquée 15 minutes
-  après 5 échecs sur un compte ou 10 depuis une même adresse ; le jeton de
-  configuration est soumis au même blocage.
+  après 5 échecs sur un compte ou 10 depuis une même adresse ; la phrase de
+  `kay-admin-token.txt` est soumise au même blocage, et le fichier n'est
+  jamais servi par le web, même déposé par erreur dans `www/`.
 - **Chaque formulaire** porte un jeton CSRF propre à la session, et l'origine
   de la requête est vérifiée.
 - **Content-Security-Policy stricte** : aucun script ni style en ligne,

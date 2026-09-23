@@ -4,15 +4,17 @@ declare(strict_types=1);
 /**
  * The first account, or a forgotten password.
  *
- * Both need the admin_setup_token from kay-config.php. Without that, the
- * first person to find /admin/setup.php after a deploy would own the admin;
- * with it, only someone who can already read the database password can. The
- * same throttle as the login applies, so the token cannot be guessed.
+ * Both need the phrase in kay-admin-token.txt, uploaded by FTP beside
+ * kay-config.php (see kay_setup_token()). Without it, the first person to
+ * find /admin/setup.php after a deploy would own the admin; with it, only
+ * someone who can already reach the database password can. The same throttle
+ * as the login applies, so the phrase cannot be guessed.
  */
 
 require __DIR__ . '/_boot.php';
 
-$token  = kay_setup_token();
+$misplaced = kay_setup_token_misplaced();
+$token  = $misplaced ? null : kay_setup_token();
 $first  = kay_admin_count($db) === 0;
 $error  = null;
 $done   = false;
@@ -27,9 +29,9 @@ if ($token !== null && ($_SERVER['REQUEST_METHOD'] ?? '') === 'POST') {
 
     if (kay_login_throttled($db, 'setup')) {
         $error = 'Trop de tentatives. Réessayez dans un quart d’heure.';
-    } elseif (!hash_equals($token, (string) ($_POST['token'] ?? ''))) {
+    } elseif (!hash_equals($token, trim((string) ($_POST['token'] ?? '')))) {
         kay_login_failed($db, 'setup');
-        $error = 'Le jeton ne correspond pas à celui de kay-config.php.';
+        $error = 'La phrase ne correspond pas à celle du fichier kay-admin-token.txt.';
     } elseif (!filter_var($values['email'], FILTER_VALIDATE_EMAIL)) {
         $error = 'Adresse e-mail invalide.';
     } elseif (($problem = kay_password_problem($password, $values['email'])) !== null) {
@@ -61,10 +63,26 @@ kay_page_start($first ? 'Premier compte' : 'Mot de passe oublié', '', null);
   <img class="auth__mark" src="/assets/brand/icon.svg" alt="" width="56" height="53">
   <h1><?= $first ? 'Créer le compte admin' : 'Nouveau mot de passe' ?></h1>
 
-<?php if ($token === null): ?>
-  <p>Pour <?= $first ? 'créer le premier compte' : 'réinitialiser un mot de passe' ?>, ajoutez
-    une ligne <code>admin_setup_token</code> à <code>kay-config.php</code> (au moins 20 caractères
-    au hasard), puis rechargez cette page. Voir <code>docs/ADMIN.md</code>.</p>
+<?php if ($misplaced): ?>
+  <p class="alert">Le fichier <code>kay-admin-token.txt</code> a été déposé dans le dossier
+    <code>www</code>, où n’importe qui pourrait le lire. Il n’est pas utilisé.</p>
+  <p>Avec votre logiciel FTP, supprimez-le du dossier <code>www</code>, puis déposez-le un niveau
+    au-dessus, à côté de <code>kay-config.php</code>. Rechargez ensuite cette page.</p>
+<?php elseif ($token === null): ?>
+  <p>Pour <?= $first ? 'créer le premier compte' : 'réinitialiser un mot de passe' ?>, il faut
+    d’abord prouver que vous avez accès à l’hébergement :</p>
+  <ol class="steps">
+    <li>Sur votre ordinateur, créez un fichier texte nommé <code>kay-admin-token.txt</code>
+      (Bloc-notes sur Windows, TextEdit en « texte brut » sur Mac).</li>
+    <li>Écrivez-y une phrase de votre choix d’au moins 20 caractères, par exemple une phrase
+      que vous seul connaissez. Enregistrez.</li>
+    <li>Dans votre logiciel FTP, ouvrez le dossier où se trouve <code>kay-config.php</code>
+      (celui qui contient aussi le dossier <code>www</code>) et déposez-y le fichier.
+      <strong>Pas dans <code>www</code>.</strong></li>
+    <li>Rechargez cette page et tapez la même phrase.</li>
+  </ol>
+  <p class="muted small">Ce fichier ne touche à rien d’autre : une faute de frappe dedans ne peut
+    pas casser le site. Une fois le compte créé, vous pouvez le supprimer par FTP.</p>
 <?php elseif ($done): ?>
   <p class="flash">Mot de passe changé. Toutes les sessions de ce compte ont été fermées.</p>
   <p><a class="btn btn--primary btn--block" href="login.php">Se connecter</a></p>
@@ -74,9 +92,9 @@ kay_page_start($first ? 'Premier compte' : 'Mot de passe oublié', '', null);
       ? 'Aucun compte n’existe encore. Celui-ci pourra ensuite en créer d’autres depuis « Compte ».'
       : 'Choisissez un nouveau mot de passe pour un compte existant.' ?></p>
   <form method="post" class="stack">
-    <label class="field"><span>Jeton de configuration</span>
-      <input type="password" name="token" autocomplete="off" required>
-      <small>La valeur de <code>admin_setup_token</code> dans <code>kay-config.php</code>.</small></label>
+    <label class="field"><span>Phrase secrète</span>
+      <input type="text" name="token" autocomplete="off" autocapitalize="off" spellcheck="false" required>
+      <small>La phrase écrite dans <code>kay-admin-token.txt</code>, à l’identique.</small></label>
 <?php if ($first): ?>
     <label class="field"><span>Votre nom</span>
       <input name="name" value="<?= kay_h($values['name']) ?>" autocomplete="name" required></label>

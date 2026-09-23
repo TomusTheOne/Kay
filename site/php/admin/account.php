@@ -99,6 +99,12 @@ kay_page_start('Compte', 'account.php', $admin);
   </section>
 </div>
 
+<?php if (kay_setup_token() !== null): ?>
+<p class="note">Le fichier <code>kay-admin-token.txt</code> est toujours sur le serveur : avec sa
+  phrase, n’importe quel mot de passe peut être réinitialisé depuis <code>/admin/setup.php</code>.
+  Gardez-le si cela vous rassure, ou supprimez-le par FTP — vous pourrez toujours le remettre.</p>
+<?php endif; ?>
+
 <section class="card card--flush">
   <header class="card__head"><h2>Accès à l’admin</h2></header>
   <div class="table-wrap"><table class="table table--stack">

@@ -266,14 +266,69 @@ function kay_admin_set_password(PDO $db, int $userId, string $password, string $
     kay_sessions_revoke_others($db, $userId, $keepTokenHash);
 }
 
-/**
- * The token that lets someone create the first account, or reset a forgotten
- * password, from /admin/setup.php. It lives in kay-config.php — above the web
- * root, beside the database password — so whoever can read it could already
- * read everything the admin shows. Too short to resist guessing means off.
+/*
+ * The phrase that lets someone create the first account, or reset a forgotten
+ * password, from /admin/setup.php.
+ *
+ * It is read from a plain text file, kay-admin-token.txt, uploaded by FTP
+ * beside kay-config.php — above the web root, where nothing is ever served.
+ * A text file rather than a line in kay-config.php because the people who
+ * set this up do it with an FTP client and a desktop text editor: one stray
+ * curly quote or missing comma in kay-config.php stops PHP from reading it,
+ * and with it every booking. Nothing typed into this file can break
+ * anything; at worst the setup page says it found no phrase.
+ *
+ * Whoever can put a file there can already read the database password, so
+ * the phrase gives away nothing they do not have. Delete the file and the
+ * setup page is closed. 'admin_setup_token' in kay-config.php still works,
+ * for anyone who prefers it.
  */
+const KAY_SETUP_TOKEN_FILE = 'kay-admin-token.txt';
+
+/**
+ * Beside kay-config.php: the account root, one level above www/. With file
+ * extensions hidden, Windows Notepad saves "kay-admin-token.txt" as
+ * kay-admin-token.txt.txt, and nobody can see why it is not found — so that
+ * name is accepted too.
+ */
+function kay_setup_token_path(): string
+{
+    $base = __DIR__ . '/../../../' . KAY_SETUP_TOKEN_FILE;
+    return !is_file($base) && is_file($base . '.txt') ? $base . '.txt' : $base;
+}
+
+/**
+ * True when the file was uploaded into www/ by mistake. There anyone could
+ * download it, so it is refused rather than used, and the setup page says
+ * where it belongs. (.htaccess answers 404 for it too, and the next deploy
+ * would delete it, but neither is a reason to trust it.)
+ */
+function kay_setup_token_misplaced(): bool
+{
+    $inWebRoot = __DIR__ . '/../../' . KAY_SETUP_TOKEN_FILE;
+    return is_file($inWebRoot) || is_file($inWebRoot . '.txt');
+}
+
+/**
+ * What the file says, or '' when there is no file. A byte order mark and
+ * surrounding blank lines — what Notepad and TextEdit add — are dropped, so
+ * the phrase is exactly what was typed.
+ */
+function kay_setup_token_from_file(string $file): string
+{
+    if (!is_file($file) || !is_readable($file)) {
+        return '';
+    }
+    $raw = (string) file_get_contents($file, false, null, 0, 1024);
+    return trim((string) preg_replace('/^\xEF\xBB\xBF/', '', $raw));
+}
+
+/** The phrase, or null when there is none of at least 20 characters. */
 function kay_setup_token(): ?string
 {
     $token = trim((string) (kay_config()['admin_setup_token'] ?? ''));
-    return strlen($token) >= 20 ? $token : null;
+    if ($token === '') {
+        $token = kay_setup_token_from_file(kay_setup_token_path());
+    }
+    return mb_strlen($token) >= 20 ? $token : null;
 }

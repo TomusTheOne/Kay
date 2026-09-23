@@ -120,5 +120,9 @@ RedirectMatch 404 ^/api/messages/
 # business being requested on its own. Every admin page that is meant to be
 # opened checks the session itself.
 RedirectMatch 404 ^/admin/_
+# The admin setup phrase belongs beside kay-config.php, above the web root.
+# Uploaded into www/ by mistake, it is still never served — and the setup
+# page refuses to use it and says where it goes.
+RedirectMatch 404 kay-admin-token
 
 ErrorDocument 404 /404.html
