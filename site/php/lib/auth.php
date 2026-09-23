@@ -85,7 +85,7 @@ function kay_session_open(PDO $db, int $userId): string
 /**
  * The signed-in admin, or null.
  *
- * @return array{id:int,email:string,name:string,csrf:string,token_hash:string}|null
+ * @return array{id:int,email:string,name:string,locale:string,csrf:string,token_hash:string}|null
  */
 function kay_current_admin(PDO $db): ?array
 {
@@ -95,7 +95,7 @@ function kay_current_admin(PDO $db): ?array
     }
 
     $s = $db->prepare(
-        'SELECT u.id, u.email, u.name, s.csrf, s.token_hash,
+        'SELECT u.id, u.email, u.name, u.locale, s.csrf, s.token_hash,
                 s.last_seen_at < NOW() - INTERVAL 5 MINUTE AS stale
            FROM admin_sessions s
            JOIN admin_users u ON u.id = s.user_id
@@ -194,7 +194,7 @@ function kay_login_check(PDO $db, string $email, string $password): array
         return ['ok' => false, 'error' => 'throttled'];
     }
 
-    $s = $db->prepare('SELECT id, email, name, password_hash FROM admin_users WHERE email = ?');
+    $s = $db->prepare('SELECT id, email, name, locale, password_hash FROM admin_users WHERE email = ?');
     $s->execute([$email]);
     $user = $s->fetch();
 
@@ -230,14 +230,14 @@ function kay_safe_next(string $next): string
 
 /* ----------------------------------------------------------------- users -- */
 
-/** A short French reason, or null when the password is acceptable. */
+/** A short reason in the admin's language, or null when the password is acceptable. */
 function kay_password_problem(string $password, string $email = ''): ?string
 {
     if (mb_strlen($password) < KAY_PASSWORD_MIN) {
-        return 'Le mot de passe doit faire au moins ' . KAY_PASSWORD_MIN . ' caractères.';
+        return kay_t('Le mot de passe doit faire au moins {n} caractères.', ['{n}' => (string) KAY_PASSWORD_MIN]);
     }
     if ($email !== '' && mb_strtolower($password) === mb_strtolower($email)) {
-        return 'Le mot de passe ne peut pas être l’adresse e-mail.';
+        return kay_t('Le mot de passe ne peut pas être l’adresse e-mail.');
     }
     return null;
 }
@@ -247,15 +247,27 @@ function kay_admin_count(PDO $db): int
     return (int) $db->query('SELECT COUNT(*) FROM admin_users')->fetchColumn();
 }
 
-function kay_admin_create(PDO $db, string $email, string $name, string $password): int
+function kay_admin_create(PDO $db, string $email, string $name, string $password, string $locale = 'es'): int
 {
-    $db->prepare('INSERT INTO admin_users (email, name, password_hash) VALUES (?, ?, ?)')
+    $db->prepare('INSERT INTO admin_users (email, name, password_hash, locale) VALUES (?, ?, ?, ?)')
        ->execute([
            mb_strtolower(trim($email)),
            mb_substr(trim($name), 0, 120),
            password_hash($password, PASSWORD_DEFAULT, KAY_HASH),
+           isset(KAY_ADMIN_LANGS[$locale]) ? $locale : 'es',
        ]);
     return (int) $db->lastInsertId();
+}
+
+/** The account's language, and the cookie that makes the login page match it. */
+function kay_admin_set_locale(PDO $db, int $userId, string $locale): void
+{
+    if (!isset(KAY_ADMIN_LANGS[$locale])) {
+        return;
+    }
+    $db->prepare('UPDATE admin_users SET locale = ? WHERE id = ?')->execute([$locale, $userId]);
+    kay_set_cookie('kay_lang', $locale, 365 * 86400, '/admin/');
+    kay_lang($locale);
 }
 
 /** Also signs the account out everywhere else: that is usually why it changed. */

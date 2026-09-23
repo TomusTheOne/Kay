@@ -229,6 +229,7 @@
     "errEmail": "Ese correo no parece estar completo. Revísalo e inténtalo de nuevo.",
     "errName": "Necesitamos un nombre para la reservación.",
     "errSeason": "Esa experiencia no se realiza en la fecha que elegiste.",
+    "dateClosed": "Ese día no salimos al agua. Elige otra fecha o escríbenos por WhatsApp.",
     "s8": "08 — Nombre",
     "s9": "09 — Correo",
     "rPickup": "Cómo llegas",

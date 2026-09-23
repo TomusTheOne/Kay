@@ -20,6 +20,14 @@ const KAY_NOTE_KINDS = [
     'log'      => 'Historique',
 ];
 
+const KAY_CUSTOMER_SORTS = [
+    'recent'   => 'Activité récente',
+    'next'     => 'Prochaine plongée',
+    'value'    => 'Valeur',
+    'bookings' => 'Réservations',
+    'name'     => 'Nom',
+];
+
 const KAY_SEGMENTS = [
     'all'      => 'Tous',
     'clients'  => 'Clients',
@@ -219,23 +227,23 @@ function kay_customer_bookings(PDO $db, int $id): array
     return $s->fetchAll();
 }
 
-/** @return string|null an error in French, or null on success */
+/** @return string|null an error in the admin's language, or null on success */
 function kay_customer_update(PDO $db, int $id, array $in): ?string
 {
     $email = mb_strtolower(trim((string) ($in['email'] ?? '')));
     $name  = mb_substr(trim((string) ($in['name'] ?? '')), 0, 160);
     if (mb_strlen($name) < 2) {
-        return 'Indiquez un nom.';
+        return kay_t('Indiquez un nom.');
     }
     if ($email !== '' && !filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        return 'L’adresse e-mail n’est pas valide.';
+        return kay_t('L’adresse e-mail n’est pas valide.');
     }
     if ($email !== '') {
         $s = $db->prepare('SELECT name FROM customers WHERE email = ? AND id <> ?');
         $s->execute([$email, $id]);
         $other = $s->fetchColumn();
         if ($other !== false) {
-            return 'Cette adresse est déjà celle de « ' . $other . ' ».';
+            return kay_t('Cette adresse est déjà celle de « {name} ».', ['{name}' => (string) $other]);
         }
     }
     $country = strtoupper(trim((string) ($in['country'] ?? '')));
@@ -265,16 +273,17 @@ function kay_customer_update(PDO $db, int $id, array $in): ?string
  */
 function kay_customer_forget(PDO $db, int $id): void
 {
+    $anonymous = kay_t('Client anonymisé');
     $db->prepare(
-        "UPDATE bookings SET name = 'Client anonymisé', email = '', start_note = '' WHERE customer_id = ?"
-    )->execute([$id]);
+        "UPDATE bookings SET name = ?, email = '', start_note = '' WHERE customer_id = ?"
+    )->execute([$anonymous, $id]);
     $db->prepare('DELETE FROM crm_notes WHERE customer_id = ?')->execute([$id]);
     $db->prepare(
         "UPDATE customers
-            SET name = 'Client anonymisé', email = NULL, phone = '', country = '', certification = '',
+            SET name = ?, email = NULL, phone = '', country = '', certification = '',
                 tags = '', notes = NULL
           WHERE id = ?"
-    )->execute([$id]);
+    )->execute([$anonymous, $id]);
 }
 
 /* -------------------------------------------------------------- timeline -- */

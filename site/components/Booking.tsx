@@ -1,5 +1,5 @@
 "use client";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { PRODUCTS, PICKUPS, SCHEDULES, DEPOSIT_RATE, type Product } from "@/content/products";
 import type { Dictionary } from "@/lib/i18n";
 import { track } from "@/lib/analytics";
@@ -40,6 +40,20 @@ export default function Booking({
     return !(f <= to ? month >= f && month <= to : month >= f || month <= to);
   }, [product, date]);
 
+  /* Days Kay closed in the admin. The page is static, so it asks when it
+     loads; if that fails — or under `next dev`, with no PHP behind it —
+     every day looks open, and booking.php still refuses a closed one. */
+  const [closedDays, setClosedDays] = useState<ReadonlySet<string>>(new Set());
+  useEffect(() => {
+    fetch("/api/availability.php")
+      .then((res) => (res.ok ? res.json() : null))
+      .then((body) => {
+        if (Array.isArray(body?.closed)) setClosedDays(new Set(body.closed));
+      })
+      .catch(() => {});
+  }, []);
+  const dateClosed = date !== "" && closedDays.has(date);
+
   // Pickup is per booking — one van, not one seat.
   const total = useMemo(() => option.price * divers + pick.price, [option, divers, pick]);
 
@@ -63,11 +77,12 @@ export default function Booking({
   const reasons: Record<string, string> = {
     date: t.errDate, "date-past": t.errDatePast,
     email: t.errEmail, name: t.errName, "out-of-season": t.errSeason,
+    "date-unavailable": t.dateClosed,
   };
 
   async function submit(e: React.FormEvent) {
     e.preventDefault();
-    if (outOfSeason) return;
+    if (outOfSeason || dateClosed) return;
     setState("sending");
     try {
       const res = await fetch("/api/booking.php", {
@@ -251,13 +266,18 @@ export default function Booking({
               {t.outOfSeason.replace("{season}", products.seasonValue[product.slug])}
             </p>
           )}
+          {dateClosed && (
+            <p className="slate__fine" role="alert" style={{ color: "var(--turq)" }}>
+              {t.dateClosed}
+            </p>
+          )}
           {state === "error" && (
             <p className="slate__fine" role="alert" style={{ color: "var(--turq)" }}>
               {error || t.error}
             </p>
           )}
           <button className="btn btn--lit" type="submit"
-                  disabled={state === "sending" || outOfSeason}>
+                  disabled={state === "sending" || outOfSeason || dateClosed}>
             {state === "sending" ? t.submitting : t.submit}
           </button>
         </aside>

@@ -54,7 +54,8 @@ function kay_ua_parse(string $ua, bool $touch = false): array
         (bool) preg_match('/Firefox|FxiOS/', $ua)                       => 'Firefox',
         (bool) preg_match('/Chrome|CriOS|Chromium/', $ua)               => 'Chrome',
         str_contains($ua, 'Safari')                                     => 'Safari',
-        default                                                         => 'Autre',
+        // Stored as 'other' and named in the reader's language on display.
+        default                                                         => 'other',
     };
 
     $mac = str_contains($ua, 'Macintosh');
@@ -65,7 +66,7 @@ function kay_ua_parse(string $ua, bool $touch = false): array
         $mac                                                             => 'macOS',
         str_contains($ua, 'CrOS')                                        => 'ChromeOS',
         str_contains($ua, 'Linux')                                       => 'Linux',
-        default                                                          => 'Autre',
+        default                                                          => 'other',
     };
 
     // iPadOS reports itself as a Mac; a Mac with a touch screen is an iPad.

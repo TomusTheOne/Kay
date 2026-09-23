@@ -40,8 +40,9 @@ await mkdir(`${OUT}/api/lib`, { recursive: true });
 
 // send-live.php goes with them: it refuses to run over HTTP, and a way to
 // prove a confirmation reaches an inbox belongs on the host that sends it.
-// track.php is the traffic beacon every page posts to.
-for (const f of ["booking.php", "webhook.php", "send-live.php", "track.php"]) {
+// track.php is the traffic beacon every page posts to; availability.php
+// tells the booking form which days Kay closed.
+for (const f of ["booking.php", "webhook.php", "send-live.php", "track.php", "availability.php"]) {
   await cp(`php/${f}`, `${OUT}/api/${f}`);
 }
 for (const f of await readdir("php/lib")) {

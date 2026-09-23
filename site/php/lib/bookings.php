@@ -279,13 +279,14 @@ function kay_days_overview(PDO $db, string $from, int $days): array
  * was looking at, so if Mercado Pago's webhook moved the booking in the
  * meantime, the click fails instead of overwriting a payment.
  *
- * @return string|null an error in French, or null on success
+ * @return string|null an error in the admin's language, or null on success
  */
 function kay_booking_act(PDO $db, array $row, string $action, ?int $authorId): ?string
 {
     $from = (string) $row['status'];
     if (!in_array($action, KAY_ACTIONS[$from] ?? [], true)) {
-        return 'Cette action n’est pas possible sur une réservation « ' . (KAY_STATUSES[$from] ?? $from) . ' ».';
+        return kay_t('Cette action n’est pas possible sur une réservation « {status} ».',
+            ['{status}' => kay_t(KAY_STATUSES[$from] ?? $from)]);
     }
 
     $to = match ($action) {
@@ -301,11 +302,12 @@ function kay_booking_act(PDO $db, array $row, string $action, ?int $authorId): ?
     $s = $db->prepare('UPDATE bookings SET status = ? WHERE id = ? AND status = ?');
     $s->execute([$to, $row['id'], $from]);
     if ($s->rowCount() === 0) {
-        return 'La réservation a changé entre-temps. Rechargez la page.';
+        return kay_t('La réservation a changé entre-temps. Rechargez la page.');
     }
 
     kay_note_add($db, $row['customer_id'] !== null ? (int) $row['customer_id'] : null, (string) $row['id'],
-        $authorId, 'log', 'Statut : ' . KAY_STATUSES[$from] . ' → ' . KAY_STATUSES[$to]);
+        $authorId, 'log', kay_t('Statut : {from} → {to}',
+            ['{from}' => kay_t(KAY_STATUSES[$from]), '{to}' => kay_t(KAY_STATUSES[$to])]));
     return null;
 }
 
@@ -316,13 +318,13 @@ function kay_booking_act(PDO $db, array $row, string $action, ?int $authorId): ?
 function kay_payment_add(PDO $db, array $row, string $kind, int $amountMxn, string $method, ?int $authorId): ?string
 {
     if (!isset(KAY_PAYMENT_KINDS[$kind])) {
-        return 'Type de paiement inconnu.';
+        return kay_t('Type de paiement inconnu.');
     }
     if (!isset(KAY_PAYMENT_METHODS[$method])) {
-        return 'Moyen de paiement inconnu.';
+        return kay_t('Moyen de paiement inconnu.');
     }
     if ($amountMxn <= 0 || $amountMxn > 1000000) {
-        return 'Le montant doit être un nombre de pesos positif.';
+        return kay_t('Le montant doit être un nombre de pesos positif.');
     }
 
     $signed = $kind === 'refund' ? -$amountMxn : $amountMxn;
@@ -331,8 +333,10 @@ function kay_payment_add(PDO $db, array $row, string $kind, int $amountMxn, stri
     )->execute([$row['id'], $kind, $signed * 100, $method, $authorId]);
 
     kay_note_add($db, $row['customer_id'] !== null ? (int) $row['customer_id'] : null, (string) $row['id'],
-        $authorId, 'log', sprintf('%s encaissé : %s MXN (%s)',
-            KAY_PAYMENT_KINDS[$kind], number_format($signed, 0, ',', ' '), KAY_PAYMENT_METHODS[$method]));
+        $authorId, 'log', kay_t('{kind} encaissé : {amount} ({method})', [
+            '{kind}' => kay_t(KAY_PAYMENT_KINDS[$kind]), '{amount}' => kay_mxn($signed),
+            '{method}' => kay_t(KAY_PAYMENT_METHODS[$method]),
+        ]));
     return null;
 }
 
@@ -352,7 +356,7 @@ function kay_payments_for(PDO $db, string $bookingId): array
  * the shark season — he knows when the sharks arrive, the form does not — and
  * may record a dive that already happened, so neither is refused here.
  *
- * @return array{error:?string,quote:?array,clean:array}
+ * @return array{error:?string,quote:?array,clean:array} error in the admin's language
  */
 function kay_booking_input(array $in): array
 {
@@ -379,13 +383,13 @@ function kay_booking_input(array $in): array
     $error = null;
     $date  = DateTimeImmutable::createFromFormat('!Y-m-d', $clean['date']);
     if (mb_strlen($clean['name']) < 2) {
-        $error = 'Indiquez le nom du client.';
+        $error = kay_t('Indiquez le nom du client.');
     } elseif ($clean['email'] !== '' && !filter_var($clean['email'], FILTER_VALIDATE_EMAIL)) {
-        $error = 'L’adresse e-mail n’est pas valide.';
+        $error = kay_t('L’adresse e-mail n’est pas valide.');
     } elseif ($date === false || $date->format('Y-m-d') !== $clean['date']) {
-        $error = 'Choisissez une date de plongée.';
+        $error = kay_t('Choisissez une date de plongée.');
     } elseif ($clean['divers'] < 1 || $clean['divers'] > 8) {
-        $error = 'Entre 1 et 8 plongeurs par réservation.';
+        $error = kay_t('Entre 1 et 8 plongeurs par réservation.');
     }
 
     $slots = array_column(kay_catalogue()['schedules'], 'slug');
@@ -398,7 +402,7 @@ function kay_booking_input(array $in): array
         'divers'  => $clean['divers'],  'pickup' => $clean['pickup'],
     ]);
     if ($error === null && $quote === null) {
-        $error = 'Choisissez une sortie et un transport du catalogue.';
+        $error = kay_t('Choisissez une sortie et un transport du catalogue.');
     }
     return ['error' => $error, 'quote' => $quote, 'clean' => $clean];
 }
@@ -419,10 +423,10 @@ function kay_booking_create(PDO $db, array $in, ?int $authorId): array
     $deposit = max(0, (int) ($in['deposit'] ?? 0));
     $method  = (string) ($in['method'] ?? 'cash');
     if ($deposit > $quote['total_mxn']) {
-        return ['ok' => false, 'error' => 'L’acompte dépasse le prix total.'];
+        return ['ok' => false, 'error' => kay_t('L’acompte dépasse le prix total.')];
     }
     if ($deposit > 0 && !isset(KAY_PAYMENT_METHODS[$method])) {
-        return ['ok' => false, 'error' => 'Moyen de paiement inconnu.'];
+        return ['ok' => false, 'error' => kay_t('Moyen de paiement inconnu.')];
     }
 
     // Started from a customer's page: that customer, even one Kay only knows
@@ -451,7 +455,7 @@ function kay_booking_create(PDO $db, array $in, ?int $authorId): array
         $quote['total_usd'] * 100, $quote['total_mxn'] * 100,
     ]);
 
-    kay_note_add($db, $customerId, $id, $authorId, 'log', 'Réservation saisie dans l’admin.');
+    kay_note_add($db, $customerId, $id, $authorId, 'log', kay_t('Réservation saisie dans l’admin.'));
     $row = kay_booking_get($db, $id);
     if ($deposit > 0 && $row !== null) {
         kay_payment_add($db, $row, 'deposit', $deposit, $method, $authorId);
@@ -465,7 +469,7 @@ function kay_booking_create(PDO $db, array $in, ?int $authorId): array
  * prices would silently move to this year's when someone fixes a typo in the
  * name. Money already received is never touched.
  *
- * @return string|null an error in French, or null on success
+ * @return string|null an error in the admin's language, or null on success
  */
 function kay_booking_edit(PDO $db, array $row, array $in, ?int $authorId): ?string
 {
@@ -480,9 +484,10 @@ function kay_booking_edit(PDO $db, array $row, array $in, ?int $authorId): ?stri
         || $c['pickup'] !== $row['pickup'];
 
     $labels = [
-        'dive_date' => 'date', 'start_slot' => 'départ', 'start_note' => 'horaire souhaité',
-        'certification' => 'niveau', 'name' => 'nom', 'email' => 'e-mail',
-        'product' => 'sortie', 'dives' => 'plongées', 'divers' => 'plongeurs', 'pickup' => 'transport',
+        'dive_date' => kay_t('date'), 'start_slot' => kay_t('départ'), 'start_note' => kay_t('horaire souhaité'),
+        'certification' => kay_t('niveau'), 'name' => kay_t('nom'), 'email' => kay_t('e-mail'),
+        'product' => kay_t('sortie'), 'dives' => kay_t('plongées'), 'divers' => kay_t('plongeurs'),
+        'pickup' => kay_t('transport'),
     ];
     $next = [
         'dive_date' => $c['date'], 'start_slot' => $c['slot'], 'start_note' => $c['slotNote'],
@@ -516,12 +521,13 @@ function kay_booking_edit(PDO $db, array $row, array $in, ?int $authorId): ?stri
         }
     }
     if (isset($changes['total_mxn_cents'])) {
-        $said[] = sprintf('prix %s → %s MXN',
-            number_format((int) $row['total_mxn_cents'] / 100, 0, ',', ' '),
-            number_format((int) $changes['total_mxn_cents'] / 100, 0, ',', ' '));
+        $said[] = kay_t('prix {from} → {to}', [
+            '{from}' => kay_mxn((int) $row['total_mxn_cents'] / 100),
+            '{to}'   => kay_mxn((int) $changes['total_mxn_cents'] / 100),
+        ]);
     }
     kay_note_add($db, $row['customer_id'] !== null ? (int) $row['customer_id'] : null, (string) $row['id'],
-        $authorId, 'log', 'Modifiée : ' . implode(', ', $said));
+        $authorId, 'log', kay_t('Modifiée : {changes}', ['{changes}' => implode(', ', $said)]));
     return null;
 }
 

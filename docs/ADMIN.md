@@ -1,20 +1,28 @@
 # L'espace administrateur — `kaydiving.com/admin/`
 
-Un back-office pour Kay : les réservations, les clients (CRM) et le trafic du
-site, sur ordinateur comme sur téléphone. Même hébergement OVH, même base
-MySQL, même PHP que les paiements — rien de plus à installer ni à payer.
+Un back-office pour Kay : les réservations, les jours fermés, les clients
+(CRM) et le trafic du site, sur ordinateur comme sur téléphone. Même
+hébergement OVH, même base MySQL, même PHP que les paiements — rien de plus à
+installer ni à payer.
 
-| Page | Ce qu'on y fait |
+**En espagnol par défaut.** Chaque compte peut passer en français dans
+*Cuenta → Idioma del admin* ; les pages de connexion ont un lien
+« Español · Français ». Le choix est propre à chaque compte : le manager en
+espagnol, toi en français. Les e-mails aux plongeurs ne changent pas — ils
+restent dans la langue de chaque réservation.
+
+| Page (es / fr) | Ce qu'on y fait |
 |---|---|
-| **Tableau de bord** | Plongeurs des 7 prochains jours, réservations et encaissements du mois (comparés au mois dernier), reste à encaisser, relances à faire, paiements non aboutis, chiffre d'affaires par mois, visiteurs sur 30 jours |
-| **Planning** | La feuille de route d'un jour : qui plonge, à quel départ, niveau, ramassage, ce qu'il reste à encaisser, lien WhatsApp. Bandeau des 14 prochains jours. **Imprimable** |
-| **Réservations** | À venir, passées, paiements en attente, annulées. Recherche (nom, e-mail, téléphone, référence), filtre par sortie et par dates, **export CSV** |
+| **Panel** / Tableau de bord | Plongeurs des 7 prochains jours, réservations et encaissements du mois (comparés au mois dernier), reste à encaisser, relances à faire, paiements non aboutis, chiffre d'affaires par mois, visiteurs sur 30 jours |
+| **Agenda** / Planning | La feuille de route d'un jour : qui plonge, à quel départ, niveau, ramassage, ce qu'il reste à encaisser, lien WhatsApp. Bandeau des 14 prochains jours. **Imprimable** |
+| **Reservaciones** / Réservations | À venir, passées, paiements en attente, annulées. Recherche (nom, e-mail, téléphone, référence), filtre par sortie et par dates, **export CSV** |
+| **Disponibilidad** (« Fechas » sur téléphone) / Disponibilité | Les jours fermés : un tap sur un jour le ferme, un second le rouvre ; « Cerrar varios días » ferme des vacances d'un coup, avec un motif facultatif. Le site refuse alors ces dates |
 | **Fiche réservation** | Changer le statut, modifier (date, départ, plongeurs, transport…), enregistrer un paiement (acompte, solde, remboursement), renvoyer l'e-mail de confirmation, historique |
 | **Nouvelle réservation** | Pour ce qui arrive par WhatsApp, téléphone ou au comptoir. Prix calculé depuis le catalogue, acompte en espèces possible, e-mail de confirmation en option |
-| **Clients** | Tous ceux qui ont réservé ou ouvert un paiement. Segments (clients, prospects, plongée à venir, fidèles), étiquettes, tri par valeur, **export CSV** |
+| **Clientes** / Clients | Tous ceux qui ont réservé ou ouvert un paiement. Segments (clients, prospects, plongée à venir, fidèles), étiquettes, tri par valeur, **export CSV** |
 | **Fiche client** | Coordonnées, pays, niveau, étiquettes, notes permanentes, toutes ses réservations, suivi (notes, appels, WhatsApp, relances datées), effacement RGPD |
-| **Trafic** | Visiteurs, pages vues, rebond, tunnel visiteur → formulaire → paiement → acompte, sources, pays, pages, langues, appareils, campagnes |
-| **Compte** | Mot de passe, sessions ouvertes, accès pour d'autres personnes |
+| **Tráfico** / Trafic | Visiteurs, pages vues, rebond, tunnel visiteur → formulaire → paiement → acompte, sources, pays, pages, langues, appareils, campagnes |
+| **Cuenta** / Compte | Langue, mot de passe, sessions ouvertes, accès pour d'autres personnes |
 
 ---
 
@@ -129,6 +137,22 @@ le niveau de certification est mis à jour par une nouvelle réservation.
 et les notes disparaissent de la fiche et de ses réservations. Les dates et
 montants restent, pour la comptabilité.
 
+**Fermer des dates.** Page *Disponibilidad* : touche un jour pour le fermer,
+touche-le encore pour le rouvrir. Pour des vacances, remplis « Del … Al … »
+et, si tu veux, un motif (« Vacaciones », « Lancha en reparación »… il ne
+se voit que dans l'admin). Dès lors :
+
+- le formulaire du site prévient le plongeur dès qu'il choisit ce jour-là et
+  bloque le bouton — il ne part pas vers le paiement ;
+- `booking.php` refuse la date de toute façon (réponse `date-unavailable`),
+  même si quelqu'un contourne le formulaire ;
+- les jours fermés apparaissent sur le Panel et l'Agenda (« cerrado »).
+
+Les réservations **déjà prises** ce jour-là restent valables (la page le
+signale au moment de fermer), et Kay peut toujours en **saisir une à la main**
+un jour fermé : fermer un jour arrête les inconnus, pas Kay. Le site relit la
+liste toutes les 5 minutes au plus.
+
 ---
 
 ## Le suivi du trafic
@@ -212,23 +236,34 @@ php/lib/          la bibliothèque    → www/api/lib/   (partagée avec les pai
   auth.php        comptes, sessions, CSRF, blocage
   bookings.php    statuts, recherche, modifications, paiements, chiffres
   crm.php         clients, synchronisation, notes et relances
+  availability.php  jours fermés (aussi lu par booking.php)
+  i18n.php, i18n-es.php  langue de l'admin et traduction espagnole
   traffic.php     enregistrement et rapports du trafic
   view.php        mise en page, formats, graphiques, CSV
 php/track.php     le point d'entrée du trafic → www/api/track.php
+php/availability.php  les jours fermés pour le formulaire → www/api/availability.php
 components/Beacon.tsx, lib/analytics.ts       l'envoi, côté site
 ```
 
 **Les tables** (créées par `migrate.php`, versions enregistrées dans
 `schema_migrations`) : `customers`, `crm_notes`, `booking_payments`,
-`admin_users`, `admin_sessions`, `admin_login_attempts`, `page_views`,
-`traffic_salts`, et trois colonnes ajoutées à `bookings` (`customer_id`,
-`source`, `updated_at`) plus les statuts `confirmed`, `completed`, `no_show`.
+`admin_users` (avec sa colonne `locale`), `admin_sessions`,
+`admin_login_attempts`, `page_views`, `traffic_salts`, `closed_days`, et
+trois colonnes ajoutées à `bookings` (`customer_id`, `source`, `updated_at`)
+plus les statuts `confirmed`, `completed`, `no_show`.
 Aucune colonne existante n'est modifiée ni supprimée.
 
 **Le chemin du paiement ne dépend pas de l'admin.** `booking.php` écrit
 exactement les mêmes colonnes qu'avant : un déploiement qui arrive avant la
-première ouverture de l'admin ne peut pas coûter une réservation. Si les
-tables du trafic n'existent pas encore, `track.php` journalise et répond 204.
+première ouverture de l'admin ne peut pas coûter une réservation. Tant que la
+table `closed_days` n'existe pas, tous les jours sont ouverts ; tant que les
+tables du trafic n'existent pas, `track.php` répond 204 sans rien écrire.
+
+**Traduire.** Le texte français du code sert de clé ; l'espagnol est dans
+`php/lib/i18n-es.php`. Les tests lisent tout le code de l'admin et échouent si
+une phrase affichable n'a pas sa traduction, ou si une traduction perd un
+`{paramètre}`. Ajouter une phrase à l'admin, c'est donc l'écrire en français
+dans le code et en espagnol dans ce fichier.
 
 **Un changement dans le webhook** : un paiement approuvé est désormais
 enregistré aussi sur une réservation qui n'était plus « en attente » sans
@@ -243,7 +278,8 @@ garde l'idempotence ; une réservation remboursée reste remboursée. Voir
 connexion et blocage, sessions et CSRF, prix recalculés pour les
 réservations manuelles, transitions de statut, grand livre, synchronisation
 et segments du CRM, effacement RGPD, anonymat et agrégats du trafic,
-échappement des graphiques et des exports.
+échappement des graphiques et des exports, jours fermés (et une base pas
+encore migrée), traduction complète et règles de pluriel des deux langues.
 
 **En local**, la page de test complète :
 

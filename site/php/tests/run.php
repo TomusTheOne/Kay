@@ -33,11 +33,14 @@ require __DIR__ . '/../lib/mercadopago.php';
 require __DIR__ . '/../lib/mail.php';
 require __DIR__ . '/../lib/notify.php';
 require __DIR__ . '/../lib/migrate.php';
+require __DIR__ . '/../lib/i18n.php';
 require __DIR__ . '/../lib/auth.php';
+require __DIR__ . '/../lib/availability.php';
 require __DIR__ . '/../lib/bookings.php';
 require __DIR__ . '/../lib/crm.php';
 require __DIR__ . '/../lib/traffic.php';
 require __DIR__ . '/../lib/view.php';
+require __DIR__ . '/i18n-scan.php';
 
 echo "\nPricing is recomputed from the menu, never taken from the client\n";
 
@@ -557,7 +560,7 @@ kay_booking_edit($db, $row, ['divers' => 3] + $form, $adminId);
 $row = kay_booking_get($db, $made['id']);
 check('one more diver re-quotes it',  (int) $row['total_mxn_cents'], (4000 * 3 + 320) * 100);
 check('and the change is in the history',
-      str_contains((string) kay_notes_for($db, null, $made['id'])[0]['body'], 'plongeurs 2 → 3'), true);
+      str_contains((string) kay_notes_for($db, null, $made['id'])[0]['body'], 'buzos 2 → 3'), true);
 
 echo "\nEvery website booking finds its customer\n";
 $lead = kay_uuid();
@@ -600,7 +603,7 @@ echo "\nForgetting a customer keeps the accounts and nothing else\n";
 kay_customer_forget($db, $customerId);
 $gone = kay_customer_get($db, $customerId);
 check('no email',   $gone['email'], null);
-check('no name',    $gone['name'], 'Client anonymisé');
+check('no name',    $gone['name'], 'Cliente anonimizado');
 check('no notes',   (int) $db->query("SELECT COUNT(*) FROM crm_notes WHERE customer_id = $customerId")->fetchColumn(), 0);
 check('no email on the bookings either',
       (int) $db->query("SELECT COUNT(*) FROM bookings WHERE customer_id = $customerId AND email <> ''")->fetchColumn(), 0);
@@ -716,7 +719,83 @@ check('a phone number is not a formula',   kay_csv_cell('+52 55 5454 7479'), "'+
 check('a negative balance stays a number', kay_csv_cell('-500'), '-500');
 check('axis maxima are round',             [kay_nice_max(7), kay_nice_max(83), kay_nice_max(1234)], [10, 100, 2000]);
 check('WhatsApp links are digits only',    kay_whatsapp_url('+52 (55) 5454-7479'), 'https://wa.me/525554547479');
-check('a flag and a name for a country',   str_contains(kay_country('CA'), 'Canada'), true);
+check('a flag and a name for a country',   str_contains(kay_country('CA'), 'Canadá'), true);
+
+echo "\nThe admin speaks Spanish, and every string it can show has been translated\n";
+check('Spanish unless someone chooses otherwise', kay_lang(), 'es');
+$strings = kay_i18n_scan(array_merge(glob(__DIR__ . '/../lib/*.php'), glob(__DIR__ . '/../admin/*.php')));
+$missing = array_values(array_filter($strings, static fn(string $s): bool => !isset(kay_es()[$s])));
+check('the admin has hundreds of strings, and the scan finds them', count($strings) > 400, true);
+check('every one of them has a Spanish translation', $missing, []);
+$placeholders = static fn(string $s): array => (preg_match_all('/\{[a-z]+\}/', $s, $m) ? array_unique($m[0]) : []);
+$broken = [];
+foreach (kay_es() as $fr => $es) {
+    $a = $placeholders($fr); $b = $placeholders($es); sort($a); sort($b);
+    if ($a !== $b) {
+        $broken[] = $fr;
+    }
+}
+check('and keeps the same {placeholders}', $broken, []);
+check('a status reads in Spanish',   kay_t('Acompte payé'), 'Anticipo pagado');
+check('placeholders are filled',     kay_t('Bonjour {name}', ['{name}' => 'Kay']), 'Hola, Kay');
+check('Spanish counts 0 as plural',  kay_tn(0, '{n} plongeur', '{n} plongeurs'), '0 buzos');
+check('and 1 as singular',           kay_tn(1, '{n} plongeur', '{n} plongeurs'), '1 buzo');
+check('Mexican numbers',             kay_mxn(12320), "12,320\u{00A0}MXN");
+check('a Spanish long date',         kay_date_long('2026-09-23'), 'miércoles 23 de septiembre de 2026');
+check('the site’s own product names', kay_product_name('cenote-diving'), 'Buceo en Cenotes');
+kay_lang('fr');
+check('French on request',           kay_t('Acompte payé'), 'Acompte payé');
+check('French counts 0 as singular', kay_tn(0, '{n} plongeur', '{n} plongeurs'), '0 plongeur');
+check('French numbers',              kay_mxn(12320), "12\u{202F}320\u{00A0}MXN");
+check('a French long date',          kay_date_long('2026-09-23'), 'mercredi 23 septembre 2026');
+kay_lang('es');
+check('an unknown language is ignored', kay_lang('de'), 'es');
+$lingo = kay_admin_create($db, 'lang-' . bin2hex(random_bytes(3)) . '@example.test', 'Lang Test', 'a long enough password', 'fr');
+check('an account keeps its language',
+      $db->query("SELECT locale FROM admin_users WHERE id = $lingo")->fetchColumn(), 'fr');
+$db->exec("DELETE FROM admin_users WHERE id = $lingo");
+$lingo = kay_admin_create($db, 'lang-' . bin2hex(random_bytes(3)) . '@example.test', 'Lang Test', 'a long enough password', 'xx');
+check('and an unknown one becomes Spanish',
+      $db->query("SELECT locale FROM admin_users WHERE id = $lingo")->fetchColumn(), 'es');
+$db->exec("DELETE FROM admin_users WHERE id = $lingo");
+
+echo "\nA closed day is refused, and closing one takes a tap\n";
+// Far-future dates only: nothing a real diver could be booking.
+$db->exec("DELETE FROM closed_days WHERE day BETWEEN '2099-06-01' AND '2099-06-30'");
+check('a day starts open',                 kay_date_closed($db, '2099-06-10'), false);
+check('one tap closes it',                 kay_toggle_day($db, '2099-06-10', null), true);
+check('so the website refuses it',         kay_date_closed($db, '2099-06-10'), true);
+check('the next tap opens it again',       kay_toggle_day($db, '2099-06-10', null), false);
+check('and the website takes it again',    kay_date_closed($db, '2099-06-10'), false);
+check('nonsense is not a day',             kay_toggle_day($db, '2099-02-30', null), null);
+check('a holiday closes in one go',        kay_close_days($db, '2099-06-20', '2099-06-14', 'Vacaciones', null), 7);
+check('whichever way round it was typed',  kay_date_closed($db, '2099-06-14') && kay_date_closed($db, '2099-06-20'), true);
+check('the day after is still open',       kay_date_closed($db, '2099-06-21'), false);
+kay_close_days($db, '2099-06-22', '2099-06-22', 'Lancha en reparación', null);
+check('consecutive days with one reason read as one run',
+      array_map(static fn(array $r): array => [$r['from'], $r['to'], $r['days']], kay_closed_runs($db, '2099-06-01', '2099-06-30')),
+      [['2099-06-14', '2099-06-20', 7], ['2099-06-22', '2099-06-22', 1]]);
+check('closing again changes the reason, not the count',
+      kay_close_days($db, '2099-06-14', '2099-06-14', 'Lleno', null) === 1 && kay_closed_days($db, '2099-06-14', '2099-06-14')['2099-06-14'] === 'Lleno', true);
+check('reopening part of a holiday',       kay_open_days($db, '2099-06-16', '2099-06-17'), 2);
+check('leaves the rest closed',            [kay_date_closed($db, '2099-06-15'), kay_date_closed($db, '2099-06-16'), kay_date_closed($db, '2099-06-18')], [true, false, true]);
+check('a range is capped',                 count(kay_day_range('2099-01-01', '2101-12-31')), KAY_CLOSE_MAX_DAYS);
+check('dates beyond eighteen months are not sent to the form',
+      in_array('2099-06-15', kay_public_closed_days($db), true), false);
+check('the form gets dates, never the reason',
+      array_filter(kay_public_closed_days($db), static fn($d): bool => !preg_match('/^\d{4}-\d{2}-\d{2}$/', (string) $d)), []);
+$db->exec("DELETE FROM closed_days WHERE day BETWEEN '2099-06-01' AND '2099-06-30'");
+// A database that has not been migrated yet: bookings must go on.
+$unmigrated = new class ('sqlite::memory:') extends PDO {
+    public function prepare(string $query, array $options = []): PDOStatement|false
+    {
+        $e = new PDOException("SQLSTATE[42S02]: Base table or view not found: closed_days");
+        (new ReflectionProperty(Exception::class, 'code'))->setValue($e, '42S02');
+        throw $e;
+    }
+};
+check('before the admin is first opened, every day is open', kay_date_closed($unmigrated, '2099-06-10'), false);
+check('and the form is told nothing is closed',              kay_public_closed_days($unmigrated), []);
 
 printf("\n%d passed, %d failed\n\n", $passed, $failed);
 exit($failed === 0 ? 0 : 1);

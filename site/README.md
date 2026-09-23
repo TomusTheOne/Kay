@@ -29,14 +29,19 @@ The site builds and renders without any of these — only the booking routes nee
 1. The form posts choices to `POST /api/booking`. **Never amounts.**
 2. `lib/pricing.ts` recomputes the total from slugs, so a tampered payload cannot
    lower the charge. Unknown slugs are refused; diver count is clamped to 1–8.
-3. A `pending` row is written **before** checkout is created, so a payment always
+3. A date Kay closed in the admin is refused (`date-unavailable`). The form
+   already knows: it reads `/api/availability.php` when it loads.
+4. A `pending` row is written **before** checkout is created, so a payment always
    has a booking to attach to.
-4. Mercado Pago Checkout Pro is created with `external_reference` = the booking id,
+5. Mercado Pago Checkout Pro is created with `external_reference` = the booking id,
    and the diver is redirected. No card data ever reaches this site.
-5. `POST /api/mp-webhook` verifies the `x-signature` HMAC, then asks Mercado Pago
+6. `POST /api/mp-webhook` verifies the `x-signature` HMAC, then asks Mercado Pago
    what the payment actually did rather than trusting the notification body.
-6. The settle is `WHERE id = ? AND status = 'pending'`, so retries and replays are
-   no-ops. A settled booking cannot be un-paid by a stale notification.
+7. `kay_settle_payment()` moves a booking once: a payment lands only on a
+   booking never paid before (`paid_at IS NULL`), and a refusal or refund only
+   on a pending one. Retries and replays are no-ops; a settled booking cannot be
+   un-paid by a stale notification, and an approval that follows a refused card
+   is not lost.
 
 ## Tests
 
@@ -50,9 +55,9 @@ pricing, and webhook idempotency. Runs against a real Postgres.
 ## Admin, CRM and traffic
 
 `/admin/` is a server-rendered PHP back office on the same host and database:
-dashboard, day sheet, bookings (status, edits, cash payments, manual
-bookings, CSV), customers with a notes-and-follow-ups timeline, and the site's
-own cookieless traffic count. Its tables are created by `php/lib/migrate.php`
+dashboard, day sheet, closed days, bookings (status, edits, cash payments,
+manual bookings, CSV), customers with a notes-and-follow-ups timeline, and the
+site's own cookieless traffic count. Spanish by default, French per account. Its tables are created by `php/lib/migrate.php`
 the first time it is opened. Everything about it — setup, what the traffic
 count keeps and does not keep, security — is in `../docs/ADMIN.md`.
 

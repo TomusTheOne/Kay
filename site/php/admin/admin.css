@@ -338,6 +338,7 @@ a.row:hover .row__main strong { text-decoration: underline; }
   .week a { padding: 6px 2px; }
   .week__day { font-size: 11px; white-space: nowrap; }
   .week__unit { display: none; }
+  .week a.is-closed .week__unit { display: block; font-size: 9.5px; }
 }
 
 /* the fourteen days above the day sheet */
@@ -462,6 +463,47 @@ a.row:hover .row__main strong { text-decoration: underline; }
 .steps { margin: 0 0 14px; padding-left: 20px; display: grid; gap: 8px; }
 .auth .alert { margin-bottom: 12px; }
 .is-bare { background: var(--bg); }
+
+/* ------------------------------------------------------ availability --
+   A month of big tap targets: a day is a button, closed is a state with a
+   word on it, not only a colour.                                          */
+
+.cal__head { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 14px; }
+.cal__head h2 { font: 400 24px/1.2 var(--serif); }
+.cal { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 6px; }
+.cal__dow { text-align: center; font-size: 12px; font-weight: 600; color: var(--muted); text-transform: capitalize; padding-bottom: 2px; }
+.cal__day {
+  position: relative; display: flex; flex-direction: column; align-items: flex-start; gap: 2px;
+  min-height: 78px; padding: 8px; border-radius: 10px; cursor: pointer; text-align: left;
+  border: 1px solid var(--line); background: var(--surface); color: var(--ink); font: inherit;
+}
+.cal__day:hover { border-color: var(--mark); background: var(--mark-wash); }
+.cal__n { font-size: 16px; font-weight: 600; font-variant-numeric: tabular-nums; }
+.cal__state { font-size: 11.5px; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; }
+.cal__busy { margin-top: auto; font-size: 11.5px; font-weight: 600; color: var(--link); }
+.cal__day.is-closed { background: var(--bad-bg); border-color: var(--bad); color: var(--bad); }
+.cal__day.is-closed:hover { filter: brightness(.97); }
+.cal__day.is-today { box-shadow: inset 0 0 0 2px var(--mark); }
+.cal__day.is-past { opacity: .45; cursor: default; }
+.cal__day.is-past:hover { border-color: var(--line); background: var(--surface); }
+.cal__day.is-past.is-closed:hover { background: var(--bad-bg); }
+.cal__legend { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; margin: 14px 0 0; }
+.cal__key { display: inline-block; width: 12px; height: 12px; border-radius: 3px; vertical-align: -1px; }
+.cal__key--closed { background: var(--bad-bg); border: 1px solid var(--bad); }
+.cal__key--busy { background: var(--mark-wash); border: 1px solid var(--mark); margin-left: 8px; }
+@media (max-width: 600px) {
+  .cal { gap: 4px; }
+  .cal__day { min-height: 58px; padding: 6px 4px; align-items: center; text-align: center; }
+  .cal__n { font-size: 15px; }
+  .cal__state { font-size: 9.5px; letter-spacing: 0; }
+  .cal__busy { font-size: 9.5px; margin-top: 0; }
+}
+
+/* closed days in the dashboard week and the day-sheet strip */
+.week a.is-closed, .strip a.is-closed { background: var(--bad-bg); border-color: var(--bad); }
+.week a.is-closed .week__unit, .strip a.is-closed small { color: var(--bad); font-weight: 700; }
+.cols--first { margin-top: 0; }
+.langs { margin-top: 18px; color: var(--muted); }
 
 /* --------------------------------------------------------------- print --
    The day sheet on paper, the evening before: no navigation, no buttons.  */

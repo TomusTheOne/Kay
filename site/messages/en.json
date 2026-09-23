@@ -229,6 +229,7 @@
     "errEmail": "That email address does not look complete. Check it and try again.",
     "errName": "We need a name for the booking.",
     "errSeason": "That experience does not run on the date you picked.",
+    "dateClosed": "We're not out on the water that day. Pick another date, or message us on WhatsApp.",
     "s8": "08 — Name",
     "s9": "09 — Email",
     "rPickup": "Getting there",

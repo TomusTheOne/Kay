@@ -11,8 +11,8 @@ declare(strict_types=1);
  */
 
 $kayLib = is_dir(__DIR__ . '/../api/lib') ? __DIR__ . '/../api/lib' : __DIR__ . '/../lib';
-foreach (['config', 'pricing', 'db', 'mail', 'notify', 'mercadopago', 'migrate', 'auth',
-          'bookings', 'crm', 'traffic', 'view'] as $kayFile) {
+foreach (['config', 'pricing', 'db', 'mail', 'notify', 'mercadopago', 'migrate', 'i18n', 'auth',
+          'availability', 'bookings', 'crm', 'traffic', 'view'] as $kayFile) {
     require_once "$kayLib/$kayFile.php";
 }
 unset($kayLib, $kayFile);
@@ -26,6 +26,16 @@ header("Content-Security-Policy: default-src 'self'; script-src 'self'; style-sr
     . "img-src 'self' data:; connect-src 'self'; font-src 'self'; object-src 'none'; "
     . "base-uri 'none'; form-action 'self'; frame-ancestors 'none'");
 
+// ?lang=fr or ?lang=es, from the links on the login and setup pages. Kept
+// in a cookie so the next page speaks the same language; once someone signs
+// in, their account's choice takes over.
+$kayLang = (string) ($_GET['lang'] ?? '');
+if (isset(KAY_ADMIN_LANGS[$kayLang])) {
+    kay_lang($kayLang);
+    kay_set_cookie('kay_lang', $kayLang, 365 * 86400, '/admin/');
+}
+unset($kayLang);
+
 $db = kay_db();
 
 // The schema follows the code: whatever a deploy added is applied the first
@@ -35,10 +45,10 @@ try {
 } catch (Throwable $e) {
     error_log('kay: migration failed: ' . $e->getMessage());
     http_response_code(503);
-    kay_page_start('Maintenance', '', null);
-    echo '<section class="auth"><h1>Mise à jour de la base en cours</h1>'
-        . '<p>Rechargez la page dans une minute. Si le message reste, le détail est dans le '
-        . 'journal d’erreurs de l’hébergement (ligne commençant par « kay: »).</p></section>';
+    kay_page_start(kay_t('Maintenance'), '', null);
+    echo '<section class="auth"><h1>' . kay_th('Mise à jour de la base en cours') . '</h1>'
+        . '<p>' . kay_th('Rechargez la page dans une minute. Si le message reste, le détail est dans le journal d’erreurs de l’hébergement (ligne commençant par « kay: »).')
+        . '</p></section>';
     kay_page_end();
     exit;
 }
@@ -58,6 +68,7 @@ function kay_admin(PDO $db): array
         $next = preg_match('#/[a-z-]+\.php$#', $path) && basename($path) !== 'index.php' ? $uri : '';
         kay_redirect(kay_url('login.php', ['next' => $next]));
     }
+    kay_lang($admin['locale']);
     try {
         kay_crm_sync($db);
     } catch (Throwable $e) {
@@ -77,9 +88,9 @@ function kay_posted(array $admin): bool
     }
     if (!kay_csrf_valid($admin, (string) ($_POST['_csrf'] ?? ''))) {
         http_response_code(400);
-        kay_page_start('Formulaire expiré', '', $admin);
-        echo '<section class="card"><h1>Le formulaire a expiré</h1>'
-            . '<p>Revenez en arrière, rechargez la page et recommencez.</p></section>';
+        kay_page_start(kay_t('Formulaire expiré'), '', $admin);
+        echo '<section class="card"><h1>' . kay_th('Le formulaire a expiré') . '</h1>'
+            . '<p>' . kay_th('Revenez en arrière, rechargez la page et recommencez.') . '</p></section>';
         kay_page_end();
         exit;
     }

@@ -28,19 +28,20 @@ if ($token !== null && ($_SERVER['REQUEST_METHOD'] ?? '') === 'POST') {
     $password = (string) ($_POST['password'] ?? '');
 
     if (kay_login_throttled($db, 'setup')) {
-        $error = 'Trop de tentatives. Réessayez dans un quart d’heure.';
+        $error = kay_t('Trop de tentatives. Réessayez dans un quart d’heure.');
     } elseif (!hash_equals($token, trim((string) ($_POST['token'] ?? '')))) {
         kay_login_failed($db, 'setup');
-        $error = 'La phrase ne correspond pas à celle du fichier kay-admin-token.txt.';
+        $error = kay_t('La phrase ne correspond pas à celle du fichier kay-admin-token.txt.');
     } elseif (!filter_var($values['email'], FILTER_VALIDATE_EMAIL)) {
-        $error = 'Adresse e-mail invalide.';
+        $error = kay_t('Adresse e-mail invalide.');
     } elseif (($problem = kay_password_problem($password, $values['email'])) !== null) {
         $error = $problem;
     } elseif ($first) {
         if (mb_strlen($values['name']) < 2) {
-            $error = 'Indiquez votre nom.';
+            $error = kay_t('Indiquez votre nom.');
         } else {
-            $id = kay_admin_create($db, $values['email'], $values['name'], $password);
+            // The language the page was read in is the account's language.
+            $id = kay_admin_create($db, $values['email'], $values['name'], $password, kay_lang());
             kay_session_open($db, $id);
             kay_redirect('index.php');
         }
@@ -49,7 +50,7 @@ if ($token !== null && ($_SERVER['REQUEST_METHOD'] ?? '') === 'POST') {
         $s->execute([$values['email']]);
         $id = $s->fetchColumn();
         if ($id === false) {
-            $error = 'Aucun compte admin avec cette adresse.';
+            $error = kay_t('Aucun compte admin avec cette adresse.');
         } else {
             kay_admin_set_password($db, (int) $id, $password);
             $done = true;
@@ -57,58 +58,54 @@ if ($token !== null && ($_SERVER['REQUEST_METHOD'] ?? '') === 'POST') {
     }
 }
 
-kay_page_start($first ? 'Premier compte' : 'Mot de passe oublié', '', null);
+kay_page_start($first ? kay_t('Premier compte') : kay_t('Mot de passe oublié'), '', null);
 ?>
 <section class="auth">
   <img class="auth__mark" src="/assets/brand/icon.svg" alt="" width="56" height="53">
-  <h1><?= $first ? 'Créer le compte admin' : 'Nouveau mot de passe' ?></h1>
+  <h1><?= $first ? kay_th('Créer le compte admin') : kay_th('Nouveau mot de passe') ?></h1>
 
 <?php if ($misplaced): ?>
-  <p class="alert">Le fichier <code>kay-admin-token.txt</code> a été déposé dans le dossier
-    <code>www</code>, où n’importe qui pourrait le lire. Il n’est pas utilisé.</p>
-  <p>Avec votre logiciel FTP, supprimez-le du dossier <code>www</code>, puis déposez-le un niveau
-    au-dessus, à côté de <code>kay-config.php</code>. Rechargez ensuite cette page.</p>
+  <p class="alert"><?= kay_th('Le fichier kay-admin-token.txt a été déposé dans le dossier www, où n’importe qui pourrait le lire. Il n’est pas utilisé.') ?></p>
+  <p><?= kay_th('Avec votre logiciel FTP, supprimez-le du dossier www, puis déposez-le un niveau au-dessus, à côté de kay-config.php. Rechargez ensuite cette page.') ?></p>
 <?php elseif ($token === null): ?>
-  <p>Pour <?= $first ? 'créer le premier compte' : 'réinitialiser un mot de passe' ?>, il faut
-    d’abord prouver que vous avez accès à l’hébergement :</p>
+  <p><?= $first
+      ? kay_th('Pour créer le premier compte, il faut d’abord prouver que vous avez accès à l’hébergement :')
+      : kay_th('Pour réinitialiser un mot de passe, il faut d’abord prouver que vous avez accès à l’hébergement :') ?></p>
   <ol class="steps">
-    <li>Sur votre ordinateur, créez un fichier texte nommé <code>kay-admin-token.txt</code>
-      (Bloc-notes sur Windows, TextEdit en « texte brut » sur Mac).</li>
-    <li>Écrivez-y une phrase de votre choix d’au moins 20 caractères, par exemple une phrase
-      que vous seul connaissez. Enregistrez.</li>
-    <li>Dans votre logiciel FTP, ouvrez le dossier où se trouve <code>kay-config.php</code>
-      (celui qui contient aussi le dossier <code>www</code>) et déposez-y le fichier.
-      <strong>Pas dans <code>www</code>.</strong></li>
-    <li>Rechargez cette page et tapez la même phrase.</li>
+    <li><?= kay_th('Sur votre ordinateur, créez un fichier texte nommé kay-admin-token.txt (Bloc-notes sur Windows, TextEdit en « texte brut » sur Mac).') ?></li>
+    <li><?= kay_th('Écrivez-y une phrase de votre choix d’au moins 20 caractères, par exemple une phrase que vous seul connaissez. Enregistrez.') ?></li>
+    <li><?= kay_th('Dans votre logiciel FTP, ouvrez le dossier où se trouve kay-config.php (celui qui contient aussi le dossier www) et déposez-y le fichier.') ?>
+      <strong><?= kay_th('Pas dans www.') ?></strong></li>
+    <li><?= kay_th('Rechargez cette page et tapez la même phrase.') ?></li>
   </ol>
-  <p class="muted small">Ce fichier ne touche à rien d’autre : une faute de frappe dedans ne peut
-    pas casser le site. Une fois le compte créé, vous pouvez le supprimer par FTP.</p>
+  <p class="muted small"><?= kay_th('Ce fichier ne touche à rien d’autre : une faute de frappe dedans ne peut pas casser le site. Une fois le compte créé, vous pouvez le supprimer par FTP.') ?></p>
 <?php elseif ($done): ?>
-  <p class="flash">Mot de passe changé. Toutes les sessions de ce compte ont été fermées.</p>
-  <p><a class="btn btn--primary btn--block" href="login.php">Se connecter</a></p>
+  <p class="flash"><?= kay_th('Mot de passe changé. Toutes les sessions de ce compte ont été fermées.') ?></p>
+  <p><a class="btn btn--primary btn--block" href="login.php"><?= kay_th('Se connecter') ?></a></p>
 <?php else: ?>
   <?= kay_error_box($error) ?>
   <p class="muted"><?= $first
-      ? 'Aucun compte n’existe encore. Celui-ci pourra ensuite en créer d’autres depuis « Compte ».'
-      : 'Choisissez un nouveau mot de passe pour un compte existant.' ?></p>
+      ? kay_th('Aucun compte n’existe encore. Celui-ci pourra ensuite en créer d’autres depuis « Compte ».')
+      : kay_th('Choisissez un nouveau mot de passe pour un compte existant.') ?></p>
   <form method="post" class="stack">
-    <label class="field"><span>Phrase secrète</span>
+    <label class="field"><span><?= kay_th('Phrase secrète') ?></span>
       <input type="text" name="token" autocomplete="off" autocapitalize="off" spellcheck="false" required>
-      <small>La phrase écrite dans <code>kay-admin-token.txt</code>, à l’identique.</small></label>
+      <small><?= kay_th('La phrase écrite dans kay-admin-token.txt, à l’identique.') ?></small></label>
 <?php if ($first): ?>
-    <label class="field"><span>Votre nom</span>
+    <label class="field"><span><?= kay_th('Votre nom') ?></span>
       <input name="name" value="<?= kay_h($values['name']) ?>" autocomplete="name" required></label>
 <?php endif; ?>
-    <label class="field"><span>E-mail</span>
+    <label class="field"><span><?= kay_th('E-mail') ?></span>
       <input type="email" name="email" value="<?= kay_h($values['email']) ?>" autocomplete="username" required></label>
-    <label class="field"><span>Mot de passe</span>
+    <label class="field"><span><?= kay_th('Mot de passe') ?></span>
       <input type="password" name="password" autocomplete="new-password" minlength="<?= KAY_PASSWORD_MIN ?>" required>
-      <small>Au moins <?= KAY_PASSWORD_MIN ?> caractères.</small></label>
-    <button class="btn btn--primary btn--block"><?= $first ? 'Créer le compte' : 'Changer le mot de passe' ?></button>
+      <small><?= kay_th('Au moins {n} caractères.', ['{n}' => (string) KAY_PASSWORD_MIN]) ?></small></label>
+    <button class="btn btn--primary btn--block"><?= $first ? kay_th('Créer le compte') : kay_th('Changer le mot de passe') ?></button>
   </form>
 <?php if (!$first): ?>
-  <p class="muted small"><a href="login.php">← Retour à la connexion</a></p>
+  <p class="muted small"><a href="login.php"><?= kay_th('← Retour à la connexion') ?></a></p>
 <?php endif; ?>
 <?php endif; ?>
+  <?= kay_lang_links() ?>
 </section>
 <?php kay_page_end();

@@ -67,7 +67,9 @@
     let prices;
     try { prices = JSON.parse(data.textContent); } catch { prices = null; }
     const form = out.closest("form");
-    const fmt = new Intl.NumberFormat("fr-FR");
+    // Label and number format come from the page, in the admin's language.
+    const fmt = new Intl.NumberFormat(out.dataset.locale || "es-MX");
+    const label = out.dataset.label || "";
     const update = () => {
       if (!prices || !form) return;
       const item = form.querySelector("[data-quote-item]");
@@ -77,7 +79,7 @@
       const n = Math.max(1, Math.min(8, parseInt(divers && divers.value, 10) || 1));
       if (each === undefined) { out.textContent = ""; return; }
       const total = each * n + (prices.pickups[pickup && pickup.value] || 0);
-      out.textContent = "Prix du catalogue : " + fmt.format(total) + " MXN";
+      out.textContent = label + " " + fmt.format(total) + " MXN";
     };
     if (form) {
       form.addEventListener("input", update);

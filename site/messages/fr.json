@@ -229,6 +229,7 @@
     "errEmail": "Cette adresse email semble incomplète. Vérifiez-la et réessayez.",
     "errName": "Il nous faut un nom pour la réservation.",
     "errSeason": "Cette expérience n’a pas lieu à la date que vous avez choisie.",
+    "dateClosed": "Nous ne sortons pas ce jour-là. Choisissez une autre date, ou écrivez-nous sur WhatsApp.",
     "s8": "08 — Nom",
     "s9": "09 — E-mail",
     "rPickup": "Le rendez-vous",

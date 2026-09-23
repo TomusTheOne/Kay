@@ -8,6 +8,7 @@ require __DIR__ . '/lib/mercadopago.php';
 // For the product name and the deposit line on Mercado Pago's own page: the
 // diver reads that screen while deciding whether to hand over a card.
 require __DIR__ . '/lib/notify.php';
+require __DIR__ . '/lib/availability.php';
 
 if (($_SERVER['REQUEST_METHOD'] ?? '') !== 'POST') {
     kay_fail(405, 'method not allowed');
@@ -34,6 +35,12 @@ if (($reason = kay_validate($input)) !== null) {
 $quote = kay_quote($input);
 if ($quote === null) {
     kay_fail(422, 'unknown product or option');
+}
+
+// A day Kay closed in the admin. The form already says so before anyone
+// gets this far; this is for whoever posts without the form.
+if (kay_date_closed(kay_db(), (string) $input['date'])) {
+    kay_fail(422, 'date-unavailable');
 }
 
 $config      = kay_config();

@@ -182,6 +182,25 @@ function kay_migrations(): array
                salt  CHAR(64) NOT NULL
              ) ENGINE=InnoDB",
         ],
+
+        // Days Kay does not go out: the website refuses them, the admin
+        // shows them. One row per closed day, so closing a fortnight is
+        // fourteen rows and reopening one day in the middle is one delete.
+        // The reason is Kay's own note and never leaves the admin.
+        //
+        // And the admin's language, per account: Spanish unless someone
+        // chooses French. The CREATE comes first: it is safe to repeat, so
+        // if the ALTER after it fails, running the step again is harmless.
+        6 => [
+            "CREATE TABLE IF NOT EXISTS closed_days (
+               day         DATE         NOT NULL PRIMARY KEY,
+               reason      VARCHAR(120) NOT NULL DEFAULT '',
+               author_id   INT UNSIGNED NULL,
+               created_at  DATETIME     NOT NULL DEFAULT CURRENT_TIMESTAMP
+             ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
+
+            "ALTER TABLE admin_users ADD COLUMN locale CHAR(2) NOT NULL DEFAULT 'es'",
+        ],
     ];
 }
 

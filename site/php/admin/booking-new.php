@@ -4,7 +4,8 @@ declare(strict_types=1);
 /**
  * A booking Kay takes himself — WhatsApp, the phone, someone at the counter.
  * Priced from the same catalogue as the website; confirmed from the start;
- * whatever was paid in cash goes in the ledger.
+ * whatever was paid in cash goes in the ledger. A day closed to the website
+ * can still be booked here: closing a day stops strangers, not Kay.
  */
 
 require __DIR__ . '/_boot.php';
@@ -41,7 +42,9 @@ if (kay_posted($admin)) {
         if ($notify && $row !== null && $row['email'] !== '') {
             $sent = kay_send_email(kay_booking_emails(kay_booking_email_row($row))['diver']);
             kay_note_add($db, $row['customer_id'] !== null ? (int) $row['customer_id'] : null, $row['id'],
-                $admin['id'], 'log', $sent ? 'Confirmation envoyée à ' . $row['email'] . '.' : 'Échec de l’envoi de la confirmation.');
+                $admin['id'], 'log', $sent
+                    ? kay_t('Confirmation envoyée à {email}.', ['{email}' => $row['email']])
+                    : kay_t('Échec de l’envoi de la confirmation.'));
         }
         kay_redirect(kay_url('booking.php', ['id' => $result['id'], 'm' => 'created']));
     }
@@ -51,11 +54,11 @@ if (kay_posted($admin)) {
     $values = ['phone' => (string) ($_POST['phone'] ?? '')] + $clean + $values;
 }
 
-kay_page_start('Nouvelle réservation', 'bookings.php', $admin);
+kay_page_start(kay_t('Nouvelle réservation'), 'bookings.php', $admin);
 ?>
-<p class="crumbs"><a href="bookings.php">← Réservations</a></p>
-<header class="head"><div><h1>Nouvelle réservation</h1>
-  <p class="muted">Pour une réservation prise par téléphone, WhatsApp ou au comptoir. Elle est confirmée dès l’enregistrement.</p></div></header>
+<p class="crumbs"><a href="bookings.php"><?= kay_th('← Réservations') ?></a></p>
+<header class="head"><div><h1><?= kay_th('Nouvelle réservation') ?></h1>
+  <p class="muted"><?= kay_th('Pour une réservation prise par téléphone, WhatsApp ou au comptoir. Elle est confirmée dès l’enregistrement.') ?></p></div></header>
 
 <section class="card">
   <?= kay_error_box($error) ?>
@@ -65,24 +68,24 @@ kay_page_start('Nouvelle réservation', 'bookings.php', $admin);
     <?= kay_booking_fields($values, true) ?>
 
     <fieldset class="fieldset">
-      <legend>Acompte déjà reçu</legend>
+      <legend><?= kay_th('Acompte déjà reçu') ?></legend>
       <div class="grid">
-        <label class="field"><span>Montant (MXN)</span>
+        <label class="field"><span><?= kay_th('Montant (MXN)') ?></span>
           <input type="number" name="deposit" min="0" step="1" value="<?= $deposit ?: '' ?>" placeholder="0"></label>
-        <label class="field"><span>Moyen</span><select name="method">
+        <label class="field"><span><?= kay_th('Moyen') ?></span><select name="method">
 <?php foreach (KAY_PAYMENT_METHODS as $k => $label): ?>
-          <option value="<?= $k ?>"<?= $k === $method ? ' selected' : '' ?>><?= kay_h($label) ?></option>
+          <option value="<?= $k ?>"<?= $k === $method ? ' selected' : '' ?>><?= kay_th($label) ?></option>
 <?php endforeach; ?>
         </select></label>
       </div>
     </fieldset>
 
     <label class="check-field"><input type="checkbox" name="notify" value="1"<?= $notify ? ' checked' : '' ?>>
-      Envoyer l’e-mail de confirmation au client (s’il a une adresse)</label>
+      <?= kay_th('Envoyer l’e-mail de confirmation au client (s’il a une adresse)') ?></label>
 
     <div class="actions">
-      <button class="btn btn--primary">Enregistrer la réservation</button>
-      <a class="btn btn--ghost" href="bookings.php">Annuler</a>
+      <button class="btn btn--primary"><?= kay_th('Enregistrer la réservation') ?></button>
+      <a class="btn btn--ghost" href="bookings.php"><?= kay_th('Annuler') ?></a>
     </div>
   </form>
 </section>
