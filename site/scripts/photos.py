@@ -38,8 +38,10 @@ SLOTS = {
 
     # Casa Cenote's green water — the freshwater half of Reef & Cenote.
     "card-reef":     ("casa-green",  960,  660, 0.42, 0.58),
-    # A snorkeller from above, face in the water, fins up.
-    "card-snorkel":  ("snorkel",      960, 660, 0.50, 0.60),
+    # A snorkeller from above, face in the water, fins up. A new name, not
+    # card-snorkel: photos are cached for a year as immutable (public-htaccess),
+    # so a replaced photograph has to be a new file or nobody sees it.
+    "card-snorkel-top": ("snorkel",   960, 660, 0.50, 0.60),
     # A diver coming through the roots towards the camera. The Open Water card
     # used to borrow "guide", which the About section keeps.
     "card-openwater": ("open-water",  960, 660, 0.52, 0.46),
