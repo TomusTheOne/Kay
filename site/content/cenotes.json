@@ -1,6 +1,6 @@
 {
   "_comment": "The cenote guide and its map. Texts live in messages/<locale>.json under cenotes.items; everything that is the same in every language lives here. Set published to true once Kay has checked every position on the preview pages: the guide then joins the menu, the home page map, the footer and the sitemap, and stops being noindex.",
-  "published": false,
+  "published": true,
   "basemap": "/tiles/tulum-20260923.pmtiles",
   "bounds": [-88.7, 19.1, -86.3, 21.3],
   "cenotes": [

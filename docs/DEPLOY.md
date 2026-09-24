@@ -244,24 +244,21 @@ phpMyAdmin. Le guide complet (usage, trafic, sécurité) est dans
 Une page par cenote (`/en/cenotes/angelita/`, en anglais, espagnol et
 français), une page *Cenotes* qui les présente toutes avec des filtres
 (ouverts, cavernes, profonds, snorkel), et une carte interactive autour de
-Tulum. Tant que Kay n'a pas vérifié les positions, **le guide est en aperçu** :
+Tulum, aussi sur la page d'accueil (après les plongées). **Le guide est publié
+depuis le 24 septembre 2026** : lien *Cenotes* dans le menu et le pied de
+page, 33 pages dans le sitemap, indexables par Google.
 
-- il est en ligne mais **introuvable** : pas dans le menu, pas sur la page
-  d'accueil, pas dans le sitemap, et `noindex` pour Google ;
-- un bandeau « Aperçu » l'annonce en haut de chaque page, et la fiche de
-  chaque cenote sur la carte montre ses coordonnées avec un lien Google Maps
-  pour comparer.
+**Les positions** viennent d'OpenStreetMap, sauf **Tak Be Luum**, introuvable
+dans les sources publiques : il est placé à vue dans le parc Dos Ojos, entouré
+d'un pointillé, et sa fiche dit « position approximative, à confirmer ». Une
+position se corrige dans `site/content/cenotes.json` (`lat`, `lon`) ; passer
+`"approx"` à `false` une fois Kay d'accord, et le pointillé disparaît.
 
-**À faire vérifier par Kay** sur `https://kaydiving.com/es/cenotes/` : la
-position de chaque point. Elles viennent d'OpenStreetMap, sauf **Tak Be
-Luum**, introuvable dans les sources publiques : il est placé à vue dans le
-parc Dos Ojos, entouré d'un pointillé, et marqué « position approximative ».
-Une position se corrige dans `site/content/cenotes.json` (`lat`, `lon`).
-
-**Publier** : passer `"published": false` à `true` dans
-`site/content/cenotes.json`, puis déployer. Le lien *Cenotes* apparaît dans le
-menu et le pied de page, la carte sur la page d'accueil (après les plongées),
-les 33 pages entrent dans le sitemap et le bandeau disparaît.
+**Repasser en aperçu** (pour vérifier une grosse mise à jour avant de la
+montrer) : `"published": false` dans le même fichier, puis déployer. Le guide
+reste en ligne mais introuvable — hors menu, hors accueil, hors sitemap,
+`noindex` — avec un bandeau « Aperçu » et, sur la carte, les coordonnées de
+chaque point et un lien Google Maps pour comparer.
 
 **Ajouter un cenote** : une entrée dans `cenotes.json` (position, type,
 profondeurs, niveau, produits qui y plongent, photo ou illustration) et son
@@ -337,8 +334,8 @@ datées de 2001 pour ne jamais se mêler aux vraies.
 - [ ] Fiche Google Business Profile cohérente avec le site
 - [ ] Droits sur les photos confirmés si certaines sont des reposts
 - [ ] `kay-admin-token.txt` déposé par FTP, premier compte admin créé *(§7)*
-- [ ] Positions des cenotes vérifiées par Kay (surtout Tak Be Luum), puis
-      guide publié *(§8)*
+- [x] Guide des cenotes publié *(§8)*
+- [ ] Position de Tak Be Luum confirmée par Kay *(§8)*
 - [ ] Liste des cenotes présentés sur l'Instagram de Kay, à ajouter au guide
 - [ ] Photos de Kay pour les cenotes qui n'ont encore qu'une illustration
 
