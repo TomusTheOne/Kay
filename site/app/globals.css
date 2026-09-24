@@ -364,7 +364,13 @@ body.open .drawer{opacity:1;visibility:visible}
 .ticks svg{flex:none;margin-top:.34em;color:var(--turq)}
 
 /* --------------------------------------------------------------- Courses */
-.courses{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1px;background:var(--line-soft);border:1px solid var(--line-soft);border-radius:var(--r-lg);overflow:hidden}
+/* Six boxes: one column on a phone, two by three on a small tablet, then
+   three by two from the first width where three fit (768px) — and it stays
+   there. auto-fit kept adding columns on wide screens and left five in a
+   row with a hole of four empty cells under them. */
+.courses{display:grid;grid-template-columns:1fr;gap:1px;background:var(--line-soft);border:1px solid var(--line-soft);border-radius:var(--r-lg);overflow:hidden}
+@media (min-width:520px){.courses{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:768px){.courses{grid-template-columns:repeat(3,1fr)}}
 .course{background:var(--deep);padding:1.6rem 1.4rem;display:flex;flex-direction:column;gap:.55rem;transition:background .4s}
 .course:hover{background:var(--mid)}
 .course__lvl{font-family:var(--mono);font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--turq)}
