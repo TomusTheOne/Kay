@@ -34,6 +34,17 @@ if (kay_posted($admin)) {
             $error = kay_booking_edit($db, $b, $_POST, $admin['id']);
             $ok = 'saved';
             break;
+        case 'gear':
+            if ($b['email'] === '') {
+                $error = kay_t('Cette réservation n’a pas d’adresse e-mail : envoyez le lien par WhatsApp.');
+                break;
+            }
+            $sent = kay_send_email(kay_gear_email($b));
+            kay_note_add($db, $b['customer_id'] !== null ? (int) $b['customer_id'] : null, (string) $b['id'],
+                $admin['id'], 'log', $sent
+                    ? kay_t('Questionnaire des tailles envoyé à {email}.', ['{email}' => $b['email']])
+                    : kay_t('Échec de l’envoi du questionnaire.'));
+            kay_redirect($self . '&m=' . ($sent ? 'gearsent' : 'notsent'));
         case 'resend':
             if ($b['email'] === '' || !in_array($b['status'], KAY_ACTIVE, true)) {
                 $error = kay_t('Seule une réservation confirmée, avec une adresse e-mail, reçoit une confirmation.');
@@ -61,6 +72,9 @@ $phone    = (string) ($b['customer_phone'] ?? '');
 $wa       = kay_whatsapp_url($phone);
 $online   = $b['paid_at'] !== null && $b['status'] !== 'refunded' ? (int) round($b['deposit_mxn_cents'] / 100) : 0;
 $isClosed = kay_date_closed($db, (string) $b['dive_date']);
+$gear     = kay_gear_for($db, (string) $b['id']);
+$gearUrl  = kay_gear_url($b);
+$gearKind = kay_gear_kind($b);
 
 kay_page_start($b['name'], 'bookings.php', $admin);
 ?>
@@ -124,6 +138,57 @@ kay_page_start($b['name'], 'bookings.php', $admin);
           <button class="btn btn--primary"><?= kay_th('Enregistrer') ?></button>
         </form>
       </details>
+    </section>
+
+    <section class="card">
+      <header class="card__head"><h2><?= kay_th('Tailles de l’équipement') ?></h2>
+        <?php if ($gear !== []): ?><span class="muted small"><?= kay_h(kay_tn(count($gear), '{n} fiche', '{n} fiches')) ?></span><?php endif; ?></header>
+<?php if ($gear === []): ?>
+      <p class="empty"><?= kay_th('Le client n’a pas encore envoyé ses tailles.') ?></p>
+<?php else: ?>
+      <div class="table-wrap"><table class="table table--stack table--compact table--gear">
+        <thead><tr><th scope="col"><?= kay_th('Nom') ?></th>
+<?php if ($gearKind === 'dive'): ?>
+          <th scope="col"><?= kay_th('Taille') ?></th><th scope="col"><?= kay_th('Poids') ?></th>
+<?php endif; ?>
+          <th scope="col"><?= kay_th('Pointure') ?></th>
+<?php if ($gearKind === 'dive'): ?>
+          <th scope="col"><?= kay_th('Combinaison') ?></th><th scope="col">BCD</th><th scope="col"><?= kay_th('Palmes') ?></th>
+<?php endif; ?></tr></thead>
+        <tbody>
+<?php foreach ($gear as $n => $g):
+    $size = static fn(string $v): string => $v === '?' ? kay_th('à voir') : kay_h($v); ?>
+          <tr>
+            <td data-label="<?= kay_th('Nom') ?>"><?= kay_h($g['name'] !== '' ? $g['name'] : '#' . $n) ?></td>
+<?php if ($gearKind === 'dive'): ?>
+            <td data-label="<?= kay_th('Taille') ?>"><?= $g['height_cm'] !== null ? kay_num((int) $g['height_cm'] / 100, 2) . ' m' : '—' ?></td>
+            <td data-label="<?= kay_th('Poids') ?>"><?= $g['weight_kg'] !== null ? (int) $g['weight_kg'] . ' kg' : '—' ?></td>
+<?php endif; ?>
+            <td data-label="<?= kay_th('Pointure') ?>"><?= kay_h($g['shoe']) ?></td>
+<?php if ($gearKind === 'dive'): ?>
+            <td data-label="<?= kay_th('Combinaison') ?>"><?= $size($g['wetsuit']) ?></td>
+            <td data-label="BCD"><?= $size($g['bcd']) ?></td>
+            <td data-label="<?= kay_th('Palmes') ?>"><?= $size($g['fins']) ?></td>
+<?php endif; ?>
+          </tr>
+<?php endforeach; ?>
+        </tbody>
+      </table></div>
+<?php endif; ?>
+<?php if (in_array($b['status'], KAY_GEAR_STATUSES, true)): ?>
+      <div class="gear-share">
+        <label class="field field--wide"><span><?= kay_th('Lien du questionnaire') ?></span>
+          <input readonly value="<?= kay_h($gearUrl) ?>" data-select></label>
+        <div class="actions">
+<?php if ($b['email'] !== ''): ?>
+          <form method="post" class="inline"><?= kay_csrf_field($admin) ?><input type="hidden" name="do" value="gear">
+            <button class="btn btn--ghost" data-confirm="<?= kay_th('Envoyer le questionnaire à {email} ?', ['{email}' => $b['email']]) ?>"><?= kay_th('Envoyer par e-mail') ?></button></form>
+<?php endif; ?>
+          <a class="btn btn--ghost" target="_blank" rel="noopener"
+             href="<?= kay_h(($wa !== null ? $wa : 'https://wa.me/') . '?text=' . rawurlencode(strtr((string) (kay_messages(in_array($b['locale'], ['en', 'es', 'fr'], true) ? $b['locale'] : 'en')['emails']['gear']['whatsapp'] ?? ''), ['{name}' => $b['name']]) . ' ' . $gearUrl)) ?>"><?= kay_th('Envoyer par WhatsApp') ?></a>
+        </div>
+      </div>
+<?php endif; ?>
     </section>
 
     <section class="card">

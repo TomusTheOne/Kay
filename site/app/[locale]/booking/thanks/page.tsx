@@ -8,5 +8,5 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
   const { locale } = await params;
   if (!isLocale(locale)) notFound();
   const t = (await getDictionary(locale)).booking.thanks;
-  return <Outcome locale={locale} tag={t.tag} h2={t.h2} p={t.p} cta={t.cta} tone="ok" />;
+  return <Outcome locale={locale} tag={t.tag} h2={t.h2} p={t.p} note={t.note} cta={t.cta} tone="ok" />;
 }

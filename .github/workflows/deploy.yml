@@ -129,6 +129,22 @@ jobs:
           lcd ./site/out
           cd $TARGET
           pwd
-          mirror --reverse --delete --verbose=1 --no-perms --exclude '^\.well-known/' . .
+          # The cenote map's basemap (tiles/, ~5 MB) goes separately. Next's
+          # export rewrites every mtime, so the main mirror re-uploads the whole
+          # site on each deploy; for the basemap that would be 5 MB for nothing.
+          # Its file name carries the date it was cut, so comparing by name and
+          # size alone (--ignore-time) is exact. New cut first, so the pages
+          # about to reference it never ask for a file not there yet; the old
+          # cut goes last, once no page on the server points at it any more.
+          mkdir tiles || echo "tiles/ is already there"
+          lcd tiles
+          cd tiles
+          mirror --reverse --no-perms --ignore-time --verbose=1 . .
+          lcd ..
+          cd ..
+          mirror --reverse --delete --verbose=1 --no-perms --exclude '^\.well-known/' --exclude '^tiles/' . .
+          lcd tiles
+          cd tiles
+          mirror --reverse --delete --no-perms --ignore-time --verbose=1 . .
           bye
           LFTP

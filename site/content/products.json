@@ -1,6 +1,6 @@
 {
   "_comment": "Single source of truth for what Kay sells. Read by the TypeScript site AND by the PHP endpoints, so a price can never disagree between the page and the charge. Figures come from the 2026 menu PDF, corrected by Kay's own answers where the menu was wrong or silent.",
-  "contentUpdated": "2026-09-18",
+  "contentUpdated": "2026-09-24",
   "publishedLocales": [
     "en",
     "es",
@@ -13,7 +13,7 @@
     "lon": -87.4654,
     "waterTempC": 25,
     "visibilityM": "30 m+",
-    "sacActunKm": 376,
+    "sacActunKm": 369,
     "instagram": "https://www.instagram.com/kaydivingtulum",
     "agency": "PADI",
     "phone": "+525554547479",
@@ -130,9 +130,7 @@
       "maxDepthM": 27,
       "diveTime": "30–45 min",
       "locations": [
-        "casa-cenote",
-        "el-pit",
-        "tankah-reef"
+        "angelita-or-el-pit"
       ],
       "options": [
         {
@@ -191,9 +189,7 @@
       ],
       "photo": "card-snorkel",
       "art": "casa-cenote",
-      "extraIncludes": [
-        "snorkel-mask"
-      ]
+      "extraIncludes": []
     },
     {
       "slug": "bull-sharks",

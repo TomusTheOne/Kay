@@ -255,6 +255,12 @@ input[type="checkbox"] { width: 18px; min-height: 18px; accent-color: var(--mark
 .table th:last-child, .table td:last-child { padding-right: 20px; }
 .table .num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
 .table--compact td, .table--compact th { padding: 6px 10px; }
+/* Sizes: short values that must not break ("1.72 m", "por ver"); only the name wraps. */
+@media (min-width: 721px) {
+  .table--gear { font-size: 13.5px; }
+  .table--gear td { white-space: nowrap; }
+  .table--gear td:first-child { white-space: normal; min-width: 7em; }
+}
 
 @media (max-width: 720px) {
   .table--stack thead { display: none; }
@@ -498,6 +504,11 @@ a.row:hover .row__main strong { text-decoration: underline; }
   .cal__state { font-size: 9.5px; letter-spacing: 0; }
   .cal__busy { font-size: 9.5px; margin-top: 0; }
 }
+
+/* equipment sizes */
+.gear-share { display: grid; gap: 10px; margin-top: 16px; }
+.sheet__gear { grid-column: 1 / -1; font-size: 13px; color: var(--ink-2); display: grid; gap: 2px; }
+.sheet__gear .tag { justify-self: start; }
 
 /* closed days in the dashboard week and the day-sheet strip */
 .week a.is-closed, .strip a.is-closed { background: var(--bad-bg); border-color: var(--bad); }

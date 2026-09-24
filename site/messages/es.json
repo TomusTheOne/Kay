@@ -13,7 +13,8 @@
     "reserveLong": "Reservar un buceo",
     "menu": "Menú",
     "language": "Idioma",
-    "logistics": "Cómo llegar"
+    "logistics": "Cómo llegar",
+    "cenotes": "Cenotes"
   },
   "hero": {
     "kicker": "Tulum · Quintana Roo · Riviera Maya",
@@ -46,7 +47,7 @@
   "products": {
     "tag": "Lo que hacemos",
     "h2": "Seis formas<br>de entrar al agua.",
-    "intro": "Cada precio de abajo ya incluye tu equipo, las entradas a los cenotes, el transporte entre los sitios y snacks en el agua. La única cosa que se cotiza aparte es el pickup en tu hotel — mira Cómo llegar.",
+    "intro": "Cada precio de abajo ya incluye tu equipo, las entradas a los cenotes, el transporte entre los sitios y snacks entre inmersiones. La única cosa que se cotiza aparte es el pickup en tu hotel — mira Cómo llegar.",
     "from": "desde",
     "dive": "inmersión",
     "dives": "inmersiones",
@@ -68,7 +69,8 @@
       "el-pit": "Cenote El Pit",
       "by-level": "Elegidos según tu nivel",
       "favourite-cenotes": "Nuestros cenotes favoritos cerca de Tulum",
-      "playa-del-carmen": "Playa del Carmen · a 45 min de Tulum"
+      "playa-del-carmen": "Playa del Carmen · a 45 min de Tulum",
+      "angelita-or-el-pit": "Angelita o El Pit"
     },
     "items": {
       "discover-scuba": {
@@ -92,7 +94,7 @@
       "advanced-ow": {
         "name": "Advanced Open Water",
         "tagline": "Sube un escalón de experiencia.",
-        "text": "El siguiente paso: cinco inmersiones de especialidad que te llevan a treinta metros, entre Casa Cenote, el Cenote El Pit y el arrecife de Tankah. Material de estudio incluido.",
+        "text": "El siguiente paso: cinco inmersiones de especialidad que te llevan a treinta metros, en el Cenote Angelita o el Cenote El Pit. Material de estudio incluido.",
         "alt": "Un buzo en lo profundo de un cenote oscuro de Tulum, con un tanque de etapa al costado y burbujas subiendo"
       },
       "open-water": {
@@ -144,7 +146,7 @@
     "items": {
       "equipment": {
         "name": "Equipo",
-        "text": "Equipo de calidad, ajustado antes de entrar. Trae traje de baño y bloqueador biodegradable."
+        "text": "Equipo de calidad, ajustado antes de entrar. En los tours de snorkel te damos snorkel y visor. Trae traje de baño y bloqueador biodegradable."
       },
       "entrance": {
         "name": "Entrada a los cenotes",
@@ -162,10 +164,6 @@
         "name": "Material de estudio",
         "text": "En los dos cursos, todo lo que necesitas para estudiar está incluido."
       },
-      "snorkel-mask": {
-        "name": "Snorkel y visor",
-        "text": "Incluidos en el tour de snorkel."
-      },
       "padi-licence": {
         "name": "Certificación PADI",
         "text": "El curso Open Water termina con una certificación reconocida en todo el mundo."
@@ -175,7 +173,7 @@
   "gallery": {
     "tag": "Desde el agua",
     "h2": "Cómo se ve<br>realmente allá abajo.",
-    "intro": "Fotos tomadas por los guías en días de trabajo — sin modelos, sin montaje. Más, casi a diario, en",
+    "intro": "Fotos tomadas por clientes durante los tours — sin modelos, sin montaje. Más, casi a diario, en",
     "captions": {
       "gallery-1": "Bajando · un cenote de Tulum",
       "gallery-2": "La boca de la caverna, desde abajo",
@@ -190,7 +188,7 @@
   "book": {
     "tag": "Reservaciones",
     "h2": "Reserva tu<br>día en el agua.",
-    "intro": "Un anticipo aparta la fecha. Confirmamos por WhatsApp en unas horas, te mandamos nuestras preguntas y liquidas el resto el mismo día.",
+    "intro": "Un anticipo aparta la fecha. Confirmamos por WhatsApp en unas horas, te mandamos unas preguntas y liquidas el resto el mismo día.",
     "s1": "01 — Qué quieres hacer",
     "s2": "02 — Cuántas inmersiones",
     "s3": "03 — Fecha",
@@ -219,7 +217,8 @@
     "rTotal": "Total",
     "rDeposit": "Anticipo ahora",
     "halfDayLabel": "Medio día",
-    "fine": "Equipo, entrada a los cenotes, transporte a los sitios y snacks incluidos. Precios por persona en USD; el pickup es por reservación. El anticipo se cobra en pesos mexicanos y el resto se liquida el mismo día.",
+    "fine": "Equipo, entrada a los cenotes, transporte a los sitios y snacks incluidos. Precios por persona en USD; el pickup es por reservación. El anticipo se cobra en pesos mexicanos y el resto se liquida el mismo día. Si pagas el resto en dólares, se toma el tipo de cambio de ese día.",
+    "certNote": "El día del buceo muéstrale tu certificación a tu guía — la tarjeta o una copia en tu celular. Sin ella no podemos llevarte a bucear. Hasta 20 m: Open Water o equivalente. Más profundo: al menos Advanced Open Water o equivalente.",
     "mpDescription": "Anticipo del {percent}% — el resto se liquida el mismo día.",
     "submit": "Reservar con anticipo",
     "submitting": "Abriendo el pago…",
@@ -244,7 +243,7 @@
     "items": [
       {
         "q": "¿Necesito estar certificado para bucear aquí?",
-        "a": "No para empezar. Discover Scuba recibe a gente que nunca ha respirado bajo el agua, y el tour de snorkel no necesita nada. El buceo en cenotes y el arrecife piden certificación Open Water. Para los dos cenotes profundos — Angelita y El Pit — necesitas Advanced Open Water o la especialidad Deep; con cualquiera de las dos basta."
+        "a": "No para empezar. Discover Scuba recibe a gente que nunca ha respirado bajo el agua, y el tour de snorkel no necesita nada. Cualquier inmersión de 20 metros o menos — el arrecife y la mayoría de los cenotes — pide Open Water o equivalente. Todo lo que sea más profundo — Angelita y El Pit — pide al menos Advanced Open Water o equivalente; la especialidad Deep cuenta. Trae la tarjeta o una copia digital y muéstrasela a tu guía el día del buceo: sin ella no podemos llevarte a bucear."
       },
       {
         "q": "¿Hasta qué profundidad van las inmersiones?",
@@ -252,7 +251,7 @@
       },
       {
         "q": "¿Qué incluye realmente el precio?",
-        "a": "Equipo de calidad, las entradas a los cenotes, el transporte del punto de encuentro a cada sitio y de regreso, y snacks y agua. Los dos cursos incluyen además el material de estudio. El pickup en hotel es lo único que se cobra aparte — mira abajo."
+        "a": "Equipo de calidad, las entradas a los cenotes, el transporte del punto de encuentro a cada sitio y de regreso, y snacks y agua. Los dos cursos incluyen además el material de estudio. El pickup en hotel es lo único que se cobra aparte — mira abajo. Los precios están en dólares y en pesos; si pagas el resto en dólares, se toma el tipo de cambio de ese día."
       },
       {
         "q": "¿Pueden pasar por mí a mi hotel?",
@@ -305,7 +304,8 @@
     "thanks": {
       "tag": "Pago recibido",
       "h2": "Ya estás dentro.",
-      "p": "Tu anticipo entró y la fecha está apartada. Un guía te escribe por WhatsApp en unas horas con el punto de encuentro, la hora y las pocas preguntas que hacemos antes de cada buceo. El resto se liquida el mismo día.",
+      "p": "Tu anticipo entró y la fecha está apartada. Un guía te escribe por WhatsApp en unas horas con el punto de encuentro, la hora y las pocas preguntas que hacemos antes de cada buceo. El resto se liquida el mismo día. En tu correo de confirmación viene un formulario corto para tus tallas de equipo.",
+      "note": "Trae tu certificación de buceo el día del tour — la tarjeta o una copia digital — y muéstrasela a tu guía. Hasta 20 metros necesitas Open Water o equivalente; más profundo, al menos Advanced Open Water o equivalente. Sin ella no podemos llevarte a bucear. Discover Scuba, el curso Open Water y el tour de snorkel no piden ninguna.",
       "cta": "Volver al sitio"
     },
     "pending": {
@@ -377,7 +377,16 @@
       "totalLabel": "Total",
       "paidLabel": "Anticipo pagado",
       "balanceLabel": "Resto el mismo día",
-      "balanceNote": "Se liquida en efectivo o con tarjeta al llegar.",
+      "balanceNote": "Se liquida en efectivo o con tarjeta al llegar. Si pagas en dólares, se toma el tipo de cambio de ese día.",
+      "certTag": "Tu certificación",
+      "certOpenWater": "Trae tu certificación Open Water, o una equivalente, y muéstrasela a tu guía el día del buceo — la tarjeta física o una copia digital en tu celular. Es obligatoria para cualquier inmersión de 20 metros o menos.",
+      "certOpenWaterPlus": "Trae tu certificación y muéstrasela a tu guía el día del buceo — la tarjeta física o una copia digital en tu celular. Para inmersiones de 20 metros o menos necesitas Open Water o equivalente; para Angelita y El Pit, a más de 20 metros, al menos Advanced Open Water o equivalente, como la especialidad Deep.",
+      "certAdvanced": "Trae tu certificación y muéstrasela a tu guía el día del buceo — la tarjeta física o una copia digital en tu celular. Esta inmersión pide al menos Advanced Open Water o equivalente, como la especialidad Deep.",
+      "certNoShow": "Si no muestras la certificación requerida, física o digital, no podrás hacer este tour de buceo.",
+      "gearTag": "Tus tallas de equipo",
+      "gearText": "Para tener tu equipo listo y a tu medida cuando llegues, dinos la estatura, el peso aproximado, la talla de zapato y las tallas de traje, BCD y aletas de cada buzo. Toma dos minutos.",
+      "gearTextSnorkel": "Para tener tus aletas listas cuando llegues, dinos la talla de zapato de cada persona. Toma un minuto.",
+      "gearCta": "Llenar las tallas",
       "nextTag": "Qué sigue",
       "nextText": "Un guía te escribe por WhatsApp en unas horas para confirmar los detalles y hacerte las pocas preguntas médicas que hacemos antes de cada buceo. Si algo de arriba está mal, solo responde a este correo.",
       "bringTag": "Trae",
@@ -395,8 +404,124 @@
       "emailLabel": "Correo",
       "localeLabel": "Escribió en",
       "action": "Escríbele por WhatsApp y ponlo en la hoja del día."
+    },
+    "gear": {
+      "subject": "Tus tallas para el buceo del {date}",
+      "preheader": "Dos minutos, para tener tu equipo listo cuando llegues.",
+      "kicker": "Antes de tu buceo",
+      "whatsapp": "¡Hola {name}! Para tener listo tu equipo, llena tus tallas aquí:"
     }
   },
   "_translated": true,
-  "_note": "Traducción al español de México, revisada con el inglés clave por clave. Los nombres PADI y los topónimos se quedan en su forma original."
+  "_note": "Traducción al español de México, revisada con el inglés clave por clave. Los nombres PADI y los topónimos se quedan en su forma original.",
+  "gear": {
+    "metaTitle": "Tus tallas de equipo · Kay Diving",
+    "tag": "Antes de tu buceo",
+    "h1": "Tus tallas de equipo",
+    "intro": "Para tener tu equipo listo y a tu medida cuando llegues. Una ficha por persona — toma dos minutos.",
+    "introSnorkel": "Para tener tus aletas listas cuando llegues: solo la talla de zapato de cada persona.",
+    "loading": "Cargando tu reservación…",
+    "invalid": "Este enlace no funciona. Usa el de tu correo de confirmación o escríbenos por WhatsApp.",
+    "closed": "Esta reservación ya no está activa, así que no hay tallas que enviar.",
+    "error": "Algo falló. Inténtalo de nuevo o mándanos tus tallas por WhatsApp.",
+    "diver": "Buzo {n}",
+    "person": "Persona {n}",
+    "name": "Nombre",
+    "units": "Unidades",
+    "metric": "cm · kg",
+    "imperial": "ft · lb",
+    "height": "Estatura",
+    "weight": "Peso aproximado",
+    "shoe": "Talla de zapato",
+    "shoeSystem": "Sistema de tallas",
+    "wetsuit": "Traje (wetsuit)",
+    "bcd": "BCD (chaleco)",
+    "fins": "Aletas",
+    "notSure": "No sé",
+    "sizesHint": "¿No sabes una talla? Elige «No sé» — con tu estatura y tu peso nos basta.",
+    "submit": "Enviar las tallas",
+    "sending": "Enviando…",
+    "saved": "Gracias — tus tallas quedaron guardadas. Puedes volver a esta página y cambiarlas hasta el día del buceo.",
+    "errHeight": "Revisa la estatura de {who}.",
+    "errWeight": "Revisa el peso de {who}.",
+    "errShoe": "Revisa la talla de zapato de {who}.",
+    "back": "Volver al sitio"
+  },
+  "cenotes": {
+    "metaTitle": "Guía de cenotes: Tulum y la Riviera Maya | Kay Diving",
+    "metaDescription": "Los cenotes que buceamos alrededor de Tulum, uno por uno: Angelita, El Pit, Dos Ojos, Casa Cenote y más — hasta dónde llega el buceo, la certificación necesaria y dónde está cada uno en el mapa.",
+    "tag": "Guía de cenotes",
+    "h1": "Los cenotes que buceamos,<br>uno por uno.",
+    "intro": "Cada cenote de este mapa es uno que buceamos, con la profundidad a la que llega el buceo y la certificación que muestras el día del tour. Toca un punto en el mapa o elige un tipo abajo.",
+    "preview": "Vista previa: esta guía todavía no es pública. Revisa la posición de cada cenote en el mapa antes de publicarla.",
+    "approx": "Posición aproximada, por confirmar",
+    "mapLabel": "Mapa de los cenotes alrededor de Tulum",
+    "mapLoading": "Cargando el mapa…",
+    "mapError": "El mapa no pudo cargarse; todos los cenotes están en la lista de abajo.",
+    "zoomIn": "Acercar",
+    "zoomOut": "Alejar",
+    "reset": "Volver a Tulum",
+    "gestureWin": "Usa Ctrl + rueda para hacer zoom en el mapa",
+    "gestureMac": "Usa ⌘ + rueda para hacer zoom en el mapa",
+    "gestureTouch": "Usa dos dedos para mover el mapa",
+    "cluster": "{n} cenotes aquí: acércate",
+    "close": "Cerrar",
+    "filter": "Mostrar",
+    "all": "Todos",
+    "count": "{n} cenotes",
+    "none": "Ningún cenote coincide.",
+    "diveDepth": "Profundidad del buceo",
+    "cenoteDepth": "Profundidad del cenote",
+    "upTo": "hasta {m} m",
+    "levelTag": "Certificación",
+    "fromTulum": "Desde Tulum, en línea recta",
+    "snorkelToo": "También para snorkel",
+    "see": "Ver el cenote",
+    "divesTag": "Bucéalo con nosotros",
+    "nearbyTag": "Cerca",
+    "back": "Todos los cenotes",
+    "illustration": "Ilustración — foto próximamente",
+    "homeTag": "Mapa de cenotes",
+    "homeH2": "Dónde buceamos,<br>alrededor de Tulum.",
+    "homeIntro": "Todos los cenotes que buceamos, en un solo mapa: desde Casa Cenote, junto al mar, hasta la nube de Angelita, a 30 m en plena selva. Toca uno para ver hasta dónde baja y qué nivel pide.",
+    "homeCta": "Abrir la guía de cenotes",
+    "compass": [
+      "N",
+      "NE",
+      "E",
+      "SE",
+      "S",
+      "SO",
+      "O",
+      "NO"
+    ],
+    "types": {
+      "open": "Cenote abierto",
+      "cavern": "Caverna",
+      "deep": "Profundo"
+    },
+    "filters": {
+      "open": "Abiertos",
+      "cavern": "Cavernas",
+      "deep": "Profundos · Advanced",
+      "snorkel": "También snorkel"
+    },
+    "levels": {
+      "none": "Ninguna: pruébalo con Discover Scuba",
+      "open-water": "Open Water o equivalente",
+      "advanced": "Advanced Open Water o Deep"
+    },
+    "items": {
+      "casa-cenote": "Un cenote abierto tipo laguna, conectado directamente al mar Caribe, lo que genera un ecosistema único donde se mezclan el agua dulce y la salada. Su profundidad máxima ronda los 9 metros, ideal para buceadores principiantes y para quienes buscan una inmersión relajada. Está rodeado de manglares y su visibilidad, aunque variable, ofrece la oportunidad de nadar junto a peces, tortugas y, en ocasiones, un cocodrilo de agua dulce (de la especie Crocodylus moreletii). Perfecto para combinar el buceo recreativo con el contacto directo con la vida silvestre.",
+      "car-wash": "Bajo una superficie tranquila y accesible se esconde uno de los cenotes más fotografiados de la Riviera Maya. Sus aguas transparentes están decoradas con lirios acuáticos que flotan en la superficie, mientras que en las profundidades aparecen troncos petrificados y una impresionante galería de estalactitas y estalagmitas. Con hasta 16 metros de profundidad, es perfecto tanto para snorkel como para buceo en caverna, y los rayos de sol que se filtran entre la vegetación crean juegos de luz que hacen de cada inmersión una experiencia casi cinematográfica.",
+      "dos-ojos": "Uno de los sistemas de cuevas inundadas más famosos del mundo, formado por dos cenotes conectados que, vistos desde arriba, dan la ilusión de “dos ojos”. Ofrece rutas de buceo en caverna como “The Barbie Line” y “The Bat Cave”, con aguas cristalinas de visibilidad superior a 30 metros, impresionantes estalactitas y formaciones rocosas milenarias. Su profundidad máxima es de aproximadamente 10 metros en las zonas abiertas. Forma parte del sistema de cuevas sumergidas más extenso del mundo, con alrededor de 369 kilómetros. Una excelente opción para quienes nunca han buceado en un cenote.",
+      "el-pit": "Considerado uno de los cenotes más profundos y dramáticos de la Riviera Maya, con una profundidad de hasta 119 metros. Es famoso por su columna de luz que atraviesa el agua, por su haloclina (la mezcla de agua dulce y salada) y por una nube de ácido sulfhídrico a unos 30 metros, que le da un efecto visual de “niebla” submarina. Recomendado para buceadores avanzados o con certificación técnica, ofrece una de las experiencias de buceo en cenotes más impactantes del mundo.",
+      "angelita": "Con aproximadamente 60 metros de profundidad, este cenote guarda uno de los fenómenos más impactantes del buceo en cavernas: una nube de ácido sulfhídrico que flota sobre el agua salada a unos 30 metros, creando la ilusión óptica de un río subterráneo con troncos y hojarasca “flotando” en el aire. Atravesar esa capa es como cruzar un umbral hacia otra dimensión, que revela un paisaje sumergido envuelto en una bruma espectral. Una experiencia mística y sobrecogedora, reservada para buceadores avanzados que buscan algo verdaderamente único.",
+      "dreamgate": "Un cenote de tipo caverna con entrada circular, conocido por la extraordinaria claridad de su agua y por las imponentes columnas y formaciones rocosas que descienden hasta el fondo. La luz natural que se filtra por la abertura superior crea efectos visuales espectaculares. Es ideal para el buceo en caverna, con recorridos que muestran salas amplias y una atmósfera casi ceremonial.",
+      "tak-be-luum": "Un cenote menos conocido y, por eso, más virgen, ubicado en la zona del Parque Dos Ojos. Ofrece pasajes de caverna con formaciones geológicas bien conservadas, aguas tranquilas y una experiencia más íntima, porque recibe menos visitantes. Ideal para quienes buscan explorar cenotes fuera de las rutas más turísticas.",
+      "tak-be-ha": "Sistema de cuevas con salas amplias, estalactitas y estalagmitas bien definidas, y una marcada haloclina que produce efectos visuales de distorsión donde se mezclan el agua dulce y la salada. Ofrece un ambiente sereno, ideal para buceadores certificados que buscan formaciones geológicas espectaculares en un entorno poco masificado.",
+      "nicte-ha": "Ubicado cerca de Dos Ojos, destaca por su vegetación acuática y por sus aguas de color esmeralda, debidas a la presencia de lirios y plantas subacuáticas. Es menos profundo que otros cenotes de la zona, lo que lo hace ideal para el snorkel y el buceo ligero, con buena visibilidad y una atmósfera natural muy fotogénica.",
+      "nohoch-nah-chich": "Parte de uno de los sistemas de cuevas subacuáticas más extensos del mundo. Se caracteriza por una asombrosa concentración de estalactitas y estalagmitas, muchas de gran tamaño, que forman auténticos “bosques” de piedra bajo el agua. Sus aguas cristalinas y sus pasajes intrincados lo convierten en un destino imprescindible para buceadores de cavernas experimentados que buscan formaciones geológicas de otro nivel."
+    }
+  }
 }

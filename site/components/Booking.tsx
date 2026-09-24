@@ -261,6 +261,9 @@ export default function Booking({
             <span className="v">{money(deposit)} MXN</span>
           </div>
           <p className="slate__fine">{t.fine}</p>
+          {/* Said before the deposit, not only after it: a diver without the
+              card the dive needs should not pay to find that out on the day. */}
+          {product.level !== "none" && <p className="slate__fine">{t.certNote}</p>}
           {outOfSeason && (
             <p className="slate__fine" role="alert" style={{ color: "var(--turq)" }}>
               {t.outOfSeason.replace("{season}", products.seasonValue[product.slug])}

@@ -278,6 +278,9 @@ function kay_customer_forget(PDO $db, int $id): void
         "UPDATE bookings SET name = ?, email = '', start_note = '' WHERE customer_id = ?"
     )->execute([$anonymous, $id]);
     $db->prepare('DELETE FROM crm_notes WHERE customer_id = ?')->execute([$id]);
+    // Heights and weights are personal too.
+    $db->prepare('DELETE g FROM booking_gear g JOIN bookings b ON b.id = g.booking_id WHERE b.customer_id = ?')
+       ->execute([$id]);
     $db->prepare(
         "UPDATE customers
             SET name = ?, email = NULL, phone = '', country = '', certification = '',

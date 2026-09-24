@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // MapLibre's own minified modules, copied by scripts/vendor.mjs.
+    "public/vendor/**",
   ]),
 ]);
 

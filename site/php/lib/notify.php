@@ -157,6 +157,16 @@ function kay_mail_facts(string $tag, array $rows): string
     return $out . '</table></td></tr>';
 }
 
+/** A real button: a table cell, because Outlook ignores padding on links. */
+function kay_mail_button(string $url, string $label): string
+{
+    return '<table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr>'
+        . '<td style="background:#03090E;border-radius:8px;">'
+        . '<a href="' . kay_e($url) . '" style="display:inline-block;padding:12px 22px;'
+        . 'font:700 14px/1 Helvetica,Arial,sans-serif;color:#E6FBF6;text-decoration:none;">' . kay_e($label) . '</a>'
+        . '</td></tr></table>';
+}
+
 function kay_mail_footer(string $line): string
 {
     return '<tr><td style="padding:26px 32px 30px;font:400 12px/1.6 Helvetica,Arial,sans-serif;'
@@ -220,6 +230,27 @@ function kay_booking_emails(array $row): array
 
     $swap = static fn(string $t, array $vars): string => strtr($t, $vars);
 
+    // What the diver must show the guide on the day, from the experience's
+    // level — the same one the product card and the booking form print. The
+    // booking does not say which cenote, so a cenote day states both rules:
+    // Open Water to 20 m, Advanced or equivalent for Angelita and El Pit.
+    // Discover Scuba, the Open Water course and the snorkel tour need none.
+    $certKey = match ((string) ($product['level'] ?? 'none')) {
+        'open-water'      => 'certOpenWater',
+        'open-water-plus' => 'certOpenWaterPlus',
+        'advanced'        => 'certAdvanced',
+        default           => null,
+    };
+    $certText = $certKey !== null && isset($d[$certKey])
+        ? trim($d[$certKey] . ' ' . ($d['certNoShow'] ?? ''))
+        : '';
+
+    // The equipment questionnaire: a personal link, so the kit is on the
+    // boat in the right sizes. Loaded wherever emails are sent from; a
+    // caller that did not load lib/gear.php simply sends none.
+    $gearUrl  = function_exists('kay_gear_url') ? kay_gear_url($row + ['locale' => $locale]) : '';
+    $gearText = ($product['kind'] ?? '') === 'snorkel' ? ($d['gearTextSnorkel'] ?? '') : ($d['gearText'] ?? '');
+
     /* ----------------------------------------------------------- to the diver */
 
     $facts = [
@@ -243,6 +274,14 @@ function kay_booking_emails(array $row): array
         . kay_mail_facts($d['detailsTag'], $facts)
         . kay_mail_facts($d['moneyTag'], $money)
         . kay_mail_text('<p style="margin:0;font-size:13px;color:#5C6B72;">' . kay_e($d['balanceNote']) . '</p>')
+        . ($certText === '' ? '' : kay_mail_text(
+            '<div style="margin:20px 0 0;padding:12px 16px;border-left:3px solid #1FA8AE;background:#EAF6F5;border-radius:0 8px 8px 0;">'
+            . '<p style="margin:0 0 6px;font-weight:700;">' . kay_e($d['certTag']) . '</p>'
+            . '<p style="margin:0;">' . kay_e($certText) . '</p></div>'))
+        . ($gearUrl === '' ? '' : kay_mail_text(
+            '<p style="margin:22px 0 6px;font-weight:700;">' . kay_e($d['gearTag']) . '</p>'
+            . '<p style="margin:0 0 14px;">' . kay_e($gearText) . '</p>'
+            . kay_mail_button($gearUrl, (string) $d['gearCta'])))
         . kay_mail_text('<p style="margin:18px 0 6px;font-weight:700;">' . kay_e($d['nextTag']) . '</p>'
             . '<p style="margin:0;">' . kay_e($d['nextText']) . '</p>'
             . '<p style="margin:18px 0 6px;font-weight:700;">' . kay_e($d['bringTag']) . '</p>'
@@ -272,6 +311,8 @@ function kay_booking_emails(array $row): array
         $d['paidLabel'] . ': ' . $paidLine,
         $d['balanceLabel'] . ': ' . $balanceLine,
         $d['balanceNote'],
+        ...($certText === '' ? [] : ['', $d['certTag'] . ' — ' . $certText]),
+        ...($gearUrl === '' ? [] : ['', $d['gearTag'] . ' — ' . $gearText, $gearUrl]),
         '',
         $d['nextTag'] . ' — ' . $d['nextText'],
         $d['bringTag'] . ' — ' . $d['bringText'],

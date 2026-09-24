@@ -20,6 +20,9 @@
 
   document.querySelectorAll("[data-print]").forEach((b) => b.addEventListener("click", () => window.print()));
 
+  // A link to copy: one tap selects all of it.
+  document.querySelectorAll("[data-select]").forEach((el) => el.addEventListener("focus", () => el.select()));
+
   /* -------------------------------------------------------- chart tooltips --
      Value first, label second: the reader already knows which chart it is. */
   const tip = document.getElementById("tip");

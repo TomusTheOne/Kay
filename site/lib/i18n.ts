@@ -46,12 +46,40 @@ export function pathFor(locale: Locale, path = "/") {
 export interface ProductCopy { name: string; tagline: string; text: string; alt: string }
 export interface IncludeCopy { name: string; text: string }
 export interface Qa { q: string; a: string }
-export interface Outcome { tag: string; h2: string; p: string; cta: string }
+/** `note` is the second paragraph only the thanks page has: what to bring on the day. */
+export interface Outcome { tag: string; h2: string; p: string; note?: string; cta: string }
+
+/**
+ * The guide's strings. `items` is Kay's own text for each cenote, keyed by the
+ * slugs in content/cenotes.json; `compass` is N, NE, E… NW in that order.
+ */
+export type CenoteCopy = Record<
+  "metaTitle" | "metaDescription" | "tag" | "h1" | "intro" | "preview" | "approx"
+  | "mapLabel" | "mapLoading" | "mapError" | "zoomIn" | "zoomOut" | "reset"
+  | "gestureWin" | "gestureMac" | "gestureTouch" | "cluster" | "close"
+  | "filter" | "all" | "count" | "none" | "diveDepth" | "cenoteDepth" | "upTo"
+  | "levelTag" | "fromTulum" | "snorkelToo" | "see" | "divesTag" | "nearbyTag"
+  | "back" | "illustration" | "homeTag" | "homeH2" | "homeIntro" | "homeCta", string
+> & {
+  compass: string[];
+  types: Record<"open" | "cavern" | "deep", string>;
+  filters: Record<"open" | "cavern" | "deep" | "snorkel", string>;
+  levels: Record<"none" | "open-water" | "advanced", string>;
+  items: Record<string, string>;
+};
+
+/** The guide's strings without Kay's texts — all the map needs on the client. */
+export type MapCopy = Omit<CenoteCopy, "items">;
+export function mapCopy(c: CenoteCopy): MapCopy {
+  const { items, ...rest } = c;
+  void items;
+  return rest;
+}
 
 export interface Dictionary {
   meta: { title: string; description: string };
   nav: Record<"about" | "products" | "included" | "logistics" | "gallery" | "faq"
-            | "reserve" | "reserveLong" | "menu" | "language", string>;
+            | "cenotes" | "reserve" | "reserveLong" | "menu" | "language", string>;
   hero: Record<"kicker" | "l1" | "l2" | "lede" | "cta2" | "alt"
              | "water" | "viz" | "from" | "agency" | "agencyLabel", string>;
   gauge: Record<"surface" | "cavern" | "deep", string>;
@@ -90,6 +118,10 @@ export interface Dictionary {
   footer: Record<"blurb" | "explore" | "learn" | "find" | "whatsapp" | "email"
                 | "place" | "phone" | "meet", string>;
   booking: Record<"thanks" | "pending" | "failed", Outcome>;
+  /** The equipment-sizes questionnaire behind the link in the confirmation email. */
+  gear: Record<string, string>;
+  /** The cenote guide, its map, and the map section on the home page. */
+  cenotes: CenoteCopy;
   /* Sent by php/lib/notify.php once a deposit clears. The strings live with
      the rest of the copy so a translation stays one file, not two. */
   emails: {

@@ -7,6 +7,8 @@ require __DIR__ . '/lib/db.php';
 require __DIR__ . '/lib/mercadopago.php';
 require __DIR__ . '/lib/mail.php';
 require __DIR__ . '/lib/notify.php';
+// The equipment questionnaire's link, in the confirmation email.
+require __DIR__ . '/lib/gear.php';
 
 if (($_SERVER['REQUEST_METHOD'] ?? '') !== 'POST') {
     kay_fail(405, 'method not allowed');

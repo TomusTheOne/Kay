@@ -107,6 +107,7 @@ kay_page_start(kay_t('Planning'), 'planning.php', $admin);
   <ul class="sheet__list">
 <?php foreach ($list as $b):
     $m = kay_booking_money($b);
+    $gear = kay_gear_for($db, (string) $b['id']);
     $phone = (string) ($b['customer_phone'] ?? '');
     $wa = kay_whatsapp_url($phone); ?>
     <li class="sheet__item">
@@ -120,6 +121,13 @@ kay_page_start(kay_t('Planning'), 'planning.php', $admin);
       <div class="sheet__money">
         <?= $m['due'] > 0 ? '<span class="due">' . kay_mxn($m['due']) . '</span><span class="muted small">' . kay_th('à encaisser') . '</span>'
                           : '<span class="ok">' . kay_th('Réglé') . '</span>' ?>
+      </div>
+      <div class="sheet__gear">
+<?php if ($gear === []): ?>
+        <span class="tag tag--task"><?= kay_th('Tailles non reçues') ?></span>
+<?php else: foreach ($gear as $n => $g): ?>
+        <span><strong><?= kay_h($g['name'] !== '' ? $g['name'] : '#' . $n) ?></strong> — <?= kay_h(kay_gear_line($g)) ?></span>
+<?php endforeach; endif; ?>
       </div>
       <div class="sheet__contact no-print">
         <?php if ($wa !== null): ?><a class="btn btn--ghost btn--small" href="<?= kay_h($wa) ?>" target="_blank" rel="noopener">WhatsApp</a><?php endif; ?>

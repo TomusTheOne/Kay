@@ -53,6 +53,7 @@ const KAY_FLASH = [
     'opened'     => 'Jour rouvert aux réservations.',
     'rangeclosed' => 'Dates fermées.',
     'rangeopened' => 'Dates rouvertes.',
+    'gearsent'   => 'Questionnaire des tailles envoyé.',
 ];
 
 /* ------------------------------------------------------------ formatting --

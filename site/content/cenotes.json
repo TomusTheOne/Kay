@@ -1,0 +1,100 @@
+{
+  "_comment": "The cenote guide and its map. Texts live in messages/<locale>.json under cenotes.items; everything that is the same in every language lives here. Set published to true once Kay has checked every position on the preview pages: the guide then joins the menu, the home page map, the footer and the sitemap, and stops being noindex.",
+  "published": false,
+  "basemap": "/tiles/tulum-20260923.pmtiles",
+  "bounds": [-88.7, 19.1, -86.3, 21.3],
+  "cenotes": [
+    {
+      "slug": "casa-cenote", "name": "Casa Cenote", "short": "Casa Cenote",
+      "lat": 20.26702, "lon": -87.39227, "approx": false,
+      "type": "open", "level": "none", "snorkel": false,
+      "depthM": 9, "diveMinM": null, "diveMaxM": 9,
+      "products": ["discover-scuba", "reef-cenote", "open-water"],
+      "photo": "card-casa", "art": "casa-cenote"
+    },
+    {
+      "slug": "car-wash", "name": "Cenote Car Wash", "short": "Car Wash", "aka": "Aktun Ha",
+      "lat": 20.27424, "lon": -87.48641, "approx": false,
+      "type": "cavern", "level": "open-water", "snorkel": true,
+      "depthM": 16, "diveMinM": null, "diveMaxM": 16,
+      "products": ["cenote-diving"],
+      "photo": null, "art": "cenote-shaft"
+    },
+    {
+      "slug": "dos-ojos", "name": "Cenote Dos Ojos", "short": "Dos Ojos",
+      "lat": 20.32473, "lon": -87.39061, "approx": false,
+      "type": "cavern", "level": "open-water", "snorkel": false,
+      "depthM": 10, "diveMinM": null, "diveMaxM": 10,
+      "products": ["cenote-diving"],
+      "photo": null, "art": "cavern"
+    },
+    {
+      "slug": "el-pit", "name": "Cenote El Pit", "short": "El Pit",
+      "lat": 20.32318, "lon": -87.40978, "approx": false,
+      "type": "deep", "level": "advanced", "snorkel": false,
+      "depthM": 119, "diveMinM": 30, "diveMaxM": 32,
+      "products": ["cenote-diving", "advanced-ow"],
+      "photo": null, "art": "the-pit"
+    },
+    {
+      "slug": "angelita", "name": "Cenote Angelita", "short": "Angelita",
+      "lat": 20.13746, "lon": -87.57825, "approx": false,
+      "type": "deep", "level": "advanced", "snorkel": false,
+      "depthM": 60, "diveMinM": 35, "diveMaxM": 38,
+      "products": ["cenote-diving", "advanced-ow"],
+      "photo": "card-angelita", "art": "halocline"
+    },
+    {
+      "slug": "dreamgate", "name": "Cenote Dreamgate", "short": "Dreamgate",
+      "lat": 20.30516, "lon": -87.39270, "approx": false,
+      "type": "cavern", "level": "open-water", "snorkel": false,
+      "depthM": null, "diveMinM": null, "diveMaxM": 18,
+      "products": ["cenote-diving"],
+      "photo": null, "art": "cenote-shaft"
+    },
+    {
+      "slug": "tak-be-luum", "name": "Cenote Tak Be Luum", "short": "Tak Be Luum",
+      "lat": 20.31550, "lon": -87.40150, "approx": true,
+      "type": "cavern", "level": "open-water", "snorkel": false,
+      "depthM": null, "diveMinM": null, "diveMaxM": 18,
+      "products": ["cenote-diving"],
+      "photo": null, "art": "cavern"
+    },
+    {
+      "slug": "tak-be-ha", "name": "Cenote Tak Be Ha", "short": "Tak Be Ha",
+      "lat": 20.32469, "lon": -87.39354, "approx": false,
+      "type": "cavern", "level": "open-water", "snorkel": false,
+      "depthM": null, "diveMinM": null, "diveMaxM": 18,
+      "products": ["cenote-diving"],
+      "photo": null, "art": "halocline"
+    },
+    {
+      "slug": "nicte-ha", "name": "Cenote Nicte-Ha", "short": "Nicte-Ha",
+      "lat": 20.32297, "lon": -87.37993, "approx": false,
+      "type": "open", "level": "open-water", "snorkel": true,
+      "depthM": null, "diveMinM": null, "diveMaxM": 18,
+      "products": ["cenote-diving"],
+      "photo": null, "art": "casa-cenote"
+    },
+    {
+      "slug": "nohoch-nah-chich", "name": "Cenote Nohoch Nah Chich", "short": "Nohoch Nah Chich",
+      "lat": 20.29882, "lon": -87.40388, "approx": false,
+      "type": "cavern", "level": "open-water", "snorkel": false,
+      "depthM": null, "diveMinM": null, "diveMaxM": 18,
+      "products": ["cenote-diving"],
+      "photo": null, "art": "cavern"
+    }
+  ],
+  "towns": [
+    { "name": "Tulum", "lat": 20.2114, "lon": -87.4654, "home": true },
+    { "name": "Playa del Carmen", "lat": 20.6296, "lon": -87.0739 },
+    { "name": "Akumal", "lat": 20.3960, "lon": -87.3140 },
+    { "name": "Puerto Aventuras", "lat": 20.4990, "lon": -87.2300 },
+    { "name": "Cobá", "lat": 20.4905, "lon": -87.7335 },
+    { "name": "Cancún", "lat": 21.1619, "lon": -86.8515 },
+    { "name": "Cozumel", "lat": 20.5083, "lon": -86.9458 },
+    { "name": "Valladolid", "lat": 20.6896, "lon": -88.2011 },
+    { "name": "Felipe Carrillo Puerto", "lat": 19.5796, "lon": -88.0453 },
+    { "name": "Punta Allen", "lat": 19.7988, "lon": -87.4787 }
+  ]
+}

@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# MapLibre, copied from node_modules by scripts/vendor.mjs
+/public/vendor/

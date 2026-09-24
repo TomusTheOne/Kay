@@ -41,6 +41,9 @@ $tasks      = kay_tasks_open($db, 8);
 $abandoned  = kay_abandoned_checkouts($db, 14, 6);
 $recent     = kay_recent_bookings($db, 8);
 $revenue    = kay_revenue_by_month($db, 12);
+// The kit is packed the evening before: whoever has not sent sizes for
+// today or tomorrow is worth a message now.
+$noSizes    = kay_gear_missing($db, $today, $now->modify('+1 day')->format('Y-m-d'));
 
 $first = explode(' ', trim($admin['name']))[0];
 
@@ -179,6 +182,22 @@ echo kay_chart_columns($points, ['unit' => 'MXN', 'title' => kay_t('Chiffre d’
       </ul>
 <?php endif; ?>
     </section>
+
+<?php if ($noSizes !== []): ?>
+    <section class="card">
+      <header class="card__head"><h2><?= kay_th('Tailles manquantes') ?></h2></header>
+      <p class="small muted"><?= kay_th('Plongent aujourd’hui ou demain sans avoir envoyé leurs tailles d’équipement.') ?></p>
+      <ul class="rows rows--tight">
+<?php foreach ($noSizes as $b): ?>
+        <li><a class="row" href="<?= kay_h(kay_url('booking.php', ['id' => $b['id']])) ?>">
+          <span class="row__main"><strong><?= kay_h($b['name']) ?></strong>
+            <span class="muted small"><?= kay_h(kay_product_name($b['product'])) ?> · <?= kay_th('{n} pers.', ['{n}' => (string) (int) $b['divers']]) ?></span></span>
+          <span class="row__end small"><?= $b['dive_date'] === $today ? kay_th('aujourd’hui') : kay_th('demain') ?></span>
+        </a></li>
+<?php endforeach; ?>
+      </ul>
+    </section>
+<?php endif; ?>
 
     <section class="card">
       <header class="card__head"><h2><?= kay_th('Paiements non aboutis') ?></h2></header>

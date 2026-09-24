@@ -153,6 +153,39 @@ signale au moment de fermer), et Kay peut toujours en **saisir une à la main**
 un jour fermé : fermer un jour arrête les inconnus, pas Kay. Le site relit la
 liste toutes les 5 minutes au plus.
 
+**Les tailles d'équipement.** L'e-mail de confirmation contient un lien
+personnel vers un court formulaire, dans la langue du plongeur : une fiche par
+personne (une réservation pour 3 = 3 fiches, remplies d'un coup par celui qui
+a réservé), avec la taille, le poids approximatif, la pointure, et les tailles
+de combinaison, de gilet (BCD) et de palmes. Chacun choisit ses unités — cm ou
+pieds, kg ou livres, pointure US, EU, MX ou UK — et le serveur garde tout en
+cm et en kg, pour que Kay lise un seul système. Pour la sortie snorkeling, le
+formulaire ne demande que le nom et la pointure (pour les palmes).
+
+- Les réponses sont sur la fiche de la réservation (*Tallas del equipo*) et
+  sur l'Agenda du jour imprimable, une ligne par plongeur ; « Sin tallas »
+  signale ceux qui n'ont rien envoyé.
+- Le Panel liste, sous *Tallas pendientes*, les réservations d'aujourd'hui et
+  de demain qui n'ont pas encore répondu.
+- Sur la fiche, le lien du questionnaire se copie (un toucher le sélectionne),
+  s'envoie par e-mail ou par WhatsApp, avec un message dans la langue du
+  plongeur — pour une réservation saisie à la main, ou un client qui a perdu
+  l'e-mail.
+- Le plongeur peut rouvrir le lien et corriger jusqu'au jour J ; chaque envoi
+  s'inscrit dans l'historique de la réservation. Le lien porte une signature :
+  on ne peut pas deviner celui d'une autre réservation, et une réservation
+  annulée ne l'accepte plus.
+
+**La certification.** Après le paiement, l'e-mail de confirmation et la page
+« merci » rappellent, dans la langue du plongeur, de montrer sa carte (papier
+ou numérique) au guide le jour J, sans quoi il ne plonge pas. La règle
+affichée : **jusqu'à 20 m, Open Water ou équivalent ; au-delà (Angelita,
+El Pit, requins bouledogues), au moins Advanced Open Water ou équivalent** —
+la spécialité Deep compte. Discover Scuba, le cours Open Water et le snorkel
+n'en demandent aucune ; le cours Advanced demande l'Open Water. Le formulaire
+de réservation l'affiche aussi **avant** de payer, dès qu'on choisit une
+sortie qui demande une carte.
+
 ---
 
 ## Le suivi du trafic
@@ -237,18 +270,22 @@ php/lib/          la bibliothèque    → www/api/lib/   (partagée avec les pai
   bookings.php    statuts, recherche, modifications, paiements, chiffres
   crm.php         clients, synchronisation, notes et relances
   availability.php  jours fermés (aussi lu par booking.php)
+  gear.php        questionnaire des tailles : lien signé, contrôle, e-mail
   i18n.php, i18n-es.php  langue de l'admin et traduction espagnole
   traffic.php     enregistrement et rapports du trafic
   view.php        mise en page, formats, graphiques, CSV
 php/track.php     le point d'entrée du trafic → www/api/track.php
 php/availability.php  les jours fermés pour le formulaire → www/api/availability.php
+php/gear.php      le questionnaire des tailles → www/api/gear.php
+components/GearForm.tsx, app/[locale]/booking/gear/  le formulaire, côté site
 components/Beacon.tsx, lib/analytics.ts       l'envoi, côté site
 ```
 
 **Les tables** (créées par `migrate.php`, versions enregistrées dans
 `schema_migrations`) : `customers`, `crm_notes`, `booking_payments`,
 `admin_users` (avec sa colonne `locale`), `admin_sessions`,
-`admin_login_attempts`, `page_views`, `traffic_salts`, `closed_days`, et
+`admin_login_attempts`, `page_views`, `traffic_salts`, `closed_days`,
+`booking_gear` (les tailles, une ligne par plongeur), et
 trois colonnes ajoutées à `bookings` (`customer_id`, `source`, `updated_at`)
 plus les statuts `confirmed`, `completed`, `no_show`.
 Aucune colonne existante n'est modifiée ni supprimée.
@@ -279,7 +316,10 @@ connexion et blocage, sessions et CSRF, prix recalculés pour les
 réservations manuelles, transitions de statut, grand livre, synchronisation
 et segments du CRM, effacement RGPD, anonymat et agrégats du trafic,
 échappement des graphiques et des exports, jours fermés (et une base pas
-encore migrée), traduction complète et règles de pluriel des deux langues.
+encore migrée), traduction complète et règles de pluriel des deux langues,
+le questionnaire des tailles (liens signés, unités, snorkel, réservations
+annulées, liste des tailles manquantes) et la règle de certification dans
+l'e-mail de chaque produit.
 
 **En local**, la page de test complète :
 

@@ -12,7 +12,7 @@ declare(strict_types=1);
 
 $kayLib = is_dir(__DIR__ . '/../api/lib') ? __DIR__ . '/../api/lib' : __DIR__ . '/../lib';
 foreach (['config', 'pricing', 'db', 'mail', 'notify', 'mercadopago', 'migrate', 'i18n', 'auth',
-          'availability', 'bookings', 'crm', 'traffic', 'view'] as $kayFile) {
+          'availability', 'bookings', 'crm', 'gear', 'traffic', 'view'] as $kayFile) {
     require_once "$kayLib/$kayFile.php";
 }
 unset($kayLib, $kayFile);

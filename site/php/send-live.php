@@ -38,6 +38,8 @@ require __DIR__ . '/lib/config.php';
 require __DIR__ . '/lib/pricing.php';
 require __DIR__ . '/lib/mail.php';
 require __DIR__ . '/lib/notify.php';
+// The equipment questionnaire's link, in the confirmation email.
+require __DIR__ . '/lib/gear.php';
 
 $config = kay_config();
 

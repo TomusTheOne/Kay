@@ -35,6 +35,30 @@ for (const locale of publishedLocales) {
   }
 }
 
+/* The cenote guide: every cenote needs Kay's text in every published
+   language, products that exist, and a position the basemap covers — and the
+   basemap itself must be in the bundle, or the map loads onto nothing. */
+{
+  const guide = JSON.parse(await readFile("content/cenotes.json", "utf8"));
+  const { products } = JSON.parse(await readFile("content/products.json", "utf8"));
+  const [west, south, east, north] = guide.bounds;
+  const problems = [];
+  if (!existsSync(`${OUT}${guide.basemap}`)) problems.push(`the basemap ${guide.basemap} is not in out/ — run npm run basemap`);
+  for (const locale of publishedLocales) {
+    const items = JSON.parse(await readFile(`messages/${locale}.json`, "utf8")).cenotes?.items ?? {};
+    for (const c of guide.cenotes) if (!items[c.slug]) problems.push(`${c.slug} has no text in messages/${locale}.json`);
+  }
+  for (const c of guide.cenotes) {
+    if (!(c.lon > west && c.lon < east && c.lat > south && c.lat < north)) problems.push(`${c.slug} lies outside the basemap`);
+    for (const p of c.products) if (!products.some((x) => x.slug === p)) problems.push(`${c.slug} names an unknown product "${p}"`);
+  }
+  if (problems.length) {
+    console.error("content/cenotes.json:\n  " + problems.join("\n  "));
+    process.exit(1);
+  }
+  console.log(`Cenote guide: ${guide.cenotes.length} cenotes, ${guide.published ? "PUBLISHED" : "preview only (noindex, unlisted)"}`);
+}
+
 await rm(`${OUT}/api`, { recursive: true, force: true });
 await mkdir(`${OUT}/api/lib`, { recursive: true });
 
@@ -42,7 +66,8 @@ await mkdir(`${OUT}/api/lib`, { recursive: true });
 // prove a confirmation reaches an inbox belongs on the host that sends it.
 // track.php is the traffic beacon every page posts to; availability.php
 // tells the booking form which days Kay closed.
-for (const f of ["booking.php", "webhook.php", "send-live.php", "track.php", "availability.php"]) {
+// gear.php takes the equipment sizes divers send from their confirmation link.
+for (const f of ["booking.php", "webhook.php", "send-live.php", "track.php", "availability.php", "gear.php"]) {
   await cp(`php/${f}`, `${OUT}/api/${f}`);
 }
 for (const f of await readdir("php/lib")) {

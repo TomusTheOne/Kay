@@ -3,9 +3,9 @@ import { pathFor, type Locale } from "@/lib/i18n";
 
 /** Where Mercado Pago sends the diver back to. Plain, reassuring, and real. */
 export default function Outcome({
-  locale, tag, h2, p, cta, tone = "ok",
+  locale, tag, h2, p, note, cta, tone = "ok",
 }: {
-  locale: Locale; tag: string; h2: string; p: string; cta: string; tone?: "ok" | "wait" | "bad";
+  locale: Locale; tag: string; h2: string; p: string; note?: string; cta: string; tone?: "ok" | "wait" | "bad";
 }) {
   return (
     <main className="bay shell" style={{ minHeight: "70svh", display: "grid", placeItems: "center" }}>
@@ -37,6 +37,14 @@ export default function Outcome({
         <p className="tag tag--plain" style={{ justifyContent: "center" }}>{tag}</p>
         <h1 className="dsp dsp-lg" style={{ marginTop: "1rem" }}>{h2}</h1>
         <p className="lede" style={{ margin: "1.3rem auto 0" }}>{p}</p>
+        {/* What the diver must bring. Said here, the moment the booking is
+            real, as well as in the confirmation email: the card left at the
+            hotel is the one thing that ends a dive day before it starts. */}
+        {note && (
+          <p className="slate__fine" style={{ margin: "1.2rem auto 0", maxWidth: "52ch", color: "var(--turq)" }}>
+            {note}
+          </p>
+        )}
         <Link className="btn btn--lit" href={pathFor(locale)} style={{ marginTop: "2.2rem" }}>
           {cta}
         </Link>

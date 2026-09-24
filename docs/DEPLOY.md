@@ -239,6 +239,49 @@ Les tables nécessaires se créent seules à cette première ouverture — pas d
 phpMyAdmin. Le guide complet (usage, trafic, sécurité) est dans
 [`docs/ADMIN.md`](ADMIN.md).
 
+## 8. Le guide des cenotes et la carte
+
+Une page par cenote (`/en/cenotes/angelita/`, en anglais, espagnol et
+français), une page *Cenotes* qui les présente toutes avec des filtres
+(ouverts, cavernes, profonds, snorkel), et une carte interactive autour de
+Tulum. Tant que Kay n'a pas vérifié les positions, **le guide est en aperçu** :
+
+- il est en ligne mais **introuvable** : pas dans le menu, pas sur la page
+  d'accueil, pas dans le sitemap, et `noindex` pour Google ;
+- un bandeau « Aperçu » l'annonce en haut de chaque page, et la fiche de
+  chaque cenote sur la carte montre ses coordonnées avec un lien Google Maps
+  pour comparer.
+
+**À faire vérifier par Kay** sur `https://kaydiving.com/es/cenotes/` : la
+position de chaque point. Elles viennent d'OpenStreetMap, sauf **Tak Be
+Luum**, introuvable dans les sources publiques : il est placé à vue dans le
+parc Dos Ojos, entouré d'un pointillé, et marqué « position approximative ».
+Une position se corrige dans `site/content/cenotes.json` (`lat`, `lon`).
+
+**Publier** : passer `"published": false` à `true` dans
+`site/content/cenotes.json`, puis déployer. Le lien *Cenotes* apparaît dans le
+menu et le pied de page, la carte sur la page d'accueil (après les plongées),
+les 33 pages entrent dans le sitemap et le bandeau disparaît.
+
+**Ajouter un cenote** : une entrée dans `cenotes.json` (position, type,
+profondeurs, niveau, produits qui y plongent, photo ou illustration) et son
+texte dans `messages/en.json`, `es.json` et `fr.json` sous `cenotes.items`.
+Le déploiement refuse de partir s'il manque un texte, si un produit n'existe
+pas ou si le point tombe hors de la carte. La carte est prévue pour des
+centaines de points : ceux qui se chevauchent se regroupent en un cercle
+numéroté qui s'ouvre au toucher.
+
+**La carte elle-même ne dépend de personne.** Le fond (routes, côte, lagunes)
+est un fichier de 5 Mo servi par le site, `tiles/tulum-AAAAMMJJ.pmtiles`,
+découpé dans les données OpenStreetMap de Protomaps sur ~120 km autour de
+Tulum (Cancún à Sian Ka'an, Cozumel à Valladolid) ; MapLibre, qui l'affiche,
+est aussi servi par le site. Pas de clé, pas de compte, pas de service tiers.
+Rien ne se charge tant que la carte n'approche pas de l'écran. Pour
+rafraîchir le fond (nouvelles routes…) : `npm run basemap` dans `site/`,
+qui met aussi à jour le nom du fichier dans `cenotes.json`. Le déploiement
+n'envoie ce fichier que quand son nom change. La mention « © OpenStreetMap »
+en bas de la carte est obligatoire (licence ODbL) : ne pas la retirer.
+
 ---
 
 ## Comment c'est protégé
@@ -294,6 +337,10 @@ datées de 2001 pour ne jamais se mêler aux vraies.
 - [ ] Fiche Google Business Profile cohérente avec le site
 - [ ] Droits sur les photos confirmés si certaines sont des reposts
 - [ ] `kay-admin-token.txt` déposé par FTP, premier compte admin créé *(§7)*
+- [ ] Positions des cenotes vérifiées par Kay (surtout Tak Be Luum), puis
+      guide publié *(§8)*
+- [ ] Liste des cenotes présentés sur l'Instagram de Kay, à ajouter au guide
+- [ ] Photos de Kay pour les cenotes qui n'ont encore qu'une illustration
 
 ---
 

@@ -207,7 +207,7 @@ ul{list-style:none;padding:0}
 .mark__sub{font-family:var(--mono);font-size:.5rem;letter-spacing:.34em;color:var(--turq);margin-top:.28rem;white-space:nowrap}
 
 .nav{display:flex;gap:clamp(1rem,2vw,1.9rem);align-items:center}
-.nav a{font-size:.88rem;color:var(--foam-72);position:relative;padding-block:.3rem;transition:color .25s}
+.nav a{font-size:.88rem;color:var(--foam-72);position:relative;padding-block:.3rem;transition:color .25s;white-space:nowrap}
 .nav a::after{content:"";position:absolute;left:0;bottom:0;height:1px;width:0;background:var(--turq);transition:width .32s var(--ease)}
 .nav a:hover{color:var(--foam)}.nav a:hover::after{width:100%}
 .surface__side{display:flex;align-items:center;gap:.7rem}
@@ -215,7 +215,11 @@ ul{list-style:none;padding:0}
 .lang button,.lang a{font-family:var(--mono);font-size:.65rem;letter-spacing:.1em;padding:.4em .68em;color:var(--foam-34);transition:.25s;text-decoration:none;display:inline-block;line-height:1}
 .lang button.on,.lang a.on{background:var(--glass-hi);color:var(--foam)}
 .lang a:hover{color:var(--foam)}
-@media (max-width:980px){.nav{display:none}}
+/* Seven entries in French ("Plongées & stages", "Ce qui est inclus"…) no
+   longer fit on one line below about 1120px: they used to wrap onto two.
+   The menu moves into the drawer there, and tightens a little above it. */
+@media (max-width:1280px){.nav{gap:clamp(.8rem,1.3vw,1.3rem)}.nav a{font-size:.82rem}}
+@media (max-width:1120px){.nav{display:none}}
 
 .burger{display:none;width:34px;height:26px;position:relative}
 .burger span{position:absolute;left:3px;right:3px;height:1.5px;background:var(--foam);border-radius:2px;transition:.35s var(--ease)}
@@ -223,7 +227,7 @@ ul{list-style:none;padding:0}
 body.open .burger span:nth-child(1){transform:translateY(6px) rotate(45deg)}
 body.open .burger span:nth-child(2){opacity:0}
 body.open .burger span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
-@media (max-width:980px){.burger{display:block}}
+@media (max-width:1120px){.burger{display:block}}
 @media (max-width:620px){
   .surface__side .lang{display:none}
   .mark__ico{width:34px;height:34px}
@@ -603,3 +607,209 @@ select.field{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xml
    which left the date field, both selects and the diver stepper with nothing
    but a 1px border turning turquoise — not something a keyboard user can
    find. The `outline:none` is gone; nothing needs to be re-declared here. */
+
+/* ---------------------------------------------------------------------------
+   Equipment questionnaire (/booking/gear/) — the booking form's fields and
+   pills, one card per diver.
+   ------------------------------------------------------------------------- */
+.gear{max-width:760px;display:flex;flex-direction:column;gap:1.1rem;padding-block:clamp(3rem,8vw,6rem)}
+.gear .lede{margin:0}
+.gear__form{display:flex;flex-direction:column;gap:1.6rem;margin-top:1rem}
+.gear__intro{color:var(--foam);opacity:.8;margin:0}
+.gear__card{border:1px solid rgba(169,245,236,.16);border-radius:14px;padding:1.4rem clamp(1rem,3vw,1.6rem) 1.6rem;display:flex;flex-direction:column;gap:1.3rem;margin:0;min-width:0}
+.gear__card legend{padding:0 .5rem}
+.gear__pair{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}
+.gear__unit{position:relative;display:block}
+.gear__unit .field{width:100%;padding-right:3rem}
+.gear__unit span{position:absolute;right:1rem;top:50%;transform:translateY(-50%);font-family:var(--mono);font-size:.7rem;color:var(--turq);pointer-events:none}
+.gear__problem{color:var(--turq)}
+
+/* ---------------------------------------------------------------------------
+   Cenote map (components/CenoteMap.tsx). MapLibre's own stylesheet is 83 KB
+   for controls this map does not use; these are the few rules the canvas,
+   the markers and the two-finger hint actually need, in the site's colours.
+   ------------------------------------------------------------------------- */
+.cmap{
+  position:relative;height:clamp(460px,74vh,760px);border-radius:var(--r-lg);overflow:hidden;
+  border:1px solid var(--line);isolation:isolate;
+  background:
+    radial-gradient(80% 70% at 62% 40%,rgba(79,224,210,.09),transparent 70%),
+    repeating-linear-gradient(0deg,rgba(169,245,236,.035) 0 1px,transparent 1px 64px),
+    repeating-linear-gradient(90deg,rgba(169,245,236,.035) 0 1px,transparent 1px 64px),
+    #03111A;
+}
+.cmap--short{height:clamp(340px,52vh,500px)}
+/* The canvas is its own layer, so no marker can climb over the controls; the
+   edge vignette sits inside it, above the tiles and under the markers. */
+.cmap__canvas{position:absolute;inset:0;z-index:0}
+.maplibregl-canvas-container::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+  box-shadow:inset 0 0 70px rgba(3,9,14,.75)}
+.cmap__wait{position:absolute;inset:0;z-index:1;display:grid;place-items:center;padding:2rem;text-align:center;color:var(--foam-52)}
+.cmap[data-status="loading"] .cmap__wait{animation:cmap-breathe 1.8s ease-in-out infinite}
+@keyframes cmap-breathe{50%{opacity:.45}}
+
+.maplibregl-map{overflow:hidden;-webkit-tap-highlight-color:transparent;-webkit-touch-callout:none}
+.maplibregl-canvas{position:absolute;left:0;top:0}
+.maplibregl-canvas:focus-visible{outline:2px solid var(--turq);outline-offset:-4px;border-radius:var(--r-lg)}
+.maplibregl-canvas-container.maplibregl-interactive{cursor:grab}
+.maplibregl-canvas-container.maplibregl-interactive:active{cursor:grabbing}
+.maplibregl-canvas-container.maplibregl-touch-zoom-rotate,
+.maplibregl-canvas-container.maplibregl-touch-zoom-rotate .maplibregl-canvas{touch-action:pan-x pan-y}
+.maplibregl-canvas-container.maplibregl-touch-drag-pan,
+.maplibregl-canvas-container.maplibregl-touch-drag-pan .maplibregl-canvas{touch-action:pinch-zoom}
+.maplibregl-canvas-container.maplibregl-touch-zoom-rotate.maplibregl-touch-drag-pan,
+.maplibregl-canvas-container.maplibregl-touch-zoom-rotate.maplibregl-touch-drag-pan .maplibregl-canvas{touch-action:none}
+.maplibregl-canvas-container.maplibregl-touch-drag-pan.maplibregl-cooperative-gestures,
+.maplibregl-canvas-container.maplibregl-touch-drag-pan.maplibregl-cooperative-gestures .maplibregl-canvas{touch-action:pan-x pan-y}
+.maplibregl-marker{position:absolute;top:0;left:0;will-change:transform}
+.maplibregl-cooperative-gesture-screen{
+  position:absolute;inset:0;z-index:6;display:flex;justify-content:center;align-items:center;padding:1rem;
+  background:rgba(3,9,14,.6);color:var(--foam);text-align:center;
+  font:500 .74rem/1.5 var(--mono);letter-spacing:.14em;text-transform:uppercase;
+  opacity:0;pointer-events:none;transition:opacity 1s ease 1s;
+}
+.maplibregl-cooperative-gesture-screen.maplibregl-show{opacity:1;transition:opacity .05s}
+.maplibregl-cooperative-gesture-screen .maplibregl-mobile-message{display:none}
+@media (hover:none),(pointer:coarse){
+  .maplibregl-cooperative-gesture-screen .maplibregl-desktop-message{display:none}
+  .maplibregl-cooperative-gesture-screen .maplibregl-mobile-message{display:block}
+}
+
+/* Controls, key and credits float over the map on smoked glass. */
+.cmap__ctl{position:absolute;z-index:3;top:1rem;right:1rem;display:flex;flex-direction:column;
+  border:1px solid var(--line);border-radius:12px;overflow:hidden;background:rgba(3,17,26,.78);backdrop-filter:blur(10px)}
+.cmap__ctl button{width:42px;height:42px;display:grid;place-items:center;font:500 1.15rem/1 var(--mono);color:var(--foam);transition:background .2s,color .2s}
+.cmap__ctl button+button{border-top:1px solid var(--line-soft)}
+.cmap__ctl button:hover{background:var(--glass-hi);color:var(--turq)}
+.cmap__key{position:absolute;z-index:3;top:1rem;left:1rem;display:flex;flex-direction:column;gap:.5rem;
+  padding:.75rem .9rem;border-radius:12px;background:rgba(3,17,26,.72);backdrop-filter:blur(10px);
+  border:1px solid var(--line-soft);font-size:.56rem;pointer-events:none}
+.cmap__key li{display:flex;align-items:center;gap:.7rem}
+.cmap__key .cm__dot{position:relative;margin:0;flex:none;width:11px;height:11px}
+.cmap__foot{position:absolute;z-index:3;left:0;right:0;bottom:0;display:flex;justify-content:space-between;gap:1rem;
+  padding:.9rem 1rem .55rem;font-size:.54rem;letter-spacing:.14em;color:var(--foam-34);pointer-events:none;
+  background:linear-gradient(transparent,rgba(3,9,14,.7))}
+.cmap__foot a{pointer-events:auto;color:var(--foam-52);transition:color .2s}
+.cmap__foot a:hover{color:var(--foam)}
+@media (max-width:520px){.cmap__coords{display:none}.cmap__foot{justify-content:flex-end}}
+
+/* Markers. Every root is a 0×0 box on the point itself; what you see hangs
+   off it, so a label can switch sides without moving the dot. */
+.cm,.cc,.ct,.cr{width:0;height:0;padding:0;border:0;background:none;color:var(--foam)}
+.cm,.cc{cursor:pointer}
+.cm:focus-visible,.cc:focus-visible{outline:none}
+.cm__dot{position:absolute;left:0;top:0;width:14px;height:14px;margin:-7px 0 0 -7px;border-radius:50%;
+  background:var(--turq);box-shadow:0 0 0 3px rgba(79,224,210,.2),0 0 18px rgba(79,224,210,.6);
+  transition:transform .3s var(--ease)}
+.cm__dot::before{content:"";position:absolute;inset:-12px;border-radius:50%}
+/* Open to the sky: a ring. Cavern: solid. Deep, past 20 m: the lit colour, ringed. */
+.cm--open .cm__dot,.cm__dot--open{background:#03111A;border:2.5px solid var(--turq-glow);
+  box-shadow:0 0 16px rgba(169,245,236,.5)}
+.cm__dot--cavern{background:var(--turq);box-shadow:0 0 10px rgba(79,224,210,.6)}
+.cm--deep .cm__dot,.cm__dot--deep{background:var(--lit);
+  box-shadow:0 0 0 2.5px #03111A,0 0 0 4px var(--lit),0 0 20px rgba(247,239,227,.45)}
+.cm--approx .cm__dot{outline:1.5px dashed var(--lit);outline-offset:5px}
+.cm:hover .cm__dot,.cm.is-on .cm__dot,.cm.is-focus .cm__dot{transform:scale(1.4)}
+.cm:focus-visible .cm__dot{outline:2px solid var(--foam);outline-offset:5px}
+.cm.is-on .cm__dot::after,.cm.is-focus .cm__dot::after{content:"";position:absolute;inset:-9px;border-radius:50%;
+  border:1px solid currentColor;color:var(--turq);animation:cm-sonar 2.4s var(--ease-out) infinite}
+@keyframes cm-sonar{from{transform:scale(.6);opacity:.9}to{transform:scale(2.6);opacity:0}}
+.cm__label,.ct__label{position:absolute;top:0;transform:translateY(-50%);white-space:nowrap;pointer-events:none;
+  font-family:var(--mono);text-transform:uppercase;line-height:1;transition:opacity .2s}
+.cm__label{left:15px;padding:.38em .6em;border-radius:6px;font-size:.64rem;font-weight:500;letter-spacing:.13em;
+  color:var(--foam);background:rgba(3,17,26,.74);backdrop-filter:blur(4px);border:1px solid var(--line-soft)}
+.cm.is-left .cm__label{left:auto;right:15px}
+.cm.is-on .cm__label{color:var(--abyss);background:var(--turq);border-color:var(--turq)}
+.is-quiet .cm__label,.is-quiet .ct__label,.cr.is-quiet{opacity:0}
+.cm.is-quiet:hover .cm__label,.cm.is-quiet:focus-visible .cm__label{opacity:1}
+
+.cc__n{position:absolute;left:0;top:0;--s:calc(34px + var(--n,2) * 1.5px);width:var(--s);height:var(--s);
+  margin:calc(var(--s) / -2) 0 0 calc(var(--s) / -2);border-radius:50%;display:grid;place-items:center;
+  font:600 .8rem/1 var(--mono);color:var(--foam);
+  background:radial-gradient(circle,rgba(79,224,210,.34),rgba(79,224,210,.1) 72%);
+  border:1px solid rgba(79,224,210,.7);box-shadow:0 0 24px rgba(79,224,210,.28);
+  transition:transform .3s var(--ease),background .3s}
+.cc__n::after{content:"";position:absolute;inset:-7px;border-radius:50%;border:1px dashed rgba(79,224,210,.4);
+  animation:cc-turn 24s linear infinite}
+@keyframes cc-turn{to{transform:rotate(1turn)}}
+.cc:hover .cc__n{transform:scale(1.1);background:radial-gradient(circle,rgba(79,224,210,.5),rgba(79,224,210,.14) 72%)}
+.cc:focus-visible .cc__n{outline:2px solid var(--foam);outline-offset:4px}
+
+/* "+2": the neighbours folded under the cenote in focus. */
+.cmore{width:0;height:0;padding:0;border:0;background:none;cursor:pointer}
+.cmore__n{position:absolute;left:0;top:0;min-width:24px;height:20px;margin:-10px 0 0 -12px;padding:0 .35rem;
+  display:grid;place-items:center;border-radius:999px;font:600 .6rem/1 var(--mono);color:var(--abyss);
+  background:var(--turq-glow);box-shadow:0 0 0 2px #03111A;transition:transform .25s var(--ease)}
+.cmore:hover .cmore__n{transform:scale(1.12)}
+.cmore:focus-visible{outline:none}
+.cmore:focus-visible .cmore__n{outline:2px solid var(--foam);outline-offset:3px}
+.ct__dot{position:absolute;left:0;top:0;width:5px;height:5px;margin:-2.5px 0 0 -2.5px;border-radius:50%;background:var(--foam-52)}
+.ct__label{left:10px;font-size:.58rem;letter-spacing:.22em;color:var(--foam-52)}
+.ct.is-left .ct__label{left:auto;right:10px}
+.ct--home .ct__dot{width:10px;height:10px;margin:-5px 0 0 -5px;border-radius:2px;transform:rotate(45deg);
+  background:var(--lit);box-shadow:0 0 16px rgba(247,239,227,.7)}
+.ct--home .ct__dot::after{content:"";position:absolute;inset:-10px;border-radius:50%;border:1px solid var(--lit);
+  animation:cm-sonar 3.2s var(--ease-out) infinite}
+.ct--home .ct__label{left:14px;font-size:.7rem;font-weight:600;letter-spacing:.26em;color:var(--lit)}
+.ct--home.is-left .ct__label{right:14px}
+.cr__label{position:absolute;left:0;top:0;transform:translate(-50%,-50%);white-space:nowrap;pointer-events:none;
+  font:500 .52rem/1 var(--mono);letter-spacing:.2em;color:rgba(79,224,210,.6)}
+
+/* The card for the chosen cenote: beside the point on a wide map, a sheet on a phone. */
+.cmap__card{position:absolute;z-index:4;left:1rem;bottom:1rem;width:min(340px,calc(100% - 2rem));
+  padding:1.2rem 1.25rem 1.3rem;border-radius:18px;display:flex;flex-direction:column;gap:.55rem;
+  background:rgba(6,22,32,.88);backdrop-filter:blur(16px) saturate(1.2);border:1px solid var(--line);
+  box-shadow:0 30px 60px -30px rgba(0,0,0,.9);animation:cmap-card .4s var(--ease-out)}
+@keyframes cmap-card{from{opacity:0;transform:translateY(12px)}}
+@media (max-width:719px){.cmap__card{left:.6rem;right:.6rem;bottom:.6rem;width:auto;max-height:64%;overflow:auto}}
+.cmap__name{font-family:var(--display);font-weight:400;font-size:1.75rem;line-height:1.05;padding-right:2.2rem}
+.cmap__x{position:absolute;top:.85rem;right:.85rem;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;
+  background:var(--glass-hi);color:var(--foam);transition:background .2s}
+.cmap__x:hover{background:rgba(255,255,255,.14)}
+.cmap__card .spec{margin:.1rem 0 0}
+.cmap__note{font-size:.8rem;color:var(--turq);line-height:1.5}
+.cmap__note--warn{color:var(--lit)}
+.cmap__note a{text-decoration:underline;text-underline-offset:3px}
+.cmap__card .btn{align-self:flex-start;margin-top:.35rem}
+
+@media (prefers-reduced-motion:reduce){
+  .cm.is-on .cm__dot::after,.cm.is-focus .cm__dot::after,.ct--home .ct__dot::after,.cc__n::after,
+  .cmap[data-status="loading"] .cmap__wait{animation:none}
+  .cmap__card{animation:none}
+}
+
+/* ---------------------------------------------------------------------------
+   Cenote guide pages (/cenotes/ and /cenotes/<slug>/).
+   ------------------------------------------------------------------------- */
+.guide{padding-top:clamp(4.4rem,7vw,5.6rem)}
+.guide__preview{width:var(--shell);margin:1rem auto 0;padding:.85rem 1.1rem;border-radius:12px;
+  border:1px dashed rgba(247,239,227,.45);background:rgba(247,239,227,.05);color:var(--lit);line-height:1.7;letter-spacing:.1em}
+.guide__head{padding-bottom:clamp(1.8rem,3vw,2.6rem)}
+.guide__head .dsp{margin-top:1.1rem}
+.guide__head .lede{margin-top:1.3rem}
+.cfilter{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;margin-bottom:1.2rem}
+.cgrid{margin-top:clamp(2rem,4vw,3rem)}
+.guide__explore{padding-bottom:var(--bay)}
+.ccard__hit{position:absolute;inset:0;z-index:2;border-radius:inherit}
+.ccard__hit:focus-visible{outline:2px solid var(--turq);outline-offset:3px}
+.ccard__art{position:absolute;left:.8rem;bottom:.8rem;padding:.4rem .6rem;border-radius:999px;
+  background:rgba(3,9,14,.72);backdrop-filter:blur(8px);border:1px solid var(--line-soft);
+  font:.54rem/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--foam-52)}
+/* Four lines of Kay's text, then the details pinned to the bottom of the card.
+   The text cannot be the part that stretches: a clamped box taller than its
+   four lines shows the fifth anyway. */
+.ccard__txt{flex:none;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+.ccard .spec{margin-top:auto}
+.ccard:hover .dive__go svg{transform:translateX(4px)}
+.guide__cenote{padding-bottom:clamp(2.4rem,5vw,4rem)}
+.guide__back{display:inline-block;margin-bottom:1.8rem;color:var(--turq);padding-block:.3rem}
+.guide__back:hover{color:var(--foam)}
+.guide__split{align-items:start}
+.guide__spec{margin-top:1.7rem}
+.guide__spec dt{min-width:15ch}
+.guide__dives{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.9rem}
+.guide__dives a{display:inline-block;font-size:.86rem;padding:.55em .95em;border:1px solid var(--line);border-radius:999px;
+  background:var(--glass);transition:border-color .25s,color .25s}
+.guide__dives a:hover{border-color:var(--turq);color:var(--turq)}
+.guide__plate{margin:0;position:sticky;top:6rem}
+@media (max-width:880px){.guide__plate{position:relative;top:0;order:-1;aspect-ratio:16/11}}

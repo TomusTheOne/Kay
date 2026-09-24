@@ -61,6 +61,34 @@ site's own cookieless traffic count. Spanish by default, French per account. Its
 the first time it is opened. Everything about it — setup, what the traffic
 count keeps and does not keep, security — is in `../docs/ADMIN.md`.
 
+## Cenote guide and map
+
+`/[locale]/cenotes/` and `/[locale]/cenotes/<slug>/`: one page per cenote,
+an index with type filters, and a map (`components/CenoteMap.tsx`) that also
+goes on the home page. Positions, depths, levels and products are in
+`content/cenotes.json`; Kay's text for each cenote is in
+`messages/<locale>.json` under `cenotes.items`. `build-deploy.mjs` refuses a
+cenote without text in every published locale, with an unknown product, or
+outside the basemap.
+
+`published: false` keeps the guide in preview: noindex, out of the sitemap,
+the menu, the footer and the home page, with a banner and raw coordinates on
+the map for Kay to check. Flip it to `true` to launch.
+
+The map needs no third party. The basemap is a PMTiles archive in
+`public/tiles/`, cut from Protomaps' daily OpenStreetMap build by
+`npm run basemap` (HTTP range requests; the extract is written by the script
+itself, since go-pmtiles is not always downloadable). MapLibre is copied from
+`node_modules` into `public/vendor/maplibre-gl-<version>/` by
+`scripts/vendor.mjs` before every `dev` and `build`, and loaded from there at
+run time rather than bundled: its worker is resolved relative to its own
+module, which the bundler would break, and served as-is the page and the
+worker share one copy of the library. Nothing loads until the map nears the
+viewport. There are no symbol layers, so no glyph server either: markers,
+clusters and labels are DOM, grouped and de-collided by the component. The
+deploy workflow mirrors `tiles/` on its own, by name and size, so the 5 MB
+file is uploaded only when a new cut changes its name.
+
 ## Adding a language
 
 `lib/i18n.ts` holds the locale list; `messages/<locale>.json` holds the copy. The

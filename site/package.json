@@ -3,15 +3,20 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "predev": "node scripts/vendor.mjs",
     "dev": "next dev",
+    "prebuild": "node scripts/vendor.mjs",
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
     "test": "php php/tests/run.php",
-    "build:deploy": "next build && node build-deploy.mjs"
+    "build:deploy": "npm run build && node build-deploy.mjs",
+    "basemap": "node scripts/basemap.mjs"
   },
   "dependencies": {
+    "maplibre-gl": "^6.11.1",
     "next": "16.3.5",
+    "pmtiles": "^4.5.0",
     "react": "19.2.8",
     "react-dom": "19.2.8"
   },

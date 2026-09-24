@@ -36,6 +36,7 @@ require __DIR__ . '/../lib/migrate.php';
 require __DIR__ . '/../lib/i18n.php';
 require __DIR__ . '/../lib/auth.php';
 require __DIR__ . '/../lib/availability.php';
+require __DIR__ . '/../lib/gear.php';
 require __DIR__ . '/../lib/bookings.php';
 require __DIR__ . '/../lib/crm.php';
 require __DIR__ . '/../lib/traffic.php';
@@ -796,6 +797,83 @@ $unmigrated = new class ('sqlite::memory:') extends PDO {
 };
 check('before the admin is first opened, every day is open', kay_date_closed($unmigrated, '2099-06-10'), false);
 check('and the form is told nothing is closed',              kay_public_closed_days($unmigrated), []);
+
+echo "\nThe confirmation says which certification to show, and what dollars cost\n";
+$mailRow = [
+    'id' => 'aaaaaaaa-bbbb-4ccc-8ddd-eeeeeeeeeeee', 'dive_date' => '2099-12-01', 'divers' => 2,
+    'certification' => 'Open Water', 'pickup' => 'meeting-point', 'start_slot' => '0800', 'start_note' => '',
+    'name' => 'Ana Ruiz', 'email' => 'ana@example.com', 'total_usd_cents' => 40000, 'total_mxn_cents' => 640000,
+    'deposit_usd_cents' => 12000, 'deposit_mxn_cents' => 192000,
+];
+$mailFor = static fn(string $product, int $dives, string $locale = 'en'): string =>
+    kay_booking_emails(['product' => $product, 'dives' => $dives, 'locale' => $locale] + $mailRow)['diver']['html'];
+check('a cenote day states both rules',
+      str_contains($mailFor('cenote-diving', 2), 'Angelita and El Pit, deeper than 20 metres, need at least Advanced Open Water'), true);
+check('the reef asks for Open Water',
+      str_contains($mailFor('reef-cenote', 2), 'required for every dive to 20 metres or shallower'), true);
+check('the sharks ask for Advanced',
+      str_contains($mailFor('bull-sharks', 2), 'needs at least Advanced Open Water'), true);
+check('no card, no dive — said plainly',
+      str_contains($mailFor('reef-cenote', 2), 'we cannot take you on it'), true);
+check('Discover Scuba asks for nothing',  str_contains($mailFor('discover-scuba', 1), 'Your certification'), false);
+check('nor the Open Water course',        str_contains($mailFor('open-water', 5), 'Your certification'), false);
+check('nor the snorkel tour',             str_contains($mailFor('snorkel', 0), 'Your certification'), false);
+check('in Spanish too',                   str_contains($mailFor('reef-cenote', 2, 'es'), 'no podrás hacer este tour de buceo'), true);
+check('dollars are at the day’s exchange rate',
+      str_contains($mailFor('reef-cenote', 2), 'exchange rate of that day applies'), true);
+
+echo "\nThe size questionnaire opens only with the link from the email\n";
+$gid = kay_uuid();
+$db->prepare(
+    "INSERT INTO bookings (id, product, dives, dive_date, divers, pickup, name, email, locale,
+                           total_usd_cents, total_mxn_cents, deposit_usd_cents, deposit_mxn_cents, status, paid_at)
+     VALUES (?, 'cenote-diving', 2, '2099-08-01', 2, 'meeting-point', 'Gear Test', 'gear@example.test', 'en',
+             40000, 640000, 12000, 192000, 'paid', NOW())"
+)->execute([$gid]);
+$token = kay_gear_token($gid);
+check('the link carries a 32-character token', (bool) preg_match('/^[a-f0-9]{32}$/', $token), true);
+check('another booking gets another token',    $token !== kay_gear_token(kay_uuid()), true);
+check('the right token opens the booking',     kay_gear_booking($db, $gid, $token)['id'] ?? null, $gid);
+check('a wrong one does not',                  kay_gear_booking($db, $gid, str_repeat('0', 32)), null);
+check('nor a missing one',                     kay_gear_booking($db, $gid, ''), null);
+check('the link is on the site, in the diver’s language',
+      str_starts_with(kay_gear_url(kay_booking_get($db, $gid)), 'https://kaydiving.com/en/booking/gear/?b=' . $gid . '&t=' . $token), true);
+check('and it is in the confirmation email',
+      str_contains(kay_booking_emails(kay_booking_get($db, $gid))['diver']['html'], htmlspecialchars('t=' . $token)), true);
+check('the standalone email carries it too',
+      str_contains(kay_gear_email(kay_booking_get($db, $gid))['text'], $token), true);
+
+echo "\nSizes are checked, kept in metric, and one set per diver\n";
+$diver = ['name' => 'Ana', 'heightCm' => 168, 'weightKg' => 61, 'shoeSystem' => 'us', 'shoeSize' => '8,5',
+          'wetsuit' => 'M', 'bcd' => 'S', 'fins' => 'M'];
+$c = kay_gear_clean($diver, 'dive');
+check('a good diver passes',            $c['error'], null);
+check('the shoe is kept with its system', $c['clean']['shoe'], 'US 8.5');
+check('a height of 3 metres is refused', kay_gear_clean(['heightCm' => 300] + $diver, 'dive')['error'], 'height');
+check('a weight of 5 kg is refused',     kay_gear_clean(['weightKg' => 5] + $diver, 'dive')['error'], 'weight');
+check('a shoe size of 8.3 is refused',   kay_gear_clean(['shoeSize' => '8.3'] + $diver, 'dive')['error'], 'shoe');
+check('an unknown size becomes “not sure”', kay_gear_clean(['wetsuit' => 'XXXL'] + $diver, 'dive')['clean']['wetsuit'], '?');
+check('the snorkel tour needs only a shoe size',
+      kay_gear_clean(['name' => 'Kid', 'shoeSystem' => 'EU', 'shoeSize' => '35'], 'snorkel')['error'], null);
+$booking = kay_booking_get($db, $gid);
+check('one set of sizes for two divers is refused', kay_gear_save($db, $booking, [$diver])['error'] ?? null, 'count');
+check('which diver is wrong is said',
+      kay_gear_save($db, $booking, [$diver, ['heightCm' => 20] + $diver])['diver'] ?? null, 2);
+check('two good sets are saved',          kay_gear_save($db, $booking, [$diver, ['name' => 'Luis'] + $diver])['ok'], true);
+check('one row per diver',                count(kay_gear_for($db, $gid)), 2);
+kay_gear_save($db, $booking, [['heightCm' => 170] + $diver, ['name' => 'Luis'] + $diver]);
+check('sending again replaces, not adds',  [count(kay_gear_for($db, $gid)), (int) kay_gear_for($db, $gid)[1]['height_cm']], [2, 170]);
+check('the day sheet reads it in one line',
+      kay_gear_line(kay_gear_for($db, $gid)[1]), '1.70 m · 61 kg · US 8.5 · traje M · BCD S · aletas M');
+check('and the history says the sizes came in',
+      str_contains((string) implode('|', array_column(kay_notes_for($db, null, $gid), 'body')), 'Tallas recibidas para 2 buzo(s).'), true);
+check('a booking with sizes is not missing', in_array($gid, array_column(kay_gear_missing($db, '2099-08-01', '2099-08-01'), 'id'), true), false);
+$db->exec("DELETE FROM booking_gear WHERE booking_id = '$gid'");
+check('without them it is',                  in_array($gid, array_column(kay_gear_missing($db, '2099-08-01', '2099-08-01'), 'id'), true), true);
+$db->prepare("UPDATE bookings SET status = 'cancelled' WHERE id = ?")->execute([$gid]);
+check('a cancelled booking takes no sizes', kay_gear_save($db, kay_booking_get($db, $gid), [$diver, $diver])['error'] ?? null, 'closed');
+$db->prepare('DELETE FROM crm_notes WHERE booking_id = ?')->execute([$gid]);
+$db->prepare('DELETE FROM bookings WHERE id = ?')->execute([$gid]);
 
 printf("\n%d passed, %d failed\n\n", $passed, $failed);
 exit($failed === 0 ? 0 : 1);

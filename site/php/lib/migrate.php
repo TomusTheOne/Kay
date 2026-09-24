@@ -201,6 +201,25 @@ function kay_migrations(): array
 
             "ALTER TABLE admin_users ADD COLUMN locale CHAR(2) NOT NULL DEFAULT 'es'",
         ],
+
+        // Equipment sizes, one row per diver of a booking, filled in by the
+        // diver from the link in their confirmation email. Metric only: the
+        // form converts feet and pounds before it sends anything.
+        7 => [
+            "CREATE TABLE IF NOT EXISTS booking_gear (
+               booking_id  CHAR(36)          NOT NULL,
+               diver_no    TINYINT UNSIGNED  NOT NULL,
+               name        VARCHAR(120)      NOT NULL DEFAULT '',
+               height_cm   SMALLINT UNSIGNED NULL,
+               weight_kg   SMALLINT UNSIGNED NULL,
+               shoe        VARCHAR(12)       NOT NULL DEFAULT '',
+               wetsuit     VARCHAR(4)        NOT NULL DEFAULT '',
+               bcd         VARCHAR(4)        NOT NULL DEFAULT '',
+               fins        VARCHAR(4)        NOT NULL DEFAULT '',
+               updated_at  DATETIME          NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+               PRIMARY KEY (booking_id, diver_no)
+             ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
+        ],
     ];
 }
 

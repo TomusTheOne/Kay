@@ -63,13 +63,20 @@ DirectoryIndex index.html index.php
 # --- Caching ----------------------------------------------------------------
 <IfModule mod_expires.c>
   ExpiresActive On
-  # Content-hashed by Next: safe to keep for a year.
-  <FilesMatch "\.(js|css|woff2)$">
+  # Content-hashed by Next, or under a versioned folder (vendor/maplibre-gl-
+  # <version>/): safe to keep for a year.
+  <FilesMatch "\.(js|mjs|css|woff2)$">
     ExpiresDefault "access plus 1 year"
     Header append Cache-Control "public, immutable"
   </FilesMatch>
   # Photographs and illustrations are never edited in place.
   <FilesMatch "\.(avif|webp|jpg|jpeg|png|svg|ico)$">
+    ExpiresDefault "access plus 1 year"
+    Header append Cache-Control "public, immutable"
+  </FilesMatch>
+  # The cenote map's basemap. A new cut gets a new dated file name, so an
+  # old one never needs to be replaced in anyone's cache.
+  <FilesMatch "\.pmtiles$">
     ExpiresDefault "access plus 1 year"
     Header append Cache-Control "public, immutable"
   </FilesMatch>
@@ -87,12 +94,19 @@ DirectoryIndex index.html index.php
   AddType image/avif   .avif
   AddType image/webp   .webp
   AddType font/woff2   .woff2
+  # MapLibre ships as ES modules. A browser refuses to run a module served
+  # under any type that is not JavaScript, and Apache does not know .mjs.
+  AddType text/javascript .mjs
+  # Read with HTTP range requests, a few tiles at a time. Never compressed on
+  # the way out: the tiles inside are already gzipped, and a compressed
+  # response cannot answer a byte range.
+  AddType application/octet-stream .pmtiles
 </IfModule>
 
 # --- Compression ------------------------------------------------------------
 <IfModule mod_deflate.c>
   AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml \
-    application/javascript application/json image/svg+xml \
+    application/javascript text/javascript application/json image/svg+xml \
     application/manifest+json application/xml
 </IfModule>
 

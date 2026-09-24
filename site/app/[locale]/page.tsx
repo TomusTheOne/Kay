@@ -1,30 +1,15 @@
 import { notFound } from "next/navigation";
-import { isLocale, getDictionary, pathFor, LIVE_LOCALES } from "@/lib/i18n";
+import { isLocale, getDictionary, pathFor, mapCopy, LIVE_LOCALES } from "@/lib/i18n";
 import { PRODUCTS, ALWAYS_INCLUDED, GALLERY, PICKUPS, SCHEDULES, SHOP,
          CONTENT_UPDATED } from "@/content/products";
 import Surface from "@/components/Surface";
 import Gauge from "@/components/Gauge";
 import Reveals from "@/components/Reveals";
 import Booking from "@/components/Booking";
-
-function Plate({ photo, art, alt, eager = false }: {
-  photo: string | null; art: string; alt: string; eager?: boolean;
-}) {
-  if (!photo) {
-    return <img src={`/assets/art/${art}.svg`} alt={alt}
-                loading={eager ? undefined : "lazy"} width={1200} height={800} />;
-  }
-  return (
-    <picture>
-      <source srcSet={`/assets/photos/${photo}.avif`} type="image/avif" />
-      <source srcSet={`/assets/photos/${photo}.webp`} type="image/webp" />
-      <img src={`/assets/photos/${photo}.webp`} alt={alt}
-           fetchPriority={eager ? "high" : undefined}
-           loading={eager ? undefined : "lazy"} decoding={eager ? undefined : "async"}
-           width={1200} height={800} />
-    </picture>
-  );
-}
+import Plate from "@/components/Plate";
+import Footer from "@/components/Footer";
+import CenoteMap from "@/components/CenoteMap";
+import { GUIDE_PUBLISHED } from "@/content/cenotes";
 
 const Arrow = () => (
   <svg width="14" height="8" viewBox="0 0 14 8" fill="none" aria-hidden="true">
@@ -43,6 +28,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
   const nav = [
     { href: "#about", label: t.nav.about },
     { href: "#products", label: t.nav.products },
+    ...(GUIDE_PUBLISHED ? [{ href: pathFor(locale, "/cenotes/"), label: t.nav.cenotes }] : []),
     { href: "#included", label: t.nav.included },
     { href: "#logistics", label: t.nav.logistics },
     ...(GALLERY.length ? [{ href: "#gallery", label: t.nav.gallery }] : []),
@@ -294,6 +280,31 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
           </div>
         </section>
 
+        {/* --------------------------------------------------------- cenotes
+            Only once the guide is published: until Kay has checked every
+            position, the map lives on the unlisted guide pages alone. */}
+        {GUIDE_PUBLISHED && (
+            <section className="bay" id="cenotes">
+              <div className="shell head2">
+                <div data-rise>
+                  <p className="tag">{t.cenotes.homeTag}</p>
+                  <h2 className="dsp dsp-lg" style={{ marginTop: "1.1rem" }}
+                      dangerouslySetInnerHTML={{ __html: t.cenotes.homeH2 }} />
+                </div>
+                <div data-rise data-rise-d="1" style={{ maxWidth: "40ch" }}>
+                  <p className="muted">{t.cenotes.homeIntro}</p>
+                  <a className="btn btn--ghost" style={{ marginTop: "1.3rem" }}
+                     href={pathFor(locale, "/cenotes/")}>{t.cenotes.homeCta} <Arrow /></a>
+                </div>
+              </div>
+              {/* The shell's width, not .wide: the depth gauge runs down the
+                  left edge of the home page and would sit on the map's key. */}
+              <div className="shell">
+                <CenoteMap t={mapCopy(t.cenotes)} base={pathFor(locale, "/cenotes/")} />
+              </div>
+            </section>
+        )}
+
         {/* -------------------------------------------------------- included */}
         <section className="bay shell" id="included">
           <div className="head2">
@@ -441,39 +452,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         </section>
       </main>
 
-      <footer className="foot">
-        <div className="shell">
-          <div className="foot__grid">
-            <div>
-              <p className="muted" style={{ fontSize: ".9rem", maxWidth: "36ch" }}>{t.footer.blurb}</p>
-            </div>
-            <div><h4>{t.footer.explore}</h4><ul>
-              {PRODUCTS.filter((p) => p.kind !== "course").map((p) => (
-                <li key={p.slug}><a href="#products">{t.products.items[p.slug].name}</a></li>
-              ))}
-            </ul></div>
-            <div><h4>{t.footer.learn}</h4><ul>
-              {PRODUCTS.filter((p) => p.kind === "course").map((p) => (
-                <li key={p.slug}><a href="#products">{t.products.items[p.slug].name}</a></li>
-              ))}
-              <li><a href="#included">{t.nav.included}</a></li>
-              <li><a href="#faq">{t.nav.faq}</a></li>
-            </ul></div>
-            <div><h4>{t.footer.find}</h4><ul>
-              <li><a href={SHOP.instagram} rel="noopener">@kaydivingtulum</a></li>
-              <li><a href={`tel:${SHOP.phone}`}>{SHOP.phoneDisplay}</a></li>
-              <li><a href={`https://wa.me/${SHOP.phone.replace(/\D/g, "")}`} rel="noopener">{t.footer.whatsapp}</a></li>
-              <li><a href={`mailto:${SHOP.email}`}>{SHOP.email}</a></li>
-              <li><span className="muted" style={{ fontSize: ".9rem" }}>{t.footer.meet}: {SHOP.meetingPoint}</span></li>
-              <li><span className="muted" style={{ fontSize: ".9rem" }}>{t.footer.place}</span></li>
-            </ul></div>
-          </div>
-          <div className="foot__base data">
-            <span>© {new Date().getFullYear()} Kay Diving · Tulum</span>
-            <span>{LIVE_LOCALES.map((l) => l.toUpperCase()).join(" · ")}</span>
-          </div>
-        </div>
-      </footer>
+      <Footer t={t} locale={locale} />
     </>
   );
 }

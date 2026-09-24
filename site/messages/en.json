@@ -13,7 +13,8 @@
     "reserveLong": "Reserve a dive",
     "menu": "Menu",
     "language": "Language",
-    "logistics": "Getting there"
+    "logistics": "Getting there",
+    "cenotes": "Cenotes"
   },
   "hero": {
     "kicker": "Tulum · Quintana Roo · Riviera Maya",
@@ -46,7 +47,7 @@
   "products": {
     "tag": "What we run",
     "h2": "Six ways<br>into the water.",
-    "intro": "Every price below already includes your equipment, the cenote entrance fees, transport between the dive sites and snacks in the water. Hotel pickup is the one thing quoted separately — see Getting there.",
+    "intro": "Every price below already includes your equipment, the cenote entrance fees, transport between the dive sites and snacks in between dives. Hotel pickup is the one thing quoted separately — see Getting there.",
     "from": "from",
     "dive": "dive",
     "dives": "dives",
@@ -68,7 +69,8 @@
       "el-pit": "Cenote El Pit",
       "by-level": "Chosen to match your level",
       "favourite-cenotes": "Our favourite cenotes near Tulum",
-      "playa-del-carmen": "Playa del Carmen · 45 min from Tulum"
+      "playa-del-carmen": "Playa del Carmen · 45 min from Tulum",
+      "angelita-or-el-pit": "Angelita or El Pit"
     },
     "items": {
       "discover-scuba": {
@@ -92,7 +94,7 @@
       "advanced-ow": {
         "name": "Advanced Open Water",
         "tagline": "Climb the experience ladder.",
-        "text": "The next step: five specialty dives taking you to thirty metres, across Casa Cenote, Cenote El Pit and the Tankah reef. Learning materials included.",
+        "text": "The next step: five specialty dives taking you to thirty metres, in Cenote Angelita or Cenote El Pit. Learning materials included.",
         "alt": "A diver deep in a dark Tulum cenote, a stage cylinder at their side and bubbles rising"
       },
       "open-water": {
@@ -144,7 +146,7 @@
     "items": {
       "equipment": {
         "name": "Equipment",
-        "text": "High quality gear, fitted before you get in. Bring a swimsuit and reef-safe sunscreen."
+        "text": "High quality gear, fitted before you get in. Snorkel and mask are provided on snorkel tours. Bring a swimsuit and reef-safe sunscreen."
       },
       "entrance": {
         "name": "Cenote entrance",
@@ -162,10 +164,6 @@
         "name": "Learning materials",
         "text": "On both courses, everything you need to study is included."
       },
-      "snorkel-mask": {
-        "name": "Snorkel & mask",
-        "text": "Provided on the snorkel tour."
-      },
       "padi-licence": {
         "name": "PADI licence",
         "text": "The Open Water course ends with a certification recognised worldwide."
@@ -175,7 +173,7 @@
   "gallery": {
     "tag": "From the water",
     "h2": "What it actually<br>looks like down there.",
-    "intro": "Shot by the guides on working days — no models, no staging. More of it, most days, on",
+    "intro": "Shot by customers on tours — no models, no staging. More of it, most days, on",
     "captions": {
       "gallery-1": "Going down · a Tulum cenote",
       "gallery-2": "The cavern mouth, from below",
@@ -190,7 +188,7 @@
   "book": {
     "tag": "Reservations",
     "h2": "Book your<br>day in the water.",
-    "intro": "A deposit holds the date. We confirm by WhatsApp within a few hours, send you our few questions, and you settle the balance on the day.",
+    "intro": "A deposit holds the date. We confirm by WhatsApp within a few hours, send you a few questions, and you settle the balance on the day.",
     "s1": "01 — What you want to do",
     "s2": "02 — How many dives",
     "s3": "03 — Date",
@@ -219,7 +217,8 @@
     "rTotal": "Total",
     "rDeposit": "Deposit now",
     "halfDayLabel": "Half day",
-    "fine": "Equipment, cenote entrance, transport to the sites and snacks included. Prices per person in USD; pickup is per booking. The deposit is charged in Mexican pesos and the balance is settled on the day.",
+    "fine": "Equipment, cenote entrance, transport to the sites and snacks included. Prices per person in USD; pickup is per booking. The deposit is charged in Mexican pesos and the balance is settled on the day. If you pay the balance in dollars, the exchange rate of the day applies.",
+    "certNote": "On the day, show your guide your certification — the card or a copy on your phone. Without it we cannot take you diving. To 20 m: Open Water or equivalent. Deeper: at least Advanced Open Water or equivalent.",
     "mpDescription": "Deposit of {percent}% — the balance is settled on the day.",
     "submit": "Reserve with a deposit",
     "submitting": "Opening checkout…",
@@ -244,7 +243,7 @@
     "items": [
       {
         "q": "Do I need to be certified to dive here?",
-        "a": "Not to start. Discover Scuba takes people who have never breathed underwater, and the snorkel tour needs nothing at all. Cenote diving and the reef need an Open Water certification. For the two deep cenotes — Angelita and El Pit — you need Advanced Open Water or a Deep speciality; either one is enough."
+        "a": "Not to start. Discover Scuba takes people who have never breathed underwater, and the snorkel tour needs nothing at all. Every dive to 20 metres or shallower — the reef and most cenotes — needs Open Water or an equivalent. Anything deeper — Angelita and El Pit — needs at least Advanced Open Water or an equivalent; a Deep speciality counts. Bring the card or a digital copy and show it to your guide on the day: without it, we cannot take you on the dive."
       },
       {
         "q": "How deep do the dives go?",
@@ -252,7 +251,7 @@
       },
       {
         "q": "What is actually included in the price?",
-        "a": "High quality equipment, the cenote entrance fees, transport from the meeting point to every site and back, and snacks and water. Both courses also include the learning materials. Hotel pickup is the one thing charged separately — see below."
+        "a": "High quality equipment, the cenote entrance fees, transport from the meeting point to every site and back, and snacks and water. Both courses also include the learning materials. Hotel pickup is the one thing charged separately — see below. Prices are quoted in dollars and pesos; if you settle the balance in dollars, the exchange rate of the day applies."
       },
       {
         "q": "Can you pick me up from my hotel?",
@@ -305,7 +304,8 @@
     "thanks": {
       "tag": "Payment received",
       "h2": "You are on the boat.",
-      "p": "Your deposit is in and the date is held. A guide will message you on WhatsApp within a few hours with the meeting point, the time, and the few questions we ask before every dive. The balance is settled on the day.",
+      "p": "Your deposit is in and the date is held. A guide will message you on WhatsApp within a few hours with the meeting point, the time, and the few questions we ask before every dive. The balance is settled on the day. A short form for your equipment sizes is in your confirmation email.",
+      "note": "Bring your dive certification on the day — the card or a digital copy — and show it to your guide. To 20 metres you need Open Water or an equivalent; deeper, at least Advanced Open Water or an equivalent. Without it we cannot take you diving. Discover Scuba, the Open Water course and the snorkel tour need none.",
       "cta": "Back to the site"
     },
     "pending": {
@@ -377,7 +377,16 @@
       "totalLabel": "Total",
       "paidLabel": "Deposit paid",
       "balanceLabel": "Balance on the day",
-      "balanceNote": "Settled in cash or by card when you arrive.",
+      "balanceNote": "Settled in cash or by card when you arrive. If you pay in dollars, the exchange rate of that day applies.",
+      "certTag": "Your certification",
+      "certOpenWater": "Bring your Open Water certification, or an equivalent, and show it to your guide on the day — the card or a digital copy on your phone. It is required for every dive to 20 metres or shallower.",
+      "certOpenWaterPlus": "Bring your certification and show it to your guide on the day — the card or a digital copy on your phone. Dives to 20 metres need Open Water or an equivalent; Angelita and El Pit, deeper than 20 metres, need at least Advanced Open Water or an equivalent, such as the Deep speciality.",
+      "certAdvanced": "Bring your certification and show it to your guide on the day — the card or a digital copy on your phone. This dive needs at least Advanced Open Water or an equivalent, such as the Deep speciality.",
+      "certNoShow": "Without the certification this dive requires, on paper or digital, we cannot take you on it.",
+      "gearTag": "Your equipment sizes",
+      "gearText": "So your gear is ready, and fits, when you arrive: tell us each diver's height, approximate weight, shoe size, and the wetsuit, BCD and fins sizes you usually wear. It takes two minutes.",
+      "gearTextSnorkel": "So your fins are ready when you arrive, tell us each person's shoe size. It takes a minute.",
+      "gearCta": "Fill in the sizes",
       "nextTag": "What happens next",
       "nextText": "A guide writes to you on WhatsApp within a few hours to confirm the details and ask the few medical questions we ask before every dive. If anything above is wrong, just reply to this email.",
       "bringTag": "Bring",
@@ -395,6 +404,122 @@
       "emailLabel": "Email",
       "localeLabel": "Wrote in",
       "action": "Message them on WhatsApp and put them on the day sheet."
+    },
+    "gear": {
+      "subject": "Your sizes for the dive on {date}",
+      "preheader": "Two minutes, so your gear is ready when you arrive.",
+      "kicker": "Before your dive",
+      "whatsapp": "Hi {name}! So we can get your gear ready, please fill in your sizes here:"
+    }
+  },
+  "gear": {
+    "metaTitle": "Your equipment sizes · Kay Diving",
+    "tag": "Before your dive",
+    "h1": "Your equipment sizes",
+    "intro": "So your gear is ready, and fits, when you arrive. One card per person — it takes two minutes.",
+    "introSnorkel": "So your fins are ready when you arrive: just a shoe size per person.",
+    "loading": "Loading your booking…",
+    "invalid": "This link does not work. Use the one in your confirmation email, or message us on WhatsApp.",
+    "closed": "This booking is no longer active, so there are no sizes to send.",
+    "error": "Something went wrong. Try again, or send us your sizes on WhatsApp.",
+    "diver": "Diver {n}",
+    "person": "Person {n}",
+    "name": "Name",
+    "units": "Units",
+    "metric": "cm · kg",
+    "imperial": "ft · lb",
+    "height": "Height",
+    "weight": "Approximate weight",
+    "shoe": "Shoe size",
+    "shoeSystem": "Size system",
+    "wetsuit": "Wetsuit",
+    "bcd": "BCD (buoyancy vest)",
+    "fins": "Fins",
+    "notSure": "Not sure",
+    "sizesHint": "Not sure of a size? Choose “Not sure” — your height and weight are enough for us.",
+    "submit": "Send the sizes",
+    "sending": "Sending…",
+    "saved": "Thank you — your sizes are saved. You can come back to this page and change them until the day.",
+    "errHeight": "Check the height for {who}.",
+    "errWeight": "Check the weight for {who}.",
+    "errShoe": "Check the shoe size for {who}.",
+    "back": "Back to the site"
+  },
+  "cenotes": {
+    "metaTitle": "Cenote guide: Tulum & the Riviera Maya | Kay Diving",
+    "metaDescription": "The cenotes we dive around Tulum, one by one: Angelita, El Pit, Dos Ojos, Casa Cenote and more — how deep the dive goes, the certification you need, and where each one is on the map.",
+    "tag": "Cenote guide",
+    "h1": "The cenotes we dive,<br>one by one.",
+    "intro": "Every cenote on this map is one we dive, with the depth the dive goes to and the certification card you show on the day. Tap a point on the map, or pick a type below.",
+    "preview": "Preview — this guide is not public yet. Check the position of every cenote on the map before it goes live.",
+    "approx": "Approximate position, to be confirmed",
+    "mapLabel": "Map of the cenotes around Tulum",
+    "mapLoading": "Loading the map…",
+    "mapError": "The map could not load — every cenote is listed below.",
+    "zoomIn": "Zoom in",
+    "zoomOut": "Zoom out",
+    "reset": "Back to Tulum",
+    "gestureWin": "Use Ctrl + scroll to zoom the map",
+    "gestureMac": "Use ⌘ + scroll to zoom the map",
+    "gestureTouch": "Use two fingers to move the map",
+    "cluster": "{n} cenotes here — zoom in",
+    "close": "Close",
+    "filter": "Show",
+    "all": "All",
+    "count": "{n} cenotes",
+    "none": "No cenote matches.",
+    "diveDepth": "Dive depth",
+    "cenoteDepth": "Cenote depth",
+    "upTo": "to {m} m",
+    "levelTag": "Card to show",
+    "fromTulum": "From Tulum, straight line",
+    "snorkelToo": "Good for snorkelling too",
+    "see": "See the cenote",
+    "divesTag": "Dive it with us",
+    "nearbyTag": "Nearby",
+    "back": "All cenotes",
+    "illustration": "Illustration — photo coming soon",
+    "homeTag": "Cenote map",
+    "homeH2": "Where we dive,<br>around Tulum.",
+    "homeIntro": "Every cenote we dive, on one map — from Casa Cenote by the sea to the cloud in Angelita, 30 m down in the jungle. Tap one to see how deep it goes and the level it asks for.",
+    "homeCta": "Open the cenote guide",
+    "compass": [
+      "N",
+      "NE",
+      "E",
+      "SE",
+      "S",
+      "SW",
+      "W",
+      "NW"
+    ],
+    "types": {
+      "open": "Open cenote",
+      "cavern": "Cavern",
+      "deep": "Deep"
+    },
+    "filters": {
+      "open": "Open",
+      "cavern": "Caverns",
+      "deep": "Deep · Advanced",
+      "snorkel": "Snorkel too"
+    },
+    "levels": {
+      "none": "None — try it with Discover Scuba",
+      "open-water": "Open Water or equivalent",
+      "advanced": "Advanced Open Water or Deep"
+    },
+    "items": {
+      "casa-cenote": "An open, lagoon-like cenote connected directly to the Caribbean Sea, where fresh and salt water mix into an ecosystem of its own. It is about 9 metres deep at most — ideal for new divers and for anyone after a relaxed dive. Mangroves surround it, and the visibility, though it varies, puts you alongside fish, turtles and now and then a freshwater crocodile (Morelet's crocodile, Crocodylus moreletii). The perfect way to combine recreational diving with wildlife up close.",
+      "car-wash": "Under a calm, easy-to-reach surface hides one of the most photographed cenotes on the Riviera Maya. Water lilies float on its clear water; further down there are petrified trunks and a striking gallery of stalactites and stalagmites. Up to 16 metres deep, it suits snorkelling as well as cavern diving, and the sunbeams filtering through the trees turn every dive into something almost cinematic.",
+      "dos-ojos": "One of the most famous flooded cave systems in the world: two connected cenotes that, seen from above, look like a pair of eyes. Its cavern routes, such as “The Barbie Line” and “The Bat Cave”, run through crystal-clear water with more than 30 metres of visibility, past striking stalactites and ancient rock formations. The open areas are about 10 metres deep at most. It belongs to the longest underwater cave system in the world, some 369 kilometres of it. An excellent choice if you have never dived a cenote before.",
+      "el-pit": "One of the deepest and most dramatic cenotes on the Riviera Maya, going down to 119 metres. It is famous for the column of light that pierces the water, for its halocline — where fresh and salt water meet — and for a cloud of hydrogen sulphide at about 30 metres that looks like fog underwater. Recommended for advanced or technical divers, it is one of the most striking cenote dives in the world.",
+      "angelita": "About 60 metres deep, this cenote holds one of the most striking sights in cavern diving: a cloud of hydrogen sulphide lying on the salt water at around 30 metres, which creates the illusion of an underground river, with trunks and fallen leaves “floating” in mid-air. Passing through it feels like crossing a threshold into another dimension, onto a sunken landscape wrapped in a ghostly haze. A mystical, overwhelming experience, reserved for advanced divers looking for something truly unique.",
+      "dreamgate": "A cavern cenote with a round entrance, known for its extraordinarily clear water and for the imposing columns and rock formations that reach down to the bottom. Natural light filtering through the opening above creates spectacular effects. Ideal for cavern diving, with routes through wide chambers and an almost ceremonial atmosphere.",
+      "tak-be-luum": "Less known, and so less touched, this cenote lies in the Dos Ojos park area. It offers cavern passages with well-preserved formations, calm water and a more intimate dive, since it sees fewer visitors. Ideal if you want to explore cenotes off the busiest routes.",
+      "tak-be-ha": "A cave system with wide chambers, sharply defined stalactites and stalagmites, and a strong halocline that blurs the view where fresh and salt water mix. Calm and never crowded, it is ideal for certified divers looking for spectacular formations.",
+      "nicte-ha": "Close to Dos Ojos, it stands out for its aquatic plants and its emerald water, coloured by water lilies and underwater vegetation. Shallower than the other cenotes around it, it is ideal for snorkelling and easy dives, with good visibility and a very photogenic, natural setting.",
+      "nohoch-nah-chich": "Part of one of the longest underwater cave systems in the world. It is known for an astonishing concentration of stalactites and stalagmites, many of them huge, forming real stone “forests” underwater. Its crystal-clear water and intricate passages make it a must for experienced cavern divers looking for formations on another level."
     }
   }
 }
