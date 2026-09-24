@@ -10,7 +10,7 @@
       "type": "open", "level": "none", "snorkel": false,
       "depthM": 9, "diveMinM": null, "diveMaxM": 9,
       "products": ["discover-scuba", "reef-cenote", "open-water"],
-      "photo": "card-casa", "art": "casa-cenote"
+      "photo": "cenote-casa", "art": "casa-cenote"
     },
     {
       "slug": "car-wash", "name": "Cenote Car Wash", "short": "Car Wash", "aka": "Aktun Ha",
@@ -18,7 +18,7 @@
       "type": "cavern", "level": "open-water", "snorkel": true,
       "depthM": 16, "diveMinM": null, "diveMaxM": 16,
       "products": ["cenote-diving"],
-      "photo": null, "art": "cenote-shaft"
+      "photo": "card-casa", "art": "cenote-shaft"
     },
     {
       "slug": "dos-ojos", "name": "Cenote Dos Ojos", "short": "Dos Ojos",
@@ -26,7 +26,7 @@
       "type": "cavern", "level": "open-water", "snorkel": false,
       "depthM": 10, "diveMinM": null, "diveMaxM": 10,
       "products": ["cenote-diving"],
-      "photo": null, "art": "cavern"
+      "photo": "cenote-dos-ojos", "art": "cavern"
     },
     {
       "slug": "el-pit", "name": "Cenote El Pit", "short": "El Pit",
@@ -34,7 +34,7 @@
       "type": "deep", "level": "advanced", "snorkel": false,
       "depthM": 119, "diveMinM": 30, "diveMaxM": 32,
       "products": ["cenote-diving", "advanced-ow"],
-      "photo": null, "art": "the-pit"
+      "photo": "cenote-el-pit", "art": "the-pit"
     },
     {
       "slug": "angelita", "name": "Cenote Angelita", "short": "Angelita",
@@ -42,7 +42,7 @@
       "type": "deep", "level": "advanced", "snorkel": false,
       "depthM": 60, "diveMinM": 35, "diveMaxM": 38,
       "products": ["cenote-diving", "advanced-ow"],
-      "photo": "card-angelita", "art": "halocline"
+      "photo": "cenote-angelita", "art": "halocline"
     },
     {
       "slug": "dreamgate", "name": "Cenote Dreamgate", "short": "Dreamgate",

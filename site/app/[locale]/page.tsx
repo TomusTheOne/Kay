@@ -440,7 +440,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         {/* ------------------------------------------------------------- cta */}
         <section className="bay wide">
           <div className="band" data-rise>
-            <div className="band__art"><Plate photo="band" art="the-pit" alt="" /></div>
+            <div className="band__art"><Plate photo="band" art="the-pit" alt={t.cta.bandAlt} /></div>
             <p className="tag tag--plain" style={{ justifyContent: "center" }}>{t.cta.kicker}</p>
             <h2 className="dsp dsp-lg" style={{ marginTop: "1rem" }}>{t.cta.h2}</h2>
             <p className="lede" style={{ margin: "1.2rem auto 0" }}>{t.cta.lede}</p>

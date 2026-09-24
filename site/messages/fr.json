@@ -77,7 +77,7 @@
         "name": "Discover Scuba",
         "tagline": "Pas de PADI ? Aucun souci.",
         "text": "Votre premier aperçu du monde sous-marin. Vous apprenez les bases de la plongée, puis vous explorez un cenote à ciel ouvert à l'eau limpide, sans dépasser sept mètres. Aucune certification, aucune expérience — juste un guide, de l'eau peu profonde et une très belle matinée. La deuxième plongée n'a lieu que si l'état de la mer le permet ce jour-là.",
-        "alt": "La surface dégagée de Casa Cenote, bordée de jungle, près de Tulum"
+        "alt": "La surface claire du cenote Car Wash, bordée de jungle, près de Tulum"
       },
       "reef-cenote": {
         "name": "Récif & Cenote",
@@ -101,13 +101,13 @@
         "name": "Formation Open Water",
         "tagline": "Devenez plongeur certifié.",
         "text": "Le brevet PADI Open Water complet en cinq plongées, entre Casa Cenote et le récif de Tankah. Aucune expérience nécessaire. Vous repartez avec une certification reconnue partout dans le monde.",
-        "alt": "Un guide Kay Diving portant un bloc jusqu'à l'eau"
+        "alt": "Un plongeur qui avance vers l'objectif entre les racines et les rais de lumière d'un cenote de Tulum"
       },
       "snorkel": {
         "name": "Sortie snorkeling",
         "tagline": "Reconnectez-vous à la nature.",
         "text": "Pour qui veut un peu d'aventure et beaucoup de calme. Trois cenotes différents sur une demi-journée, avec un arrêt final dans l'une des meilleures taquerías du coin. Sans expérience et sans bloc.",
-        "alt": "La lumière tombant en rais entre les racines de palétuvier dans un cenote de Tulum"
+        "alt": "Un nageur en snorkeling, masque et palmes, vu d'en haut dans une eau turquoise"
       },
       "bull-sharks": {
         "name": "Requins bouledogues",
@@ -287,7 +287,8 @@
     "kicker": "Tulum · toute l'année",
     "h2": "Allons les explorer ensemble.",
     "lede": "Dites-nous vos dates et ce que vous avez déjà plongé. Nous vous dirons honnêtement quels sites valent le déplacement cette semaine-là.",
-    "instagram": "À voir sur Instagram"
+    "instagram": "À voir sur Instagram",
+    "bandAlt": "Un plongeur en silhouette sur la lueur turquoise d'un cenote de Tulum"
   },
   "footer": {
     "blurb": "Plongée guidée en cenote et sur le récif et formations PADI à Tulum, Quintana Roo. Équipement, entrée des cenotes, transport sur les sites et collations inclus dans chaque tarif.",
@@ -522,6 +523,14 @@
       "tak-be-ha": "Un réseau de grottes aux vastes salles, aux stalactites et stalagmites bien dessinées, avec une halocline marquée qui brouille la vue là où l'eau douce et l'eau salée se mélangent. Une ambiance sereine, idéale pour les plongeurs certifiés en quête de formations spectaculaires, loin de la foule.",
       "nicte-ha": "Situé près de Dos Ojos, il se distingue par sa végétation aquatique et son eau vert émeraude, due aux nénuphars et aux plantes subaquatiques. Moins profond que les autres cenotes du secteur, il est idéal pour le snorkeling et la plongée tranquille, avec une bonne visibilité et un cadre naturel très photogénique.",
       "nohoch-nah-chich": "Il fait partie de l'un des plus vastes réseaux de grottes subaquatiques au monde. Il se distingue par une concentration étonnante de stalactites et de stalagmites, souvent immenses, qui forment de véritables « forêts » de pierre sous l'eau. Son eau cristalline et ses passages complexes en font une destination incontournable pour les plongeurs de caverne expérimentés en quête de formations d'un autre niveau."
-    }
+    },
+    "alts": {
+      "casa-cenote": "Un plongeur en suspension dans l'eau turquoise de Casa Cenote, une colonne de bulles au-dessus de lui",
+      "car-wash": "Une corde suspendue au-dessus de l'eau claire du cenote Car Wash, bordé de jungle, près de Tulum",
+      "dos-ojos": "Des plongeurs dans la caverne de Dos Ojos, la lumière du jour perçant l'eau bleue",
+      "el-pit": "Des rais de lumière plongeant dans le puits d'El Pit, des plongeurs en silhouette",
+      "angelita": "Un plongeur au-dessus du nuage de sulfure du cenote Angelita, parmi les branches mortes"
+    },
+    "artAlt": "Illustration : {name}"
   }
 }

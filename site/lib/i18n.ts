@@ -59,20 +59,22 @@ export type CenoteCopy = Record<
   | "gestureWin" | "gestureMac" | "gestureTouch" | "cluster" | "close"
   | "filter" | "all" | "count" | "none" | "diveDepth" | "cenoteDepth" | "upTo"
   | "levelTag" | "fromTulum" | "snorkelToo" | "see" | "divesTag" | "nearbyTag"
-  | "back" | "illustration" | "homeTag" | "homeH2" | "homeIntro" | "homeCta", string
+  | "back" | "illustration" | "artAlt" | "homeTag" | "homeH2" | "homeIntro" | "homeCta", string
 > & {
   compass: string[];
   types: Record<"open" | "cavern" | "deep", string>;
   filters: Record<"open" | "cavern" | "deep" | "snorkel", string>;
   levels: Record<"none" | "open-water" | "advanced", string>;
   items: Record<string, string>;
+  /** Alt text for each cenote's own photograph, keyed by slug. */
+  alts: Record<string, string>;
 };
 
 /** The guide's strings without Kay's texts — all the map needs on the client. */
-export type MapCopy = Omit<CenoteCopy, "items">;
+export type MapCopy = Omit<CenoteCopy, "items" | "alts">;
 export function mapCopy(c: CenoteCopy): MapCopy {
-  const { items, ...rest } = c;
-  void items;
+  const { items, alts, ...rest } = c;
+  void items; void alts;
   return rest;
 }
 
@@ -114,7 +116,7 @@ export interface Dictionary {
   quote: { text: string; cite: string };
   book: Record<string, string> & { certs: string[] };
   faq: { tag: string; h2: string; items: Qa[] };
-  cta: Record<"kicker" | "h2" | "lede" | "instagram", string>;
+  cta: Record<"kicker" | "h2" | "lede" | "instagram" | "bandAlt", string>;
   footer: Record<"blurb" | "explore" | "learn" | "find" | "whatsapp" | "email"
                 | "place" | "phone" | "meet", string>;
   booking: Record<"thanks" | "pending" | "failed", Outcome>;
