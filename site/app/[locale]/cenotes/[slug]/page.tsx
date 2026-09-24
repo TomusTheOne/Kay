@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import { isLocale, getDictionary, pathFor, mapCopy } from "@/lib/i18n";
 import { guideMetadata } from "@/lib/guide";
 import { PRODUCTS, SHOP } from "@/content/products";
-import { CENOTES, GUIDE_PUBLISHED, cenoteBySlug, diveDepth, fromTulum, nearest } from "@/content/cenotes";
+import { CENOTES, GUIDE_PUBLISHED, cenoteBySlug, diveDepth, fromTulum, nearest, type Cenote } from "@/content/cenotes";
 import GuideFrame from "@/components/GuideFrame";
 import CenoteMap from "@/components/CenoteMap";
 import CenoteCard from "@/components/CenoteCard";
@@ -35,9 +35,10 @@ export default async function CenotePage({ params }: Params) {
   const g = t.cenotes;
   const away = fromTulum(c);
   const guide = pathFor(locale, "/cenotes/");
-  const photoAlt = (photo: string | null) => {
-    const p = PRODUCTS.find((x) => x.photo === photo);
-    return p ? t.products.items[p.slug].alt : "";
+  const photoAlt = (o: Cenote) => {
+    if (!o.photo) return g.artAlt.replace("{name}", o.name);
+    const p = PRODUCTS.find((x) => x.photo === o.photo);
+    return g.alts[o.slug] ?? (p ? t.products.items[p.slug].alt : o.name);
   };
   const url = `${SHOP.domain}${pathFor(locale, `/cenotes/${slug}/`)}`;
   const ld = {
@@ -91,7 +92,7 @@ export default async function CenotePage({ params }: Params) {
             </a>
           </div>
           <figure className="plate guide__plate">
-            <Plate photo={c.photo} art={c.art} alt={photoAlt(c.photo)} eager />
+            <Plate photo={c.photo} art={c.art} alt={photoAlt(c)} eager />
             {!c.photo && <figcaption className="plate__note data">{g.illustration}</figcaption>}
           </figure>
         </div>
@@ -105,7 +106,7 @@ export default async function CenotePage({ params }: Params) {
         <p className="tag">{g.nearbyTag}</p>
         <div className="dives cgrid" style={{ marginTop: "1.6rem" }}>
           {nearest(c).map((o) => (
-            <CenoteCard key={o.slug} c={o} t={g} href={`${guide}${o.slug}/`} alt={photoAlt(o.photo)} />
+            <CenoteCard key={o.slug} c={o} t={g} href={`${guide}${o.slug}/`} alt={photoAlt(o)} />
           ))}
         </div>
       </section>

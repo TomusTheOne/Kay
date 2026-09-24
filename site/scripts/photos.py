@@ -30,21 +30,30 @@ SLOTS = {
     # Same frame, cut much wider for the band that breaks up the page.
     "band":          ("angelita",  1720,  882, 0.52, 0.46),
 
+    # The rope over the water is Cenote Car Wash, whatever the slot is called:
+    # it serves the Discover Scuba card and Car Wash in the cenote guide.
     "card-casa":     ("casa",       960,  660, 0.50, 0.55),
     "card-angelita": ("mangrove",   960,  660, 0.48, 0.50),
     "guide":         ("guide",      900, 1125, 0.50, 0.45),
 
     # Casa Cenote's green water — the freshwater half of Reef & Cenote.
     "card-reef":     ("casa-green",  960,  660, 0.42, 0.58),
-    # Light through the mangrove roots: what you see with your face in the
-    # water and no tank on your back.
-    "card-snorkel":  ("cenote-light", 960, 660, 0.50, 0.46),
+    # A snorkeller from above, face in the water, fins up.
+    "card-snorkel":  ("snorkel",      960, 660, 0.50, 0.60),
+    # A diver coming through the roots towards the camera. The Open Water card
+    # used to borrow "guide", which the About section keeps.
+    "card-openwater": ("open-water",  960, 660, 0.52, 0.46),
     # Deep, dark, a stage bottle on the diver's side. The Advanced card was
     # the last one still showing a drawing.
     "card-advanced": ("deep-stage",   960, 660, 0.50, 0.62),
     # The bull sharks are a product now, so the photograph moves out of the
     # gallery and onto the card that sells the dive.
     "card-sharks":   ("sharks",       960, 660, 0.52, 0.55),
+    # The cenote guide: one photograph per cenote, each taken there.
+    "cenote-casa":     ("cenote-casa",     1200, 800, 0.50, 0.42),
+    "cenote-angelita": ("cenote-angelita", 1200, 800, 0.56, 0.50),
+    "cenote-dos-ojos": ("cenote-dos-ojos", 1200, 800, 0.50, 0.50),
+    "cenote-el-pit":   ("cenote-el-pit",   1200, 800, 0.50, 0.40),
     # The gallery, carrying only photographs the page has not used above.
     # Five tiles is what the grid was drawn for: one tall on the left, four
     # filling the two columns beside it.

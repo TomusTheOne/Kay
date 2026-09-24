@@ -14,7 +14,7 @@ export default function CenoteCard({ c, t, href, alt }: {
     <article className="dive ccard">
       <a className="ccard__hit" href={href} aria-label={c.name} />
       <div className="dive__media">
-        <Plate photo={c.photo} art={c.art} alt={c.photo ? alt : ""} />
+        <Plate photo={c.photo} art={c.art} alt={c.photo ? alt : t.artAlt.replace("{name}", c.name)} />
         <span className="dive__depth">{diveDepth(c, t.upTo).toUpperCase()}</span>
         {!c.photo && <span className="ccard__art">{t.illustration}</span>}
       </div>

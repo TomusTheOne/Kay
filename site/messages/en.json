@@ -77,7 +77,7 @@
         "name": "Discover Scuba",
         "tagline": "No PADI? No problem.",
         "text": "Your first glimpse of the underwater world. Learn the basics of scuba, then go and explore an open-air cenote with crystal clear water, no deeper than seven metres. No certification, no previous experience — just a guide, shallow water and a very good morning. The second dive only runs if the sea is right that day.",
-        "alt": "The open, jungle-fringed surface of Casa Cenote near Tulum"
+        "alt": "The clear, jungle-fringed surface of Cenote Car Wash near Tulum"
       },
       "reef-cenote": {
         "name": "Reef & Cenote",
@@ -101,13 +101,13 @@
         "name": "Open Water Course",
         "tagline": "Join the fun, become a certified diver.",
         "text": "The full PADI Open Water licence over five dives, between Casa Cenote and the Tankah reef. No previous experience needed. You leave with a certification that works anywhere in the world.",
-        "alt": "A Kay Diving guide carrying a tank to the water"
+        "alt": "A diver swimming towards the camera through roots and shafts of light in a Tulum cenote"
       },
       "snorkel": {
         "name": "Snorkel tour",
         "tagline": "Connect with nature.",
         "text": "For anyone who wants a little adventure and a lot of calm. Three different cenotes across half a day, finishing at one of the best local taquerías in town. No experience needed, and no tank.",
-        "alt": "Sunlight falling in shafts through mangrove roots into a Tulum cenote"
+        "alt": "A snorkeller seen from above, mask and fins on, in turquoise water"
       },
       "bull-sharks": {
         "name": "Bull Sharks",
@@ -287,7 +287,8 @@
     "kicker": "Tulum · year-round",
     "h2": "Let's go and explore them together.",
     "lede": "Tell us your dates and what you have done before. We will tell you honestly which sites are worth your time that week.",
-    "instagram": "See it on Instagram"
+    "instagram": "See it on Instagram",
+    "bandAlt": "A diver in silhouette against the turquoise glow of a Tulum cenote"
   },
   "footer": {
     "blurb": "Guided cenote and reef diving and PADI courses in Tulum, Quintana Roo. Equipment, cenote entrance, transport to the dive sites and snacks included in every price.",
@@ -520,6 +521,14 @@
       "tak-be-ha": "A cave system with wide chambers, sharply defined stalactites and stalagmites, and a strong halocline that blurs the view where fresh and salt water mix. Calm and never crowded, it is ideal for certified divers looking for spectacular formations.",
       "nicte-ha": "Close to Dos Ojos, it stands out for its aquatic plants and its emerald water, coloured by water lilies and underwater vegetation. Shallower than the other cenotes around it, it is ideal for snorkelling and easy dives, with good visibility and a very photogenic, natural setting.",
       "nohoch-nah-chich": "Part of one of the longest underwater cave systems in the world. It is known for an astonishing concentration of stalactites and stalagmites, many of them huge, forming real stone “forests” underwater. Its crystal-clear water and intricate passages make it a must for experienced cavern divers looking for formations on another level."
-    }
+    },
+    "alts": {
+      "casa-cenote": "A diver hovering in the turquoise water of Casa Cenote, a column of bubbles rising above",
+      "car-wash": "A rope hanging over the clear water of Cenote Car Wash, fringed by jungle, near Tulum",
+      "dos-ojos": "Divers in the cavern at Dos Ojos, daylight piercing the blue water",
+      "el-pit": "Shafts of light dropping down the well of El Pit, divers in silhouette",
+      "angelita": "A diver gliding above the hydrogen sulphide cloud of Cenote Angelita, among dead branches"
+    },
+    "artAlt": "Illustration: {name}"
   }
 }

@@ -77,7 +77,7 @@
         "name": "Discover Scuba",
         "tagline": "¿Sin PADI? Sin problema.",
         "text": "Tu primer vistazo al mundo submarino. Aprendes lo básico del buceo y luego exploras un cenote a cielo abierto de agua cristalina, sin pasar de siete metros. Sin certificación, sin experiencia previa — solo un guía, agua poco profunda y una muy buena mañana. La segunda inmersión solo se hace si las condiciones del mar son óptimas ese día.",
-        "alt": "La superficie abierta de Casa Cenote, rodeada de selva, cerca de Tulum"
+        "alt": "La superficie cristalina del Cenote Car Wash, rodeada de selva, cerca de Tulum"
       },
       "reef-cenote": {
         "name": "Arrecife y Cenote",
@@ -101,13 +101,13 @@
         "name": "Curso Open Water",
         "tagline": "Únete y hazte buzo certificado.",
         "text": "La certificación PADI Open Water completa en cinco inmersiones, entre Casa Cenote y el arrecife de Tankah. No necesitas experiencia previa. Te vas con una certificación válida en cualquier parte del mundo.",
-        "alt": "Un guía de Kay Diving llevando un tanque al agua"
+        "alt": "Un buzo avanzando hacia la cámara entre raíces y haces de luz en un cenote de Tulum"
       },
       "snorkel": {
         "name": "Tour de snorkel",
         "tagline": "Conecta con la naturaleza.",
         "text": "Para quien quiere un poco de aventura y mucha calma. Tres cenotes distintos en medio día, terminando en una de las mejores taquerías del pueblo. Sin experiencia y sin tanque.",
-        "alt": "La luz del sol cayendo en haces entre las raíces de mangle en un cenote de Tulum"
+        "alt": "Una persona haciendo snorkel, con máscara y aletas, vista desde arriba en agua turquesa"
       },
       "bull-sharks": {
         "name": "Tiburón Toro",
@@ -287,7 +287,8 @@
     "kicker": "Tulum · todo el año",
     "h2": "Vamos a explorarlas juntos.",
     "lede": "Dinos tus fechas y qué has buceado antes. Te diremos con honestidad qué sitios valen la pena esa semana.",
-    "instagram": "Míralo en Instagram"
+    "instagram": "Míralo en Instagram",
+    "bandAlt": "Un buzo a contraluz sobre el brillo turquesa de un cenote de Tulum"
   },
   "footer": {
     "blurb": "Buceo guiado en cenotes y arrecife y cursos PADI en Tulum, Quintana Roo. Equipo, entrada a los cenotes, transporte a los sitios y snacks incluidos en cada precio.",
@@ -522,6 +523,14 @@
       "tak-be-ha": "Sistema de cuevas con salas amplias, estalactitas y estalagmitas bien definidas, y una marcada haloclina que produce efectos visuales de distorsión donde se mezclan el agua dulce y la salada. Ofrece un ambiente sereno, ideal para buceadores certificados que buscan formaciones geológicas espectaculares en un entorno poco masificado.",
       "nicte-ha": "Ubicado cerca de Dos Ojos, destaca por su vegetación acuática y por sus aguas de color esmeralda, debidas a la presencia de lirios y plantas subacuáticas. Es menos profundo que otros cenotes de la zona, lo que lo hace ideal para el snorkel y el buceo ligero, con buena visibilidad y una atmósfera natural muy fotogénica.",
       "nohoch-nah-chich": "Parte de uno de los sistemas de cuevas subacuáticas más extensos del mundo. Se caracteriza por una asombrosa concentración de estalactitas y estalagmitas, muchas de gran tamaño, que forman auténticos “bosques” de piedra bajo el agua. Sus aguas cristalinas y sus pasajes intrincados lo convierten en un destino imprescindible para buceadores de cavernas experimentados que buscan formaciones geológicas de otro nivel."
-    }
+    },
+    "alts": {
+      "casa-cenote": "Un buzo suspendido en el agua turquesa de Casa Cenote, con una columna de burbujas encima",
+      "car-wash": "Una cuerda colgando sobre el agua cristalina del Cenote Car Wash, rodeado de selva, cerca de Tulum",
+      "dos-ojos": "Buzos en la caverna de Dos Ojos, con la luz del día atravesando el agua azul",
+      "el-pit": "Haces de luz cayendo en el pozo de El Pit, con buzos a contraluz",
+      "angelita": "Un buzo sobre la nube de sulfuro del Cenote Angelita, entre ramas muertas"
+    },
+    "artAlt": "Ilustración: {name}"
   }
 }

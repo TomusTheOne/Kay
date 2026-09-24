@@ -61,7 +61,7 @@ export default function Surface({
               as a helmet, which is why the mark is larger than the bubble it
               replaces. */}
           <img className="mark__ico" src="/assets/brand/icon.svg"
-               width="40" height="40" alt="" aria-hidden="true" />
+               width="40" height="40" alt="Kay Diving" aria-hidden="true" />
           <span className="mark__txt">
             <b className="mark__name">Kay Diving</b>
             <span className="mark__sub">TULUM · MÉXICO</span>
