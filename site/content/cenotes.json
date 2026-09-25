@@ -58,7 +58,7 @@
       "type": "cavern", "level": "open-water", "snorkel": false,
       "depthM": null, "diveMinM": null, "diveMaxM": 18,
       "products": ["cenote-diving"],
-      "photo": null, "art": "cavern"
+      "photo": "cenote-tak-be-luum", "art": "cavern"
     },
     {
       "slug": "tak-be-ha", "name": "Cenote Tak Be Ha", "short": "Tak Be Ha",
