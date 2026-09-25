@@ -69,9 +69,10 @@ SLOTS = {
     "gallery-1":     ("deep-descent",      880, 1180, 0.50, 0.50),  # la tuile haute
     "gallery-2":     ("cavern-silhouette", 900,  600, 0.52, 0.48),
     "gallery-3":     ("cavern-posts",      900,  600, 0.50, 0.52),
-    # Large, sur deux colonnes. The whole width of Kay's frame, as wide as the
-    # tile allows: the bull shark on the right leads, the second one stays in.
-    "gallery-sharks-wide": ("bull-shark", 1320,  566, 0.74, 0.60),
+    # Large, sur deux colonnes. As wide as the frame allows while the small
+    # shark low on the left stays out: anchored top-right, stopping just above
+    # its dorsal fin (row 840 of 1058).
+    "gallery-bull-shark": ("bull-shark",  1320,  566, 1.00, 0.00, 0.968),
 }
 
 
