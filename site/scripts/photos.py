@@ -33,8 +33,8 @@ SLOTS = {
     # The rope over the water is Cenote Car Wash, whatever the slot is called:
     # it serves Car Wash in the cenote guide.
     "card-casa":     ("casa",       960,  660, 0.50, 0.55),
-    # Turquoise water ringed by mangrove, seen from the edge: Discover Scuba.
-    "card-discover": ("discover",   960,  660, 0.45, 0.55),
+    # A diver in a shaft of light under the roots: Discover Scuba.
+    "card-discover-roots": ("discover-roots", 960, 660, 0.50, 0.50),
     "card-angelita": ("mangrove",   960,  660, 0.48, 0.50),
     "guide":         ("guide",      900, 1125, 0.50, 0.45),
 
@@ -54,7 +54,7 @@ SLOTS = {
     # gallery and onto the card that sells the dive.
     "card-sharks":   ("sharks",       960, 660, 0.52, 0.55),
     # The cenote guide: one photograph per cenote, each taken there.
-    "cenote-casa":     ("cenote-casa",     1200, 800, 0.50, 0.42),
+    "cenote-casa-surface": ("casa-surface", 1200, 800, 0.45, 0.55),
     "cenote-angelita": ("cenote-angelita", 1200, 800, 0.56, 0.50),
     "cenote-dos-ojos": ("cenote-dos-ojos", 1200, 800, 0.50, 0.50),
     "cenote-el-pit":   ("cenote-el-pit",   1200, 800, 0.50, 0.40),
