@@ -123,29 +123,6 @@
       ]
     },
     {
-      "slug": "advanced-ow",
-      "kind": "course",
-      "level": "open-water",
-      "maxDepthFt": 90,
-      "maxDepthM": 27,
-      "diveTime": "30–45 min",
-      "locations": [
-        "angelita-or-el-pit"
-      ],
-      "options": [
-        {
-          "dives": 5,
-          "price": 550,
-          "priceMxn": 8800
-        }
-      ],
-      "photo": "card-advanced-ok",
-      "art": "the-pit",
-      "extraIncludes": [
-        "materials"
-      ]
-    },
-    {
       "slug": "open-water",
       "kind": "course",
       "level": "none",
@@ -168,6 +145,29 @@
       "extraIncludes": [
         "materials",
         "padi-licence"
+      ]
+    },
+    {
+      "slug": "advanced-ow",
+      "kind": "course",
+      "level": "open-water",
+      "maxDepthFt": 90,
+      "maxDepthM": 27,
+      "diveTime": "30–45 min",
+      "locations": [
+        "angelita-or-el-pit"
+      ],
+      "options": [
+        {
+          "dives": 5,
+          "price": 550,
+          "priceMxn": 8800
+        }
+      ],
+      "photo": "card-advanced-ok",
+      "art": "the-pit",
+      "extraIncludes": [
+        "materials"
       ]
     },
     {
