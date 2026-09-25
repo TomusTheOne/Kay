@@ -47,9 +47,9 @@ SLOTS = {
     # A diver coming through the roots towards the camera. The Open Water card
     # used to borrow "guide", which the About section keeps.
     "card-openwater": ("open-water",  960, 660, 0.52, 0.46),
-    # Deep, dark, a stage bottle on the diver's side. The Advanced card was
-    # the last one still showing a drawing.
-    "card-advanced": ("deep-stage",   960, 660, 0.50, 0.62),
+    # A diver giving a thumbs-up under a column of bubbles, Kay's pick for
+    # the Advanced card (it replaced deep-stage).
+    "card-advanced-ok": ("advanced",  960, 660, 0.50, 0.45),
     # The bull sharks are a product now, so the photograph moves out of the
     # gallery and onto the card that sells the dive.
     "card-sharks":   ("sharks",       960, 660, 0.52, 0.55),
