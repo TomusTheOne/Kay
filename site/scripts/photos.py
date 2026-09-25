@@ -31,8 +31,10 @@ SLOTS = {
     "band":          ("angelita",  1720,  882, 0.52, 0.46),
 
     # The rope over the water is Cenote Car Wash, whatever the slot is called:
-    # it serves the Discover Scuba card and Car Wash in the cenote guide.
+    # it serves Car Wash in the cenote guide.
     "card-casa":     ("casa",       960,  660, 0.50, 0.55),
+    # Turquoise water ringed by mangrove, seen from the edge: Discover Scuba.
+    "card-discover": ("discover",   960,  660, 0.45, 0.55),
     "card-angelita": ("mangrove",   960,  660, 0.48, 0.50),
     "guide":         ("guide",      900, 1125, 0.50, 0.45),
 
