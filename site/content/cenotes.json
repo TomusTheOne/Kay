@@ -10,7 +10,7 @@
       "type": "open", "level": "none", "snorkel": false,
       "depthM": 9, "diveMinM": null, "diveMaxM": 9,
       "products": ["discover-scuba", "reef-cenote", "open-water"],
-      "photo": "cenote-casa", "art": "casa-cenote"
+      "photo": "cenote-casa-surface", "art": "casa-cenote"
     },
     {
       "slug": "car-wash", "name": "Cenote Car Wash", "short": "Car Wash", "aka": "Aktun Ha",

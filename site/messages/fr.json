@@ -77,7 +77,7 @@
         "name": "Discover Scuba",
         "tagline": "Pas de PADI ? Aucun souci.",
         "text": "Votre premier aperçu du monde sous-marin. Vous apprenez les bases de la plongée, puis vous explorez un cenote à ciel ouvert à l'eau limpide, sans dépasser sept mètres. Aucune certification, aucune expérience — juste un guide, de l'eau peu profonde et une très belle matinée. La deuxième plongée n'a lieu que si l'état de la mer le permet ce jour-là.",
-        "alt": "L'eau turquoise et transparente d'un cenote à ciel ouvert, bordé de mangrove, près de Tulum"
+        "alt": "Un plongeur dans les rais de lumière qui traversent les racines d'un cenote de Tulum, au-dessus des rochers"
       },
       "reef-cenote": {
         "name": "Récif & Cenote",
@@ -525,7 +525,7 @@
       "nohoch-nah-chich": "Il fait partie de l'un des plus vastes réseaux de grottes subaquatiques au monde. Il se distingue par une concentration étonnante de stalactites et de stalagmites, souvent immenses, qui forment de véritables « forêts » de pierre sous l'eau. Son eau cristalline et ses passages complexes en font une destination incontournable pour les plongeurs de caverne expérimentés en quête de formations d'un autre niveau."
     },
     "alts": {
-      "casa-cenote": "Un plongeur en suspension dans l'eau turquoise de Casa Cenote, une colonne de bulles au-dessus de lui",
+      "casa-cenote": "L'eau turquoise et transparente de Casa Cenote, bordée de mangrove, près de Tulum",
       "car-wash": "Une corde suspendue au-dessus de l'eau claire du cenote Car Wash, bordé de jungle, près de Tulum",
       "dos-ojos": "Des plongeurs dans la caverne de Dos Ojos, la lumière du jour perçant l'eau bleue",
       "el-pit": "Des rais de lumière plongeant dans le puits d'El Pit, des plongeurs en silhouette",
