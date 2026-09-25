@@ -74,7 +74,7 @@
       "type": "open", "level": "open-water", "snorkel": true,
       "depthM": null, "diveMinM": null, "diveMaxM": 18,
       "products": ["cenote-diving"],
-      "photo": null, "art": "casa-cenote"
+      "photo": "cenote-nicte-ha", "art": "casa-cenote"
     },
     {
       "slug": "nohoch-nah-chich", "name": "Cenote Nohoch Nah Chich", "short": "Nohoch Nah Chich",

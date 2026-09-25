@@ -59,6 +59,7 @@ SLOTS = {
     "cenote-dos-ojos": ("cenote-dos-ojos", 1200, 800, 0.50, 0.50),
     "cenote-el-pit":   ("cenote-el-pit",   1200, 800, 0.50, 0.40),
     "cenote-tak-be-luum": ("cenote-tak-be-luum", 1200, 800, 0.55, 0.55),
+    "cenote-nicte-ha":    ("cenote-nicte-ha",    1200, 800, 0.50, 0.50),
     # The gallery, carrying only photographs the page has not used above.
     # Five tiles is what the grid was drawn for: one tall on the left, four
     # filling the two columns beside it.
