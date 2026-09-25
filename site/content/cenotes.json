@@ -82,7 +82,7 @@
       "type": "cavern", "level": "open-water", "snorkel": false,
       "depthM": null, "diveMinM": null, "diveMaxM": 18,
       "products": ["cenote-diving"],
-      "photo": null, "art": "cavern"
+      "photo": "cenote-nohoch-nah-chich", "art": "cavern"
     }
   ],
   "towns": [
