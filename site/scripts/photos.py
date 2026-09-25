@@ -23,7 +23,9 @@ ROOT = Path(__file__).resolve().parent.parent
 SRC = ROOT / "assets" / "source"
 OUT = ROOT / "public" / "assets" / "photos"
 
-# slot: (source, width, height, focal x, focal y)
+# slot: (source, width, height, focal x, focal y[, zoom])
+# zoom < 1 keeps only that share of the widest possible crop, to close in on
+# the subject rather than frame the whole scene.
 SLOTS = {
     # The hero is the one image people see before anything else.
     "hero":          ("angelita",  1920, 1185, 0.50, 0.50),
@@ -67,11 +69,14 @@ SLOTS = {
     "gallery-1":     ("deep-descent",      880, 1180, 0.50, 0.50),  # la tuile haute
     "gallery-2":     ("cavern-silhouette", 900,  600, 0.52, 0.48),
     "gallery-3":     ("cavern-posts",      900,  600, 0.50, 0.52),
-    "gallery-4":     ("sharks-light",     1320,  566, 0.50, 0.42),  # large, sur deux colonnes
+    # Large, sur deux colonnes. Closed in on the bull shark on the right, the
+    # other one left out of frame.
+    "gallery-sharks": ("bull-shark",      1320,  566, 0.74, 0.49, 0.70),
 }
 
 
-def crop_to(im: Image.Image, w: int, h: int, fx: float, fy: float) -> Image.Image:
+def crop_to(im: Image.Image, w: int, h: int, fx: float, fy: float,
+            zoom: float = 1.0) -> Image.Image:
     """Cover-crop around a focal point, then resize. Never upscales silently."""
     target = w / h
     sw, sh = im.size
@@ -79,6 +84,7 @@ def crop_to(im: Image.Image, w: int, h: int, fx: float, fy: float) -> Image.Imag
         cw, ch = int(round(sh * target)), sh
     else:                                     # too tall: trim top and bottom
         cw, ch = sw, int(round(sw / target))
+    cw, ch = int(round(cw * zoom)), int(round(ch * zoom))
     left = min(max(int(round(sw * fx - cw / 2)), 0), sw - cw)
     top = min(max(int(round(sh * fy - ch / 2)), 0), sh - ch)
     box = im.crop((left, top, left + cw, top + ch))
@@ -93,13 +99,13 @@ def main() -> int:
         return 1
     OUT.mkdir(parents=True, exist_ok=True)
     total = 0
-    for slot, (name, w, h, fx, fy) in SLOTS.items():
+    for slot, (name, w, h, fx, fy, *zoom) in SLOTS.items():
         matches = sorted(SRC.glob(f"{name}.*"))
         if not matches:
             print(f"  MISSING source '{name}' for slot '{slot}'", file=sys.stderr)
             return 1
         im = Image.open(matches[0]).convert("RGB")
-        out = crop_to(im, w, h, fx, fy)
+        out = crop_to(im, w, h, fx, fy, *zoom)
         # AVIF first for the browsers that take it, WebP for the rest.
         out.save(OUT / f"{slot}.avif", quality=62, speed=4)
         out.save(OUT / f"{slot}.webp", quality=80, method=6)
