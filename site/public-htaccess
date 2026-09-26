@@ -128,6 +128,8 @@ RedirectMatch 404 ^/api/send-live\.php$
 # prices are on the page — but it has no reason to be a public endpoint, and
 # nothing in the browser asks for it: the site compiles it into its bundle.
 RedirectMatch 404 ^/api/products\.json$
+# And the cenote guide, which booking.php reads for the dive sites.
+RedirectMatch 404 ^/api/cenotes\.json$
 # Same for the copy of the translations the confirmation emails render from.
 RedirectMatch 404 ^/api/messages/
 # The admin's bootstrap: it loads the library and sets headers, and has no
