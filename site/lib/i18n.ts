@@ -112,7 +112,7 @@ export interface Dictionary {
     tag: string; h2: string; intro: string;
     items: Record<string, IncludeCopy>;
   };
-  gallery: { tag: string; h2: string; intro: string; captions: Record<string, string> };
+  gallery: { tag: string; h2: string; captions: Record<string, string> };
   quote: { text: string; cite: string };
   book: Record<string, string> & { certs: string[] };
   faq: { tag: string; h2: string; items: Qa[] };

@@ -380,10 +380,6 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
               <h2 className="dsp dsp-lg" style={{ marginTop: "1.1rem" }}
                   dangerouslySetInnerHTML={{ __html: t.gallery.h2 }} />
             </div>
-            <p className="muted" data-rise data-rise-d="1" style={{ maxWidth: "38ch" }}>
-              {t.gallery.intro}{" "}
-              <a href={SHOP.instagram} rel="noopener" className="tq">@kaydivingtulum</a>.
-            </p>
           </div>
           <div className="gal" data-count={GALLERY.length} data-rise>
             {GALLERY.map((g) => (

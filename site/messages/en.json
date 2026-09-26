@@ -20,7 +20,7 @@
     "kicker": "Tulum · Quintana Roo · Riviera Maya",
     "l1": "Explore the",
     "l2": "Mayan underworld.",
-    "lede": "Kay Diving guides cenote and reef dives around Tulum — from a first breath underwater to a PADI certification, and down to Angelita at thirty-eight metres. Our guides do not just take you down; they tell you the history of the place while you are in it.",
+    "lede": "Kay Diving is a proudly 100% Mexican company with more than 10 years of experience in the area. We guide cenote and reef dives around Tulum — from a first breath underwater to a PADI certification. Our guides do not just take you down; they tell you the history of the place while you are in it.",
     "cta2": "See what we run",
     "alt": "A diver silhouetted against the turquoise glow of a Tulum cenote, among bare branches rising through the water",
     "water": "WATER",
@@ -171,9 +171,8 @@
     }
   },
   "gallery": {
-    "tag": "From the water",
+    "tag": "Photo Gallery",
     "h2": "What it actually<br>looks like down there.",
-    "intro": "Shot by customers on tours — no models, no staging. More of it, most days, on",
     "captions": {
       "gallery-1": "Going down · a Tulum cenote",
       "gallery-2": "The cavern mouth, from below",
@@ -182,7 +181,7 @@
     }
   },
   "quote": {
-    "text": "Three quarters of our planet are water. Let's go and explore them together.",
+    "text": "Your safety comes first — and once it is taken care of, all that is left is to enjoy every minute underwater.",
     "cite": "Kay Diving · Tulum"
   },
   "book": {

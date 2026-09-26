@@ -20,7 +20,7 @@
     "kicker": "Tulum · Quintana Roo · Riviera Maya",
     "l1": "Explorez",
     "l2": "l'inframonde maya.",
-    "lede": "Kay Diving encadre des plongées en cenote et sur le récif autour de Tulum — de la première respiration sous l'eau jusqu'à une certification PADI, et jusqu'à Angelita à trente-huit mètres. Nos guides ne se contentent pas de vous emmener au fond : ils vous racontent l'histoire du lieu pendant que vous y êtes.",
+    "lede": "Kay Diving est une entreprise fièrement 100 % mexicaine, forte de plus de 10 ans d'expérience dans la région. Nous encadrons des plongées en cenote et sur le récif autour de Tulum — de la première respiration sous l'eau jusqu'à une certification PADI. Nos guides ne se contentent pas de vous emmener au fond : ils vous racontent l'histoire du lieu pendant que vous y êtes.",
     "cta2": "Voir ce qu'on propose",
     "alt": "Un plongeur en silhouette sur la lueur turquoise d'un cenote de Tulum, parmi des branches nues qui montent dans l'eau",
     "water": "EAU",
@@ -171,9 +171,8 @@
     }
   },
   "gallery": {
-    "tag": "Depuis l'eau",
+    "tag": "Galerie photos",
     "h2": "À quoi ça ressemble<br>vraiment, en bas.",
-    "intro": "Photos prises par des clients pendant les sorties — sans modèles, sans mise en scène. Davantage, presque tous les jours, sur",
     "captions": {
       "gallery-1": "La descente · un cenote de Tulum",
       "gallery-2": "La bouche de la caverne, vue d'en bas",
@@ -182,7 +181,7 @@
     }
   },
   "quote": {
-    "text": "Les trois quarts de notre planète sont de l'eau. Allons les explorer ensemble.",
+    "text": "Votre sécurité passe avant tout — et une fois qu'elle est assurée, il ne reste qu'à profiter de chaque minute sous l'eau.",
     "cite": "Kay Diving · Tulum"
   },
   "book": {
