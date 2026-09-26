@@ -86,6 +86,8 @@ for (const f of await readdir("php/admin")) {
 }
 // One catalogue and one set of strings, read by the build and by the endpoints.
 await cp("content/products.json", `${OUT}/api/products.json`);
+// The cenote guide: which cenotes each dive can be booked at (lib/pricing.php).
+await cp("content/cenotes.json", `${OUT}/api/cenotes.json`);
 await mkdir(`${OUT}/api/messages`, { recursive: true });
 for (const f of await readdir("messages")) {
   await cp(`messages/${f}`, `${OUT}/api/messages/${f}`);

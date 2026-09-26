@@ -5,7 +5,7 @@
    in the JSON; the words live in messages/<locale>.json under cenotes.items.
    ========================================================================== */
 import data from "./cenotes.json";
-import { SHOP } from "./products";
+import { SHOP, type Product } from "./products";
 
 /** Open to the sky, a cavern under a roof of rock, or past the 20 m line. */
 export type CenoteType = "open" | "cavern" | "deep";
@@ -101,4 +101,46 @@ export function nearest(c: Cenote, n = 3) {
 export function diveDepth(c: Cenote, upTo: string) {
   if (c.diveMinM) return `${c.diveMinM}–${c.diveMaxM} m`;
   return c.depthM === null ? upTo.replace("{m}", String(c.diveMaxM)) : `${c.diveMaxM} m`;
+}
+
+/* ------------------------------------------------------------- dive sites --
+   Where each dive of a booking goes. The same rules as kay_sites_check() in
+   php/lib/pricing.php, which refuses a booking that breaks them.          */
+
+/**
+ * The cenotes a diver picks from for this product, in guide order. Empty when
+ * there is nothing to choose: a course, the snorkel tour, the sea, or a dive
+ * run at one place only (Discover Scuba, at Casa Cenote).
+ */
+export function siteChoices(product: Product): Cenote[] {
+  if (product.kind !== "dive") return [];
+  const choices = CENOTES.filter((c) => c.products.includes(product.slug));
+  return choices.length >= 2 ? choices : [];
+}
+
+/**
+ * One slot per dive: a fixed cenote, or the cenotes to choose from. Kay's
+ * rule: with three dives the first two are at the product's base (Dos Ojos)
+ * and the third is one other cenote — never three different ones.
+ */
+export function siteSlots(product: Product, dives: number): ({ fixed: Cenote } | { choices: Cenote[] })[] {
+  const choices = siteChoices(product);
+  if (choices.length === 0) return [];
+  const base = choices.find((c) => c.slug === product.threeDiveBase);
+  if (dives === 3 && base) {
+    return [{ fixed: base }, { fixed: base }, { choices: choices.filter((c) => c !== base) }];
+  }
+  return Array.from({ length: dives }, () => ({ choices }));
+}
+
+/** "Dos Ojos ×2 · Angelita": the sites of a booking, in dive order. */
+export function sitesLabel(slugs: string[]) {
+  const parts: [string, number][] = [];
+  for (const slug of slugs) {
+    const name = cenoteBySlug(slug)?.short ?? slug;
+    const last = parts[parts.length - 1];
+    if (last && last[0] === name) last[1]++;
+    else parts.push([name, 1]);
+  }
+  return parts.map(([name, n]) => (n > 1 ? `${name} ×${n}` : name)).join(" · ");
 }

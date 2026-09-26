@@ -113,6 +113,9 @@ kay_page_start($b['name'], 'bookings.php', $admin);
         <div><dt><?= kay_th('Plongée') ?></dt><dd><?= kay_h(kay_ucfirst(kay_date_long($b['dive_date']))) ?></dd></div>
         <div><dt><?= kay_th('Départ') ?></dt><dd><?= kay_h(kay_slot_text($b['start_slot'], (string) $b['start_note'])) ?></dd></div>
         <div><dt><?= kay_th('Sortie') ?></dt><dd><?= kay_h(kay_product_name($b['product'])) ?> · <?= kay_h(kay_dives_text((int) $b['dives'])) ?></dd></div>
+<?php if (($b['sites'] ?? '') !== ''): ?>
+        <div><dt><?= kay_th('Sites') ?></dt><dd><?= kay_h(kay_sites_label((string) $b['sites'])) ?></dd></div>
+<?php endif; ?>
         <div><dt><?= kay_th('Plongeurs') ?></dt><dd><?= (int) $b['divers'] ?></dd></div>
         <div><dt><?= kay_th('Niveau') ?></dt><dd><?= kay_h($b['certification'] !== '' ? $b['certification'] : '—') ?></dd></div>
         <div><dt><?= kay_th('Transport') ?></dt><dd><?= kay_h(kay_pickup_name($b['pickup'])) ?></dd></div>
@@ -133,6 +136,7 @@ kay_page_start($b['name'], 'bookings.php', $admin);
               'product' => $b['product'], 'option' => (int) $b['dives'], 'date' => $b['dive_date'],
               'slot' => $b['start_slot'], 'slotNote' => $b['start_note'], 'divers' => (int) $b['divers'],
               'pickup' => $b['pickup'], 'cert' => $b['certification'], 'name' => $b['name'], 'email' => $b['email'],
+              'sites' => (string) ($b['sites'] ?? ''),
           ], false) ?>
           <p class="small muted"><?= kay_th('Changer la sortie, le nombre de plongeurs ou le transport recalcule le prix depuis le catalogue. Les paiements déjà reçus ne changent pas.') ?></p>
           <button class="btn btn--primary"><?= kay_th('Enregistrer') ?></button>

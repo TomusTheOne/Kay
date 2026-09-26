@@ -9,6 +9,8 @@ require __DIR__ . '/lib/mercadopago.php';
 // diver reads that screen while deciding whether to hand over a card.
 require __DIR__ . '/lib/notify.php';
 require __DIR__ . '/lib/availability.php';
+// Only for a database the admin has not migrated yet: see the sites below.
+require __DIR__ . '/lib/migrate.php';
 
 if (($_SERVER['REQUEST_METHOD'] ?? '') !== 'POST') {
     kay_fail(405, 'method not allowed');
@@ -85,6 +87,27 @@ $db->prepare(
     $quote['deposit_usd'] * 100,
     $depositMxn * 100,
 ]);
+
+// The cenotes, written apart from the row above: that INSERT keeps to the
+// columns schema.sql has always had, so it works before the admin has ever
+// migrated the database. If the column is not there yet, this is the moment
+// to add it (as gear.php does) — and if even that fails, the booking stands
+// and only the choice is lost, to the error log.
+[$sites] = kay_sites_check($quote['product'], (int) $quote['option']['dives'], $input['sites'] ?? null, true);
+if ($sites !== []) {
+    $saveSites = static fn() => $db->prepare('UPDATE bookings SET sites = ? WHERE id = ?')
+        ->execute([implode(',', $sites), $bookingId]);
+    try {
+        $saveSites();
+    } catch (Throwable) {
+        try {
+            kay_migrate($db);
+            $saveSites();
+        } catch (Throwable $e) {
+            error_log("kay: sites not saved for $bookingId: " . $e->getMessage());
+        }
+    }
+}
 
 $site = rtrim((string) $config['site_url'], '/');
 

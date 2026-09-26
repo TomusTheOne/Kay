@@ -437,6 +437,15 @@ body.open .drawer{opacity:1;visibility:visible}
 
 .row2{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem}
 @media (max-width:560px){.row2{grid-template-columns:1fr}}
+
+/* The cenote of each dive: "Dive 1" beside its select, or beside the cenote
+   Kay's rule fixes (the first two of three dives, at Dos Ojos). */
+.divesites{display:grid;gap:.7rem}
+.divesite{display:grid;grid-template-columns:7.5rem 1fr;align-items:center;gap:.9rem}
+.divesite__n{font-size:.84rem;color:var(--foam-72)}
+.divesite__fixed{padding:.86em 1em;border-radius:12px;border:1px dashed var(--line);color:var(--foam-72);font-size:.94rem}
+.divesites__note{margin:0;font-size:.8rem;line-height:1.5;color:var(--foam-72)}
+@media (max-width:560px){.divesite{grid-template-columns:1fr;gap:.4rem}}
 .field{
   width:100%;padding:.86em 1em;border-radius:12px;border:1px solid var(--line);
   background:var(--glass);color:var(--foam);font-size:.94rem;transition:.28s;

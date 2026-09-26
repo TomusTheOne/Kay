@@ -204,6 +204,8 @@ function kay_booking_emails(array $row): array
     $date    = kay_format_date((string) $row['dive_date'], $locale);
     $slot    = kay_slot_label((string) $row['start_slot'], (string) ($row['start_note'] ?? ''), $m);
     $cert    = trim((string) ($row['certification'] ?? '')) ?: $c['noCert'];
+    // The cenote of each dive, when the diver chose them on the form.
+    $sites   = kay_sites_label((string) ($row['sites'] ?? ''));
 
     // The card was debited in PESOS — that is the figure on the diver's
     // statement, so it is the figure the email leads with. Dollars are shown
@@ -231,11 +233,19 @@ function kay_booking_emails(array $row): array
     $swap = static fn(string $t, array $vars): string => strtr($t, $vars);
 
     // What the diver must show the guide on the day, from the experience's
-    // level — the same one the product card and the booking form print. The
-    // booking does not say which cenote, so a cenote day states both rules:
-    // Open Water to 20 m, Advanced or equivalent for Angelita and El Pit.
+    // level — the same one the product card and the booking form print. A
+    // cenote day whose sites are not known states both rules: Open Water to
+    // 20 m, Advanced or equivalent for Angelita and El Pit. Once the diver
+    // has chosen, it states the one rule that applies to those cenotes.
     // Discover Scuba, the Open Water course and the snorkel tour need none.
-    $certKey = match ((string) ($product['level'] ?? 'none')) {
+    $level = (string) ($product['level'] ?? 'none');
+    if ($level === 'open-water-plus' && $sites !== '') {
+        $levels = array_column(kay_cenotes(), 'level', 'slug');
+        $deep   = array_filter(explode(',', (string) $row['sites']),
+            static fn(string $slug): bool => ($levels[$slug] ?? '') === 'advanced');
+        $level  = $deep !== [] ? 'advanced' : 'open-water';
+    }
+    $certKey = match ($level) {
         'open-water'      => 'certOpenWater',
         'open-water-plus' => 'certOpenWaterPlus',
         'advanced'        => 'certAdvanced',
@@ -255,6 +265,7 @@ function kay_booking_emails(array $row): array
 
     $facts = [
         $d['whatLabel']   => kay_e($what),
+        ...($sites === '' ? [] : [$d['sitesLabel'] => kay_e($sites)]),
         $d['dateLabel']   => kay_e($date),
         $d['timeLabel']   => kay_e($slot),
         $d['peopleLabel'] => kay_e($who),
@@ -300,6 +311,7 @@ function kay_booking_emails(array $row): array
         $swap($d['lede'], ['{date}' => $date]),
         '',
         $d['whatLabel'] . ': ' . $what,
+        ...($sites === '' ? [] : [$d['sitesLabel'] . ': ' . $sites]),
         $d['dateLabel'] . ': ' . $date,
         $d['timeLabel'] . ': ' . $slot,
         $d['peopleLabel'] . ': ' . $who,
@@ -326,6 +338,7 @@ function kay_booking_emails(array $row): array
 
     $shopFacts = [
         $d['whatLabel']   => kay_e($what),
+        ...($sites === '' ? [] : [$d['sitesLabel'] => kay_e($sites)]),
         $d['dateLabel']   => kay_e($date),
         $d['timeLabel']   => kay_e($slot),
         $d['peopleLabel'] => kay_e($who),

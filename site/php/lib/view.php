@@ -531,6 +531,32 @@ function kay_booking_fields(array $v, bool $withContact): string
     }
     $out .= '</select></label>';
 
+    // The cenote of each dive, for the outings where the diver picks them.
+    // The server applies the site's rule; blank is fine when Kay does not
+    // know yet. Every cenote with a choice is listed, whatever the outing.
+    $cenotes = [];
+    foreach ($cat['products'] as $p) {
+        $cenotes += kay_site_choices($p);
+    }
+    if ($cenotes !== []) {
+        $chosen = ($v['sites'] ?? '') === '' ? [] : explode(',', (string) $v['sites']);
+        $out .= '<fieldset class="fieldset field--wide"><legend>' . kay_th('Sites') . ' <small>'
+            . kay_th('(facultatif)') . '</small></legend><div class="sites-pick">';
+        $max = max(array_merge(...array_map(static fn(array $p): array => array_column($p['options'], 'dives'), $cat['products'])));
+        for ($i = 0; $i < min(3, $max); $i++) {
+            $label = kay_t('Plongée {n}', ['{n}' => (string) ($i + 1)]);
+            $out .= '<select name="sites[]" aria-label="' . kay_h($label) . '"><option value="">' . kay_h($label) . ' — </option>';
+            foreach ($cenotes as $slug => $c) {
+                $out .= '<option value="' . kay_h($slug) . '"' . (($chosen[$i] ?? '') === $slug ? ' selected' : '') . '>'
+                    . kay_h((string) $c['short']) . '</option>';
+            }
+            $out .= '</select>';
+        }
+        $out .= '</div><p class="small muted">' . kay_th('Seulement pour les sorties où le client choisit ses cenotes.') . ' '
+            . kay_th('Un cenote par plongée ; à trois plongées, les deux premières à Dos Ojos et un autre cenote pour la troisième.')
+            . '</p></fieldset>';
+    }
+
     $out .= '<label class="field"><span>' . kay_th('Niveau') . '</span><input name="cert" list="certs" maxlength="64" value="'
         . kay_h($v['cert'] ?? '') . '"></label>' . kay_certs_datalist();
 

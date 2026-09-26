@@ -43,6 +43,11 @@ export interface Product {
   art: string;
   extraIncludes: string[];
   sites?: Site[];
+  /**
+   * With three dives, the cenote of the first two: the diver chooses only
+   * the third. See siteSlots() in content/cenotes.ts.
+   */
+  threeDiveBase?: string;
   /** Set only on products that are not sold all year. */
   season?: Season;
 }
