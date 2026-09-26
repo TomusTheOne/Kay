@@ -404,6 +404,17 @@ function kay_booking_input(array $in): array
     if ($error === null && $quote === null) {
         $error = kay_t('Choisissez une sortie et un transport du catalogue.');
     }
+
+    // The same rule as the site, but Kay may leave the cenotes blank when he
+    // does not know them yet. A product with no choice keeps none.
+    $clean['sites'] = '';
+    if ($quote !== null) {
+        [$sites, $siteError] = kay_sites_check($quote['product'], (int) $quote['option']['dives'], $in['sites'] ?? null, false);
+        if ($error === null && $siteError !== null) {
+            $error = kay_t('Un cenote par plongée ; à trois plongées, les deux premières à Dos Ojos et un autre cenote pour la troisième.');
+        }
+        $clean['sites'] = implode(',', $sites);
+    }
     return ['error' => $error, 'quote' => $quote, 'clean' => $clean];
 }
 
@@ -444,12 +455,12 @@ function kay_booking_create(PDO $db, array $in, ?int $authorId): array
     $id = kay_uuid();
     $db->prepare(
         "INSERT INTO bookings
-           (id, customer_id, source, status, product, dives, dive_date, divers, certification, pickup,
+           (id, customer_id, source, status, product, dives, sites, dive_date, divers, certification, pickup,
             start_slot, start_note, name, email, locale,
             total_usd_cents, total_mxn_cents, deposit_usd_cents, deposit_mxn_cents)
-         VALUES (?, ?, 'manual', 'confirmed', ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 0, 0)"
+         VALUES (?, ?, 'manual', 'confirmed', ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 0, 0)"
     )->execute([
-        $id, $customerId, $quote['product']['slug'], $quote['option']['dives'], $c['date'],
+        $id, $customerId, $quote['product']['slug'], $quote['option']['dives'], $c['sites'], $c['date'],
         $quote['divers'], $c['cert'], $quote['pickup']['slug'], $c['slot'], $c['slotNote'],
         $c['name'], $c['email'], $c['locale'],
         $quote['total_usd'] * 100, $quote['total_mxn'] * 100,
@@ -487,13 +498,13 @@ function kay_booking_edit(PDO $db, array $row, array $in, ?int $authorId): ?stri
         'dive_date' => kay_t('date'), 'start_slot' => kay_t('départ'), 'start_note' => kay_t('horaire souhaité'),
         'certification' => kay_t('niveau'), 'name' => kay_t('nom'), 'email' => kay_t('e-mail'),
         'product' => kay_t('sortie'), 'dives' => kay_t('plongées'), 'divers' => kay_t('plongeurs'),
-        'pickup' => kay_t('transport'),
+        'pickup' => kay_t('transport'), 'sites' => kay_t('sites'),
     ];
     $next = [
         'dive_date' => $c['date'], 'start_slot' => $c['slot'], 'start_note' => $c['slotNote'],
         'certification' => $c['cert'], 'name' => $c['name'], 'email' => $c['email'],
         'product' => $quote['product']['slug'], 'dives' => $quote['option']['dives'],
-        'divers' => $quote['divers'], 'pickup' => $quote['pickup']['slug'],
+        'divers' => $quote['divers'], 'pickup' => $quote['pickup']['slug'], 'sites' => $c['sites'],
     ];
     if ($priced) {
         $next['total_usd_cents'] = $quote['total_usd'] * 100;
@@ -517,7 +528,10 @@ function kay_booking_edit(PDO $db, array $row, array $in, ?int $authorId): ?stri
     $said = [];
     foreach ($changes as $column => $value) {
         if (isset($labels[$column])) {
-            $said[] = sprintf('%s %s → %s', $labels[$column], $row[$column] === '' ? '—' : $row[$column], $value === '' ? '—' : $value);
+            [$from, $to] = $column === 'sites'
+                ? [kay_sites_label((string) $row[$column]), kay_sites_label((string) $value)]
+                : [(string) $row[$column], (string) $value];
+            $said[] = sprintf('%s %s → %s', $labels[$column], $from === '' ? '—' : $from, $to === '' ? '—' : $to);
         }
     }
     if (isset($changes['total_mxn_cents'])) {

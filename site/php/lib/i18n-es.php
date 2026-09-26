@@ -595,4 +595,13 @@ return [
     'demain'    => 'mañana',
     'Tailles non reçues' => 'Sin tallas',
     'Questionnaire des tailles envoyé.' => 'Cuestionario de tallas enviado.',
+
+    // ----------------------------------------------------------- dive sites
+    'Sites'     => 'Sitios',
+    'sites'     => 'sitios',
+    'Plongée {n}' => 'Inmersión {n}',
+    'Seulement pour les sorties où le client choisit ses cenotes.'
+        => 'Solo para las salidas en las que el cliente elige sus cenotes.',
+    'Un cenote par plongée ; à trois plongées, les deux premières à Dos Ojos et un autre cenote pour la troisième.'
+        => 'Un cenote por inmersión; con tres inmersiones, las dos primeras en Dos Ojos y otro cenote para la tercera.',
 ];

@@ -120,7 +120,8 @@
           "maxM": 18,
           "deep": false
         }
-      ]
+      ],
+      "threeDiveBase": "dos-ojos"
     },
     {
       "slug": "open-water",

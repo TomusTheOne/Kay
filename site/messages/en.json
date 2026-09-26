@@ -191,11 +191,11 @@
     "intro": "A deposit holds the date. We confirm by WhatsApp within a few hours, send you a few questions, and you settle the balance on the day.",
     "s1": "01 — What you want to do",
     "s2": "02 — How many dives",
-    "s3": "03 — Date",
-    "s4": "04 — Start time",
-    "s5": "05 — Your level",
-    "s6": "06 — How many of you",
-    "s7": "07 — Getting there",
+    "s3": "04 — Date",
+    "s4": "05 — Start time",
+    "s5": "06 — Your level",
+    "s6": "07 — How many of you",
+    "s7": "08 — Getting there",
     "namePh": "Your name",
     "mailPh": "you@email.com",
     "certs": [
@@ -229,13 +229,20 @@
     "errName": "We need a name for the booking.",
     "errSeason": "That experience does not run on the date you picked.",
     "dateClosed": "We're not out on the water that day. Pick another date, or message us on WhatsApp.",
-    "s8": "08 — Name",
-    "s9": "09 — Email",
+    "s8": "09 — Name",
+    "s9": "10 — Email",
     "rPickup": "Getting there",
     "rTime": "Start",
     "timeOther": "Another time — we will check",
     "outOfSeason": "The bull sharks are only here from {season}. Pick a date inside the season, or write to us and we will tell you when they arrive.",
-    "rSeason": "Season"
+    "rSeason": "Season",
+    "sSites": "03 — Where you dive",
+    "siteDive": "Dive {n}",
+    "sitePick": "Choose a cenote",
+    "siteBase": "With three dives, the first two are at Dos Ojos and you choose the cenote for the third.",
+    "siteDeep": "Advanced or Deep",
+    "rSites": "Sites",
+    "errSites": "Choose a cenote for each dive."
   },
   "faq": {
     "tag": "Before you come",
@@ -395,7 +402,8 @@
       "refLabel": "Booking reference",
       "signoff": "See you in the water,",
       "team": "Kay Diving Tulum",
-      "footer": "You are receiving this because you booked a dive at {site}."
+      "footer": "You are receiving this because you booked a dive at {site}.",
+      "sitesLabel": "Where"
     },
     "shop": {
       "subject": "PAID · {date} · {product} × {divers}",

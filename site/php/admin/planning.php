@@ -116,6 +116,7 @@ kay_page_start(kay_t('Planning'), 'planning.php', $admin);
         <span class="muted"><?= kay_th('{n} pers.', ['{n}' => (string) (int) $b['divers']]) ?> · <?= $b['certification'] !== '' ? kay_h($b['certification']) : kay_th('sans niveau indiqué') ?> · <?= strtoupper(kay_h($b['locale'])) ?></span>
       </div>
       <div class="sheet__what"><?= kay_h(kay_product_name($b['product'])) ?> · <?= kay_h(kay_dives_text((int) $b['dives'])) ?>
+        <?= ($b['sites'] ?? '') !== '' ? '<br><strong>' . kay_h(kay_sites_label((string) $b['sites'])) . '</strong>' : '' ?>
         <?= $b['start_slot'] === 'other' && $b['start_note'] !== '' ? '<br><span class="muted">' . kay_th('Souhaite : {note}', ['{note}' => $b['start_note']]) . '</span>' : '' ?></div>
       <div class="sheet__pickup<?= $b['pickup'] !== 'meeting-point' ? ' is-pickup' : '' ?>"><?= kay_h(kay_pickup_name($b['pickup'])) ?></div>
       <div class="sheet__money">

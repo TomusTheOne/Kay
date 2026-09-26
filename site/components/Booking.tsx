@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useMemo, useState } from "react";
 import { PRODUCTS, PICKUPS, SCHEDULES, DEPOSIT_RATE, type Product } from "@/content/products";
+import { siteSlots, sitesLabel } from "@/content/cenotes";
 import type { Dictionary } from "@/lib/i18n";
 import { track } from "@/lib/analytics";
 
@@ -15,6 +16,8 @@ export default function Booking({
 }) {
   const [product, setProduct] = useState<Product>(PRODUCTS[0]);
   const [dives, setDives] = useState<number>(PRODUCTS[0].options[0].dives);
+  // The cenote picked for each dive, by position; "" until chosen.
+  const [picked, setPicked] = useState<string[]>([]);
   const [date, setDate] = useState("");
   const [slot, setSlot] = useState(SCHEDULES[0].slug);
   const [slotNote, setSlotNote] = useState("");
@@ -28,6 +31,13 @@ export default function Booking({
 
   const option = product.options.find((o) => o.dives === dives) ?? product.options[0];
   const pick = PICKUPS.find((p) => p.slug === pickup)!;
+
+  /* One slot per dive, for a dive with cenotes to choose from. Kay's rule
+     lives in siteSlots(): with three dives the first two are at Dos Ojos and
+     only the third is chosen. booking.php checks the same rule again. */
+  const slots = useMemo(() => siteSlots(product, option.dives), [product, option]);
+  const sites = slots.map((s, i) => ("fixed" in s ? s.fixed.slug : picked[i] ?? ""));
+  const sitesMissing = sites.some((s) => s === "");
 
   /* A seasonal product refuses a date outside its months, and the endpoint
      refuses it again — but being told after the payment page has opened is
@@ -68,6 +78,12 @@ export default function Booking({
   function choose(p: Product) {
     setProduct(p);
     setDives(p.options[0].dives);   // the old size may not exist on the new product
+    setPicked([]);                  // nor the cenotes
+  }
+
+  function chooseDives(n: number) {
+    setDives(n);
+    setPicked([]);                  // two dives and three follow different rules
   }
 
   /* The endpoint names what it refused — "date", "email", "name" — and the
@@ -75,7 +91,7 @@ export default function Booking({
      message for every refusal told a diver who forgot the date that the
      payment system was down, which is both wrong and unfixable by them. */
   const reasons: Record<string, string> = {
-    date: t.errDate, "date-past": t.errDatePast,
+    date: t.errDate, "date-past": t.errDatePast, sites: t.errSites,
     email: t.errEmail, name: t.errName, "out-of-season": t.errSeason,
     "date-unavailable": t.dateClosed,
   };
@@ -83,13 +99,19 @@ export default function Booking({
   async function submit(e: React.FormEvent) {
     e.preventDefault();
     if (outOfSeason || dateClosed) return;
+    if (sitesMissing) {
+      setError(t.errSites);
+      setState("error");
+      return;
+    }
     setState("sending");
     try {
       const res = await fetch("/api/booking.php", {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify({
-          product: product.slug, option: option.dives, date, slot, slotNote,
+          product: product.slug, option: option.dives, ...(slots.length ? { sites } : {}),
+          date, slot, slotNote,
           cert, divers, pickup, name, email, locale,
         }),
       });
@@ -111,7 +133,7 @@ export default function Booking({
         depositMxn: deposit, locale,
       });
       // Mercado Pago hosts the card form: no card data ever touches this site.
-      location.href = checkoutUrl;
+      window.location.assign(checkoutUrl);
     } catch {
       setError(t.error);
       setState("error");
@@ -129,12 +151,21 @@ export default function Booking({
   const slotLabel = (s: (typeof SCHEDULES)[number]) =>
     s.start ? `${s.start}–${s.end}` : t.timeOther;
 
+  /* Steps are numbered as they appear, so a product that skips one (a single
+     option, no cenotes to pick) still reads 01, 02, 03 without a gap. */
+  const steps = [
+    "s1", ...(product.options.length > 1 ? ["s2"] : []), ...(slots.length ? ["sSites"] : []),
+    "s3", "s4", "s5", "s6", "s7", "s8", "s9",
+  ];
+  const step = (key: string) =>
+    t[key].replace(/^\d+/, String(steps.indexOf(key) + 1).padStart(2, "0"));
+
   return (
     <div className="slate-wrap">
       <form className="book" onSubmit={submit} noValidate>
         <div className="book__form">
           <div className="fgroup">
-            <span className="flabel">{t.s1}</span>
+            <span className="flabel">{step("s1")}</span>
             <div className="pills" role="radiogroup" aria-label={t.s1}>
               {PRODUCTS.map((p) => (
                 <label className="pill" key={p.slug}>
@@ -148,12 +179,12 @@ export default function Booking({
 
           {product.options.length > 1 && (
             <div className="fgroup">
-              <span className="flabel">{t.s2}</span>
+              <span className="flabel">{step("s2")}</span>
               <div className="pills" role="radiogroup" aria-label={t.s2}>
                 {product.options.map((o) => (
                   <label className="pill" key={o.dives}>
                     <input type="radio" name="option" checked={dives === o.dives}
-                           onChange={() => setDives(o.dives)} />
+                           onChange={() => chooseDives(o.dives)} />
                     <span>{sizeLabel(o.dives)} · ${o.price}</span>
                   </label>
                 ))}
@@ -161,14 +192,48 @@ export default function Booking({
             </div>
           )}
 
+          {slots.length > 0 && (
+            <div className="fgroup">
+              <span className="flabel">{step("sSites")}</span>
+              <div className="divesites">
+                {slots.map((s, i) => {
+                  const n = t.siteDive.replace("{n}", String(i + 1));
+                  return (
+                    <label className="divesite" key={i}>
+                      <span className="divesite__n">{n}</span>
+                      {"fixed" in s ? (
+                        <span className="divesite__fixed">{s.fixed.name}</span>
+                      ) : (
+                        <select className="field" value={picked[i] ?? ""} aria-label={n}
+                                onChange={(e) => setPicked((prev) => {
+                                  const next = [...prev];
+                                  next[i] = e.target.value;
+                                  return next;
+                                })}>
+                          <option value="" disabled>{t.sitePick}</option>
+                          {s.choices.map((c) => (
+                            <option key={c.slug} value={c.slug}>
+                              {c.name}{c.level === "advanced" ? ` · ${t.siteDeep}` : ""}
+                            </option>
+                          ))}
+                        </select>
+                      )}
+                    </label>
+                  );
+                })}
+              </div>
+              {slots.some((s) => "fixed" in s) && <p className="divesites__note">{t.siteBase}</p>}
+            </div>
+          )}
+
           <div className="row2">
             <div className="fgroup">
-              <label className="flabel" htmlFor="date">{t.s3}</label>
+              <label className="flabel" htmlFor="date">{step("s3")}</label>
               <input className="field" type="date" id="date" min={tomorrow()}
                      value={date} onChange={(e) => setDate(e.target.value)} />
             </div>
             <div className="fgroup">
-              <label className="flabel" htmlFor="slot">{t.s4}</label>
+              <label className="flabel" htmlFor="slot">{step("s4")}</label>
               <select className="field" id="slot" value={slot} onChange={(e) => setSlot(e.target.value)}>
                 {SCHEDULES.map((s) => <option key={s.slug} value={s.slug}>{slotLabel(s)}</option>)}
               </select>
@@ -185,13 +250,13 @@ export default function Booking({
 
           <div className="row2">
             <div className="fgroup">
-              <label className="flabel" htmlFor="cert">{t.s5}</label>
+              <label className="flabel" htmlFor="cert">{step("s5")}</label>
               <select className="field" id="cert" value={cert} onChange={(e) => setCert(e.target.value)}>
                 {t.certs.map((c) => <option key={c}>{c}</option>)}
               </select>
             </div>
             <div className="fgroup">
-              <span className="flabel">{t.s6}</span>
+              <span className="flabel">{step("s6")}</span>
               <div className="step">
                 <button type="button" aria-label="−" onClick={() => setDivers((n) => Math.max(1, n - 1))}>−</button>
                 <output>{divers}</output>
@@ -201,7 +266,7 @@ export default function Booking({
           </div>
 
           <div className="fgroup">
-            <span className="flabel">{t.s7}</span>
+            <span className="flabel">{step("s7")}</span>
             <div className="pills" role="radiogroup" aria-label={t.s7}>
               {PICKUPS.map((p) => (
                 <label className="pill" key={p.slug}>
@@ -218,12 +283,12 @@ export default function Booking({
 
           <div className="row2">
             <div className="fgroup">
-              <label className="flabel" htmlFor="name">{t.s8}</label>
+              <label className="flabel" htmlFor="name">{step("s8")}</label>
               <input className="field" id="name" autoComplete="name" placeholder={t.namePh}
                      value={name} onChange={(e) => setName(e.target.value)} />
             </div>
             <div className="fgroup">
-              <label className="flabel" htmlFor="mail">{t.s9}</label>
+              <label className="flabel" htmlFor="mail">{step("s9")}</label>
               <input className="field" id="mail" type="email" autoComplete="email" placeholder={t.mailPh}
                      value={email} onChange={(e) => setEmail(e.target.value)} />
             </div>
@@ -238,6 +303,9 @@ export default function Booking({
           <div className="slate__rows">
             <Row k={t.rProduct} v={products.items[product.slug].name} sm />
             <Row k={t.rOption}  v={sizeLabel(option.dives)} />
+            {slots.length > 0 && (
+              <Row k={t.rSites} v={sitesMissing ? "—" : sitesLabel(sites)} sm />
+            )}
             <Row k={t.rDate}    v={fmtDate} />
             <Row k={t.rTime}    v={slotLabel(SCHEDULES.find((s) => s.slug === slot)!)} sm />
             {/* "Half day" only fits the snorkel tour. A dive whose depth Kay has

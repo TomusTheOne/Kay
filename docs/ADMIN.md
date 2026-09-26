@@ -318,8 +318,10 @@ et segments du CRM, effacement RGPD, anonymat et agrégats du trafic,
 échappement des graphiques et des exports, jours fermés (et une base pas
 encore migrée), traduction complète et règles de pluriel des deux langues,
 le questionnaire des tailles (liens signés, unités, snorkel, réservations
-annulées, liste des tailles manquantes) et la règle de certification dans
-l'e-mail de chaque produit.
+annulées, liste des tailles manquantes), la règle de certification dans
+l'e-mail de chaque produit, et les cenotes de chaque plongée (un site par
+plongée ; à trois plongées, Dos Ojos pour les deux premières et un autre
+cenote pour la troisième — jamais trois cenotes différents).
 
 **En local**, la page de test complète :
 

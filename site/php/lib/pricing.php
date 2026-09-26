@@ -43,6 +43,112 @@ function kay_find_product(string $slug): ?array
     return null;
 }
 
+/* ------------------------------------------------------------- dive sites --
+   Where each dive of a booking goes, chosen on the form. The cenotes come
+   from content/cenotes.json — the guide — which already says which products
+   dive each one, so the form, the guide and this check read one list.      */
+
+/** The guide's cenotes, in the order the guide shows them. */
+function kay_cenotes(): array
+{
+    static $cenotes = null;
+    if ($cenotes === null) {
+        $raw = file_get_contents(__DIR__ . '/../cenotes.json');
+        if ($raw === false) {
+            error_log('kay: cenotes.json unreadable');
+            kay_fail(503, 'catalogue unavailable');
+        }
+        $cenotes = json_decode($raw, true, 512, JSON_THROW_ON_ERROR)['cenotes'];
+    }
+    return $cenotes;
+}
+
+/**
+ * The cenotes a diver picks from for this product, keyed by slug. Empty when
+ * there is nothing to choose: a course, the snorkel tour, the sea, or a dive
+ * run at one place only (Discover Scuba, at Casa Cenote).
+ *
+ * @return array<string, array>
+ */
+function kay_site_choices(array $product): array
+{
+    if (($product['kind'] ?? '') !== 'dive') {
+        return [];
+    }
+    $choices = [];
+    foreach (kay_cenotes() as $cenote) {
+        if (in_array($product['slug'], $cenote['products'] ?? [], true)) {
+            $choices[$cenote['slug']] = $cenote;
+        }
+    }
+    return count($choices) >= 2 ? $choices : [];
+}
+
+/**
+ * Kay's rule: one site per dive. With three dives the first two are at the
+ * product's base (Dos Ojos) and the diver picks one other cenote for the
+ * third — never three different cenotes.
+ *
+ * Nothing given is accepted only when $required is false (the admin, who may
+ * not know yet). A product with no choice ignores whatever was sent.
+ *
+ * @return array{0: string[], 1: ?string} the sites, and 'sites' when refused
+ */
+function kay_sites_check(array $product, int $dives, mixed $given, bool $required): array
+{
+    $choices = kay_site_choices($product);
+    if ($choices === []) {
+        return [[], null];
+    }
+    $sites = is_array($given)
+        ? array_values(array_filter(array_map(static fn($s): string => is_string($s) ? $s : '', $given),
+            static fn(string $s): bool => $s !== ''))
+        : [];
+    if ($sites === [] && !$required) {
+        return [[], null];
+    }
+    if (count($sites) !== $dives) {
+        return [[], 'sites'];
+    }
+    foreach ($sites as $site) {
+        if (!isset($choices[$site])) {
+            return [[], 'sites'];
+        }
+    }
+    $base = (string) ($product['threeDiveBase'] ?? '');
+    if ($dives === 3 && $base !== ''
+        && ($sites[0] !== $base || $sites[1] !== $base || $sites[2] === $base)) {
+        return [[], 'sites'];
+    }
+    return [$sites, null];
+}
+
+/** "Dos Ojos ×2 · Angelita": the sites of a booking, in dive order. */
+function kay_sites_label(string $stored): string
+{
+    if ($stored === '') {
+        return '';
+    }
+    $names = [];
+    foreach (kay_cenotes() as $cenote) {
+        $names[$cenote['slug']] = (string) $cenote['short'];
+    }
+    $parts = [];
+    foreach (explode(',', $stored) as $slug) {
+        $name = $names[$slug] ?? $slug;
+        $last = count($parts) - 1;
+        if ($last >= 0 && $parts[$last][0] === $name) {
+            $parts[$last][1]++;
+        } else {
+            $parts[] = [$name, 1];
+        }
+    }
+    return implode(' · ', array_map(
+        static fn(array $p): string => $p[1] > 1 ? $p[0] . ' ×' . $p[1] : $p[0],
+        $parts
+    ));
+}
+
 /**
  * @return array{product:array,option:array,pickup:array,divers:int,total_usd:int,deposit_usd:int}|null
  */
@@ -136,6 +242,15 @@ function kay_validate(array $input): ?string
             : ($month >= $from || $month <= $to);
         if (!$inSeason) {
             return 'out-of-season';
+        }
+    }
+
+    // A dive with sites to choose from needs one per dive, by Kay's rule. An
+    // option the product is not sold in is left to kay_quote() to refuse.
+    if ($product !== null && in_array((int) ($input['option'] ?? -1), array_column($product['options'], 'dives'), true)) {
+        [, $error] = kay_sites_check($product, (int) $input['option'], $input['sites'] ?? null, true);
+        if ($error !== null) {
+            return $error;
         }
     }
     return null;

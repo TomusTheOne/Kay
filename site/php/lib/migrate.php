@@ -19,9 +19,10 @@ declare(strict_types=1);
  *
  * Nothing here ever drops or rewrites a column that holds bookings.
  *
- * The payment endpoints never call this. booking.php writes exactly the
+ * The payment endpoints never depend on it. booking.php inserts exactly the
  * columns schema.sql has always had, so a deploy that lands before anyone
- * opens the admin cannot cost a booking.
+ * opens the admin cannot cost a booking; only when storing the dive sites
+ * finds the column missing does it call this, after the row is safely in.
  */
 
 /** @return array<int, string[]> version => statements */
@@ -219,6 +220,13 @@ function kay_migrations(): array
                updated_at  DATETIME          NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
                PRIMARY KEY (booking_id, diver_no)
              ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
+        ],
+
+        // The cenote of each dive, in order, as the diver chose it on the
+        // form: "dos-ojos,dos-ojos,angelita". Empty for a booking with no
+        // choice to make, and for every booking made before the choice.
+        8 => [
+            "ALTER TABLE bookings ADD COLUMN sites VARCHAR(160) NOT NULL DEFAULT ''",
         ],
     ];
 }

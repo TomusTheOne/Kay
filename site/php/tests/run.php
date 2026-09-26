@@ -153,7 +153,31 @@ check('March is fine',        kay_validate(['date' => '2099-03-31'] + $shark), n
 check('April is refused',     kay_validate(['date' => '2099-04-01'] + $shark), 'out-of-season');
 // Everything else is sold all year and must not pick up the restriction.
 check('a cenote dive in July is fine',
-      kay_validate(['date' => '2099-07-15', 'product' => 'cenote-diving', 'option' => 2] + $shark), null);
+      kay_validate(['date' => '2099-07-15', 'product' => 'cenote-diving', 'option' => 2,
+                    'sites' => ['car-wash', 'dreamgate']] + $shark), null);
+
+echo "\nEach dive has its cenote, by Kay's rule\n";
+$cd = kay_find_product('cenote-diving');
+$cdChoices = array_keys(kay_site_choices($cd));
+check('cenote diving picks from the guide',   in_array('dos-ojos', $cdChoices, true) && in_array('angelita', $cdChoices, true), true);
+check('but not from Casa Cenote',             in_array('casa-cenote', $cdChoices, true), false);
+check('Discover Scuba has nothing to pick',   kay_site_choices(kay_find_product('discover-scuba')), []);
+check('nor the sharks, out at sea',           kay_site_choices(kay_find_product('bull-sharks')), []);
+$sitesFor = static fn(int $dives, $sites): ?string =>
+    kay_validate(['product' => 'cenote-diving', 'option' => $dives, 'sites' => $sites] + $shark + ['date' => '2099-07-15']);
+check('two dives, two cenotes',               $sitesFor(2, ['car-wash', 'angelita']), null);
+check('or the same one twice',                $sitesFor(2, ['angelita', 'angelita']), null);
+check('two dives with one cenote is refused', $sitesFor(2, ['angelita']), 'sites');
+check('none at all is refused',               $sitesFor(2, null), 'sites');
+check('a cenote it does not dive is refused', $sitesFor(2, ['casa-cenote', 'angelita']), 'sites');
+check('three dives: Dos Ojos twice, then one more', $sitesFor(3, ['dos-ojos', 'dos-ojos', 'angelita']), null);
+check('never three different cenotes',        $sitesFor(3, ['car-wash', 'el-pit', 'angelita']), 'sites');
+check('nor Dos Ojos three times',             $sitesFor(3, ['dos-ojos', 'dos-ojos', 'dos-ojos']), 'sites');
+check('nor Dos Ojos last',                    $sitesFor(3, ['angelita', 'dos-ojos', 'dos-ojos']), 'sites');
+check('one dive at Casa Cenote needs no pick',
+      kay_validate(['product' => 'discover-scuba', 'option' => 1] + $shark + ['date' => '2099-07-15']), null);
+check('the sites read in dive order',         kay_sites_label('dos-ojos,dos-ojos,angelita'), 'Dos Ojos ×2 · Angelita');
+check('no sites, no label',                   kay_sites_label(''), '');
 
 echo "\nMercado Pago's own page names the dive, never the slug\n";
 // It showed "discover-scuba" to someone about to enter a card.
@@ -562,6 +586,19 @@ $row = kay_booking_get($db, $made['id']);
 check('one more diver re-quotes it',  (int) $row['total_mxn_cents'], (4000 * 3 + 320) * 100);
 check('and the change is in the history',
       str_contains((string) kay_notes_for($db, null, $made['id'])[0]['body'], 'buzos 2 → 3'), true);
+check('Kay may leave the cenotes blank',      $row['sites'], '');
+check('or set them by the same rule',
+      kay_booking_edit($db, $row, ['divers' => 3, 'sites' => ['dos-ojos', 'dos-ojos', 'angelita']] + $form, $adminId), null);
+$row = kay_booking_get($db, $made['id']);
+check('the cenotes are saved in order',       $row['sites'], 'dos-ojos,dos-ojos,angelita');
+check('and named in the history',
+      str_contains((string) kay_notes_for($db, null, $made['id'])[0]['body'], 'Dos Ojos ×2 · Angelita'), true);
+check('three different cenotes are refused here too',
+      kay_booking_edit($db, $row, ['divers' => 3, 'sites' => ['car-wash', 'el-pit', 'angelita']] + $form, $adminId) !== null, true);
+check('a new booking keeps its cenotes',
+      kay_booking_get($db, kay_booking_create($db, ['item' => 'cenote-diving:2', 'date' => '2099-12-03', 'pickup' => 'meeting-point',
+          'name' => 'Two Sites', 'email' => 'sites-' . bin2hex(random_bytes(3)) . '@example.test',
+          'sites' => ['car-wash', 'el-pit']], null)['id'])['sites'], 'car-wash,el-pit');
 
 echo "\nEvery website booking finds its customer\n";
 $lead = kay_uuid();
@@ -819,6 +856,17 @@ check('Discover Scuba asks for nothing',  str_contains($mailFor('discover-scuba'
 check('nor the Open Water course',        str_contains($mailFor('open-water', 5), 'Your certification'), false);
 check('nor the snorkel tour',             str_contains($mailFor('snorkel', 0), 'Your certification'), false);
 check('in Spanish too',                   str_contains($mailFor('reef-cenote', 2, 'es'), 'no podrás hacer este tour de buceo'), true);
+// Once the diver has chosen, only the rule for those cenotes is stated.
+$mailSites = static fn(string $sites): string =>
+    kay_booking_emails(['product' => 'cenote-diving', 'dives' => 2, 'locale' => 'en', 'sites' => $sites] + $mailRow)['diver']['html'];
+check('the cenotes are in the confirmation',  str_contains($mailSites('car-wash,dreamgate'), 'Car Wash · Dreamgate'), true);
+check('shallow cenotes ask for Open Water only',
+      str_contains($mailSites('car-wash,dreamgate'), 'required for every dive to 20 metres or shallower'), true);
+check('and do not mention Angelita',          str_contains($mailSites('car-wash,dreamgate'), 'Angelita and El Pit'), false);
+check('Angelita asks for Advanced',           str_contains($mailSites('car-wash,angelita'), 'needs at least Advanced Open Water'), true);
+check('the shop sees the cenotes too',
+      str_contains(kay_booking_emails(['product' => 'cenote-diving', 'dives' => 2, 'locale' => 'en', 'sites' => 'car-wash,angelita'] + $mailRow)['shop']['html'],
+                   'Car Wash · Angelita'), true);
 check('dollars are at the day’s exchange rate',
       str_contains($mailFor('reef-cenote', 2), 'exchange rate of that day applies'), true);
 

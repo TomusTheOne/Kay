@@ -191,11 +191,11 @@
     "intro": "Un anticipo aparta la fecha. Confirmamos por WhatsApp en unas horas, te mandamos unas preguntas y liquidas el resto el mismo día.",
     "s1": "01 — Qué quieres hacer",
     "s2": "02 — Cuántas inmersiones",
-    "s3": "03 — Fecha",
-    "s4": "04 — Hora de salida",
-    "s5": "05 — Tu nivel",
-    "s6": "06 — Cuántos son",
-    "s7": "07 — Cómo llegas",
+    "s3": "04 — Fecha",
+    "s4": "05 — Hora de salida",
+    "s5": "06 — Tu nivel",
+    "s6": "07 — Cuántos son",
+    "s7": "08 — Cómo llegas",
     "namePh": "Tu nombre",
     "mailPh": "tu@correo.com",
     "certs": [
@@ -229,13 +229,20 @@
     "errName": "Necesitamos un nombre para la reservación.",
     "errSeason": "Esa experiencia no se realiza en la fecha que elegiste.",
     "dateClosed": "Ese día no salimos al agua. Elige otra fecha o escríbenos por WhatsApp.",
-    "s8": "08 — Nombre",
-    "s9": "09 — Correo",
+    "s8": "09 — Nombre",
+    "s9": "10 — Correo",
     "rPickup": "Cómo llegas",
     "rTime": "Salida",
     "timeOther": "Otra hora — la revisamos",
     "outOfSeason": "Los tiburones toro solo están aquí {season}. Elige una fecha dentro de la temporada, o escríbenos y te decimos cuándo llegan.",
-    "rSeason": "Temporada"
+    "rSeason": "Temporada",
+    "sSites": "03 — Dónde buceas",
+    "siteDive": "Inmersión {n}",
+    "sitePick": "Elige un cenote",
+    "siteBase": "Con tres inmersiones, las dos primeras son en Dos Ojos y tú eliges el cenote de la tercera.",
+    "siteDeep": "Advanced o Deep",
+    "rSites": "Sitios",
+    "errSites": "Elige un cenote para cada inmersión."
   },
   "faq": {
     "tag": "Antes de venir",
@@ -395,7 +402,8 @@
       "refLabel": "Referencia de reservación",
       "signoff": "Nos vemos en el agua,",
       "team": "Kay Diving Tulum",
-      "footer": "Recibes este correo porque reservaste un buceo en {site}."
+      "footer": "Recibes este correo porque reservaste un buceo en {site}.",
+      "sitesLabel": "Dónde"
     },
     "shop": {
       "subject": "PAGADO · {date} · {product} × {divers}",

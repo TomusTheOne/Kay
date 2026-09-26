@@ -191,11 +191,11 @@
     "intro": "Un acompte bloque la date. On confirme par WhatsApp dans les heures qui suivent, on vous envoie quelques questions, et vous réglez le solde sur place.",
     "s1": "01 — Ce que vous voulez faire",
     "s2": "02 — Combien de plongées",
-    "s3": "03 — Date",
-    "s4": "04 — Heure de départ",
-    "s5": "05 — Votre niveau",
-    "s6": "06 — Combien de personnes",
-    "s7": "07 — Le rendez-vous",
+    "s3": "04 — Date",
+    "s4": "05 — Heure de départ",
+    "s5": "06 — Votre niveau",
+    "s6": "07 — Combien de personnes",
+    "s7": "08 — Le rendez-vous",
     "namePh": "Votre nom",
     "mailPh": "vous@email.com",
     "certs": [
@@ -229,13 +229,20 @@
     "errName": "Il nous faut un nom pour la réservation.",
     "errSeason": "Cette expérience n’a pas lieu à la date que vous avez choisie.",
     "dateClosed": "Nous ne sortons pas ce jour-là. Choisissez une autre date, ou écrivez-nous sur WhatsApp.",
-    "s8": "08 — Nom",
-    "s9": "09 — E-mail",
+    "s8": "09 — Nom",
+    "s9": "10 — E-mail",
     "rPickup": "Le rendez-vous",
     "rTime": "Départ",
     "timeOther": "Autre horaire — on vérifie",
     "outOfSeason": "Les requins bouledogues ne sont là que {season}. Choisissez une date dans la saison, ou écrivez-nous et nous vous dirons quand ils arrivent.",
-    "rSeason": "Saison"
+    "rSeason": "Saison",
+    "sSites": "03 — Où vous plongez",
+    "siteDive": "Plongée {n}",
+    "sitePick": "Choisissez un cenote",
+    "siteBase": "Avec trois plongées, les deux premières se font à Dos Ojos et vous choisissez le cenote de la troisième.",
+    "siteDeep": "Advanced ou Deep",
+    "rSites": "Sites",
+    "errSites": "Choisissez un cenote pour chaque plongée."
   },
   "faq": {
     "tag": "Avant de venir",
@@ -395,7 +402,8 @@
       "refLabel": "Référence de réservation",
       "signoff": "À bientôt dans l'eau,",
       "team": "Kay Diving Tulum",
-      "footer": "Vous recevez cet e-mail car vous avez réservé une plongée sur {site}."
+      "footer": "Vous recevez cet e-mail car vous avez réservé une plongée sur {site}.",
+      "sitesLabel": "Où"
     },
     "shop": {
       "subject": "PAYÉ · {date} · {product} × {divers}",

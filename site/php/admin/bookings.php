@@ -19,7 +19,7 @@ if (($_GET['format'] ?? '') === 'csv') {
     $all = kay_bookings_find($db, $filters, 5000)['rows'];
     kay_csv(kay_t('reservations') . '-' . kay_today() . '.csv', [
         kay_t('Référence'), kay_t('Reçue le'), kay_t('Origine'), kay_t('Statut'), kay_t('Date de plongée'),
-        kay_t('Départ'), kay_t('Sortie'), kay_t('Plongées'), kay_t('Plongeurs'), kay_t('Niveau'),
+        kay_t('Départ'), kay_t('Sortie'), kay_t('Plongées'), kay_t('Sites'), kay_t('Plongeurs'), kay_t('Niveau'),
         kay_t('Transport'), kay_t('Client'), kay_t('E-mail'), kay_t('Téléphone'), kay_t('Langue'),
         kay_t('Total MXN'), kay_t('Total USD'), kay_t('Encaissé MXN'), kay_t('Reste MXN'),
         kay_t('Paiement Mercado Pago'),
@@ -28,7 +28,7 @@ if (($_GET['format'] ?? '') === 'csv') {
         return [
             $b['id'], kay_db_time($b['created_at'])?->format('Y-m-d H:i'), $b['source'] === 'manual' ? kay_t('admin') : kay_t('site'),
             kay_t(KAY_STATUSES[$b['status']] ?? $b['status']), $b['dive_date'], kay_slot_text($b['start_slot'], (string) $b['start_note']),
-            kay_product_name($b['product']), $b['dives'], $b['divers'], $b['certification'],
+            kay_product_name($b['product']), $b['dives'], kay_sites_label((string) ($b['sites'] ?? '')), $b['divers'], $b['certification'],
             kay_pickup_name($b['pickup']), $b['name'], $b['email'], $b['customer_phone'] ?? '', $b['locale'],
             $m['total'], (int) round($b['total_usd_cents'] / 100), $m['received'], $m['balance'], $b['payment_id'] ?? '',
         ];
