@@ -1,0 +1,200 @@
+{
+  "_comment": "Cenotes and archaeological sites around Tulum — the facts only. Prose lives in messages/<locale>.json so the same place reads naturally in three languages. Source: the 2026 tourism guide supplied by Kay Diving, whose own figures come from INAH. Nothing here is invented: a field with no sourced value is null, never a guess.",
+
+  "inahVerified": "2026-10",
+  "inahSource": "https://lugares.inah.gob.mx/",
+
+  "cenotes": [
+    {
+      "slug": "gran-cenote",
+      "type": "semi-open",
+      "activities": ["swim", "snorkel"],
+      "photo": null
+    },
+    {
+      "slug": "dos-ojos",
+      "type": "cavern",
+      "activities": ["snorkel", "dive"],
+      "photo": null
+    },
+    {
+      "slug": "tak-be-ha",
+      "type": "cavern",
+      "activities": ["dive"],
+      "photo": null
+    },
+    {
+      "slug": "casa-cenote",
+      "type": "channel",
+      "activities": ["swim", "snorkel", "dive"],
+      "photo": "card-casa"
+    },
+    {
+      "slug": "calavera",
+      "type": "open",
+      "activities": ["swim"],
+      "photo": null
+    },
+    {
+      "slug": "car-wash",
+      "type": "open",
+      "activities": ["swim", "snorkel", "dive"],
+      "photo": null
+    },
+    {
+      "slug": "zacil-ha",
+      "type": "open",
+      "activities": ["swim"],
+      "photo": null
+    },
+    {
+      "slug": "cristal-escondido",
+      "type": "open",
+      "activities": ["swim", "snorkel"],
+      "photo": null
+    },
+    {
+      "slug": "corazon-paraiso",
+      "type": "open",
+      "activities": ["swim"],
+      "photo": null
+    },
+    {
+      "slug": "tankah",
+      "type": "open",
+      "activities": ["swim", "snorkel"],
+      "photo": null
+    }
+  ],
+
+  "ruins": [
+    {
+      "slug": "tulum",
+      "km": [5, 7],
+      "minutes": [10, 20],
+      "hours": "08:00–17:00",
+      "lastEntry": "15:30",
+      "stayHours": [1.5, 2.5],
+      "crowd": "very-high",
+      "walking": "easy-moderate",
+      "transit": "easy",
+      "inah": { "national": 105, "foreign": 210 },
+      "extra": null,
+      "extraPossible": true,
+      "booking": false,
+      "photo": null
+    },
+    {
+      "slug": "muyil",
+      "km": [25, 25],
+      "minutes": [25, 35],
+      "hours": "08:00–17:00",
+      "lastEntry": "16:30",
+      "stayHours": [1, 2],
+      "crowd": "low",
+      "walking": "easy-moderate",
+      "transit": "possible",
+      "inah": { "national": 80, "foreign": 145 },
+      "extra": null,
+      "extraPossible": false,
+      "booking": false,
+      "photo": null
+    },
+    {
+      "slug": "xelha",
+      "km": [16, 19],
+      "minutes": [15, 25],
+      "hours": "08:00–17:00",
+      "lastEntry": "16:30",
+      "stayHours": [1, 1.5],
+      "crowd": "low",
+      "walking": "easy",
+      "transit": "possible",
+      "inah": { "national": 105, "foreign": 210 },
+      "extra": null,
+      "extraPossible": false,
+      "booking": false,
+      "photo": null
+    },
+    {
+      "slug": "coba",
+      "km": [47, 47],
+      "minutes": [40, 60],
+      "hours": "08:00–17:00",
+      "lastEntry": "16:00",
+      "stayHours": [2, 3],
+      "crowd": "medium-high",
+      "walking": "moderate",
+      "transit": "possible",
+      "inah": { "national": 105, "foreign": 210 },
+      "extra": null,
+      "extraPossible": true,
+      "booking": false,
+      "photo": null
+    },
+    {
+      "slug": "xcaret",
+      "km": [57, 57],
+      "minutes": [45, 60],
+      "hours": "09:00–16:30",
+      "lastEntry": "16:00",
+      "stayHours": [1, 2],
+      "crowd": "low",
+      "walking": "moderate",
+      "transit": "complex",
+      "inah": { "national": 105, "foreign": 210 },
+      "extra": null,
+      "extraPossible": false,
+      "booking": true,
+      "photo": null
+    },
+    {
+      "slug": "ek-balam",
+      "km": [122, 130],
+      "minutes": [105, 135],
+      "hours": "08:00–17:00",
+      "lastEntry": "16:00",
+      "stayHours": [2, 3],
+      "crowd": "medium",
+      "walking": "moderate-high",
+      "transit": "complex",
+      "inah": { "national": 105, "foreign": 210 },
+      "extra": { "key": "cultur", "national": 132, "foreign": 481, "parking": 100 },
+      "extraPossible": false,
+      "booking": false,
+      "photo": null
+    },
+    {
+      "slug": "chichen-itza",
+      "km": [145, 150],
+      "minutes": [120, 150],
+      "hours": "08:00–16:00",
+      "lastEntry": "15:00",
+      "stayHours": [3, 4],
+      "crowd": "very-high",
+      "walking": "moderate",
+      "transit": "possible",
+      "inah": { "national": 105, "foreign": 105 },
+      "extra": { "key": "cultur", "national": 190, "foreign": 548, "parking": null },
+      "extraPossible": false,
+      "booking": false,
+      "photo": null
+    },
+    {
+      "slug": "san-gervasio",
+      "km": [null, null],
+      "minutes": [150, 210],
+      "hours": "09:00–15:30",
+      "lastEntry": "15:00",
+      "stayHours": [1.5, 2.5],
+      "crowd": "medium-high",
+      "walking": "easy-moderate",
+      "transit": "ferry",
+      "inah": { "national": 105, "foreign": 210 },
+      "extra": null,
+      "extraPossible": true,
+      "booking": false,
+      "photo": null
+    }
+  ]
+}

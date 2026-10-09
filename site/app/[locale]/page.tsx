@@ -6,6 +6,7 @@ import Surface from "@/components/Surface";
 import Gauge from "@/components/Gauge";
 import Reveals from "@/components/Reveals";
 import Booking from "@/components/Booking";
+import { Visit, Ruins } from "@/components/Places";
 import Plate from "@/components/Plate";
 import Footer from "@/components/Footer";
 import CenoteMap from "@/components/CenoteMap";
@@ -32,6 +33,8 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
     { href: "#included", label: t.nav.included },
     { href: "#logistics", label: t.nav.logistics },
     ...(GALLERY.length ? [{ href: "#gallery", label: t.nav.gallery }] : []),
+    { href: "#visit", label: t.nav.visit },
+    { href: "#ruins", label: t.nav.ruins },
     { href: "#faq", label: t.nav.faq },
   ];
 
@@ -412,6 +415,40 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
           <div data-rise>
             <Booking t={t.book} products={t.products} logistics={t.logistics} locale={locale} />
           </div>
+        </section>
+
+        {/* ----------------------------------------------------- visit, ruins */}
+        {/* Between Gallery and Questions as asked, but after the booking form:
+            eighteen reference cards ahead of it would put a long scroll between
+            a diver who has decided and the button. Neither section sells
+            anything — they are here to be useful and to be found. */}
+        <section className="bay shell" id="visit">
+          <div className="head2">
+            <div data-rise>
+              <p className="tag">{t.visit.tag}</p>
+              <h2 className="dsp dsp-lg" style={{ marginTop: "1.1rem", maxWidth: "16ch" }}
+                  dangerouslySetInnerHTML={{ __html: t.visit.h2 }} />
+            </div>
+            <p className="muted" data-rise data-rise-d="1" style={{ maxWidth: "40ch" }}>
+              {t.visit.intro}
+            </p>
+          </div>
+          <Visit t={t.visit} locale={locale} />
+          <p className="places__note" data-rise>{t.visit.note}</p>
+        </section>
+
+        <section className="bay shell" id="ruins">
+          <div className="head2">
+            <div data-rise>
+              <p className="tag">{t.ruins.tag}</p>
+              <h2 className="dsp dsp-lg" style={{ marginTop: "1.1rem", maxWidth: "16ch" }}
+                  dangerouslySetInnerHTML={{ __html: t.ruins.h2 }} />
+            </div>
+            <p className="muted" data-rise data-rise-d="1" style={{ maxWidth: "40ch" }}>
+              {t.ruins.intro}
+            </p>
+          </div>
+          <Ruins t={t.ruins} />
         </section>
 
         {/* ------------------------------------------------------------- faq */}

@@ -14,7 +14,9 @@
     "menu": "Menú",
     "language": "Idioma",
     "logistics": "Cómo llegar",
-    "cenotes": "Cenotes"
+    "cenotes": "Cenotes",
+    "visit": "Visitar",
+    "ruins": "Arqueología"
   },
   "hero": {
     "kicker": "Tulum · Quintana Roo · Riviera Maya",
@@ -178,6 +180,178 @@
       "gallery-2": "La boca de la caverna, desde abajo",
       "gallery-3": "Bajo la plataforma · Casa Cenote",
       "gallery-bull-shark": "Tiburón toro frente a Playa del Carmen"
+    }
+  },
+  "visit": {
+    "tag": "Día libre",
+    "h2": "Cenotes<br>por tu cuenta.",
+    "intro": "Los que vale la pena ver aunque no sea un día de buceo. Dónde bucea Kay está en la guía de cenotes.",
+    "typeLabel": {
+      "open": "Abierto",
+      "semi-open": "Semiabierto",
+      "cavern": "Caverna",
+      "channel": "Canal"
+    },
+    "activityLabel": {
+      "swim": "Nadar",
+      "snorkel": "Snorkel",
+      "dive": "Buceo"
+    },
+    "weDive": "Buceamos aquí",
+    "weDiveCta": "Ver la ficha",
+    "goodLabel": "Ideal para",
+    "tipLabel": "Consejo",
+    "note": "Horarios, tarifas y reglas cambian sin aviso, y cada cenote tiene su propia administración: confírmalos el mismo día antes de desplazarte. El buceo en caverna exige formación, equipo y guía especializados — no se improvisa.",
+    "items": {
+      "gran-cenote": {
+        "name": "Gran Cenote",
+        "blurb": "Uno de los más conocidos cerca de Tulum. Pasarelas, agua transparente, peces y formaciones calcáreas a la vista. Una buena primera experiencia de cenote, sin complicaciones.",
+        "good": "Primera visita, snorkel, fotografía",
+        "tip": "Llega temprano: en temporada alta se llena. Calzado acuático, y confirma las reglas sobre protector solar."
+      },
+      "dos-ojos": {
+        "name": "Cenote Dos Ojos",
+        "blurb": "Dos pozas conectadas visualmente como «ojos», agua cristalina y haces de luz atravesando la caverna. Uno de los sitios emblemáticos del paisaje kárstico, por arriba y por debajo.",
+        "good": "Snorkel, buceo en caverna con guía",
+        "tip": "El buceo en caverna no es buceo recreativo: exige formación específica. Reserva con un operador autorizado."
+      },
+      "tak-be-ha": {
+        "name": "Taak Bi Ha",
+        "blurb": "Una caverna cerrada con estalactitas y agua clarísima. Más íntimo que los cenotes abiertos, y espectacular cuando la luz entra por las aberturas.",
+        "good": "Fotografía, buceo guiado",
+        "tip": "Las formaciones se dañan con un solo roce. No toques nada y sigue al guía."
+      },
+      "casa-cenote": {
+        "name": "Casa Cenote (Manatí)",
+        "blurb": "Un canal alargado entre manglares, verde azulado, más parecido a un río que a un pozo. Agua dulce y salada mezclándose a un paso de la costa.",
+        "good": "Snorkel, natación tranquila, buceo",
+        "tip": "No dañes las raíces del manglar y no alimentes a la fauna. El halocline se ve mejor con el agua en calma."
+      },
+      "calavera": {
+        "name": "Cenote Calavera",
+        "blurb": "Aberturas redondas en el techo de roca que desde arriba recuerdan una calavera. Muy fotogénico, con entrada por escalera o por salto.",
+        "good": "Fotografía, nadadores seguros",
+        "tip": "No saltes sin comprobar la profundidad ni sin el visto bueno del personal."
+      },
+      "car-wash": {
+        "name": "Cenote Car Wash (Aktun Ha)",
+        "blurb": "Poza amplia rodeada de vegetación, más abierta y luminosa que las cavernas. La visibilidad cambia con el clima y con lo que haya pasado los días previos.",
+        "good": "Nadar, snorkel, buceo con operador",
+        "tip": "Confirma las condiciones del día: no todas las zonas sirven para todos los niveles."
+      },
+      "zacil-ha": {
+        "name": "Cenote Zacil-Ha",
+        "blurb": "Cenote abierto con instalaciones para quedarse varias horas. La opción cómoda cuando se viaja en grupo o con niños.",
+        "good": "Baño recreativo, familias",
+        "tip": "Comprueba horarios y tarifas antes de salir: cambian según la temporada."
+      },
+      "cristal-escondido": {
+        "name": "Cenotes Cristal y Escondido",
+        "blurb": "Dos pozas al aire libre rodeadas de selva, que se visitan en la misma salida. Permiten comparar dos paisajes sin dedicar el día entero a uno solo.",
+        "good": "Natación, descanso, fotografía",
+        "tip": "Lleva agua potable y protección solar: hay poca sombra."
+      },
+      "corazon-paraiso": {
+        "name": "Cenote Corazón del Paraíso",
+        "blurb": "Una poza con forma de corazón desde ciertos ángulos, rodeada de verde. Menos urbano que los cenotes de carretera.",
+        "good": "Fotografía, natación",
+        "tip": "Confirma el estado del acceso antes de ir, y no uses productos que contaminen el agua."
+      },
+      "tankah": {
+        "name": "Cenotes de Tankah",
+        "blurb": "Una zona costera donde los cenotes se mezclan con la selva y el mar. La experiencia depende del cenote concreto y del operador.",
+        "good": "Excursión combinada, naturaleza",
+        "tip": "Pregunta el nombre exacto del cenote y qué incluye: transporte, guía, equipo o comida."
+      }
+    }
+  },
+  "ruins": {
+    "tag": "Cultura maya",
+    "h2": "Sitios<br>arqueológicos.",
+    "intro": "Qué hay cerca, cuánto se tarda en llegar y cuánto tiempo dedicarle. Para los días que no se bucea.",
+    "fromLabel": "Desde Tulum",
+    "stayLabel": "Duración",
+    "entryLabel": "Entrada",
+    "hoursLabel": "Horario",
+    "lastEntryLabel": "Último acceso",
+    "seeLabel": "Qué ver",
+    "combineLabel": "Combínalo con",
+    "crowdLabel": {
+      "low": "Poca gente",
+      "medium": "Afluencia media",
+      "medium-high": "Bastante gente",
+      "high": "Muy visitado",
+      "very-high": "Siempre lleno"
+    },
+    "walkLabel": {
+      "easy": "Caminata fácil",
+      "easy-moderate": "Caminata fácil a moderada",
+      "moderate": "Caminata moderada",
+      "moderate-high": "Caminata exigente"
+    },
+    "transitLabel": {
+      "easy": "Fácil en transporte",
+      "possible": "Hay autobús",
+      "complex": "Con transbordos",
+      "ferry": "Autobús + ferry"
+    },
+    "nationalLabel": "nacional",
+    "foreignLabel": "extranjero",
+    "culturLabel": "CULTUR",
+    "parkingLabel": "Estacionamiento",
+    "extraPossible": "Pueden sumarse cargos adicionales",
+    "bookingRequired": "Requiere reserva previa",
+    "priceNote": "Tarifas INAH de referencia, consultadas en {date}. En varios sitios la entrada no es el total: pueden sumarse cuotas de CULTUR, parque o estacionamiento. Confírmalas antes de ir.",
+    "ferryNote": "Autobús a Playa del Carmen, ferry a Cozumel y traslado en la isla. Comprueba los horarios de vuelta antes de salir.",
+    "items": {
+      "tulum": {
+        "name": "Zona arqueológica de Tulum",
+        "blurb": "Una ciudad maya amurallada sobre un acantilado frente al Caribe. La imagen más reconocible de la costa, y también la más concurrida.",
+        "see": "El Castillo y el recinto amurallado; las vistas al mar desde los miradores habilitados.",
+        "combine": "Parque del Jaguar, Museo de la Costa Oriental, un cenote cercano."
+      },
+      "coba": {
+        "name": "Cobá",
+        "blurb": "Una gran ciudad maya en plena selva, unida por los caminos elevados llamados sacbeob. Más extensa y más verde que Tulum, y con más que caminar.",
+        "see": "Los grupos arqueológicos abiertos y los caminos antiguos. Pregunta in situ qué estructuras están accesibles.",
+        "combine": "Cenotes Choo-Ha, Tankach-Ha y Multum-Ha."
+      },
+      "muyil": {
+        "name": "Muyil",
+        "blurb": "Un asentamiento pequeño rodeado de vegetación, en el borde de la reserva de Sian Ka'an. Tranquilo justo donde los demás están llenos.",
+        "see": "Las estructuras y los senderos habilitados. El paseo a la laguna se contrata aparte, con operador autorizado.",
+        "combine": "Laguna de Muyil y Sian Ka'an en lancha."
+      },
+      "xelha": {
+        "name": "Xelhá (zona arqueológica)",
+        "blurb": "Vestigios mayas del corredor costero, compactos y de visita corta. No es el parque acuático Xel-Há, aunque el nombre se parezca y estén cerca.",
+        "see": "Las estructuras del recinto, en un recorrido breve.",
+        "combine": "Parque Xel-Há, con entrada aparte, solo si te apetece."
+      },
+      "xcaret": {
+        "name": "Xcaret (zona arqueológica)",
+        "blurb": "Un asentamiento maya costero dentro del entorno de Xcaret. La entrada arqueológica y la del parque son dos productos distintos: una no incluye la otra.",
+        "see": "Los vestigios habilitados y su contexto junto al mar.",
+        "combine": "Parque Xcaret, si compras su acceso."
+      },
+      "ek-balam": {
+        "name": "Ek' Balam",
+        "blurb": "Arquitectura monumental y relieves esculpidos excepcionales, rodeados de selva en Yucatán. Lejos, pero distinto de todo lo demás de esta lista.",
+        "see": "La Acrópolis y las estructuras abiertas. El acceso a las escalinatas cambia según conservación y seguridad.",
+        "combine": "Valladolid y el cenote X-Canché."
+      },
+      "chichen-itza": {
+        "name": "Chichén Itzá",
+        "blurb": "Uno de los grandes centros del mundo maya y Patrimonio Mundial. Monumental, muy visitado, y un día entero desde Tulum.",
+        "see": "El Castillo, el Gran Juego de Pelota y el Templo de los Guerreros, desde las zonas permitidas.",
+        "combine": "Un cenote de la zona y Valladolid, si el transporte lo permite."
+      },
+      "san-gervasio": {
+        "name": "San Gervasio (Cozumel)",
+        "blurb": "Centro ceremonial ligado al culto de Ixchel, entre la selva de Cozumel. Exige ferry, así que se organiza como jornada completa en la isla.",
+        "see": "Las plazas, las estructuras y los caminos que las unen.",
+        "combine": "San Miguel de Cozumel, playas y snorkel."
+      }
     }
   },
   "quote": {

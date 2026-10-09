@@ -378,6 +378,69 @@ body.open .drawer{opacity:1;visibility:visible}
 .course__d{font-size:.88rem;color:var(--foam-52);flex:1;line-height:1.55}
 .course__p{font-family:var(--mono);font-size:.82rem;color:var(--foam);padding-top:.7rem;border-top:1px solid var(--line-soft)}
 
+/* --------------------------------------------- Cenotes & archaeology --- */
+/* Reference cards, deliberately quieter than .dive: no photograph, a thinner
+   rule and smaller type. A diver scrolling past has to be able to tell what
+   Kay sells from what he is only telling you about, and if these two read as
+   loudly as the dive cards, the section that earns money loses. */
+.places{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(296px,1fr));
+  gap:clamp(.8rem,1.5vw,1.15rem);
+}
+.place{
+  border:1px solid var(--line-soft);border-radius:var(--r-lg);
+  background:var(--glass);padding:clamp(1.05rem,2vw,1.45rem);
+  display:flex;flex-direction:column;gap:.7rem;
+  transition:border-color .4s var(--ease);
+}
+.place:hover{border-color:var(--line)}
+.place__top{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem}
+.place__name{font-family:var(--display);font-size:1.28rem;line-height:1.1}
+
+/* The only outbound link in either section: it goes to the booking form, so
+   it carries the turquoise the rest of the card is denied. */
+.place__dive{
+  flex:none;display:flex;flex-direction:column;align-items:flex-end;gap:.1rem;
+  font-family:var(--mono);font-size:.56rem;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--turq);text-align:right;line-height:1.3;
+}
+.place__diveCta{color:var(--foam-34);text-decoration:underline;text-underline-offset:2px}
+.place__dive:hover .place__diveCta{color:var(--turq)}
+
+.chips{display:flex;flex-wrap:wrap;gap:.35rem;margin:-.15rem 0 0}
+.chip{
+  font-family:var(--mono);font-size:.58rem;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--foam-52);border:1px solid var(--line-soft);border-radius:999px;
+  padding:.28em .7em;white-space:nowrap;
+}
+.chip--lit{color:var(--turq);border-color:rgba(79,224,210,.3)}
+.chip--warn{color:var(--lit);border-color:rgba(247,239,227,.26)}
+
+.place__txt{font-size:.9rem;line-height:1.55;color:var(--foam-72)}
+
+.prows{display:flex;flex-direction:column;gap:.5rem;margin-top:auto;
+  padding-top:.85rem;border-top:1px solid var(--line-soft)}
+.prow{display:flex;gap:.9rem;align-items:baseline}
+/* --foam-52, not the --foam-34 the older labels use: measured against the
+   page background, .34 gives 2.96:1 and AA asks 4.5 for text this size.
+   .52 measures 5.29. Same reason for the note below. */
+.prow__k{font-family:var(--mono);font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;
+  color:var(--foam-52);flex:none;min-width:10ch}
+.prow__v{font-size:.8rem;line-height:1.45;color:var(--foam-72)}
+
+.place__foot{margin-top:.7rem;padding-top:.7rem;border-top:1px solid var(--line-soft);
+  font-size:.76rem;line-height:1.5;color:var(--foam-52)}
+
+.places__note{margin-top:clamp(1.1rem,2vw,1.6rem);font-size:.76rem;line-height:1.6;
+  color:var(--foam-52);max-width:78ch}
+
+/* Under about 420px the label column starves the value of width, so the two
+   stack instead of fighting over the line. */
+@media (max-width:420px){
+  .prow{flex-direction:column;gap:.15rem}
+  .prow__k{min-width:0}
+}
+
 /* ---------------------------------------------------------------- Gallery */
 .gal{
   display:grid;grid-template-columns:repeat(3,1fr);gap:10px;

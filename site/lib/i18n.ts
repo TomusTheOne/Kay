@@ -46,6 +46,10 @@ export function pathFor(locale: Locale, path = "/") {
 export interface ProductCopy { name: string; tagline: string; text: string; alt: string }
 export interface IncludeCopy { name: string; text: string }
 export interface Qa { q: string; a: string }
+/** A cenote a visitor can drive to on their own — not a dive site, which is CenoteCopy. */
+export interface VisitCopy { name: string; blurb: string; good: string; tip: string }
+/** A Maya site within reach of Tulum. */
+export interface RuinCopy { name: string; blurb: string; see: string; combine: string }
 /** `note` is the second paragraph only the thanks page has: what to bring on the day. */
 export interface Outcome { tag: string; h2: string; p: string; note?: string; cta: string }
 
@@ -81,7 +85,7 @@ export function mapCopy(c: CenoteCopy): MapCopy {
 export interface Dictionary {
   meta: { title: string; description: string };
   nav: Record<"about" | "products" | "included" | "logistics" | "gallery" | "faq"
-            | "cenotes" | "reserve" | "reserveLong" | "menu" | "language", string>;
+            | "cenotes" | "visit" | "ruins" | "reserve" | "reserveLong" | "menu" | "language", string>;
   hero: Record<"kicker" | "l1" | "l2" | "lede" | "cta2" | "alt"
              | "water" | "viz" | "from" | "agency" | "agencyLabel", string>;
   gauge: Record<"surface" | "cavern" | "deep", string>;
@@ -113,6 +117,32 @@ export interface Dictionary {
     items: Record<string, IncludeCopy>;
   };
   gallery: { tag: string; h2: string; captions: Record<string, string> };
+  /* The two reference sections on the home page. "visit" is cenotes a visitor
+     can reach on their own — deliberately not `cenotes`, which the dive guide
+     owns. Their label maps are keyed by the values in content/places.json, so
+     adding a crowd level or a cenote type there and forgetting the word for it
+     here is a compile error rather than a blank cell. */
+  visit: {
+    tag: string; h2: string; intro: string;
+    typeLabel: Record<string, string>;
+    activityLabel: Record<string, string>;
+    weDive: string; weDiveCta: string;
+    goodLabel: string; tipLabel: string;
+    note: string;
+    items: Record<string, VisitCopy>;
+  };
+  ruins: {
+    tag: string; h2: string; intro: string;
+    fromLabel: string; stayLabel: string; entryLabel: string; hoursLabel: string;
+    lastEntryLabel: string; seeLabel: string; combineLabel: string;
+    crowdLabel: Record<string, string>;
+    walkLabel: Record<string, string>;
+    transitLabel: Record<string, string>;
+    nationalLabel: string; foreignLabel: string; culturLabel: string;
+    parkingLabel: string; extraPossible: string; bookingRequired: string;
+    priceNote: string; ferryNote: string;
+    items: Record<string, RuinCopy>;
+  };
   quote: { text: string; cite: string };
   book: Record<string, string> & { certs: string[] };
   faq: { tag: string; h2: string; items: Qa[] };
