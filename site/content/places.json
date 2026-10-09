@@ -27,7 +27,7 @@
       "slug": "casa-cenote",
       "type": "channel",
       "activities": ["swim", "snorkel", "dive"],
-      "photo": "card-casa"
+      "photo": null
     },
     {
       "slug": "calavera",

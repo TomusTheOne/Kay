@@ -26,6 +26,25 @@ function fee(national: number, foreign: number, nLabel: string, fLabel: string):
     : `$${national} ${nLabel} · $${foreign} ${fLabel}`;
 }
 
+/**
+ * A photograph, when there is a real one of this place. No placeholder and no
+ * stand-in: a generic cavern shot captioned "Taak Bi Ha" is a lie a visitor
+ * only discovers on arrival, and the dive guide already carries one of those.
+ */
+function Shot({ photo, alt }: { photo: string | null; alt: string }) {
+  if (!photo) return null;
+  return (
+    <div className="place__media">
+      <picture>
+        <source srcSet={`/assets/photos/${photo}.avif`} type="image/avif" />
+        <source srcSet={`/assets/photos/${photo}.webp`} type="image/webp" />
+        <img src={`/assets/photos/${photo}.webp`} alt={alt}
+             loading="lazy" decoding="async" width={1200} height={800} />
+      </picture>
+    </div>
+  );
+}
+
 function Row({ k, v }: { k: string; v: string }) {
   return (
     <div className="prow">
@@ -44,6 +63,7 @@ export function Visit({ t, locale }: { t: Dictionary["visit"]; locale: Locale })
         const copy = t.items[c.slug];
         return (
           <article className="place" key={c.slug} data-rise data-rise-d={i % 3 || undefined}>
+            <Shot photo={c.photo} alt={copy.name} />
             <div className="place__top">
               <h3 className="place__name">{copy.name}</h3>
               {/* The four that also appear in the dive guide. Rather than
@@ -95,6 +115,7 @@ export function Ruins({ t }: { t: Dictionary["ruins"] }) {
 
           return (
             <article className="place" key={r.slug} data-rise data-rise-d={i % 3 || undefined}>
+              <Shot photo={r.photo} alt={copy.name} />
               <div className="place__top">
                 <h3 className="place__name">{copy.name}</h3>
               </div>

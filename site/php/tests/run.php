@@ -160,7 +160,10 @@ echo "\nEach dive has its cenote, by Kay's rule\n";
 $cd = kay_find_product('cenote-diving');
 $cdChoices = array_keys(kay_site_choices($cd));
 check('cenote diving picks from the guide',   in_array('dos-ojos', $cdChoices, true) && in_array('angelita', $cdChoices, true), true);
-check('but not from Casa Cenote',             in_array('casa-cenote', $cdChoices, true), false);
+// Casa Cenote was excluded here until Kay asked for it to be an option on
+// the cenote trips as well as the courses. One line in content/cenotes.json
+// drives both this list and the server's validation of what was picked.
+check('and from Casa Cenote too',             in_array('casa-cenote', $cdChoices, true), true);
 check('Discover Scuba has nothing to pick',   kay_site_choices(kay_find_product('discover-scuba')), []);
 check('nor the sharks, out at sea',           kay_site_choices(kay_find_product('bull-sharks')), []);
 $sitesFor = static fn(int $dives, $sites): ?string =>
@@ -169,7 +172,10 @@ check('two dives, two cenotes',               $sitesFor(2, ['car-wash', 'angelit
 check('or the same one twice',                $sitesFor(2, ['angelita', 'angelita']), null);
 check('two dives with one cenote is refused', $sitesFor(2, ['angelita']), 'sites');
 check('none at all is refused',               $sitesFor(2, null), 'sites');
-check('a cenote it does not dive is refused', $sitesFor(2, ['casa-cenote', 'angelita']), 'sites');
+// Every cenote in the guide is now a cenote-diving site, so the one that
+// must still be refused is a cenote the site knows of but Kay does not dive:
+// Gran Cenote is in the visitor list, never in the guide.
+check('a cenote it does not dive is refused', $sitesFor(2, ['gran-cenote', 'angelita']), 'sites');
 check('three dives: Dos Ojos twice, then one more', $sitesFor(3, ['dos-ojos', 'dos-ojos', 'angelita']), null);
 check('never three different cenotes',        $sitesFor(3, ['car-wash', 'el-pit', 'angelita']), 'sites');
 check('nor Dos Ojos three times',             $sitesFor(3, ['dos-ojos', 'dos-ojos', 'dos-ojos']), 'sites');
