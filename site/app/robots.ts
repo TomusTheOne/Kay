@@ -29,7 +29,6 @@ export default function robots(): MetadataRoute.Robots {
       { userAgent: ANSWER_ENGINES, allow: "/", disallow: ["/api/"] },
     ],
     sitemap: `${SHOP.domain}/sitemap.xml`,
-    host: SHOP.domain,
   };
 }
 

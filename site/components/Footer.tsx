@@ -14,20 +14,20 @@ export default function Footer({ t, locale, home = "" }: { t: Dictionary; locale
           <div>
             <p className="muted" style={{ fontSize: ".9rem", maxWidth: "36ch" }}>{t.footer.blurb}</p>
           </div>
-          <div><h4>{t.footer.explore}</h4><ul>
+          <div><p className="foot__h">{t.footer.explore}</p><ul>
             {PRODUCTS.filter((p) => p.kind !== "course").map((p) => (
               <li key={p.slug}><a href={`${home}#products`}>{t.products.items[p.slug].name}</a></li>
             ))}
             {GUIDE_PUBLISHED && <li><a href={pathFor(locale, "/cenotes/")}>{t.cenotes.tag}</a></li>}
           </ul></div>
-          <div><h4>{t.footer.learn}</h4><ul>
+          <div><p className="foot__h">{t.footer.learn}</p><ul>
             {PRODUCTS.filter((p) => p.kind === "course").map((p) => (
               <li key={p.slug}><a href={`${home}#products`}>{t.products.items[p.slug].name}</a></li>
             ))}
             <li><a href={`${home}#included`}>{t.nav.included}</a></li>
             <li><a href={`${home}#faq`}>{t.nav.faq}</a></li>
           </ul></div>
-          <div><h4>{t.footer.find}</h4><ul>
+          <div><p className="foot__h">{t.footer.find}</p><ul>
             <li><a href={SHOP.instagram} rel="noopener">@kaydivingtulum</a></li>
             <li><a href={`tel:${SHOP.phone}`}>{SHOP.phoneDisplay}</a></li>
             <li><a href={`https://wa.me/${SHOP.phone.replace(/\D/g, "")}`} rel="noopener">{t.footer.whatsapp}</a></li>

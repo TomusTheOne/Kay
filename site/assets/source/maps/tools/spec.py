@@ -25,10 +25,11 @@ WORDS = {
     'cave': dict(en='Cave divers only', es='Solo buzos de cueva', fr='Plongeurs spéléo uniquement'),
     'halo': dict(en='Halocline', es='Haloclina', fr='Halocline'),
     'stop': dict(en='Cavern limit', es='Límite de caverna', fr='Limite de la caverne'),
-    'batcave': dict(en='Bat Cave', es='Baticueva', fr='Baticueva'),
+    # Kay's own text names both routes in English in every language; the map follows it.
+    'batcave': dict(en='Bat Cave', es='Bat Cave', fr='Bat Cave'),
     'west': dict(en='West Eye', es='Ojo Oeste', fr='Œil ouest'),
     'east': dict(en='East Eye', es='Ojo Este', fr='Œil est'),
-    'barbie': dict(en='Barbie line', es='Línea Barbie', fr='Ligne Barbie'),
+    'barbie': dict(en='Barbie Line', es='Barbie Line', fr='Barbie Line'),
     'coba': dict(en='To Cobá →', es='Hacia Cobá →', fr='Vers Cobá →'),
     'halo2': dict(en='Halocline · hydrogen sulphide cloud', es='Haloclina · nube de ácido sulfhídrico', fr='Halocline · nuage d’hydrogène sulfuré'),
     'trunks': dict(en='Sunken trees', es='Árboles hundidos', fr='Arbres engloutis'),
@@ -51,10 +52,10 @@ MAPS['casa-cenote'] = dict(
     svg='<g fill="none" stroke="#4FE0D2" stroke-opacity=".55" stroke-width="1.1" stroke-dasharray="4 4">'
         '<path d="M478 168 L520 178 L556 186 L583 170"/><path d="M507 126 L522 134"/></g>',
     labels=[
-        ('zone', 394, 158, 'snorkel'), ('zone', 668, 214, 'snorkel'), ('zone', 322, 405, 'snorkel'),
+        ('zone', 394, 158, 'snorkel'), ('zone', 684, 242, 'snorkel'), ('zone', 322, 405, 'snorkel'),
         ('mang', 240, 200, 'mangrove'), ('mang', 520, 285, 'mangrove'), ('mang', 90, 410, 'mangrove'), ('mang', 560, 44, 'mangrove'),
         ('lab', 490, 79, 'crack'), ('lab', 530, 222, 'cavpass'),
-        *depths([(370, 122, 4), (462, 104, 3), (532, 140, 2), (548, 197, 6), (606, 134, 5), (708, 214, 5),
+        *depths([(370, 122, 4), (462, 104, 3), (532, 140, 2), (548, 197, 6), (606, 134, 5), (716, 274, 5),
                  (681, 323, 4), (376, 254, 5), (283, 431, 5), (198, 466, 6)]),
         ('stop', 209, 497, 'limit'), ('stop', 730, 165, 'limit', dict(cls='l')),
         ('home', 210, 536, 'entrance'),

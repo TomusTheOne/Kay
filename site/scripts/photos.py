@@ -32,9 +32,9 @@ SLOTS = {
     # Same frame, cut much wider for the band that breaks up the page.
     "band":          ("angelita",  1720,  882, 0.52, 0.46),
 
-    # The rope over the water is Cenote Car Wash, whatever the slot is called:
-    # it serves Car Wash in the cenote guide.
-    "card-casa":     ("casa",       960,  660, 0.50, 0.55),
+    # The rope over the water is Cenote Car Wash (its source file is casa.webp
+    # for history's sake); named for the cenote, since image search reads it.
+    "cenote-car-wash": ("casa",     960,  660, 0.50, 0.55),
     # A diver in a shaft of light under the roots: Discover Scuba.
     "card-discover-roots": ("discover-roots", 960, 660, 0.50, 0.50),
     "card-angelita": ("mangrove",   960,  660, 0.48, 0.50),

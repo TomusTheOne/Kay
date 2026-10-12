@@ -24,7 +24,7 @@ production — le reste est la feuille de route, pas une description.
 | `sitemap.xml` | généré, `<lastmod>` piloté par `contentUpdated` |
 | `robots.txt` | `Disallow: /api/` seulement, et il déclare le sitemap |
 | JSON-LD | `WebSite` + `WebPage` + `SportsActivityLocation` + `ItemList`/`Product`/`Offer` + `FAQPage`, tous liés par `@id` |
-| Open Graph | carte **1200×630 JPEG** par langue, générée par `site/scripts/og.mjs` |
+| Open Graph | carte **1200×630 JPEG** par langue, générée par `site/scripts/og.mjs` sous le nom donné par `ogCard` dans `products.json` (un nouveau nom à chaque recoupe : les images sont en cache immuable un an) |
 | Hôte canonique | `www` → apex en 301 *(dans `.htaccess`)* |
 | HTTPS | forcé en 301, HSTS 2 ans |
 | Manifest + icônes | `site.webmanifest`, apple-touch 180, 192, 512 |
@@ -35,7 +35,7 @@ production — le reste est la feuille de route, pas une description.
 | Cartes de plongée | 6 plans/coupes par langue, AVIF/WebP, dans le sitemap image — voir `site/assets/source/maps/README.md` |
 | Cartes de partage | 1200×630 JPEG par cenote (`site/scripts/og-cenotes.py`), Twitter aligné sur Open Graph |
 | GEO (moteurs de réponse) | `/llms.txt` généré au build depuis les données ; crawlers IA nommés dans `robots.txt` (GPTBot, ClaudeBot, PerplexityBot, Google-Extended…) ; `geo.*`/`ICBM` sur chaque page |
-| Prix dans les snippets | « à partir de » calculé depuis `products.json` (`FROM_PRICE`) — l'ancienne description annonçait 80 $ alors que le menu commence à 125 $ |
+| Prix dans les snippets | « à partir de » calculé depuis `products.json` : la description et la carte parlent de plongée, donc le prix de la première plongée (`FROM_DIVE_PRICE`, 140 $) ; le bandeau du hero garde le prix le plus bas du menu (`FROM_PRICE`, le snorkel à 125 $). L'ancienne description et l'ancienne carte annonçaient 80 $ |
 
 **Pas encore livré, et pourquoi :**
 
@@ -134,16 +134,25 @@ elle pilote le CTR, qui compte).
 
 ## 4. Données structurées (JSON-LD)
 
-Déjà implémenté dans les maquettes :
+En ligne :
 
 - **`SportsActivityLocation`** (sous-type de `LocalBusiness`) — nom, adresse, `geo`, téléphone,
-  horaires, `priceRange`, `sameAs` vers Instagram. C'est le socle du SEO local.
-- **`FAQPage`** — les questions de la FAQ, éligibles aux résultats enrichis.
-- **`ItemList` / `Product` + `Offer`** (concepts B et C) — chaque plongée avec son prix et sa devise.
+  `priceRange`, `sameAs` vers Instagram, `knowsAbout`, `hasMap` vers le guide. Pas
+  d'horaires : on ne les a pas. C'est le socle du SEO local.
+- **`ItemList` / `Product` + `Offer`** — chaque produit avec son prix, sa devise et,
+  pour les produits saisonniers, une vraie fenêtre `availabilityStarts`/`availabilityEnds`.
+- **`FAQPage`** — sur l'accueil et sur chaque page cenote. Google ne l'affiche plus en
+  résultat enrichi que pour quelques sites officiels ; on le garde parce que Bing et
+  les moteurs de réponse le lisent, et parce que le texte balisé est exactement le
+  texte affiché.
+- **`TouristAttraction`** sur chaque page cenote (faits en `additionalProperty`, carte en
+  `hasMap`), dans un `WebPage` publié par `/#business`, avec son **`BreadcrumbList`**.
+  Une position encore approximative (`approx` dans `cenotes.json`) n'est pas publiée en
+  coordonnées.
+- **`CollectionPage` + `ItemList`** sur l'index du guide, avec les mêmes `@id` que les pages.
 
-À ajouter lors de la construction du site complet :
+À ajouter quand les pages existeront :
 
-- **`BreadcrumbList`** sur toutes les pages intérieures.
 - **`Course`** sur les pages formation.
 - **`Article`** sur le journal, avec `author`, `datePublished`, `dateModified`.
 - **`AggregateRating`** + **`Review`** — **uniquement avec de vrais avis vérifiables**.

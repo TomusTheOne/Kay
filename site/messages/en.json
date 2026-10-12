@@ -665,6 +665,7 @@
     "planAlt": "Dive map of {name}: depths, entrance and cavern limits",
     "planNote": "Drawn for orientation, not navigation: your guide briefs the route at the cenote.",
     "planCredit": "Redrawn from the map by {credit}.",
+    "planCreditCentre": "Redrawn from the dive centre's own map.",
     "planOpen": "Open full size",
     "pageTitle": "{name} Diving in Tulum",
     "pageTitleMore": ": Depth & Map",
@@ -679,12 +680,24 @@
       "open-water": "An Open Water certification or equivalent, to show on the day.",
       "advanced": "Advanced Open Water or a Deep speciality, because the dive goes past 30 metres."
     },
+    "aLevelCourse": "Open Water divers can still dive it on the Advanced Open Water course, to {depth} m.",
     "qWhere": "How far is {name} from Tulum?",
     "aWhere": "About {km} km {dir} of Tulum, as the crow flies.",
+    "compassAt": [
+      "north",
+      "north-east",
+      "east",
+      "south-east",
+      "south",
+      "south-west",
+      "west",
+      "north-west"
+    ],
     "qSnorkel": "Can you snorkel at {name}?",
     "aSnorkel": "Yes: {name} suits snorkelling as well as diving.",
     "qTrips": "Which Kay Diving trips go to {name}?",
     "breadcrumbHome": "Home",
+    "touristType": "Scuba divers",
     "homeTag": "Cenote map",
     "homeH2": "Where we dive,<br>around Tulum.",
     "homeIntro": "Every cenote we dive, on one map — from Casa Cenote by the sea to the cloud in Angelita, 30 m down in the jungle. Tap one to see how deep it goes and the level it asks for.",
@@ -749,6 +762,14 @@
       "tak-be-ha": "Cenote Tak Be Ha, near Tulum: wide chambers, sharp stalactites and stalagmites and a strong halocline. Calm, never crowded. Open Water, to 18 m.",
       "nicte-ha": "Cenote Nicte-Ha, next to Dos Ojos: emerald water, water lilies and aquatic plants. Shallow and photogenic — easy dives and snorkelling, to 8 m.",
       "nohoch-nah-chich": "Cenote Nohoch Nah Chich, near Tulum: underwater “forests” of huge stalactites in crystal-clear water, in one of the longest cave systems on Earth."
+    },
+    "planAlts": {
+      "casa-cenote": "Dive map of Casa Cenote: snorkel areas, depths of 2 to 6 m, the crack and cavern passages, cavern limits and the main entrance",
+      "car-wash": "Dive map of Cenote Car Wash: depths of 5 to 16 m, formations, the two cavern limits and the main entrance",
+      "dos-ojos": "Dive map of Cenote Dos Ojos: the dive lines, the Barbie Line and the Bat Cave, depths, formations and cavern limits",
+      "dreamgate": "Dive map of Cenote Dreamgate: the cavern line, formations, the open-water pool and its entrance, and the passages for cave divers only",
+      "el-pit": "Cross-section of Cenote El Pit: the entrance shaft, depths to 40 m, the halocline and hydrogen sulphide cloud, and the cavern limit",
+      "angelita": "Cross-section of Cenote Angelita: the entrance, depths to 55 m, the hydrogen sulphide cloud at 30 m and the sunken trees"
     }
   }
 }

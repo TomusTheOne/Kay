@@ -15,6 +15,9 @@ const nextConfig: NextConfig = {
   output: "export",
   trailingSlash: true,
   poweredByHeader: false,
+  /* app/global-not-found.tsx: the root layout is per locale ([locale]), so the
+     404 for an unknown URL cannot be composed from a layout. */
+  experimental: { globalNotFound: true },
   env: { MAPLIBRE_VERSION: maplibre },
 };
 

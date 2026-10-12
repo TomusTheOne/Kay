@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Buceo en cenotes y arrecife en Tulum · PADI | Kay Diving",
-    "description": "Buceo guiado en cenotes y arrecife en Tulum, del primer buceo a PADI Open Water y Advanced. Equipo, entradas, transporte y snacks incluidos. Desde ${from}."
+    "description": "Buceo guiado en cenotes y arrecife en Tulum, del primer buceo a PADI Open Water y Advanced. Equipo, entradas, transporte y snacks incluidos. Desde US${from}."
   },
   "nav": {
     "about": "Nosotros",
@@ -664,29 +664,42 @@
     "back": "Todos los cenotes",
     "illustration": "Ilustración — foto próximamente",
     "planTag": "Mapa de buceo",
-    "planAlt": "Mapa de buceo de {name}: profundidades, entrada y límites de caverna",
+    "planAlt": "Mapa de buceo {of}: profundidades, entrada y límites de caverna",
     "planNote": "Dibujado para orientarte, no para navegar: tu guía explica la ruta en el cenote.",
     "planCredit": "Redibujado a partir del mapa de {credit}.",
+    "planCreditCentre": "Redibujado a partir del mapa del propio centro de buceo.",
     "planOpen": "Ver en grande",
     "pageTitle": "{name}: buceo en Tulum",
     "pageTitleMore": ", profundidad y mapa",
     "faqTag": "Preguntas",
     "faqH2": "{name}, en breve",
-    "qDepth": "¿A qué profundidad se bucea en {name}?",
+    "qDepth": "¿A qué profundidad se bucea {at}?",
     "aDepth": "La inmersión llega hasta {dive}.",
     "aDepthMore": "El cenote en sí tiene {depth} m de profundidad.",
-    "qLevel": "¿Qué certificación necesito para bucear en {name}?",
+    "qLevel": "¿Qué certificación necesito para bucear {at}?",
     "aLevel": {
       "none": "Ninguna: puedes probarlo con Discover Scuba, una primera inmersión junto a un instructor.",
       "open-water": "Una certificación Open Water o equivalente, que se muestra el día del buceo.",
       "advanced": "Advanced Open Water o la especialidad Deep, porque la inmersión pasa de los 30 metros."
     },
-    "qWhere": "¿A qué distancia de Tulum está {name}?",
-    "aWhere": "A unos {km} km al {dir} de Tulum, en línea recta.",
-    "qSnorkel": "¿Se puede hacer snorkel en {name}?",
-    "aSnorkel": "Sí: {name} se presta al snorkel tanto como al buceo.",
-    "qTrips": "¿Qué salidas de Kay Diving van a {name}?",
+    "aLevelCourse": "Con Open Water también puedes bucearlo en el curso Advanced Open Water, hasta {depth} m.",
+    "qWhere": "¿A qué distancia de Tulum está {the}?",
+    "aWhere": "A unos {km} km {dir} de Tulum, en línea recta.",
+    "compassAt": [
+      "al norte",
+      "al noreste",
+      "al este",
+      "al sureste",
+      "al sur",
+      "al suroeste",
+      "al oeste",
+      "al noroeste"
+    ],
+    "qSnorkel": "¿Se puede hacer snorkel {at}?",
+    "aSnorkel": "Sí: {the} se presta al snorkel tanto como al buceo.",
+    "qTrips": "¿Qué salidas de Kay Diving van {to}?",
     "breadcrumbHome": "Inicio",
+    "touristType": "Buceadores",
     "homeTag": "Mapa de cenotes",
     "homeH2": "Dónde buceamos,<br>alrededor de Tulum.",
     "homeIntro": "Todos los cenotes que buceamos, en un solo mapa: desde Casa Cenote, junto al mar, hasta la nube de Angelita, a 30 m en plena selva. Toca uno para ver hasta dónde baja y qué nivel pide.",
@@ -741,16 +754,24 @@
     },
     "artAlt": "Ilustración: {name}",
     "metas": {
-      "casa-cenote": "Casa Cenote, Tulum: un cenote abierto unido al Caribe y rodeado de manglar, de 9 m máximo. Peces, tortugas, agua tranquila; sin certificación para probar.",
+      "casa-cenote": "Casa Cenote, Tulum: cenote abierto unido al Caribe y rodeado de manglar, de 9 m como máximo. Peces, tortugas, agua tranquila; sin certificación para probarlo.",
       "car-wash": "Cenote Car Wash (Aktun Ha), Tulum: lirios, troncos petrificados y una galería de estalactitas, hasta 16 m. Caverna con Open Water, o snorkel.",
-      "dos-ojos": "Cenote Dos Ojos, Tulum: caverna por la Línea Barbie y la Baticueva, más de 30 m de visibilidad y unos 10 m de fondo. Open Water. Con mapa de buceo.",
+      "dos-ojos": "Cenote Dos Ojos, Tulum: caverna por la Barbie Line y la Bat Cave, más de 30 m de visibilidad y unos 10 m de fondo. Open Water. Con mapa de buceo.",
       "el-pit": "Cenote El Pit, Tulum: un pozo de 119 m con columna de luz, haloclina y una nube de ácido sulfhídrico hacia los 30 m. Buceo a 30–32 m, Advanced o Deep.",
       "angelita": "Cenote Angelita, Tulum: el “río subterráneo”, una nube de ácido sulfhídrico a 30 m entre árboles hundidos. Buceo a 35–38 m con Advanced o Deep.",
       "dreamgate": "Cenote Dreamgate, cerca de Tulum: una caverna de columnas y formaciones en agua de claridad extraordinaria, con entrada circular. Open Water. Con mapa.",
-      "tak-be-luum": "Cenote Tak Be Luum, en el Parque Dos Ojos: pasajes de caverna tranquilos con formaciones bien conservadas, lejos de las rutas concurridas. Open Water, 7 m.",
-      "tak-be-ha": "Cenote Tak Be Ha, cerca de Tulum: salas amplias, estalactitas y estalagmitas nítidas y una haloclina marcada. Tranquilo, nunca lleno. Open Water, 18 m.",
+      "tak-be-luum": "Cenote Tak Be Luum, en el Parque Dos Ojos: pasajes de caverna tranquilos con formaciones bien conservadas, lejos de las multitudes. Open Water, hasta 7 m.",
+      "tak-be-ha": "Cenote Tak Be Ha, cerca de Tulum: salas amplias, estalactitas y estalagmitas bien definidas, haloclina marcada. Poco concurrido. Open Water, hasta 18 m.",
       "nicte-ha": "Cenote Nicte-Ha, junto a Dos Ojos: agua esmeralda, lirios y plantas acuáticas. Poco profundo y fotogénico: buceo fácil y snorkel, hasta 8 m.",
       "nohoch-nah-chich": "Cenote Nohoch Nah Chich, cerca de Tulum: “bosques” de enormes estalactitas en agua cristalina, en uno de los sistemas de cuevas más largos del mundo."
+    },
+    "planAlts": {
+      "casa-cenote": "Mapa de buceo de Casa Cenote: zonas de snorkel, profundidades de 2 a 6 m, los pasos de la grieta y de caverna, los límites de caverna y la entrada principal",
+      "car-wash": "Mapa de buceo del Cenote Car Wash: profundidades de 5 a 16 m, formaciones, los dos límites de caverna y la entrada principal",
+      "dos-ojos": "Mapa de buceo del Cenote Dos Ojos: las líneas de buceo, la Barbie Line y la Bat Cave, profundidades, formaciones y límites de caverna",
+      "dreamgate": "Mapa de buceo del Cenote Dreamgate: la línea de caverna, formaciones, la poza de aguas abiertas con su entrada y los pasos solo para buzos de cueva",
+      "el-pit": "Corte del Cenote El Pit: el pozo de entrada, profundidades hasta 40 m, la haloclina y la nube de ácido sulfhídrico, y el límite de caverna",
+      "angelita": "Corte del Cenote Angelita: la entrada, profundidades hasta 55 m, la nube de ácido sulfhídrico a 30 m y los árboles hundidos"
     }
   }
 }

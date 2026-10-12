@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Instrument_Serif, Inter, IBM_Plex_Mono } from "next/font/google";
 import { notFound } from "next/navigation";
 import { LIVE_LOCALES, DEFAULT_LOCALE, OG_LOCALE, isLocale, getDictionary, pathFor, type Locale } from "@/lib/i18n";
-import { SHOP } from "@/content/products";
+import { SHOP, ogCard } from "@/content/products";
 import Analytics from "@/components/Analytics";
 import Beacon from "@/components/Beacon";
 import { homeDescription, geoMeta } from "@/lib/seo";
@@ -56,13 +56,13 @@ export async function generateMetadata(
       // ask for that size and WhatsApp — where these links actually travel —
       // is unreliable with WebP.
       images: [{
-        url: `/assets/og/${locale}.jpg`, width: 1200, height: 630,
+        url: ogCard(locale), width: 1200, height: 630,
         type: "image/jpeg", alt: t.hero.alt,
       }],
     },
     twitter: {
       card: "summary_large_image", title: t.meta.title, description,
-      images: [{ url: `/assets/og/${locale}.jpg`, alt: t.hero.alt }],
+      images: [{ url: ogCard(locale), alt: t.hero.alt }],
     },
     other: geoMeta(SHOP.lat, SHOP.lon),
     /* Search Console's meta-tag method, for whoever prefers it to a DNS

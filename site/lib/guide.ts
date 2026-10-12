@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { LIVE_LOCALES, DEFAULT_LOCALE, OG_LOCALE, pathFor, type Locale } from "@/lib/i18n";
-import { SHOP } from "@/content/products";
+import { SHOP, ogCard } from "@/content/products";
 import { GUIDE_PUBLISHED } from "@/content/cenotes";
 import { geoMeta } from "@/lib/seo";
 
@@ -17,7 +17,7 @@ export function guideMetadata(locale: Locale, path: string, title: string, descr
   { image, geo }: { image?: GuideImage; geo?: { lat: number; lon: number; place: string } } = {}): Metadata {
   const url = `${SHOP.domain}${pathFor(locale, path)}`;
   const card: GuideImage = image ?? {
-    url: `/assets/og/${locale}.jpg`, alt: "Kay Diving Tulum", width: 1200, height: 630,
+    url: ogCard(locale), alt: "Kay Diving Tulum", width: 1200, height: 630,
   };
   return {
     title, description,

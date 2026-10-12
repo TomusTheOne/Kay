@@ -20,7 +20,7 @@
       "type": "cavern", "level": "open-water", "snorkel": true,
       "depthM": 16, "diveMinM": null, "diveMaxM": 16,
       "products": ["cenote-diving"],
-      "photo": "card-casa", "art": "cenote-shaft",
+      "photo": "cenote-car-wash", "art": "cenote-shaft",
       "plan": { "w": 1600, "h": 1137, "credit": "Underwater Editions" }
     },
     {

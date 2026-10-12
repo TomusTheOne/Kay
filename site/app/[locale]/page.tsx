@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import { isLocale, getDictionary, pathFor, mapCopy, LIVE_LOCALES } from "@/lib/i18n";
 import { PRODUCTS, ALWAYS_INCLUDED, GALLERY, PICKUPS, SCHEDULES, SHOP,
-         CONTENT_UPDATED, FROM_PRICE } from "@/content/products";
+         CONTENT_UPDATED, FROM_PRICE, ogCard } from "@/content/products";
 import Surface from "@/components/Surface";
 import Gauge from "@/components/Gauge";
 import Reveals from "@/components/Reveals";
@@ -19,6 +19,25 @@ const Arrow = () => (
           strokeLinecap="round" strokeLinejoin="round" />
   </svg>
 );
+
+/**
+ * A seasonal product's selling window as real dates — schema.org wants a
+ * Date, not "--11-01". The window is the season running at, or next after,
+ * the last content change: the same date the prices are valid from.
+ */
+function seasonWindow({ fromMonth, toMonth }: { fromMonth: number; toMonth: number }) {
+  const at = new Date(CONTENT_UPDATED);
+  const y = at.getUTCFullYear(), m = at.getUTCMonth() + 1;
+  const wraps = fromMonth > toMonth;
+  const startY = wraps ? (m <= toMonth ? y - 1 : y) : (m > toMonth ? y + 1 : y);
+  const endY = wraps ? startY + 1 : startY;
+  const lastDay = new Date(Date.UTC(endY, toMonth, 0)).getUTCDate();
+  const pad = (n: number) => String(n).padStart(2, "0");
+  return {
+    availabilityStarts: `${startY}-${pad(fromMonth)}-01`,
+    availabilityEnds: `${endY}-${pad(toMonth)}-${pad(lastDay)}`,
+  };
+}
 
 export default async function Home({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -79,7 +98,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         inLanguage: locale,
         isPartOf: { "@id": `${SHOP.domain}/#website` },
         about: { "@id": `${SHOP.domain}/#business` },
-        primaryImageOfPage: `${SHOP.domain}/assets/og/${locale}.jpg`,
+        primaryImageOfPage: `${SHOP.domain}${ogCard(locale)}`,
       },
       {
         "@type": "SportsActivityLocation",
@@ -93,7 +112,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         currenciesAccepted: "USD, MXN",
         paymentAccepted: "Cash, Credit Card",
         image: [
-          `${SHOP.domain}/assets/og/${locale}.jpg`,
+          `${SHOP.domain}${ogCard(locale)}`,
           `${SHOP.domain}/assets/photos/hero.webp`,
         ],
         address: { "@type": "PostalAddress", addressLocality: "Tulum",
@@ -135,7 +154,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
             brand: { "@id": `${SHOP.domain}/#business` },
             offers: p.options.map((o) => ({
               "@type": "Offer", price: String(o.price), priceCurrency: "USD",
-              ...(p.season ? { availabilityStarts: `--${String(p.season.fromMonth).padStart(2, "0")}-01` } : {}),
+              ...(p.season ? seasonWindow(p.season) : {}),
               availability: "https://schema.org/InStock",
               url: `${url}#book`,
               priceValidUntil,
@@ -183,7 +202,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
           <div className="hero__in shell">
             <p className="tag">{t.hero.kicker}</p>
             <h1 className="dsp dsp-xl">
-              <span className="l1">{t.hero.l1}</span>
+              <span className="l1">{t.hero.l1}</span>{" "}
               <span className="l2 ital grad">{t.hero.l2}</span>
             </h1>
             <p className="lede hero__lede">{t.hero.lede}</p>

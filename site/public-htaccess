@@ -34,6 +34,14 @@ DirectoryIndex index.html index.php
   # to it.
   RewriteRule ^$ https://__CANONICAL_HOST__/en/ [R=302,L]
 
+  # --- A folder asked for without its slash ---------------------------------
+  # mod_dir would add the slash itself, but from its own server name and port:
+  # the live site answered /en/cenotes with "https://kaydiving.com:443/en/cenotes/",
+  # the same artefact as the root redirect above. Absolute, and permanent.
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteCond %{REQUEST_URI} !/$
+  RewriteRule ^(.*)$ https://__CANONICAL_HOST__/$1/ [R=301,L]
+
   # --- Leave the PHP endpoints and real files alone -------------------------
   RewriteCond %{REQUEST_URI} ^/api/ [OR]
   RewriteCond %{REQUEST_FILENAME} -f [OR]

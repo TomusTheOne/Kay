@@ -7,20 +7,39 @@
  * unreliable with WebP. So the card is a real 1200×630 JPEG, built from the
  * site's own fonts and words so a shared link looks like the site.
  *
- *   node scripts/og.mjs        (needs the Chromium at PLAYWRIGHT_BROWSERS_PATH)
+ * The file name comes from "ogCard" in content/products.json, which the site
+ * reads too: images are cached for a year as immutable, so a card re-cut
+ * after a price change must go out under a new name — change it there, run
+ * this, and every page points at the new card.
+ *
+ *   node scripts/og.mjs        (from site/; Playwright is not a dependency of
+ *                               the site, so it is found through NODE_PATH:
+ *                               NODE_PATH=$(npm root -g) node scripts/og.mjs)
  */
-import { chromium } from "playwright-core";
+import { createRequire } from "node:module";
 import { mkdir, writeFile, readFile } from "node:fs/promises";
 import { existsSync } from "node:fs";
+import { dirname } from "node:path";
+
+/* CommonJS resolution, so a global install reached through NODE_PATH works. */
+const load = createRequire(import.meta.url);
+const { chromium } = (() => {
+  for (const name of ["playwright-core", "playwright"]) {
+    try { return load(name); } catch { /* try the next one */ }
+  }
+  console.error("Playwright not found: install it globally and run with NODE_PATH=$(npm root -g).");
+  process.exit(1);
+})();
 
 const LOCALES = ["en", "es", "fr"];
-const OUT = "public/assets/og";
-const CHROME = process.env.CHROME_PATH ?? "/opt/pw-browsers/chromium-1194/chrome-linux/chrome";
+const CHROME = process.env.CHROME_PATH ?? "/opt/pw-browsers/chromium";
 
 const products = JSON.parse(await readFile("content/products.json", "utf8"));
+/* The card sells diving, so "from" is the cheapest dive — FROM_DIVE_PRICE in content/products.ts. */
 const cheapest = Math.min(
-  ...products.products.flatMap((p) => p.options.map((o) => o.price)),
+  ...products.products.filter((p) => p.kind === "dive").flatMap((p) => p.options.map((o) => o.price)),
 );
+const fileFor = (locale) => `public${products.ogCard.replace("{locale}", locale)}`;
 const heroDataUri =
   "data:image/webp;base64," +
   (await readFile("public/assets/photos/hero.webp")).toString("base64");
@@ -77,7 +96,7 @@ if (!existsSync(CHROME)) {
   console.error(`Chromium not found at ${CHROME} — set CHROME_PATH.`);
   process.exit(1);
 }
-await mkdir(OUT, { recursive: true });
+await mkdir(dirname(fileFor("en")), { recursive: true });
 const browser = await chromium.launch({ executablePath: CHROME, args: ["--no-sandbox"] });
 
 for (const locale of LOCALES) {
@@ -95,9 +114,9 @@ for (const locale of LOCALES) {
   await page.evaluate(() => document.fonts.ready);
   // JPEG, not WebP: WhatsApp previews are unreliable with WebP.
   const buf = await page.screenshot({ type: "jpeg", quality: 88 });
-  await writeFile(`${OUT}/${locale}.jpg`, buf);
+  await writeFile(fileFor(locale), buf);
   await page.close();
-  console.log(`${OUT}/${locale}.jpg  1200×630  ${(buf.length / 1024).toFixed(0)} KB`);
+  console.log(`${fileFor(locale)}  1200×630  ${(buf.length / 1024).toFixed(0)} KB`);
 }
 
 await browser.close();

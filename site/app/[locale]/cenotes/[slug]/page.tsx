@@ -1,8 +1,8 @@
 import { notFound } from "next/navigation";
 import { isLocale, getDictionary, pathFor, mapCopy } from "@/lib/i18n";
 import { guideMetadata, type GuideImage } from "@/lib/guide";
-import { cenoteTitle, cenoteQa, cenoteFacts, guideBreadcrumb } from "@/lib/seo";
-import { PRODUCTS, SHOP } from "@/content/products";
+import { cenoteTitle, cenoteQa, cenoteFacts, guideBreadcrumb, planAlt, planCredit } from "@/lib/seo";
+import { PRODUCTS, SHOP, ogCard } from "@/content/products";
 import { CENOTES, GUIDE_PUBLISHED, GUIDE_UPDATED, cenoteBySlug, diveDepth, fromTulum, nearest,
          type Cenote } from "@/content/cenotes";
 import type { Dictionary, Locale } from "@/lib/i18n";
@@ -22,15 +22,16 @@ type Params = { params: Promise<{ locale: string; slug: string }> };
 /**
  * The card a link to this page travels with: the cenote's photograph, or its
  * dive map where there is no photograph — that one carries words, so it is
- * cut once per language. Built by scripts/og-cenotes.py.
+ * cut once per language. Built by scripts/og-cenotes.py. A cenote with
+ * neither travels with the locale's own card.
  */
-function socialCard(t: Dictionary, locale: Locale, c: Cenote): GuideImage | undefined {
+function socialCard(t: Dictionary, locale: Locale, c: Cenote): GuideImage {
   const g = t.cenotes;
   if (c.photo) return { url: `/assets/og/cenotes/${c.slug}.jpg`, width: 1200, height: 630,
                         alt: g.alts[c.slug] ?? c.name };
   if (c.plan) return { url: `/assets/og/cenotes/${c.slug}-${locale}.jpg`, width: 1200, height: 630,
-                       alt: g.planAlt.replace("{name}", c.name) };
-  return undefined;
+                       alt: planAlt(t, locale, c) };
+  return { url: ogCard(locale), width: 1200, height: 630, alt: t.hero.alt };
 }
 
 export async function generateMetadata({ params }: Params) {
@@ -39,7 +40,9 @@ export async function generateMetadata({ params }: Params) {
   if (!isLocale(locale) || !c) return {};
   const t = await getDictionary(locale);
   return guideMetadata(locale, `/cenotes/${slug}/`, cenoteTitle(t, c), t.cenotes.metas[slug],
-    { image: socialCard(t, locale, c), geo: { lat: c.lat, lon: c.lon, place: c.name } });
+    /* An approximate position is not published as a coordinate: the page
+       keeps Tulum's until Kay has placed the cenote. */
+    { image: socialCard(t, locale, c), geo: c.approx ? undefined : { lat: c.lat, lon: c.lon, place: c.name } });
 }
 
 export default async function CenotePage({ params }: Params) {
@@ -56,7 +59,7 @@ export default async function CenotePage({ params }: Params) {
     return g.alts[o.slug] ?? (p ? t.products.items[p.slug].alt : o.name);
   };
   const url = `${SHOP.domain}${pathFor(locale, `/cenotes/${slug}/`)}`;
-  const qa = cenoteQa(t, c);
+  const qa = cenoteQa(t, locale, c);
   const card = socialCard(t, locale, c);
   const images = [
     ...(c.photo ? [`${SHOP.domain}/assets/photos/${c.photo}.webp`] : []),
@@ -79,7 +82,8 @@ export default async function CenotePage({ params }: Params) {
         about: { "@id": `${url}#cenote` },
         breadcrumb: { "@id": `${url}#breadcrumb` },
         dateModified: GUIDE_UPDATED,
-        ...(card ? { primaryImageOfPage: `${SHOP.domain}${card.url}` } : {}),
+        primaryImageOfPage: `${SHOP.domain}${card.url}`,
+        publisher: { "@id": `${SHOP.domain}/#business` },
       },
       {
         "@type": "TouristAttraction",
@@ -88,13 +92,12 @@ export default async function CenotePage({ params }: Params) {
         ...(c.aka ? { alternateName: c.aka } : {}),
         description: g.items[slug],
         url,
-        geo: { "@type": "GeoCoordinates", latitude: c.lat, longitude: c.lon },
+        ...(c.approx ? {} : { geo: { "@type": "GeoCoordinates", latitude: c.lat, longitude: c.lon } }),
         containedInPlace: { "@type": "City", name: "Tulum" },
-        touristType: "Scuba divers",
+        touristType: g.touristType,
         ...(images.length ? { image: images } : {}),
         ...(c.plan ? { hasMap: images[images.length - 1] } : {}),
         additionalProperty: cenoteFacts(t, c),
-        provider: { "@id": `${SHOP.domain}/#business` },
       },
       { ...guideBreadcrumb(t, locale, c), "@id": `${url}#breadcrumb` },
       {
@@ -154,10 +157,10 @@ export default async function CenotePage({ params }: Params) {
           <h2 className="tag" id="plan-tag">{g.planTag}</h2>
           <figure>
             <CenotePlan slug={slug} plan={c.plan} locale={locale} open={g.planOpen}
-                        alt={g.planAlt.replace("{name}", c.name)} />
+                        alt={planAlt(t, locale, c)} />
             <figcaption className="data guide__plan-note">
               {g.planNote}
-              {c.plan.credit && <> {g.planCredit.replace("{credit}", c.plan.credit)}</>}
+              {" "}{planCredit(t, locale, c.plan.credit)}
             </figcaption>
           </figure>
         </section>

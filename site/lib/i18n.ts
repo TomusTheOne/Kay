@@ -64,7 +64,7 @@ export type CenoteCopy = Record<
   | "filter" | "all" | "count" | "none" | "diveDepth" | "cenoteDepth" | "upTo"
   | "levelTag" | "fromTulum" | "snorkelToo" | "see" | "divesTag" | "nearbyTag"
   | "back" | "illustration" | "planTag" | "planAlt" | "planNote" | "planCredit" | "planOpen"
-  | "pageTitle" | "pageTitleMore" | "breadcrumbHome"
+  | "pageTitle" | "pageTitleMore" | "breadcrumbHome" | "planCreditCentre" | "aLevelCourse" | "touristType"
   | "faqTag" | "faqH2" | "qDepth" | "aDepth" | "aDepthMore" | "qLevel" | "qWhere" | "aWhere"
   | "qSnorkel" | "aSnorkel" | "qTrips"
   | "artAlt" | "homeTag" | "homeH2" | "homeIntro" | "homeCta", string
@@ -80,13 +80,17 @@ export type CenoteCopy = Record<
   aLevel: Record<"none" | "open-water" | "advanced", string>;
   /** Each cenote page's meta description, written for the search result, keyed by slug. */
   metas: Record<string, string>;
+  /** Each dive map's alt text, saying what that map shows, keyed by slug. */
+  planAlts: Record<string, string>;
+  /** "north-east of Tulum" in a sentence: the eight directions with their preposition, N first. */
+  compassAt: string[];
 };
 
 /** The guide's strings without the ones only a server-rendered page reads — what the explorer ships to the client. */
-export type CardCopy = Omit<CenoteCopy, "metas" | "aLevel">;
+export type CardCopy = Omit<CenoteCopy, "metas" | "aLevel" | "planAlts" | "compassAt">;
 export function cardCopy(c: CenoteCopy): CardCopy {
-  const { metas, aLevel, ...rest } = c;
-  void metas; void aLevel;
+  const { metas, aLevel, planAlts, compassAt, ...rest } = c;
+  void metas; void aLevel; void planAlts; void compassAt;
   return rest;
 }
 
@@ -181,10 +185,27 @@ export interface Dictionary {
   };
 }
 
+/**
+ * French sets a narrow no-break space before : ; ! ? » and after «. The
+ * messages are typed with plain spaces, which a browser may break at,
+ * leaving a lone "?" at the start of a line; this swaps them for U+202F
+ * once, at load. Only the site reads it — the PHP emails read fr.json as is.
+ */
+function frenchSpacing<T>(v: T): T {
+  if (typeof v === "string") {
+    return v.replace(/ ([:;!?»])/g, "\u202F$1").replace(/« /g, "«\u202F") as T;
+  }
+  if (Array.isArray(v)) return v.map(frenchSpacing) as T;
+  if (v && typeof v === "object") {
+    return Object.fromEntries(Object.entries(v).map(([k, x]) => [k, frenchSpacing(x)])) as T;
+  }
+  return v;
+}
+
 const dictionaries: Record<Locale, () => Promise<Dictionary>> = {
   en: () => import("../messages/en.json").then((m) => m.default as unknown as Dictionary),
   es: () => import("../messages/es.json").then((m) => m.default as unknown as Dictionary),
-  fr: () => import("../messages/fr.json").then((m) => m.default as unknown as Dictionary),
+  fr: () => import("../messages/fr.json").then((m) => frenchSpacing(m.default as unknown as Dictionary)),
 };
 
 export async function getDictionary(locale: Locale): Promise<Dictionary> {

@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import { isLocale, getDictionary, pathFor, cardCopy } from "@/lib/i18n";
 import { guideMetadata } from "@/lib/guide";
 import { guideBreadcrumb } from "@/lib/seo";
-import { SHOP } from "@/content/products";
+import { SHOP, ogCard } from "@/content/products";
 import { PRODUCTS } from "@/content/products";
 import { CENOTES, GUIDE_PUBLISHED, GUIDE_UPDATED } from "@/content/cenotes";
 import GuideFrame from "@/components/GuideFrame";
@@ -13,7 +13,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   if (!isLocale(locale)) return {};
   const t = await getDictionary(locale);
   return guideMetadata(locale, "/cenotes/", t.cenotes.metaTitle, t.cenotes.metaDescription, {
-    image: { url: `/assets/og/${locale}.jpg`, alt: t.hero.alt, width: 1200, height: 630 },
+    image: { url: ogCard(locale), alt: t.hero.alt, width: 1200, height: 630 },
   });
 }
 
@@ -56,7 +56,7 @@ export default async function Guide({ params }: { params: Promise<{ locale: stri
           return {
             "@type": "ListItem", position: i + 1, url: page,
             item: { "@type": "TouristAttraction", "@id": `${page}#cenote`, name: c.name, url: page,
-                    geo: { "@type": "GeoCoordinates", latitude: c.lat, longitude: c.lon } },
+                    ...(c.approx ? {} : { geo: { "@type": "GeoCoordinates", latitude: c.lat, longitude: c.lon } }) },
           };
         }),
       },

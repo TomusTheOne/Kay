@@ -69,8 +69,18 @@ export interface Schedule {
 }
 
 export const PRODUCTS = data.products as Product[];
-/** The lowest price on the menu, USD: what "from $…" means anywhere on the site. */
+/** The lowest price on the menu, USD — the snorkel tour today. The hero's "from $…". */
 export const FROM_PRICE = Math.min(...PRODUCTS.flatMap((p) => p.options.map((o) => o.price)));
+/** The lowest price of a dive, USD: what a sentence about diving may call "from $…". */
+export const FROM_DIVE_PRICE = Math.min(
+  ...PRODUCTS.filter((p) => p.kind === "dive").flatMap((p) => p.options.map((o) => o.price)),
+);
+/**
+ * The locale's link-preview card, cut by scripts/og.mjs. Images are cached
+ * for a year as immutable, so a re-cut card gets a new name here, and the
+ * script writes whatever name this says.
+ */
+export const ogCard = (locale: string) => (data.ogCard as string).replace("{locale}", locale);
 export const BOOKABLE = PRODUCTS;
 export const ALWAYS_INCLUDED = data.alwaysIncluded as string[];
 export const GALLERY = data.gallery as { photo: string; tall: boolean }[];

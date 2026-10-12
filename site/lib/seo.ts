@@ -1,11 +1,13 @@
 import { pathFor, type Dictionary, type Locale } from "@/lib/i18n";
-import { SHOP, FROM_PRICE } from "@/content/products";
+import { SHOP, FROM_DIVE_PRICE, PRODUCTS } from "@/content/products";
 import { diveDepth, fromTulum, type Cenote } from "@/content/cenotes";
 
 /**
  * What the search result and the answer engines read. Everything a sentence
  * here states — a price, a depth, a distance — is computed from the content
  * files, so the snippet cannot drift from the page the way "from $80" did.
+ * The home snippet speaks of dives, so its price is the cheapest dive, not
+ * the snorkel tour.
  */
 
 /** Google cuts a title at about 60 characters; the brand goes last. */
@@ -13,7 +15,7 @@ const TITLE_MAX = 60;
 const BRAND = " | Kay Diving";
 
 export function homeDescription(t: Dictionary) {
-  return t.meta.description.replace("{from}", String(FROM_PRICE));
+  return t.meta.description.replace("{from}", String(FROM_DIVE_PRICE));
 }
 
 /** "Cenote Angelita Diving in Tulum: Depth & Map | Kay Diving", the tail dropped when it would be cut. */
@@ -29,22 +31,69 @@ export function diveFigure(c: Cenote) {
   return c.diveMinM ? `${c.diveMinM}–${c.diveMaxM} m` : `${c.diveMaxM} m`;
 }
 
+/** The cenote's own depth is a fact worth stating only where it is deeper than the dive. */
+const deeperThanDive = (c: Cenote) => c.depthM !== null && c.depthM > c.diveMaxM;
+
+/**
+ * A cenote's name as a sentence needs it after a preposition. Spanish and
+ * French take an article before "Cenote X" — "au Cenote Angelita", "en el
+ * Cenote El Pit" — and none before a name like Casa Cenote. Templates use
+ * {name}, {the}, {at}, {to} and {of}.
+ */
+export function nameForms(locale: Locale, name: string) {
+  const cenote = name.startsWith("Cenote ");
+  if (locale === "fr") {
+    return cenote
+      ? { the: `le ${name}`, at: `au ${name}`, to: `au ${name}`, of: `du ${name}` }
+      : { the: name, at: `à ${name}`, to: `à ${name}`, of: `${/^[aeiouyhé]/i.test(name) ? "d'" : "de "}${name}` };
+  }
+  if (locale === "es") {
+    return cenote
+      ? { the: `el ${name}`, at: `en el ${name}`, to: `al ${name}`, of: `del ${name}` }
+      : { the: name, at: `en ${name}`, to: `a ${name}`, of: `de ${name}` };
+  }
+  return { the: name, at: `at ${name}`, to: `to ${name}`, of: `of ${name}` };
+}
+
+export function fillName(s: string, locale: Locale, name: string) {
+  const f = nameForms(locale, name);
+  return s.replaceAll("{name}", name).replaceAll("{the}", f.the).replaceAll("{at}", f.at)
+    .replaceAll("{to}", f.to).replaceAll("{of}", f.of);
+}
+
+/** "Redrawn from the map by …", with French eliding "de" before a vowel: "d'après le plan d'Alejandro…". */
+export function planCredit(t: Dictionary, locale: Locale, credit: string | null) {
+  const g = t.cenotes;
+  if (!credit) return g.planCreditCentre;
+  if (locale === "fr" && /^[aeiouyhé]/i.test(credit)) return g.planCredit.replace("de {credit}", `d'${credit}`);
+  return g.planCredit.replace("{credit}", credit);
+}
+
+/** What one dive map shows, for its alt text and its social card. */
+export function planAlt(t: Dictionary, locale: Locale, c: Cenote) {
+  return t.cenotes.planAlts[c.slug] ?? fillName(t.cenotes.planAlt, locale, c.name);
+}
+
 /**
  * The questions a diver types about one cenote, answered from its data. Shown
  * on the page and given as FAQPage, so the visible text and the markup are
  * the same words.
  */
-export function cenoteQa(t: Dictionary, c: Cenote) {
+export function cenoteQa(t: Dictionary, locale: Locale, c: Cenote) {
   const g = t.cenotes;
-  const n = (s: string) => s.replaceAll("{name}", c.name);
+  const n = (s: string) => fillName(s, locale, c.name);
   const away = fromTulum(c);
-  const deeper = c.depthM !== null && c.depthM > c.diveMaxM;
   const trips = c.products.map((p) => t.products.items[p].name);
+  /* An Advanced card is the rule for the deep dives, but the Advanced course
+     itself takes Open Water divers there — to the course's own depth. */
+  const course = PRODUCTS.find((p) => p.slug === "advanced-ow");
+  const viaCourse = c.level === "advanced" && course?.maxDepthM && c.products.includes(course.slug)
+    ? ` ${g.aLevelCourse.replace("{depth}", String(course.maxDepthM))}` : "";
   return [
     { q: n(g.qDepth), a: g.aDepth.replace("{dive}", diveFigure(c))
-        + (deeper ? ` ${g.aDepthMore.replace("{depth}", String(c.depthM))}` : "") },
-    { q: n(g.qLevel), a: g.aLevel[c.level] },
-    { q: n(g.qWhere), a: g.aWhere.replace("{km}", String(away.km)).replace("{dir}", g.compass[away.dir]) },
+        + (deeperThanDive(c) ? ` ${g.aDepthMore.replace("{depth}", String(c.depthM))}` : "") },
+    { q: n(g.qLevel), a: g.aLevel[c.level] + viaCourse },
+    { q: n(g.qWhere), a: g.aWhere.replace("{km}", String(away.km)).replace("{dir}", g.compassAt[away.dir]) },
     ...(c.snorkel ? [{ q: n(g.qSnorkel), a: n(g.aSnorkel) }] : []),
     { q: n(g.qTrips), a: `${trips.join(", ")}.` },
   ];
@@ -58,7 +107,7 @@ export function cenoteFacts(t: Dictionary, c: Cenote) {
     ({ "@type": "PropertyValue", name, value, ...(unitCode ? { unitCode } : {}) });
   return [
     pv(g.diveDepth, diveDepth(c, g.upTo)),
-    ...(c.depthM !== null ? [pv(g.cenoteDepth, c.depthM, "MTR")] : []),
+    ...(deeperThanDive(c) ? [pv(g.cenoteDepth, c.depthM as number, "MTR")] : []),
     pv(g.levelTag, g.levels[c.level]),
     pv(g.fromTulum, away.km, "KMT"),
   ];
