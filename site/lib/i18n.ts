@@ -63,7 +63,11 @@ export type CenoteCopy = Record<
   | "gestureWin" | "gestureMac" | "gestureTouch" | "cluster" | "close"
   | "filter" | "all" | "count" | "none" | "diveDepth" | "cenoteDepth" | "upTo"
   | "levelTag" | "fromTulum" | "snorkelToo" | "see" | "divesTag" | "nearbyTag"
-  | "back" | "illustration" | "artAlt" | "homeTag" | "homeH2" | "homeIntro" | "homeCta", string
+  | "back" | "illustration" | "planTag" | "planAlt" | "planNote" | "planCredit" | "planOpen"
+  | "pageTitle" | "pageTitleMore" | "breadcrumbHome"
+  | "faqTag" | "faqH2" | "qDepth" | "aDepth" | "aDepthMore" | "qLevel" | "qWhere" | "aWhere"
+  | "qSnorkel" | "aSnorkel" | "qTrips"
+  | "artAlt" | "homeTag" | "homeH2" | "homeIntro" | "homeCta", string
 > & {
   compass: string[];
   types: Record<"open" | "cavern" | "deep", string>;
@@ -72,12 +76,25 @@ export type CenoteCopy = Record<
   items: Record<string, string>;
   /** Alt text for each cenote's own photograph, keyed by slug. */
   alts: Record<string, string>;
+  /** The answer to "what certification do I need", one per level. */
+  aLevel: Record<"none" | "open-water" | "advanced", string>;
+  /** Each cenote page's meta description, written for the search result, keyed by slug. */
+  metas: Record<string, string>;
 };
 
-/** The guide's strings without Kay's texts — all the map needs on the client. */
-export type MapCopy = Omit<CenoteCopy, "items" | "alts">;
-export function mapCopy(c: CenoteCopy): MapCopy {
-  const { items, alts, ...rest } = c;
+/** The guide's strings without the ones only a server-rendered page reads — what the explorer ships to the client. */
+export type CardCopy = Omit<CenoteCopy, "metas" | "aLevel">;
+export function cardCopy(c: CenoteCopy): CardCopy {
+  const { metas, aLevel, ...rest } = c;
+  void metas; void aLevel;
+  return rest;
+}
+
+/** The guide's strings without Kay's texts either — all the map needs on the client. */
+export type MapCopy = Omit<CardCopy, "items" | "alts">;
+export function mapCopy(c: CardCopy): MapCopy {
+  /* cardCopy first: a page may hand over the full CenoteCopy. */
+  const { items, alts, ...rest } = cardCopy(c as CenoteCopy);
   void items; void alts;
   return rest;
 }

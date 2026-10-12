@@ -101,6 +101,9 @@ DirectoryIndex index.html index.php
   # the way out: the tiles inside are already gzipped, and a compressed
   # response cannot answer a byte range.
   AddType application/octet-stream .pmtiles
+  # /llms.txt and robots.txt are UTF-8 (dashes, accents); without this Apache
+  # sends text/plain with no charset and a reader may guess Latin-1.
+  AddCharset utf-8 .txt
 </IfModule>
 
 # --- Compression ------------------------------------------------------------

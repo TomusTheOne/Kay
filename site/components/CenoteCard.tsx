@@ -1,6 +1,6 @@
 import Plate from "@/components/Plate";
 import { diveDepth, type Cenote } from "@/content/cenotes";
-import type { CenoteCopy } from "@/lib/i18n";
+import type { CardCopy } from "@/lib/i18n";
 
 /**
  * One cenote in a grid: picture, type, depth, the card to show, and the start
@@ -8,7 +8,7 @@ import type { CenoteCopy } from "@/lib/i18n";
  * the filter on the client, from the same component.
  */
 export default function CenoteCard({ c, t, href, alt }: {
-  c: Cenote; t: CenoteCopy; href: string; alt: string;
+  c: Cenote; t: CardCopy; href: string; alt: string;
 }) {
   return (
     <article className="dive ccard">

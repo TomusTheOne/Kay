@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "Plongée cenote et récif à Tulum | Kay Diving — Formations PADI",
-    "description": "Plongée guidée en cenote et sur le récif à Tulum, du baptême au PADI Open Water et Advanced. Équipement, entrée des cenotes, transport sur les sites et collations inclus. À partir de 80 $."
+    "title": "Plongée en cenote et récif à Tulum · PADI | Kay Diving",
+    "description": "Plongée guidée en cenote et sur le récif à Tulum, du baptême au PADI Open Water et Advanced. Équipement, entrées, transport et collations inclus. Dès {from} $."
   },
   "nav": {
     "about": "À propos",
@@ -630,8 +630,8 @@
     "back": "Retour au site"
   },
   "cenotes": {
-    "metaTitle": "Guide des cenotes : Tulum et la Riviera Maya | Kay Diving",
-    "metaDescription": "Les cenotes que nous plongeons autour de Tulum, un par un : Angelita, El Pit, Dos Ojos, Casa Cenote et d'autres — la profondeur de la plongée, le niveau demandé et l'emplacement de chacun sur la carte.",
+    "metaTitle": "Plongée en cenote : le guide de Tulum | Kay Diving",
+    "metaDescription": "Les cenotes que nous plongeons autour de Tulum — Angelita, El Pit, Dos Ojos, Casa Cenote… : profondeur de plongée, niveau requis, plans et emplacement.",
     "tag": "Guide des cenotes",
     "h1": "Les cenotes que nous plongeons,<br>un par un.",
     "intro": "Chaque cenote de cette carte est un cenote que nous plongeons, avec la profondeur de la plongée et la carte de niveau à présenter le jour J. Touchez un point sur la carte, ou choisissez un type ci-dessous.",
@@ -663,6 +663,30 @@
     "nearbyTag": "À proximité",
     "back": "Tous les cenotes",
     "illustration": "Illustration — photo à venir",
+    "planTag": "Plan de plongée",
+    "planAlt": "Plan de plongée de {name} : profondeurs, entrée et limites de la caverne",
+    "planNote": "Dessiné pour s'orienter, pas pour naviguer : votre guide présente le parcours au cenote.",
+    "planCredit": "Redessiné d'après le plan de {credit}.",
+    "planOpen": "Voir en grand",
+    "pageTitle": "{name} : plongée à Tulum",
+    "pageTitleMore": ", profondeur et plan",
+    "faqTag": "Questions",
+    "faqH2": "{name}, en bref",
+    "qDepth": "Jusqu'où descend la plongée à {name} ?",
+    "aDepth": "La plongée descend jusqu'à {dive}.",
+    "aDepthMore": "Le cenote lui-même fait {depth} m de profondeur.",
+    "qLevel": "Quel niveau faut-il pour plonger à {name} ?",
+    "aLevel": {
+      "none": "Aucun : vous pouvez l'essayer avec Discover Scuba, un baptême aux côtés d'un instructeur.",
+      "open-water": "Un niveau Open Water ou équivalent, à présenter le jour de la plongée.",
+      "advanced": "Advanced Open Water ou la spécialité Deep, car la plongée dépasse 30 mètres."
+    },
+    "qWhere": "À quelle distance de Tulum se trouve {name} ?",
+    "aWhere": "À environ {km} km au {dir} de Tulum, à vol d'oiseau.",
+    "qSnorkel": "Peut-on faire du snorkeling à {name} ?",
+    "aSnorkel": "Oui : {name} se prête au snorkeling autant qu'à la plongée.",
+    "qTrips": "Quelles sorties Kay Diving vont à {name} ?",
+    "breadcrumbHome": "Accueil",
     "homeTag": "Carte des cenotes",
     "homeH2": "Là où nous plongeons,<br>autour de Tulum.",
     "homeIntro": "Tous les cenotes que nous plongeons, sur une seule carte : de Casa Cenote, au bord de la mer, au nuage d'Angelita, à 30 m en pleine jungle. Touchez-en un pour voir sa profondeur et le niveau demandé.",
@@ -715,6 +739,18 @@
       "nicte-ha": "L'eau turquoise et limpide du cenote Nicte-Ha, couverte de nénuphars, au pied d'une paroi de roche et de jungle",
       "nohoch-nah-chich": "L'eau turquoise du cenote Nohoch Nah Chich sous une voûte de roche, un escalier de bois qui descend vers l'eau"
     },
-    "artAlt": "Illustration : {name}"
+    "artAlt": "Illustration : {name}",
+    "metas": {
+      "casa-cenote": "Casa Cenote, Tulum : un cenote ouvert relié à la mer des Caraïbes, bordé de mangroves, 9 m au plus. Poissons, tortues, eau calme ; aucun niveau pour essayer.",
+      "car-wash": "Cenote Car Wash (Aktun Ha), Tulum : nénuphars, troncs pétrifiés et galerie de stalactites, jusqu'à 16 m. Caverne avec l'Open Water, ou snorkeling.",
+      "dos-ojos": "Cenote Dos Ojos, Tulum : plongée en caverne sur la Barbie Line et la Bat Cave, plus de 30 m de visibilité, environ 10 m de fond. Open Water. Avec plan.",
+      "el-pit": "Cenote El Pit, Tulum : un puits de 119 m, une colonne de lumière, une halocline et un nuage d'hydrogène sulfuré vers 30 m. Plongée à 30–32 m, Advanced.",
+      "angelita": "Cenote Angelita, Tulum : la « rivière souterraine », un nuage d'hydrogène sulfuré à 30 m parmi les arbres engloutis. Plongée à 35–38 m, Advanced ou Deep.",
+      "dreamgate": "Cenote Dreamgate, près de Tulum : une caverne de colonnes et de concrétions, eau d'une clarté extraordinaire, entrée circulaire. Open Water. Avec plan.",
+      "tak-be-luum": "Cenote Tak Be Luum, parc Dos Ojos : des passages de caverne calmes aux concrétions bien conservées, loin des routes fréquentées. Open Water, jusqu'à 7 m.",
+      "tak-be-ha": "Cenote Tak Be Ha, près de Tulum : vastes salles, stalactites et stalagmites nettes, halocline marquée. Calme, jamais bondé. Open Water, jusqu'à 18 m.",
+      "nicte-ha": "Cenote Nicte-Ha, près de Dos Ojos : eau émeraude, nénuphars et plantes aquatiques. Peu profond et photogénique : plongée facile et snorkeling, 8 m.",
+      "nohoch-nah-chich": "Cenote Nohoch Nah Chich, près de Tulum : des « forêts » de stalactites géantes dans une eau cristalline, dans l'un des plus longs réseaux noyés du monde."
+    }
   }
 }

@@ -69,6 +69,8 @@ export interface Schedule {
 }
 
 export const PRODUCTS = data.products as Product[];
+/** The lowest price on the menu, USD: what "from $…" means anywhere on the site. */
+export const FROM_PRICE = Math.min(...PRODUCTS.flatMap((p) => p.options.map((o) => o.price)));
 export const BOOKABLE = PRODUCTS;
 export const ALWAYS_INCLUDED = data.alwaysIncluded as string[];
 export const GALLERY = data.gallery as { photo: string; tall: boolean }[];

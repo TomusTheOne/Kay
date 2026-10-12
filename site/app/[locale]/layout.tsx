@@ -5,6 +5,7 @@ import { LIVE_LOCALES, DEFAULT_LOCALE, OG_LOCALE, isLocale, getDictionary, pathF
 import { SHOP } from "@/content/products";
 import Analytics from "@/components/Analytics";
 import Beacon from "@/components/Beacon";
+import { homeDescription, geoMeta } from "@/lib/seo";
 import "../globals.css";
 
 /* Self-hosted at build time: no third-party request, no flash, no layout shift. */
@@ -33,11 +34,12 @@ export async function generateMetadata(
   if (!isLocale(locale)) return {};
   const t = await getDictionary(locale);
   const url = `${SHOP.domain}${pathFor(locale)}`;
+  const description = homeDescription(t);
 
   return {
     metadataBase: new URL(SHOP.domain),
     title: t.meta.title,
-    description: t.meta.description,
+    description,
     alternates: {
       canonical: url,
       languages: {
@@ -47,7 +49,7 @@ export async function generateMetadata(
     },
     openGraph: {
       type: "website", siteName: "Kay Diving Tulum", url,
-      title: t.meta.title, description: t.meta.description,
+      title: t.meta.title, description,
       locale: OG_LOCALE[locale],
       alternateLocale: LIVE_LOCALES.filter((l) => l !== locale).map((l) => OG_LOCALE[l]),
       // Built by scripts/og.mjs. A real 1200×630 JPEG, because the crawlers
@@ -58,7 +60,11 @@ export async function generateMetadata(
         type: "image/jpeg", alt: t.hero.alt,
       }],
     },
-    twitter: { card: "summary_large_image", images: [`/assets/og/${locale}.jpg`] },
+    twitter: {
+      card: "summary_large_image", title: t.meta.title, description,
+      images: [{ url: `/assets/og/${locale}.jpg`, alt: t.hero.alt }],
+    },
+    other: geoMeta(SHOP.lat, SHOP.lon),
     /* Search Console's meta-tag method, for whoever prefers it to a DNS
        record. Prefer the DNS TXT record: it verifies the whole domain in one
        property — apex, www, http and https, all three languages — and it

@@ -29,6 +29,13 @@ production — le reste est la feuille de route, pas une description.
 | HTTPS | forcé en 301, HSTS 2 ans |
 | Manifest + icônes | `site.webmanifest`, apple-touch 180, 192, 512 |
 | Pages de paiement | `noindex, nofollow`, et **volontairement pas** dans `robots.txt` |
+| Guide des cenotes | `/cenotes/` + une page par cenote, ×3 langues. Titre ≤ 60 caractères construit par `cenoteTitle()` (`site/lib/seo.ts`), meta description écrite à la main par page (`cenotes.metas`) |
+| JSON-LD des guides | page cenote : `WebPage` + `TouristAttraction` (faits en `additionalProperty`, `hasMap`, `image`) + `BreadcrumbList` + `FAQPage` ; index : `CollectionPage` + `ItemList` + `BreadcrumbList` — mêmes `@id` que l'accueil |
+| FAQ par cenote | 4–5 questions affichées sur la page, réponses calculées depuis `content/cenotes.json` (profondeur, niveau, distance, sorties) : le balisage et le texte visible sont les mêmes mots |
+| Cartes de plongée | 6 plans/coupes par langue, AVIF/WebP, dans le sitemap image — voir `site/assets/source/maps/README.md` |
+| Cartes de partage | 1200×630 JPEG par cenote (`site/scripts/og-cenotes.py`), Twitter aligné sur Open Graph |
+| GEO (moteurs de réponse) | `/llms.txt` généré au build depuis les données ; crawlers IA nommés dans `robots.txt` (GPTBot, ClaudeBot, PerplexityBot, Google-Extended…) ; `geo.*`/`ICBM` sur chaque page |
+| Prix dans les snippets | « à partir de » calculé depuis `products.json` (`FROM_PRICE`) — l'ancienne description annonçait 80 $ alors que le menu commence à 125 $ |
 
 **Pas encore livré, et pourquoi :**
 

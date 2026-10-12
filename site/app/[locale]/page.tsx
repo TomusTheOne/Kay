@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import { isLocale, getDictionary, pathFor, mapCopy, LIVE_LOCALES } from "@/lib/i18n";
 import { PRODUCTS, ALWAYS_INCLUDED, GALLERY, PICKUPS, SCHEDULES, SHOP,
-         CONTENT_UPDATED } from "@/content/products";
+         CONTENT_UPDATED, FROM_PRICE } from "@/content/products";
 import Surface from "@/components/Surface";
 import Gauge from "@/components/Gauge";
 import Reveals from "@/components/Reveals";
@@ -10,7 +10,8 @@ import { Visit, Ruins } from "@/components/Places";
 import Plate from "@/components/Plate";
 import Footer from "@/components/Footer";
 import CenoteMap from "@/components/CenoteMap";
-import { GUIDE_PUBLISHED } from "@/content/cenotes";
+import { CENOTES, GUIDE_PUBLISHED } from "@/content/cenotes";
+import { homeDescription } from "@/lib/seo";
 
 const Arrow = () => (
   <svg width="14" height="8" viewBox="0 0 14 8" fill="none" aria-hidden="true">
@@ -38,7 +39,8 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
     { href: "#faq", label: t.nav.faq },
   ];
 
-  const cheapest = Math.min(...PRODUCTS.flatMap((p) => p.options.map((o) => o.price)));
+  const cheapest = FROM_PRICE;
+  const description = homeDescription(t);
 
   /** Every include line on the page, in menu order, without duplicates. */
   const includeKeys = [
@@ -73,7 +75,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         "@id": `${url}#page`,
         url,
         name: t.meta.title,
-        description: t.meta.description,
+        description,
         inLanguage: locale,
         isPartOf: { "@id": `${SHOP.domain}/#website` },
         about: { "@id": `${SHOP.domain}/#business` },
@@ -83,7 +85,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         "@type": "SportsActivityLocation",
         "@id": `${SHOP.domain}/#business`,
         name: "Kay Diving",
-        description: t.meta.description,
+        description,
         url: `${SHOP.domain}${pathFor(locale)}`,
         telephone: SHOP.phone,
         email: SHOP.email,
@@ -102,6 +104,13 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
           { "@type": "AdministrativeArea", name: "Quintana Roo" },
         ],
         knowsLanguage: LIVE_LOCALES as unknown as string[],
+        /* What the business is an authority on, in the reader's language —
+           the products it sells and the cenotes it dives. */
+        knowsAbout: [
+          ...PRODUCTS.map((p) => t.products.items[p.slug].name),
+          ...(GUIDE_PUBLISHED ? CENOTES.map((c) => c.name) : []),
+        ],
+        ...(GUIDE_PUBLISHED ? { hasMap: `${SHOP.domain}${pathFor(locale, "/cenotes/")}` } : {}),
         sameAs: [SHOP.instagram],
         hasOfferCatalog: {
           "@type": "OfferCatalog",

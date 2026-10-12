@@ -37,6 +37,8 @@ export interface Cenote {
   products: string[];
   photo: string | null;
   art: string;
+  /** The dive map in public/assets/maps/, where there is one: its size, and whose map it redraws. */
+  plan?: { w: number; h: number; credit: string | null };
 }
 
 export interface Town { name: string; lat: number; lon: number; home?: boolean }
@@ -53,6 +55,9 @@ export const MAP_BOUNDS = data.bounds as [number, number, number, number];
  * the menu, and the home page shows no map.
  */
 export const GUIDE_PUBLISHED = data.published as boolean;
+
+/** When the guide's pages last changed: their sitemap lastmod and WebPage dateModified. */
+export const GUIDE_UPDATED = data.updated as string;
 
 export function cenoteBySlug(slug: string) {
   return CENOTES.find((c) => c.slug === slug);
