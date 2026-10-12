@@ -15,9 +15,9 @@ source puts them.
 | El Pit | Alejandro Elizondo, Underwater Editions | section |
 | Angelita | Underwater Expeditions México | section |
 
-The credit is printed on every map and under it on the page
-(`plan.credit` in `content/cenotes.json`). These are third-party drawings:
-ask the authors before relying on them commercially.
+The originals are public dive maps; these are full redraws. The original's
+author is still credited, on the map and under it on the page
+(`plan.credit` in `content/cenotes.json`).
 
 ## How a map is made
 

@@ -152,8 +152,8 @@
       "slug": "advanced-ow",
       "kind": "course",
       "level": "open-water",
-      "maxDepthFt": 90,
-      "maxDepthM": 27,
+      "maxDepthFt": 100,
+      "maxDepthM": 30,
       "diveTime": "30–45 min",
       "locations": [
         "angelita-or-el-pit"

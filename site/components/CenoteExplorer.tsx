@@ -45,7 +45,7 @@ export default function CenoteExplorer({ t, base, alts, preview }: {
 
       <div className="shell dives cgrid">
         {list.map((c) => (
-          <CenoteCard key={c.slug} c={c} t={t} href={`${base}${c.slug}/`} alt={alts[c.slug] ?? ""} />
+          <CenoteCard key={c.slug} c={c} t={t} href={`${base}${c.slug}/`} alt={alts[c.slug] ?? ""} level={2} />
         ))}
         {list.length === 0 && <p className="muted">{t.none}</p>}
       </div>

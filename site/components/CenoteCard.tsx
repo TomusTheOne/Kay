@@ -5,11 +5,14 @@ import type { CardCopy } from "@/lib/i18n";
 /**
  * One cenote in a grid: picture, type, depth, the card to show, and the start
  * of Kay's text. Plain markup — rendered by the server on the pages, and by
- * the filter on the client, from the same component.
+ * the filter on the client, from the same component. `level` follows the
+ * page's outline: h2 on the guide, where the cards sit right under the h1;
+ * h3 on a cenote page, under its "nearby" heading.
  */
-export default function CenoteCard({ c, t, href, alt }: {
-  c: Cenote; t: CardCopy; href: string; alt: string;
+export default function CenoteCard({ c, t, href, alt, level = 3 }: {
+  c: Cenote; t: CardCopy; href: string; alt: string; level?: 2 | 3;
 }) {
+  const Name = level === 2 ? "h2" : "h3";
   return (
     <article className="dive ccard">
       <a className="ccard__hit" href={href} aria-label={c.name} />
@@ -20,7 +23,7 @@ export default function CenoteCard({ c, t, href, alt }: {
       </div>
       <div className="dive__body">
         <p className="tag tag--plain">{t.types[c.type]}</p>
-        <h3 className="dive__name">{c.name}</h3>
+        <Name className="dive__name">{c.name}</Name>
         {c.aka && <p className="data" style={{ marginTop: "-.3rem" }}>{c.aka}</p>}
         <p className="dive__txt ccard__txt">{t.items[c.slug]}</p>
         <dl className="spec">
