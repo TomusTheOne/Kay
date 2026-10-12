@@ -35,7 +35,7 @@ def main():
             print(c["slug"])
         elif c.get("plan"):
             for loc in data.get("locales", ["en", "es", "fr"]):
-                src = PUB / "maps" / f"{c['slug']}-{loc}-{c['plan']['w'] * 2}.webp"
+                src = PUB / "maps" / f"{c['slug']}-v{c['plan']['v']}-{loc}-{c['plan']['w'] * 2}.webp"
                 cover(Image.open(src), top=0.0).save(OUT / f"{c['slug']}-{loc}.jpg", quality=86, optimize=True, progressive=True)
                 print(c["slug"], loc)
 

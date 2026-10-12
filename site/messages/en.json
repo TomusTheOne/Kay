@@ -198,7 +198,7 @@
       "dive": "Dive"
     },
     "weDive": "We dive here",
-    "weDiveCta": "See its page",
+    "weDiveCta": "Dive guide: {name}",
     "goodLabel": "Good for",
     "tipLabel": "Worth knowing",
     "note": "Hours, prices and rules change without notice, and every cenote is run by someone different: check on the day before you set off. Cavern diving needs specific training, equipment and a guide — it is not something to improvise.",
@@ -479,7 +479,7 @@
     "email": "Email",
     "place": "Tulum, Quintana Roo, MX",
     "phone": "Phone",
-    "meet": "Meeting point"
+    "meet": "Meeting point:"
   },
   "booking": {
     "thanks": {
@@ -673,16 +673,16 @@
     "faqH2": "{name}, in short",
     "qDepth": "How deep is the dive at {name}?",
     "aDepth": "The dive goes down to {dive}.",
-    "aDepthMore": "The cenote itself is {depth} m deep.",
+    "aDepthMore": "The cenote itself is {depth} m deep.",
     "qLevel": "What certification do I need to dive {name}?",
     "aLevel": {
       "none": "None: you can try it with Discover Scuba, a first dive alongside an instructor.",
       "open-water": "An Open Water certification or equivalent, to show on the day.",
       "advanced": "Advanced Open Water or a Deep speciality, because the dive goes past 30 metres."
     },
-    "aLevelCourse": "Open Water divers can still dive it on the Advanced Open Water course, to {depth} m.",
+    "aLevelCourse": "Open Water divers can still dive it on the Advanced Open Water course, to {depth} m.",
     "qWhere": "How far is {name} from Tulum?",
-    "aWhere": "About {km} km {dir} of Tulum, as the crow flies.",
+    "aWhere": "About {km} km {dir} of Tulum, as the crow flies.",
     "compassAt": [
       "north",
       "north-east",

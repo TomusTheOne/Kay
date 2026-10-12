@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import { isLocale, getDictionary, pathFor, cardCopy } from "@/lib/i18n";
 import { guideMetadata } from "@/lib/guide";
-import { guideBreadcrumb } from "@/lib/seo";
+import { guideBreadcrumb, siteNodes } from "@/lib/seo";
 import { SHOP, ogCard } from "@/content/products";
 import { PRODUCTS } from "@/content/products";
 import { CENOTES, GUIDE_PUBLISHED, GUIDE_UPDATED } from "@/content/cenotes";
@@ -61,6 +61,7 @@ export default async function Guide({ params }: { params: Promise<{ locale: stri
         }),
       },
       { ...guideBreadcrumb(t, locale), "@id": `${url}#breadcrumb` },
+      ...siteNodes(locale),
     ],
   };
 

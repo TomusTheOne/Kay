@@ -1,26 +1,13 @@
 import type { Metadata } from "next";
-import { Instrument_Serif, Inter, IBM_Plex_Mono } from "next/font/google";
 import { notFound } from "next/navigation";
 import { LIVE_LOCALES, DEFAULT_LOCALE, OG_LOCALE, isLocale, getDictionary, pathFor, type Locale } from "@/lib/i18n";
 import { SHOP, ogCard } from "@/content/products";
 import Analytics from "@/components/Analytics";
 import Beacon from "@/components/Beacon";
 import { homeDescription, geoMeta } from "@/lib/seo";
+import { display, body, mono } from "../fonts";
 import "../globals.css";
 
-/* Self-hosted at build time: no third-party request, no flash, no layout shift. */
-const display = Instrument_Serif({
-  subsets: ["latin"], weight: "400", style: ["normal", "italic"],
-  variable: "--font-display", display: "swap",
-});
-const body = Inter({
-  subsets: ["latin"], weight: ["400", "500", "600"],
-  variable: "--font-body", display: "swap",
-});
-const mono = IBM_Plex_Mono({
-  subsets: ["latin"], weight: ["400", "500", "600"],
-  variable: "--font-mono", display: "swap",
-});
 
 /** Only the translated locales are built at all — see LIVE_LOCALES. */
 export function generateStaticParams() {

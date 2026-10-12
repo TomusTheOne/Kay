@@ -66,6 +66,14 @@ DirectoryIndex index.html index.php
   <FilesMatch "\.(php|json)$">
     Header always set X-Robots-Tag "noindex, nofollow"
   </FilesMatch>
+  # Next's RSC payloads: a plain-text copy of every page (index.txt,
+  # __next.*.txt) that the router fetches. Readable, not indexable — and
+  # not blocked in robots.txt, or the router's own requests would look odd
+  # to a crawler that fetches them anyway. robots.txt and llms.txt are not
+  # matched: they are meant to be read.
+  <FilesMatch "^(index|__next\..*)\.txt$">
+    Header always set X-Robots-Tag "noindex"
+  </FilesMatch>
 </IfModule>
 
 # --- Caching ----------------------------------------------------------------

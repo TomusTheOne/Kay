@@ -37,7 +37,7 @@ WORDS = {
     'snorkelpool': dict(en='Snorkel area', es='Zona de snorkel', fr='Zone de snorkeling'),
 }
 
-AFTER = dict(en='After', es='Según', fr="D'après")
+AFTER = dict(en='After', es='Según', fr='D’après')
 def credit(who):
     return {l: f'{AFTER[l]} {who}' for l in AFTER}
 
@@ -52,10 +52,10 @@ MAPS['casa-cenote'] = dict(
     svg='<g fill="none" stroke="#4FE0D2" stroke-opacity=".55" stroke-width="1.1" stroke-dasharray="4 4">'
         '<path d="M478 168 L520 178 L556 186 L583 170"/><path d="M507 126 L522 134"/></g>',
     labels=[
-        ('zone', 394, 158, 'snorkel'), ('zone', 684, 242, 'snorkel'), ('zone', 322, 405, 'snorkel'),
+        ('zone', 394, 158, 'snorkel', dict(cls='two')), ('zone', 708, 292, 'snorkel', dict(cls='two')), ('zone', 322, 405, 'snorkel', dict(cls='two')),
         ('mang', 240, 200, 'mangrove'), ('mang', 520, 285, 'mangrove'), ('mang', 90, 410, 'mangrove'), ('mang', 560, 44, 'mangrove'),
         ('lab', 490, 79, 'crack'), ('lab', 530, 222, 'cavpass'),
-        *depths([(370, 122, 4), (462, 104, 3), (532, 140, 2), (548, 197, 6), (606, 134, 5), (716, 274, 5),
+        *depths([(370, 122, 4), (462, 104, 3), (532, 140, 2), (548, 197, 6), (606, 134, 5), (724, 248, 5),
                  (681, 323, 4), (376, 254, 5), (283, 431, 5), (198, 466, 6)]),
         ('stop', 209, 497, 'limit'), ('stop', 730, 165, 'limit', dict(cls='l')),
         ('home', 210, 536, 'entrance'),
@@ -98,7 +98,7 @@ MAPS['car-wash'] = dict(
     ],
     note=dict(en='No permanent guideline: Car Wash is a training cavern, so your guide lays a line at the start of the dive and reels it back in at the end.',
               es='Sin línea permanente: Car Wash es una caverna de entrenamiento, así que tu guía tiende una línea al empezar la inmersión y la recoge al terminar.',
-              fr="Pas de fil permanent : Car Wash sert de caverne d'entraînement, votre guide pose donc un fil au début de la plongée et le récupère à la fin."),
+              fr="Pas de fil permanent : Car Wash sert de caverne d’entraînement ; votre guide pose donc un fil au début de la plongée et le récupère à la fin."),
     note_at='left:200px;top:250px',
     legend=['stop', 'form'], legend_at='left:44px;top:470px',
     scale_m=(9.33, 30, 'left:600px;top:120px'), north=130, north_at='left:70px;top:900px',
@@ -107,7 +107,7 @@ MAPS['car-wash'] = dict(
 
 MAPS['dreamgate'] = dict(
     title='Cenote Dreamgate', type='cavern', base=f'{BASE}/dreamgate.png', size=(1600, 866), scale=1600 / 1110,
-    credit={'en': 'After the dive-centre map', 'es': 'Según el mapa del centro de buceo', 'fr': 'D\'après le plan du centre de plongée'},
+    credit={'en': 'After the dive-centre map', 'es': 'Según el mapa del centro de buceo', 'fr': 'D’après le plan du centre de plongée'},
     credit_at='right:44px;bottom:30px',
     svg='<g fill="none" stroke="#F7EFE3" stroke-opacity=".45" stroke-width="1.4" stroke-dasharray="5 4" stroke-linecap="round">'
         '<path d="M322 74 C345 90 368 108 392 128"/><path d="M368 50 C385 74 400 94 412 112"/><path d="M470 46 C482 68 494 84 505 100"/>'

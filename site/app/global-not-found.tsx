@@ -1,17 +1,15 @@
 import type { Metadata } from "next";
-import { Instrument_Serif, IBM_Plex_Mono } from "next/font/google";
 import { LIVE_LOCALES, pathFor } from "@/lib/i18n";
 import { GUIDE_PUBLISHED } from "@/content/cenotes";
+import { display, body, mono } from "./fonts";
 import "./globals.css";
 
 /*
  * The 404 for every URL the site does not have — out/404.html, which
  * .htaccess serves as the ErrorDocument. The root layout is per locale, so
- * this page has none: it states its own fonts, and speaks the three
+ * this page has none: it takes the fonts from app/fonts.ts, and speaks the three
  * languages at once, since a dead link says nothing about the reader's.
  */
-const display = Instrument_Serif({ subsets: ["latin"], weight: "400", variable: "--font-display", display: "swap" });
-const mono = IBM_Plex_Mono({ subsets: ["latin"], weight: ["500"], variable: "--font-mono", display: "swap" });
 
 export const metadata: Metadata = {
   title: "Page not found | Kay Diving",
@@ -26,7 +24,7 @@ const WORDS = {
 
 export default function GlobalNotFound() {
   return (
-    <html lang="en" className={`${display.variable} ${mono.variable}`}>
+    <html lang="en" className={`${display.variable} ${body.variable} ${mono.variable}`}>
       <body>
         <main className="bay shell" style={{ minHeight: "80vh", display: "grid", alignContent: "center", gap: "2rem" }}>
           <p className="tag">404</p>

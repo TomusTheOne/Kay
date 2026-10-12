@@ -54,3 +54,4 @@ svg{position:absolute;left:0;top:0}
 .d.r{transform:translate(0,-50%)}.d.r::before{content:"";display:inline-block;width:18px;height:1px;margin-right:8px;vertical-align:middle;background:rgba(79,224,210,.6)}
 .lab.wrap{white-space:normal;width:380px;text-align:right;line-height:1.45}
 .lab.wrap.left{text-align:left}
+.zone.two{white-space:normal;width:190px;line-height:1.4}

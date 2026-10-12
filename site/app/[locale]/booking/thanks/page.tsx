@@ -1,8 +1,9 @@
 import { notFound } from "next/navigation";
 import { isLocale, getDictionary } from "@/lib/i18n";
 import Outcome from "@/components/Outcome";
+import { PRIVATE_PAGE } from "@/lib/seo";
 
-export const metadata = { robots: { index: false, follow: false } };
+export const metadata = PRIVATE_PAGE;
 
 export default async function Page({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;

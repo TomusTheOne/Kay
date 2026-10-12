@@ -40,6 +40,9 @@ const cheapest = Math.min(
   ...products.products.filter((p) => p.kind === "dive").flatMap((p) => p.options.map((o) => o.price)),
 );
 const fileFor = (locale) => `public${products.ogCard.replace("{locale}", locale)}`;
+/* The price as each language writes it, as the meta descriptions do: US$ in
+   Mexico, where $ alone means pesos; the sign after the figure in French. */
+const price = (locale) => ({ es: `US$${cheapest}`, fr: `${cheapest}\u202F$` })[locale] ?? `$${cheapest}`;
 const heroDataUri =
   "data:image/webp;base64," +
   (await readFile("public/assets/photos/hero.webp")).toString("base64");
@@ -85,8 +88,8 @@ const card = (t) => `<!doctype html><html><head><meta charset="utf-8">
       <h1>${t.l1}<br><em>${t.l2}</em></h1>
       <div class="strip" style="margin-top:34px">
         <span>${t.agency} <b>${products.shop.agency}</b></span><span class="sep">•</span>
-        <span>${t.depth} <b>${products.maxDepthM} M</b></span><span class="sep">•</span>
-        <span>${t.from} <b>$${cheapest}</b></span>
+        <span>${t.depth} <b>${products.maxDepthM}&nbsp;m</b></span><span class="sep">•</span>
+        <span>${t.from} <b>${t.price}</b></span>
       </div>
     </div>
   </div>
@@ -108,6 +111,7 @@ for (const locale of LOCALES) {
     agency: m.hero.agencyLabel.toUpperCase(),
     depth: m.products.depth.toUpperCase(),
     from: m.products.from.toUpperCase(),
+    price: price(locale),
   });
   const page = await browser.newPage({ viewport: { width: 1200, height: 630 } });
   await page.setContent(html, { waitUntil: "networkidle" });

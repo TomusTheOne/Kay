@@ -1,6 +1,6 @@
 import { LIVE_LOCALES, DEFAULT_LOCALE, pathFor, type Locale } from "@/lib/i18n";
 import { SHOP, CONTENT_UPDATED, ogCard } from "@/content/products";
-import { CENOTES, GUIDE_PUBLISHED, GUIDE_UPDATED, cenoteBySlug } from "@/content/cenotes";
+import { CENOTES, GUIDE_PUBLISHED, GUIDE_UPDATED, cenoteBySlug, mapFile } from "@/content/cenotes";
 
 /**
  * /sitemap.xml, written out rather than through MetadataRoute.Sitemap: Next
@@ -25,7 +25,7 @@ function images(path: string, locale: Locale): string[] {
   if (!c) return [];
   return [
     ...(c.photo ? [abs(`/assets/photos/${c.photo}.webp`)] : []),
-    ...(c.plan ? [abs(`/assets/maps/${c.slug}-${locale}-${c.plan.w * 2}.webp`)] : []),
+    ...(c.plan ? [abs(mapFile(c, locale, c.plan.w * 2, "webp"))] : []),
   ];
 }
 

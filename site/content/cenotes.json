@@ -1,5 +1,5 @@
 {
-  "_comment": "The cenote guide and its map. Texts live in messages/<locale>.json under cenotes.items; everything that is the same in every language lives here. updated is the date the guide's pages last changed, for the sitemap and the pages' structured data. Set published to true once Kay has checked every position on the preview pages: the guide then joins the menu, the home page map, the footer and the sitemap, and stops being noindex.",
+  "_comment": "The cenote guide and its map. Texts live in messages/<locale>.json under cenotes.items; everything that is the same in every language lives here. plan.v is the dive map's version, part of its file names: images are cached for a year as immutable, so a map changed after it went live goes out as v+1. updated is the date the guide's pages last changed, for the sitemap and the pages' structured data. Set published to true once Kay has checked every position on the preview pages: the guide then joins the menu, the home page map, the footer and the sitemap, and stops being noindex.",
   "published": true,
   "updated": "2026-10-12",
   "basemap": "/tiles/tulum-20260923.pmtiles",
@@ -12,7 +12,7 @@
       "depthM": 9, "diveMinM": null, "diveMaxM": 9,
       "products": ["discover-scuba", "reef-cenote", "open-water", "cenote-diving"],
       "photo": "cenote-casa-surface", "art": "casa-cenote",
-      "plan": { "w": 1616, "h": 1140, "credit": "Gerardo Aizpuru (Underwater Editions, 2004)" }
+      "plan": { "v": 1, "w": 1616, "h": 1140, "credit": "Gerardo Aizpuru (Underwater Editions, 2004)" }
     },
     {
       "slug": "car-wash", "name": "Cenote Car Wash", "short": "Car Wash", "aka": "Aktun Ha",
@@ -21,7 +21,7 @@
       "depthM": 16, "diveMinM": null, "diveMaxM": 16,
       "products": ["cenote-diving"],
       "photo": "cenote-car-wash", "art": "cenote-shaft",
-      "plan": { "w": 1600, "h": 1137, "credit": "Underwater Editions" }
+      "plan": { "v": 1, "w": 1600, "h": 1137, "credit": "Underwater Editions" }
     },
     {
       "slug": "dos-ojos", "name": "Cenote Dos Ojos", "short": "Dos Ojos",
@@ -30,7 +30,7 @@
       "depthM": 10, "diveMinM": null, "diveMaxM": 10,
       "products": ["cenote-diving"],
       "photo": "cenote-dos-ojos", "art": "cavern",
-      "plan": { "w": 1600, "h": 1897, "credit": "Sebastián Maza (Fisheye Adventures, 2011)" }
+      "plan": { "v": 1, "w": 1600, "h": 1897, "credit": "Sebastián Maza (Fisheye Adventures, 2011)" }
     },
     {
       "slug": "el-pit", "name": "Cenote El Pit", "short": "El Pit",
@@ -39,7 +39,7 @@
       "depthM": 119, "diveMinM": 30, "diveMaxM": 32,
       "products": ["cenote-diving", "advanced-ow"],
       "photo": "cenote-el-pit", "art": "the-pit",
-      "plan": { "w": 1300, "h": 1833, "credit": "Alejandro Elizondo (Underwater Editions)" }
+      "plan": { "v": 1, "w": 1300, "h": 1833, "credit": "Alejandro Elizondo (Underwater Editions)" }
     },
     {
       "slug": "angelita", "name": "Cenote Angelita", "short": "Angelita",
@@ -48,7 +48,7 @@
       "depthM": 60, "diveMinM": 35, "diveMaxM": 38,
       "products": ["cenote-diving", "advanced-ow"],
       "photo": "cenote-angelita", "art": "halocline",
-      "plan": { "w": 1600, "h": 1464, "credit": "Underwater Expeditions México" }
+      "plan": { "v": 1, "w": 1600, "h": 1464, "credit": "Underwater Expeditions México" }
     },
     {
       "slug": "dreamgate", "name": "Cenote Dreamgate", "short": "Dreamgate",
@@ -57,7 +57,7 @@
       "depthM": null, "diveMinM": null, "diveMaxM": 7,
       "products": ["cenote-diving"],
       "photo": null, "art": "cenote-shaft",
-      "plan": { "w": 1600, "h": 866, "credit": null }
+      "plan": { "v": 1, "w": 1600, "h": 866, "credit": null }
     },
     {
       "slug": "tak-be-luum", "name": "Cenote Tak Be Luum", "short": "Tak Be Luum",

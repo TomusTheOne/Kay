@@ -37,8 +37,8 @@ export interface Cenote {
   products: string[];
   photo: string | null;
   art: string;
-  /** The dive map in public/assets/maps/, where there is one: its size, and whose map it redraws. */
-  plan?: { w: number; h: number; credit: string | null };
+  /** The dive map in public/assets/maps/, where there is one: its version, its size, and whose map it redraws. */
+  plan?: { v: number; w: number; h: number; credit: string | null };
 }
 
 export interface Town { name: string; lat: number; lon: number; home?: boolean }
@@ -58,6 +58,11 @@ export const GUIDE_PUBLISHED = data.published as boolean;
 
 /** When the guide's pages last changed: their sitemap lastmod and WebPage dateModified. */
 export const GUIDE_UPDATED = data.updated as string;
+
+/** One file of a cenote's dive map: /assets/maps/dos-ojos-v1-fr-1600.webp. */
+export function mapFile(c: Cenote, locale: string, w: number, ext: "webp" | "avif") {
+  return `/assets/maps/${c.slug}-v${c.plan?.v ?? 1}-${locale}-${w}.${ext}`;
+}
 
 export function cenoteBySlug(slug: string) {
   return CENOTES.find((c) => c.slug === slug);
@@ -96,6 +101,18 @@ export function nearest(c: Cenote, n = 3) {
     .sort((a, b) => a.d - b.d)
     .slice(0, n)
     .map(({ o }) => o);
+}
+
+/**
+ * The cenotes a page sends its reader on to: the two closest, and the
+ * closest one of the same type that is not already among them — so the two
+ * deep cenotes, far apart, still point at each other.
+ */
+export function related(c: Cenote) {
+  const near = nearest(c, CENOTES.length);
+  const picked = near.slice(0, 2);
+  const sameType = near.find((o) => o.type === c.type && !picked.includes(o));
+  return [...picked, sameType ?? near[2]].filter(Boolean) as Cenote[];
 }
 
 /**

@@ -10,7 +10,7 @@ import { Visit, Ruins } from "@/components/Places";
 import Plate from "@/components/Plate";
 import Footer from "@/components/Footer";
 import CenoteMap from "@/components/CenoteMap";
-import { CENOTES, GUIDE_PUBLISHED } from "@/content/cenotes";
+import { CENOTES, GUIDE_PUBLISHED, cenoteBySlug } from "@/content/cenotes";
 import { homeDescription } from "@/lib/seo";
 
 const Arrow = () => (
@@ -257,7 +257,8 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
               return (
                 <article className="dive" key={p.slug} data-rise data-rise-d={i % 4 || undefined}>
                   <div className="dive__media">
-                    <Plate photo={p.photo} art={p.art} alt={copy.alt} />
+                    <Plate photo={p.photo} art={p.art} alt={copy.alt} full={960}
+                           sizes="(max-width: 640px) 90vw, (max-width: 1000px) 45vw, 300px" />
                     {/* Depth when there is one; "half day" belongs to the snorkel
                         tour alone. A dive whose depth Kay has not given yet shows
                         its season instead of borrowing someone else's label. */}
@@ -277,7 +278,9 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                         <p className="sites__t">{t.products.sitesTag}</p>
                         {p.sites.filter((x) => x.deep).map((x) => (
                           <div className="sites__r" key={x.slug}>
-                            <span>{t.products.sites[x.slug].name}</span>
+                            <span>{GUIDE_PUBLISHED && cenoteBySlug(x.slug)
+                              ? <a href={pathFor(locale, `/cenotes/${x.slug}/`)}>{t.products.sites[x.slug].name}</a>
+                              : t.products.sites[x.slug].name}</span>
                             <b>{t.products.sites[x.slug].depth}</b>
                           </div>
                         ))}

@@ -9,23 +9,27 @@ import type { CardCopy } from "@/lib/i18n";
  * page's outline: h2 on the guide, where the cards sit right under the h1;
  * h3 on a cenote page, under its "nearby" heading.
  */
-export default function CenoteCard({ c, t, href, alt, level = 3 }: {
+export default function CenoteCard({ c, t, href, alt, level = 3, brief = false }: {
   c: Cenote; t: CardCopy; href: string; alt: string; level?: 2 | 3;
+  /** Leave Kay's text out: on a cenote page it would repeat another page's copy. */
+  brief?: boolean;
 }) {
   const Name = level === 2 ? "h2" : "h3";
   return (
     <article className="dive ccard">
-      <a className="ccard__hit" href={href} aria-label={c.name} />
       <div className="dive__media">
-        <Plate photo={c.photo} art={c.art} alt={c.photo ? alt : t.artAlt.replace("{name}", c.name)} />
+        <Plate photo={c.photo} art={c.art} alt={c.photo ? alt : t.artAlt.replace("{name}", c.name)}
+               sizes="(max-width: 640px) 90vw, (max-width: 1000px) 45vw, 300px" />
         <span className="dive__depth">{diveDepth(c, t.upTo).toUpperCase()}</span>
         {!c.photo && <span className="ccard__art">{t.illustration}</span>}
       </div>
       <div className="dive__body">
         <p className="tag tag--plain">{t.types[c.type]}</p>
-        <Name className="dive__name">{c.name}</Name>
+        {/* The name is the link — anchor text a crawler can read — and its
+            ::after stretches over the whole card, so the card stays one target. */}
+        <Name className="dive__name"><a className="ccard__hit" href={href}>{c.name}</a></Name>
         {c.aka && <p className="data" style={{ marginTop: "-.3rem" }}>{c.aka}</p>}
-        <p className="dive__txt ccard__txt">{t.items[c.slug]}</p>
+        {!brief && <p className="dive__txt ccard__txt">{t.items[c.slug]}</p>}
         <dl className="spec">
           <div><dt>{t.levelTag}</dt><dd>{t.levels[c.level]}</dd></div>
           {c.snorkel && <div><dt>Snorkel</dt><dd>{t.snorkelToo}</dd></div>}

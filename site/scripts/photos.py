@@ -6,6 +6,12 @@ assets/source/, into AVIF + WebP at the exact size each slot renders at.
 Run after adding or replacing a source:
 
     python3 scripts/photos.py
+    python3 scripts/photos.py --variants   (only the smaller card widths)
+
+Card photographs (card-*, cenote-*) are also cut at 480 and 800 px, as
+<slot>-480 and <slot>-800, for the srcset a card shows on a phone: a card
+is ~300 px wide on a laptop and ~350 on a phone, and sending it the full
+960 or 1200 px file was most of the guide's weight.
 
 The originals are Kay's own, at 2500-2800 px. Before them the site ran on
 Instagram exports at 861 px, which is why the hero looked soft on a laptop
@@ -94,7 +100,15 @@ def crop_to(im: Image.Image, w: int, h: int, fx: float, fy: float,
     return box.resize((w, h), Image.LANCZOS)
 
 
+VARIANTS = (480, 800)
+
+
+def is_card(slot: str) -> bool:
+    return slot.startswith(("card-", "cenote-"))
+
+
 def main() -> int:
+    only_variants = "--variants" in sys.argv[1:]
     if not SRC.is_dir():
         print(f"no sources in {SRC}", file=sys.stderr)
         return 1
@@ -105,15 +119,21 @@ def main() -> int:
         if not matches:
             print(f"  MISSING source '{name}' for slot '{slot}'", file=sys.stderr)
             return 1
+        if only_variants and not is_card(slot):
+            continue
         im = Image.open(matches[0]).convert("RGB")
         out = crop_to(im, w, h, fx, fy, *zoom)
-        # AVIF first for the browsers that take it, WebP for the rest.
-        out.save(OUT / f"{slot}.avif", quality=62, speed=4)
-        out.save(OUT / f"{slot}.webp", quality=80, method=6)
-        a = (OUT / f"{slot}.avif").stat().st_size
-        b = (OUT / f"{slot}.webp").stat().st_size
-        total += a + b
-        print(f"  {slot:<16} {w}x{h}  avif {a//1024:>4} KB  webp {b//1024:>4} KB   <- {matches[0].name}")
+        sizes = [(slot, out)] if not only_variants else []
+        if is_card(slot):
+            sizes += [(f"{slot}-{vw}", out.resize((vw, round(h * vw / w)), Image.LANCZOS)) for vw in VARIANTS]
+        for name, img in sizes:
+            # AVIF first for the browsers that take it, WebP for the rest.
+            img.save(OUT / f"{name}.avif", quality=62, speed=4)
+            img.save(OUT / f"{name}.webp", quality=80, method=6)
+            a = (OUT / f"{name}.avif").stat().st_size
+            b = (OUT / f"{name}.webp").stat().st_size
+            total += a + b
+            print(f"  {name:<20} {img.width}x{img.height}  avif {a//1024:>4} KB  webp {b//1024:>4} KB   <- {matches[0].name}")
     print(f"\n  {len(SLOTS)} slots, {total//1024} KB in total")
     return 0
 

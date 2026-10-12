@@ -32,7 +32,7 @@ export default function Footer({ t, locale, home = "" }: { t: Dictionary; locale
             <li><a href={`tel:${SHOP.phone}`}>{SHOP.phoneDisplay}</a></li>
             <li><a href={`https://wa.me/${SHOP.phone.replace(/\D/g, "")}`} rel="noopener">{t.footer.whatsapp}</a></li>
             <li><a href={`mailto:${SHOP.email}`}>{SHOP.email}</a></li>
-            <li><span className="muted" style={{ fontSize: ".9rem" }}>{t.footer.meet}: {SHOP.meetingPoint}</span></li>
+            <li><span className="muted" style={{ fontSize: ".9rem" }}>{t.footer.meet} {SHOP.meetingPoint}</span></li>
             <li><span className="muted" style={{ fontSize: ".9rem" }}>{t.footer.place}</span></li>
           </ul></div>
         </div>

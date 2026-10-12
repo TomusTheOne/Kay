@@ -28,7 +28,8 @@ author is still credited, on the map and under it on the page
    label, depth and marker is placed in the original's pixel coordinates in
    `spec.py`, with its words in English, Spanish and French, and set in the
    site's own type in a headless Chromium.
-3. **Export** (`tools/export.py`): AVIF and WebP at 800 px, 1× and 2×.
+3. **Export** (`tools/export.py`): AVIF and WebP at 800 px, 1× and 2×, under
+   the version in `plan.v`.
 
 ```bash
 tools/build.sh            # after changing a label or a translation
@@ -40,7 +41,10 @@ with Playwright (set CHROMIUM_PATH to use a browser outside Playwright's own),
 and network access for Google Fonts. The build is
 deterministic: an unchanged spec gives byte-identical files.
 
-Images are cached for a year as immutable (`public-htaccess`): once a map is
-live, a change must go out under a new file name. The social card of a cenote
+Images are cached for a year as immutable (`public-htaccess`), so the files
+are named `<slug>-v<version>-<locale>-<width>.<ext>`, the version being
+`plan.v` in `content/cenotes.json`. A map changed after it went live goes out
+as the next version: bump `plan.v`, run `tools/build.sh`, delete the old
+version's files. The social card of a cenote
 without a photograph is cut from its map by `scripts/og-cenotes.py` — rerun it
 after a rebuild.

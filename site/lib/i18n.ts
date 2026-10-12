@@ -86,22 +86,31 @@ export type CenoteCopy = Record<
   compassAt: string[];
 };
 
-/** The guide's strings without the ones only a server-rendered page reads — what the explorer ships to the client. */
-export type CardCopy = Omit<CenoteCopy, "metas" | "aLevel" | "planAlts" | "compassAt">;
-export function cardCopy(c: CenoteCopy): CardCopy {
-  const { metas, aLevel, planAlts, compassAt, ...rest } = c;
-  void metas; void aLevel; void planAlts; void compassAt;
-  return rest;
-}
+/*
+ * What the client components receive, by name: the map, and the explorer
+ * that filters the guide's cards. A list of keys rather than "everything but
+ * the server's", so a string added for a server page — a meta description, a
+ * map's alt — never ends up in every page's client payload by default.
+ */
+const MAP_KEYS = [
+  "approx", "cenoteDepth", "close", "cluster", "compass", "diveDepth", "fromTulum",
+  "gestureMac", "gestureTouch", "gestureWin", "levelTag", "levels", "mapError", "mapLabel",
+  "mapLoading", "reset", "see", "snorkelToo", "types", "upTo", "zoomIn", "zoomOut",
+] as const;
+const CARD_KEYS = [
+  ...MAP_KEYS, "artAlt", "illustration", "items", "all", "count", "filter", "filters", "none",
+] as const;
 
-/** The guide's strings without Kay's texts either — all the map needs on the client. */
-export type MapCopy = Omit<CardCopy, "items" | "alts">;
-export function mapCopy(c: CardCopy): MapCopy {
-  /* cardCopy first: a page may hand over the full CenoteCopy. */
-  const { items, alts, ...rest } = cardCopy(c as CenoteCopy);
-  void items; void alts;
-  return rest;
+export type MapCopy = Pick<CenoteCopy, (typeof MAP_KEYS)[number]>;
+export type CardCopy = Pick<CenoteCopy, (typeof CARD_KEYS)[number]>;
+
+function pick<K extends keyof CenoteCopy>(c: Pick<CenoteCopy, K>, keys: readonly K[]) {
+  return Object.fromEntries(keys.map((k) => [k, c[k]])) as Pick<CenoteCopy, K>;
 }
+/** The guide's strings the explorer and its cards need on the client. */
+export function cardCopy(c: CardCopy): CardCopy { return pick(c, CARD_KEYS); }
+/** The guide's strings the map needs on the client. */
+export function mapCopy(c: MapCopy): MapCopy { return pick(c, MAP_KEYS); }
 
 export interface Dictionary {
   meta: { title: string; description: string };

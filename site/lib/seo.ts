@@ -28,7 +28,8 @@ export function cenoteTitle(t: Dictionary, c: Cenote) {
 
 /** The dive's depth as a figure: "30–32 m", "16 m" — never "to 7 m", which reads badly in a sentence. */
 export function diveFigure(c: Cenote) {
-  return c.diveMinM ? `${c.diveMinM}–${c.diveMaxM} m` : `${c.diveMaxM} m`;
+  /* A no-break space keeps the figure and its unit on one line. */
+  return c.diveMinM ? `${c.diveMinM}–${c.diveMaxM}\u00a0m` : `${c.diveMaxM}\u00a0m`;
 }
 
 /** The cenote's own depth is a fact worth stating only where it is deeper than the dive. */
@@ -127,6 +128,28 @@ export function guideBreadcrumb(t: Dictionary, locale: Locale, c?: Cenote) {
       item: `${SHOP.domain}${pathFor(locale, it.path)}`,
     })),
   };
+}
+
+/**
+ * A page that must not be indexed or shared: the booking outcomes and the
+ * gear form. The locale layout gives every page the home page's canonical,
+ * hreflang set and Open Graph URL; a noindex page carrying them points
+ * crawlers at the home page from a page they are told to drop.
+ */
+export const PRIVATE_PAGE = {
+  robots: { index: false, follow: false },
+  alternates: null,
+  openGraph: null,
+  twitter: null,
+} as const;
+
+/** The nodes every guide graph points at, defined again so each page's graph resolves on its own. */
+export function siteNodes(locale: Locale) {
+  return [
+    { "@type": "WebSite", "@id": `${SHOP.domain}/#website`, url: SHOP.domain, name: "Kay Diving Tulum" },
+    { "@type": "SportsActivityLocation", "@id": `${SHOP.domain}/#business`, name: "Kay Diving",
+      url: `${SHOP.domain}${pathFor(locale)}` },
+  ];
 }
 
 /** geo.* and ICBM: read by Bing and a few regional engines, ignored by the rest at no cost. */

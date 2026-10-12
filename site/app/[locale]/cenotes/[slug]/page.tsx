@@ -1,9 +1,9 @@
 import { notFound } from "next/navigation";
 import { isLocale, getDictionary, pathFor, mapCopy } from "@/lib/i18n";
 import { guideMetadata, type GuideImage } from "@/lib/guide";
-import { cenoteTitle, cenoteQa, cenoteFacts, guideBreadcrumb, planAlt, planCredit } from "@/lib/seo";
+import { cenoteTitle, cenoteQa, cenoteFacts, guideBreadcrumb, planAlt, planCredit, siteNodes } from "@/lib/seo";
 import { PRODUCTS, SHOP, ogCard } from "@/content/products";
-import { CENOTES, GUIDE_PUBLISHED, GUIDE_UPDATED, cenoteBySlug, diveDepth, fromTulum, nearest,
+import { CENOTES, GUIDE_PUBLISHED, GUIDE_UPDATED, cenoteBySlug, diveDepth, fromTulum, related, mapFile,
          type Cenote } from "@/content/cenotes";
 import type { Dictionary, Locale } from "@/lib/i18n";
 import GuideFrame from "@/components/GuideFrame";
@@ -63,7 +63,7 @@ export default async function CenotePage({ params }: Params) {
   const card = socialCard(t, locale, c);
   const images = [
     ...(c.photo ? [`${SHOP.domain}/assets/photos/${c.photo}.webp`] : []),
-    ...(c.plan ? [`${SHOP.domain}/assets/maps/${slug}-${locale}-${c.plan.w * 2}.webp`] : []),
+    ...(c.plan ? [`${SHOP.domain}${mapFile(c, locale, c.plan.w * 2, "webp")}`] : []),
   ];
   /* One graph, as on the home page: the page, the place it is about, how it
      sits in the site, and the questions it answers — all tied by @id to the
@@ -100,6 +100,7 @@ export default async function CenotePage({ params }: Params) {
         additionalProperty: cenoteFacts(t, c),
       },
       { ...guideBreadcrumb(t, locale, c), "@id": `${url}#breadcrumb` },
+      ...siteNodes(locale),
       {
         "@type": "FAQPage",
         "@id": `${url}#faq`,
@@ -156,7 +157,7 @@ export default async function CenotePage({ params }: Params) {
         <section className="bay shell guide__plan" aria-labelledby="plan-tag">
           <h2 className="tag" id="plan-tag">{g.planTag}</h2>
           <figure>
-            <CenotePlan slug={slug} plan={c.plan} locale={locale} open={g.planOpen}
+            <CenotePlan c={c} plan={c.plan} locale={locale} open={g.planOpen}
                         alt={planAlt(t, locale, c)} />
             <figcaption className="data guide__plan-note">
               {g.planNote}
@@ -186,8 +187,8 @@ export default async function CenotePage({ params }: Params) {
       <section className="bay shell">
         <h2 className="tag">{g.nearbyTag}</h2>
         <div className="dives cgrid" style={{ marginTop: "1.6rem" }}>
-          {nearest(c).map((o) => (
-            <CenoteCard key={o.slug} c={o} t={g} href={`${guide}${o.slug}/`} alt={photoAlt(o)} />
+          {related(c).map((o) => (
+            <CenoteCard key={o.slug} c={o} t={g} href={`${guide}${o.slug}/`} alt={photoAlt(o)} brief />
           ))}
         </div>
       </section>

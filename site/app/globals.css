@@ -637,6 +637,8 @@ select.field{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xml
   color:var(--turq);margin-bottom:.45rem}
 .sites__r{display:flex;justify-content:space-between;gap:.8rem;align-items:baseline;padding-block:.2rem}
 .sites__r span{font-size:.82rem;color:var(--foam-72)}
+.sites__r a{text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:3px;transition:color .2s}
+.sites__r a:hover{color:var(--turq)}
 .sites__r b{font-family:var(--mono);font-size:.76rem;color:var(--foam);white-space:nowrap}
 
 /* ------------------------------------------------------- Pickup options --- */
@@ -877,8 +879,10 @@ select.field{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xml
 .cfilter{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;margin-bottom:1.2rem}
 .cgrid{margin-top:clamp(2rem,4vw,3rem)}
 .guide__explore{padding-bottom:var(--bay)}
-.ccard__hit{position:absolute;inset:0;z-index:2;border-radius:inherit}
-.ccard__hit:focus-visible{outline:2px solid var(--turq);outline-offset:3px}
+.ccard__hit{color:inherit}
+.ccard__hit::after{content:"";position:absolute;inset:0;z-index:2;border-radius:inherit}
+.ccard__hit:focus-visible{outline:none}
+.ccard__hit:focus-visible::after{outline:2px solid var(--turq);outline-offset:3px}
 .ccard__art{position:absolute;left:.8rem;bottom:.8rem;padding:.4rem .6rem;border-radius:999px;
   background:rgba(3,9,14,.72);backdrop-filter:blur(8px);border:1px solid var(--line-soft);
   font:.54rem/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--foam-52)}
@@ -911,6 +915,12 @@ select.field{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xml
   background:rgba(3,9,14,.72);backdrop-filter:blur(8px);border:1px solid var(--line-soft);
   font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--foam-72);transition:color .2s,border-color .2s}
 .plan:hover .plan__open{color:var(--turq);border-color:var(--turq)}
+/* On a phone the pill would sit on the map itself; it goes under it. */
+@media (max-width:600px){
+  .plan{overflow:visible;border-radius:0;border:0;background:none;aspect-ratio:auto}
+  .plan picture{display:block;aspect-ratio:var(--ar);border-radius:var(--r);overflow:hidden;border:1px solid var(--line-soft)}
+  .plan__open{position:static;display:table;margin:.7rem 0 0 auto}
+}
 .plan:focus-visible{outline:2px solid var(--turq);outline-offset:4px}
 .guide__plan-note{max-width:70ch;margin:1rem auto 0;text-align:center;color:var(--foam-52);line-height:1.6;
   text-transform:none;letter-spacing:.03em;font-size:.76rem}
