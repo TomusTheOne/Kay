@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import { isLocale, getDictionary, pathFor, mapCopy } from "@/lib/i18n";
 import { guideMetadata, type GuideImage } from "@/lib/guide";
-import { cenoteTitle, cenoteQa, cenoteFacts, guideBreadcrumb, planAlt, planCredit, siteNodes } from "@/lib/seo";
+import { cenoteTitle, cenoteQa, cenoteFacts, guideBreadcrumb, planAlt, planCredit, siteNodes, fillName } from "@/lib/seo";
 import { PRODUCTS, SHOP, ogCard } from "@/content/products";
 import { CENOTES, GUIDE_PUBLISHED, GUIDE_UPDATED, cenoteBySlug, diveDepth, fromTulum, related, mapFile,
          type Cenote } from "@/content/cenotes";
@@ -11,6 +11,8 @@ import CenoteMap from "@/components/CenoteMap";
 import CenoteCard from "@/components/CenoteCard";
 import Plate from "@/components/Plate";
 import CenotePlan from "@/components/CenotePlan";
+import { ReviewCards, AllReviews } from "@/components/Reviews";
+import { reviewsFor } from "@/content/reviews";
 
 export function generateStaticParams() {
   return CENOTES.map((c) => ({ slug: c.slug }));
@@ -60,6 +62,7 @@ export default async function CenotePage({ params }: Params) {
   };
   const url = `${SHOP.domain}${pathFor(locale, `/cenotes/${slug}/`)}`;
   const qa = cenoteQa(t, locale, c);
+  const reviews = reviewsFor(locale, c.slug);
   const card = socialCard(t, locale, c);
   const images = [
     ...(c.photo ? [`${SHOP.domain}/assets/photos/${c.photo}.webp`] : []),
@@ -183,6 +186,19 @@ export default async function CenotePage({ params }: Params) {
           ))}
         </div>
       </section>
+
+      {reviews.length > 0 && (
+        <section className="bay shell" aria-labelledby="rev-h">
+          <p className="tag">{t.reviews.tag}</p>
+          <h2 className="dsp dsp-md" id="rev-h" style={{ marginTop: "1rem" }}>
+            {fillName(t.reviews.cenoteH2, locale, c.name)}
+          </h2>
+          <div style={{ marginTop: "1.6rem" }}>
+            <ReviewCards reviews={reviews} t={t.reviews} locale={locale} except={c.slug} />
+          </div>
+          <AllReviews t={t.reviews} />
+        </section>
+      )}
 
       <section className="bay shell">
         <h2 className="tag">{g.nearbyTag}</h2>

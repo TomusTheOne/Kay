@@ -578,6 +578,43 @@ select.field{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xml
 }
 .quote cite{display:block;margin-top:1.1rem;font:500 .76rem/1.5 var(--mono);letter-spacing:.2em;text-transform:uppercase;color:var(--foam-34);font-style:normal}
 
+/* --------------------------------------------------------------- Reviews */
+/* Columns of uneven height, like the reviews themselves; a swipeable row on
+   a phone, where six cards stacked would be six screens. */
+.revs{columns:3 300px;column-gap:12px}
+.rev{
+  break-inside:avoid;margin:0 0 12px;display:flex;flex-direction:column;gap:1.05rem;
+  padding:clamp(1.3rem,2.4vw,1.8rem);border:1px solid var(--line-soft);border-radius:var(--r-lg);
+  background:linear-gradient(170deg,rgba(14,50,65,.38),rgba(6,22,32,.5));
+  transition:border-color .3s;
+}
+.rev:hover{border-color:var(--line)}
+.rev__stars{display:inline-flex;gap:3px;color:var(--foam-34)}
+.rev__stars svg{fill:none;stroke:currentColor;stroke-width:.9}
+.rev__stars svg.on{fill:var(--turq);stroke:var(--turq);filter:drop-shadow(0 0 4px rgba(79,224,210,.45))}
+.rev blockquote{font-family:var(--display);font-size:clamp(1.12rem,1.5vw,1.3rem);line-height:1.4;color:var(--foam)}
+.rev blockquote p+p{margin-top:.7em}
+.rev:first-child blockquote{font-size:clamp(1.3rem,2vw,1.6rem);line-height:1.32}
+.rev__sites{list-style:none;padding:0}
+.rev__sites a.chip:hover{border-color:var(--turq)}
+.rev figcaption{display:flex;justify-content:space-between;align-items:baseline;gap:.4rem 1rem;flex-wrap:wrap;margin-top:auto;
+  padding-top:.9rem;border-top:1px solid var(--line-soft)}
+.rev__who{font-size:.92rem;color:var(--foam)}
+.rev__all{margin-top:1.4rem}
+.strip__rating{transition:color .25s}
+.strip__rating b{color:var(--turq)}
+.strip__rating:hover{color:var(--foam)}
+@media (max-width:640px){
+  .revs{
+    columns:auto;display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;
+    margin-inline:calc((100vw - var(--shell)) / -2);padding-inline:calc((100vw - var(--shell)) / 2);
+    scroll-padding-inline:calc((100vw - var(--shell)) / 2);padding-bottom:6px;scrollbar-width:none;
+  }
+  .revs::-webkit-scrollbar{display:none}
+  .rev{flex:0 0 84%;margin:0;scroll-snap-align:start}
+  .rev:only-child{flex-basis:100%}
+}
+
 /* ------------------------------------------------------------------- FAQ */
 .faq{border-top:1px solid var(--line-soft)}
 .faq details{border-bottom:1px solid var(--line-soft)}

@@ -1,0 +1,8 @@
+{
+  "_comment": "Kay's Google reviews, copied word for word from the Google profile — never written, edited or translated here. Each entry: name as the reviewer shows it (first name and initial is the polite form), date as YYYY-MM, stars 1–5, lang the language it was written in (en, es, fr…), text verbatim (a cut is marked with […]), and cenotes the slugs from cenotes.json it names, so the cenote page shows it too. rating, count and asOf are the profile's figures on the day they were copied. While reviews is empty the section stays hidden; the rating in the hero strip and in llms.txt shows once rating and count are filled (the strip then links to googleUrl).",
+  "googleUrl": null,
+  "rating": null,
+  "count": null,
+  "asOf": null,
+  "reviews": []
+}

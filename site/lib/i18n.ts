@@ -174,6 +174,9 @@ export interface Dictionary {
     items: Record<string, RuinCopy>;
   };
   quote: { text: string; cite: string };
+  /** Kay's Google reviews, wherever content/reviews.json has some. */
+  reviews: Record<"tag" | "h2" | "h2Plain" | "intro" | "introPlain" | "all" | "stars"
+                | "badge" | "cenoteH2", string>;
   book: Record<string, string> & { certs: string[] };
   faq: { tag: string; h2: string; items: Qa[] };
   cta: Record<"kicker" | "h2" | "lede" | "instagram" | "bandAlt", string>;

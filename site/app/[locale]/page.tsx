@@ -12,6 +12,8 @@ import Footer from "@/components/Footer";
 import CenoteMap from "@/components/CenoteMap";
 import { CENOTES, GUIDE_PUBLISHED, cenoteBySlug } from "@/content/cenotes";
 import { homeDescription } from "@/lib/seo";
+import Reviews from "@/components/Reviews";
+import { reviewsFor, ratingText, REVIEWS_RATING, REVIEWS_URL } from "@/content/reviews";
 
 const Arrow = () => (
   <svg width="14" height="8" viewBox="0 0 14 8" fill="none" aria-hidden="true">
@@ -59,6 +61,10 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
   ];
 
   const cheapest = FROM_PRICE;
+  const reviews = reviewsFor(locale);
+  /* The rating in the hero strip leads to the reviews below, or to Google
+     while none are copied here yet. */
+  const ratingHref = reviews.length ? "#reviews" : REVIEWS_URL;
   const description = homeDescription(t);
 
   /** Every include line on the page, in menu order, without duplicates. */
@@ -216,6 +222,14 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
               <span>{t.hero.viz} <b>{SHOP.visibilityM}</b></span><i className="dot" />
               <span>{t.hero.agencyLabel} <b>{SHOP.agency}</b></span><i className="dot" />
               <span>{t.hero.from} <b>${cheapest}</b></span>
+              {REVIEWS_RATING !== null && ratingHref && (
+                <><i className="dot" />
+                <a className="strip__rating" href={ratingHref}
+                   aria-label={t.reviews.badge.replace("{rating}", ratingText(locale))}
+                   {...(ratingHref === REVIEWS_URL ? { target: "_blank", rel: "noopener" } : {})}>
+                  Google <b>{ratingText(locale)} ★</b>
+                </a></>
+              )}
             </p>
           </div>
         </section>
@@ -432,6 +446,11 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
             “{t.quote.text}”<cite>{t.quote.cite}</cite>
           </blockquote>
         </section>
+
+        {/* --------------------------------------------------------- reviews */}
+        {/* Just ahead of the booking form: the last thing a diver reads
+            before deciding is other divers. Absent while there are none. */}
+        <Reviews t={t.reviews} locale={locale} reviews={reviews} />
 
         {/* ------------------------------------------------------------ book */}
         <section className="bay shell" id="book">

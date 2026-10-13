@@ -2,6 +2,7 @@ import { getDictionary, pathFor, LIVE_LOCALES } from "@/lib/i18n";
 import { PRODUCTS, SHOP, FROM_PRICE, FROM_DIVE_PRICE } from "@/content/products";
 import { CENOTES, GUIDE_PUBLISHED, diveDepth, fromTulum } from "@/content/cenotes";
 import { homeDescription } from "@/lib/seo";
+import { REVIEWS_RATING, REVIEWS_COUNT, REVIEWS_AS_OF, REVIEWS_URL } from "@/content/reviews";
 
 /**
  * /llms.txt (llmstxt.org): the site in one page of Markdown for answer
@@ -35,6 +36,12 @@ export async function GET() {
   out(`Contact: phone ${SHOP.phoneDisplay} · ${SHOP.email} · Instagram ${SHOP.instagram}. `
     + `Meeting point: ${SHOP.meetingPoint}, Tulum.`);
   out();
+  /* The profile's own figures, dated, since they move. */
+  if (REVIEWS_RATING !== null && REVIEWS_COUNT !== null && REVIEWS_AS_OF) {
+    out(`Rated ${REVIEWS_RATING.toFixed(1)} out of 5 on Google from ${REVIEWS_COUNT} reviews (as of ${REVIEWS_AS_OF})`
+      + `${REVIEWS_URL ? `: ${REVIEWS_URL}` : ""}.`);
+    out();
+  }
   out("Dives, courses and tours:");
   out();
   for (const p of PRODUCTS) {
