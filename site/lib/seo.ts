@@ -172,8 +172,12 @@ function list(locale: Locale, items: string[], type: "conjunction" | "disjunctio
   return new Intl.ListFormat(locale, { type }).format(items);
 }
 
-/** "Equipment" → "equipment" inside a sentence; "PADI licence" stays as it is. */
-const lower = (s: string) => (/^.[a-zà-ÿ]/.test(s) ? s[0].toLowerCase() + s.slice(1) : s);
+/** "08:00" as each language writes a time: 08:00, 8:00, 8h00 — the way the FAQ already does. */
+function clock(locale: Locale, hhmm: string) {
+  if (locale === "fr") return hhmm.replace(/^0/, "").replace(":", "h");
+  if (locale === "es") return hhmm.replace(/^0/, "");
+  return hhmm;
+}
 
 /** A trip with no cenote in it — the bull sharks, at sea off Playa del Carmen. */
 const atSea = (p: Product) => p.locations.every((l) => l === "playa-del-carmen");
@@ -188,10 +192,15 @@ export function includesFor(p: Product) {
   return [...base, ...(p.extraIncludes ?? [])];
 }
 
-/** "1 dive: $140, 2 dives: $200", or "$600" for a product with one price. */
+/**
+ * "1 dive: $140, 2 dives: $200", or "$600" for a product with one price.
+ * Built here, after the French spacing pass, so French gets its narrow space
+ * before the colon from this function.
+ */
 export function priceLine(t: Dictionary, locale: Locale, p: Product) {
   if (p.options.length === 1) return money(locale, p.options[0].price);
-  return p.options.map((o) => `${o.dives} ${o.dives === 1 ? t.products.dive : t.products.dives}: ${money(locale, o.price)}`)
+  const colon = locale === "fr" ? "\u202f:" : ":";
+  return p.options.map((o) => `${o.dives} ${o.dives === 1 ? t.products.dive : t.products.dives}${colon} ${money(locale, o.price)}`)
     .join(", ");
 }
 
@@ -204,15 +213,16 @@ export function productQa(t: Dictionary, locale: Locale, p: Product) {
   const g = t.product;
   const copy = g.items[p.slug];
   const pickup = PICKUPS.find((x) => x.slug === "tulum-town");
-  const times = list(locale, SCHEDULES.flatMap((s) => (s.start ? [s.start] : [])), "disjunction");
+  const times = list(locale, SCHEDULES.flatMap((s) => (s.start ? [clock(locale, s.start)] : [])), "disjunction");
   return [
     ...copy.faq,
     { q: g.qPrice.replace("{the}", copy.the),
       a: g.aPrice.replace("{prices}", priceLine(t, locale, p))
-        .replace("{included}", list(locale, includesFor(p).map((k) => lower(t.included.items[k].name))))
+        /* "snacks, water" is two things to the list, so "a, b and c" stays right however many there are. */
+        .replace("{included}", list(locale, includesFor(p).flatMap((k) => g.includedInline[k].split(", "))))
         .replace("{pickup}", money(locale, pickup?.price ?? 0)) },
-    { q: g.qMeet,
-      a: (atSea(p) ? g.aMeetSea : g.aMeet).replace("{place}", SHOP.meetingPoint).replace("{times}", times) },
+    /* The same departures for every product: the booking form offers them all. */
+    { q: g.qMeet, a: g.aMeet.replace("{place}", SHOP.meetingPoint).replace("{times}", times) },
     { q: g.qBook, a: g.aBook.replace("{intro}", t.book.intro) },
   ];
 }

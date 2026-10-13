@@ -189,7 +189,9 @@ export interface Dictionary {
     ask: string; whatsappText: string; more: string; back: string;
     priceTag: string; includedTag: string; whereTag: string; snorkelWhere: string;
     faqTag: string; faqH2: string; otherTag: string;
-    qPrice: string; aPrice: string; qMeet: string; aMeet: string; aMeetSea: string;
+    qPrice: string; aPrice: string; qMeet: string; aMeet: string;
+    /** What a price covers, as a sentence lists it ("the cenote entrance fees"), keyed like included.items. */
+    includedInline: Record<string, string>;
     qBook: string; aBook: string;
     items: Record<string, ProductPageCopy>;
   };

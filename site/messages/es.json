@@ -395,7 +395,6 @@
     "aPrice": "{prices} por persona, en dólares estadounidenses. El precio incluye {included}. Lo único que se cobra aparte es pasar por ti al hotel en el pueblo de Tulum: +{pickup} por toda la reservación.",
     "qMeet": "¿Dónde nos vemos y a qué hora?",
     "aMeet": "En {place}, en Tulum, sin costo extra. Salidas a las {times}, y puedes proponer otro horario al reservar: lo revisamos antes de confirmar.",
-    "aMeetSea": "En {place}, en Tulum, sin costo extra; la hora de salida la acordamos contigo al confirmar la reservación.",
     "qBook": "¿Cómo reservo?",
     "aBook": "En línea, desde esta página. {intro}",
     "items": {
@@ -403,9 +402,9 @@
         "the": "el Discover Scuba",
         "h1": "Bautismo de buceo en Tulum: Discover Scuba",
         "title": "Bautismo de buceo en Tulum, sin certificación | Kay Diving",
-        "meta": "Bucea por primera vez en Casa Cenote, Tulum: un cenote a cielo abierto de máximo 7 m, con un guía PADI a tu lado. Sin experiencia previa. Desde US$140.",
+        "meta": "Bucea por primera vez en Casa Cenote, Tulum: un cenote a cielo abierto de máximo 7 m, con un instructor PADI a tu lado. Sin experiencia previa. Desde US$140.",
         "body": [
-          "Discover Scuba es el bautismo de buceo de PADI, pensado para quien nunca ha respirado bajo el agua. Tu guía te enseña lo básico del buceo y después te lleva a Casa Cenote: un cenote a cielo abierto rodeado de manglares, con peces y tortugas, agua dulce cristalina y luz natural hasta el fondo, a no más de siete metros.",
+          "Discover Scuba es el bautismo de buceo de PADI, pensado para quien nunca ha respirado bajo el agua. Tu guía te enseña lo básico del buceo y después te lleva a Casa Cenote: un cenote a cielo abierto rodeado de manglares, donde se mezclan el agua dulce y la salada, con peces, tortugas y luz natural hasta el fondo, a no más de siete metros.",
           "Una inmersión, o dos si quieres más tiempo bajo el agua; la segunda solo se hace si las condiciones del mar son buenas ese día. No hay examen ni certificación al final: solo una primera mirada al mundo submarino, con un guía a tu lado, y una muy buena mañana. Si quieres seguir, el siguiente paso es nuestro curso Open Water."
         ],
         "faq": [
@@ -429,7 +428,7 @@
         "title": "Arrecife y cenote en Tulum: dos inmersiones | Kay Diving",
         "meta": "Dos inmersiones en una mañana cerca de Tulum: el Arrecife Mesoamericano frente a Tankah, con tortugas, y luego el agua dulce de Casa Cenote. Open Water. US$200.",
         "body": [
-          "Las dos mitades de lo que hace que valga la pena bucear esta costa, en una sola mañana. Primero el Arrecife Mesoamericano frente a Tankah, al norte de Tulum: una inmersión poco profunda, de unos nueve metros, con tortugas y peces de arrecife, en un agua algo más cálida que la de los cenotes. Después Casa Cenote, un cenote a cielo abierto de agua dulce y cristalina, rodeado de manglares.",
+          "Las dos mitades de lo que hace que valga la pena bucear esta costa, en una sola mañana. Primero el Arrecife Mesoamericano frente a Tankah, al norte de Tulum: una inmersión poco profunda, de unos nueve metros, con tortugas y peces de arrecife, en un agua algo más cálida que la de los cenotes. Después Casa Cenote, un cenote a cielo abierto rodeado de manglares, donde se mezclan el agua dulce y la salada.",
           "Agua salada y agua dulce, tortugas y raíces, con tu certificación Open Water. El equipo, la entrada al cenote, los snacks y el agua, y el transporte entre los dos sitios están incluidos."
         ],
         "faq": [
@@ -447,15 +446,15 @@
         "the": "el buceo en cenotes",
         "h1": "Buceo en cenotes en Tulum",
         "title": "Buceo en cenotes en Tulum: Dos Ojos y El Pit | Kay Diving",
-        "meta": "Buceo guiado en los cenotes de Tulum: Dos Ojos, Car Wash, Angelita, El Pit y más, elegidos contigo según tu certificación. 2 inmersiones US$200, 3 por US$250.",
+        "meta": "Buceo guiado en los cenotes de Tulum: Dos Ojos, Car Wash, Angelita, El Pit y más, elegidos contigo según tu nivel. 2 inmersiones por US$200, 3 por US$250.",
         "body": [
           "Algunas de las cavernas inundadas más bonitas del mundo están alrededor de Tulum. Los cenotes los eliges con nosotros, y cuáles puedes bucear depende de tu certificación. Con Open Water: cenotes como Dos Ojos, Car Wash, Tak Be Ha y Nicte-Ha, en su mayoría de seis a dieciséis metros. Con Advanced Open Water o la especialidad Deep: los dos cenotes profundos, Angelita y El Pit, a más de treinta metros.",
-          "El buceo en caverna se queda dentro de la zona de luz natural, siempre al alcance de la entrada: no es buceo en cueva, y tu certificación Open Water lo cubre. Con dos inmersiones eliges los dos cenotes; con tres, las dos primeras son en Dos Ojos y la tercera en otro cenote que tú eliges."
+          "El buceo en caverna se queda dentro de la zona de luz natural, siempre cerca de la entrada: no es buceo en cueva, y tu certificación Open Water lo cubre. Con dos inmersiones eliges los dos cenotes; con tres, las dos primeras son en Dos Ojos y la tercera en otro cenote que tú elijas."
         ],
         "faq": [
           {
             "q": "¿Qué cenote bucear primero?",
-            "a": "Dos Ojos es la clásica primera caverna: de nueve a diez metros, agua cristalina y luz natural todo el recorrido. Casa Cenote, a cielo abierto y de siete metros como máximo, es todavía más tranquilo."
+            "a": "Dos Ojos es la clásica primera caverna: de nueve a diez metros, agua cristalina y luz natural en todo el recorrido. Casa Cenote, a cielo abierto y de siete metros como máximo, es todavía más tranquilo."
           },
           {
             "q": "¿Puedo bucear Angelita o El Pit con Open Water?",
@@ -471,10 +470,10 @@
         "the": "el curso Open Water",
         "h1": "Curso PADI Open Water en Tulum",
         "title": "Curso PADI Open Water en Tulum, cenote y mar | Kay Diving",
-        "meta": "Certifícate en Tulum: el curso PADI Open Water en cinco inmersiones, primero en Casa Cenote y luego en el arrecife de Tankah, a 18 m. US$600 con material.",
+        "meta": "Certifícate en Tulum: el curso PADI Open Water en cinco inmersiones, primero en Casa Cenote y luego en el arrecife de Tankah, hasta 18 m. US$600 con material.",
         "body": [
-          "El curso PADI Open Water es la certificación que te permite bucear en cualquier parte del mundo, hasta dieciocho metros. No necesitas experiencia previa. Lo damos en cinco inmersiones: primero en Casa Cenote, un cenote a cielo abierto de siete metros con agua tranquila y cristalina, y después en el mar, en el arrecife de Tankah, donde el curso termina a dieciocho metros.",
-          "El material de estudio y tu certificación PADI están incluidos, junto con el equipo, las entradas a los cenotes, los snacks y el agua. Ya certificado, la mayoría de los cenotes de Tulum quedan a tu alcance: van de seis a dieciséis metros."
+          "El curso PADI Open Water es la certificación que te permite bucear en cualquier parte del mundo, hasta dieciocho metros. No necesitas experiencia previa. Lo damos en cinco inmersiones: primero en Casa Cenote, un cenote a cielo abierto de siete metros como máximo, ideal para principiantes, y después en el mar, en el arrecife de Tankah, donde el curso termina a dieciocho metros.",
+          "El material de estudio y tu certificación PADI están incluidos, junto con el equipo, las entradas a los cenotes, los snacks y el agua. Ya certificado, tienes a tu alcance la mayoría de los cenotes de Tulum: van de seis a dieciséis metros."
         ],
         "faq": [
           {
@@ -487,7 +486,7 @@
           },
           {
             "q": "¿Qué puedo bucear ya certificado?",
-            "a": "Cualquier inmersión de hasta dieciocho metros, en cualquier parte del mundo. Aquí, eso es el arrecife y la mayoría de los cenotes, entre ellos Dos Ojos y Car Wash; Angelita y El Pit piden Advanced."
+            "a": "Cualquier inmersión de hasta dieciocho metros, en cualquier parte del mundo. Aquí, eso incluye el arrecife y la mayoría de los cenotes, entre ellos Dos Ojos y Car Wash; Angelita y El Pit piden Advanced."
           }
         ]
       },
@@ -495,9 +494,9 @@
         "the": "el curso Advanced",
         "h1": "Curso PADI Advanced Open Water en Tulum",
         "title": "Curso PADI Advanced Open Water en Tulum, a 30 m | Kay Diving",
-        "meta": "El siguiente paso después del Open Water: el curso PADI Advanced en Tulum, cinco inmersiones de especialidad a 30 m en Angelita o El Pit. US$550 con material.",
+        "meta": "El siguiente paso tras el Open Water: el curso PADI Advanced en Tulum, cinco inmersiones de especialidad hasta 30 m en Angelita o El Pit. US$550 con material.",
         "body": [
-          "El siguiente paso después del Open Water: cinco inmersiones de especialidad que te llevan a treinta metros, en el Cenote Angelita o el Cenote El Pit, los dos cenotes profundos cerca de Tulum que una certificación Open Water por sí sola no abre.",
+          "El siguiente paso después del Open Water: cinco inmersiones de especialidad que te llevan a treinta metros, en el Cenote Angelita o el Cenote El Pit, los dos cenotes profundos cerca de Tulum a los que una certificación Open Water por sí sola no da acceso.",
           "En Angelita, una nube de ácido sulfhídrico flota en el agua, con ramas muertas que la atraviesan; en El Pit, la luz baja por todo el tiro. El material de estudio está incluido, junto con el equipo, la entrada al cenote, los snacks y el agua."
         ],
         "faq": [
@@ -506,19 +505,19 @@
             "a": "Cualquier buzo con Open Water o una certificación equivalente."
           },
           {
-            "q": "¿Qué tan profundo llega el curso Advanced?",
+            "q": "¿Hasta qué profundidad llega el curso Advanced?",
             "a": "Hasta treinta metros, en Angelita o El Pit: la profundidad para la que te certifica Advanced Open Water."
           },
           {
-            "q": "¿Qué te abre el Advanced después?",
-            "a": "Los cenotes profundos en nuestros días de cenotes, y el buceo con tiburón toro frente a Playa del Carmen, que pide Advanced Open Water."
+            "q": "¿A qué te da acceso el Advanced después?",
+            "a": "A los cenotes profundos en nuestros días de cenotes y al buceo con tiburón toro frente a Playa del Carmen, que pide Advanced Open Water."
           }
         ]
       },
       "snorkel": {
         "the": "el tour de snorkel",
-        "h1": "Tour de snorkel en cenotes en Tulum",
-        "title": "Tour de snorkel en cenotes en Tulum, 3 cenotes | Kay Diving",
+        "h1": "Tour de snorkel en cenotes de Tulum",
+        "title": "Tour de snorkel en cenotes de Tulum, 3 cenotes | Kay Diving",
         "meta": "Snorkel en tres cenotes cerca de Tulum en medio día: sin experiencia, con visor, snorkel y entradas incluidos, y al final una de las mejores taquerías. US$125.",
         "body": [
           "Para quien quiere un poco de aventura y mucha calma: tres cenotes distintos en medio día, sin experiencia y sin tanque. Te damos visor y snorkel, y las entradas a los cenotes, los snacks y el agua están incluidos.",
@@ -543,7 +542,7 @@
         "the": "el buceo con tiburón toro",
         "h1": "Buceo con tiburón toro en Playa del Carmen",
         "title": "Buceo con tiburón toro en Playa del Carmen | Kay Diving",
-        "meta": "De noviembre a marzo, los tiburones toro llegan frente a Playa del Carmen. Dos inmersiones desde barco, saliendo de Tulum. Advanced Open Water. US$250.",
+        "meta": "De noviembre a marzo, los tiburones toro llegan frente a Playa del Carmen, a 45 min de Tulum. Dos inmersiones desde barco. Advanced Open Water. US$250.",
         "body": [
           "Cada invierno los tiburones toro llegan a la costa frente a Playa del Carmen, y manejamos los cuarenta y cinco minutos desde Tulum para ir a verlos. La temporada va de noviembre a marzo.",
           "Dos inmersiones desde el barco: la primera con los tiburones, la segunda en un arrecife poco profundo, de entre ocho y veinte metros. Pide Advanced Open Water o equivalente, sin excepciones."
@@ -563,6 +562,14 @@
           }
         ]
       }
+    },
+    "includedInline": {
+      "equipment": "el equipo",
+      "entrance": "las entradas a los cenotes",
+      "snacks": "los snacks, el agua",
+      "site-transport": "el transporte a los sitios",
+      "materials": "el material de estudio",
+      "padi-licence": "tu certificación PADI"
     }
   },
   "book": {
