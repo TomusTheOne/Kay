@@ -7,7 +7,7 @@
 import data from "./cenotes.json";
 import { SHOP, type Product } from "./products";
 
-/** Open to the sky, a cavern under a roof of rock, or past the 20 m line. */
+/** Open to the sky, a cavern under a roof of rock, or past what an Open Water card allows (18 m). */
 export type CenoteType = "open" | "cavern" | "deep";
 /** The card a diver shows on the day: none, Open Water, or Advanced/Deep. */
 export type CenoteLevel = "none" | "open-water" | "advanced";

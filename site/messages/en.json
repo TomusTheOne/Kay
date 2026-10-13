@@ -358,6 +358,17 @@
     "text": "Your safety comes first — and once it is taken care of, all that is left is to enjoy every minute underwater.",
     "cite": "Kay Diving · Tulum"
   },
+  "reviews": {
+    "tag": "Google reviews",
+    "h2": "<span class=\"ital grad\">{rating}</span> out of 5<br>on Google.",
+    "h2Plain": "In their<br>own words.",
+    "intro": "Word for word, in the language each was written in: a few of the {count} reviews on our Google profile.",
+    "introPlain": "Word for word, in the language each was written in, from our Google profile.",
+    "all": "Read every review on Google",
+    "stars": "{n} out of 5 stars",
+    "badge": "Rated {rating} out of 5 on Google",
+    "cenoteH2": "What divers say about {the}"
+  },
   "book": {
     "tag": "Reservations",
     "h2": "Book your<br>day in the water.",
@@ -391,7 +402,7 @@
     "rDeposit": "Deposit now",
     "halfDayLabel": "Half day",
     "fine": "Equipment, cenote entrance, transport to the sites and snacks included. Prices per person in USD; pickup is per booking. The deposit is charged in Mexican pesos and the balance is settled on the day. If you pay the balance in dollars, the exchange rate of the day applies.",
-    "certNote": "On the day, show your guide your certification — the card or a copy on your phone. Without it we cannot take you diving. To 20 m: Open Water or equivalent. Deeper: at least Advanced Open Water or equivalent.",
+    "certNote": "On the day, show your guide your certification — the card or a copy on your phone. Without it we cannot take you diving. To 18 m: Open Water or equivalent. Deeper: at least Advanced Open Water or equivalent.",
     "mpDescription": "Deposit of {percent}% — the balance is settled on the day.",
     "submit": "Reserve with a deposit",
     "submitting": "Opening checkout…",
@@ -423,7 +434,7 @@
     "items": [
       {
         "q": "Do I need to be certified to dive here?",
-        "a": "Not to start. Discover Scuba takes people who have never breathed underwater, and the snorkel tour needs nothing at all. With your own card, Open Water or an equivalent covers every dive to 18 metres: the reef and the cenotes, which mostly stay between six and sixteen metres. The two deep cenotes, Angelita and El Pit, need at least Advanced Open Water or an equivalent — a Deep speciality counts — and so does the bull shark dive. Bring the card or a digital copy and show it to your guide on the day: without it, we cannot take you on the dive."
+        "a": "Not to start. Discover Scuba takes people who have never breathed underwater, and the snorkel tour needs nothing at all. With your own card, Open Water or an equivalent covers every dive to 18 metres: the reef and the cenotes, which mostly stay between six and sixteen metres. The two deep cenotes, Angelita and El Pit, need at least Advanced Open Water or an equivalent — a Deep speciality counts — and so does the bull shark dive; with Open Water you can still reach them on our Advanced course, to 30 metres. Bring the card or a digital copy and show it to your guide on the day: without it, we cannot take you on the dive."
       },
       {
         "q": "How deep do the dives go?",
@@ -431,11 +442,11 @@
       },
       {
         "q": "Is there good reef diving in Tulum?",
-        "a": "Yes. Tulum lies on the Mesoamerican Reef, the largest barrier reef in the Western Hemisphere. We dive it off Tankah, just north of town: a shallow reef, around nine metres, with turtles and reef fish, in water a little warmer than the cenotes. Our Reef & Cenote day pairs it with Casa Cenote in a single morning, and the Open Water course finishes in the sea at eighteen metres. Reef conditions are best in spring and early summer; in winter, the bull sharks off Playa del Carmen, 45 minutes away, are the coast's other big dive."
+        "a": "Yes. Tulum lies along the Mesoamerican Reef, the largest barrier reef in the Western Hemisphere. We dive it off Tankah, north of town: our reef dive stays shallow, around nine metres, with turtles and reef fish, in water a little warmer than the cenotes. Our Reef & Cenote day pairs it with Casa Cenote in a single morning, and the Open Water course finishes in the sea at eighteen metres. Reef conditions are best in spring and early summer; in winter, the coast's other big dive is the bull sharks off Playa del Carmen, 45 minutes away."
       },
       {
         "q": "It's my first time diving a cenote. Which ones are best to start with?",
-        "a": "Start open and shallow, then go under the roof. Casa Cenote is open to the sky, seven metres at most, ringed by mangroves, with fish and turtles: the gentlest first dive there is, and without a certification you can try it with Discover Scuba. Dos Ojos is the classic first cavern: crystal-clear water with more than 30 metres of visibility, nine to ten metres deep, always within the daylight zone and with a direct way up to the surface. Nicte-Ha, shallow and full of water lilies, and Car Wash, calm and easy to reach, make good next steps. Leave Angelita and El Pit for later: they go past 30 metres and need Advanced. And tell us in the questionnaire before the dive what you have done and what makes you uneasy — we build the day around it."
+        "a": "Start open and shallow, then go under the roof. Casa Cenote is open to the sky, seven metres at most, ringed by mangroves, with fish and turtles: the gentlest first dive there is, and without a certification you can try it with Discover Scuba. Dos Ojos is the classic first cavern: crystal-clear water with more than 30 metres of visibility, nine to ten metres deep, always within the daylight zone and with a direct route out to the surface. Nicte-Ha, shallow and dotted with water lilies, and Car Wash, easy to reach and down to sixteen metres, make good next steps. Leave Angelita and El Pit for later: they go past 30 metres and need Advanced Open Water or a Deep speciality — or come on our Advanced course, which takes Open Water divers there to 30 metres. And tell us in the questionnaire before the dive what you have done and what makes you uneasy — we build the day around it."
       },
       {
         "q": "What is actually included in the price?",
@@ -494,7 +505,7 @@
       "tag": "Payment received",
       "h2": "You are on the boat.",
       "p": "Your deposit is in and the date is held. A guide will message you on WhatsApp within a few hours with the meeting point, the time, and the few questions we ask before every dive. The balance is settled on the day. A short form for your equipment sizes is in your confirmation email.",
-      "note": "Bring your dive certification on the day — the card or a digital copy — and show it to your guide. To 20 metres you need Open Water or an equivalent; deeper, at least Advanced Open Water or an equivalent. Without it we cannot take you diving. Discover Scuba, the Open Water course and the snorkel tour need none.",
+      "note": "Bring your dive certification on the day — the card or a digital copy — and show it to your guide. To 18 metres you need Open Water or an equivalent; deeper, at least Advanced Open Water or an equivalent. Without it we cannot take you diving. Discover Scuba, the Open Water course and the snorkel tour need none.",
       "cta": "Back to the site"
     },
     "pending": {
@@ -568,8 +579,8 @@
       "balanceLabel": "Balance on the day",
       "balanceNote": "Settled in cash or by card when you arrive. If you pay in dollars, the exchange rate of that day applies.",
       "certTag": "Your certification",
-      "certOpenWater": "Bring your Open Water certification, or an equivalent, and show it to your guide on the day — the card or a digital copy on your phone. It is required for every dive to 20 metres or shallower.",
-      "certOpenWaterPlus": "Bring your certification and show it to your guide on the day — the card or a digital copy on your phone. Dives to 20 metres need Open Water or an equivalent; Angelita and El Pit, deeper than 20 metres, need at least Advanced Open Water or an equivalent, such as the Deep speciality.",
+      "certOpenWater": "Bring your Open Water certification, or an equivalent, and show it to your guide on the day — the card or a digital copy on your phone. It is required for every dive to 18 metres or shallower.",
+      "certOpenWaterPlus": "Bring your certification and show it to your guide on the day — the card or a digital copy on your phone. Dives to 18 metres need Open Water or an equivalent; Angelita and El Pit, deeper than 18 metres, need at least Advanced Open Water or an equivalent, such as the Deep speciality.",
       "certAdvanced": "Bring your certification and show it to your guide on the day — the card or a digital copy on your phone. This dive needs at least Advanced Open Water or an equivalent, such as the Deep speciality.",
       "certNoShow": "Without the certification this dive requires, on paper or digital, we cannot take you on it.",
       "gearTag": "Your equipment sizes",

@@ -851,9 +851,9 @@ $mailRow = [
 $mailFor = static fn(string $product, int $dives, string $locale = 'en'): string =>
     kay_booking_emails(['product' => $product, 'dives' => $dives, 'locale' => $locale] + $mailRow)['diver']['html'];
 check('a cenote day states both rules',
-      str_contains($mailFor('cenote-diving', 2), 'Angelita and El Pit, deeper than 20 metres, need at least Advanced Open Water'), true);
+      str_contains($mailFor('cenote-diving', 2), 'Angelita and El Pit, deeper than 18 metres, need at least Advanced Open Water'), true);
 check('the reef asks for Open Water',
-      str_contains($mailFor('reef-cenote', 2), 'required for every dive to 20 metres or shallower'), true);
+      str_contains($mailFor('reef-cenote', 2), 'required for every dive to 18 metres or shallower'), true);
 check('the sharks ask for Advanced',
       str_contains($mailFor('bull-sharks', 2), 'needs at least Advanced Open Water'), true);
 check('no card, no dive — said plainly',
@@ -867,7 +867,7 @@ $mailSites = static fn(string $sites): string =>
     kay_booking_emails(['product' => 'cenote-diving', 'dives' => 2, 'locale' => 'en', 'sites' => $sites] + $mailRow)['diver']['html'];
 check('the cenotes are in the confirmation',  str_contains($mailSites('car-wash,dreamgate'), 'Car Wash · Dreamgate'), true);
 check('shallow cenotes ask for Open Water only',
-      str_contains($mailSites('car-wash,dreamgate'), 'required for every dive to 20 metres or shallower'), true);
+      str_contains($mailSites('car-wash,dreamgate'), 'required for every dive to 18 metres or shallower'), true);
 check('and do not mention Angelita',          str_contains($mailSites('car-wash,dreamgate'), 'Angelita and El Pit'), false);
 check('Angelita asks for Advanced',           str_contains($mailSites('car-wash,angelita'), 'needs at least Advanced Open Water'), true);
 check('the shop sees the cenotes too',

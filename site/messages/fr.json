@@ -358,6 +358,17 @@
     "text": "Votre sécurité passe avant tout — et une fois qu'elle est assurée, il ne reste qu'à profiter de chaque minute sous l'eau.",
     "cite": "Kay Diving · Tulum"
   },
+  "reviews": {
+    "tag": "Avis Google",
+    "h2": "<span class=\"ital grad\">{rating}</span> sur 5<br>dans les avis Google.",
+    "h2Plain": "Avec leurs<br>propres mots.",
+    "intro": "Mot pour mot, dans la langue où ils ont été écrits : quelques-uns des {count} avis laissés sur notre fiche Google.",
+    "introPlain": "Mot pour mot, dans la langue où ils ont été écrits, depuis notre fiche Google.",
+    "all": "Lire tous les avis sur Google",
+    "stars": "{n} étoiles sur 5",
+    "badge": "Note Google : {rating} sur 5",
+    "cenoteH2": "Ce que les plongeurs disent {of}"
+  },
   "book": {
     "tag": "Réservations",
     "h2": "Réservez votre<br>journée dans l'eau.",
@@ -391,7 +402,7 @@
     "rDeposit": "Acompte",
     "halfDayLabel": "Demi-journée",
     "fine": "Équipement, entrée des cenotes, transport sur les sites et collations inclus. Tarifs par personne en USD ; la prise en charge est par réservation. L’acompte est débité en pesos mexicains et le solde se règle sur place le jour même. Si vous réglez le solde en dollars, c'est le taux de change du jour qui s'applique.",
-    "certNote": "Le jour J, montrez votre certification à votre guide — la carte ou une copie sur votre téléphone. Sans elle, nous ne pouvons pas vous emmener plonger. Jusqu'à 20 m : Open Water ou équivalent. Au-delà : au moins Advanced Open Water ou équivalent.",
+    "certNote": "Le jour J, montrez votre certification à votre guide — la carte ou une copie sur votre téléphone. Sans elle, nous ne pouvons pas vous emmener plonger. Jusqu'à 18 m : Open Water ou équivalent. Au-delà : au moins Advanced Open Water ou équivalent.",
     "mpDescription": "Acompte de {percent} % — le solde se règle sur place le jour même.",
     "submit": "Réserver avec un acompte",
     "submitting": "Ouverture du paiement…",
@@ -423,7 +434,7 @@
     "items": [
       {
         "q": "Faut-il être certifié pour plonger ici ?",
-        "a": "Pas pour commencer. Discover Scuba accueille des gens qui n'ont jamais respiré sous l'eau, et la sortie snorkeling ne demande rien du tout. Avec votre propre carte, l'Open Water ou un équivalent couvre toutes les plongées jusqu'à 18 mètres : le récif et les cenotes, qui restent pour la plupart entre six et seize mètres. Les deux cenotes profonds, Angelita et El Pit, demandent au moins un Advanced Open Water ou un équivalent — la spécialité Deep compte —, tout comme la plongée avec les requins bouledogues. Apportez la carte ou une copie numérique et montrez-la à votre guide le jour J : sans elle, nous ne pouvons pas vous emmener plonger."
+        "a": "Pas pour commencer. Discover Scuba accueille des gens qui n'ont jamais respiré sous l'eau, et la sortie snorkeling ne demande rien du tout. Si vous êtes déjà breveté, l'Open Water ou un équivalent couvre toutes les plongées jusqu'à 18 mètres : le récif et les cenotes, qui restent pour la plupart entre six et seize mètres. Les deux cenotes profonds, Angelita et El Pit, demandent au moins un Advanced Open Water ou un équivalent — la spécialité Deep compte —, tout comme la plongée avec les requins bouledogues ; avec l'Open Water, vous pouvez aussi les plonger pendant notre formation Advanced, jusqu'à 30 mètres. Apportez votre carte de niveau ou une copie numérique et montrez-la à votre guide le jour J : sans elle, nous ne pouvons pas vous emmener plonger."
       },
       {
         "q": "Jusqu'à quelle profondeur descendent les plongées ?",
@@ -431,11 +442,11 @@
       },
       {
         "q": "Peut-on faire de belles plongées sur le récif à Tulum ?",
-        "a": "Oui. Tulum borde le récif mésoaméricain, la plus grande barrière de corail de l'hémisphère occidental. Nous le plongeons au large de Tankah, juste au nord de la ville : un récif peu profond, autour de neuf mètres, avec des tortues et des poissons de récif, dans une eau un peu plus chaude que celle des cenotes. Notre journée Récif & Cenote l'associe à Casa Cenote en une seule matinée, et la formation Open Water se termine en mer à dix-huit mètres. Les meilleures conditions sur le récif vont du printemps au début de l'été ; en hiver, les requins bouledogues au large de Playa del Carmen, à 45 minutes, sont l'autre grande plongée de la côte."
+        "a": "Oui. Tulum borde le récif mésoaméricain, la plus grande barrière de corail de l'hémisphère occidental. Nous le plongeons au large de Tankah, au nord de la ville : notre plongée récif reste peu profonde, autour de neuf mètres, avec des tortues et des poissons de récif, dans une eau un peu plus chaude que celle des cenotes. Notre journée Récif & Cenote l'associe à Casa Cenote en une seule matinée, et la formation Open Water se termine en mer à dix-huit mètres. Les meilleures conditions sur le récif vont du printemps au début de l'été ; en hiver, l'autre grande plongée de la côte est celle des requins bouledogues, au large de Playa del Carmen, à 45 minutes."
       },
       {
-        "q": "C'est ma première plongée en cenote. Par lesquels commencer ?",
-        "a": "Commencez à ciel ouvert et peu profond, puis passez sous la voûte. Casa Cenote est ouvert sur le ciel, 7 mètres au plus, entouré de mangroves, avec des poissons et des tortues : c'est la première plongée la plus douce qui soit, et sans niveau vous pouvez l'essayer avec Discover Scuba. Dos Ojos est la première caverne classique : une eau cristalline avec plus de 30 mètres de visibilité, neuf à dix mètres de fond, toujours dans la zone de lumière naturelle et avec une sortie directe vers la surface. Nicte-Ha, peu profond et couvert de nénuphars, et Car Wash, calme et facile d'accès, sont de bonnes étapes suivantes. Gardez Angelita et El Pit pour plus tard : ils dépassent 30 mètres et demandent l'Advanced. Et dites-nous dans le questionnaire avant la plongée ce que vous avez déjà fait et ce qui vous inquiète : nous construisons la journée autour de ça."
+        "q": "C'est ma première plongée en cenote. Par quels cenotes commencer ?",
+        "a": "Commencez à ciel ouvert et en eau peu profonde, puis passez sous la voûte. Casa Cenote est ouvert sur le ciel, profond de sept mètres au plus, entouré de mangroves, avec des poissons et des tortues : difficile d'imaginer une première plongée plus douce, et, sans niveau, vous pouvez l'essayer avec Discover Scuba. Dos Ojos est le grand classique pour une première caverne : une eau cristalline avec plus de 30 mètres de visibilité, neuf à dix mètres de fond, toujours dans la zone de lumière naturelle et avec une sortie directe vers la surface. Nicte-Ha, peu profond et parsemé de nénuphars, et Car Wash, facile d'accès et jusqu'à seize mètres, sont de bonnes étapes pour la suite. Gardez Angelita et El Pit pour plus tard : ils dépassent 30 mètres et demandent l'Advanced Open Water ou la spécialité Deep — ou venez-y avec l'Open Water pendant notre formation Advanced, jusqu'à 30 mètres. Et dites-nous dans le questionnaire que nous vous envoyons avant la plongée ce que vous avez déjà fait et ce qui vous inquiète : nous construisons la journée autour de vos réponses."
       },
       {
         "q": "Qu'est-ce que le tarif comprend vraiment ?",
@@ -494,7 +505,7 @@
       "tag": "Paiement reçu",
       "h2": "C'est réservé.",
       "p": "Votre acompte est passé et la date est bloquée. Un guide vous écrit sur WhatsApp dans les heures qui suivent avec le point de rendez-vous, l'heure et les quelques questions que l'on pose avant chaque plongée. Le solde se règle sur place. Un court formulaire pour vos tailles d'équipement vous attend dans l'e-mail de confirmation.",
-      "note": "Apportez votre certification de plongée le jour J — la carte ou une copie numérique — et montrez-la à votre guide. Jusqu'à 20 mètres, il faut l'Open Water ou un équivalent ; au-delà, au moins l'Advanced Open Water ou un équivalent. Sans elle, nous ne pouvons pas vous emmener plonger. Discover Scuba, la formation Open Water et la sortie snorkeling n'en demandent aucune.",
+      "note": "Apportez votre certification de plongée le jour J — la carte ou une copie numérique — et montrez-la à votre guide. Jusqu'à 18 mètres, il faut l'Open Water ou un équivalent ; au-delà, au moins l'Advanced Open Water ou un équivalent. Sans elle, nous ne pouvons pas vous emmener plonger. Discover Scuba, la formation Open Water et la sortie snorkeling n'en demandent aucune.",
       "cta": "Retour au site"
     },
     "pending": {
@@ -568,8 +579,8 @@
       "balanceLabel": "Solde sur place",
       "balanceNote": "À régler en espèces ou par carte à votre arrivée. Si vous payez en dollars, c'est le taux de change du jour qui s'applique.",
       "certTag": "Votre certification",
-      "certOpenWater": "Apportez votre certification Open Water, ou une équivalente, et montrez-la à votre guide le jour de la plongée — la carte ou une copie numérique sur votre téléphone. Elle est obligatoire pour toute plongée jusqu'à 20 mètres.",
-      "certOpenWaterPlus": "Apportez votre certification et montrez-la à votre guide le jour de la plongée — la carte ou une copie numérique sur votre téléphone. Jusqu'à 20 mètres, il faut l'Open Water ou un équivalent ; pour Angelita et El Pit, au-delà de 20 mètres, au moins l'Advanced Open Water ou un équivalent, comme la spécialité Deep.",
+      "certOpenWater": "Apportez votre certification Open Water, ou une équivalente, et montrez-la à votre guide le jour de la plongée — la carte ou une copie numérique sur votre téléphone. Elle est obligatoire pour toute plongée jusqu'à 18 mètres.",
+      "certOpenWaterPlus": "Apportez votre certification et montrez-la à votre guide le jour de la plongée — la carte ou une copie numérique sur votre téléphone. Jusqu'à 18 mètres, il faut l'Open Water ou un équivalent ; pour Angelita et El Pit, au-delà de 18 mètres, au moins l'Advanced Open Water ou un équivalent, comme la spécialité Deep.",
       "certAdvanced": "Apportez votre certification et montrez-la à votre guide le jour de la plongée — la carte ou une copie numérique sur votre téléphone. Cette plongée demande au moins l'Advanced Open Water ou un équivalent, comme la spécialité Deep.",
       "certNoShow": "Sans la certification requise, papier ou numérique, nous ne pourrons pas vous emmener sur cette plongée.",
       "gearTag": "Vos tailles d'équipement",

@@ -358,6 +358,17 @@
     "text": "Tu seguridad es lo primero — y con eso asegurado, solo queda disfrutar cada minuto bajo el agua.",
     "cite": "Kay Diving · Tulum"
   },
+  "reviews": {
+    "tag": "Reseñas de Google",
+    "h2": "<span class=\"ital grad\">{rating}</span> de 5<br>en Google.",
+    "h2Plain": "En sus propias<br>palabras.",
+    "intro": "Tal como las escribieron, en su idioma original: algunas de las {count} reseñas de nuestro perfil de Google.",
+    "introPlain": "Tal como las escribieron, en su idioma original, desde nuestro perfil de Google.",
+    "all": "Leer todas las reseñas en Google",
+    "stars": "{n} de 5 estrellas",
+    "badge": "Calificación de {rating} de 5 en Google",
+    "cenoteH2": "Lo que dicen los buzos {of}"
+  },
   "book": {
     "tag": "Reservaciones",
     "h2": "Reserva tu<br>día en el agua.",
@@ -391,7 +402,7 @@
     "rDeposit": "Anticipo ahora",
     "halfDayLabel": "Medio día",
     "fine": "Equipo, entrada a los cenotes, transporte a los sitios y snacks incluidos. Precios por persona en USD; el pickup es por reservación. El anticipo se cobra en pesos mexicanos y el resto se liquida el mismo día. Si pagas el resto en dólares, se toma el tipo de cambio de ese día.",
-    "certNote": "El día del buceo muéstrale tu certificación a tu guía — la tarjeta o una copia en tu celular. Sin ella no podemos llevarte a bucear. Hasta 20 m: Open Water o equivalente. Más profundo: al menos Advanced Open Water o equivalente.",
+    "certNote": "El día del buceo muéstrale tu certificación a tu guía — la tarjeta o una copia en tu celular. Sin ella no podemos llevarte a bucear. Hasta 18 m: Open Water o equivalente. Más profundo: al menos Advanced Open Water o equivalente.",
     "mpDescription": "Anticipo del {percent}% — el resto se liquida el mismo día.",
     "submit": "Reservar con anticipo",
     "submitting": "Abriendo el pago…",
@@ -423,7 +434,7 @@
     "items": [
       {
         "q": "¿Necesito estar certificado para bucear aquí?",
-        "a": "No para empezar. Discover Scuba recibe a gente que nunca ha respirado bajo el agua, y el tour de snorkel no necesita nada. Con tu propia certificación, Open Water o equivalente cubre cualquier inmersión hasta 18 metros: el arrecife y los cenotes, que en su mayoría van de seis a dieciséis metros. Los dos cenotes profundos, Angelita y El Pit, piden al menos Advanced Open Water o equivalente —la especialidad Deep cuenta—, igual que la inmersión con tiburones toro. Trae la tarjeta o una copia digital y muéstrasela a tu guía el día del buceo: sin ella no podemos llevarte a bucear."
+        "a": "No para empezar. Discover Scuba recibe a gente que nunca ha respirado bajo el agua, y para el tour de snorkel no necesitas nada. Si ya tienes certificación, Open Water o equivalente cubre cualquier inmersión de hasta 18 metros: el arrecife y los cenotes, que en su mayoría van de seis a dieciséis metros. Los dos cenotes profundos, Angelita y El Pit, piden al menos Advanced Open Water o equivalente —la especialidad Deep cuenta—, igual que la inmersión con tiburones toro; con Open Water también puedes bucearlos en nuestro curso Advanced, hasta 30 metros. Trae la tarjeta o una copia digital y muéstrasela a tu guía el día del buceo: sin ella no podemos llevarte a bucear."
       },
       {
         "q": "¿Hasta qué profundidad van las inmersiones?",
@@ -431,11 +442,11 @@
       },
       {
         "q": "¿Hay buen buceo de arrecife en Tulum?",
-        "a": "Sí. Tulum está sobre el Arrecife Mesoamericano, la barrera de coral más grande del hemisferio occidental. Lo buceamos frente a Tankah, al norte del pueblo: un arrecife poco profundo, de unos nueve metros, con tortugas y peces de arrecife, en un agua algo más cálida que la de los cenotes. Nuestro día Arrecife y Cenote lo combina con Casa Cenote en una sola mañana, y el curso Open Water termina en el mar a dieciocho metros. Las mejores condiciones en el arrecife se dan en primavera y a principios del verano; en invierno, los tiburones toro frente a Playa del Carmen, a 45 minutos, son la otra gran inmersión de la costa."
+        "a": "Sí. A lo largo de la costa de Tulum corre el Arrecife Mesoamericano, la barrera de coral más grande del hemisferio occidental. Lo buceamos frente a Tankah, al norte del pueblo: nuestra inmersión de arrecife es poco profunda, de unos nueve metros, con tortugas y peces de arrecife, en un agua algo más cálida que la de los cenotes. Nuestro día Arrecife y Cenote lo combina con Casa Cenote en una sola mañana, y el curso Open Water termina en el mar a dieciocho metros. Las mejores condiciones en el arrecife se dan en primavera y a principios del verano; en invierno, la otra gran inmersión de la costa es la de los tiburones toro frente a Playa del Carmen, a 45 minutos."
       },
       {
         "q": "Es mi primera vez buceando en cenotes. ¿Cuáles son los mejores para empezar?",
-        "a": "Empieza por lo abierto y poco profundo, y después entra bajo techo. Casa Cenote está abierto al cielo, tiene 7 metros como máximo y lo rodean manglares, con peces y tortugas: es la primera inmersión más tranquila que hay, y sin certificación puedes probarlo con Discover Scuba. Dos Ojos es la primera caverna clásica: agua cristalina con más de 30 metros de visibilidad, de nueve a diez metros de profundidad, siempre en la zona de luz natural y con salida directa a la superficie. Nicte-Ha, poco profundo y lleno de nenúfares, y Car Wash, tranquilo y de fácil acceso, son buenos siguientes pasos. Deja Angelita y El Pit para más adelante: pasan de 30 metros y piden Advanced. Y cuéntanos en el cuestionario antes del buceo qué has hecho y qué te pone nervioso: armamos el día en torno a eso."
+        "a": "Empieza por lo abierto y poco profundo, y después pasa a las cavernas. Casa Cenote está a cielo abierto, rodeado de manglares, con peces y tortugas y un máximo de siete metros de profundidad: no hay una primera inmersión más tranquila, y sin certificación puedes probarlo con Discover Scuba. Dos Ojos es la clásica primera caverna: agua cristalina con más de 30 metros de visibilidad, de nueve a diez metros de profundidad, siempre en la zona de luz natural y con salida directa a la superficie. Nicte-Ha, poco profundo y con lirios acuáticos, y Car Wash, de fácil acceso y hasta dieciséis metros, son buenas opciones para el siguiente paso. Deja Angelita y El Pit para más adelante: pasan de 30 metros y piden Advanced Open Water o la especialidad Deep, aunque con Open Water puedes bucearlos en nuestro curso Advanced, hasta 30 metros. Y cuéntanos en el cuestionario previo al buceo qué experiencia tienes y qué te pone nervioso: armamos el día en torno a eso."
       },
       {
         "q": "¿Qué incluye realmente el precio?",
@@ -494,7 +505,7 @@
       "tag": "Pago recibido",
       "h2": "Ya estás dentro.",
       "p": "Tu anticipo entró y la fecha está apartada. Un guía te escribe por WhatsApp en unas horas con el punto de encuentro, la hora y las pocas preguntas que hacemos antes de cada buceo. El resto se liquida el mismo día. En tu correo de confirmación viene un formulario corto para tus tallas de equipo.",
-      "note": "Trae tu certificación de buceo el día del tour — la tarjeta o una copia digital — y muéstrasela a tu guía. Hasta 20 metros necesitas Open Water o equivalente; más profundo, al menos Advanced Open Water o equivalente. Sin ella no podemos llevarte a bucear. Discover Scuba, el curso Open Water y el tour de snorkel no piden ninguna.",
+      "note": "Trae tu certificación de buceo el día del tour — la tarjeta o una copia digital — y muéstrasela a tu guía. Hasta 18 metros necesitas Open Water o equivalente; más profundo, al menos Advanced Open Water o equivalente. Sin ella no podemos llevarte a bucear. Discover Scuba, el curso Open Water y el tour de snorkel no piden ninguna.",
       "cta": "Volver al sitio"
     },
     "pending": {
@@ -568,8 +579,8 @@
       "balanceLabel": "Resto el mismo día",
       "balanceNote": "Se liquida en efectivo o con tarjeta al llegar. Si pagas en dólares, se toma el tipo de cambio de ese día.",
       "certTag": "Tu certificación",
-      "certOpenWater": "Trae tu certificación Open Water, o una equivalente, y muéstrasela a tu guía el día del buceo — la tarjeta física o una copia digital en tu celular. Es obligatoria para cualquier inmersión de 20 metros o menos.",
-      "certOpenWaterPlus": "Trae tu certificación y muéstrasela a tu guía el día del buceo — la tarjeta física o una copia digital en tu celular. Para inmersiones de 20 metros o menos necesitas Open Water o equivalente; para Angelita y El Pit, a más de 20 metros, al menos Advanced Open Water o equivalente, como la especialidad Deep.",
+      "certOpenWater": "Trae tu certificación Open Water, o una equivalente, y muéstrasela a tu guía el día del buceo — la tarjeta física o una copia digital en tu celular. Es obligatoria para cualquier inmersión de 18 metros o menos.",
+      "certOpenWaterPlus": "Trae tu certificación y muéstrasela a tu guía el día del buceo — la tarjeta física o una copia digital en tu celular. Para inmersiones de 18 metros o menos necesitas Open Water o equivalente; para Angelita y El Pit, a más de 18 metros, al menos Advanced Open Water o equivalente, como la especialidad Deep.",
       "certAdvanced": "Trae tu certificación y muéstrasela a tu guía el día del buceo — la tarjeta física o una copia digital en tu celular. Esta inmersión pide al menos Advanced Open Water o equivalente, como la especialidad Deep.",
       "certNoShow": "Si no muestras la certificación requerida, física o digital, no podrás hacer este tour de buceo.",
       "gearTag": "Tus tallas de equipo",

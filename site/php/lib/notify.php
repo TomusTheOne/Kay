@@ -235,7 +235,7 @@ function kay_booking_emails(array $row): array
     // What the diver must show the guide on the day, from the experience's
     // level — the same one the product card and the booking form print. A
     // cenote day whose sites are not known states both rules: Open Water to
-    // 20 m, Advanced or equivalent for Angelita and El Pit. Once the diver
+    // 18 m, Advanced or equivalent for Angelita and El Pit. Once the diver
     // has chosen, it states the one rule that applies to those cenotes.
     // Discover Scuba, the Open Water course and the snorkel tour need none.
     $level = (string) ($product['level'] ?? 'none');
