@@ -113,7 +113,8 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
           ...(GUIDE_PUBLISHED ? CENOTES.map((c) => c.name) : []),
         ],
         ...(GUIDE_PUBLISHED ? { hasMap: `${SHOP.domain}${pathFor(locale, "/cenotes/")}` } : {}),
-        sameAs: [SHOP.instagram],
+        /* The Google profile is the same business: saying so ties the two together. */
+        sameAs: [SHOP.instagram, ...(REVIEWS_URL ? [REVIEWS_URL] : [])],
         hasOfferCatalog: {
           "@type": "OfferCatalog",
           name: t.products.tag,
