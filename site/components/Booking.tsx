@@ -86,6 +86,35 @@ export default function Booking({
     setPicked([]);                  // two dives and three follow different rules
   }
 
+  /* A "book this" link anywhere on the site lands on #book?p=open-water —
+     from a cenote page, #book?p=cenote-diving&site=angelita — and the form
+     opens on that product, with that cenote as the first dive it can be.
+     The hash then reads #book again, so the same link clicked twice still
+     fires, and a reload does not undo a choice made since. */
+  useEffect(() => {
+    function fromHash() {
+      const m = /^#book\?(.+)$/.exec(window.location.hash);
+      if (!m) return;
+      history.replaceState(null, "", "#book");
+      const q = new URLSearchParams(m[1]);
+      const p = PRODUCTS.find((x) => x.slug === q.get("p"));
+      if (p) {
+        setProduct(p);
+        setDives(p.options[0].dives);
+        const site = q.get("site");
+        const slots0 = siteSlots(p, p.options[0].dives);
+        const at = slots0.findIndex((x) => "choices" in x && x.choices.some((c) => c.slug === site));
+        const next: string[] = [];
+        if (at >= 0 && site) next[at] = site;
+        setPicked(next);
+      }
+      document.getElementById("book")?.scrollIntoView();
+    }
+    fromHash();
+    addEventListener("hashchange", fromHash);
+    return () => removeEventListener("hashchange", fromHash);
+  }, []);
+
   /* The endpoint names what it refused — "date", "email", "name" — and the
      form is noValidate, so the browser never catches these first. Showing one
      message for every refusal told a diver who forgot the date that the

@@ -82,6 +82,15 @@ export const FROM_DIVE_PRICE = Math.min(
  */
 export const ogCard = (locale: string) => (data.ogCard as string).replace("{locale}", locale);
 export const BOOKABLE = PRODUCTS;
+
+/**
+ * A link that opens the booking form on one product, and on one cenote where
+ * the product lets a diver choose. `home` is "" on the home page, where the
+ * form is, and the locale's home path everywhere else. Booking reads it.
+ */
+export function bookHref(home: string, product: string, site?: string) {
+  return `${home}#book?p=${product}${site ? `&site=${site}` : ""}`;
+}
 export const ALWAYS_INCLUDED = data.alwaysIncluded as string[];
 export const GALLERY = data.gallery as { photo: string; tall: boolean }[];
 export const PICKUPS = data.pickups as Pickup[];
