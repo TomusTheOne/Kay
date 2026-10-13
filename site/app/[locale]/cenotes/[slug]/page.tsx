@@ -2,7 +2,8 @@ import { notFound } from "next/navigation";
 import { isLocale, getDictionary, pathFor, mapCopy } from "@/lib/i18n";
 import { guideMetadata, type GuideImage } from "@/lib/guide";
 import { cenoteTitle, cenoteQa, cenoteFacts, guideBreadcrumb, planAlt, planCredit, siteNodes, fillName } from "@/lib/seo";
-import { PRODUCTS, SHOP, ogCard } from "@/content/products";
+import { PRODUCTS, SHOP, ogCard, bookHref } from "@/content/products";
+import { productPath } from "@/content/pages";
 import { CENOTES, GUIDE_PUBLISHED, GUIDE_UPDATED, cenoteBySlug, diveDepth, fromTulum, related, mapFile,
          type Cenote } from "@/content/cenotes";
 import type { Dictionary, Locale } from "@/lib/i18n";
@@ -62,7 +63,7 @@ export default async function CenotePage({ params }: Params) {
   };
   const url = `${SHOP.domain}${pathFor(locale, `/cenotes/${slug}/`)}`;
   const qa = cenoteQa(t, locale, c);
-  const reviews = reviewsFor(locale, c.slug);
+  const reviews = reviewsFor(locale, { cenote: c.slug });
   const card = socialCard(t, locale, c);
   const images = [
     ...(c.photo ? [`${SHOP.domain}/assets/photos/${c.photo}.webp`] : []),
@@ -142,10 +143,13 @@ export default async function CenotePage({ params }: Params) {
             <p className="tag tag--plain" style={{ marginTop: "1.8rem" }}>{g.divesTag}</p>
             <ul className="guide__dives">
               {c.products.map((p) => (
-                <li key={p}><a href={`${pathFor(locale)}#products`}>{t.products.items[p].name}</a></li>
+                <li key={p}><a href={pathFor(locale, productPath(locale, p))}>{t.products.items[p].name}</a></li>
               ))}
             </ul>
-            <a className="btn btn--lit" style={{ marginTop: "1.6rem" }} href={`${pathFor(locale)}#book`}>
+            {/* Opens the form on a cenote day with this cenote as the dive to
+                choose — or, for a cenote only a course goes to, on the course. */}
+            <a className="btn btn--lit" style={{ marginTop: "1.6rem" }}
+               href={bookHref(pathFor(locale), c.products.includes("cenote-diving") ? "cenote-diving" : c.products[0], c.slug)}>
               {t.nav.reserveLong}
             </a>
           </div>

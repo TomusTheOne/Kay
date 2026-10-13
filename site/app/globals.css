@@ -929,6 +929,11 @@ select.field{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xml
 .ccard__txt{flex:none;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
 .ccard .spec{margin-top:auto}
 .ccard:hover .dive__go svg{transform:translateX(4px)}
+/* A product card's name is stretched over the card like a cenote card's; the
+   links inside it — its cenotes, its booking button — sit above that. */
+.dive .sites__r a,.dive__book{position:relative;z-index:3}
+.dive:hover .dive__go svg{transform:translateX(4px)}
+.dive__foot{margin-top:.4rem}
 .guide__cenote{padding-bottom:clamp(2.4rem,5vw,4rem)}
 .guide__back{display:inline-block;margin-bottom:1.8rem;color:var(--turq);padding-block:.3rem}
 .guide__back:hover{color:var(--foam)}
@@ -940,6 +945,12 @@ select.field{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xml
   background:var(--glass);transition:border-color .25s,color .25s}
 .guide__dives a:hover{border-color:var(--turq);color:var(--turq)}
 .guide__plate{margin:0;position:sticky;top:6rem}
+/* The product pages: the guide's cenote layout, with a price list and a
+   second paragraph under the lede. */
+.product__p{margin-top:1rem;max-width:62ch;line-height:1.65}
+.product__prices{margin-top:1.2rem;max-width:26rem}
+/* One or two cards keep a card's width instead of stretching across the row. */
+.cgrid--fill{grid-template-columns:repeat(auto-fill,minmax(272px,1fr))}
 @media (max-width:880px){.guide__plate{position:relative;top:0;order:-1;aspect-ratio:16/11}}
 
 /* The dive map of one cenote (components/CenotePlan.tsx). */

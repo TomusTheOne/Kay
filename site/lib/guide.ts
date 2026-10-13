@@ -12,10 +12,17 @@ export interface GuideImage { url: string; alt: string; width: number; height: n
  * its own — and, until the guide is published, asks not to be indexed at all.
  * A cenote page passes its own card and position; the guide index keeps the
  * locale's card and Tulum's.
+ *
+ * A product page passes its path per language, since its slug is translated,
+ * and is indexed whether or not the guide is published.
  */
-export function guideMetadata(locale: Locale, path: string, title: string, description: string,
-  { image, geo }: { image?: GuideImage; geo?: { lat: number; lon: number; place: string } } = {}): Metadata {
-  const url = `${SHOP.domain}${pathFor(locale, path)}`;
+export function guideMetadata(locale: Locale, path: string | Record<Locale, string>, title: string,
+  description: string,
+  { image, geo, indexed = GUIDE_PUBLISHED }: {
+    image?: GuideImage; geo?: { lat: number; lon: number; place: string }; indexed?: boolean;
+  } = {}): Metadata {
+  const at = (l: Locale) => `${SHOP.domain}${pathFor(l, typeof path === "string" ? path : path[l])}`;
+  const url = at(locale);
   const card: GuideImage = image ?? {
     url: ogCard(locale), alt: "Kay Diving Tulum", width: 1200, height: 630,
   };
@@ -24,8 +31,8 @@ export function guideMetadata(locale: Locale, path: string, title: string, descr
     alternates: {
       canonical: url,
       languages: {
-        ...Object.fromEntries(LIVE_LOCALES.map((l) => [l, `${SHOP.domain}${pathFor(l, path)}`])),
-        "x-default": `${SHOP.domain}${pathFor(DEFAULT_LOCALE, path)}`,
+        ...Object.fromEntries(LIVE_LOCALES.map((l) => [l, at(l)])),
+        "x-default": at(DEFAULT_LOCALE),
       },
     },
     openGraph: {
@@ -36,6 +43,6 @@ export function guideMetadata(locale: Locale, path: string, title: string, descr
     },
     twitter: { card: "summary_large_image", title, description, images: [{ url: card.url, alt: card.alt }] },
     other: geoMeta(geo?.lat ?? SHOP.lat, geo?.lon ?? SHOP.lon, geo?.place),
-    ...(GUIDE_PUBLISHED ? {} : { robots: { index: false, follow: false } }),
+    ...(indexed ? {} : { robots: { index: false, follow: false } }),
   };
 }

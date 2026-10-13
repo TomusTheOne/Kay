@@ -1,9 +1,10 @@
-"""Social cards for the cenote pages: 1200x630 JPEG, what WhatsApp and the crawlers ask for.
+"""Social cards for the cenote and product pages: 1200x630 JPEG, what WhatsApp and the crawlers ask for.
 
 A cenote with a photograph gets one card cut from it, the same in every
 language. One without a photograph but with a dive map gets the map, cut once
 per language since the map carries words. The rule is the same as
-socialCard() in app/[locale]/cenotes/[slug]/page.tsx.
+socialCard() in app/[locale]/cenotes/[slug]/page.tsx. Each product with a
+photograph gets one too, for its page (app/[locale]/[page]/page.tsx).
 
     python3 scripts/og-cenotes.py        (from site/, needs Pillow)
 """
@@ -26,8 +27,18 @@ def cover(im, top=0.5):
     return im.crop((x, y, x + W, y + H))
 
 
+def products():
+    out = PUB / "og" / "products"
+    out.mkdir(parents=True, exist_ok=True)
+    for p in json.loads((SITE / "content" / "products.json").read_text())["products"]:
+        if p["photo"]:
+            cover(Image.open(PUB / "photos" / f"{p['photo']}.webp")).save(out / f"{p['slug']}.jpg", quality=86, optimize=True, progressive=True)
+            print("product", p["slug"])
+
+
 def main():
     OUT.mkdir(parents=True, exist_ok=True)
+    products()
     data = json.loads((SITE / "content" / "cenotes.json").read_text())
     for c in data["cenotes"]:
         if c["photo"]:

@@ -2,6 +2,7 @@ import { getDictionary, pathFor, LIVE_LOCALES } from "@/lib/i18n";
 import { PRODUCTS, SHOP, FROM_PRICE, FROM_DIVE_PRICE } from "@/content/products";
 import { CENOTES, GUIDE_PUBLISHED, diveDepth, fromTulum } from "@/content/cenotes";
 import { homeDescription } from "@/lib/seo";
+import { productPath } from "@/content/pages";
 import { REVIEWS_RATING, REVIEWS_COUNT, REVIEWS_AS_OF, REVIEWS_URL } from "@/content/reviews";
 
 /**
@@ -49,7 +50,7 @@ export async function GET() {
     const prices = p.options.map((o) => (o.dives
       ? `${o.dives} ${o.dives === 1 ? t.products.dive : t.products.dives} $${o.price}` : `$${o.price}`)).join(", ");
     const depth = p.maxDepthM ? `, to ${p.maxDepthM} m` : "";
-    out(`- **${c.name}** (${prices}${depth}): ${c.text}`);
+    out(`- [${c.name}](${abs(pathFor("en", productPath("en", p.slug)))}) (${prices}${depth}): ${c.text}`);
   }
   out();
   out("Frequently asked:");
@@ -59,6 +60,16 @@ export async function GET() {
     out();
   }
   out("The dive maps on the cenote pages are for orientation, not navigation: the guide briefs the route at the cenote.");
+  out();
+
+  out("## Dives and courses");
+  out();
+  for (const p of PRODUCTS) {
+    const name = t.products.items[p.slug].name;
+    out(`- [${name}](${abs(pathFor("en", productPath("en", p.slug)))}): ${t.products.level[p.level]}, `
+      + `${p.options.length > 1 ? "from " : ""}$${Math.min(...p.options.map((o) => o.price))}. In Spanish: ${abs(pathFor("es", productPath("es", p.slug)))} · `
+      + `in French: ${abs(pathFor("fr", productPath("fr", p.slug)))}`);
+  }
   out();
 
   if (GUIDE_PUBLISHED) {

@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import { isLocale, getDictionary, pathFor, mapCopy, LIVE_LOCALES } from "@/lib/i18n";
 import { PRODUCTS, ALWAYS_INCLUDED, GALLERY, PICKUPS, SCHEDULES, SHOP,
-         CONTENT_UPDATED, FROM_PRICE, ogCard } from "@/content/products";
+         FROM_PRICE, ogCard, bookHref } from "@/content/products";
 import Surface from "@/components/Surface";
 import Gauge from "@/components/Gauge";
 import Reveals from "@/components/Reveals";
@@ -11,7 +11,8 @@ import Plate from "@/components/Plate";
 import Footer from "@/components/Footer";
 import CenoteMap from "@/components/CenoteMap";
 import { CENOTES, GUIDE_PUBLISHED, cenoteBySlug } from "@/content/cenotes";
-import { homeDescription } from "@/lib/seo";
+import { homeDescription, productNode } from "@/lib/seo";
+import { productPath } from "@/content/pages";
 import Reviews from "@/components/Reviews";
 import { reviewsFor, ratingText, REVIEWS_RATING, REVIEWS_URL } from "@/content/reviews";
 
@@ -21,25 +22,6 @@ const Arrow = () => (
           strokeLinecap="round" strokeLinejoin="round" />
   </svg>
 );
-
-/**
- * A seasonal product's selling window as real dates — schema.org wants a
- * Date, not "--11-01". The window is the season running at, or next after,
- * the last content change: the same date the prices are valid from.
- */
-function seasonWindow({ fromMonth, toMonth }: { fromMonth: number; toMonth: number }) {
-  const at = new Date(CONTENT_UPDATED);
-  const y = at.getUTCFullYear(), m = at.getUTCMonth() + 1;
-  const wraps = fromMonth > toMonth;
-  const startY = wraps ? (m <= toMonth ? y - 1 : y) : (m > toMonth ? y + 1 : y);
-  const endY = wraps ? startY + 1 : startY;
-  const lastDay = new Date(Date.UTC(endY, toMonth, 0)).getUTCDate();
-  const pad = (n: number) => String(n).padStart(2, "0");
-  return {
-    availabilityStarts: `${startY}-${pad(fromMonth)}-01`,
-    availabilityEnds: `${endY}-${pad(toMonth)}-${pad(lastDay)}`,
-  };
-}
 
 export default async function Home({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -78,11 +60,6 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
      things on a page in three languages — rather than three unrelated blobs. */
   const url = `${SHOP.domain}${pathFor(locale)}`;
   const dearest = Math.max(...PRODUCTS.flatMap((p) => p.options.map((o) => o.price)));
-  /* Google warns on an Offer with no expiry. A year from the last content
-     change is honest: past that the prices genuinely need rechecking. */
-  const priceValidUntil = new Date(
-    new Date(CONTENT_UPDATED).setFullYear(new Date(CONTENT_UPDATED).getFullYear() + 1),
-  ).toISOString().slice(0, 10);
 
   const ld = {
     "@context": "https://schema.org",
@@ -150,24 +127,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         "@type": "ItemList",
         "@id": `${url}#catalogue`,
         itemListElement: PRODUCTS.map((p, i) => ({
-          "@type": "ListItem", position: i + 1,
-          item: {
-            "@type": "Product",
-            "@id": `${SHOP.domain}/#product-${p.slug}`,
-            name: t.products.items[p.slug].name,
-            description: t.products.items[p.slug].text,
-            ...(p.photo ? { image: `${SHOP.domain}/assets/photos/${p.photo}.webp` } : {}),
-            brand: { "@id": `${SHOP.domain}/#business` },
-            offers: p.options.map((o) => ({
-              "@type": "Offer", price: String(o.price), priceCurrency: "USD",
-              ...(p.season ? seasonWindow(p.season) : {}),
-              availability: "https://schema.org/InStock",
-              url: `${url}#book`,
-              priceValidUntil,
-              seller: { "@id": `${SHOP.domain}/#business` },
-              ...(o.dives ? { name: `${o.dives} ${o.dives === 1 ? t.products.dive : t.products.dives}` } : {}),
-            })),
-          },
+          "@type": "ListItem", position: i + 1, item: productNode(t, locale, p),
         })),
       },
       {
@@ -283,7 +243,11 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                     </span>
                   </div>
                   <div className="dive__body">
-                    <h3 className="dive__name">{copy.name}</h3>
+                    {/* The name links to the product's own page, as the cenote
+                        cards do, and its ::after stretches over the card. */}
+                    <h3 className="dive__name">
+                      <a className="ccard__hit" href={pathFor(locale, productPath(locale, p.slug))}>{copy.name}</a>
+                    </h3>
                     <p className="data" style={{ color: "var(--turq)", marginTop: "-.25rem" }}>{copy.tagline}</p>
                     <p className="dive__txt">{copy.text}</p>
 
@@ -321,6 +285,12 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                       ))}
                       <li className="prices__note"><span>{t.products.perDiver}</span></li>
                     </ul>
+                    <div className="dive__foot">
+                      <a className="dive__go" href={pathFor(locale, productPath(locale, p.slug))}>
+                        {t.product.more} <Arrow />
+                      </a>
+                      <a className="btn btn--lit btn--sm dive__book" href={bookHref("", p.slug)}>{t.nav.reserve}</a>
+                    </div>
                   </div>
                 </article>
               );

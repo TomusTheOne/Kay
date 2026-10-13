@@ -6,12 +6,14 @@ import { LIVE_LOCALES, pathFor, type Locale } from "@/lib/i18n";
 type Nav = { href: string; label: string }[];
 
 export default function Surface({
-  locale, nav, reserve, reserveLong, menuLabel, langLabel, path = "/", scrolls = false,
+  locale, nav, reserve, reserveLong, menuLabel, langLabel, path = "/", paths, scrolls = false,
 }: {
   locale: Locale; nav: Nav; reserve: string; reserveLong: string;
   menuLabel: string; langLabel: string;
   /** This page's path below the locale, so the switcher lands on the same page. */
   path?: string;
+  /** The same, per language, for a page whose address is translated. */
+  paths?: Partial<Record<Locale, string>>;
   /** Pages without the depth gauge darken the bar themselves once scrolled. */
   scrolls?: boolean;
 }) {
@@ -42,7 +44,7 @@ export default function Surface({
       {LIVE_LOCALES.map((l) => (
         /* No prefetch: each would pull this page in two more languages the
            reader is not about to open. */
-        <Link key={l} href={pathFor(l, path)} className={l === locale ? "on" : undefined} prefetch={false}
+        <Link key={l} href={pathFor(l, paths?.[l] ?? path)} className={l === locale ? "on" : undefined} prefetch={false}
               aria-current={l === locale ? "true" : undefined}>
           {l.toUpperCase()}
         </Link>

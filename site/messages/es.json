@@ -369,6 +369,202 @@
     "badge": "Calificación de {rating} de 5 en Google",
     "cenoteH2": "Lo que dicen los buzos {of}"
   },
+  "product": {
+    "kinds": {
+      "dive": "Buceo guiado",
+      "course": "Curso PADI",
+      "snorkel": "Tour de snorkel"
+    },
+    "bookKind": {
+      "dive": "Reservar esta inmersión",
+      "course": "Reservar este curso",
+      "snorkel": "Reservar este tour"
+    },
+    "ask": "Pregúntanos por WhatsApp",
+    "whatsappText": "¡Hola, Kay Diving! Tengo una pregunta sobre {the}.",
+    "more": "Detalles",
+    "back": "Todos nuestros buceos y cursos",
+    "priceTag": "Precio por persona",
+    "includedTag": "Incluido en el precio",
+    "whereTag": "A dónde vamos",
+    "snorkelWhere": "Cenotes buenos para snorkel",
+    "faqTag": "Preguntas",
+    "faqH2": "Lo que nos preguntan",
+    "otherTag": "Más formas de entrar al agua",
+    "qPrice": "¿Cuánto cuesta {the}?",
+    "aPrice": "{prices} por persona, en dólares estadounidenses. El precio incluye {included}. Lo único que se cobra aparte es pasar por ti al hotel en el pueblo de Tulum: +{pickup} por toda la reservación.",
+    "qMeet": "¿Dónde nos vemos y a qué hora?",
+    "aMeet": "En {place}, en Tulum, sin costo extra. Salidas a las {times}, y puedes proponer otro horario al reservar: lo revisamos antes de confirmar.",
+    "aMeetSea": "En {place}, en Tulum, sin costo extra; la hora de salida la acordamos contigo al confirmar la reservación.",
+    "qBook": "¿Cómo reservo?",
+    "aBook": "En línea, desde esta página. {intro}",
+    "items": {
+      "discover-scuba": {
+        "the": "el Discover Scuba",
+        "h1": "Bautismo de buceo en Tulum: Discover Scuba",
+        "title": "Bautismo de buceo en Tulum, sin certificación | Kay Diving",
+        "meta": "Bucea por primera vez en Casa Cenote, Tulum: un cenote a cielo abierto de máximo 7 m, con un guía PADI a tu lado. Sin experiencia previa. Desde US$140.",
+        "body": [
+          "Discover Scuba es el bautismo de buceo de PADI, pensado para quien nunca ha respirado bajo el agua. Tu guía te enseña lo básico del buceo y después te lleva a Casa Cenote: un cenote a cielo abierto rodeado de manglares, con peces y tortugas, agua dulce cristalina y luz natural hasta el fondo, a no más de siete metros.",
+          "Una inmersión, o dos si quieres más tiempo bajo el agua; la segunda solo se hace si las condiciones del mar son buenas ese día. No hay examen ni certificación al final: solo una primera mirada al mundo submarino, con un guía a tu lado, y una muy buena mañana. Si quieres seguir, el siguiente paso es nuestro curso Open Water."
+        ],
+        "faq": [
+          {
+            "q": "¿Necesito experiencia?",
+            "a": "Ninguna. Discover Scuba está pensado para quien nunca ha buceado: sin certificación ni experiencia previa, solo un guía y agua poco profunda."
+          },
+          {
+            "q": "¿Qué tan profundo es un Discover Scuba?",
+            "a": "No más de siete metros, en Casa Cenote, un cenote a cielo abierto con luz natural hasta el fondo."
+          },
+          {
+            "q": "¿Recibo una certificación?",
+            "a": "No: Discover Scuba es una primera experiencia guiada, no un curso. Para bucear con tu propia certificación, toma el curso Open Water: cinco inmersiones entre Casa Cenote y el arrecife de Tankah."
+          }
+        ]
+      },
+      "reef-cenote": {
+        "the": "el buceo Arrecife y Cenote",
+        "h1": "Buceo en arrecife y cenote en Tulum",
+        "title": "Arrecife y cenote en Tulum: dos inmersiones | Kay Diving",
+        "meta": "Dos inmersiones en una mañana cerca de Tulum: el Arrecife Mesoamericano frente a Tankah, con tortugas, y luego el agua dulce de Casa Cenote. Open Water. US$200.",
+        "body": [
+          "Las dos mitades de lo que hace que valga la pena bucear esta costa, en una sola mañana. Primero el Arrecife Mesoamericano frente a Tankah, al norte de Tulum: una inmersión poco profunda, de unos nueve metros, con tortugas y peces de arrecife, en un agua algo más cálida que la de los cenotes. Después Casa Cenote, un cenote a cielo abierto de agua dulce y cristalina, rodeado de manglares.",
+          "Agua salada y agua dulce, tortugas y raíces, con tu certificación Open Water. El equipo, la entrada al cenote, los snacks y el agua, y el transporte entre los dos sitios están incluidos."
+        ],
+        "faq": [
+          {
+            "q": "¿Qué certificación necesito?",
+            "a": "Open Water o equivalente. Las dos inmersiones son poco profundas, de unos nueve metros como máximo."
+          },
+          {
+            "q": "¿Cuándo está mejor el arrecife?",
+            "a": "Las mejores condiciones en el arrecife se dan en primavera y a principios del verano. El cenote, protegido del viento y del oleaje, se bucea bien todo el año."
+          }
+        ]
+      },
+      "cenote-diving": {
+        "the": "el buceo en cenotes",
+        "h1": "Buceo en cenotes en Tulum",
+        "title": "Buceo en cenotes en Tulum: Dos Ojos y El Pit | Kay Diving",
+        "meta": "Buceo guiado en los cenotes de Tulum: Dos Ojos, Car Wash, Angelita, El Pit y más, elegidos contigo según tu certificación. 2 inmersiones US$200, 3 por US$250.",
+        "body": [
+          "Algunas de las cavernas inundadas más bonitas del mundo están alrededor de Tulum. Los cenotes los eliges con nosotros, y cuáles puedes bucear depende de tu certificación. Con Open Water: cenotes como Dos Ojos, Car Wash, Tak Be Ha y Nicte-Ha, en su mayoría de seis a dieciséis metros. Con Advanced Open Water o la especialidad Deep: los dos cenotes profundos, Angelita y El Pit, a más de treinta metros.",
+          "El buceo en caverna se queda dentro de la zona de luz natural, siempre al alcance de la entrada: no es buceo en cueva, y tu certificación Open Water lo cubre. Con dos inmersiones eliges los dos cenotes; con tres, las dos primeras son en Dos Ojos y la tercera en otro cenote que tú eliges."
+        ],
+        "faq": [
+          {
+            "q": "¿Qué cenote bucear primero?",
+            "a": "Dos Ojos es la clásica primera caverna: de nueve a diez metros, agua cristalina y luz natural todo el recorrido. Casa Cenote, a cielo abierto y de siete metros como máximo, es todavía más tranquilo."
+          },
+          {
+            "q": "¿Puedo bucear Angelita o El Pit con Open Water?",
+            "a": "No en un buceo guiado: los dos pasan de 30 metros y piden Advanced Open Water o la especialidad Deep. Con Open Water sí puedes bucearlos en nuestro curso Advanced, hasta 30 metros."
+          },
+          {
+            "q": "¿El buceo en cenotes es buceo en cueva?",
+            "a": "No. El buceo en caverna se queda dentro de la zona de luz natural, cerca de la entrada y con una ruta directa a la superficie. El buceo en cueva va más allá de la luz del día y necesita su propia certificación."
+          }
+        ]
+      },
+      "open-water": {
+        "the": "el curso Open Water",
+        "h1": "Curso PADI Open Water en Tulum",
+        "title": "Curso PADI Open Water en Tulum, cenote y mar | Kay Diving",
+        "meta": "Certifícate en Tulum: el curso PADI Open Water en cinco inmersiones, primero en Casa Cenote y luego en el arrecife de Tankah, a 18 m. US$600 con material.",
+        "body": [
+          "El curso PADI Open Water es la certificación que te permite bucear en cualquier parte del mundo, hasta dieciocho metros. No necesitas experiencia previa. Lo damos en cinco inmersiones: primero en Casa Cenote, un cenote a cielo abierto de siete metros con agua tranquila y cristalina, y después en el mar, en el arrecife de Tankah, donde el curso termina a dieciocho metros.",
+          "El material de estudio y tu certificación PADI están incluidos, junto con el equipo, las entradas a los cenotes, los snacks y el agua. Ya certificado, la mayoría de los cenotes de Tulum quedan a tu alcance: van de seis a dieciséis metros."
+        ],
+        "faq": [
+          {
+            "q": "¿Necesito experiencia para empezar?",
+            "a": "No. El curso empieza desde cero: no necesitas certificación ni inmersiones previas."
+          },
+          {
+            "q": "¿Dónde son las inmersiones del curso?",
+            "a": "Las primeras en Casa Cenote, un cenote a cielo abierto de siete metros, y las últimas en el mar frente a Tankah, donde el curso termina a dieciocho metros."
+          },
+          {
+            "q": "¿Qué puedo bucear ya certificado?",
+            "a": "Cualquier inmersión de hasta dieciocho metros, en cualquier parte del mundo. Aquí, eso es el arrecife y la mayoría de los cenotes, entre ellos Dos Ojos y Car Wash; Angelita y El Pit piden Advanced."
+          }
+        ]
+      },
+      "advanced-ow": {
+        "the": "el curso Advanced",
+        "h1": "Curso PADI Advanced Open Water en Tulum",
+        "title": "Curso PADI Advanced Open Water en Tulum, a 30 m | Kay Diving",
+        "meta": "El siguiente paso después del Open Water: el curso PADI Advanced en Tulum, cinco inmersiones de especialidad a 30 m en Angelita o El Pit. US$550 con material.",
+        "body": [
+          "El siguiente paso después del Open Water: cinco inmersiones de especialidad que te llevan a treinta metros, en el Cenote Angelita o el Cenote El Pit, los dos cenotes profundos cerca de Tulum que una certificación Open Water por sí sola no abre.",
+          "En Angelita, una nube de ácido sulfhídrico flota en el agua, con ramas muertas que la atraviesan; en El Pit, la luz baja por todo el tiro. El material de estudio está incluido, junto con el equipo, la entrada al cenote, los snacks y el agua."
+        ],
+        "faq": [
+          {
+            "q": "¿Quién puede tomar el curso Advanced?",
+            "a": "Cualquier buzo con Open Water o una certificación equivalente."
+          },
+          {
+            "q": "¿Qué tan profundo llega el curso Advanced?",
+            "a": "Hasta treinta metros, en Angelita o El Pit: la profundidad para la que te certifica Advanced Open Water."
+          },
+          {
+            "q": "¿Qué te abre el Advanced después?",
+            "a": "Los cenotes profundos en nuestros días de cenotes, y el buceo con tiburón toro frente a Playa del Carmen, que pide Advanced Open Water."
+          }
+        ]
+      },
+      "snorkel": {
+        "the": "el tour de snorkel",
+        "h1": "Tour de snorkel en cenotes en Tulum",
+        "title": "Tour de snorkel en cenotes en Tulum, 3 cenotes | Kay Diving",
+        "meta": "Snorkel en tres cenotes cerca de Tulum en medio día: sin experiencia, con visor, snorkel y entradas incluidos, y al final una de las mejores taquerías. US$125.",
+        "body": [
+          "Para quien quiere un poco de aventura y mucha calma: tres cenotes distintos en medio día, sin experiencia y sin tanque. Te damos visor y snorkel, y las entradas a los cenotes, los snacks y el agua están incluidos.",
+          "Entre los cenotes buenos para snorkel están Casa Cenote, a cielo abierto y rodeado de manglares, y Dos Ojos, con agua cristalina y más de treinta metros de visibilidad. El tour termina en una de las mejores taquerías locales del pueblo."
+        ],
+        "faq": [
+          {
+            "q": "¿Necesito experiencia?",
+            "a": "No. Sin experiencia y sin tanque: solo visor y snorkel, que nosotros te damos."
+          },
+          {
+            "q": "¿Qué tengo que llevar?",
+            "a": "Traje de baño y bloqueador biodegradable. El visor y el snorkel te los damos nosotros."
+          },
+          {
+            "q": "¿Cuánto dura el tour?",
+            "a": "Medio día, en tres cenotes distintos, y termina en una de las mejores taquerías locales del pueblo."
+          }
+        ]
+      },
+      "bull-sharks": {
+        "the": "el buceo con tiburón toro",
+        "h1": "Buceo con tiburón toro en Playa del Carmen",
+        "title": "Buceo con tiburón toro en Playa del Carmen | Kay Diving",
+        "meta": "De noviembre a marzo, los tiburones toro llegan frente a Playa del Carmen. Dos inmersiones desde barco, saliendo de Tulum. Advanced Open Water. US$250.",
+        "body": [
+          "Cada invierno los tiburones toro llegan a la costa frente a Playa del Carmen, y manejamos los cuarenta y cinco minutos desde Tulum para ir a verlos. La temporada va de noviembre a marzo.",
+          "Dos inmersiones desde el barco: la primera con los tiburones, la segunda en un arrecife poco profundo, de entre ocho y veinte metros. Pide Advanced Open Water o equivalente, sin excepciones."
+        ],
+        "faq": [
+          {
+            "q": "¿Cuándo es la temporada de tiburón toro?",
+            "a": "De noviembre a marzo, cuando los tiburones toro se juntan frente a Playa del Carmen. Fuera de esos meses no hay salida."
+          },
+          {
+            "q": "¿Qué certificación necesito?",
+            "a": "Advanced Open Water o equivalente, sin excepciones."
+          },
+          {
+            "q": "¿Qué tan lejos está de Tulum?",
+            "a": "A unos cuarenta y cinco minutos por carretera, en Playa del Carmen; las inmersiones son desde barco."
+          }
+        ]
+      }
+    }
+  },
   "book": {
     "tag": "Reservaciones",
     "h2": "Reserva tu<br>día en el agua.",

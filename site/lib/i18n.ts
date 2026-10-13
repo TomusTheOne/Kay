@@ -46,6 +46,14 @@ export function pathFor(locale: Locale, path = "/") {
 export interface ProductCopy { name: string; tagline: string; text: string; alt: string }
 export interface IncludeCopy { name: string; text: string }
 export interface Qa { q: string; a: string }
+/** One product's own page: its heading, its snippet, its text and its questions. */
+export interface ProductPageCopy {
+  /** The product as a sentence names it, article included: "the Open Water course", "el curso Open Water". */
+  the: string;
+  h1: string; title: string; meta: string;
+  body: string[];
+  faq: Qa[];
+}
 /** A cenote a visitor can drive to on their own — not a dive site, which is CenoteCopy. */
 export interface VisitCopy { name: string; blurb: string; good: string; tip: string }
 /** A Maya site within reach of Tulum. */
@@ -174,6 +182,17 @@ export interface Dictionary {
     items: Record<string, RuinCopy>;
   };
   quote: { text: string; cite: string };
+  /** The product pages (app/[locale]/[page]), and the links to them. */
+  product: {
+    kinds: Record<"dive" | "course" | "snorkel", string>;
+    bookKind: Record<"dive" | "course" | "snorkel", string>;
+    ask: string; whatsappText: string; more: string; back: string;
+    priceTag: string; includedTag: string; whereTag: string; snorkelWhere: string;
+    faqTag: string; faqH2: string; otherTag: string;
+    qPrice: string; aPrice: string; qMeet: string; aMeet: string; aMeetSea: string;
+    qBook: string; aBook: string;
+    items: Record<string, ProductPageCopy>;
+  };
   /** Kay's Google reviews, wherever content/reviews.json has some. */
   reviews: Record<"tag" | "h2" | "h2Plain" | "intro" | "introPlain" | "all" | "stars"
                 | "badge" | "cenoteH2", string>;

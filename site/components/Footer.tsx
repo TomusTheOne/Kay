@@ -1,10 +1,12 @@
 import { LIVE_LOCALES, pathFor, type Dictionary, type Locale } from "@/lib/i18n";
 import { PRODUCTS, SHOP } from "@/content/products";
 import { GUIDE_PUBLISHED } from "@/content/cenotes";
+import { productPath } from "@/content/pages";
 
 /**
  * The site footer. `home` prefixes the in-page links: empty on the home page,
  * "/en/" on the guide pages, so "Dives & courses" still lands on the section.
+ * Each product links to its own page.
  */
 export default function Footer({ t, locale, home = "" }: { t: Dictionary; locale: Locale; home?: string }) {
   return (
@@ -16,13 +18,13 @@ export default function Footer({ t, locale, home = "" }: { t: Dictionary; locale
           </div>
           <div><p className="foot__h">{t.footer.explore}</p><ul>
             {PRODUCTS.filter((p) => p.kind !== "course").map((p) => (
-              <li key={p.slug}><a href={`${home}#products`}>{t.products.items[p.slug].name}</a></li>
+              <li key={p.slug}><a href={pathFor(locale, productPath(locale, p.slug))}>{t.products.items[p.slug].name}</a></li>
             ))}
             {GUIDE_PUBLISHED && <li><a href={pathFor(locale, "/cenotes/")}>{t.cenotes.tag}</a></li>}
           </ul></div>
           <div><p className="foot__h">{t.footer.learn}</p><ul>
             {PRODUCTS.filter((p) => p.kind === "course").map((p) => (
-              <li key={p.slug}><a href={`${home}#products`}>{t.products.items[p.slug].name}</a></li>
+              <li key={p.slug}><a href={pathFor(locale, productPath(locale, p.slug))}>{t.products.items[p.slug].name}</a></li>
             ))}
             <li><a href={`${home}#included`}>{t.nav.included}</a></li>
             <li><a href={`${home}#faq`}>{t.nav.faq}</a></li>
