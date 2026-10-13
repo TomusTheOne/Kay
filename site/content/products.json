@@ -117,8 +117,8 @@
         },
         {
           "slug": "others",
-          "minM": null,
-          "maxM": 18,
+          "minM": 6,
+          "maxM": 16,
           "deep": false
         }
       ],
@@ -128,8 +128,8 @@
       "slug": "open-water",
       "kind": "course",
       "level": "none",
-      "maxDepthFt": 30,
-      "maxDepthM": 9,
+      "maxDepthFt": 60,
+      "maxDepthM": 18,
       "diveTime": "30–45 min",
       "locations": [
         "casa-cenote",

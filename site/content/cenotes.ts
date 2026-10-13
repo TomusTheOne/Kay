@@ -117,8 +117,9 @@ export function related(c: Cenote) {
 
 /**
  * How deep the dive goes, not the cenote: "30–32 m", "16 m". Where Kay has not
- * given a depth, his rule for every other cenote applies — no deeper than
- * 18 m — and `upTo` says so in the reader's language ("to {m} m").
+ * given the cenote's own depth, diveMaxM is the most his dives there go to —
+ * his rule is 6 to 16 m everywhere but Angelita and El Pit — and `upTo` says
+ * so in the reader's language ("to {m} m").
  */
 export function diveDepth(c: Cenote, upTo: string) {
   if (c.diveMinM) return `${c.diveMinM}–${c.diveMaxM} m`;

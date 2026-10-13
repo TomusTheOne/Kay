@@ -9,7 +9,7 @@
       "slug": "casa-cenote", "name": "Casa Cenote", "short": "Casa Cenote",
       "lat": 20.26702, "lon": -87.39227, "approx": false,
       "type": "open", "level": "none", "snorkel": true,
-      "depthM": 9, "diveMinM": null, "diveMaxM": 9,
+      "depthM": 7, "diveMinM": null, "diveMaxM": 7,
       "products": ["discover-scuba", "reef-cenote", "open-water", "cenote-diving"],
       "photo": "cenote-casa-surface", "art": "casa-cenote",
       "plan": { "v": 1, "w": 1616, "h": 1140, "credit": "Gerardo Aizpuru (Underwater Editions, 2004)" }
@@ -27,7 +27,7 @@
       "slug": "dos-ojos", "name": "Cenote Dos Ojos", "short": "Dos Ojos",
       "lat": 20.32473, "lon": -87.39061, "approx": false,
       "type": "cavern", "level": "open-water", "snorkel": true,
-      "depthM": 10, "diveMinM": null, "diveMaxM": 10,
+      "depthM": 10, "diveMinM": 9, "diveMaxM": 10,
       "products": ["cenote-diving"],
       "photo": "cenote-dos-ojos", "art": "cavern",
       "plan": { "v": 1, "w": 1600, "h": 1897, "credit": "Sebastián Maza (Fisheye Adventures, 2011)" }
@@ -71,7 +71,7 @@
       "slug": "tak-be-ha", "name": "Cenote Tak Be Ha", "short": "Tak Be Ha",
       "lat": 20.32469, "lon": -87.39354, "approx": false,
       "type": "cavern", "level": "open-water", "snorkel": false,
-      "depthM": null, "diveMinM": null, "diveMaxM": 18,
+      "depthM": null, "diveMinM": null, "diveMaxM": 16,
       "products": ["cenote-diving"],
       "photo": null, "art": "halocline"
     },

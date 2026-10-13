@@ -132,7 +132,7 @@
       },
       "others": {
         "name": "Los demás cenotes",
-        "depth": "hasta 18 m",
+        "depth": "6–16 m",
         "note": "Elegidos contigo según tu nivel y lo que quieras del día."
       }
     },
@@ -427,7 +427,7 @@
       },
       {
         "q": "¿Hasta qué profundidad van las inmersiones?",
-        "a": "Discover Scuba se queda en siete metros (25 ft). El curso Open Water y el arrecife rondan los nueve metros. La mayoría de las inmersiones en cenote se planean a dieciocho metros. Las dos profundas van más allá: el Cenote Angelita llega a 35–38 metros y el Cenote El Pit a 30–32. El curso Advanced llega hasta 30 metros (100 ft)."
+        "a": "Discover Scuba se queda en siete metros (25 ft). El curso Open Water se entrena primero en Casa Cenote, de siete metros de profundidad, y termina en el mar a dieciocho metros (60 ft); el arrecife ronda los nueve. La mayoría de las inmersiones en cenote son poco profundas, entre seis y dieciséis metros: Dos Ojos tiene de nueve a diez y Car Wash llega a dieciséis. Las dos profundas van más allá: el Cenote Angelita llega a 35–38 metros y el Cenote El Pit a 30–32. El curso Advanced llega hasta 30 metros (100 ft)."
       },
       {
         "q": "¿Qué incluye realmente el precio?",
@@ -731,13 +731,13 @@
       "advanced": "Advanced Open Water o Deep"
     },
     "items": {
-      "casa-cenote": "Un cenote abierto tipo laguna, conectado directamente al mar Caribe, lo que genera un ecosistema único donde se mezclan el agua dulce y la salada. Su profundidad máxima ronda los 9 metros, ideal para buceadores principiantes y para quienes buscan una inmersión relajada. Está rodeado de manglares y su visibilidad, aunque variable, ofrece la oportunidad de nadar junto a peces, tortugas y, en ocasiones, un cocodrilo de agua dulce (de la especie Crocodylus moreletii). Perfecto para combinar el buceo recreativo con el contacto directo con la vida silvestre.",
+      "casa-cenote": "Un cenote abierto tipo laguna, conectado directamente al mar Caribe, lo que genera un ecosistema único donde se mezclan el agua dulce y la salada. Su profundidad máxima ronda los 7 metros, ideal para buceadores principiantes y para quienes buscan una inmersión relajada. Está rodeado de manglares y su visibilidad, aunque variable, ofrece la oportunidad de nadar junto a peces, tortugas y, en ocasiones, un cocodrilo de agua dulce (de la especie Crocodylus moreletii). Perfecto para combinar el buceo recreativo con el contacto directo con la vida silvestre.",
       "car-wash": "Bajo una superficie tranquila y accesible se esconde uno de los cenotes más fotografiados de la Riviera Maya. Sus aguas transparentes están decoradas con lirios acuáticos que flotan en la superficie, mientras que en las profundidades aparecen troncos petrificados y una impresionante galería de estalactitas y estalagmitas. Con hasta 16 metros de profundidad, es perfecto tanto para snorkel como para buceo en caverna, y los rayos de sol que se filtran entre la vegetación crean juegos de luz que hacen de cada inmersión una experiencia casi cinematográfica.",
       "dos-ojos": "Uno de los sistemas de cuevas inundadas más famosos del mundo, formado por dos cenotes conectados que, vistos desde arriba, dan la ilusión de “dos ojos”. Ofrece rutas de buceo en caverna como “The Barbie Line” y “The Bat Cave”, con aguas cristalinas de visibilidad superior a 30 metros, impresionantes estalactitas y formaciones rocosas milenarias. Su profundidad máxima es de aproximadamente 10 metros en las zonas abiertas. Forma parte del sistema de cuevas sumergidas más extenso del mundo, con alrededor de 369 kilómetros. Una excelente opción para quienes nunca han buceado en un cenote.",
       "el-pit": "Considerado uno de los cenotes más profundos y dramáticos de la Riviera Maya, con una profundidad de hasta 119 metros. Es famoso por su columna de luz que atraviesa el agua, por su haloclina (la mezcla de agua dulce y salada) y por una nube de ácido sulfhídrico a unos 30 metros, que le da un efecto visual de “niebla” submarina. Recomendado para buceadores avanzados o con certificación técnica, ofrece una de las experiencias de buceo en cenotes más impactantes del mundo.",
       "angelita": "Con aproximadamente 60 metros de profundidad, este cenote guarda uno de los fenómenos más impactantes del buceo en cavernas: una nube de ácido sulfhídrico que flota sobre el agua salada a unos 30 metros, creando la ilusión óptica de un río subterráneo con troncos y hojarasca “flotando” en el aire. Atravesar esa capa es como cruzar un umbral hacia otra dimensión, que revela un paisaje sumergido envuelto en una bruma espectral. Una experiencia mística y sobrecogedora, reservada para buceadores avanzados que buscan algo verdaderamente único.",
       "dreamgate": "Un cenote de tipo caverna con entrada circular, conocido por la extraordinaria claridad de su agua y por las imponentes columnas y formaciones rocosas que descienden hasta el fondo. La luz natural que se filtra por la abertura superior crea efectos visuales espectaculares. Es ideal para el buceo en caverna, con recorridos que muestran salas amplias y una atmósfera casi ceremonial.",
-      "tak-be-luum": "Un cenote menos conocido y, por eso, más virgen, ubicado en la zona del Parque Dos Ojos. Ofrece pasajes de caverna con formaciones geológicas bien conservadas, aguas tranquilas y una experiencia más íntima, porque recibe menos visitantes. Ideal para quienes buscan explorar cenotes fuera de las rutas más turísticas.",
+      "tak-be-luum": "Un cenote menos conocido y, por eso, más virgen, ubicado en la zona del Parque Dos Ojos. Ofrece pasajes de caverna con formaciones geológicas bien conservadas, aguas tranquilas y una experiencia más íntima, porque recibe menos visitantes. Ideal para quienes buscan explorar cenotes fuera de las rutas más turísticas. Está dentro del Parque Dos Ojos, cerca de El Pit: justo antes de llegar a El Pit, una desviación a la izquierda lleva al cenote.",
       "tak-be-ha": "Sistema de cuevas con salas amplias, estalactitas y estalagmitas bien definidas, y una marcada haloclina que produce efectos visuales de distorsión donde se mezclan el agua dulce y la salada. Ofrece un ambiente sereno, ideal para buceadores certificados que buscan formaciones geológicas espectaculares en un entorno poco masificado.",
       "nicte-ha": "Ubicado cerca de Dos Ojos, destaca por su vegetación acuática y por sus aguas de color esmeralda, debidas a la presencia de lirios y plantas subacuáticas. Es menos profundo que otros cenotes de la zona, lo que lo hace ideal para el snorkel y el buceo ligero, con buena visibilidad y una atmósfera natural muy fotogénica.",
       "nohoch-nah-chich": "Parte de uno de los sistemas de cuevas subacuáticas más extensos del mundo. Se caracteriza por una asombrosa concentración de estalactitas y estalagmitas, muchas de gran tamaño, que forman auténticos “bosques” de piedra bajo el agua. Sus aguas cristalinas y sus pasajes intrincados lo convierten en un destino imprescindible para buceadores de cavernas experimentados que buscan formaciones geológicas de otro nivel."
@@ -754,14 +754,14 @@
     },
     "artAlt": "Ilustración: {name}",
     "metas": {
-      "casa-cenote": "Casa Cenote, Tulum: cenote abierto conectado al Caribe, entre manglares, de 9 m como máximo. Peces, tortugas, agua tranquila; sin certificación para probarlo.",
+      "casa-cenote": "Casa Cenote, Tulum: cenote abierto conectado al Caribe, entre manglares, de 7 m como máximo. Peces, tortugas, agua tranquila; sin certificación para probarlo.",
       "car-wash": "Cenote Car Wash (Aktun Ha), Tulum: nenúfares, troncos petrificados y una galería de estalactitas, hasta 16 m. Buceo en caverna con Open Water, o snorkel.",
       "dos-ojos": "Cenote Dos Ojos, Tulum: buceo en caverna por la Barbie Line y la Bat Cave, más de 30 m de visibilidad y unos 10 m de fondo. Open Water. Con mapa de buceo.",
       "el-pit": "Cenote El Pit, Tulum: un pozo de 119 m con columna de luz, haloclina y una nube de ácido sulfhídrico hacia los 30 m. Buceo a 30–32 m, Advanced o Deep.",
       "angelita": "Cenote Angelita, Tulum: el “río subterráneo”, una nube de ácido sulfhídrico a 30 m entre árboles hundidos. Buceo a 35–38 m con Advanced o Deep.",
       "dreamgate": "Cenote Dreamgate, cerca de Tulum: una caverna de columnas y formaciones en agua de una claridad extraordinaria, con entrada circular. Open Water. Con mapa.",
       "tak-be-luum": "Cenote Tak Be Luum, en el Parque Dos Ojos: pasajes de caverna tranquilos con formaciones bien conservadas, lejos de las multitudes. Open Water, hasta 7 m.",
-      "tak-be-ha": "Cenote Tak Be Ha, cerca de Tulum: salas amplias, estalactitas y estalagmitas bien definidas, haloclina marcada. Poco concurrido. Open Water, hasta 18 m.",
+      "tak-be-ha": "Cenote Tak Be Ha, cerca de Tulum: salas amplias, estalactitas y estalagmitas bien definidas, haloclina marcada. Poco concurrido. Open Water, hasta 16 m.",
       "nicte-ha": "Cenote Nicte-Ha, junto a Dos Ojos: agua esmeralda, nenúfares y plantas acuáticas. Poco profundo y fotogénico: buceo fácil y snorkel, hasta 8 m.",
       "nohoch-nah-chich": "Cenote Nohoch Nah Chich, cerca de Tulum: “bosques” de enormes estalactitas en agua cristalina, dentro de uno de los sistemas de cuevas más largos del mundo."
     },

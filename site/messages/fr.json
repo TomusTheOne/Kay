@@ -132,7 +132,7 @@
       },
       "others": {
         "name": "Les autres cenotes",
-        "depth": "jusqu'à 18 m",
+        "depth": "6–16 m",
         "note": "Choisis avec vous selon votre niveau et ce que vous attendez de la journée."
       }
     },
@@ -427,7 +427,7 @@
       },
       {
         "q": "Jusqu'à quelle profondeur descendent les plongées ?",
-        "a": "Discover Scuba reste à sept mètres (25 ft). La formation Open Water et le récif tournent autour de neuf mètres. La plupart des plongées en cenote sont planifiées à dix-huit mètres. Les deux profondes vont plus loin : le Cenote Angelita atteint 35–38 mètres et le Cenote El Pit 30–32. La formation Advanced va jusqu'à 30 mètres (100 ft)."
+        "a": "Discover Scuba reste à sept mètres (25 ft). La formation Open Water commence à Casa Cenote, profond de sept mètres, puis se termine en mer à dix-huit mètres (60 ft) ; le récif tourne autour de neuf mètres. La plupart des plongées en cenote sont peu profondes, entre six et seize mètres : Dos Ojos fait neuf à dix mètres, Car Wash descend à seize. Les deux profondes vont plus loin : le Cenote Angelita atteint 35–38 mètres et le Cenote El Pit 30–32. La formation Advanced va jusqu'à 30 mètres (100 ft)."
       },
       {
         "q": "Qu'est-ce que le tarif comprend vraiment ?",
@@ -731,13 +731,13 @@
       "advanced": "Advanced Open Water ou Deep"
     },
     "items": {
-      "casa-cenote": "Un cenote ouvert, en forme de lagune, relié directement à la mer des Caraïbes : l'eau douce et l'eau salée s'y mélangent en un écosystème unique. Sa profondeur maximale tourne autour de 9 mètres, idéale pour les plongeurs débutants et pour qui cherche une plongée détendue. Il est entouré de mangroves et sa visibilité, même variable, permet de nager parmi les poissons, les tortues et, parfois, un crocodile d'eau douce (le crocodile de Morelet, Crocodylus moreletii). Parfait pour allier plongée loisir et rencontre directe avec la faune.",
+      "casa-cenote": "Un cenote ouvert, en forme de lagune, relié directement à la mer des Caraïbes : l'eau douce et l'eau salée s'y mélangent en un écosystème unique. Sa profondeur maximale tourne autour de 7 mètres, idéale pour les plongeurs débutants et pour qui cherche une plongée détendue. Il est entouré de mangroves et sa visibilité, même variable, permet de nager parmi les poissons, les tortues et, parfois, un crocodile d'eau douce (le crocodile de Morelet, Crocodylus moreletii). Parfait pour allier plongée loisir et rencontre directe avec la faune.",
       "car-wash": "Sous une surface calme et facile d'accès se cache l'un des cenotes les plus photographiés de la Riviera Maya. Des nénuphars flottent sur son eau transparente ; plus bas apparaissent des troncs pétrifiés et une impressionnante galerie de stalactites et de stalagmites. Avec jusqu'à 16 mètres de fond, il se prête aussi bien au snorkeling qu'à la plongée en caverne, et les rayons du soleil filtrés par la végétation font de chaque plongée une expérience presque cinématographique.",
       "dos-ojos": "L'un des réseaux de grottes noyées les plus célèbres au monde, formé de deux cenotes reliés qui, vus d'en haut, donnent l'illusion de « deux yeux ». On y plonge en caverne sur des parcours comme « The Barbie Line » et « The Bat Cave », dans une eau cristalline à plus de 30 mètres de visibilité, entre stalactites impressionnantes et formations rocheuses millénaires. Sa profondeur maximale est d'environ 10 mètres dans les zones ouvertes. Il fait partie du plus vaste réseau de grottes immergées au monde, environ 369 kilomètres. Une excellente option si vous n'avez jamais plongé en cenote.",
       "el-pit": "Considéré comme l'un des cenotes les plus profonds et les plus spectaculaires de la Riviera Maya, il descend jusqu'à 119 mètres. Il est célèbre pour sa colonne de lumière qui traverse l'eau, pour son halocline (le mélange d'eau douce et d'eau salée) et pour un nuage d'hydrogène sulfuré vers 30 mètres, qui lui donne un effet de « brouillard » sous-marin. Recommandé aux plongeurs confirmés ou de niveau technique, c'est l'une des plongées en cenote les plus saisissantes au monde.",
       "angelita": "Profond d'environ 60 mètres, ce cenote abrite l'un des phénomènes les plus saisissants de la plongée en caverne : un nuage d'hydrogène sulfuré posé sur l'eau salée vers 30 mètres, qui crée l'illusion d'une rivière souterraine où troncs et feuilles mortes « flottent » dans les airs. Le traverser, c'est franchir un seuil vers une autre dimension et découvrir un paysage englouti, voilé d'une brume spectrale. Une expérience mystique et bouleversante, réservée aux plongeurs confirmés en quête de quelque chose de vraiment unique.",
       "dreamgate": "Un cenote de type caverne à l'entrée circulaire, connu pour la clarté extraordinaire de son eau et pour ses colonnes et formations rocheuses imposantes qui descendent jusqu'au fond. La lumière naturelle qui filtre par l'ouverture crée des effets spectaculaires. Idéal pour la plongée en caverne, avec des parcours dans de vastes salles et une atmosphère presque cérémonielle.",
-      "tak-be-luum": "Un cenote moins connu, et donc plus préservé, situé dans le parc de Dos Ojos. Il offre des passages de caverne aux formations bien conservées, une eau calme et une plongée plus intime, car il reçoit moins de visiteurs. Idéal pour explorer les cenotes hors des circuits les plus touristiques.",
+      "tak-be-luum": "Un cenote moins connu, et donc plus préservé, situé dans le parc de Dos Ojos. Il offre des passages de caverne aux formations bien conservées, une eau calme et une plongée plus intime, car il reçoit moins de visiteurs. Idéal pour explorer les cenotes hors des circuits les plus touristiques. Il se trouve dans le parc Dos Ojos, près d'El Pit : juste avant d'arriver à El Pit, une bifurcation sur la gauche mène au cenote.",
       "tak-be-ha": "Un réseau de grottes aux vastes salles, aux stalactites et stalagmites bien dessinées, avec une halocline marquée qui brouille la vue là où l'eau douce et l'eau salée se mélangent. Une ambiance sereine, idéale pour les plongeurs certifiés en quête de formations spectaculaires, loin de la foule.",
       "nicte-ha": "Situé près de Dos Ojos, il se distingue par sa végétation aquatique et son eau vert émeraude, due aux nénuphars et aux plantes subaquatiques. Moins profond que les autres cenotes du secteur, il est idéal pour le snorkeling et la plongée tranquille, avec une bonne visibilité et un cadre naturel très photogénique.",
       "nohoch-nah-chich": "Il fait partie de l'un des plus vastes réseaux de grottes subaquatiques au monde. Il se distingue par une concentration étonnante de stalactites et de stalagmites, souvent immenses, qui forment de véritables « forêts » de pierre sous l'eau. Son eau cristalline et ses passages complexes en font une destination incontournable pour les plongeurs de caverne expérimentés en quête de formations d'un autre niveau."
@@ -754,14 +754,14 @@
     },
     "artAlt": "Illustration : {name}",
     "metas": {
-      "casa-cenote": "Casa Cenote, Tulum : cenote ouvert relié à la mer des Caraïbes et bordé de mangroves, 9 m au plus. Poissons, tortues, eau calme ; aucun niveau requis.",
+      "casa-cenote": "Casa Cenote, Tulum : cenote ouvert relié à la mer des Caraïbes et bordé de mangroves, 7 m au plus. Poissons, tortues, eau calme ; aucun niveau requis.",
       "car-wash": "Cenote Car Wash (Aktun Ha), Tulum : nénuphars, troncs pétrifiés et galerie de stalactites, jusqu'à 16 m. Plongée en caverne avec l'Open Water, ou snorkeling.",
       "dos-ojos": "Cenote Dos Ojos, Tulum : plongée en caverne sur la Barbie Line et dans la Bat Cave, plus de 30 m de visibilité, environ 10 m de fond. Open Water. Avec plan.",
       "el-pit": "Cenote El Pit, Tulum : un puits de 119 m, une colonne de lumière, une halocline et un nuage d'hydrogène sulfuré vers 30 m. Plongée à 30–32 m, Advanced ou Deep.",
       "angelita": "Cenote Angelita, Tulum : la « rivière souterraine », un nuage d'hydrogène sulfuré à 30 m parmi les arbres engloutis. Plongée à 35–38 m, Advanced ou Deep.",
       "dreamgate": "Cenote Dreamgate, près de Tulum : une caverne de colonnes et de concrétions, eau d'une clarté extraordinaire, entrée circulaire. Open Water. Avec plan.",
       "tak-be-luum": "Cenote Tak Be Luum, parc Dos Ojos : des passages de caverne calmes aux concrétions bien conservées, loin des circuits fréquentés. Open Water, jusqu'à 7 m.",
-      "tak-be-ha": "Cenote Tak Be Ha, près de Tulum : vastes salles, stalactites et stalagmites bien dessinées, halocline marquée. Calme, jamais bondé. Open Water, jusqu'à 18 m.",
+      "tak-be-ha": "Cenote Tak Be Ha, près de Tulum : vastes salles, stalactites et stalagmites bien dessinées, halocline marquée. Calme, jamais bondé. Open Water, jusqu'à 16 m.",
       "nicte-ha": "Cenote Nicte-Ha, près de Dos Ojos : eau émeraude, nénuphars et plantes aquatiques. Peu profond et photogénique : plongée facile et snorkeling, jusqu'à 8 m.",
       "nohoch-nah-chich": "Cenote Nohoch Nah Chich, près de Tulum : des « forêts » de stalactites géantes dans une eau cristalline, au cœur de l'un des plus longs réseaux noyés du monde."
     },
