@@ -70,10 +70,18 @@ export default function Booking({
   /* Mercado Pago debits PESOS. Sending a diver to a checkout showing a number
      they have never seen — with a currency the page never mentioned — is how a
      booking turns into a chargeback, so the slate says it before they leave. */
-  const deposit = useMemo(
-    () => Math.round((option.priceMxn * divers + pick.priceMxn) * DEPOSIT_RATE),
+  const totalMxn = useMemo(
+    () => option.priceMxn * divers + pick.priceMxn,
     [option, divers, pick],
   );
+  const deposit = useMemo(() => Math.round(totalMxn * DEPOSIT_RATE), [totalMxn]);
+
+  /* Some divers would rather be done with it than carry cash to a cenote.
+     The server recomputes both figures from the catalogue and only charges
+     the larger one when this says exactly "full", so the worst a broken page
+     can do here is take a deposit. */
+  const [pay, setPay] = useState<"deposit" | "full">("deposit");
+  const charge = pay === "full" ? totalMxn : deposit;
 
   function choose(p: Product) {
     setProduct(p);
@@ -110,7 +118,7 @@ export default function Booking({
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify({
-          product: product.slug, option: option.dives, ...(slots.length ? { sites } : {}),
+          product: product.slug, option: option.dives, pay, ...(slots.length ? { sites } : {}),
           date, slot, slotNote,
           cert, divers, pickup, name, email, locale,
         }),
@@ -129,8 +137,10 @@ export default function Booking({
          What was booked, never who booked it. Bounded at 400 ms, and it
          resolves whatever happens, so the redirect below always runs. */
       await track("checkout-opened", {
+        pay,
         product: product.slug, dives: option.dives, divers,
-        depositMxn: deposit, locale,
+        // What is actually being charged, not always the deposit any more.
+        depositMxn: charge, locale,
       });
       // Mercado Pago hosts the card form: no card data ever touches this site.
       window.location.assign(checkoutUrl);
@@ -324,10 +334,22 @@ export default function Booking({
             <span className="k">{t.rTotal}</span>
             <span className="v">{money(total)}<i>USD</i></span>
           </div>
-          <div className="slate__dep">
-            <span className="k">{t.rDeposit}</span>
-            <span className="v">{money(deposit)} MXN</span>
+          <div className="pay" role="radiogroup" aria-label={t.payLabel}>
+            {([
+              ["deposit", t.payDeposit.replace("{percent}", String(Math.round(DEPOSIT_RATE * 100))), deposit],
+              ["full", t.payFull, totalMxn],
+            ] as const).map(([key, label, amount]) => (
+              <label className="pay__opt" key={key} data-on={pay === key || undefined}>
+                <input type="radio" name="pay" checked={pay === key}
+                       onChange={() => setPay(key)} />
+                <span className="pay__k">{label}</span>
+                <span className="pay__v">{money(amount)} MXN</span>
+              </label>
+            ))}
           </div>
+          <p className="slate__fine">
+            {pay === "full" ? t.payFullNote : t.payDepositNote}
+          </p>
           <p className="slate__fine">{t.fine}</p>
           {/* Said before the deposit, not only after it: a diver without the
               card the dive needs should not pay to find that out on the day. */}

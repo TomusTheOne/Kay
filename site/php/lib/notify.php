@@ -46,11 +46,16 @@ function kay_checkout_item(array $quote, string $locale): array
         ? ($m['emails']['common']['diver']  ?? 'diver')
         : ($m['emails']['common']['divers'] ?? 'divers'));
 
-    $description = strtr(
-        (string) ($m['book']['mpDescription']
-                  ?? 'Deposit of {percent}% — the balance is settled on the day.'),
-        ['{percent}' => (string) (int) round(kay_deposit_rate() * 100)]
-    );
+    // The line under the price on Mercado Pago's own page. Telling someone
+    // paying the whole thing that a balance is due on the day would be the
+    // last thing they read before entering a card.
+    $description = ($quote['pay'] ?? 'deposit') === 'full'
+        ? (string) ($m['book']['mpDescriptionFull'] ?? 'Paid in full — nothing to settle on the day.')
+        : strtr(
+            (string) ($m['book']['mpDescription']
+                      ?? 'Deposit of {percent}% — the balance is settled on the day.'),
+            ['{percent}' => (string) (int) round(kay_deposit_rate() * 100)]
+        );
 
     return [sprintf('%s · %d %s', $name, (int) $quote['divers'], $word), $description];
 }
@@ -273,18 +278,26 @@ function kay_booking_emails(array $row): array
         $d['meetLabel']   => kay_e((string) $shop['meetingPoint']),
         $d['pickupLabel'] => kay_e(trim($pickupName . ' ' . $pickupPrice)),
     ];
-    $money = [
-        $d['totalLabel']   => kay_e($totalLine),
-        $d['paidLabel']    => '<span style="color:#1FA8AE;">' . kay_e($paidLine) . '</span>',
-        $d['balanceLabel'] => kay_e($balanceLine),
-    ];
+    // Nothing left to pay: say so, rather than printing a balance of zero and
+    // a note about settling it in cash on arrival. The diver reads this at the
+    // dive centre's door, and a confusing line there costs Kay a conversation.
+    $settled = $balanceMxn <= 0 && $paidMxn > 0;
+
+    $money = $settled
+        ? [$d['totalLabel'] => kay_e($totalLine),
+           $d['fullLabel']  => '<span style="color:#1FA8AE;">' . kay_e($paidLine) . '</span>']
+        : [$d['totalLabel']   => kay_e($totalLine),
+           $d['paidLabel']    => '<span style="color:#1FA8AE;">' . kay_e($paidLine) . '</span>',
+           $d['balanceLabel'] => kay_e($balanceLine)];
+
+    $moneyNote = $settled ? $d['fullNote'] : $d['balanceNote'];
 
     $inner = kay_mail_header($d['kicker'], $productName)
         . kay_mail_text('<p style="margin:0 0 12px;">' . kay_e($swap($d['hi'], ['{name}' => (string) $row['name']])) . '</p>'
-            . '<p style="margin:0;">' . kay_e($swap($d['lede'], ['{date}' => $date])) . '</p>')
+            . '<p style="margin:0;">' . kay_e($swap($settled ? $d['ledeFull'] : $d['lede'], ['{date}' => $date])) . '</p>')
         . kay_mail_facts($d['detailsTag'], $facts)
         . kay_mail_facts($d['moneyTag'], $money)
-        . kay_mail_text('<p style="margin:0;font-size:13px;color:#5C6B72;">' . kay_e($d['balanceNote']) . '</p>')
+        . kay_mail_text('<p style="margin:0;font-size:13px;color:#5C6B72;">' . kay_e($moneyNote) . '</p>')
         . ($certText === '' ? '' : kay_mail_text(
             '<div style="margin:20px 0 0;padding:12px 16px;border-left:3px solid #1FA8AE;background:#EAF6F5;border-radius:0 8px 8px 0;">'
             . '<p style="margin:0 0 6px;font-weight:700;">' . kay_e($d['certTag']) . '</p>'
@@ -308,7 +321,7 @@ function kay_booking_emails(array $row): array
     $diverText = implode("\n", [
         $swap($d['hi'], ['{name}' => (string) $row['name']]),
         '',
-        $swap($d['lede'], ['{date}' => $date]),
+        $swap($settled ? $d['ledeFull'] : $d['lede'], ['{date}' => $date]),
         '',
         $d['whatLabel'] . ': ' . $what,
         ...($sites === '' ? [] : [$d['sitesLabel'] . ': ' . $sites]),
@@ -320,9 +333,9 @@ function kay_booking_emails(array $row): array
         $d['pickupLabel'] . ': ' . trim($pickupName . ' ' . $pickupPrice),
         '',
         $d['totalLabel'] . ': ' . $totalLine,
-        $d['paidLabel'] . ': ' . $paidLine,
-        $d['balanceLabel'] . ': ' . $balanceLine,
-        $d['balanceNote'],
+        ($settled ? $d['fullLabel'] : $d['paidLabel']) . ': ' . $paidLine,
+        ...($settled ? [] : [$d['balanceLabel'] . ': ' . $balanceLine]),
+        $moneyNote,
         ...($certText === '' ? [] : ['', $d['certTag'] . ' — ' . $certText]),
         ...($gearUrl === '' ? [] : ['', $d['gearTag'] . ' — ' . $gearText, $gearUrl]),
         '',
@@ -344,8 +357,8 @@ function kay_booking_emails(array $row): array
         $d['peopleLabel'] => kay_e($who),
         $d['certLabel']   => kay_e($cert),
         $d['pickupLabel'] => kay_e(trim($pickupName . ' ' . $pickupPrice)),
-        $d['paidLabel']   => kay_e($paidLine),
-        $d['balanceLabel'] => kay_e($balanceLine),
+        ($settled ? $d['fullLabel'] : $d['paidLabel']) => kay_e($paidLine),
+        ...($settled ? [] : [$d['balanceLabel'] => kay_e($balanceLine)]),
     ];
     $contact = [
         $s['nameLabel']   => kay_e((string) $row['name']),

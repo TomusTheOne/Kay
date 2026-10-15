@@ -47,7 +47,11 @@ if (kay_date_closed(kay_db(), (string) $input['date'])) {
 
 $config      = kay_config();
 // Straight from the catalogue's peso price — see kay_quote().
-$depositMxn  = $quote['deposit_mxn'];
+// What Mercado Pago is asked for: the deposit, or the whole thing when the
+// diver chose to settle now. The deposit columns hold whatever was taken
+// online, so a booking paid in full simply has nothing left outstanding —
+// kay_received_sql() and the emails both read it that way already.
+$depositMxn  = $quote['charge_mxn'];
 $locale      = in_array($input['locale'] ?? 'en', ['en', 'es', 'fr'], true) ? $input['locale'] : 'en';
 $bookingId   = sprintf(
     '%04x%04x-%04x-4%03x-%04x-%04x%04x%04x',
@@ -84,7 +88,7 @@ $db->prepare(
     $locale,
     $quote['total_usd'] * 100,
     $quote['total_mxn'] * 100,
-    $quote['deposit_usd'] * 100,
+    $quote['charge_usd'] * 100,
     $depositMxn * 100,
 ]);
 

@@ -76,6 +76,23 @@ check('discover scuba, one dive, in dollars', $ds1['total_usd'], 140);
 check('...and the 2300 pesos he actually asks', $ds1['total_mxn'], 2300);
 check('which is NOT 140 x 16',                 $ds1['total_mxn'] === 140 * 16, false);
 
+echo "\nA diver may settle the whole thing now, and cannot be charged more\n";
+// 3 cenote dives x 3 divers: 12,000 MXN, deposit 3,600.
+check('a deposit is the default',        kay_quote($base)['charge_mxn'], 3600);
+check('and says so',                     kay_quote($base)['pay'], 'deposit');
+check('paying in full charges the total', kay_quote(['pay' => 'full'] + $base)['charge_mxn'], 12000);
+check('in dollars too',                  kay_quote(['pay' => 'full'] + $base)['charge_usd'], 750);
+check('and says so',                     kay_quote(['pay' => 'full'] + $base)['pay'], 'full');
+check('asking for a deposit explicitly is a deposit',
+      kay_quote(['pay' => 'deposit'] + $base)['charge_mxn'], 3600);
+// The browser picks which of two figures to charge, never what they are.
+check('the full price cannot be sent from the browser',
+      kay_quote(['pay' => 'full', 'total_mxn' => 1, 'priceMxn' => 1] + $base)['charge_mxn'], 12000);
+// Every other value falls through to the deposit, so a stale page or a
+// tampered payload can only ever charge less than the diver agreed to.
+foreach (['FULL', 'full ', 'todo', '1', 'true', ''] as $odd) {
+    check("'" . $odd . "' is not full", kay_quote(['pay' => $odd] + $base)['charge_mxn'], 3600);
+}
 echo "\nPickup is charged per booking, not per diver\n";
 check('meeting point is free',      kay_quote(['pickup' => 'meeting-point'] + $base)['total_usd'], 750);
 check('town pickup adds 20 once',   kay_quote(['pickup' => 'tulum-town'] + $base)['total_usd'], 770);
@@ -137,6 +154,11 @@ check('malformed email',       kay_validate(['email' => 'nope'] + $ok), 'email')
 check('empty name',            kay_validate(['name' => ''] + $ok), 'name');
 check('nonsense date',         kay_validate(['date' => '2099-13-45'] + $ok), 'date');
 check('past date',             kay_validate(['date' => '2000-01-01'] + $ok), 'date-past');
+// The payment choice, validated rather than silently absorbed.
+check('an unknown way to pay is refused', kay_validate(['pay' => 'todo'] + $ok), 'pay');
+check('deposit is accepted',              kay_validate(['pay' => 'deposit'] + $ok), null);
+check('full is accepted',                 kay_validate(['pay' => 'full'] + $ok), null);
+check('and absent means deposit',         kay_validate($ok), null);
 
 echo "\nA seasonal dive cannot be booked out of season\n";
 // The bull sharks are off Playa del Carmen from November to March. The window

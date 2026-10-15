@@ -561,6 +561,28 @@ select.field{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xml
 .slate__dep{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;margin-top:.6rem}
 .slate__dep .k{font-family:var(--mono);font-size:.64rem;letter-spacing:.2em;text-transform:uppercase;color:var(--foam-52)}
 .slate__dep .v{font-family:var(--mono);font-size:.95rem;color:var(--turq);font-variant-numeric:tabular-nums}
+/* The deposit line became a choice: deposit now, or settle the whole thing.
+   Two rows rather than pills, because the amounts have to line up to be
+   compared, and comparing them is the entire decision. */
+.pay{display:flex;flex-direction:column;gap:.3rem;margin-top:.6rem}
+.pay__opt{
+  display:flex;justify-content:space-between;align-items:baseline;gap:1rem;
+  padding:.5rem .65rem;border:1px solid transparent;border-radius:10px;
+  cursor:pointer;transition:border-color .25s var(--ease),background .25s var(--ease);
+}
+.pay__opt:hover{background:rgba(169,245,236,.04)}
+.pay__opt[data-on]{border-color:rgba(79,224,210,.34);background:rgba(79,224,210,.06)}
+/* The native control is replaced by the row itself, but it stays in the
+   accessibility tree and keeps the keyboard and screen readers working. */
+.pay__opt input{position:absolute;opacity:0;width:0;height:0}
+.pay__opt:has(input:focus-visible){outline:2px solid var(--turq);outline-offset:2px}
+.pay__k{font-family:var(--mono);font-size:.64rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--foam-52)}
+.pay__opt[data-on] .pay__k{color:var(--foam)}
+.pay__v{font-family:var(--mono);font-size:.95rem;color:var(--foam-52);
+  font-variant-numeric:tabular-nums;white-space:nowrap}
+.pay__opt[data-on] .pay__v{color:var(--turq)}
+
 .slate__fine{font-size:.74rem;color:var(--foam-34);margin-top:.7rem;line-height:1.5}
 .slate .btn{width:100%;margin-top:1.2rem}
 
