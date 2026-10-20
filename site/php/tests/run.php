@@ -318,6 +318,69 @@ check('an hour-old notification is refused',    kay_mp_signature_valid('PAY-1'),
 $_SERVER['HTTP_X_SIGNATURE'] = '';
 check('an unsigned notification is refused',    kay_mp_signature_valid('PAY-1'), false);
 
+// Mercado Pago signs over the fields it actually sent, and its own
+// documentation says to leave out a part that is absent. A notification with
+// no x-request-id used to be refused, which would strand a paid booking at
+// pending for ever while Mercado Pago retried into a 401.
+$_SERVER['HTTP_X_REQUEST_ID'] = '';
+$bare = static fn(string $id, string $ts, string $key = 'test-secret'): string
+    => hash_hmac('sha256', "id:$id;ts:$ts;", $key);
+$_SERVER['HTTP_X_SIGNATURE'] = "ts=$nowMs,v1=" . $bare('PAY-1', $nowMs);
+check('one signed without a request id passes', kay_mp_signature_valid('PAY-1'), true);
+$_SERVER['HTTP_X_SIGNATURE'] = "ts=$nowMs,v1=" . $bare('PAY-1', $nowMs, 'guessed');
+check('...but still not with a wrong secret',   kay_mp_signature_valid('PAY-1'), false);
+// The empty request id must not become a wildcard: the manifest with the
+// header in it is still the one that has to match when the header is there.
+$_SERVER['HTTP_X_REQUEST_ID'] = 'REQ-1';
+check('a bare signature fails once a request id is sent', kay_mp_signature_valid('PAY-1'), false);
+
+$why = null;
+$_SERVER['HTTP_X_SIGNATURE'] = '';
+kay_mp_signature_valid('PAY-1', $why);
+check('a refusal says it was unsigned', str_contains((string) $why, 'no x-signature'), true);
+$_SERVER['HTTP_X_SIGNATURE'] = "ts=$nowMs,v1=" . $sign('PAY-1', 'REQ-1', $nowMs, 'guessed');
+kay_mp_signature_valid('PAY-1', $why);
+check('and a wrong secret says so',     str_contains((string) $why, 'secret'), true);
+$_SERVER['HTTP_X_SIGNATURE'] = "ts=$nowMs,v1=" . $sign('PAY-1', 'REQ-1', $nowMs);
+kay_mp_signature_valid('PAY-1', $why);
+check('a notification that passes has no reason', $why, null);
+
+echo "\nA notification is read whatever shape Mercado Pago sends it in\n";
+// PHP rewrites dots in parameter NAMES to underscores, so ?data.id=1 can only
+// ever be read as $_GET['data_id'] — the obvious lookup is always empty, and
+// with it the webhook refused every notification that carried the id only in
+// the query string.
+$_GET = [];
+check('from the body',              kay_mp_notification_id(['data' => ['id' => '77']]), '77');
+$_GET = ['data_id' => '88'];
+check('from the query, as PHP mangles it', kay_mp_notification_id([]), '88');
+$_GET = ['topic' => 'payment', 'id' => '99'];
+check('from a legacy IPN call',     kay_mp_notification_id([]), '99');
+check('and its topic reads as the type', kay_mp_notification_type([]), 'payment');
+$_GET = [];
+check('a webhook v2 type',          kay_mp_notification_type(['type' => 'payment']), 'payment');
+check('merchant_order is not a payment', kay_mp_notification_type(['type' => 'merchant_order']), 'merchant_order');
+check('nothing at all reads as nothing', kay_mp_notification_id([]), '');
+check('and as no type',             kay_mp_notification_type([]), '');
+
+echo "\nEvery call Mercado Pago makes is on the record, refusals included\n";
+$db->exec('DELETE FROM webhook_log');
+$_SERVER['HTTP_X_SIGNATURE'] = 'ts=1,v1=nope';
+kay_mp_log_call('PAY-9', null, 'bad-signature', 'v1 does not match');
+$_SERVER['HTTP_X_SIGNATURE'] = '';
+kay_mp_log_call('PAY-9', $id, 'settled', 'paid');
+$calls = kay_webhook_log($db, 10);
+check('the newest call comes first',   $calls[0]['outcome'], 'settled');
+check('it carries its booking',        $calls[0]['booking_id'], $id);
+check('a refusal is kept too',         $calls[1]['outcome'], 'bad-signature');
+check('and says it was signed',        (int) $calls[1]['signed'], 1);
+check('an unsigned call says that',    (int) $calls[0]['signed'], 0);
+$hook = kay_webhook_health($db);
+check('both calls counted',            $hook['calls_30d'], 2);
+check('one of them refused',           $hook['refused_30d'], 1);
+check('one booking settled',           $hook['settled_30d'], 1);
+check('the last settlement is found',  $hook['last_settled']['payment_id'], 'PAY-9');
+
 echo "\nThe confirmation says what was actually booked\n";
 
 // A settled booking exactly as the webhook reads it back out of MySQL.
@@ -447,7 +510,44 @@ check('brevo names the recipient',             $body['to'][0]['name'], 'Ana Ruiz
 check('brevo spells it htmlContent',           isset($body['htmlContent'], $body['textContent']), true);
 
 echo "\nMail is off until it is configured, and says so rather than failing\n";
+$db->exec('DELETE FROM mail_log');
 check('nothing is sent while unconfigured', kay_send_email($diver), false);
+
+// The whole point of the log: a diver saying "nothing arrived" used to be
+// answerable only from the hosting's error log, which nobody running a dive
+// shop is going to read.
+$logged = kay_mail_log($db, 5);
+check('the attempt is on the record',  count($logged), 1);
+check('it is marked as not sent',      (int) $logged[0]['ok'], 0);
+check('and says why, in one line',     str_contains((string) $logged[0]['error'], 'mail_provider'), true);
+check('the recipient is kept',         $logged[0]['recipient'], 'ana@example.com');
+check('with no booking of its own',    $logged[0]['booking_id'], null);
+
+kay_send_email($diver, ['booking' => $id, 'kind' => 'diver']);
+$mine = kay_mail_log($db, 5, $id);
+check('a send ties to its booking',    count($mine), 1);
+check('and knows what it was',         $mine[0]['kind'], 'diver');
+check('a different booking has none',  kay_mail_log($db, 5, 'no-such-booking'), []);
+
+$health = kay_mail_health($db);
+check('email is reported as not ready', $health['ready'], false);
+check('the provider is named',          $health['provider'], 'off');
+check('and the failures counted',       $health['failed_30d'], 2);
+check('with nothing sent',              $health['sent_30d'], 0);
+check('the last refusal is to hand',    $health['last_fail']['recipient'], 'ana@example.com');
+check('and there is no last success',   $health['last_ok'], null);
+check('so it reads as failing',         $health['failing'], true);
+
+echo "\nWhat the provider answered is kept in the words it used\n";
+check('resend hands back a message id', kay_mail_ref('{"id":"re_12345"}'), 're_12345');
+check('brevo spells it messageId',      kay_mail_ref('{"messageId":"<a@b>"}'), '<a@b>');
+check('nothing usable is nothing',      kay_mail_ref('not json at all'), '');
+// The one a half-configured domain actually produces.
+check('a refusal keeps its reason',
+      kay_mail_reason('{"statusCode":403,"message":"The kaydiving.com domain is not verified"}'),
+      'The kaydiving.com domain is not verified');
+check('a validation error too',  kay_mail_reason('{"name":"validation_error"}'), 'validation_error');
+check('and plain text survives', kay_mail_reason('Service Unavailable'), 'Service Unavailable');
 
 
 echo "\nThe admin lets in the right password, and nobody who keeps guessing\n";

@@ -46,16 +46,60 @@ function kay_mp_request(string $method, string $path, ?array $body = null): arra
 }
 
 /**
+ * The payment a notification is about, whatever shape it arrives in.
+ *
+ * Webhooks v2 put the id in the JSON body as data.id and repeat it in the
+ * query string under that same name — which PHP cannot hand back under that
+ * name: it still rewrites dots in parameter NAMES to underscores, a
+ * register_globals habit from the 1990s, so ?data.id=123 arrives as
+ * $_GET['data_id'] and a lookup of $_GET['data.id'] is always empty.
+ *
+ * Legacy IPN, which a notification_url set on the preference rather than in
+ * the panel can still receive, names it differently again:
+ * ?topic=payment&id=123. Reading all three costs nothing and is the
+ * difference between a booking that settles and one that sits at pending
+ * while Mercado Pago retries into a 401 and then gives up.
+ */
+function kay_mp_notification_id(array $body): string
+{
+    foreach ([$_GET['data.id'] ?? null, $_GET['data_id'] ?? null,
+              $body['data']['id'] ?? null, $_GET['id'] ?? null, $body['id'] ?? null] as $candidate) {
+        if (is_scalar($candidate) && (string) $candidate !== '') {
+            return (string) $candidate;
+        }
+    }
+    return '';
+}
+
+/** 'payment', 'merchant_order', … under either naming. */
+function kay_mp_notification_type(array $body): string
+{
+    foreach ([$body['type'] ?? null, $_GET['type'] ?? null,
+              $body['topic'] ?? null, $_GET['topic'] ?? null] as $candidate) {
+        if (is_string($candidate) && $candidate !== '') {
+            return $candidate;
+        }
+    }
+    return '';
+}
+
+/**
  * Anyone can POST to the webhook, so the signature is checked before the
  * payload is believed — otherwise a stranger could mark any booking paid.
  *
  * x-signature: "ts=<unix>,v1=<hmac>" over "id:<data.id>;request-id:<rid>;ts:<ts>;"
+ *
+ * $reason comes back saying which test failed, for the record kept in
+ * webhook_log: a 401 that says "unsigned" and a 401 that says "wrong secret"
+ * send whoever is looking to two completely different places.
  */
-function kay_mp_signature_valid(string $dataId): bool
+function kay_mp_signature_valid(string $dataId, ?string &$reason = null): bool
 {
     $signature = $_SERVER['HTTP_X_SIGNATURE'] ?? '';
     $requestId = $_SERVER['HTTP_X_REQUEST_ID'] ?? '';
+    $reason    = null;
     if ($signature === '') {
+        $reason = 'no x-signature header: not a webhook v2 notification';
         return false;
     }
 
@@ -67,6 +111,7 @@ function kay_mp_signature_valid(string $dataId): bool
         }
     }
     if (empty($parts['ts']) || empty($parts['v1'])) {
+        $reason = 'x-signature carries neither ts nor v1';
         return false;
     }
 
@@ -85,13 +130,67 @@ function kay_mp_signature_valid(string $dataId): bool
     // cannot be replayed later.
     if (abs(time() - $ts) > 300) {
         error_log('kay: webhook signature timestamp outside tolerance');
+        $reason = sprintf('signed %ds away from this server\'s clock', time() - $ts);
         return false;
     }
 
-    $manifest = sprintf('id:%s;request-id:%s;ts:%s;', $dataId, $requestId, $parts['ts']);
-    $expected = hash_hmac('sha256', $manifest, kay_config()['mp_webhook_secret']);
+    // Mercado Pago builds the manifest out of the fields it actually sent,
+    // and its own documentation says to leave out any part that is absent.
+    // Every real notification so far has carried x-request-id — but one
+    // without it is signed over 'id:…;ts:…;', and refusing that would strand
+    // a paid booking at pending for ever. Both forms are checked against the
+    // same secret, so accepting either weakens nothing.
+    $manifests = [sprintf('id:%s;request-id:%s;ts:%s;', $dataId, $requestId, $parts['ts'])];
+    if ($requestId === '') {
+        $manifests[] = sprintf('id:%s;ts:%s;', $dataId, $parts['ts']);
+    }
 
-    return hash_equals($expected, $parts['v1']);
+    $secret = (string) kay_config()['mp_webhook_secret'];
+    foreach ($manifests as $manifest) {
+        if (hash_equals(hash_hmac('sha256', $manifest, $secret), $parts['v1'])) {
+            return true;
+        }
+    }
+
+    $reason = 'v1 does not match the signing secret in kay-config.php';
+    return false;
+}
+
+/**
+ * Every call Mercado Pago makes, refused ones included, so the admin can
+ * tell "it never called" from "it called and we turned it away" — the two
+ * halves of a booking that stays pending after the card went through.
+ *
+ * The endpoint is public, so the table is capped: a stranger posting at it
+ * can churn the log but cannot grow the database. The pruning runs on one
+ * insert in fifty, which keeps it out of the path of a real notification.
+ */
+function kay_mp_log_call(string $paymentId, ?string $bookingId, string $outcome, string $detail = ''): void
+{
+    try {
+        $db = kay_db();
+        $db->prepare(
+            'INSERT INTO webhook_log (payment_id, booking_id, outcome, detail, signed)
+             VALUES (?,?,?,?,?)'
+        )->execute([
+            mb_substr($paymentId, 0, 64),
+            ($bookingId ?? '') !== '' ? $bookingId : null,
+            mb_substr($outcome, 0, 24),
+            mb_substr($detail, 0, 190),
+            ($_SERVER['HTTP_X_SIGNATURE'] ?? '') !== '' ? 1 : 0,
+        ]);
+        if ((int) $db->lastInsertId() % 50 === 0) {
+            // A subquery on the table being deleted from needs the extra
+            // derived table; MySQL refuses it written the obvious way.
+            $db->exec(
+                'DELETE FROM webhook_log WHERE id < (
+                   SELECT keep FROM (SELECT MAX(id) - 400 AS keep FROM webhook_log) AS bound
+                 )'
+            );
+        }
+    } catch (Throwable $e) {
+        error_log('kay: webhook call not logged: ' . $e->getMessage());
+    }
 }
 
 /**
@@ -134,4 +233,60 @@ function kay_settle_payment(PDO $db, string $bookingId, string $next, string $pa
     );
     $s->execute([$next, $paymentId, $bookingId]);
     return $s->rowCount();
+}
+
+/**
+ * The last calls Mercado Pago made, newest first.
+ *
+ * @return list<array<string,mixed>>
+ */
+function kay_webhook_log(PDO $db, int $limit = 30): array
+{
+    try {
+        return $db->query(
+            'SELECT * FROM webhook_log ORDER BY id DESC LIMIT ' . max(1, min(200, $limit))
+        )->fetchAll();
+    } catch (Throwable) {
+        return [];
+    }
+}
+
+/**
+ * Has Mercado Pago been calling, and have the calls been getting through?
+ *
+ * 'calls_30d' at zero on a site that has taken a payment is the whole
+ * diagnosis: the notification never arrived, so nothing was ever settled and
+ * no confirmation was ever rendered, let alone sent. Refused calls separate
+ * that from the other failure — it called, and we turned it away.
+ */
+function kay_webhook_health(PDO $db): array
+{
+    $health = [
+        'calls_30d'   => 0,
+        'refused_30d' => 0,
+        'settled_30d' => 0,
+        'last_call'   => null,
+        'last_settled' => null,
+    ];
+
+    try {
+        $counts = $db->query(
+            "SELECT COUNT(*) AS calls,
+                    SUM(outcome IN ('bad-signature','no-id')) AS refused,
+                    SUM(outcome = 'settled')                  AS settled
+               FROM webhook_log WHERE called_at >= NOW() - INTERVAL 30 DAY"
+        )->fetch() ?: [];
+        $health['calls_30d']   = (int) ($counts['calls'] ?? 0);
+        $health['refused_30d'] = (int) ($counts['refused'] ?? 0);
+        $health['settled_30d'] = (int) ($counts['settled'] ?? 0);
+
+        $health['last_call'] = $db->query('SELECT * FROM webhook_log ORDER BY id DESC LIMIT 1')->fetch() ?: null;
+        $health['last_settled'] = $db->query(
+            "SELECT * FROM webhook_log WHERE outcome = 'settled' ORDER BY id DESC LIMIT 1"
+        )->fetch() ?: null;
+    } catch (Throwable) {
+        // No table yet; the page says so rather than failing.
+    }
+
+    return $health;
 }

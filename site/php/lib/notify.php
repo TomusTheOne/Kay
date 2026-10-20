@@ -415,7 +415,7 @@ function kay_notify_booking(array $row): void
         return;
     }
     foreach ($emails as $who => $message) {
-        if (!kay_send_email($message)) {
+        if (!kay_send_email($message, ['booking' => (string) $row['id'], 'kind' => (string) $who])) {
             error_log("kay: $who confirmation not sent for " . $row['id']);
         }
     }

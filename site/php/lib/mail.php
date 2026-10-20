@@ -33,21 +33,47 @@ const KAY_MAIL_ENDPOINTS = [
 
 /**
  * @param array{to:string,toName?:string,subject:string,html:string,text:string,replyTo?:string} $message
+ * @param array{booking?:?string,kind?:string} $context  which booking this
+ *        message belongs to and what it is — 'diver', 'shop', 'gear', 'test'.
+ *        Only used for the record kept in mail_log; sending ignores it.
  * @return bool true when the provider accepted it. Never throws: the caller
  *              is a webhook that has already taken money, and a bounced
  *              confirmation must not turn a settled payment into a retry.
  */
-function kay_send_email(array $message): bool
+function kay_send_email(array $message, array $context = []): bool
 {
     $config   = kay_config();
     $provider = (string) ($config['mail_provider'] ?? 'off');
 
+    // Every outcome below is written to mail_log before it is returned. The
+    // whole reason this file exists rather than mail() is to be able to
+    // answer "I never got anything", and an answer nobody can read — one
+    // line in the hosting's error log — is not an answer.
+    $record = static function (bool $ok, int $status, string $ref, string $error)
+        use ($message, $context, $provider): void {
+        kay_mail_log_write([
+            'booking'   => $context['booking'] ?? null,
+            'kind'      => (string) ($context['kind'] ?? ''),
+            'recipient' => (string) ($message['to'] ?? ''),
+            'subject'   => (string) ($message['subject'] ?? ''),
+            'provider'  => $provider,
+            'ok'        => $ok,
+            'status'    => $status,
+            'ref'       => $ref,
+            'error'     => $error,
+        ]);
+    };
+
     if ($provider === 'off' || empty($config['mail_api_key'])) {
         error_log('kay: mail not configured, would have sent: ' . $message['subject']);
+        $record(false, 0, '', $provider === 'off'
+            ? "mail_provider is 'off' in kay-config.php"
+            : 'mail_api_key is missing from kay-config.php');
         return false;
     }
     if (!isset(KAY_MAIL_ENDPOINTS[$provider])) {
         error_log("kay: unknown mail provider '$provider'");
+        $record(false, 0, '', "unknown mail provider '$provider' in kay-config.php");
         return false;
     }
 
@@ -73,13 +99,83 @@ function kay_send_email(array $message): bool
 
     if ($raw === false) {
         error_log("kay: $provider transport failure: $err");
+        $record(false, 0, '', $err !== '' ? $err : 'the request never reached the provider');
         return false;
     }
     if ($status < 200 || $status >= 300) {
         error_log("kay: $provider refused the message ($status): $raw");
+        $record(false, $status, '', kay_mail_reason((string) $raw));
         return false;
     }
+    $record(true, $status, kay_mail_ref((string) $raw), '');
     return true;
+}
+
+/**
+ * The provider's own id for an accepted message, so a send can be followed up
+ * in their dashboard — which is where a delivery, a bounce or a spam
+ * complaint is recorded. Resend answers {"id":"..."}, Brevo {"messageId":...}.
+ */
+function kay_mail_ref(string $raw): string
+{
+    $data = json_decode($raw, true);
+    return is_array($data)
+        ? trim((string) ($data['id'] ?? $data['messageId'] ?? ''))
+        : '';
+}
+
+/**
+ * Why the provider said no, in the few words it used. Both providers answer
+ * a refusal as JSON with a message in it; anything else is kept raw, because
+ * a reason nobody expected is still better than "it failed".
+ */
+function kay_mail_reason(string $raw): string
+{
+    $data = json_decode($raw, true);
+    if (is_array($data)) {
+        $said = $data['message'] ?? $data['error'] ?? $data['name'] ?? null;
+        if (is_string($said) && trim($said) !== '') {
+            return trim($said);
+        }
+    }
+    return trim($raw);
+}
+
+/**
+ * One row per attempt, kept in the database rather than the error log so
+ * that whoever runs the shop can see it.
+ *
+ * Best effort, deliberately: send-live.php never opens a database, the table
+ * only exists once the admin has applied the migration, and a confirmation
+ * that really was sent must never be reported as failed because a note about
+ * it could not be written. Every caller that has a database has already used
+ * it — the webhook settled a payment, the admin loaded a page — so the
+ * connection here is one that is already open.
+ */
+function kay_mail_log_write(array $row): void
+{
+    if (!function_exists('kay_db')) {
+        return;
+    }
+    try {
+        kay_db()->prepare(
+            'INSERT INTO mail_log
+               (booking_id, kind, recipient, subject, provider, ok, http_status, provider_ref, error)
+             VALUES (?,?,?,?,?,?,?,?,?)'
+        )->execute([
+            ($row['booking'] ?? '') !== '' ? (string) $row['booking'] : null,
+            mb_substr((string) $row['kind'], 0, 16),
+            mb_substr((string) $row['recipient'], 0, 190),
+            mb_substr((string) $row['subject'], 0, 190),
+            mb_substr((string) $row['provider'], 0, 16),
+            $row['ok'] ? 1 : 0,
+            (int) $row['status'],
+            mb_substr((string) $row['ref'], 0, 120),
+            mb_substr((string) $row['error'], 0, 250),
+        ]);
+    } catch (Throwable $e) {
+        error_log('kay: the send itself was fine, the record of it was not: ' . $e->getMessage());
+    }
 }
 
 /**
@@ -123,4 +219,89 @@ function kay_mail_payload(string $provider, array $message, array $config): arra
             'text'     => $message['text'],
         ],
     ];
+}
+
+/* ------------------------------------------------------------- the record --
+   Read back by the admin's Système page, and by every booking page, so a
+   diver who says nothing arrived gets an answer rather than a shrug.       */
+
+/**
+ * The last attempts, newest first — all of them, or only one booking's.
+ *
+ * Returns nothing rather than failing if the table is not there yet: a
+ * deploy can land minutes before the admin applies the migration, and a
+ * missing log must never be what takes the admin space down.
+ *
+ * @return list<array<string,mixed>>
+ */
+function kay_mail_log(PDO $db, int $limit = 40, ?string $booking = null): array
+{
+    $sql = 'SELECT * FROM mail_log';
+    $args = [];
+    if ($booking !== null) {
+        $sql .= ' WHERE booking_id = ?';
+        $args[] = $booking;
+    }
+    $sql .= ' ORDER BY id DESC LIMIT ' . max(1, min(200, $limit));
+
+    try {
+        $q = $db->prepare($sql);
+        $q->execute($args);
+        return $q->fetchAll();
+    } catch (Throwable) {
+        return [];
+    }
+}
+
+/**
+ * Whether email is configured at all, and how the last month has gone.
+ *
+ * 'ready' answers the only question that matters before a diver pays: would
+ * a confirmation leave this server right now? A provider set to 'off', or a
+ * missing API key, means no — and that is a setting in kay-config.php, not
+ * something the admin can fix on screen, so the page says where to go.
+ */
+function kay_mail_health(PDO $db): array
+{
+    $config   = kay_config();
+    $provider = (string) ($config['mail_provider'] ?? 'off');
+    $hasKey   = !empty($config['mail_api_key']);
+
+    $health = [
+        'provider'  => $provider,
+        'has_key'   => $hasKey,
+        'ready'     => $provider !== 'off' && $hasKey && isset(KAY_MAIL_ENDPOINTS[$provider]),
+        'from'      => (string) ($config['mail_from'] ?? ''),
+        'to_shop'   => (string) ($config['mail_to_shop'] ?? ''),
+        'sent_30d'  => 0,
+        'failed_30d' => 0,
+        'last_ok'   => null,
+        'last_fail' => null,
+        // The newest attempt was refused. Checked as well as the counts
+        // because a provider that takes nine messages and refuses the tenth
+        // is still a diver with nothing in their inbox.
+        'failing'   => false,
+    ];
+
+    try {
+        $since = $db->query(
+            "SELECT SUM(ok = 1) AS good, SUM(ok = 0) AS bad
+               FROM mail_log WHERE sent_at >= NOW() - INTERVAL 30 DAY"
+        )->fetch() ?: [];
+        $health['sent_30d']   = (int) ($since['good'] ?? 0);
+        $health['failed_30d'] = (int) ($since['bad'] ?? 0);
+
+        foreach ([1 => 'last_ok', 0 => 'last_fail'] as $ok => $key) {
+            $q = $db->prepare('SELECT * FROM mail_log WHERE ok = ? ORDER BY id DESC LIMIT 1');
+            $q->execute([$ok]);
+            $health[$key] = $q->fetch() ?: null;
+        }
+        $health['failing'] = $health['last_fail'] !== null
+            && ($health['last_ok'] === null
+                || (int) $health['last_fail']['id'] > (int) $health['last_ok']['id']);
+    } catch (Throwable) {
+        // No table yet. The configuration above is still worth showing.
+    }
+
+    return $health;
 }

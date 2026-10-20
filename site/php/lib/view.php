@@ -41,7 +41,9 @@ const KAY_FLASH = [
     'noted'      => 'Ajouté à l’historique.',
     'done'       => 'Tâche terminée.',
     'sent'       => 'E-mail de confirmation envoyé.',
-    'notsent'    => 'L’e-mail n’est pas parti — voir le journal d’erreurs de l’hébergement.',
+    'testsent'   => 'E-mail de test accepté par le fournisseur.',
+    // Bad news, shown red rather than green: see KAY_FLASH_BAD below.
+    'notsent'    => 'L’e-mail n’est pas parti — la raison est sur la page Système.',
     'password'   => 'Mot de passe changé. Les autres appareils ont été déconnectés.',
     'user'       => 'Compte créé.',
     'removed'    => 'Compte supprimé.',
@@ -213,6 +215,40 @@ function kay_status_badge(string $status): string
     return '<span class="badge badge--' . kay_h($status) . '">' . kay_th(KAY_STATUSES[$status] ?? $status) . '</span>';
 }
 
+/**
+ * What each line of the two logs on the Système page means, in words rather
+ * than in the codes the webhook and the sender store. The codes themselves
+ * stay in the database: they are what the next version of this code will
+ * read, and a translated word is not something to key on.
+ */
+const KAY_WEBHOOK_OUTCOMES = [
+    'settled'        => 'Réservation réglée',
+    'already'        => 'Déjà traitée',
+    'status-waiting' => 'Paiement pas encore réglé',
+    'other-topic'    => 'Autre sujet, ignoré',
+    'no-reference'   => 'Paiement sans réservation',
+    'lookup-failed'  => 'Paiement introuvable chez Mercado Pago',
+    'bad-signature'  => 'Signature refusée',
+    'no-id'          => 'Appel sans numéro de paiement',
+];
+
+const KAY_MAIL_KINDS = [
+    'diver' => 'Confirmation au plongeur',
+    'shop'  => 'Avis de commande',
+    'gear'  => 'Questionnaire des tailles',
+    'test'  => 'Envoi de test',
+];
+
+function kay_webhook_outcome(string $outcome): string
+{
+    return kay_t(KAY_WEBHOOK_OUTCOMES[$outcome] ?? $outcome);
+}
+
+function kay_mail_kind(string $kind): string
+{
+    return $kind === '' ? kay_t('Autre') : kay_t(KAY_MAIL_KINDS[$kind] ?? $kind);
+}
+
 /** "🇨🇦 Canadá" from 'CA'. The flag is two regional-indicator letters. */
 function kay_country(string $cc): string
 {
@@ -245,6 +281,13 @@ function kay_whatsapp_url(string $phone): ?string
 
 /* ------------------------------------------------------------------ frame -- */
 
+/**
+ * The handful of those that report a failure. Everything in KAY_FLASH shows
+ * in the green box, which is exactly wrong for "the e-mail did not go out" —
+ * a refusal that looks like a success is worse than no message at all.
+ */
+const KAY_FLASH_BAD = ['notsent'];
+
 const KAY_NAV = [
     'index.php'        => ['Tableau de bord', 'Accueil',  'M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z'],
     'planning.php'     => ['Planning',        'Planning', 'M4 6h16v14H4zM4 10h16M8 3v4M16 3v4'],
@@ -269,7 +312,9 @@ function kay_asset(string $file): string
 
 function kay_page_start(string $title, string $current, ?array $admin): void
 {
-    $flash = KAY_FLASH[(string) ($_GET['m'] ?? '')] ?? null;
+    $flashKey = (string) ($_GET['m'] ?? '');
+    $flash    = KAY_FLASH[$flashKey] ?? null;
+    $flashBad = in_array($flashKey, KAY_FLASH_BAD, true);
     echo '<!doctype html><html lang="' . kay_lang() . '"><head><meta charset="utf-8">'
         . '<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">'
         . '<meta name="robots" content="noindex,nofollow">'
@@ -295,13 +340,16 @@ function kay_page_start(string $title, string $current, ?array $admin): void
             . '<a href="account.php" class="side__me"' . ($current === 'account.php' ? ' aria-current="page"' : '') . '>'
             . kay_icon('M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM4 21a8 8 0 0 1 16 0')
             . '<span>' . kay_h($admin['name']) . '</span></a>'
+            . '<a href="system.php" class="side__site">' . kay_th('Système') . '</a>'
             . '<a href="/" class="side__site" target="_blank" rel="noopener">' . kay_th('Voir le site ↗') . '</a>'
             . '</div></header>';
     }
 
     echo '<main id="main" class="main">';
     if ($flash !== null) {
-        echo '<p class="flash" role="status">' . kay_th($flash) . '</p>';
+        echo $flashBad
+            ? '<p class="alert" role="alert">' . kay_th($flash) . '</p>'
+            : '<p class="flash" role="status">' . kay_th($flash) . '</p>';
     }
 }
 

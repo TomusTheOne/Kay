@@ -40,7 +40,8 @@ if (kay_posted($admin)) {
     if ($result['ok']) {
         $row = kay_booking_get($db, $result['id']);
         if ($notify && $row !== null && $row['email'] !== '') {
-            $sent = kay_send_email(kay_booking_emails(kay_booking_email_row($row))['diver']);
+            $sent = kay_send_email(kay_booking_emails(kay_booking_email_row($row))['diver'],
+                ['booking' => (string) $row['id'], 'kind' => 'diver']);
             kay_note_add($db, $row['customer_id'] !== null ? (int) $row['customer_id'] : null, $row['id'],
                 $admin['id'], 'log', $sent
                     ? kay_t('Confirmation envoyée à {email}.', ['{email}' => $row['email']])

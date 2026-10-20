@@ -604,4 +604,80 @@ return [
         => 'Solo para las salidas en las que el cliente elige sus cenotes.',
     'Un cenote par plongée ; à trois plongées, les deux premières à Dos Ojos et un autre cenote pour la troisième.'
         => 'Un cenote por inmersión; con tres inmersiones, las dos primeras en Dos Ojos y otro cenote para la tercera.',
+    // -------------------------------------------------- système : correos y
+    // las llamadas de Mercado Pago, o por qué un buzo no recibió nada.
+    'Système'    => 'Sistema',
+    'Système →'  => 'Sistema →',
+    'E-mails'    => 'Correos',
+    'Ce que le site a envoyé, et ce que Mercado Pago a appelé.'
+        => 'Lo que el sitio envió, y las llamadas de Mercado Pago.',
+    'Fournisseur' => 'Proveedor',
+    'Clé API'     => 'Llave API',
+    'présente'    => 'presente',
+    'absente'     => 'ausente',
+    'Expéditeur'  => 'Remitente',
+    'Avis de commande à' => 'Aviso de reservación a',
+    'Envoyés sur 30 jours' => 'Enviados en 30 días',
+    'Échecs sur 30 jours'  => 'Fallidos en 30 días',
+    'M’envoyer un e-mail de test' => 'Enviarme un correo de prueba',
+    'Essai d’envoi — Kay Diving'  => 'Prueba de envío — Kay Diving',
+    'Si tu lis ceci, les e-mails partent bien de {site}.'
+        => 'Si estás leyendo esto, los correos sí salen de {site}.',
+    'Le test part vers {email}. S’il arrive mais que les plongeurs ne reçoivent rien, le domaine n’est pas vérifié chez le fournisseur : son tableau de bord le dira.'
+        => 'La prueba va a {email}. Si llega pero los buzos no reciben nada, el dominio no está verificado con el proveedor: su panel lo dirá.',
+    'Derniers envois' => 'Últimos envíos',
+    'Rien encore. Chaque e-mail que le site tente d’envoyer s’inscrit ici.'
+        => 'Nada todavía. Cada correo que el sitio intenta enviar queda anotado aquí.',
+    'Aucun e-mail envoyé pour cette réservation.'
+        => 'No se ha enviado ningún correo para esta reservación.',
+    'Quand'        => 'Cuándo',
+    'Destinataire' => 'Destinatario',
+    'État'         => 'Estado',
+    'Détail'       => 'Detalle',
+    'Résultat'     => 'Resultado',
+    'la réservation' => 'la reservación',
+    'parti'        => 'salió',
+    'refusé'       => 'rechazado',
+
+    'Aucun e-mail ne peut partir : mail_provider est sur « off » dans kay-config.php, à côté de www/ sur l’hébergement.'
+        => 'Ningún correo puede salir: mail_provider está en «off» en kay-config.php, junto a www/ en el hosting.',
+    'Aucun e-mail ne peut partir : il manque mail_api_key dans kay-config.php, à côté de www/ sur l’hébergement.'
+        => 'Ningún correo puede salir: falta mail_api_key en kay-config.php, junto a www/ en el hosting.',
+    'Le fournisseur a refusé les {n} derniers envois. La raison est dans la colonne Détail.'
+        => 'El proveedor rechazó los últimos {n} envíos. El motivo está en la columna Detalle.',
+    'Les confirmations ne partent pas : l’e-mail n’est pas configuré.'
+        => 'Las confirmaciones no están saliendo: el correo no está configurado.',
+    'Les {n} derniers e-mails ont été refusés par le fournisseur.'
+        => 'El proveedor rechazó los últimos {n} correos.',
+    'Le dernier e-mail n’est pas parti.' => 'El último correo no salió.',
+    'E-mail de test accepté par le fournisseur.' => 'El proveedor aceptó el correo de prueba.',
+    'L’e-mail n’est pas parti — la raison est sur la page Système.'
+        => 'El correo no salió — el motivo está en la página Sistema.',
+
+    'Mercado Pago' => 'Mercado Pago',
+    'Appels sur 30 jours'   => 'Llamadas en 30 días',
+    'Refusés'               => 'Rechazadas',
+    'Réservations réglées'  => 'Reservaciones pagadas',
+    'Dernier appel'         => 'Última llamada',
+    'Mercado Pago n’a appelé aucune fois en 30 jours. Sans cet appel, un paiement ne devient jamais une réservation réglée et aucune confirmation n’est écrite. À vérifier dans son panneau, Webhooks, mode productif : l’URL doit être {url} et l’événement « Paiements » coché.'
+        => 'Mercado Pago no ha llamado ni una vez en 30 días. Sin esa llamada, un pago nunca se vuelve reservación pagada y no se escribe ninguna confirmación. Revísalo en su panel, Webhooks, modo productivo: la URL debe ser {url} y el evento «Pagos» marcado.',
+    'Mercado Pago appelle, et ses {n} appels ont été refusés : la clé secrète du webhook dans kay-config.php n’est pas celle de son panneau.'
+        => 'Mercado Pago sí llama, y rechazamos sus {n} llamadas: la clave secreta del webhook en kay-config.php no es la de su panel.',
+    'Parties au paiement, jamais revenues' => 'Fueron al pago y nunca volvieron',
+    'Le formulaire a été rempli et le paiement n’est jamais arrivé. C’est normal quand quelqu’un se ravise ; ça ne l’est plus si Mercado Pago dit l’avoir encaissé.'
+        => 'El formulario se llenó y el pago nunca llegó. Es normal cuando alguien se arrepiente; ya no lo es si Mercado Pago dice que sí lo cobró.',
+
+    // Los renglones de los dos registros, KAY_WEBHOOK_OUTCOMES y KAY_MAIL_KINDS.
+    'Réservation réglée'      => 'Reservación pagada',
+    'Déjà traitée'            => 'Ya estaba procesada',
+    'Paiement pas encore réglé' => 'Pago aún no liquidado',
+    'Autre sujet, ignoré'     => 'Otro asunto, ignorado',
+    'Paiement sans réservation' => 'Pago sin reservación',
+    'Paiement introuvable chez Mercado Pago' => 'Pago no encontrado en Mercado Pago',
+    'Signature refusée'       => 'Firma rechazada',
+    'Appel sans numéro de paiement' => 'Llamada sin número de pago',
+    'Confirmation au plongeur' => 'Confirmación al buzo',
+    'Avis de commande'         => 'Aviso de reservación',
+    'Questionnaire des tailles' => 'Cuestionario de tallas',
+    'Envoi de test'            => 'Envío de prueba',
 ];

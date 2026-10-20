@@ -228,6 +228,50 @@ function kay_migrations(): array
         8 => [
             "ALTER TABLE bookings ADD COLUMN sites VARCHAR(160) NOT NULL DEFAULT ''",
         ],
+
+        // Every confirmation the site tried to send, and what the provider
+        // said about it. Without this, "the diver never got anything" can
+        // only be answered from the hosting's error log, which whoever runs
+        // the shop cannot read — so it was never answered at all.
+        //
+        // booking_id is a plain column, not a foreign key: a test send from
+        // the admin belongs to no booking, and a record of a message that
+        // went out must outlive the row it was about.
+        9 => [
+            "CREATE TABLE IF NOT EXISTS mail_log (
+               id            INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+               sent_at       DATETIME     NOT NULL DEFAULT CURRENT_TIMESTAMP,
+               booking_id    CHAR(36)     NULL,
+               kind          VARCHAR(16)  NOT NULL DEFAULT '',
+               recipient     VARCHAR(190) NOT NULL DEFAULT '',
+               subject       VARCHAR(190) NOT NULL DEFAULT '',
+               provider      VARCHAR(16)  NOT NULL DEFAULT '',
+               ok            TINYINT(1)   NOT NULL DEFAULT 0,
+               http_status   SMALLINT     NOT NULL DEFAULT 0,
+               provider_ref  VARCHAR(120) NOT NULL DEFAULT '',
+               error         VARCHAR(250) NOT NULL DEFAULT '',
+               KEY mail_log_booking_idx (booking_id),
+               KEY mail_log_sent_idx    (sent_at)
+             ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
+        ],
+
+        // The other half of the same question: did Mercado Pago ever call?
+        // A booking that stays pending after the card went through is either
+        // a notification that never arrived or one we turned away, and from
+        // the outside those look identical. Capped at 400 rows by the writer
+        // — the endpoint is public.
+        10 => [
+            "CREATE TABLE IF NOT EXISTS webhook_log (
+               id          INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+               called_at   DATETIME     NOT NULL DEFAULT CURRENT_TIMESTAMP,
+               payment_id  VARCHAR(64)  NOT NULL DEFAULT '',
+               booking_id  CHAR(36)     NULL,
+               outcome     VARCHAR(24)  NOT NULL DEFAULT '',
+               detail      VARCHAR(190) NOT NULL DEFAULT '',
+               signed      TINYINT(1)   NOT NULL DEFAULT 0,
+               KEY webhook_log_called_idx (called_at)
+             ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
+        ],
     ];
 }
 
