@@ -509,6 +509,11 @@ check('resend takes recipients as a list',     $body['to'], ['ana@example.com'])
 check('resend spells it reply_to',             $body['reply_to'], 'contact@kaydiving.com');
 check('resend spells the body html',           isset($body['html'], $body['text']), true);
 
+// What a key pasted out of a dashboard actually looks like by the time it
+// reaches a config file.
+[$headers] = kay_mail_payload('resend', $diver, ['mail_api_key' => "  KEY\n"] + $fake);
+check('a pasted key loses its whitespace',    $headers[0], 'Authorization: Bearer KEY');
+
 [$headers, $body] = kay_mail_payload('brevo', $diver, $fake);
 check('brevo authorises with its own header',  $headers[0], 'api-key: KEY');
 check('brevo takes the sender as a pair',      $body['sender'],
