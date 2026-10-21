@@ -80,8 +80,10 @@ kay_page_start(kay_t('Système'), '', $admin);
   </dl>
 
   <div class="actions">
+    <?php /* The one thing this page exists to let someone do, so it is the
+             loud button and not an outline anyone can read as a label. */ ?>
     <form method="post"><?= kay_csrf_field($admin) ?><input type="hidden" name="do" value="test">
-      <button class="btn btn--ghost"><?= kay_th('M’envoyer un e-mail de test') ?></button></form>
+      <button class="btn btn--primary"><?= kay_th('M’envoyer un e-mail de test') ?></button></form>
   </div>
   <p class="muted small"><?= kay_th('Le test part vers {email}. S’il arrive mais que les plongeurs ne reçoivent rien, le domaine n’est pas vérifié chez le fournisseur : son tableau de bord le dira.', ['{email}' => $admin['email']]) ?></p>
 </section>
