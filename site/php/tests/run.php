@@ -549,6 +549,9 @@ check('with nothing sent',              $health['sent_30d'], 0);
 check('the last refusal is to hand',    $health['last_fail']['recipient'], 'ana@example.com');
 check('and there is no last success',   $health['last_ok'], null);
 check('so it reads as failing',         $health['failing'], true);
+// Enough to tell a wrong paste from a file that was never saved, and no more.
+check('no key, no fingerprint',         $health['key_mark'], '');
+check('and nothing odd to report',      $health['key_odd'], false);
 
 echo "\nWhat the provider answered is kept in the words it used\n";
 check('resend hands back a message id', kay_mail_ref('{"id":"re_12345"}'), 're_12345');

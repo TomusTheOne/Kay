@@ -270,12 +270,25 @@ function kay_mail_health(PDO $db): array
 {
     $config   = kay_config();
     $provider = (string) ($config['mail_provider'] ?? 'off');
-    $hasKey   = !empty($config['mail_api_key']);
+    $key      = trim((string) ($config['mail_api_key'] ?? ''));
+    $hasKey   = $key !== '';
 
+    // Enough about the key to tell three things apart that look identical
+    // from the outside — a key the provider rejects, a key pasted wrong, and
+    // a file that was edited but never actually saved — and not one
+    // character more. The mark is a truncated hash: it cannot be turned back
+    // into the key, and it changes when the key does, which is the whole
+    // point when someone says "I already replaced it".
     $health = [
         'provider'  => $provider,
         'has_key'   => $hasKey,
         'ready'     => $provider !== 'off' && $hasKey && isset(KAY_MAIL_ENDPOINTS[$provider]),
+        'key_len'   => mb_strlen($key),
+        'key_mark'  => $hasKey ? substr(hash('sha256', $key), 0, 6) : '',
+        // Resend's keys all start re_. Anything else here is a wrong paste —
+        // most often the masked form the dashboard shows after the fact.
+        'key_odd'   => $provider === 'resend' && $hasKey && !str_starts_with($key, 're_'),
+        'key_gap'   => $hasKey && preg_match('/\s/', $key) === 1,
         'from'      => (string) ($config['mail_from'] ?? ''),
         'to_shop'   => (string) ($config['mail_to_shop'] ?? ''),
         'sent_30d'  => 0,

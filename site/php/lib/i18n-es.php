@@ -632,6 +632,13 @@ return [
         => 'Si estás leyendo esto, los correos sí salen de {site}.',
     'Le test part vers {email}. S’il arrive mais que les plongeurs ne reçoivent rien, le domaine n’est pas vérifié chez le fournisseur : son tableau de bord le dira.'
         => 'La prueba va a {email}. Si llega pero los buzos no reciben nada, el dominio no está verificado con el proveedor: su panel lo dirá.',
+    '{n} caractères · empreinte {mark}' => '{n} caracteres · huella {mark}',
+    'L’empreinte change dès que la clé change : si elle est la même qu’avant une modification, le fichier n’a pas été enregistré.'
+        => 'La huella cambia en cuanto cambia la llave: si es la misma que antes de una modificación, el archivo no se guardó.',
+    'Cette clé ne ressemble pas à une clé Resend : elle devrait commencer par « re_ ». C’est en général la version masquée du tableau de bord, copiée après coup, qui ne fonctionne pas.'
+        => 'Esta llave no parece una llave de Resend: debería empezar por «re_». Casi siempre es la versión tapada del panel, copiada después, que no funciona.',
+    'La clé contient une espace ou un retour à la ligne au milieu : elle a été coupée au collage.'
+        => 'La llave tiene un espacio o un salto de línea en medio: se partió al pegarla.',
     'Derniers envois' => 'Últimos envíos',
     'Rien encore. Chaque e-mail que le site tente d’envoyer s’inscrit ici.'
         => 'Nada todavía. Cada correo que el sitio intenta enviar queda anotado aquí.',
