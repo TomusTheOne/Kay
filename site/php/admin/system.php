@@ -63,6 +63,10 @@ kay_page_start(kay_t('Système'), '', $admin);
   <p class="alert"><?= $mail['provider'] === 'off'
       ? kay_th('Aucun e-mail ne peut partir : mail_provider est sur « off » dans kay-config.php, à côté de www/ sur l’hébergement.')
       : kay_th('Aucun e-mail ne peut partir : il manque mail_api_key dans kay-config.php, à côté de www/ sur l’hébergement.') ?></p>
+<?php elseif ($mail['key_odd']): ?>
+  <p class="alert"><?= kay_th('Cette clé ne ressemble pas à une clé Resend : elle devrait commencer par « re_ ». C’est en général la version masquée du tableau de bord, copiée après coup, qui ne fonctionne pas.') ?></p>
+<?php elseif ($mail['key_gap']): ?>
+  <p class="alert"><?= kay_th('La clé contient une espace ou un retour à la ligne au milieu : elle a été coupée au collage.') ?></p>
 <?php elseif ($mail['failed_30d'] > 0 && $mail['sent_30d'] === 0): ?>
   <p class="alert"><?= kay_th('Le fournisseur a refusé les {n} derniers envois. La raison est dans la colonne Détail.', ['{n}' => kay_int($mail['failed_30d'])]) ?></p>
 <?php endif; ?>
@@ -71,7 +75,11 @@ kay_page_start(kay_t('Système'), '', $admin);
     <div><dt><?= kay_th('Fournisseur') ?></dt><dd><?= kay_h($mail['provider']) ?></dd></div>
     <div><dt><?= kay_th('Clé API') ?></dt>
       <dd><?= $mail['has_key'] ? '<span class="ok">' . kay_th('présente') . '</span>'
-                               : '<span class="late">' . kay_th('absente') . '</span>' ?></dd></div>
+                               : '<span class="late">' . kay_th('absente') . '</span>' ?>
+<?php if ($mail['has_key']): ?>
+        <span class="muted block small"><?= kay_th('{n} caractères · empreinte {mark}',
+              ['{n}' => kay_int($mail['key_len']), '{mark}' => $mail['key_mark']]) ?></span>
+<?php endif; ?></dd></div>
     <div><dt><?= kay_th('Expéditeur') ?></dt><dd><?= kay_h($mail['from']) ?></dd></div>
     <div><dt><?= kay_th('Avis de commande à') ?></dt><dd><?= kay_h($mail['to_shop']) ?></dd></div>
     <div><dt><?= kay_th('Envoyés sur 30 jours') ?></dt><dd><?= kay_int($mail['sent_30d']) ?></dd></div>
@@ -85,6 +93,7 @@ kay_page_start(kay_t('Système'), '', $admin);
     <form method="post"><?= kay_csrf_field($admin) ?><input type="hidden" name="do" value="test">
       <button class="btn btn--primary"><?= kay_th('M’envoyer un e-mail de test') ?></button></form>
   </div>
+  <p class="muted small"><?= kay_th('L’empreinte change dès que la clé change : si elle est la même qu’avant une modification, le fichier n’a pas été enregistré.') ?></p>
   <p class="muted small"><?= kay_th('Le test part vers {email}. S’il arrive mais que les plongeurs ne reçoivent rien, le domaine n’est pas vérifié chez le fournisseur : son tableau de bord le dira.', ['{email}' => $admin['email']]) ?></p>
 </section>
 
