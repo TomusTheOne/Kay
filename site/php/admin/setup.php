@@ -2,13 +2,20 @@
 declare(strict_types=1);
 
 /**
- * The first account, or a forgotten password.
+ * Getting into the admin when nobody can sign in: the first account, another
+ * account, or a new password for one that exists.
  *
- * Both need the phrase in kay-admin-token.txt, uploaded by FTP beside
+ * All three need the phrase in kay-admin-token.txt, uploaded by FTP beside
  * kay-config.php (see kay_setup_token()). Without it, the first person to
  * find /admin/setup.php after a deploy would own the admin; with it, only
  * someone who can already reach the database password can. The same throttle
  * as the login applies, so the phrase cannot be guessed.
+ *
+ * An unknown address creates an account rather than being refused. Whoever
+ * holds that phrase can already replace any admin's password here, which is
+ * strictly more than adding a second account — and being refused left them
+ * only one way in: taking over a colleague's account and locking them out of
+ * their own admin.
  */
 
 require __DIR__ . '/_boot.php';
@@ -49,20 +56,25 @@ if ($token !== null && ($_SERVER['REQUEST_METHOD'] ?? '') === 'POST') {
         $s = $db->prepare('SELECT id FROM admin_users WHERE email = ?');
         $s->execute([$values['email']]);
         $id = $s->fetchColumn();
-        if ($id === false) {
-            $error = kay_t('Aucun compte admin avec cette adresse.');
-        } else {
+        if ($id !== false) {
             kay_admin_set_password($db, (int) $id, $password);
             $done = true;
+        } elseif (mb_strlen($values['name']) < 2) {
+            $error = kay_t('Indiquez votre nom.');
+        } else {
+            // A new account, signed straight in: the phrase has already
+            // proved more than a password ever could.
+            kay_session_open($db, kay_admin_create($db, $values['email'], $values['name'], $password, kay_lang()));
+            kay_redirect('index.php');
         }
     }
 }
 
-kay_page_start($first ? kay_t('Premier compte') : kay_t('Mot de passe oublié'), '', null);
+kay_page_start($first ? kay_t('Premier compte') : kay_t('Accès à l’admin'), '', null);
 ?>
 <section class="auth">
   <img class="auth__mark" src="/assets/brand/icon.svg" alt="" width="56" height="53">
-  <h1><?= $first ? kay_th('Créer le compte admin') : kay_th('Nouveau mot de passe') ?></h1>
+  <h1><?= $first ? kay_th('Créer le compte admin') : kay_th('Compte admin') ?></h1>
 
 <?php if ($misplaced): ?>
   <p class="alert"><?= kay_th('Le fichier kay-admin-token.txt a été déposé dans le dossier www, où n’importe qui pourrait le lire. Il n’est pas utilisé.') ?></p>
@@ -70,7 +82,7 @@ kay_page_start($first ? kay_t('Premier compte') : kay_t('Mot de passe oublié'),
 <?php elseif ($token === null): ?>
   <p><?= $first
       ? kay_th('Pour créer le premier compte, il faut d’abord prouver que vous avez accès à l’hébergement :')
-      : kay_th('Pour réinitialiser un mot de passe, il faut d’abord prouver que vous avez accès à l’hébergement :') ?></p>
+      : kay_th('Pour ajouter un compte ou en reprendre un, il faut d’abord prouver que vous avez accès à l’hébergement :') ?></p>
   <ol class="steps">
     <li><?= kay_th('Sur votre ordinateur, créez un fichier texte nommé kay-admin-token.txt (Bloc-notes sur Windows, TextEdit en « texte brut » sur Mac).') ?></li>
     <li><?= kay_th('Écrivez-y une phrase de votre choix d’au moins 20 caractères, par exemple une phrase que vous seul connaissez. Enregistrez.') ?></li>
@@ -86,21 +98,22 @@ kay_page_start($first ? kay_t('Premier compte') : kay_t('Mot de passe oublié'),
   <?= kay_error_box($error) ?>
   <p class="muted"><?= $first
       ? kay_th('Aucun compte n’existe encore. Celui-ci pourra ensuite en créer d’autres depuis « Compte ».')
-      : kay_th('Choisissez un nouveau mot de passe pour un compte existant.') ?></p>
+      : kay_th('Cette adresse a déjà un compte : son mot de passe est remplacé. Sinon, le compte est créé et vous êtes connecté.') ?></p>
   <form method="post" class="stack">
     <label class="field"><span><?= kay_th('Phrase secrète') ?></span>
       <input type="text" name="token" autocomplete="off" autocapitalize="off" spellcheck="false" required>
       <small><?= kay_th('La phrase écrite dans kay-admin-token.txt, à l’identique.') ?></small></label>
-<?php if ($first): ?>
     <label class="field"><span><?= kay_th('Votre nom') ?></span>
-      <input name="name" value="<?= kay_h($values['name']) ?>" autocomplete="name" required></label>
-<?php endif; ?>
+      <input name="name" value="<?= kay_h($values['name']) ?>" autocomplete="name"<?= $first ? ' required' : '' ?>>
+<?php if (!$first): ?>
+      <small><?= kay_th('Seulement pour un nouveau compte.') ?></small>
+<?php endif; ?></label>
     <label class="field"><span><?= kay_th('E-mail') ?></span>
       <input type="email" name="email" value="<?= kay_h($values['email']) ?>" autocomplete="username" required></label>
     <label class="field"><span><?= kay_th('Mot de passe') ?></span>
       <input type="password" name="password" autocomplete="new-password" minlength="<?= KAY_PASSWORD_MIN ?>" required>
       <small><?= kay_th('Au moins {n} caractères.', ['{n}' => (string) KAY_PASSWORD_MIN]) ?></small></label>
-    <button class="btn btn--primary btn--block"><?= $first ? kay_th('Créer le compte') : kay_th('Changer le mot de passe') ?></button>
+    <button class="btn btn--primary btn--block"><?= $first ? kay_th('Créer le compte') : kay_th('Continuer') ?></button>
   </form>
 <?php if (!$first): ?>
   <p class="muted small"><a href="login.php"><?= kay_th('← Retour à la connexion') ?></a></p>

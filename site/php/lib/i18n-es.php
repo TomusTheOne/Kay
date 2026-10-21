@@ -532,7 +532,14 @@ return [
     'La phrase ne correspond pas à celle du fichier kay-admin-token.txt.'
         => 'La frase no coincide con la del archivo kay-admin-token.txt.',
     'Indiquez votre nom.' => 'Escribe tu nombre.',
-    'Aucun compte admin avec cette adresse.' => 'No hay ninguna cuenta del admin con ese correo.',
+    'Accès à l’admin' => 'Acceso al admin',
+    'Compte admin'    => 'Cuenta del admin',
+    'Continuer'       => 'Continuar',
+    'Seulement pour un nouveau compte.' => 'Solo para una cuenta nueva.',
+    'Pour ajouter un compte ou en reprendre un, il faut d’abord prouver que vous avez accès à l’hébergement :'
+        => 'Para agregar una cuenta o recuperar una, primero hay que comprobar que tienes acceso al hosting:',
+    'Cette adresse a déjà un compte : son mot de passe est remplacé. Sinon, le compte est créé et vous êtes connecté.'
+        => 'Si ese correo ya tiene cuenta, se le cambia la contraseña. Si no, se crea la cuenta y entras con ella.',
     'Premier compte' => 'Primera cuenta',
     'Mot de passe oublié' => 'Contraseña olvidada',
     'Créer le compte admin' => 'Crear la cuenta del admin',
