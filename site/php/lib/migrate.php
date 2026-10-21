@@ -288,6 +288,23 @@ function kay_sql_statements(string $sql): array
     ));
 }
 
+/**
+ * When a step was applied. For the two logs, that is the moment they began
+ * recording — and the reason a page must never print "nothing in 30 days"
+ * beside a table created this morning.
+ */
+function kay_migration_applied(PDO $db, int $version): ?string
+{
+    try {
+        $q = $db->prepare('SELECT applied_at FROM schema_migrations WHERE version = ?');
+        $q->execute([$version]);
+        $at = $q->fetchColumn();
+        return $at === false ? null : (string) $at;
+    } catch (Throwable) {
+        return null;
+    }
+}
+
 function kay_schema_version(PDO $db): int
 {
     $db->exec(

@@ -662,6 +662,13 @@ return [
         => 'El correo no salió — el motivo está en la página Sistema.',
 
     'Mercado Pago' => 'Mercado Pago',
+    'Appels de Mercado Pago' => 'Llamadas de Mercado Pago',
+    'Appels non signés'      => 'Llamadas sin firma',
+    'Appel non signé, ignoré' => 'Llamada sin firma, ignorada',
+    'L’adresse du webhook est publique : n’importe qui peut la solliciter. Mercado Pago signe toujours ses appels, donc un appel non signé ne vient pas de lui et n’est pas pris en compte.'
+        => 'La dirección del webhook es pública: cualquiera puede llamarla. Mercado Pago siempre firma sus llamadas, así que una llamada sin firma no viene de él y no se toma en cuenta.',
+    'Les deux journaux ont commencé {when}. Rien n’a été noté avant.'
+        => 'Los dos registros empezaron {when}. Antes de eso no se anotó nada.',
     'Appels sur 30 jours'   => 'Llamadas en 30 días',
     'Refusés'               => 'Rechazadas',
     'Réservations réglées'  => 'Reservaciones pagadas',
