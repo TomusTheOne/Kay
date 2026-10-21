@@ -16,15 +16,31 @@ declare(strict_types=1);
 require __DIR__ . '/_boot.php';
 $admin = kay_admin($db);
 
-if (kay_posted($admin) && ($_POST['do'] ?? '') === 'test') {
+$do = kay_posted($admin) ? (string) ($_POST['do'] ?? '') : '';
+
+if ($do === 'test' || $do === 'shop') {
+    // Two addresses, because they are two different questions. The signed-in
+    // account's address proves the provider sends at all, to somewhere the
+    // person pressing the button can actually open. The shop's address is the
+    // one a new booking lands on, and it is the one that has to work — and
+    // until now there was no way to try it without waiting for a real diver.
+    $to   = $do === 'shop'
+        ? trim((string) (kay_config()['mail_to_shop'] ?? ''))
+        : (string) $admin['email'];
+    $name = $do === 'shop' ? '' : (string) $admin['name'];
+
+    if (!filter_var($to, FILTER_VALIDATE_EMAIL)) {
+        kay_redirect('system.php?m=noaddress');
+    }
+
     // Deliberately not a rendered booking confirmation: this proves one
     // thing — that the provider takes a message from this server with the
     // key in kay-config.php — and anything else in it is noise.
     $site = rtrim((string) (kay_config()['site_url'] ?? ''), '/');
     $line = kay_t('Si tu lis ceci, les e-mails partent bien de {site}.', ['{site}' => $site]);
     $sent = kay_send_email([
-        'to'      => (string) $admin['email'],
-        'toName'  => (string) $admin['name'],
+        'to'      => $to,
+        'toName'  => $name,
         'subject' => kay_t('Essai d’envoi — Kay Diving'),
         'html'    => '<p style="font:16px/1.5 system-ui,sans-serif">' . kay_h($line) . '</p>',
         'text'    => $line,
@@ -92,9 +108,12 @@ kay_page_start(kay_t('Système'), '', $admin);
              loud button and not an outline anyone can read as a label. */ ?>
     <form method="post"><?= kay_csrf_field($admin) ?><input type="hidden" name="do" value="test">
       <button class="btn btn--primary"><?= kay_th('M’envoyer un e-mail de test') ?></button></form>
+    <form method="post"><?= kay_csrf_field($admin) ?><input type="hidden" name="do" value="shop">
+      <button class="btn btn--ghost"><?= kay_th('Tester l’adresse des commandes') ?></button></form>
   </div>
   <p class="muted small"><?= kay_th('L’empreinte change dès que la clé change : si elle est la même qu’avant une modification, le fichier n’a pas été enregistré.') ?></p>
-  <p class="muted small"><?= kay_th('Le test part vers {email}. S’il arrive mais que les plongeurs ne reçoivent rien, le domaine n’est pas vérifié chez le fournisseur : son tableau de bord le dira.', ['{email}' => $admin['email']]) ?></p>
+  <p class="muted small"><?= kay_th('Le premier part vers {email}, l’adresse de votre compte ; le second vers celle des commandes, ci-dessus.', ['{email}' => $admin['email']]) ?></p>
+  <p class="muted small"><?= kay_th('Accepté ne veut pas dire reçu : le tableau de bord du fournisseur dit ce qu’il est devenu, et le numéro dans la colonne Détail l’y retrouve.') ?></p>
 </section>
 
 <section class="card">

@@ -42,6 +42,7 @@ const KAY_FLASH = [
     'done'       => 'Tâche terminée.',
     'sent'       => 'E-mail de confirmation envoyé.',
     'testsent'   => 'E-mail de test accepté par le fournisseur.',
+    'noaddress'  => 'Aucune adresse valable pour ce test.',
     // Bad news, shown red rather than green: see KAY_FLASH_BAD below.
     'notsent'    => 'L’e-mail n’est pas parti — la raison est sur la page Système.',
     'password'   => 'Mot de passe changé. Les autres appareils ont été déconnectés.',
@@ -286,7 +287,7 @@ function kay_whatsapp_url(string $phone): ?string
  * in the green box, which is exactly wrong for "the e-mail did not go out" —
  * a refusal that looks like a success is worse than no message at all.
  */
-const KAY_FLASH_BAD = ['notsent'];
+const KAY_FLASH_BAD = ['notsent', 'noaddress'];
 
 const KAY_NAV = [
     'index.php'        => ['Tableau de bord', 'Accueil',  'M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z'],

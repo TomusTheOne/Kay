@@ -632,6 +632,12 @@ return [
         => 'Esta llave no parece una llave de Resend: debería empezar por «re_». Casi siempre es la versión tapada del panel, copiada después, que no funciona.',
     'La clé contient une espace ou un retour à la ligne au milieu : elle a été coupée au collage.'
         => 'La llave tiene un espacio o un salto de línea en medio: se partió al pegarla.',
+    'Tester l’adresse des commandes' => 'Probar la dirección de reservaciones',
+    'Le premier part vers {email}, l’adresse de votre compte ; le second vers celle des commandes, ci-dessus.'
+        => 'El primero va a {email}, el correo de tu cuenta; el segundo al de reservaciones, el de arriba.',
+    'Accepté ne veut pas dire reçu : le tableau de bord du fournisseur dit ce qu’il est devenu, et le numéro dans la colonne Détail l’y retrouve.'
+        => 'Aceptado no quiere decir recibido: el panel del proveedor dice qué pasó con él, y el número de la columna Detalle sirve para encontrarlo ahí.',
+    'Aucune adresse valable pour ce test.' => 'No hay una dirección válida para esa prueba.',
     'Derniers envois' => 'Últimos envíos',
     'Rien encore. Chaque e-mail que le site tente d’envoyer s’inscrit ici.'
         => 'Nada todavía. Cada correo que el sitio intenta enviar queda anotado aquí.',
