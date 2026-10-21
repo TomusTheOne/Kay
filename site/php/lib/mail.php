@@ -191,7 +191,12 @@ function kay_mail_payload(string $provider, array $message, array $config): arra
     $fromName = (string) ($config['mail_from_name'] ?? 'Kay Diving Tulum');
     $replyTo  = (string) ($message['replyTo'] ?? $from);
     $toName   = (string) ($message['toName'] ?? '');
-    $key      = (string) ($config['mail_api_key'] ?? '');
+    // Trimmed: a key pasted out of a provider's dashboard often arrives with
+    // a trailing space or a newline attached, and 'Bearer re_xxx ' is refused
+    // with the same "API key is invalid" as a key that is genuinely wrong —
+    // which sends whoever is looking off to make a second key that will fail
+    // exactly as the first one did.
+    $key      = trim((string) ($config['mail_api_key'] ?? ''));
 
     if ($provider === 'brevo') {
         return [
