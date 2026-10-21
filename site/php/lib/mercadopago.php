@@ -262,23 +262,35 @@ function kay_webhook_log(PDO $db, int $limit = 30): array
 function kay_webhook_health(PDO $db): array
 {
     $health = [
-        'calls_30d'   => 0,
-        'refused_30d' => 0,
-        'settled_30d' => 0,
-        'last_call'   => null,
-        'last_settled' => null,
+        'calls_30d'        => 0,
+        'from_mp_30d'      => 0,
+        'unsigned_30d'     => 0,
+        'wrong_secret_30d' => 0,
+        'settled_30d'      => 0,
+        'last_call'        => null,
+        'last_settled'     => null,
     ];
 
     try {
+        // Signed and unsigned are counted apart, and it matters: the URL is
+        // public, so anyone — a scanner, a curl from a developer — can leave
+        // a refused call in here. Only Mercado Pago can sign one. Counting
+        // them together makes a stranger poking the endpoint look exactly
+        // like Mercado Pago calling with the wrong secret, which sends
+        // whoever reads this page to change a key that was never wrong.
         $counts = $db->query(
-            "SELECT COUNT(*) AS calls,
-                    SUM(outcome IN ('bad-signature','no-id')) AS refused,
-                    SUM(outcome = 'settled')                  AS settled
+            "SELECT COUNT(*)      AS calls,
+                    SUM(signed = 1) AS from_mp,
+                    SUM(signed = 0) AS unsigned_calls,
+                    SUM(signed = 1 AND outcome IN ('bad-signature','no-id')) AS wrong_secret,
+                    SUM(outcome = 'settled') AS settled
                FROM webhook_log WHERE called_at >= NOW() - INTERVAL 30 DAY"
         )->fetch() ?: [];
-        $health['calls_30d']   = (int) ($counts['calls'] ?? 0);
-        $health['refused_30d'] = (int) ($counts['refused'] ?? 0);
-        $health['settled_30d'] = (int) ($counts['settled'] ?? 0);
+        $health['calls_30d']        = (int) ($counts['calls'] ?? 0);
+        $health['from_mp_30d']      = (int) ($counts['from_mp'] ?? 0);
+        $health['unsigned_30d']     = (int) ($counts['unsigned_calls'] ?? 0);
+        $health['wrong_secret_30d'] = (int) ($counts['wrong_secret'] ?? 0);
+        $health['settled_30d']      = (int) ($counts['settled'] ?? 0);
 
         $health['last_call'] = $db->query('SELECT * FROM webhook_log ORDER BY id DESC LIMIT 1')->fetch() ?: null;
         $health['last_settled'] = $db->query(

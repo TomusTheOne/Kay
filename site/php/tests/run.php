@@ -367,17 +367,24 @@ echo "\nEvery call Mercado Pago makes is on the record, refusals included\n";
 $db->exec('DELETE FROM webhook_log');
 $_SERVER['HTTP_X_SIGNATURE'] = 'ts=1,v1=nope';
 kay_mp_log_call('PAY-9', null, 'bad-signature', 'v1 does not match');
-$_SERVER['HTTP_X_SIGNATURE'] = '';
 kay_mp_log_call('PAY-9', $id, 'settled', 'paid');
+// Anyone can post at a public URL. Only Mercado Pago can sign.
+$_SERVER['HTTP_X_SIGNATURE'] = '';
+kay_mp_log_call('1', null, 'bad-signature', 'no x-signature header');
 $calls = kay_webhook_log($db, 10);
-check('the newest call comes first',   $calls[0]['outcome'], 'settled');
-check('it carries its booking',        $calls[0]['booking_id'], $id);
-check('a refusal is kept too',         $calls[1]['outcome'], 'bad-signature');
-check('and says it was signed',        (int) $calls[1]['signed'], 1);
-check('an unsigned call says that',    (int) $calls[0]['signed'], 0);
+check('the newest call comes first',   $calls[0]['outcome'], 'bad-signature');
+check('and is marked unsigned',        (int) $calls[0]['signed'], 0);
+check('the settlement carries its booking', $calls[1]['booking_id'], $id);
+check('a signed refusal is kept too',  $calls[2]['outcome'], 'bad-signature');
+check('and says it was signed',        (int) $calls[2]['signed'], 1);
 $hook = kay_webhook_health($db);
-check('both calls counted',            $hook['calls_30d'], 2);
-check('one of them refused',           $hook['refused_30d'], 1);
+check('every call counted',            $hook['calls_30d'], 3);
+check('two of them from Mercado Pago', $hook['from_mp_30d'], 2);
+check('the stranger counted apart',    $hook['unsigned_30d'], 1);
+// The one that matters: an unsigned call from anyone must never be read as
+// Mercado Pago calling with a secret that does not match, or whoever reads
+// the page goes and changes a key that was never wrong.
+check('and never as a wrong secret',   $hook['wrong_secret_30d'], 1);
 check('one booking settled',           $hook['settled_30d'], 1);
 check('the last settlement is found',  $hook['last_settled']['payment_id'], 'PAY-9');
 

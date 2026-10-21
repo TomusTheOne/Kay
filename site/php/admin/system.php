@@ -37,6 +37,11 @@ $hook    = kay_webhook_health($db);
 $mailLog = kay_mail_log($db, 25);
 $hookLog = kay_webhook_log($db, 25);
 $stuck   = kay_abandoned_checkouts($db, 30, 5);
+// The two logs were created by a migration, and everything below counts
+// "over 30 days". Printing that beside a table born this morning is how a
+// page lies without saying anything false.
+$since   = kay_migration_applied($db, 9);
+$young   = $since !== null && (kay_db_time($since)?->getTimestamp() ?? 0) > time() - 30 * 86400;
 
 kay_page_start(kay_t('Système'), '', $admin);
 ?>
@@ -46,6 +51,10 @@ kay_page_start(kay_t('Système'), '', $admin);
     <p class="muted"><?= kay_th('Ce que le site a envoyé, et ce que Mercado Pago a appelé.') ?></p>
   </div>
 </header>
+
+<?php if ($young): ?>
+<p class="note"><?= kay_th('Les deux journaux ont commencé {when}. Rien n’a été noté avant.', ['{when}' => kay_when($since)]) ?></p>
+<?php endif; ?>
 
 <section class="card">
   <header class="card__head"><h2><?= kay_th('E-mails') ?></h2></header>
@@ -111,20 +120,24 @@ kay_page_start(kay_t('Système'), '', $admin);
 <section class="card">
   <header class="card__head"><h2><?= kay_th('Mercado Pago') ?></h2></header>
 
-<?php if ($hook['calls_30d'] === 0): ?>
+<?php if ($hook['from_mp_30d'] === 0): ?>
   <p class="alert"><?= kay_th('Mercado Pago n’a appelé aucune fois en 30 jours. Sans cet appel, un paiement ne devient jamais une réservation réglée et aucune confirmation n’est écrite. À vérifier dans son panneau, Webhooks, mode productif : l’URL doit être {url} et l’événement « Paiements » coché.', ['{url}' => rtrim((string) kay_config()['site_url'], '/') . '/api/webhook.php']) ?></p>
-<?php elseif ($hook['refused_30d'] > 0 && $hook['settled_30d'] === 0): ?>
-  <p class="alert"><?= kay_th('Mercado Pago appelle, et ses {n} appels ont été refusés : la clé secrète du webhook dans kay-config.php n’est pas celle de son panneau.', ['{n}' => kay_int($hook['refused_30d'])]) ?></p>
+<?php elseif ($hook['wrong_secret_30d'] > 0 && $hook['settled_30d'] === 0): ?>
+  <p class="alert"><?= kay_th('Mercado Pago appelle, et ses {n} appels ont été refusés : la clé secrète du webhook dans kay-config.php n’est pas celle de son panneau.', ['{n}' => kay_int($hook['wrong_secret_30d'])]) ?></p>
 <?php endif; ?>
 
   <dl class="facts">
-    <div><dt><?= kay_th('Appels sur 30 jours') ?></dt><dd><?= kay_int($hook['calls_30d']) ?></dd></div>
+    <div><dt><?= kay_th('Appels de Mercado Pago') ?></dt><dd><?= kay_int($hook['from_mp_30d']) ?></dd></div>
     <div><dt><?= kay_th('Refusés') ?></dt>
-      <dd><?= $hook['refused_30d'] > 0 ? '<span class="late">' . kay_int($hook['refused_30d']) . '</span>' : '0' ?></dd></div>
+      <dd><?= $hook['wrong_secret_30d'] > 0 ? '<span class="late">' . kay_int($hook['wrong_secret_30d']) . '</span>' : '0' ?></dd></div>
     <div><dt><?= kay_th('Réservations réglées') ?></dt><dd><?= kay_int($hook['settled_30d']) ?></dd></div>
+    <div><dt><?= kay_th('Appels non signés') ?></dt><dd class="muted"><?= kay_int($hook['unsigned_30d']) ?></dd></div>
     <div><dt><?= kay_th('Dernier appel') ?></dt>
       <dd><?= $hook['last_call'] !== null ? kay_h(kay_when($hook['last_call']['called_at'])) : '—' ?></dd></div>
   </dl>
+<?php if ($hook['unsigned_30d'] > 0): ?>
+  <p class="muted small"><?= kay_th('L’adresse du webhook est publique : n’importe qui peut la solliciter. Mercado Pago signe toujours ses appels, donc un appel non signé ne vient pas de lui et n’est pas pris en compte.') ?></p>
+<?php endif; ?>
 
 <?php if ($hookLog !== []): ?>
   <div class="table-wrap"><table class="table table--stack table--compact">
@@ -134,11 +147,19 @@ kay_page_start(kay_t('Système'), '', $admin);
 <?php foreach ($hookLog as $row): ?>
       <tr>
         <td data-label="<?= kay_th('Quand') ?>"><?= kay_h(kay_when($row['called_at'])) ?></td>
+<?php
+    $refused = in_array($row['outcome'], ['bad-signature', 'no-id'], true);
+    // Refused and unsigned is a stranger at the door, not Mercado Pago
+    // turned away: shown, but in grey, and named for what it is.
+    $label = $refused && (int) $row['signed'] === 0
+        ? kay_t('Appel non signé, ignoré')
+        : kay_webhook_outcome((string) $row['outcome']);
+?>
         <td data-label="<?= kay_th('Résultat') ?>"><?= in_array($row['outcome'], ['settled', 'already'], true)
-              ? '<span class="ok">' . kay_h(kay_webhook_outcome((string) $row['outcome'])) . '</span>'
-              : (in_array($row['outcome'], ['bad-signature', 'no-id'], true)
-                  ? '<span class="late">' . kay_h(kay_webhook_outcome((string) $row['outcome'])) . '</span>'
-                  : kay_h(kay_webhook_outcome((string) $row['outcome']))) ?>
+              ? '<span class="ok">' . kay_h($label) . '</span>'
+              : ($refused && (int) $row['signed'] === 1
+                  ? '<span class="late">' . kay_h($label) . '</span>'
+                  : '<span class="muted">' . kay_h($label) . '</span>') ?>
 <?php if (($row['booking_id'] ?? null) !== null): ?>
           <a class="block small" href="<?= kay_h(kay_url('booking.php', ['id' => $row['booking_id']])) ?>"><?= kay_th('la réservation') ?></a>
 <?php endif; ?></td>
