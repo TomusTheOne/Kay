@@ -145,7 +145,7 @@ export interface Dictionary {
   };
   /** The reviews block. The reviews themselves live in content/reviews.json
       and are never translated — only this chrome around them is. */
-  reviews: Record<"tag" | "h2" | "intro" | "stars" | "onGoogle" | "all", string>;
+  reviews: Record<"tag" | "h2" | "intro" | "stars" | "score" | "onGoogle" | "all", string>;
   /** The page each experience gets of its own. `items` is keyed by product
       slug and is EMPTY in a locale whose copy is not written yet -- that
       locale simply builds no experience pages. */

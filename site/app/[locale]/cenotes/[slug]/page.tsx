@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { isLocale, getDictionary, pathFor, mapCopy } from "@/lib/i18n";
 import { guideMetadata } from "@/lib/guide";
+import { experiencesFor } from "@/lib/exp";
 import { PRODUCTS, SHOP } from "@/content/products";
 import { CENOTES, GUIDE_PUBLISHED, cenoteBySlug, diveDepth, fromTulum, nearest, type Cenote } from "@/content/cenotes";
 import GuideFrame from "@/components/GuideFrame";
@@ -33,6 +34,7 @@ export default async function CenotePage({ params }: Params) {
   if (!isLocale(locale) || !c) notFound();
   const t = await getDictionary(locale);
   const g = t.cenotes;
+  const hasPage = new Set(await experiencesFor(locale));
   const away = fromTulum(c);
   const guide = pathFor(locale, "/cenotes/");
   const photoAlt = (o: Cenote) => {
@@ -83,8 +85,13 @@ export default async function CenotePage({ params }: Params) {
 
             <p className="tag tag--plain" style={{ marginTop: "1.8rem" }}>{g.divesTag}</p>
             <ul className="guide__dives">
+              {/* To the dive's own page where there is one. Ten cenotes in
+                  three languages, each naming the dives you can do there:
+                  that is thirty links that were all landing on the same
+                  anchor, and they are the most relevant links on the site. */}
               {c.products.map((p) => (
-                <li key={p}><a href={`${pathFor(locale)}#products`}>{t.products.items[p].name}</a></li>
+                <li key={p}><a href={hasPage.has(p) ? pathFor(locale, `/${p}/`) : `${pathFor(locale)}#products`}>
+                  {t.products.items[p].name}</a></li>
               ))}
             </ul>
             <a className="btn btn--lit" style={{ marginTop: "1.6rem" }} href={`${pathFor(locale)}#book`}>

@@ -2,6 +2,9 @@
   "_source": "Google reviews of Kay Diving, transcribed by hand from the listing. Quoted as written — spelling, punctuation and all. Two were cut at a sentence boundary where Google itself truncated them with 'More'; nothing was reworded. Emoji were dropped from one.",
   "_markup": "These are NOT marked up as Review/AggregateRating, and must not be. Google's own policy is that reviews gathered on a third-party site are not eligible for review rich results on yours, and self-serving markup of them is a manual-action risk. Showing them is fine; claiming them as first-party structured data is not.",
   "_dates": "Google only gives a relative age ('a year ago'), so these are years, not months: no false precision.",
+  "_score": "The listing's own figures, read off it by hand on 28 October 2026. They do not update themselves: when the count moves, this moves when someone moves it. Shown as text only — never as AggregateRating, for the reason in _markup.",
+  "rating": "5,0",
+  "count": 30,
   "items": [
     {
       "name": "Gordon Kirkwood",

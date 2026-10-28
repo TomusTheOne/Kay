@@ -8,7 +8,7 @@ import Reveals from "@/components/Reveals";
 import Booking from "@/components/Booking";
 import { Visit, Ruins } from "@/components/Places";
 import { experiencesFor } from "@/lib/exp";
-import Reviews from "@/components/Reviews";
+import Reviews, { ReviewScore } from "@/components/Reviews";
 import Plate from "@/components/Plate";
 import Footer from "@/components/Footer";
 import CenoteMap from "@/components/CenoteMap";
@@ -101,15 +101,21 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
           `${SHOP.domain}/assets/og/${locale}.jpg`,
           `${SHOP.domain}/assets/photos/hero.webp`,
         ],
+        // Kay Diving has no shop a diver can walk into: the day starts at a
+        // meeting point and goes to the water. So the address stays at the
+        // level that is true — the town — and there is no GeoCoordinates
+        // pin, because a pin says "we are here, come in" and nobody is.
+        // areaServed is the honest shape for a business that travels to its
+        // customers, and it is what Google asks for in that case.
         address: { "@type": "PostalAddress", addressLocality: "Tulum",
                    addressRegion: "Quintana Roo", addressCountry: "MX" },
-        geo: { "@type": "GeoCoordinates", latitude: SHOP.lat, longitude: SHOP.lon },
-        areaServed: [
-          { "@type": "City", name: "Tulum" },
-          { "@type": "AdministrativeArea", name: "Quintana Roo" },
-        ],
+        areaServed: SHOP.areaServed.map((name: string) => ({ "@type": "Place", name })),
         knowsLanguage: LIVE_LOCALES as unknown as string[],
-        sameAs: [SHOP.instagram],
+        // The listing and the site are the same business, and this is how
+        // Google is told so. Without it they are two entities that happen to
+        // share a name, and the reviews on one do nothing for the other.
+        sameAs: [SHOP.instagram, SHOP.google].filter(Boolean),
+        ...(SHOP.google ? { hasMap: SHOP.google } : {}),
         hasOfferCatalog: {
           "@type": "OfferCatalog",
           name: t.products.tag,
@@ -426,6 +432,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
               <h2 className="dsp dsp-lg" style={{ marginTop: "1.1rem", maxWidth: "20ch" }}>{t.reviews.h2}</h2>
             </div>
             <div data-rise data-rise-d="1" style={{ maxWidth: "38ch" }}>
+              <ReviewScore t={t.reviews} />
               <p className="muted">{t.reviews.intro}</p>
               {SHOP.google ? (
                 <p style={{ marginTop: ".9rem" }}>

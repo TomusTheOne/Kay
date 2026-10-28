@@ -489,6 +489,7 @@
     "h2": "Lo que dicen los buzos cuando vuelven a tierra firme.",
     "intro": "Cinco de las reseñas que Kay Diving tiene en Google, palabra por palabra, en el idioma en que las escribió cada quien.",
     "stars": "{n} de 5",
+    "score": "{rating} en Google · {n} reseñas",
     "onGoogle": "Google",
     "all": "Leerlas en Google ↗"
   },
