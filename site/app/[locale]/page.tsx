@@ -7,6 +7,7 @@ import Gauge from "@/components/Gauge";
 import Reveals from "@/components/Reveals";
 import Booking from "@/components/Booking";
 import { Visit, Ruins } from "@/components/Places";
+import { experiencesFor } from "@/lib/exp";
 import Reviews from "@/components/Reviews";
 import Plate from "@/components/Plate";
 import Footer from "@/components/Footer";
@@ -55,6 +56,8 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
   // The same sentence the <head> carries, with the same price out of the
   // catalogue: the structured data and the meta tag must never disagree.
   const description = t.meta.description.replace("{from}", String(FROM_USD));
+  // Which experiences have a page of their own in this language.
+  const hasPage = new Set(await experiencesFor(locale));
   /* Google warns on an Offer with no expiry. A year from the last content
      change is honest: past that the prices genuinely need rechecking. */
   const priceValidUntil = new Date(
@@ -280,6 +283,15 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                       ))}
                       <li className="prices__note"><span>{t.products.perDiver}</span></li>
                     </ul>
+
+                    {/* Only where this locale has the page. The link is the
+                        whole point of writing one: the card answers "what is
+                        it", the page answers everything after that. */}
+                    {hasPage.has(p.slug) && (
+                      <p className="dive__more">
+                        <a href={pathFor(locale, `/${p.slug}/`)}>{t.exp.more2}</a>
+                      </p>
+                    )}
                   </div>
                 </article>
               );

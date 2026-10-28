@@ -146,6 +146,19 @@ export interface Dictionary {
   /** The reviews block. The reviews themselves live in content/reviews.json
       and are never translated — only this chrome around them is. */
   reviews: Record<"tag" | "h2" | "intro" | "stars" | "onGoogle" | "all", string>;
+  /** The page each experience gets of its own. `items` is keyed by product
+      slug and is EMPTY in a locale whose copy is not written yet -- that
+      locale simply builds no experience pages. */
+  exp: {
+    crumb: string; bookTag: string; bookH2: string;
+    whoTag: string; dayTag: string; includedTag: string;
+    sitesTag: string; faqTag: string; moreTag: string; more: string; more2: string;
+    items: Record<string, {
+      title: string; description: string;
+      h1: string; lede: string; who: string;
+      day: string[]; sites: string; faq: Qa[];
+    }>;
+  };
   quote: { text: string; cite: string };
   book: Record<string, string> & { certs: string[] };
   faq: { tag: string; h2: string; items: Qa[] };
