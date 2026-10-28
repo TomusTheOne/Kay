@@ -1,7 +1,8 @@
 {
   "_comment": "Single source of truth for what Kay sells. Read by the TypeScript site AND by the PHP endpoints, so a price can never disagree between the page and the charge. Figures come from the 2026 menu PDF, corrected by Kay's own answers where the menu was wrong or silent.",
   "contentUpdated": "2026-09-24",
-  "experiencePages": ["cenote-diving", "open-water"],
+  "experiencePages": ["discover-scuba", "reef-cenote", "cenote-diving",
+                      "open-water", "advanced-ow", "snorkel", "bull-sharks"],
   "publishedLocales": [
     "en",
     "es",

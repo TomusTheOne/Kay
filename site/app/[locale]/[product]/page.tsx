@@ -115,11 +115,26 @@ export default async function ExperiencePage({ params }: Params) {
           <p className="tag">{t.products.items[p.slug].name}</p>
           <h1 className="dsp dsp-lg">{copy.h1}</h1>
           <p className="lede">{copy.lede}</p>
+          {/* Only the rows this experience actually has. The snorkel tour
+              and the shark trip carry no depth and no bottom time in the
+              catalogue, and an empty "max depth: m" is worse than no row —
+              it reads as a number nobody bothered to fill in. */}
           <dl className="exp__facts data">
             <div><dt>{t.products.from}</dt>
               <dd><b>${cheapest}</b>{dearest !== cheapest ? ` – $${dearest}` : ""} USD</dd></div>
-            <div><dt>{t.products.depth}</dt><dd><b>{p.maxDepthM} m</b></dd></div>
-            <div><dt>{t.products.time}</dt><dd><b>{p.diveTime}</b></dd></div>
+            {p.maxDepthM ? (
+              <div><dt>{t.products.depth}</dt>
+                <dd><b>{p.maxDepthM} m</b> · {p.maxDepthFt} ft</dd></div>
+            ) : null}
+            {p.diveTime ? (
+              <div><dt>{t.products.time}</dt><dd><b>{p.diveTime}</b></dd></div>
+            ) : p.kind === "snorkel" ? (
+              <div><dt>{t.products.time}</dt><dd><b>{t.products.halfDay}</b></dd></div>
+            ) : null}
+            {p.season ? (
+              <div><dt>{t.products.seasonTag}</dt>
+                <dd><b>{t.products.seasonValue[p.slug]}</b></dd></div>
+            ) : null}
             <div><dt>{t.products.needs}</dt><dd><b>{t.products.level[p.level]}</b></dd></div>
           </dl>
         </header>

@@ -242,6 +242,190 @@
             "a": "To eighteen metres, with a certified buddy and without a guide if you want. For Tulum's deep cenotes — Angelita, El Pit — the next step is the Advanced."
           }
         ]
+      },
+      "discover-scuba": {
+        "title": "Discover Scuba in Tulum — dive without a certification | Kay Diving",
+        "description": "Your first dive in Tulum, guided and with no certification, in the clear water of Casa Cenote. One or two dives, gear and entrance included. From $140 USD.",
+        "h1": "Discover Scuba in Tulum",
+        "lede": "A first time underwater, guided from start to finish, in an open cenote of clear and shallow water. No certification, no experience.",
+        "who": "For anyone who has never breathed underwater and wants to know what it feels like before committing to a course. We ask for nothing beforehand beyond being comfortable in water. It is not a certification: it is a guided dive, with an instructor beside you the whole time, and never past seven metres. In the cenotes we dive four divers per guide at most, and the ratio is not negotiable: more people means more guides.",
+        "day": [
+          "On land first, the essentials: how to breathe through the regulator, how to equalise your ears, the few hand signals you will use down there. Short on purpose — what you need to be calm, not an exam.",
+          "Then we practise those same things standing up, in the shallow part of Casa Cenote, until they come without thinking.",
+          "And then the dive, around forty-five minutes, with the instructor beside you. Casa Cenote is open, clear and shallow: you can see the sky from below and the mangroves reach into the water.",
+          "Choose two dives and the second is nothing like the first — you are no longer thinking about breathing, you are looking."
+        ],
+        "sites": "Casa Cenote, a few minutes from Tulum. An open brackish cenote beside the sea, mangroves along its edges: shallow, clear and calm, which is exactly what a first time needs.",
+        "faq": [
+          {
+            "q": "Do I need a certification?",
+            "a": "No. That is what this dive is for: it is guided from start to finish and asks for nothing beforehand."
+          },
+          {
+            "q": "How deep does it go?",
+            "a": "To seven metres, the limit for this kind of dive. Casa Cenote is shallow for exactly that reason."
+          },
+          {
+            "q": "How many divers per guide?",
+            "a": "Four at most in the cenotes. More people means more guides."
+          },
+          {
+            "q": "How long is the dive?",
+            "a": "About forty-five minutes underwater, plus the briefing and practice before it."
+          },
+          {
+            "q": "What does it cost?",
+            "a": "One dive $140 USD per person, two dives $200 USD. Gear, cenote entrance, transport to the site and snacks are included."
+          },
+          {
+            "q": "And if I want to certify afterwards?",
+            "a": "The next step is the Open Water course: three days, five dives, and you leave with a certification valid anywhere in the world."
+          }
+        ]
+      },
+      "reef-cenote": {
+        "title": "Reef and cenote in one day, in Tulum | Kay Diving",
+        "description": "Two dives in a day: the Tankah reef in salt water and Casa Cenote in fresh. Gear, entrance and transfers included. $200 USD. Open Water required.",
+        "h1": "Reef and cenote in one day",
+        "lede": "The two halves of what makes this coast worth diving, in the same morning: the reef off Tankah and the fresh water of Casa Cenote.",
+        "who": "For Open Water divers with one day who would rather not choose between the two. It is also the best way to understand why people come to dive here: within a few kilometres the water, the light, the life and the feeling all change. In the cenotes we dive four divers per guide at most, and the ratio is not negotiable: more people means more guides.",
+        "day": [
+          "We start on the Tankah reef, in salt water. A low, calm reef, the kind you dive without current and with good visibility.",
+          "Then the fresh water. Casa Cenote is minutes away: open, with mangroves reaching into the water and light falling between the roots. The difference with an hour ago is total.",
+          "Between the two there is a break with snacks, included, and the drive between the sites.",
+          "Each dive runs about forty-five minutes and neither goes past nine metres, so the day asks a lot of your eyes and nothing of your lungs."
+        ],
+        "sites": "The Tankah reef and Casa Cenote, both minutes from Tulum and minutes from each other.",
+        "faq": [
+          {
+            "q": "What certification do I need?",
+            "a": "Open Water or above. Neither dive goes past nine metres."
+          },
+          {
+            "q": "Why a reef and a cenote on the same day?",
+            "a": "Because they are two different worlds fifteen minutes apart, and seeing them back to back is what makes this coast make sense."
+          },
+          {
+            "q": "How many divers per guide?",
+            "a": "Four at most in the cenote. More people means more guides."
+          },
+          {
+            "q": "What is included?",
+            "a": "Both dives, the gear, the cenote entrance, transport between the sites and snacks. $200 USD per person."
+          },
+          {
+            "q": "Is there current on the reef?",
+            "a": "Tankah is a low, sheltered reef. This is not a current dive or a deep one."
+          }
+        ]
+      },
+      "advanced-ow": {
+        "title": "PADI Advanced Open Water course in Tulum | Kay Diving",
+        "description": "PADI Advanced Open Water certification in Tulum: five specialty dives to thirty metres, at Cenote Angelita or El Pit. Study materials included. $550 USD.",
+        "h1": "PADI Advanced Open Water course in Tulum",
+        "lede": "Five specialty dives that take you to thirty metres and open Tulum's two deep cenotes. Study materials included.",
+        "who": "For divers who already hold the Open Water and want two things: depth, and the cenotes that ask for it. Angelita and El Pit are closed to an Open Water diver — not by a rule of ours, but because they go past thirty metres — and this course is the door. In the cenotes we dive four divers per guide at most, and the ratio is not negotiable: more people means more guides.",
+        "day": [
+          "The Advanced is not theory with an exam at the end: it is five specialty dives, and you learn by doing them. The study materials are included.",
+          "The deep dives are done at Cenote Angelita or El Pit, the two deep cenotes in the area and among the most striking sites you will ever dive.",
+          "At Angelita there is a cloud of hydrogen sulphide at around thirty metres, with dead branches rising through it: it looks like an island floating underwater. At El Pit the light comes down the whole shaft and simply stays there.",
+          "You finish certified to thirty metres, and those two cenotes stop being closed to you."
+        ],
+        "sites": "Cenote Angelita and Cenote El Pit, the two deep cenotes near Tulum. Each has its own page with the depth and what it is like inside.",
+        "faq": [
+          {
+            "q": "What do I need to start the course?",
+            "a": "The Open Water certification, or the equivalent from another agency."
+          },
+          {
+            "q": "How deep does it go?",
+            "a": "To thirty metres, which is the Advanced limit and what opens Angelita and El Pit."
+          },
+          {
+            "q": "Where is it done?",
+            "a": "The deep dives, at Cenote Angelita or El Pit."
+          },
+          {
+            "q": "How many divers per guide?",
+            "a": "Four at most in the cenotes. More people means more guides."
+          },
+          {
+            "q": "What does the price include?",
+            "a": "The five dives, the gear, the study materials, cenote entrance, transport and snacks. $550 USD per person."
+          }
+        ]
+      },
+      "bull-sharks": {
+        "title": "Bull shark diving in Playa del Carmen | Kay Diving",
+        "description": "Two boat dives with bull sharks off Playa del Carmen, November to March. We leave from Tulum. $250 USD. Advanced Open Water required.",
+        "h1": "Bull shark diving",
+        "lede": "Every winter female bull sharks come in to the coast off Playa del Carmen. We drive the forty-five minutes and get in with them.",
+        "who": "For divers with Advanced Open Water or the equivalent, no exceptions — this is boat diving, in open water, with large animals. If you hold the Open Water and want to do this, the way there is the Advanced first.",
+        "day": [
+          "We leave Tulum early and drive the forty-five minutes to Playa del Carmen. From there, onto the boat.",
+          "The first dive is the shark dive. The second is on a low reef, between eight and twenty metres.",
+          "These are wild animals, free: they come because the season brings them, not because anyone calls them. That is exactly what makes it worth doing, and also what means nobody can promise you how many you will see.",
+          "The season runs November to March. Outside those months they are not there, and we do not sell it."
+        ],
+        "sites": "Off Playa del Carmen, forty-five minutes from Tulum, from a boat.",
+        "faq": [
+          {
+            "q": "When is the season?",
+            "a": "November to March. Outside those months the bull sharks are not on the coast and we do not run the trip."
+          },
+          {
+            "q": "What certification do I need?",
+            "a": "Advanced Open Water or the equivalent, no exceptions."
+          },
+          {
+            "q": "Are they always there?",
+            "a": "It cannot be guaranteed. These are wild animals in open water; the season is very reliable, but a sighting is never a promise."
+          },
+          {
+            "q": "Is this cage diving?",
+            "a": "No. It is open-water diving from a boat, with a guide."
+          },
+          {
+            "q": "What is included?",
+            "a": "Both dives, the gear, transport from Tulum and snacks. $250 USD per person."
+          }
+        ]
+      },
+      "snorkel": {
+        "title": "Cenote snorkelling tour in Tulum | Kay Diving",
+        "description": "Half a day snorkelling three cenotes near Tulum, no certification and no experience needed. Gear, entrance and transport included. $125 USD per person.",
+        "h1": "Snorkelling the cenotes of Tulum",
+        "lede": "Three different cenotes in half a day, no tank, no course and no rush. We finish at one of the best taquerías in town.",
+        "who": "For anyone who wants to see the cenotes from the inside without taking up diving: families, someone along with a diver, or anyone who would rather stay at the surface. No experience and no certification, and the snorkelling gear is included.",
+        "day": [
+          "Half a day, three cenotes. Each one different from the last on purpose: the shape, the light and what you see from above all change.",
+          "From the surface you see more than people expect. In clear, shallow water with light coming down from above, the bottom and the formations are there in full.",
+          "Between one and the next there is the drive and snacks, included, and the pace is whatever the group's is.",
+          "And at the end, tacos. Not part of the price — part of the day."
+        ],
+        "sites": "Three of our favourite cenotes near Tulum, chosen on the day according to the water and what the group wants to see.",
+        "faq": [
+          {
+            "q": "Do I need to know how to dive?",
+            "a": "No. This is snorkelling: you breathe at the surface, with a mask and snorkel. No certification of any kind."
+          },
+          {
+            "q": "What is included?",
+            "a": "Mask and snorkel, entrance to all three cenotes, transport between them and snacks. $125 USD per person."
+          },
+          {
+            "q": "How long is it?",
+            "a": "Half a day."
+          },
+          {
+            "q": "Is it alright for a weak swimmer?",
+            "a": "Tell us before you book and we build the day around it. There are vests, and the cenotes are chosen on the day."
+          },
+          {
+            "q": "What should I bring?",
+            "a": "Swimwear, a towel and biodegradable sunscreen. We bring the rest."
+          }
+        ]
       }
     }
   },
