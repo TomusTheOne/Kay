@@ -23,3 +23,7 @@ export interface Review {
 }
 
 export const REVIEWS = data.items as Review[];
+
+/** What the listing says in total, which five quotes cannot say: a quote can
+    be invented, an average of thirty cannot. Text only — see above. */
+export const SCORE = { rating: data.rating as string, count: data.count as number };

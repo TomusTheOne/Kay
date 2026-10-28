@@ -608,6 +608,8 @@ select.field{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xml
    leave one card alone in an empty row, which reads as a layout that broke.
    Wrapped and centred, any number of them lands as a deliberate shape — and
    the day Kay adds a sixth, nothing here needs touching. */
+.revs__score{display:flex;align-items:center;gap:.7rem;margin:0 0 .9rem;color:var(--foam);font-weight:500}
+.revs__score .rev__stars svg{width:15px;height:15px}
 .revs{display:flex;flex-wrap:wrap;justify-content:center;gap:clamp(1rem,1.9vw,1.5rem)}
 .rev{
   /* 320 basis, not 286: four of them fit across the 1220 shell and leave the
