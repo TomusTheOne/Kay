@@ -322,9 +322,9 @@
       },
       "advanced-ow": {
         "title": "Formation PADI Advanced Open Water à Tulum — deux jours | Kay Diving",
-        "description": "Certification PADI Advanced Open Water à Tulum en deux jours : cinq plongées de spécialité jusqu'à trente mètres, au Cenote Angelita ou El Pit. 550 $ US.",
+        "description": "Certification PADI Advanced Open Water à Tulum en deux jours : cinq plongées de spécialité jusqu'à trente mètres, à Angelita ou El Pit. Brevet compris.",
         "h1": "Formation PADI Advanced Open Water à Tulum",
-        "lede": "Cinq plongées de spécialité en deux jours, qui vous emmènent à trente mètres et vous ouvrent les deux cenotes profonds de Tulum. Matériel d'étude compris.",
+        "lede": "Cinq plongées de spécialité en deux jours, qui vous emmènent à trente mètres et vous ouvrent les deux cenotes profonds de Tulum. Matériel et brevet compris.",
         "who": "Pour les plongeurs qui ont déjà l'Open Water et veulent deux choses : la profondeur, et les cenotes qui l'exigent. Angelita et El Pit sont fermés à un Open Water — non par une règle de notre fait, mais parce qu'ils passent trente mètres — et cette formation est la porte. Dans les cenotes nous plongeons quatre plongeurs par guide au maximum, et la proportion ne se négocie pas : plus de monde, plus de guides.",
         "day": [
           "L'Advanced n'est pas de la théorie avec un examen à la fin : ce sont cinq plongées de spécialité, et l'on apprend en les faisant. Le matériel d'étude est compris.",
@@ -361,7 +361,7 @@
           },
           {
             "q": "Que comprend le tarif ?",
-            "a": "Les cinq plongées, le matériel, le support d'étude, l'entrée des cenotes, le transport et les collations. 550 $ US par personne."
+            "a": "Les cinq plongées de spécialité, le matériel, le support d'étude, l'entrée des cenotes, le transport, les collations et la certification Advanced Open Water elle-même. 550 $ US par personne."
           }
         ]
       },
@@ -470,7 +470,7 @@
       },
       "padi-licence": {
         "name": "Brevet PADI",
-        "text": "La formation Open Water se termine par une certification reconnue dans le monde entier."
+        "text": "Les deux formations se terminent par une certification reconnue dans le monde entier, comprise dans le prix."
       }
     }
   },

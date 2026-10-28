@@ -170,9 +170,7 @@
       ],
       "photo": "card-advanced-ok",
       "art": "the-pit",
-      "extraIncludes": [
-        "materials"
-      ]
+      "extraIncludes": ["materials", "padi-licence"]
     },
     {
       "slug": "snorkel",
