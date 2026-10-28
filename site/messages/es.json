@@ -242,6 +242,190 @@
             "a": "Hasta dieciocho metros, con un compañero certificado y sin guía si así lo quieres. Para los cenotes profundos de Tulum — Angelita, El Pit — el siguiente paso es el Advanced."
           }
         ]
+      },
+      "discover-scuba": {
+        "title": "Discover Scuba en Tulum — bucea sin certificación | Kay Diving",
+        "description": "Tu primera inmersión en Tulum, sin certificación y con guía, en el agua clara de Casa Cenote. Una o dos inmersiones, equipo y entrada incluidos. Desde $140 USD.",
+        "h1": "Discover Scuba en Tulum",
+        "lede": "La primera vez bajo el agua, guiada de principio a fin, en un cenote abierto de agua clara y poco profunda. No hace falta certificación ni experiencia.",
+        "who": "Para quien nunca ha respirado bajo el agua y quiere saber qué se siente antes de meterse en un curso. No pedimos nada previo más que estar cómodo en el agua. No es una certificación: es una inmersión guiada, con un instructor al lado todo el tiempo y sin pasar de siete metros. En los cenotes vamos cuatro buzos por guía como máximo, y la proporción no se negocia: si son más, van más guías.",
+        "day": [
+          "Primero, en tierra, lo esencial: cómo respirar con el regulador, cómo igualar los oídos, las pocas señas que vas a usar abajo. Es corto a propósito — lo que hace falta para estar tranquilo, no un examen.",
+          "Después practicamos esas mismas cosas de pie, en la parte baja de Casa Cenote, hasta que te salgan sin pensarlas.",
+          "Y entonces la inmersión, unos cuarenta y cinco minutos, con el instructor a tu lado. Casa Cenote es abierto, de agua clara y poco profundo: se ve el cielo desde abajo y los manglares entran en el agua.",
+          "Si eliges dos inmersiones, la segunda es muy distinta de la primera — ya no estás pendiente de respirar, estás mirando."
+        ],
+        "sites": "Casa Cenote, a unos minutos de Tulum. Es un cenote abierto de agua salobre junto al mar, con manglares a los lados: poco profundo, claro y tranquilo, que es exactamente lo que hace falta la primera vez.",
+        "faq": [
+          {
+            "q": "¿Necesito certificación?",
+            "a": "No. Para eso existe esta inmersión: es guiada de principio a fin y no pide nada previo."
+          },
+          {
+            "q": "¿Qué tan profundo se baja?",
+            "a": "Hasta siete metros, que es el límite de este tipo de inmersión. Casa Cenote es poco profundo justamente por eso."
+          },
+          {
+            "q": "¿Cuántos buzos van por guía?",
+            "a": "Cuatro como máximo en los cenotes. Si vienen más personas, van más guías."
+          },
+          {
+            "q": "¿Cuánto dura la inmersión?",
+            "a": "Unos cuarenta y cinco minutos bajo el agua, más el tiempo de la explicación y la práctica antes."
+          },
+          {
+            "q": "¿Cuánto cuesta?",
+            "a": "Una inmersión $140 USD por persona, dos inmersiones $200 USD. Equipo, entrada al cenote, traslado al sitio y snacks van incluidos."
+          },
+          {
+            "q": "¿Y si después quiero certificarme?",
+            "a": "El siguiente paso es el curso Open Water: tres días, cinco inmersiones, y te vas con una certificación válida en todo el mundo."
+          }
+        ]
+      },
+      "reef-cenote": {
+        "title": "Arrecife y cenote en un día, en Tulum | Kay Diving",
+        "description": "Dos inmersiones en un día: el arrecife de Tankah en agua salada y Casa Cenote en agua dulce. Equipo, entradas y traslados incluidos. $200 USD. Open Water.",
+        "h1": "Arrecife y cenote en un día",
+        "lede": "Las dos mitades de lo que hace especial a esta costa, en la misma mañana: el arrecife frente a Tankah y el agua dulce de Casa Cenote.",
+        "who": "Para buzos certificados Open Water que tienen un solo día y no quieren elegir entre las dos cosas. Es también la mejor manera de entender por qué la gente viene a bucear aquí: en pocos kilómetros cambian el agua, la luz, la vida y la sensación. En los cenotes vamos cuatro buzos por guía como máximo, y la proporción no se negocia: si son más, van más guías.",
+        "day": [
+          "Empezamos por el arrecife de Tankah, en agua salada. Es un arrecife bajo y tranquilo, de los que se bucean sin corriente y con buena visibilidad.",
+          "Después, el agua dulce. Casa Cenote está a unos minutos: abierto, con manglares que entran al agua y la luz cayendo entre las raíces. La diferencia con lo de hace una hora es completa.",
+          "Entre una y otra hay un descanso con snacks, incluidos, y el traslado entre los dos sitios.",
+          "Cada inmersión dura unos cuarenta y cinco minutos y ninguna pasa de nueve metros, así que el día es exigente para los ojos y no para los pulmones."
+        ],
+        "sites": "El arrecife de Tankah y Casa Cenote, los dos a pocos minutos de Tulum y a pocos minutos uno del otro.",
+        "faq": [
+          {
+            "q": "¿Qué certificación necesito?",
+            "a": "Open Water o superior. Ninguna de las dos inmersiones pasa de nueve metros."
+          },
+          {
+            "q": "¿Por qué un arrecife y un cenote el mismo día?",
+            "a": "Porque son dos mundos distintos a quince minutos de distancia, y verlos seguidos es lo que hace que se entienda esta costa."
+          },
+          {
+            "q": "¿Cuántos buzos van por guía?",
+            "a": "Cuatro como máximo en el cenote. Si vienen más personas, van más guías."
+          },
+          {
+            "q": "¿Qué incluye?",
+            "a": "Las dos inmersiones, el equipo, la entrada al cenote, el traslado entre los sitios y los snacks. $200 USD por persona."
+          },
+          {
+            "q": "¿Hay corriente en el arrecife?",
+            "a": "Tankah es un arrecife bajo y resguardado. No es un buceo de corriente ni de profundidad."
+          }
+        ]
+      },
+      "advanced-ow": {
+        "title": "Curso PADI Advanced Open Water en Tulum | Kay Diving",
+        "description": "Certificación PADI Advanced Open Water en Tulum: cinco inmersiones de especialidad hasta treinta metros, en el Cenote Angelita o El Pit. $550 USD.",
+        "h1": "Curso PADI Advanced Open Water en Tulum",
+        "lede": "Cinco inmersiones de especialidad que te llevan a treinta metros y te abren los dos cenotes profundos de Tulum. Material de estudio incluido.",
+        "who": "Para quien ya tiene el Open Water y quiere dos cosas: profundidad y los cenotes que la piden. Angelita y El Pit están cerrados para un Open Water — no por una regla nuestra, sino porque pasan de los treinta metros — y este curso es la puerta. En los cenotes vamos cuatro buzos por guía como máximo, y la proporción no se negocia: si son más, van más guías.",
+        "day": [
+          "El Advanced no es teoría con un examen al final: son cinco inmersiones de especialidad, y aprendes haciéndolas. El material de estudio va incluido.",
+          "Las de profundidad se hacen en el Cenote Angelita o en El Pit, que son los dos cenotes profundos de la zona y de los sitios más impresionantes que vas a bucear.",
+          "En Angelita hay una nube de ácido sulfhídrico a unos treinta metros, con ramas muertas que la atraviesan hacia arriba: parece una isla flotando bajo el agua. En El Pit la luz baja por todo el tiro y se queda ahí, quieta.",
+          "Al terminar quedas certificado hasta treinta metros, y esos dos cenotes dejan de estar cerrados para ti."
+        ],
+        "sites": "El Cenote Angelita y el Cenote El Pit, los dos cenotes profundos cerca de Tulum. Cada uno tiene su ficha con la profundidad y cómo es por dentro.",
+        "faq": [
+          {
+            "q": "¿Qué necesito para entrar al curso?",
+            "a": "La certificación Open Water, o equivalente de otra organización."
+          },
+          {
+            "q": "¿Hasta qué profundidad llega?",
+            "a": "Hasta treinta metros, que es el límite del Advanced y lo que abre Angelita y El Pit."
+          },
+          {
+            "q": "¿Dónde se hace?",
+            "a": "Las inmersiones de profundidad, en el Cenote Angelita o en El Pit."
+          },
+          {
+            "q": "¿Cuántos buzos van por guía?",
+            "a": "Cuatro como máximo en los cenotes. Si vienen más personas, van más guías."
+          },
+          {
+            "q": "¿Qué incluye el precio?",
+            "a": "Las cinco inmersiones, el equipo, el material de estudio, la entrada a los cenotes, el traslado y los snacks. $550 USD por persona."
+          }
+        ]
+      },
+      "bull-sharks": {
+        "title": "Buceo con tiburones toro en Playa del Carmen | Kay Diving",
+        "description": "Dos inmersiones desde barco con tiburones toro frente a Playa del Carmen, de noviembre a marzo. Salimos de Tulum. $250 USD. Advanced Open Water.",
+        "h1": "Buceo con tiburones toro",
+        "lede": "Cada invierno las hembras de tiburón toro llegan a la costa de Playa del Carmen. Manejamos los cuarenta y cinco minutos y nos metemos a verlas.",
+        "who": "Para buzos con Advanced Open Water o equivalente, sin excepciones — es buceo desde barco, en mar abierto, con animales grandes. Si tienes el Open Water y quieres hacer esto, el camino es el Advanced primero.",
+        "day": [
+          "Salimos de Tulum temprano y manejamos los cuarenta y cinco minutos hasta Playa del Carmen. De ahí, al barco.",
+          "La primera inmersión es la de los tiburones. La segunda, en un arrecife bajo, entre ocho y veinte metros.",
+          "Son animales salvajes y en libertad: vienen porque la temporada los trae, no porque alguien los llame. Eso es exactamente lo que hace que valga la pena, y también lo que significa que nadie puede prometerte cuántos vas a ver.",
+          "La temporada va de noviembre a marzo. Fuera de esos meses no están, y no lo vendemos."
+        ],
+        "sites": "Frente a Playa del Carmen, a cuarenta y cinco minutos de Tulum, desde barco.",
+        "faq": [
+          {
+            "q": "¿Cuándo es la temporada?",
+            "a": "De noviembre a marzo. Fuera de esos meses los tiburones toro no están en la costa y no ofrecemos la salida."
+          },
+          {
+            "q": "¿Qué certificación necesito?",
+            "a": "Advanced Open Water o equivalente, sin excepciones."
+          },
+          {
+            "q": "¿Se ven siempre?",
+            "a": "No se puede garantizar. Son animales salvajes en libertad; la temporada es muy fiable, pero un avistamiento nunca es una promesa."
+          },
+          {
+            "q": "¿Es buceo en jaula?",
+            "a": "No. Es buceo en mar abierto, desde barco, con guía."
+          },
+          {
+            "q": "¿Qué incluye?",
+            "a": "Las dos inmersiones, el equipo, el traslado desde Tulum y los snacks. $250 USD por persona."
+          }
+        ]
+      },
+      "snorkel": {
+        "title": "Tour de snorkel en cenotes de Tulum | Kay Diving",
+        "description": "Medio día de snorkel en tres cenotes cerca de Tulum, sin certificación ni experiencia. Equipo, entradas y transporte incluidos. $125 USD por persona.",
+        "h1": "Snorkel en cenotes de Tulum",
+        "lede": "Tres cenotes distintos en medio día, sin tanque, sin curso y sin prisa. Terminamos en una de las mejores taquerías del pueblo.",
+        "who": "Para quien quiere ver los cenotes por dentro sin meterse en el buceo: familias, acompañantes de alguien que sí va a bucear, o cualquiera que prefiera la superficie. No hace falta experiencia ni certificación, y el equipo de snorkel va incluido.",
+        "day": [
+          "Medio día, tres cenotes. Cada uno es distinto del anterior a propósito: cambian la forma, la luz y lo que se ve desde arriba.",
+          "Desde la superficie se ve más de lo que la gente espera. En agua clara y poco profunda, con la luz entrando desde arriba, el fondo y las formaciones se ven enteros.",
+          "Entre uno y otro hay traslado y snacks, incluidos, y el ritmo lo pone el grupo.",
+          "Y al final, tacos. No es parte del precio, es parte del día."
+        ],
+        "sites": "Tres de nuestros cenotes favoritos cerca de Tulum, elegidos el mismo día según cómo esté el agua y qué quiera ver el grupo.",
+        "faq": [
+          {
+            "q": "¿Necesito saber bucear?",
+            "a": "No. Es snorkel: se respira en la superficie, con visor y snorkel. No hace falta ninguna certificación."
+          },
+          {
+            "q": "¿Qué incluye?",
+            "a": "El visor y el snorkel, la entrada a los tres cenotes, el transporte entre ellos y los snacks. $125 USD por persona."
+          },
+          {
+            "q": "¿Cuánto dura?",
+            "a": "Medio día."
+          },
+          {
+            "q": "¿Sirve para quien no nada bien?",
+            "a": "Dinos antes de reservar y lo armamos alrededor de eso. Hay chalecos, y los cenotes del tour se eligen el mismo día."
+          },
+          {
+            "q": "¿Qué llevo?",
+            "a": "Traje de baño, toalla y bloqueador biodegradable. El resto lo ponemos nosotros."
+          }
+        ]
       }
     }
   },

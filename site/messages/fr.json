@@ -242,6 +242,190 @@
             "a": "Jusqu'à dix-huit mètres, avec un binôme certifié et sans guide si vous le souhaitez. Pour les cenotes profonds de Tulum — Angelita, El Pit — l'étape suivante est l'Advanced."
           }
         ]
+      },
+      "discover-scuba": {
+        "title": "Baptême de plongée à Tulum — sans certification | Kay Diving",
+        "description": "Votre première plongée à Tulum, encadrée et sans certification, dans l'eau claire de Casa Cenote. Une ou deux plongées, matériel et entrée compris. Dès 140 $.",
+        "h1": "Baptême de plongée à Tulum",
+        "lede": "Une première fois sous l'eau, encadrée du début à la fin, dans un cenote ouvert d'eau claire et peu profonde. Ni certification ni expérience.",
+        "who": "Pour qui n'a jamais respiré sous l'eau et veut savoir ce que cela fait avant de s'engager dans une formation. Nous ne demandons rien au préalable, sinon d'être à l'aise dans l'eau. Ce n'est pas une certification : c'est une plongée encadrée, avec un instructeur à côté de vous en permanence, et jamais au-delà de sept mètres. Dans les cenotes nous plongeons quatre plongeurs par guide au maximum, et la proportion ne se négocie pas : plus de monde, plus de guides.",
+        "day": [
+          "À terre d'abord, l'essentiel : respirer au détendeur, équilibrer ses oreilles, les quelques signes que vous utiliserez en bas. Court à dessein — ce qu'il faut pour être tranquille, pas un examen.",
+          "Puis on répète ces mêmes gestes debout, dans la partie basse de Casa Cenote, jusqu'à ce qu'ils viennent sans y penser.",
+          "Et ensuite la plongée, environ quarante-cinq minutes, l'instructeur à côté de vous. Casa Cenote est ouvert, clair et peu profond : on voit le ciel d'en bas et les mangroves entrent dans l'eau.",
+          "Avec deux plongées, la seconde n'a rien à voir avec la première — vous ne pensez plus à respirer, vous regardez."
+        ],
+        "sites": "Casa Cenote, à quelques minutes de Tulum. Un cenote ouvert d'eau saumâtre au bord de la mer, bordé de mangroves : peu profond, clair et calme, exactement ce qu'il faut pour une première fois.",
+        "faq": [
+          {
+            "q": "Faut-il une certification ?",
+            "a": "Non. C'est précisément à cela que sert cette plongée : elle est encadrée du début à la fin et ne demande rien au préalable."
+          },
+          {
+            "q": "Jusqu'à quelle profondeur ?",
+            "a": "Sept mètres, la limite de ce type de plongée. Casa Cenote est peu profond pour cette raison même."
+          },
+          {
+            "q": "Combien de plongeurs par guide ?",
+            "a": "Quatre au maximum dans les cenotes. S'il y a plus de monde, il y a plus de guides."
+          },
+          {
+            "q": "Combien de temps dure la plongée ?",
+            "a": "Environ quarante-cinq minutes sous l'eau, plus l'explication et la pratique avant."
+          },
+          {
+            "q": "Combien ça coûte ?",
+            "a": "Une plongée 140 $ US par personne, deux plongées 200 $ US. Matériel, entrée du cenote, transport sur le site et collations compris."
+          },
+          {
+            "q": "Et si je veux me certifier ensuite ?",
+            "a": "L'étape suivante est la formation Open Water : trois jours, cinq plongées, et vous repartez avec une certification valable dans le monde entier."
+          }
+        ]
+      },
+      "reef-cenote": {
+        "title": "Récif et cenote dans la même journée, à Tulum | Kay Diving",
+        "description": "Deux plongées en une journée : le récif de Tankah en eau salée et Casa Cenote en eau douce. Matériel, entrées et transferts compris. 200 $ US. Open Water.",
+        "h1": "Récif et cenote dans la même journée",
+        "lede": "Les deux moitiés de ce qui rend cette côte unique, dans la même matinée : le récif au large de Tankah et l'eau douce de Casa Cenote.",
+        "who": "Pour les plongeurs Open Water qui n'ont qu'une journée et préfèrent ne pas choisir. C'est aussi la meilleure façon de comprendre pourquoi on vient plonger ici : en quelques kilomètres, l'eau, la lumière, la vie et la sensation changent entièrement. Dans les cenotes nous plongeons quatre plongeurs par guide au maximum, et la proportion ne se négocie pas : plus de monde, plus de guides.",
+        "day": [
+          "On commence par le récif de Tankah, en eau salée. Un récif bas et tranquille, de ceux que l'on plonge sans courant et avec une bonne visibilité.",
+          "Puis l'eau douce. Casa Cenote est à quelques minutes : ouvert, avec les mangroves qui entrent dans l'eau et la lumière qui tombe entre les racines. La différence avec l'heure précédente est totale.",
+          "Entre les deux, une pause avec des collations, comprises, et la route entre les sites.",
+          "Chaque plongée dure environ quarante-cinq minutes et aucune ne dépasse neuf mètres : la journée demande beaucoup aux yeux et rien aux poumons."
+        ],
+        "sites": "Le récif de Tankah et Casa Cenote, tous deux à quelques minutes de Tulum et l'un de l'autre.",
+        "faq": [
+          {
+            "q": "Quelle certification faut-il ?",
+            "a": "Open Water ou plus. Aucune des deux plongées ne dépasse neuf mètres."
+          },
+          {
+            "q": "Pourquoi un récif et un cenote le même jour ?",
+            "a": "Parce que ce sont deux mondes à quinze minutes l'un de l'autre, et que les voir à la suite est ce qui rend cette côte compréhensible."
+          },
+          {
+            "q": "Combien de plongeurs par guide ?",
+            "a": "Quatre au maximum dans le cenote. S'il y a plus de monde, il y a plus de guides."
+          },
+          {
+            "q": "Que comprend la sortie ?",
+            "a": "Les deux plongées, le matériel, l'entrée du cenote, le transport entre les sites et les collations. 200 $ US par personne."
+          },
+          {
+            "q": "Y a-t-il du courant sur le récif ?",
+            "a": "Tankah est un récif bas et abrité. Ce n'est ni une plongée de courant ni une plongée profonde."
+          }
+        ]
+      },
+      "advanced-ow": {
+        "title": "Formation PADI Advanced Open Water à Tulum | Kay Diving",
+        "description": "Certification PADI Advanced Open Water à Tulum : cinq plongées de spécialité jusqu'à trente mètres, au Cenote Angelita ou El Pit. Matériel compris. 550 $ US.",
+        "h1": "Formation PADI Advanced Open Water à Tulum",
+        "lede": "Cinq plongées de spécialité qui vous emmènent à trente mètres et vous ouvrent les deux cenotes profonds de Tulum. Matériel d'étude compris.",
+        "who": "Pour les plongeurs qui ont déjà l'Open Water et veulent deux choses : la profondeur, et les cenotes qui l'exigent. Angelita et El Pit sont fermés à un Open Water — non par une règle de notre fait, mais parce qu'ils passent trente mètres — et cette formation est la porte. Dans les cenotes nous plongeons quatre plongeurs par guide au maximum, et la proportion ne se négocie pas : plus de monde, plus de guides.",
+        "day": [
+          "L'Advanced n'est pas de la théorie avec un examen à la fin : ce sont cinq plongées de spécialité, et l'on apprend en les faisant. Le matériel d'étude est compris.",
+          "Les plongées profondes se font au Cenote Angelita ou à El Pit, les deux cenotes profonds de la région et parmi les sites les plus saisissants que vous plongerez.",
+          "À Angelita, un nuage d'hydrogène sulfuré vers trente mètres, traversé de branches mortes qui montent : on dirait une île flottant sous l'eau. À El Pit, la lumière descend tout le puits et y reste, immobile.",
+          "Vous terminez certifié jusqu'à trente mètres, et ces deux cenotes cessent de vous être fermés."
+        ],
+        "sites": "Le Cenote Angelita et le Cenote El Pit, les deux cenotes profonds près de Tulum. Chacun a sa fiche, avec la profondeur et ce à quoi il ressemble à l'intérieur.",
+        "faq": [
+          {
+            "q": "Que faut-il pour commencer ?",
+            "a": "La certification Open Water, ou son équivalent d'une autre organisation."
+          },
+          {
+            "q": "Jusqu'à quelle profondeur ?",
+            "a": "Trente mètres, la limite de l'Advanced et ce qui ouvre Angelita et El Pit."
+          },
+          {
+            "q": "Où cela se passe-t-il ?",
+            "a": "Les plongées profondes, au Cenote Angelita ou à El Pit."
+          },
+          {
+            "q": "Combien de plongeurs par guide ?",
+            "a": "Quatre au maximum dans les cenotes. S'il y a plus de monde, il y a plus de guides."
+          },
+          {
+            "q": "Que comprend le tarif ?",
+            "a": "Les cinq plongées, le matériel, le support d'étude, l'entrée des cenotes, le transport et les collations. 550 $ US par personne."
+          }
+        ]
+      },
+      "bull-sharks": {
+        "title": "Plongée avec les requins-bouledogues à Playa del Carmen | Kay Diving",
+        "description": "Deux plongées depuis le bateau avec les requins-bouledogues au large de Playa del Carmen, de novembre à mars. Départ de Tulum. 250 $ US. Advanced exigé.",
+        "h1": "Plongée avec les requins-bouledogues",
+        "lede": "Chaque hiver, les femelles requins-bouledogues remontent vers la côte au large de Playa del Carmen. Nous faisons les quarante-cinq minutes de route et nous allons les voir.",
+        "who": "Pour les plongeurs Advanced Open Water ou équivalent, sans exception — c'est de la plongée depuis un bateau, en pleine eau, avec de grands animaux. Si vous avez l'Open Water et que vous voulez faire cela, le chemin passe d'abord par l'Advanced.",
+        "day": [
+          "Départ de Tulum tôt et quarante-cinq minutes de route jusqu'à Playa del Carmen. De là, on embarque.",
+          "La première plongée est celle des requins. La seconde se fait sur un récif bas, entre huit et vingt mètres.",
+          "Ce sont des animaux sauvages et libres : ils viennent parce que la saison les amène, pas parce qu'on les appelle. C'est exactement ce qui en fait l'intérêt, et c'est aussi ce qui fait que personne ne peut vous promettre combien vous en verrez.",
+          "La saison va de novembre à mars. En dehors de ces mois ils ne sont pas là, et nous ne le vendons pas."
+        ],
+        "sites": "Au large de Playa del Carmen, à quarante-cinq minutes de Tulum, depuis un bateau.",
+        "faq": [
+          {
+            "q": "Quand est la saison ?",
+            "a": "De novembre à mars. En dehors de ces mois, les requins-bouledogues ne sont pas sur la côte et nous ne proposons pas la sortie."
+          },
+          {
+            "q": "Quelle certification faut-il ?",
+            "a": "Advanced Open Water ou équivalent, sans exception."
+          },
+          {
+            "q": "Les voit-on à coup sûr ?",
+            "a": "Cela ne peut pas être garanti. Ce sont des animaux sauvages en liberté ; la saison est très fiable, mais une observation n'est jamais une promesse."
+          },
+          {
+            "q": "Est-ce de la plongée en cage ?",
+            "a": "Non. C'est de la plongée en pleine eau, depuis un bateau, avec un guide."
+          },
+          {
+            "q": "Que comprend la sortie ?",
+            "a": "Les deux plongées, le matériel, le transport depuis Tulum et les collations. 250 $ US par personne."
+          }
+        ]
+      },
+      "snorkel": {
+        "title": "Sortie snorkeling dans les cenotes de Tulum | Kay Diving",
+        "description": "Une demi-journée de snorkeling dans trois cenotes près de Tulum, sans certification ni expérience. Matériel, entrées et transport compris. 125 $ US.",
+        "h1": "Snorkeling dans les cenotes de Tulum",
+        "lede": "Trois cenotes différents en une demi-journée, sans bloc, sans formation et sans se presser. On finit dans l'une des meilleures taquerías du village.",
+        "who": "Pour qui veut voir les cenotes de l'intérieur sans se mettre à la plongée : les familles, celui ou celle qui accompagne un plongeur, ou simplement qui préfère la surface. Ni expérience ni certification, et le matériel de snorkeling est compris.",
+        "day": [
+          "Une demi-journée, trois cenotes. Chacun différent du précédent à dessein : la forme, la lumière et ce que l'on voit d'en haut changent.",
+          "Depuis la surface, on voit bien plus que ce que les gens imaginent. En eau claire et peu profonde, avec la lumière qui descend, le fond et les formations se voient entièrement.",
+          "Entre l'un et l'autre, la route et les collations, comprises, et le rythme est celui du groupe.",
+          "Et à la fin, des tacos. Pas compris dans le prix — compris dans la journée."
+        ],
+        "sites": "Trois de nos cenotes préférés près de Tulum, choisis le jour même selon l'état de l'eau et ce que le groupe veut voir.",
+        "faq": [
+          {
+            "q": "Faut-il savoir plonger ?",
+            "a": "Non. C'est du snorkeling : on respire en surface, avec masque et tuba. Aucune certification."
+          },
+          {
+            "q": "Que comprend la sortie ?",
+            "a": "Le masque et le tuba, l'entrée des trois cenotes, le transport entre eux et les collations. 125 $ US par personne."
+          },
+          {
+            "q": "Combien de temps dure-t-elle ?",
+            "a": "Une demi-journée."
+          },
+          {
+            "q": "Est-ce adapté à qui nage mal ?",
+            "a": "Dites-le-nous avant de réserver et nous construisons la journée autour. Il y a des gilets, et les cenotes sont choisis le jour même."
+          },
+          {
+            "q": "Que faut-il apporter ?",
+            "a": "Maillot, serviette et crème solaire biodégradable. Nous apportons le reste."
+          }
+        ]
       }
     }
   },
