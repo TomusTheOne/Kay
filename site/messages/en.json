@@ -245,7 +245,7 @@
       },
       "discover-scuba": {
         "title": "Discover Scuba in Tulum — dive without a certification | Kay Diving",
-        "description": "Your first dive in Tulum, guided and with no certification, in the clear water of Casa Cenote. One or two dives, gear and entrance included. From $140 USD.",
+        "description": "Your first dive in Tulum, guided and with no certification, in the clear water of Casa Cenote. It counts as the first dive of the Open Water course. From $140 USD.",
         "h1": "Discover Scuba in Tulum",
         "lede": "A first time underwater, guided from start to finish, in an open cenote of clear and shallow water. No certification, no experience.",
         "who": "For anyone who has never breathed underwater and wants to know what it feels like before committing to a course. We ask for nothing beforehand beyond being comfortable in water. It is not a certification: it is a guided dive, with an instructor beside you the whole time, and never past seven metres. In the cenotes we dive four divers per guide at most, and the ratio is not negotiable: more people means more guides.",
@@ -279,7 +279,7 @@
           },
           {
             "q": "And if I want to certify afterwards?",
-            "a": "The next step is the Open Water course: three days, five dives, and you leave with a certification valid anywhere in the world."
+            "a": "It counts in your favour: this dive is taken as the first of the five on the Open Water course. The next step is three days, and you leave with a certification valid anywhere in the world."
           }
         ]
       },
@@ -320,19 +320,28 @@
         ]
       },
       "advanced-ow": {
-        "title": "PADI Advanced Open Water course in Tulum | Kay Diving",
-        "description": "PADI Advanced Open Water certification in Tulum: five specialty dives to thirty metres, at Cenote Angelita or El Pit. Study materials included. $550 USD.",
+        "title": "PADI Advanced Open Water course in Tulum — two days | Kay Diving",
+        "description": "PADI Advanced Open Water certification in Tulum over two days: five specialty dives to thirty metres, at Cenote Angelita or El Pit. $550 USD.",
         "h1": "PADI Advanced Open Water course in Tulum",
-        "lede": "Five specialty dives that take you to thirty metres and open Tulum's two deep cenotes. Study materials included.",
+        "lede": "Five specialty dives across two days, taking you to thirty metres and opening Tulum's two deep cenotes. Study materials included.",
         "who": "For divers who already hold the Open Water and want two things: depth, and the cenotes that ask for it. Angelita and El Pit are closed to an Open Water diver — not by a rule of ours, but because they go past thirty metres — and this course is the door. In the cenotes we dive four divers per guide at most, and the ratio is not negotiable: more people means more guides.",
         "day": [
           "The Advanced is not theory with an exam at the end: it is five specialty dives, and you learn by doing them. The study materials are included.",
-          "The deep dives are done at Cenote Angelita or El Pit, the two deep cenotes in the area and among the most striking sites you will ever dive.",
-          "At Angelita there is a cloud of hydrogen sulphide at around thirty metres, with dead branches rising through it: it looks like an island floating underwater. At El Pit the light comes down the whole shaft and simply stays there.",
+          "Two days is the usual shape: two dives on the first, three on the second. If you would rather not fill the day, it spreads over three — two, two and one. Your call.",
+          "Four of the five specialties are fixed: deep diving, underwater navigation, peak performance buoyancy and night diving. The fifth is yours to pick, between drift diving, nitrox and cavern diving.",
+          "The deep dives are done at Cenote Angelita or El Pit, the two deep cenotes in the area and among the most striking sites you will ever dive. At Angelita there is a cloud of hydrogen sulphide at around thirty metres, with dead branches rising through it; at El Pit the light comes down the whole shaft and simply stays there.",
           "You finish certified to thirty metres, and those two cenotes stop being closed to you."
         ],
         "sites": "Cenote Angelita and Cenote El Pit, the two deep cenotes near Tulum. Each has its own page with the depth and what it is like inside.",
         "faq": [
+          {
+            "q": "How long does the course take?",
+            "a": "Usually two days: two dives on the first, three on the second. It can also be done over three, with two, two and one. You decide."
+          },
+          {
+            "q": "Which specialties are they?",
+            "a": "Four are fixed: deep diving, underwater navigation, peak performance buoyancy and night diving. The fifth is your pick, between drift diving, nitrox and cavern diving."
+          },
           {
             "q": "What do I need to start the course?",
             "a": "The Open Water certification, or the equivalent from another agency."
@@ -396,7 +405,7 @@
         "description": "Half a day snorkelling three cenotes near Tulum, no certification and no experience needed. Gear, entrance and transport included. $125 USD per person.",
         "h1": "Snorkelling the cenotes of Tulum",
         "lede": "Three different cenotes in half a day, no tank, no course and no rush. We finish at one of the best taquerías in town.",
-        "who": "For anyone who wants to see the cenotes from the inside without taking up diving: families, someone along with a diver, or anyone who would rather stay at the surface. No experience and no certification, and the snorkelling gear is included.",
+        "who": "For anyone who wants to see the cenotes from the inside without taking up diving: families, someone along with a diver, or anyone who would rather stay at the surface. No experience and no certification, and the snorkelling gear is included. There is no minimum age.",
         "day": [
           "Half a day, three cenotes. Each one different from the last on purpose: the shape, the light and what you see from above all change.",
           "From the surface you see more than people expect. In clear, shallow water with light coming down from above, the bottom and the formations are there in full.",
@@ -415,7 +424,11 @@
           },
           {
             "q": "How long is it?",
-            "a": "Half a day."
+            "a": "It starts between eight and nine in the morning and ends between one and two in the afternoon. Half a day, unhurried."
+          },
+          {
+            "q": "Is there a minimum age?",
+            "a": "No. Tell us the ages when you book and we build the day around the group."
           },
           {
             "q": "Is it alright for a weak swimmer?",

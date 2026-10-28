@@ -245,7 +245,7 @@
       },
       "discover-scuba": {
         "title": "Discover Scuba en Tulum — bucea sin certificación | Kay Diving",
-        "description": "Tu primera inmersión en Tulum, sin certificación y con guía, en el agua clara de Casa Cenote. Una o dos inmersiones, equipo y entrada incluidos. Desde $140 USD.",
+        "description": "Tu primera inmersión en Tulum, sin certificación y con guía, en el agua clara de Casa Cenote. Cuenta como la primera del curso Open Water. Desde $140 USD.",
         "h1": "Discover Scuba en Tulum",
         "lede": "La primera vez bajo el agua, guiada de principio a fin, en un cenote abierto de agua clara y poco profunda. No hace falta certificación ni experiencia.",
         "who": "Para quien nunca ha respirado bajo el agua y quiere saber qué se siente antes de meterse en un curso. No pedimos nada previo más que estar cómodo en el agua. No es una certificación: es una inmersión guiada, con un instructor al lado todo el tiempo y sin pasar de siete metros. En los cenotes vamos cuatro buzos por guía como máximo, y la proporción no se negocia: si son más, van más guías.",
@@ -279,7 +279,7 @@
           },
           {
             "q": "¿Y si después quiero certificarme?",
-            "a": "El siguiente paso es el curso Open Water: tres días, cinco inmersiones, y te vas con una certificación válida en todo el mundo."
+            "a": "Cuenta a tu favor: esta inmersión se considera la primera de las cinco del curso Open Water. El siguiente paso son tres días y te vas con una certificación válida en todo el mundo."
           }
         ]
       },
@@ -320,19 +320,28 @@
         ]
       },
       "advanced-ow": {
-        "title": "Curso PADI Advanced Open Water en Tulum | Kay Diving",
-        "description": "Certificación PADI Advanced Open Water en Tulum: cinco inmersiones de especialidad hasta treinta metros, en el Cenote Angelita o El Pit. $550 USD.",
+        "title": "Curso PADI Advanced Open Water en Tulum — dos días | Kay Diving",
+        "description": "Certificación PADI Advanced Open Water en Tulum en dos días: cinco inmersiones de especialidad hasta treinta metros, en el Cenote Angelita o El Pit. $550 USD.",
         "h1": "Curso PADI Advanced Open Water en Tulum",
-        "lede": "Cinco inmersiones de especialidad que te llevan a treinta metros y te abren los dos cenotes profundos de Tulum. Material de estudio incluido.",
+        "lede": "Cinco inmersiones de especialidad en dos días, que te llevan a treinta metros y te abren los dos cenotes profundos de Tulum. Material de estudio incluido.",
         "who": "Para quien ya tiene el Open Water y quiere dos cosas: profundidad y los cenotes que la piden. Angelita y El Pit están cerrados para un Open Water — no por una regla nuestra, sino porque pasan de los treinta metros — y este curso es la puerta. En los cenotes vamos cuatro buzos por guía como máximo, y la proporción no se negocia: si son más, van más guías.",
         "day": [
           "El Advanced no es teoría con un examen al final: son cinco inmersiones de especialidad, y aprendes haciéndolas. El material de estudio va incluido.",
-          "Las de profundidad se hacen en el Cenote Angelita o en El Pit, que son los dos cenotes profundos de la zona y de los sitios más impresionantes que vas a bucear.",
-          "En Angelita hay una nube de ácido sulfhídrico a unos treinta metros, con ramas muertas que la atraviesan hacia arriba: parece una isla flotando bajo el agua. En El Pit la luz baja por todo el tiro y se queda ahí, quieta.",
+          "Lo normal son dos días: dos inmersiones el primero y tres el segundo. Si prefieres no llenar tanto el día, se reparte en tres — dos, dos y una. Tú eliges.",
+          "Cuatro de las cinco especialidades están fijadas: buceo profundo, navegación subacuática, flotabilidad de máximo rendimiento y buceo nocturno. La quinta la escoges tú entre buceo con corriente, nitrox y buceo en cavernas.",
+          "Las de profundidad se hacen en el Cenote Angelita o en El Pit, que son los dos cenotes profundos de la zona y de los sitios más impresionantes que vas a bucear. En Angelita hay una nube de ácido sulfhídrico a unos treinta metros, con ramas muertas que la atraviesan hacia arriba; en El Pit la luz baja por todo el tiro y se queda ahí, quieta.",
           "Al terminar quedas certificado hasta treinta metros, y esos dos cenotes dejan de estar cerrados para ti."
         ],
         "sites": "El Cenote Angelita y el Cenote El Pit, los dos cenotes profundos cerca de Tulum. Cada uno tiene su ficha con la profundidad y cómo es por dentro.",
         "faq": [
+          {
+            "q": "¿Cuánto dura el curso?",
+            "a": "Normalmente dos días: dos inmersiones el primero y tres el segundo. También se puede hacer en tres días, con dos, dos y una. Lo decides tú."
+          },
+          {
+            "q": "¿Qué especialidades se hacen?",
+            "a": "Cuatro son fijas: buceo profundo, navegación subacuática, flotabilidad de máximo rendimiento y buceo nocturno. La quinta la eliges entre buceo con corriente, nitrox y buceo en cavernas."
+          },
           {
             "q": "¿Qué necesito para entrar al curso?",
             "a": "La certificación Open Water, o equivalente de otra organización."
@@ -396,7 +405,7 @@
         "description": "Medio día de snorkel en tres cenotes cerca de Tulum, sin certificación ni experiencia. Equipo, entradas y transporte incluidos. $125 USD por persona.",
         "h1": "Snorkel en cenotes de Tulum",
         "lede": "Tres cenotes distintos en medio día, sin tanque, sin curso y sin prisa. Terminamos en una de las mejores taquerías del pueblo.",
-        "who": "Para quien quiere ver los cenotes por dentro sin meterse en el buceo: familias, acompañantes de alguien que sí va a bucear, o cualquiera que prefiera la superficie. No hace falta experiencia ni certificación, y el equipo de snorkel va incluido.",
+        "who": "Para quien quiere ver los cenotes por dentro sin meterse en el buceo: familias, acompañantes de alguien que sí va a bucear, o cualquiera que prefiera la superficie. No hace falta experiencia ni certificación, y el equipo de snorkel va incluido. No hay edad mínima.",
         "day": [
           "Medio día, tres cenotes. Cada uno es distinto del anterior a propósito: cambian la forma, la luz y lo que se ve desde arriba.",
           "Desde la superficie se ve más de lo que la gente espera. En agua clara y poco profunda, con la luz entrando desde arriba, el fondo y las formaciones se ven enteros.",
@@ -415,7 +424,11 @@
           },
           {
             "q": "¿Cuánto dura?",
-            "a": "Medio día."
+            "a": "Empieza entre las ocho y las nueve de la mañana y termina entre la una y las dos de la tarde. Medio día, sin prisa."
+          },
+          {
+            "q": "¿Hay edad mínima?",
+            "a": "No. Dinos las edades al reservar y armamos el día alrededor del grupo."
           },
           {
             "q": "¿Sirve para quien no nada bien?",
