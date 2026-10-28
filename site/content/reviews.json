@@ -1,0 +1,42 @@
+{
+  "_source": "Google reviews of Kay Diving, transcribed by hand from the listing. Quoted as written — spelling, punctuation and all. Two were cut at a sentence boundary where Google itself truncated them with 'More'; nothing was reworded. Emoji were dropped from one.",
+  "_markup": "These are NOT marked up as Review/AggregateRating, and must not be. Google's own policy is that reviews gathered on a third-party site are not eligible for review rich results on yours, and self-serving markup of them is a manual-action risk. Showing them is fine; claiming them as first-party structured data is not.",
+  "_dates": "Google only gives a relative age ('a year ago'), so these are years, not months: no false precision.",
+  "items": [
+    {
+      "name": "Gordon Kirkwood",
+      "stars": 5,
+      "year": "2026",
+      "lang": "en",
+      "text": "Excellent diving in Cenotes of Tulum. Federico is a very good guide, and he went out of his way to make sure I had a good diving experience. I prefer diving in the more open Cenotes of Tulum and he was good with taking me to those, despite him being fully cave qualified."
+    },
+    {
+      "name": "Richard Daley",
+      "stars": 5,
+      "year": "2025",
+      "lang": "en",
+      "text": "Had an awesome experience diving with Frederico in Tulum cenotes. He's very professional, communicates clearly and reads your dive style quickly; personalising the dive experience to suit your needs."
+    },
+    {
+      "name": "Emma Davies",
+      "stars": 5,
+      "year": "2025",
+      "lang": "en",
+      "text": "I had a beautiful day diving cenotes with Federico. He was a great guide and I felt very safe. It was a special experience to see the cenotes from under the water — a peaceful side of Tulum that I'm glad I explored."
+    },
+    {
+      "name": "Regs Cabrera",
+      "stars": 5,
+      "year": "2025",
+      "lang": "es",
+      "text": "Excelente clase, todos éramos principiantes y todo fue super adecuado y bien explicado. Gozamos de la experiencia como no tienen idea! Super instructor Fede! 100% vale la pena y sin duda lo volveremos a hacer."
+    },
+    {
+      "name": "Karl Kerkhofs",
+      "stars": 5,
+      "year": "2024",
+      "lang": "en",
+      "text": "We family of 4 divers enjoyed our 2 cenotes dives a lot, when we visited Tulum in July 2024. Federico was an excellent dive master, he had prepared all our gear, foresaw snacks and gave a very nice briefing."
+    }
+  ]
+}

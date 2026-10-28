@@ -7,6 +7,7 @@ import Gauge from "@/components/Gauge";
 import Reveals from "@/components/Reveals";
 import Booking from "@/components/Booking";
 import { Visit, Ruins } from "@/components/Places";
+import Reviews from "@/components/Reviews";
 import Plate from "@/components/Plate";
 import Footer from "@/components/Footer";
 import CenoteMap from "@/components/CenoteMap";
@@ -397,6 +398,28 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
           </div>
         </section>
         )}
+
+        {/* --------------------------------------------------------- reviews */}
+        {/* After the gallery and before Kay's own line: five people who have
+            already dived say it, then he answers for safety, then the form.
+            Not marked up as structured data — see content/reviews.ts. */}
+        <section className="bay shell" id="reviews">
+          <div className="head2">
+            <div data-rise>
+              <p className="tag">{t.reviews.tag}</p>
+              <h2 className="dsp dsp-lg" style={{ marginTop: "1.1rem", maxWidth: "20ch" }}>{t.reviews.h2}</h2>
+            </div>
+            <div data-rise data-rise-d="1" style={{ maxWidth: "38ch" }}>
+              <p className="muted">{t.reviews.intro}</p>
+              {SHOP.google ? (
+                <p style={{ marginTop: ".9rem" }}>
+                  <a className="lnk" href={SHOP.google} target="_blank" rel="noopener nofollow">{t.reviews.all}</a>
+                </p>
+              ) : null}
+            </div>
+          </div>
+          <Reviews t={t.reviews} />
+        </section>
 
         {/* ----------------------------------------------------------- quote */}
         <section className="bay shell">

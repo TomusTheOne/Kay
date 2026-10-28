@@ -182,6 +182,14 @@
       "gallery-bull-shark": "Requin bouledogue au large de Playa del Carmen"
     }
   },
+  "reviews": {
+    "tag": "Avis",
+    "h2": "Ce que disent les plongeurs une fois revenus sur la terre ferme.",
+    "intro": "Cinq des avis de Kay Diving sur Google, mot pour mot, dans la langue où chacun les a écrits.",
+    "stars": "{n} sur 5",
+    "onGoogle": "Google",
+    "all": "Les lire sur Google ↗"
+  },
   "visit": {
     "tag": "Jour sans plongée",
     "h2": "Les cénotes<br>en autonomie.",
