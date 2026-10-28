@@ -155,11 +155,11 @@
     "more2": "Voir le détail →",
     "items": {
       "cenote-diving": {
-        "title": "Plongée en cenote à Tulum — tarifs, cenotes et prérequis | Kay Diving",
+        "title": "Plongée en cenote à Tulum — tarifs et prérequis | Kay Diving",
         "description": "Plongée guidée dans les cenotes de Tulum : deux ou trois plongées, équipement, entrées et transport sur les sites compris. Dès 200 $ US. Open Water exigé.",
         "h1": "Plongée en cenote à Tulum",
         "lede": "Deux ou trois plongées dans les cavernes noyées de la Riviera Maya, avec un guide qui les connaît une par une. Les cenotes de la journée, vous les choisissez avec nous.",
-        "who": "Cette sortie s'adresse aux plongeurs certifiés. Avec un Open Water, vous plongez les cenotes qui restent dans les dix-huit mètres, c'est-à-dire la plupart, et les plus beaux pour la lumière. Angelita et El Pit descendent au-delà de trente : ceux-là demandent un Advanced Open Water ou un Deep Diver — ce n'est pas notre règle, c'est la profondeur. Si vous n'avez jamais plongé, ce n'est pas encore pour vous : commencez par le Discover Scuba, qui existe précisément pour ça.",
+        "who": "Cette sortie s'adresse aux plongeurs certifiés. Avec un Open Water, vous plongez les cenotes qui restent dans les dix-huit mètres, c'est-à-dire la plupart, et les plus beaux pour la lumière. Angelita et El Pit descendent au-delà de trente : ceux-là demandent un Advanced Open Water ou un Deep Diver — ce n'est pas notre règle, c'est la profondeur. Si vous n'avez jamais plongé, ce n'est pas encore pour vous : commencez par le Discover Scuba, qui existe précisément pour ça. Nous plongeons quatre plongeurs par guide au maximum, et la proportion ne se négocie pas : plus de monde, plus de guides — un groupe de huit part ensemble, avec deux.",
         "day": [
           "Départ à 8h00, 8h30 ou 9h00. Si nous venons vous chercher à Tulum ou un peu en dehors, le transport s'ajoute à la réservation ; si vous venez par vos propres moyens, rendez-vous au point de rencontre.",
           "Avant la première plongée, nous ajustons l'équipement avec vous et faisons le briefing : où passe le fil, ce que vous allez voir, combien de temps cela dure. Dans un cenote ce n'est pas une formalité — c'est l'orientation qui rend la plongée tranquille.",
@@ -171,6 +171,10 @@
           {
             "q": "Faut-il être certifié pour plonger en cenote ?",
             "a": "Oui. Cette sortie demande un Open Water ou plus. Sans certification, vous pouvez tout de même plonger avec nous en Discover Scuba, une plongée guidée pensée pour une première fois."
+          },
+          {
+            "q": "Combien de plongeurs par guide ?",
+            "a": "Quatre au maximum. S'il y a plus de monde, il y a plus de guides : un groupe de huit part ensemble, avec deux guides. La proportion ne bouge pas."
           },
           {
             "q": "Est-ce de la plongée souterraine ?",
@@ -195,30 +199,39 @@
         ]
       },
       "open-water": {
-        "title": "Formation PADI Open Water à Tulum — tarif et contenu | Kay Diving",
-        "description": "Devenez plongeur certifié PADI Open Water à Tulum : cinq plongées entre Casa Cenote et le récif de Tankah, matériel et licence compris. 600 $ US.",
+        "title": "Formation PADI Open Water à Tulum — tarif et durée | Kay Diving",
+        "description": "Devenez plongeur certifié PADI Open Water à Tulum : trois jours, cinq plongées entre Casa Cenote et le récif de Tankah, matériel et licence compris. 600 $ US.",
         "h1": "Formation PADI Open Water à Tulum",
-        "lede": "La certification qui vous ouvre la plongée dans le monde entier, en cinq plongées, entre un cenote ouvert et le récif. Aucune expérience préalable.",
+        "lede": "La certification qui vous ouvre la plongée dans le monde entier, en trois jours et cinq plongées, entre un cenote ouvert et le récif. Aucune expérience préalable.",
         "who": "Pour qui n'a jamais plongé, ou a fait un baptême et veut la vraie certification. Nous ne demandons aucune expérience : ce qu'il faut, c'est être à l'aise dans l'eau et savoir nager. La formation est la même certification PADI qu'ailleurs dans le monde, et la carte que vous repartez avec n'expire pas.",
         "day": [
-          "La théorie d'abord, que vous pouvez faire en ligne à votre rythme avant d'arriver : le matériel est compris et il est à vous dès la réservation.",
-          "Puis l'eau. Les premières séances sont des exercices en milieu protégé — vider son masque, récupérer son détendeur, contrôler sa flottabilité — à Casa Cenote, ouvert, peu profond et clair. La meilleure salle de classe qui soit.",
-          "Les plongées de certification se font sur le récif de Tankah, en pleine eau, en reprenant ces exercices là où ils comptent vraiment, et en plongeant pour de bon.",
+          "La formation se déroule sur trois jours. Chacun commence entre huit et neuf heures du matin et se termine entre trois et quatre heures de l'après-midi.",
+          "La théorie peut se faire de deux façons, et les deux mènent exactement à la même certification : en ligne avant d'arriver, et les trois jours ici ne sont alors que de l'eau ; ou répartie sur ces mêmes trois jours, entre une plongée et la suivante. La première vous laisse plus de temps libre à Tulum ; la seconde vous évite de réviser avant les vacances.",
+          "L'eau commence à Casa Cenote, à sept mètres. Ouvert, peu profond et clair : c'est là que se travaillent les exercices — vider son masque, récupérer son détendeur, contrôler sa flottabilité — jusqu'à ce qu'ils viennent sans y penser. La meilleure salle de classe qui soit.",
+          "Le dernier jour, deux plongées sur le récif de Tankah, l'une à onze mètres et l'autre à dix-huit. Ce sont elles qui closent la formation : les mêmes exercices, là où ils comptent vraiment.",
           "À la fin, nous vous enregistrons auprès de PADI et la carte est établie à votre nom. La licence est dans le prix : pas de frais surprise à l'arrivée."
         ],
         "sites": "La formation se déroule entre Casa Cenote, un cenote ouvert d'eau saumâtre au bord de la mer, et le récif de Tankah. Deux milieux différents à dessein : ce que vous apprenez dans l'un vous sert dans l'autre.",
         "faq": [
           {
+            "q": "Combien de temps dure la formation ?",
+            "a": "Trois jours. Chaque jour commence entre huit et neuf heures du matin et se termine entre trois et quatre heures de l'après-midi."
+          },
+          {
             "q": "Faut-il savoir plonger ?",
             "a": "Non. La formation est faite pour qui part de zéro. Tout ce que nous demandons, c'est d'être à l'aise dans l'eau et de savoir nager."
           },
           {
-            "q": "Que comprend le tarif ?",
-            "a": "Les cinq plongées, l'équipement complet, le matériel de formation, l'entrée des sites, les collations, le transport entre les sites et la licence PADI. 600 $ US par personne."
+            "q": "Dois-je réviser avant d'arriver ?",
+            "a": "Comme vous préférez. La théorie peut se faire en ligne avant d'arriver, et les trois jours ici ne sont alors que de la plongée ; ou pendant ces trois jours, entre une plongée et la suivante. La certification est la même dans les deux cas."
           },
           {
-            "q": "Où cela se passe-t-il ?",
-            "a": "Entre Casa Cenote et le récif de Tankah, tous deux à quelques minutes de Tulum."
+            "q": "Jusqu'à quelle profondeur va la formation ?",
+            "a": "Les premières plongées, à Casa Cenote, sont à sept mètres. Le dernier jour, deux plongées sur le récif de Tankah, l'une à onze mètres et l'autre à dix-huit, et ce sont elles qui closent la formation."
+          },
+          {
+            "q": "Que comprend le tarif ?",
+            "a": "Les cinq plongées, l'équipement complet, le matériel de formation, l'entrée des sites, les collations, le transport entre les sites et la licence PADI. 600 $ US par personne."
           },
           {
             "q": "La certification est-elle valable ailleurs ?",

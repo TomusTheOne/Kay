@@ -155,11 +155,11 @@
     "more2": "See the details →",
     "items": {
       "cenote-diving": {
-        "title": "Cenote diving in Tulum — prices, cenotes and requirements | Kay Diving",
+        "title": "Cenote diving in Tulum — prices and requirements | Kay Diving",
         "description": "Guided cenote diving in Tulum: two or three dives, equipment, cenote entrance and transport to the sites included. From $200 USD. Open Water required.",
         "h1": "Cenote diving in Tulum",
         "lede": "Two or three dives inside the flooded caverns of the Riviera Maya, with a guide who knows each one. You pick the day's cenotes with us.",
-        "who": "This one is for certified divers. With Open Water you dive the cenotes that stay inside eighteen metres, which is most of them and the finest for light. Angelita and El Pit drop past thirty, and those ask for Advanced Open Water or Deep Diver — that is not our rule, it is the depth. If you have never dived, this is not yours yet: start with the Discover Scuba, which exists for exactly that.",
+        "who": "This one is for certified divers. With Open Water you dive the cenotes that stay inside eighteen metres, which is most of them and the finest for light. Angelita and El Pit drop past thirty, and those ask for Advanced Open Water or Deep Diver — that is not our rule, it is the depth. If you have never dived, this is not yours yet: start with the Discover Scuba, which exists for exactly that. We dive four divers per guide at most, and the ratio is not negotiable: more people means more guides — a group of eight goes together, with two.",
         "day": [
           "We leave at 8:00, 8:30 or 9:00 in the morning. If we pick you up in Tulum town or a little outside it, the transport is added when you book; if you make your own way, we meet at the meeting point.",
           "Before the first dive we fit your gear with you and run the briefing: where the line goes, what you will see, how long it lasts. In a cenote that is not a formality — the orientation is what makes the dive a calm one.",
@@ -171,6 +171,10 @@
           {
             "q": "Do I need a certification to dive cenotes?",
             "a": "Yes. This dive asks for Open Water or above. Without a certification you can still dive with us on the Discover Scuba, a guided dive made for a first time."
+          },
+          {
+            "q": "How many divers per guide?",
+            "a": "Four at most. More people means more guides: a group of eight goes together, with two guides. The ratio does not move."
           },
           {
             "q": "Is this cave diving?",
@@ -195,30 +199,39 @@
         ]
       },
       "open-water": {
-        "title": "PADI Open Water course in Tulum — price and what it includes | Kay Diving",
-        "description": "Get certified as a PADI Open Water diver in Tulum: five dives between Casa Cenote and the Tankah reef, materials and licence included. $600 USD.",
+        "title": "PADI Open Water course in Tulum — price and length | Kay Diving",
+        "description": "Get certified as a PADI Open Water diver in Tulum: three days, five dives between Casa Cenote and the Tankah reef, materials and licence included. $600 USD.",
         "h1": "PADI Open Water course in Tulum",
-        "lede": "The certification that lets you dive anywhere in the world, over five dives, between an open cenote and the reef. No previous experience needed.",
+        "lede": "The certification that lets you dive anywhere in the world, over three days and five dives, between an open cenote and the reef. No previous experience needed.",
         "who": "For anyone who has never dived, or who has done one try dive and wants the real certification. We ask for no experience: what you do need is to be comfortable in water and able to swim. The course is the same PADI certification taught everywhere in the world, and the card you leave with does not expire.",
         "day": [
-          "The theory first, which you can work through online at your own pace before you arrive: the materials are included and yours from the moment you book.",
-          "Then the water. The first sessions are skills in confined water — clearing a mask, recovering a regulator, buoyancy control — at Casa Cenote, which is open, shallow and clear. It is the best classroom there is.",
-          "The certification dives happen on the Tankah reef, in open water, repeating those skills where they actually matter and starting to dive properly.",
+          "The course runs over three days. Each one starts between eight and nine in the morning and ends between three and four in the afternoon.",
+          "The theory can be done two ways, and both lead to exactly the same certification: online before you arrive, in which case the three days here are water only; or spread across those same three days, between one dive and the next. The first leaves you more free time in Tulum; the second spares you studying before your holiday.",
+          "The water starts at Casa Cenote, at seven metres. Open, shallow and clear: that is where the skills are practised — clearing a mask, recovering a regulator, controlling buoyancy — until they come without thinking. It is the best classroom there is.",
+          "The last day is two dives on the Tankah reef, one at eleven metres and one at eighteen. Those close the course: the same skills, now where they actually matter.",
           "At the end we register you with PADI and the card is issued in your name. The licence is in the price: there is no surprise charge at the finish."
         ],
         "sites": "The course runs between Casa Cenote, an open brackish cenote beside the sea, and the Tankah reef. Two different settings on purpose: what you learn in one you use in the other.",
         "faq": [
           {
+            "q": "How long does the course take?",
+            "a": "Three days. Each day starts between eight and nine in the morning and ends between three and four in the afternoon."
+          },
+          {
             "q": "Do I need to know how to dive?",
             "a": "No. The course is built for someone starting from nothing. All we ask is that you are comfortable in water and can swim."
           },
           {
-            "q": "What does the price include?",
-            "a": "The five dives, full equipment, the course materials, site entrance, snacks, transport between sites and the PADI licence. $600 USD per person."
+            "q": "Do I have to study before I arrive?",
+            "a": "Whichever you prefer. The theory can be done online beforehand, in which case the three days here are diving only; or during those three days, between one dive and the next. The certification is the same either way."
           },
           {
-            "q": "Where does it happen?",
-            "a": "Between Casa Cenote and the Tankah reef, both a few minutes from Tulum."
+            "q": "How deep does the course go?",
+            "a": "The first dives, at Casa Cenote, are at seven metres. The last day is two dives on the Tankah reef, one at eleven metres and one at eighteen, and those close the course."
+          },
+          {
+            "q": "What does the price include?",
+            "a": "The five dives, full equipment, the course materials, site entrance, snacks, transport between sites and the PADI licence. $600 USD per person."
           },
           {
             "q": "Is the certification valid in other countries?",
