@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import { isLocale, getDictionary, pathFor, mapCopy, LIVE_LOCALES } from "@/lib/i18n";
 import { PRODUCTS, ALWAYS_INCLUDED, GALLERY, PICKUPS, SCHEDULES, SHOP,
-         CONTENT_UPDATED } from "@/content/products";
+         CONTENT_UPDATED, FROM_USD } from "@/content/products";
 import Surface from "@/components/Surface";
 import Gauge from "@/components/Gauge";
 import Reveals from "@/components/Reveals";
@@ -51,6 +51,9 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
      things on a page in three languages — rather than three unrelated blobs. */
   const url = `${SHOP.domain}${pathFor(locale)}`;
   const dearest = Math.max(...PRODUCTS.flatMap((p) => p.options.map((o) => o.price)));
+  // The same sentence the <head> carries, with the same price out of the
+  // catalogue: the structured data and the meta tag must never disagree.
+  const description = t.meta.description.replace("{from}", String(FROM_USD));
   /* Google warns on an Offer with no expiry. A year from the last content
      change is honest: past that the prices genuinely need rechecking. */
   const priceValidUntil = new Date(
@@ -73,7 +76,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         "@id": `${url}#page`,
         url,
         name: t.meta.title,
-        description: t.meta.description,
+        description,
         inLanguage: locale,
         isPartOf: { "@id": `${SHOP.domain}/#website` },
         about: { "@id": `${SHOP.domain}/#business` },
@@ -83,7 +86,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         "@type": "SportsActivityLocation",
         "@id": `${SHOP.domain}/#business`,
         name: "Kay Diving",
-        description: t.meta.description,
+        description,
         url: `${SHOP.domain}${pathFor(locale)}`,
         telephone: SHOP.phone,
         email: SHOP.email,

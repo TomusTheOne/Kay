@@ -83,6 +83,19 @@ export const SCHEDULE_LIMITS = data.scheduleLimits as {
 export const MAX_DEPTH_M = data.maxDepthM;
 
 /**
+ * The cheapest dive, for the "from $X" in the meta description and on the
+ * Open Graph card. Dives only: the sentence it sits in is about diving, and
+ * the snorkel tour is a different thing sold beside it.
+ *
+ * Read from the catalogue rather than written into the three translations,
+ * which is how it came to advertise $80 long after the cheapest dive was
+ * $140 — in the one line Google and WhatsApp show the world.
+ */
+export const FROM_USD = Math.min(
+  ...PRODUCTS.filter((p) => p.kind === "dive").flatMap((p) => p.options.map((o) => o.price)),
+);
+
+/**
  * Share taken at booking, the balance settled on the day. The slate and
  * php/lib/pricing.php both read it from here, so the figure the diver is
  * shown is the figure Mercado Pago is asked to charge.

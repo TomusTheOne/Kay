@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Instrument_Serif, Inter, IBM_Plex_Mono } from "next/font/google";
 import { notFound } from "next/navigation";
 import { LIVE_LOCALES, DEFAULT_LOCALE, OG_LOCALE, isLocale, getDictionary, pathFor, type Locale } from "@/lib/i18n";
-import { SHOP } from "@/content/products";
+import { SHOP, FROM_USD } from "@/content/products";
 import Analytics from "@/components/Analytics";
 import Beacon from "@/components/Beacon";
 import "../globals.css";
@@ -33,11 +33,14 @@ export async function generateMetadata(
   if (!isLocale(locale)) return {};
   const t = await getDictionary(locale);
   const url = `${SHOP.domain}${pathFor(locale)}`;
+  // The one line Google and WhatsApp show, with the price taken from the
+  // catalogue rather than from three hand-written copies of it.
+  const description = t.meta.description.replace("{from}", String(FROM_USD));
 
   return {
     metadataBase: new URL(SHOP.domain),
     title: t.meta.title,
-    description: t.meta.description,
+    description,
     alternates: {
       canonical: url,
       languages: {
@@ -47,7 +50,7 @@ export async function generateMetadata(
     },
     openGraph: {
       type: "website", siteName: "Kay Diving Tulum", url,
-      title: t.meta.title, description: t.meta.description,
+      title: t.meta.title, description,
       locale: OG_LOCALE[locale],
       alternateLocale: LIVE_LOCALES.filter((l) => l !== locale).map((l) => OG_LOCALE[l]),
       // Built by scripts/og.mjs. A real 1200×630 JPEG, because the crawlers
