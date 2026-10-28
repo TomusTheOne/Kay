@@ -322,9 +322,9 @@
       },
       "advanced-ow": {
         "title": "Curso PADI Advanced Open Water en Tulum — dos días | Kay Diving",
-        "description": "Certificación PADI Advanced Open Water en Tulum en dos días: cinco inmersiones de especialidad hasta treinta metros, en el Cenote Angelita o El Pit. $550 USD.",
+        "description": "Certificación PADI Advanced Open Water en Tulum, en dos días: cinco inmersiones de especialidad hasta treinta metros, en Angelita o El Pit. $550 USD.",
         "h1": "Curso PADI Advanced Open Water en Tulum",
-        "lede": "Cinco inmersiones de especialidad en dos días, que te llevan a treinta metros y te abren los dos cenotes profundos de Tulum. Material de estudio incluido.",
+        "lede": "Cinco inmersiones de especialidad en dos días, que te llevan a treinta metros y te abren los dos cenotes profundos de Tulum. Material y certificación incluidos.",
         "who": "Para quien ya tiene el Open Water y quiere dos cosas: profundidad y los cenotes que la piden. Angelita y El Pit están cerrados para un Open Water — no por una regla nuestra, sino porque pasan de los treinta metros — y este curso es la puerta. En los cenotes vamos cuatro buzos por guía como máximo, y la proporción no se negocia: si son más, van más guías.",
         "day": [
           "El Advanced no es teoría con un examen al final: son cinco inmersiones de especialidad, y aprendes haciéndolas. El material de estudio va incluido.",
@@ -361,7 +361,7 @@
           },
           {
             "q": "¿Qué incluye el precio?",
-            "a": "Las cinco inmersiones, el equipo, el material de estudio, la entrada a los cenotes, el traslado y los snacks. $550 USD por persona."
+            "a": "Las cinco inmersiones de especialidad, el equipo, el material de estudio, la entrada a los cenotes, el traslado, los snacks y la certificación Advanced Open Water. $550 USD por persona."
           }
         ]
       },
@@ -470,7 +470,7 @@
       },
       "padi-licence": {
         "name": "Certificación PADI",
-        "text": "El curso Open Water termina con una certificación reconocida en todo el mundo."
+        "text": "Los dos cursos terminan con una certificación reconocida en todo el mundo, incluida en el precio."
       }
     }
   },

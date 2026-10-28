@@ -322,9 +322,9 @@
       },
       "advanced-ow": {
         "title": "PADI Advanced Open Water course in Tulum — two days | Kay Diving",
-        "description": "PADI Advanced Open Water certification in Tulum over two days: five specialty dives to thirty metres, at Cenote Angelita or El Pit. $550 USD.",
+        "description": "PADI Advanced Open Water certification in Tulum over two days: five specialty dives to thirty metres, at Angelita or El Pit. Certification included. $550.",
         "h1": "PADI Advanced Open Water course in Tulum",
-        "lede": "Five specialty dives across two days, taking you to thirty metres and opening Tulum's two deep cenotes. Study materials included.",
+        "lede": "Five specialty dives across two days, taking you to thirty metres and opening Tulum's two deep cenotes. Materials and certification included.",
         "who": "For divers who already hold the Open Water and want two things: depth, and the cenotes that ask for it. Angelita and El Pit are closed to an Open Water diver — not by a rule of ours, but because they go past thirty metres — and this course is the door. In the cenotes we dive four divers per guide at most, and the ratio is not negotiable: more people means more guides.",
         "day": [
           "The Advanced is not theory with an exam at the end: it is five specialty dives, and you learn by doing them. The study materials are included.",
@@ -361,7 +361,7 @@
           },
           {
             "q": "What does the price include?",
-            "a": "The five dives, the gear, the study materials, cenote entrance, transport and snacks. $550 USD per person."
+            "a": "The five specialty dives, the gear, the study materials, cenote entrance, transport, snacks and the Advanced Open Water certification itself. $550 USD per person."
           }
         ]
       },
@@ -470,7 +470,7 @@
       },
       "padi-licence": {
         "name": "PADI licence",
-        "text": "The Open Water course ends with a certification recognised worldwide."
+        "text": "Both courses end with a certification recognised worldwide, included in the price."
       }
     }
   },
