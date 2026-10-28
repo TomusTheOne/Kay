@@ -155,11 +155,11 @@
     "more2": "Ver detalles →",
     "items": {
       "cenote-diving": {
-        "title": "Buceo en cenotes en Tulum — precios, cenotes y requisitos | Kay Diving",
+        "title": "Buceo en cenotes en Tulum — precios y requisitos | Kay Diving",
         "description": "Buceo guiado en los cenotes de Tulum: dos o tres inmersiones, equipo, entradas y transporte a los sitios incluidos. Desde $200 USD. Se requiere Open Water.",
         "h1": "Buceo en cenotes en Tulum",
         "lede": "Dos o tres inmersiones dentro de las cavernas inundadas de la Riviera Maya, con un guía que conoce cada una. Los cenotes del día los eliges con nosotros.",
-        "who": "Esta salida es para buzos certificados. Con Open Water entras a los cenotes que se quedan dentro de los dieciocho metros, que son la mayoría y los más bonitos en cuanto a luz. Angelita y El Pit bajan de los treinta, y ésos piden Advanced Open Water o Deep Diver — no es una regla nuestra, es la profundidad. Si nunca has buceado, lo tuyo no es esto todavía: empieza por el Discover Scuba, que existe exactamente para eso.",
+        "who": "Esta salida es para buzos certificados. Con Open Water entras a los cenotes que se quedan dentro de los dieciocho metros, que son la mayoría y los más bonitos en cuanto a luz. Angelita y El Pit bajan de los treinta, y ésos piden Advanced Open Water o Deep Diver — no es una regla nuestra, es la profundidad. Si nunca has buceado, lo tuyo no es esto todavía: empieza por el Discover Scuba, que existe exactamente para eso. Vamos cuatro buzos por guía como máximo, y la proporción no se negocia: si son más, van más guías — un grupo de ocho se lleva junto, con dos.",
         "day": [
           "Salimos a las 8:00, 8:30 o 9:00 de la mañana. Si te recogemos en Tulum pueblo o un poco afuera, el transporte se agrega al reservar; si llegas por tu cuenta, nos vemos en el punto de encuentro.",
           "Antes de la primera inmersión ajustamos el equipo contigo y hacemos el briefing: por dónde entra la línea, qué vas a ver, cuánto va a durar. En un cenote eso no es trámite — la orientación es lo que hace que el buceo sea tranquilo.",
@@ -171,6 +171,10 @@
           {
             "q": "¿Necesito certificación para bucear en cenotes?",
             "a": "Sí. Para esta salida necesitas Open Water o superior. Si no tienes certificación, puedes bucear igual con el Discover Scuba, que es una inmersión guiada pensada para la primera vez."
+          },
+          {
+            "q": "¿Cuántos buzos van por guía?",
+            "a": "Cuatro como máximo. Si vienen más, van más guías: un grupo de ocho personas se lleva junto, con dos guías. La proporción no se toca."
           },
           {
             "q": "¿Es buceo en cueva?",
@@ -195,30 +199,39 @@
         ]
       },
       "open-water": {
-        "title": "Curso PADI Open Water en Tulum — precio y qué incluye | Kay Diving",
-        "description": "Certifícate como buzo PADI Open Water en Tulum: cinco inmersiones entre Casa Cenote y el arrecife de Tankah, material y licencia incluidos. $600 USD.",
+        "title": "Curso PADI Open Water en Tulum — precio y duración | Kay Diving",
+        "description": "Certifícate como buzo PADI Open Water en Tulum: tres días, cinco inmersiones entre Casa Cenote y el arrecife de Tankah, material y licencia incluidos. $600 USD.",
         "h1": "Curso PADI Open Water en Tulum",
-        "lede": "La certificación que te deja bucear en cualquier parte del mundo, en cinco inmersiones, entre un cenote abierto y el arrecife. No necesitas experiencia previa.",
+        "lede": "La certificación que te deja bucear en cualquier parte del mundo, en tres días y cinco inmersiones, entre un cenote abierto y el arrecife. No necesitas experiencia previa.",
         "who": "Para quien nunca ha buceado, o ha buceado una vez de prueba y quiere la certificación de verdad. No pedimos experiencia: lo que sí hace falta es sentirte cómodo en el agua y poder nadar. El curso es la misma certificación PADI que se imparte en todo el mundo, y la credencial que te llevas no caduca.",
         "day": [
-          "Primero la teoría, que puedes ir haciendo en línea a tu ritmo antes de llegar: el material está incluido y es tuyo desde que reservas.",
-          "Después el agua. Las primeras sesiones son de habilidades en aguas confinadas — vaciar la máscara, recuperar el regulador, control de flotabilidad — en Casa Cenote, que es abierto, poco profundo y de agua clara. Es el mejor salón de clases que hay.",
-          "Las inmersiones de certificación se hacen en el arrecife de Tankah, ya en mar abierto, repitiendo esas habilidades donde de verdad importan y empezando a bucear de verdad.",
+          "El curso son tres días. Cada uno empieza entre las ocho y las nueve de la mañana y termina entre las tres y las cuatro de la tarde.",
+          "La teoría se puede hacer de dos maneras, y las dos llevan exactamente a la misma certificación: en línea antes de llegar, y entonces los tres días aquí son solo agua; o repartida entre esos mismos tres días, entre una inmersión y la siguiente. La primera te deja más tiempo libre en Tulum; la segunda no te obliga a ponerte a estudiar antes de las vacaciones.",
+          "El agua empieza en Casa Cenote, a siete metros. Abierto, poco profundo y claro: ahí se practican las habilidades —vaciar la máscara, recuperar el regulador, controlar la flotabilidad— hasta que salen sin pensarlas. Es el mejor salón de clases que hay.",
+          "El último día son dos inmersiones en el arrecife de Tankah, una a once metros y otra a dieciocho. Con ésas se cierra el curso: las mismas habilidades, ya donde de verdad importan.",
           "Al terminar te registramos con PADI y la credencial queda a tu nombre. La licencia va incluida en el precio: no hay un cobro sorpresa al final."
         ],
         "sites": "El curso se hace entre Casa Cenote, un cenote abierto de agua salobre junto al mar, y el arrecife de Tankah. Dos entornos distintos a propósito: lo que aprendes en uno lo aplicas en el otro.",
         "faq": [
           {
+            "q": "¿Cuánto dura el curso?",
+            "a": "Tres días. Cada día empieza entre las ocho y las nueve de la mañana y termina entre las tres y las cuatro de la tarde."
+          },
+          {
             "q": "¿Necesito saber bucear?",
             "a": "No. El curso está hecho para quien empieza de cero. Lo único que pedimos es que estés cómodo en el agua y sepas nadar."
           },
           {
-            "q": "¿Qué incluye el precio?",
-            "a": "Las cinco inmersiones, el equipo completo, el material del curso, la entrada a los sitios, los snacks, el traslado entre sitios y la licencia PADI. $600 USD por persona."
+            "q": "¿Tengo que estudiar antes de venir?",
+            "a": "Como prefieras. La teoría se puede hacer en línea antes de llegar, y entonces los tres días de aquí son solo buceo; o se hace durante esos tres días, entre inmersión e inmersión. La certificación es la misma en los dos casos."
           },
           {
-            "q": "¿Dónde se hace?",
-            "a": "Entre Casa Cenote y el arrecife de Tankah, los dos a pocos minutos de Tulum."
+            "q": "¿Hasta qué profundidad se baja?",
+            "a": "Los primeros buceos, en Casa Cenote, son a siete metros. El último día son dos inmersiones en el arrecife de Tankah, una a once metros y otra a dieciocho, y con ésas se cierra el curso."
+          },
+          {
+            "q": "¿Qué incluye el precio?",
+            "a": "Las cinco inmersiones, el equipo completo, el material del curso, la entrada a los sitios, los snacks, el traslado entre sitios y la licencia PADI. $600 USD por persona."
           },
           {
             "q": "¿La certificación sirve en otros países?",
