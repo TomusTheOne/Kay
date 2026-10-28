@@ -18,8 +18,14 @@ const OUT = "public/assets/og";
 const CHROME = process.env.CHROME_PATH ?? "/opt/pw-browsers/chromium-1194/chrome-linux/chrome";
 
 const products = JSON.parse(await readFile("content/products.json", "utf8"));
+/* The cheapest DIVE, not the cheapest anything: this card travels with the
+   meta description, which says "from $140", and the two disagreeing on the
+   same WhatsApp preview is worse than either number alone. The snorkel tour
+   has its own figure on the page itself. */
 const cheapest = Math.min(
-  ...products.products.flatMap((p) => p.options.map((o) => o.price)),
+  ...products.products
+    .filter((p) => p.kind === "dive")
+    .flatMap((p) => p.options.map((o) => o.price)),
 );
 const heroDataUri =
   "data:image/webp;base64," +

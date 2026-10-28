@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import { isLocale, getDictionary, pathFor, mapCopy, LIVE_LOCALES } from "@/lib/i18n";
 import { PRODUCTS, ALWAYS_INCLUDED, GALLERY, PICKUPS, SCHEDULES, SHOP,
-         CONTENT_UPDATED, FROM_USD } from "@/content/products";
+         CONTENT_UPDATED, FROM_USD, SNORKEL_USD } from "@/content/products";
 import Surface from "@/components/Surface";
 import Gauge from "@/components/Gauge";
 import Reveals from "@/components/Reveals";
@@ -194,7 +194,11 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
               <span>{t.hero.water} <b>{SHOP.waterTempC}°C</b></span><i className="dot" />
               <span>{t.hero.viz} <b>{SHOP.visibilityM}</b></span><i className="dot" />
               <span>{t.hero.agencyLabel} <b>{SHOP.agency}</b></span><i className="dot" />
-              <span>{t.hero.from} <b>${cheapest}</b></span>
+              {/* Two figures, because they are two different things: the
+                  cheapest dive and the snorkel tour. One number covering both
+                  told whoever read it the wrong one. */}
+              <span>{t.hero.fromDive} <b>${FROM_USD}</b></span><i className="dot" />
+              <span>{t.hero.fromSnorkel} <b>${SNORKEL_USD}</b></span>
             </p>
           </div>
         </section>

@@ -87,7 +87,7 @@ export interface Dictionary {
   nav: Record<"about" | "products" | "included" | "logistics" | "gallery" | "faq"
             | "cenotes" | "visit" | "ruins" | "reserve" | "reserveLong" | "menu" | "language", string>;
   hero: Record<"kicker" | "l1" | "l2" | "lede" | "cta2" | "alt"
-             | "water" | "viz" | "from" | "agency" | "agencyLabel", string>;
+             | "water" | "viz" | "fromDive" | "fromSnorkel" | "agency" | "agencyLabel", string>;
   gauge: Record<"surface" | "cavern" | "deep", string>;
   about: Record<"tag" | "h2" | "p1" | "p2" | "questionTag" | "question"
               | "plateAlt" | "plateNote", string>;

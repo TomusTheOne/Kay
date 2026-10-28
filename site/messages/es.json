@@ -27,7 +27,8 @@
     "alt": "Un buzo en silueta contra el resplandor turquesa de un cenote de Tulum, entre ramas desnudas que suben por el agua",
     "water": "AGUA",
     "viz": "VIS",
-    "from": "DESDE",
+    "fromDive": "BUCEO DESDE",
+    "fromSnorkel": "SNORKEL",
     "agency": "PADI",
     "agencyLabel": "CURSOS"
   },

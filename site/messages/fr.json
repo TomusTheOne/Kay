@@ -27,7 +27,8 @@
     "alt": "Un plongeur en silhouette sur la lueur turquoise d'un cenote de Tulum, parmi des branches nues qui montent dans l'eau",
     "water": "EAU",
     "viz": "VISI",
-    "from": "DÈS",
+    "fromDive": "PLONGÉE DÈS",
+    "fromSnorkel": "SNORKELING",
     "agency": "PADI",
     "agencyLabel": "FORMATIONS"
   },
