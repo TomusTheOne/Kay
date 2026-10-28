@@ -132,6 +132,13 @@ export const PUBLISHED_LOCALES = data.publishedLocales as string[];
  */
 export const EXPERIENCE_PAGES = data.experiencePages as string[];
 
+/** The snorkel tour's price, beside FROM_USD: Kay quotes two "from" figures
+    because they are two different things, and one number for both was always
+    going to be wrong for one of them. */
+export const SNORKEL_USD = Math.min(
+  ...PRODUCTS.filter((p) => p.kind === "snorkel").flatMap((p) => p.options.map((o) => o.price)),
+);
+
 export const SHOP = {
   ...data.shop,
   /**

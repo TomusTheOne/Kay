@@ -27,7 +27,8 @@
     "alt": "A diver silhouetted against the turquoise glow of a Tulum cenote, among bare branches rising through the water",
     "water": "WATER",
     "viz": "VIZ",
-    "from": "FROM",
+    "fromDive": "DIVING FROM",
+    "fromSnorkel": "SNORKELLING",
     "agency": "PADI",
     "agencyLabel": "COURSES"
   },
