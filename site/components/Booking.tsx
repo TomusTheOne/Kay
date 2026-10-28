@@ -9,13 +9,18 @@ const money = (n: number) => "$" + n.toLocaleString("en-US");
 const tomorrow = () => new Date(Date.now() + 864e5).toISOString().slice(0, 10);
 
 export default function Booking({
-  t, products, logistics, locale,
+  t, products, logistics, locale, initial,
 }: {
   t: Dictionary["book"]; products: Dictionary["products"];
   logistics: Dictionary["logistics"]; locale: string;
+  /** Start on this experience rather than the first. Set by an experience
+      page, so someone who arrived searching for one dive does not have to
+      find it again in the list. An unknown slug falls back, never throws. */
+  initial?: string;
 }) {
-  const [product, setProduct] = useState<Product>(PRODUCTS[0]);
-  const [dives, setDives] = useState<number>(PRODUCTS[0].options[0].dives);
+  const start = PRODUCTS.find((p) => p.slug === initial) ?? PRODUCTS[0];
+  const [product, setProduct] = useState<Product>(start);
+  const [dives, setDives] = useState<number>(start.options[0].dives);
   // The cenote picked for each dive, by position; "" until chosen.
   const [picked, setPicked] = useState<string[]>([]);
   const [date, setDate] = useState("");

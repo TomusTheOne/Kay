@@ -141,6 +141,97 @@
       "bull-sharks": "November to March"
     }
   },
+  "exp": {
+    "crumb": "Dives & courses",
+    "bookTag": "Book",
+    "bookH2": "Hold your place.",
+    "whoTag": "Who it is for",
+    "dayTag": "How the day goes",
+    "includedTag": "What is included",
+    "sitesTag": "Where you dive",
+    "faqTag": "Questions",
+    "moreTag": "Keep reading",
+    "more": "See every dive and course →",
+    "more2": "See the details →",
+    "items": {
+      "cenote-diving": {
+        "title": "Cenote diving in Tulum — prices, cenotes and requirements | Kay Diving",
+        "description": "Guided cenote diving in Tulum: two or three dives, equipment, cenote entrance and transport to the sites included. From $200 USD. Open Water required.",
+        "h1": "Cenote diving in Tulum",
+        "lede": "Two or three dives inside the flooded caverns of the Riviera Maya, with a guide who knows each one. You pick the day's cenotes with us.",
+        "who": "This one is for certified divers. With Open Water you dive the cenotes that stay inside eighteen metres, which is most of them and the finest for light. Angelita and El Pit drop past thirty, and those ask for Advanced Open Water or Deep Diver — that is not our rule, it is the depth. If you have never dived, this is not yours yet: start with the Discover Scuba, which exists for exactly that.",
+        "day": [
+          "We leave at 8:00, 8:30 or 9:00 in the morning. If we pick you up in Tulum town or a little outside it, the transport is added when you book; if you make your own way, we meet at the meeting point.",
+          "Before the first dive we fit your gear with you and run the briefing: where the line goes, what you will see, how long it lasts. In a cenote that is not a formality — the orientation is what makes the dive a calm one.",
+          "Each dive runs thirty to forty-five minutes. Between them there is a break with snacks, which are included, and the drive to the next cenote if the day takes in two.",
+          "Choose three dives and the first two are at Dos Ojos, with the third at another cenote you pick. With two, the whole day is built around whatever you want to see."
+        ],
+        "sites": "The day's cenotes are chosen with you, and which ones are open to you depends on your certification. Each has its own page with the depth, what it is like inside, and how far it is from Tulum.",
+        "faq": [
+          {
+            "q": "Do I need a certification to dive cenotes?",
+            "a": "Yes. This dive asks for Open Water or above. Without a certification you can still dive with us on the Discover Scuba, a guided dive made for a first time."
+          },
+          {
+            "q": "Is this cave diving?",
+            "a": "No. It is cavern diving: always within the zone where daylight is visible and the exit is in sight, following the guideline. Cave diving proper is a different certification and a different thing."
+          },
+          {
+            "q": "How deep does it go?",
+            "a": "Most of the cenotes stay inside eighteen metres. Angelita reaches thirty-eight and El Pit thirty-two, and those ask for Advanced or Deep."
+          },
+          {
+            "q": "Is the water cold?",
+            "a": "Cenote water sits around twenty-five degrees all year. The wetsuit is included."
+          },
+          {
+            "q": "Can I choose which cenotes we dive?",
+            "a": "Yes, and it is part of how the day is built. You tell us what you want to see, we tell you what is within your level, and you make the final pick when you book."
+          },
+          {
+            "q": "What does it cost?",
+            "a": "Two dives $200 USD per person, three dives $250 USD. Equipment, cenote entrance, transport between sites and snacks are included; hotel pickup is added separately."
+          }
+        ]
+      },
+      "open-water": {
+        "title": "PADI Open Water course in Tulum — price and what it includes | Kay Diving",
+        "description": "Get certified as a PADI Open Water diver in Tulum: five dives between Casa Cenote and the Tankah reef, materials and licence included. $600 USD.",
+        "h1": "PADI Open Water course in Tulum",
+        "lede": "The certification that lets you dive anywhere in the world, over five dives, between an open cenote and the reef. No previous experience needed.",
+        "who": "For anyone who has never dived, or who has done one try dive and wants the real certification. We ask for no experience: what you do need is to be comfortable in water and able to swim. The course is the same PADI certification taught everywhere in the world, and the card you leave with does not expire.",
+        "day": [
+          "The theory first, which you can work through online at your own pace before you arrive: the materials are included and yours from the moment you book.",
+          "Then the water. The first sessions are skills in confined water — clearing a mask, recovering a regulator, buoyancy control — at Casa Cenote, which is open, shallow and clear. It is the best classroom there is.",
+          "The certification dives happen on the Tankah reef, in open water, repeating those skills where they actually matter and starting to dive properly.",
+          "At the end we register you with PADI and the card is issued in your name. The licence is in the price: there is no surprise charge at the finish."
+        ],
+        "sites": "The course runs between Casa Cenote, an open brackish cenote beside the sea, and the Tankah reef. Two different settings on purpose: what you learn in one you use in the other.",
+        "faq": [
+          {
+            "q": "Do I need to know how to dive?",
+            "a": "No. The course is built for someone starting from nothing. All we ask is that you are comfortable in water and can swim."
+          },
+          {
+            "q": "What does the price include?",
+            "a": "The five dives, full equipment, the course materials, site entrance, snacks, transport between sites and the PADI licence. $600 USD per person."
+          },
+          {
+            "q": "Where does it happen?",
+            "a": "Between Casa Cenote and the Tankah reef, both a few minutes from Tulum."
+          },
+          {
+            "q": "Is the certification valid in other countries?",
+            "a": "Yes. Open Water is PADI's entry certification and is recognised at any dive centre in the world. It does not expire."
+          },
+          {
+            "q": "What can I dive afterwards?",
+            "a": "To eighteen metres, with a certified buddy and without a guide if you want. For Tulum's deep cenotes — Angelita, El Pit — the next step is the Advanced."
+          }
+        ]
+      }
+    }
+  },
   "included": {
     "tag": "In every price",
     "h2": "What you are not<br>paying extra for.",

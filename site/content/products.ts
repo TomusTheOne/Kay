@@ -120,6 +120,18 @@ export const CONTENT_UPDATED = data.contentUpdated;
  */
 export const PUBLISHED_LOCALES = data.publishedLocales as string[];
 
+/**
+ * The experiences that have a page of their own, rather than only a card on
+ * the home page. Listed by hand, because a page exists the day its copy is
+ * written and not before: twenty-one thin pages saying the same thing in
+ * three languages would cost ranking rather than earn it.
+ *
+ * A locale builds only the ones it actually has copy for -- see the page's
+ * generateStaticParams. So Spanish can go live while English is still being
+ * translated, and neither ships an empty page.
+ */
+export const EXPERIENCE_PAGES = data.experiencePages as string[];
+
 export const SHOP = {
   ...data.shop,
   /**
