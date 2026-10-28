@@ -182,6 +182,14 @@
       "gallery-bull-shark": "Tiburón toro frente a Playa del Carmen"
     }
   },
+  "reviews": {
+    "tag": "Reseñas",
+    "h2": "Lo que dicen los buzos cuando vuelven a tierra firme.",
+    "intro": "Cinco de las reseñas que Kay Diving tiene en Google, palabra por palabra, en el idioma en que las escribió cada quien.",
+    "stars": "{n} de 5",
+    "onGoogle": "Google",
+    "all": "Leerlas en Google ↗"
+  },
   "visit": {
     "tag": "Día libre",
     "h2": "Cenotes<br>por tu cuenta.",

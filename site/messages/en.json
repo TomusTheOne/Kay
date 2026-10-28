@@ -182,6 +182,14 @@
       "gallery-bull-shark": "A bull shark off Playa del Carmen"
     }
   },
+  "reviews": {
+    "tag": "Reviews",
+    "h2": "What divers say once they are back on dry land.",
+    "intro": "Five of the reviews Kay Diving has on Google, word for word, in the language each diver wrote them in.",
+    "stars": "{n} out of 5",
+    "onGoogle": "Google",
+    "all": "Read them on Google ↗"
+  },
   "visit": {
     "tag": "Day off",
     "h2": "Cenotes<br>on your own.",

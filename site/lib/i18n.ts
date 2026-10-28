@@ -143,6 +143,9 @@ export interface Dictionary {
     priceNote: string; ferryNote: string;
     items: Record<string, RuinCopy>;
   };
+  /** The reviews block. The reviews themselves live in content/reviews.json
+      and are never translated — only this chrome around them is. */
+  reviews: Record<"tag" | "h2" | "intro" | "stars" | "onGoogle" | "all", string>;
   quote: { text: string; cite: string };
   book: Record<string, string> & { certs: string[] };
   faq: { tag: string; h2: string; items: Qa[] };

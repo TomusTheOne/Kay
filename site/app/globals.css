@@ -600,6 +600,42 @@ select.field{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xml
 }
 .quote cite{display:block;margin-top:1.1rem;font:500 .76rem/1.5 var(--mono);letter-spacing:.2em;text-transform:uppercase;color:var(--foam-34);font-style:normal}
 
+/* --------------------------------------------------------------- Reviews */
+/* Same card family as .dive: one border, one radius, the glass fill. What a
+   diver wrote is the only thing here that is not chrome, so it gets the body
+   colour and the room, and everything around it stays quiet. */
+/* Flex rather than grid, and centred: five reviews in a four-column grid
+   leave one card alone in an empty row, which reads as a layout that broke.
+   Wrapped and centred, any number of them lands as a deliberate shape — and
+   the day Kay adds a sixth, nothing here needs touching. */
+.revs{display:flex;flex-wrap:wrap;justify-content:center;gap:clamp(1rem,1.9vw,1.5rem)}
+.rev{
+  /* 320 basis, not 286: four of them fit across the 1220 shell and leave the
+     fifth alone on a row of its own. At 320 only three fit, so five land as
+     three and two — the fuller line, and the longer, easier measure. */
+  flex:1 1 320px;max-width:384px;
+  margin:0;border:1px solid var(--line-soft);border-radius:var(--r-lg);background:var(--glass);
+  padding:clamp(1.25rem,2.2vw,1.7rem);display:flex;flex-direction:column;gap:1.05rem;
+  transition:border-color .4s,transform .5s var(--ease);
+}
+.rev:hover{border-color:rgba(169,245,236,.22);transform:translateY(-4px)}
+.rev__stars{display:flex;gap:3px;color:var(--turq)}
+.rev__stars svg{width:14px;height:14px;fill:currentColor;flex:none}
+/* flex:1 so the name sits on the baseline of the card whatever the length
+   of the review above it: five cards, one line of names across. */
+.rev__text{margin:0;flex:1;color:var(--foam-72);font-size:.97rem;line-height:1.62}
+.rev__who{display:flex;align-items:center;gap:.72rem}
+.rev__mark{
+  width:34px;height:34px;border-radius:50%;flex:none;display:grid;place-items:center;
+  background:rgba(169,245,236,.1);color:var(--turq);
+  font:500 .88rem/1 var(--mono);text-transform:uppercase;
+}
+.rev__name{display:block;color:var(--foam);font-size:.93rem;font-weight:500;margin-bottom:.15rem}
+
+/* An inline link that reads as one without borrowing the button styles. */
+.lnk{color:var(--foam-72);text-decoration:underline;text-underline-offset:3px;transition:color .25s}
+.lnk:hover{color:var(--turq)}
+
 /* ------------------------------------------------------------------- FAQ */
 .faq{border-top:1px solid var(--line-soft)}
 .faq details{border-bottom:1px solid var(--line-soft)}
