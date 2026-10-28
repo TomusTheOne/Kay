@@ -1,12 +1,21 @@
 import { LIVE_LOCALES, pathFor, type Dictionary, type Locale } from "@/lib/i18n";
 import { PRODUCTS, SHOP } from "@/content/products";
 import { GUIDE_PUBLISHED } from "@/content/cenotes";
+import { experiencesFor } from "@/lib/exp";
 
 /**
  * The site footer. `home` prefixes the in-page links: empty on the home page,
  * "/en/" on the guide pages, so "Dives & courses" still lands on the section.
  */
-export default function Footer({ t, locale, home = "" }: { t: Dictionary; locale: Locale; home?: string }) {
+export default async function Footer({ t, locale, home = "" }: { t: Dictionary; locale: Locale; home?: string }) {
+  /* An experience links to its own page where this locale has one, and to
+     the home page's list where it does not. Seven footer links all pointing
+     at the same anchor was a link from every page of the site going nowhere
+     in particular. */
+  const hasPage = new Set(await experiencesFor(locale));
+  const to = (slug: string) =>
+    hasPage.has(slug) ? pathFor(locale, `/${slug}/`) : `${home}#products`;
+
   return (
     <footer className="foot">
       <div className="shell">
@@ -16,13 +25,13 @@ export default function Footer({ t, locale, home = "" }: { t: Dictionary; locale
           </div>
           <div><h4>{t.footer.explore}</h4><ul>
             {PRODUCTS.filter((p) => p.kind !== "course").map((p) => (
-              <li key={p.slug}><a href={`${home}#products`}>{t.products.items[p.slug].name}</a></li>
+              <li key={p.slug}><a href={to(p.slug)}>{t.products.items[p.slug].name}</a></li>
             ))}
             {GUIDE_PUBLISHED && <li><a href={pathFor(locale, "/cenotes/")}>{t.cenotes.tag}</a></li>}
           </ul></div>
           <div><h4>{t.footer.learn}</h4><ul>
             {PRODUCTS.filter((p) => p.kind === "course").map((p) => (
-              <li key={p.slug}><a href={`${home}#products`}>{t.products.items[p.slug].name}</a></li>
+              <li key={p.slug}><a href={to(p.slug)}>{t.products.items[p.slug].name}</a></li>
             ))}
             <li><a href={`${home}#included`}>{t.nav.included}</a></li>
             <li><a href={`${home}#faq`}>{t.nav.faq}</a></li>
