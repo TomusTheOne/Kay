@@ -245,7 +245,7 @@
       },
       "discover-scuba": {
         "title": "Baptême de plongée à Tulum — sans certification | Kay Diving",
-        "description": "Votre première plongée à Tulum, encadrée et sans certification, dans l'eau claire de Casa Cenote. Une ou deux plongées, matériel et entrée compris. Dès 140 $.",
+        "description": "Votre première plongée à Tulum, encadrée et sans certification, dans l'eau claire de Casa Cenote. Elle compte comme la première de la formation Open Water. Dès 140 $.",
         "h1": "Baptême de plongée à Tulum",
         "lede": "Une première fois sous l'eau, encadrée du début à la fin, dans un cenote ouvert d'eau claire et peu profonde. Ni certification ni expérience.",
         "who": "Pour qui n'a jamais respiré sous l'eau et veut savoir ce que cela fait avant de s'engager dans une formation. Nous ne demandons rien au préalable, sinon d'être à l'aise dans l'eau. Ce n'est pas une certification : c'est une plongée encadrée, avec un instructeur à côté de vous en permanence, et jamais au-delà de sept mètres. Dans les cenotes nous plongeons quatre plongeurs par guide au maximum, et la proportion ne se négocie pas : plus de monde, plus de guides.",
@@ -279,7 +279,7 @@
           },
           {
             "q": "Et si je veux me certifier ensuite ?",
-            "a": "L'étape suivante est la formation Open Water : trois jours, cinq plongées, et vous repartez avec une certification valable dans le monde entier."
+            "a": "Cela compte pour vous : cette plongée est prise comme la première des cinq de la formation Open Water. L'étape suivante, c'est trois jours, et vous repartez avec une certification valable dans le monde entier."
           }
         ]
       },
@@ -320,19 +320,28 @@
         ]
       },
       "advanced-ow": {
-        "title": "Formation PADI Advanced Open Water à Tulum | Kay Diving",
-        "description": "Certification PADI Advanced Open Water à Tulum : cinq plongées de spécialité jusqu'à trente mètres, au Cenote Angelita ou El Pit. Matériel compris. 550 $ US.",
+        "title": "Formation PADI Advanced Open Water à Tulum — deux jours | Kay Diving",
+        "description": "Certification PADI Advanced Open Water à Tulum en deux jours : cinq plongées de spécialité jusqu'à trente mètres, au Cenote Angelita ou El Pit. 550 $ US.",
         "h1": "Formation PADI Advanced Open Water à Tulum",
-        "lede": "Cinq plongées de spécialité qui vous emmènent à trente mètres et vous ouvrent les deux cenotes profonds de Tulum. Matériel d'étude compris.",
+        "lede": "Cinq plongées de spécialité en deux jours, qui vous emmènent à trente mètres et vous ouvrent les deux cenotes profonds de Tulum. Matériel d'étude compris.",
         "who": "Pour les plongeurs qui ont déjà l'Open Water et veulent deux choses : la profondeur, et les cenotes qui l'exigent. Angelita et El Pit sont fermés à un Open Water — non par une règle de notre fait, mais parce qu'ils passent trente mètres — et cette formation est la porte. Dans les cenotes nous plongeons quatre plongeurs par guide au maximum, et la proportion ne se négocie pas : plus de monde, plus de guides.",
         "day": [
           "L'Advanced n'est pas de la théorie avec un examen à la fin : ce sont cinq plongées de spécialité, et l'on apprend en les faisant. Le matériel d'étude est compris.",
-          "Les plongées profondes se font au Cenote Angelita ou à El Pit, les deux cenotes profonds de la région et parmi les sites les plus saisissants que vous plongerez.",
-          "À Angelita, un nuage d'hydrogène sulfuré vers trente mètres, traversé de branches mortes qui montent : on dirait une île flottant sous l'eau. À El Pit, la lumière descend tout le puits et y reste, immobile.",
+          "Deux jours, en général : deux plongées le premier, trois le second. Si vous préférez des journées moins chargées, cela s'étale sur trois — deux, deux et une. À vous de voir.",
+          "Quatre des cinq spécialités sont fixées : plongée profonde, navigation subaquatique, flottabilité de haute performance et plongée de nuit. La cinquième, vous la choisissez entre plongée dérivante, nitrox et plongée en caverne.",
+          "Les plongées profondes se font au Cenote Angelita ou à El Pit, les deux cenotes profonds de la région et parmi les sites les plus saisissants que vous plongerez. À Angelita, un nuage d'hydrogène sulfuré vers trente mètres, traversé de branches mortes qui montent ; à El Pit, la lumière descend tout le puits et y reste, immobile.",
           "Vous terminez certifié jusqu'à trente mètres, et ces deux cenotes cessent de vous être fermés."
         ],
         "sites": "Le Cenote Angelita et le Cenote El Pit, les deux cenotes profonds près de Tulum. Chacun a sa fiche, avec la profondeur et ce à quoi il ressemble à l'intérieur.",
         "faq": [
+          {
+            "q": "Combien de temps dure la formation ?",
+            "a": "En général deux jours : deux plongées le premier, trois le second. Elle peut aussi se faire sur trois jours, avec deux, deux et une. C'est vous qui décidez."
+          },
+          {
+            "q": "Quelles sont les spécialités ?",
+            "a": "Quatre sont fixées : plongée profonde, navigation subaquatique, flottabilité de haute performance et plongée de nuit. La cinquième est au choix, entre plongée dérivante, nitrox et plongée en caverne."
+          },
           {
             "q": "Que faut-il pour commencer ?",
             "a": "La certification Open Water, ou son équivalent d'une autre organisation."
@@ -396,7 +405,7 @@
         "description": "Une demi-journée de snorkeling dans trois cenotes près de Tulum, sans certification ni expérience. Matériel, entrées et transport compris. 125 $ US.",
         "h1": "Snorkeling dans les cenotes de Tulum",
         "lede": "Trois cenotes différents en une demi-journée, sans bloc, sans formation et sans se presser. On finit dans l'une des meilleures taquerías du village.",
-        "who": "Pour qui veut voir les cenotes de l'intérieur sans se mettre à la plongée : les familles, celui ou celle qui accompagne un plongeur, ou simplement qui préfère la surface. Ni expérience ni certification, et le matériel de snorkeling est compris.",
+        "who": "Pour qui veut voir les cenotes de l'intérieur sans se mettre à la plongée : les familles, celui ou celle qui accompagne un plongeur, ou simplement qui préfère la surface. Ni expérience ni certification, et le matériel de snorkeling est compris. Il n'y a pas d'âge minimum.",
         "day": [
           "Une demi-journée, trois cenotes. Chacun différent du précédent à dessein : la forme, la lumière et ce que l'on voit d'en haut changent.",
           "Depuis la surface, on voit bien plus que ce que les gens imaginent. En eau claire et peu profonde, avec la lumière qui descend, le fond et les formations se voient entièrement.",
@@ -415,7 +424,11 @@
           },
           {
             "q": "Combien de temps dure-t-elle ?",
-            "a": "Une demi-journée."
+            "a": "Elle commence entre huit et neuf heures du matin et se termine entre une et deux heures de l'après-midi. Une demi-journée, sans se presser."
+          },
+          {
+            "q": "Y a-t-il un âge minimum ?",
+            "a": "Non. Dites-nous les âges à la réservation et nous construisons la journée autour du groupe."
           },
           {
             "q": "Est-ce adapté à qui nage mal ?",
