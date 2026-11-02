@@ -1014,9 +1014,9 @@
     "items": {
       "casa-cenote": "An open, lagoon-like cenote connected directly to the Caribbean Sea, where fresh and salt water mix into an ecosystem of its own. It is about 9 metres deep at most — ideal for new divers and for anyone after a relaxed dive. Mangroves surround it, and the visibility, though it varies, puts you alongside fish, turtles and now and then a freshwater crocodile (Morelet's crocodile, Crocodylus moreletii). The perfect way to combine recreational diving with wildlife up close.",
       "car-wash": "Under a calm, easy-to-reach surface hides one of the most photographed cenotes on the Riviera Maya. Water lilies float on its clear water; further down there are petrified trunks and a striking gallery of stalactites and stalagmites. Up to 16 metres deep, it suits snorkelling as well as cavern diving, and the sunbeams filtering through the trees turn every dive into something almost cinematic.",
-      "dos-ojos": "One of the most famous flooded cave systems in the world: two connected cenotes that, seen from above, look like a pair of eyes. Its cavern routes, such as “The Barbie Line” and “The Bat Cave”, run through crystal-clear water with more than 30 metres of visibility, past striking stalactites and ancient rock formations. The open areas are about 10 metres deep at most. It belongs to the longest underwater cave system in the world, some 369 kilometres of it. An excellent choice if you have never dived a cenote before.",
-      "el-pit": "One of the deepest and most dramatic cenotes on the Riviera Maya, going down to 119 metres. It is famous for the column of light that pierces the water, for its halocline — where fresh and salt water meet — and for a cloud of hydrogen sulphide at about 30 metres that looks like fog underwater. Recommended for advanced or technical divers, it is one of the most striking cenote dives in the world.",
-      "angelita": "About 60 metres deep, this cenote holds one of the most striking sights in cavern diving: a cloud of hydrogen sulphide lying on the salt water at around 30 metres, which creates the illusion of an underground river, with trunks and fallen leaves “floating” in mid-air. Passing through it feels like crossing a threshold into another dimension, onto a sunken landscape wrapped in a ghostly haze. A mystical, overwhelming experience, reserved for advanced divers looking for something truly unique.",
+      "dos-ojos": "Two connected bodies of water that, seen from above, look like a pair of eyes. They belong to the longest flooded cave system in the world — some 369 kilometres of it — and are dived as cavern: daylight always present, the exit always in sight. This is the cenote most people start with, and Open Water is enough.",
+      "el-pit": "An almost cylindrical shaft that drops far beyond where recreational diving goes. It has a halocline, hydrogen sulphide, stalactites several metres long and, in the right months, sunbeams that reach all the way down. Advanced Open Water is required, which is why it is one of the quietest cenotes of the day.",
+      "angelita": "The strangest cenote we dive. A layer of hydrogen sulphide turns the bottom into what looks like a river with an island in the middle, and crossing it changes the dive completely. Deep, vertical, connected to no other cave — it calls for Advanced Open Water.",
       "dreamgate": "A cavern cenote with a round entrance, known for its extraordinarily clear water and for the imposing columns and rock formations that reach down to the bottom. Natural light filtering through the opening above creates spectacular effects. Ideal for cavern diving, with routes through wide chambers and an almost ceremonial atmosphere.",
       "tak-be-luum": "Less known, and so less touched, this cenote lies in the Dos Ojos park area. It offers cavern passages with well-preserved formations, calm water and a more intimate dive, since it sees fewer visitors. Ideal if you want to explore cenotes off the busiest routes.",
       "tak-be-ha": "A cave system with wide chambers, sharply defined stalactites and stalagmites, and a strong halocline that blurs the view where fresh and salt water mix. Calm and never crowded, it is ideal for certified divers looking for spectacular formations.",
@@ -1034,18 +1034,37 @@
       "nohoch-nah-chich": "The turquoise water of Cenote Nohoch Nah Chich under a rock overhang, wooden steps leading down into it"
     },
     "artAlt": "Illustration: {name}",
-    "diveTag": "What the dive is like",
     "lightTag": "When to go",
     "ownTag": "Going on your own",
     "faqTag": "Questions",
     "deep": {
       "dos-ojos": {
-        "dive": [
-          "It is a semi-open cenote. At water level there is a platform that splits the area in two: one side for divers, the other for snorkellers. The platform sits in the east eye — the other is the west eye, and that is where the name comes from, because in Mexico a roundish body of water of a certain size is called an ojo de agua, an eye of water.",
-          "We kit up at the parking area above and walk down ready to get in. There are two ways into the water: sit on the steps, put your fins on and enter from there, or put them on standing at the edge of the platform and take a giant stride forward.",
-          "Before we start we run a buoyancy check. We do it on anyone's first cenote dive, without exception: fresh water does not hold you the way salt water does, and most people need to adjust the weight they would use in the sea.",
-          "There are two different dives here. Both start in the east eye and finish in the west eye, but they take in different parts of the cavern. The Barbie Line is named for the Barbie doll tied to the line at the halfway point — it is the marker that tells you you are exactly half way. It is the brighter of the two, and the longer.",
-          "The Bat Cave is darker and far less exposed to the light. With about a third of the dive left we surface inside a chamber with bats and stalactite formations — fruit bats, the ones that live on fruit. Hence the name. Both dives are beautiful and both stay with you."
+        "sections": [
+          {
+            "h": "The two eyes",
+            "p": [
+              "It is a semi-open cenote. At water level there is a platform that splits the area in two: one side for divers, the other for snorkellers. The platform sits in the east eye — the other is the west eye, and that is where the name comes from, because in Mexico a roundish body of water of a certain size is called an ojo de agua, an eye of water."
+            ]
+          },
+          {
+            "h": "Getting into the water",
+            "p": [
+              "We kit up at the parking area above and walk down ready to get in. There are two ways into the water: sit on the steps, put your fins on and enter from there, or put them on standing at the edge of the platform and take a giant stride forward.",
+              "Before we start we run a buoyancy check. We do it on anyone's first cenote dive, without exception: fresh water does not hold you the way salt water does, and most people need to adjust the weight they would use in the sea."
+            ]
+          },
+          {
+            "h": "The Barbie Line",
+            "p": [
+              "There are two different dives here. Both start in the east eye and finish in the west eye, but they take in different parts of the cavern. The Barbie Line is named for the Barbie doll tied to the line at the halfway point — it is the marker that tells you you are exactly half way. It is the brighter of the two, and the longer."
+            ]
+          },
+          {
+            "h": "The Bat Cave",
+            "p": [
+              "The Bat Cave is darker and far less exposed to the light. With about a third of the dive left we surface inside a chamber with bats and stalactite formations — fruit bats, the ones that live on fruit. Hence the name. Both dives are beautiful and both stay with you."
+            ]
+          }
         ],
         "light": "Dive it early. It is one of the most popular cenotes in the area, and by mid-morning there are considerably more people in the water — especially in high season.",
         "own": "Yes, you can snorkel here, in the area the platform keeps separate from the divers. The park's rules have changed over the years: swimming is now only allowed with a life jacket. The bat chamber can be explored on snorkel too.",
@@ -1077,15 +1096,50 @@
         ]
       },
       "angelita": {
-        "dive": [
-          "You get in by walking down a small wooden platform to the water. Fins on there, and a giant stride in.",
-          "Visibility at Angelita is its own thing. The water runs green, from the vegetation reflecting in from outside and above all because this cenote is not connected to any other cave: it has none of the constant water flow that Dos Ojos or El Pit have, and that flow is what makes theirs so clear. Angelita's is good — just not as good as most of the others.",
-          "We like to descend close to the platform so you can use the wall as a reference. At the start there is only water around you, nothing obvious for your eyes to hold on to.",
-          "As you near the bottom the island starts to appear. It is a mound of debris fallen over thousands of years, and its summit sits just above the hydrogen sulphide cloud. The cloud looks like a river covering the whole cenote, leaving only that summit out of it — hence the island. With the gas, the mountain and the fallen trees below, the image is completely surreal.",
-          "The cloud starts around twenty-eight metres. Our dive is planned to thirty. For anyone who asks and has the experience, we can go down through it — it ends around thirty-three — and that is settled with you on site, not sold over the internet. Below it visibility is good but dark, because the cloud eats the daylight; with a torch everything is perfectly clear. We stay a couple of minutes and start back up. Coming back up through the cloud is one of the strangest moments of the dive. Above it the water is fresh; below it, salt.",
-          "We carry on up slowly, circling, to a small U-shaped cavern at about fourteen metres with one way in and one way out. It is narrow, and it gives the middle of the dive a lovely touch.",
-          "Out of there we ascend slowly to five metres for the safety stop. That last stretch has very particular rock formations and some trees that fell into the cenote but caught in the rocks on the way down and never reached the bottom. A few of them look suspended in the water.",
-          "A piece of trivia I enjoy: years ago Angelita was on the History Channel's Ancient Aliens, because the cenote fits a Toltec legend that describes a place like it. In that world of theories, some believe the Toltecs were in contact with other civilisations. It is popular culture and myth, nothing more, but it is part of what gets talked about down here."
+        "sections": [
+          {
+            "h": "The entry and the descent",
+            "p": [
+              "You get in by walking down a small wooden platform to the water. Fins on there, and a giant stride in.",
+              "We like to descend close to the platform so you can use the wall as a reference. At the start there is only water around you, nothing obvious for your eyes to hold on to."
+            ]
+          },
+          {
+            "h": "Why the water looks green",
+            "p": [
+              "Visibility at Angelita is its own thing. The water runs green, from the vegetation reflecting in from outside and above all because this cenote is not connected to any other cave: it has none of the constant water flow that Dos Ojos or El Pit have, and that flow is what makes theirs so clear. Angelita's is good — just not as good as most of the others."
+            ]
+          },
+          {
+            "h": "The cloud and the island",
+            "p": [
+              "As you near the bottom the island starts to appear. It is a mound of debris fallen over thousands of years, and its summit sits just above the hydrogen sulphide cloud. The cloud looks like a river covering the whole cenote, leaving only that summit out of it — hence the island. With the gas, the mountain and the fallen trees below, the image is completely surreal."
+            ]
+          },
+          {
+            "h": "Going through the cloud",
+            "p": [
+              "The cloud starts around twenty-eight metres. Our dive is planned to thirty. For anyone who asks and has the experience, we can go down through it — it ends around thirty-three — and that is settled with you on site, not sold over the internet. Below it visibility is good but dark, because the cloud eats the daylight; with a torch everything is perfectly clear. We stay a couple of minutes and start back up. Coming back up through the cloud is one of the strangest moments of the dive. Above it the water is fresh; below it, salt."
+            ]
+          },
+          {
+            "h": "The U-shaped cavern",
+            "p": [
+              "We carry on up slowly, circling, to a small U-shaped cavern at about fourteen metres with one way in and one way out. It is narrow, and it gives the middle of the dive a lovely touch."
+            ]
+          },
+          {
+            "h": "The ascent and the suspended trees",
+            "p": [
+              "Out of there we ascend slowly to five metres for the safety stop. That last stretch has very particular rock formations and some trees that fell into the cenote but caught in the rocks on the way down and never reached the bottom. A few of them look suspended in the water."
+            ]
+          },
+          {
+            "h": "Angelita in popular culture",
+            "p": [
+              "A piece of trivia I enjoy: years ago Angelita was on the History Channel's Ancient Aliens, because the cenote fits a Toltec legend that describes a place like it. In that world of theories, some believe the Toltecs were in contact with other civilisations. It is popular culture and myth, nothing more, but it is part of what gets talked about down here."
+            ]
+          }
         ],
         "light": "The best light is roughly between nine and twelve in the morning. And if you arrive early, you can have the place almost to yourself for an hour.",
         "own": "You can snorkel here, but honestly I would not recommend it. What makes Angelita special is at thirty metres, and for snorkelling there are far better places near Tulum.",
@@ -1117,15 +1171,55 @@
         ]
       },
       "el-pit": {
-        "dive": [
-          "El Pit is inside the Dos Ojos park. In fact, about twelve metres down there is a cave that, dived for some two and a half hours, comes out in Dos Ojos right at the Barbie doll — but only a cave-certified diver can do that.",
-          "To start you walk down a long platform, a little intimidating to look at but perfectly safe. At the bottom, fins on and a giant stride in. Once everyone is ready we switch on our torches and begin a slow descent.",
-          "The first fourteen metres are fresh water. Then comes the halocline, where fresh water and salt water meet. Visibility drops a little there: the halocline makes the water look thick — I always compare it to how oil looks in water. Past it, at around fifteen metres, it is salt water the rest of the way.",
-          "As at Angelita, there is an island on the bottom built from trees and rocks that have fallen over thousands of years. There is hydrogen sulphide here too, at thirty metres, though it is not as dense as Angelita's and does not give the same visual effect. It is still well worth seeing.",
-          "At thirty metres we begin ascending slowly in a circle: the cenote is close to cylindrical. El Pit is one of the deepest caves in the region, reaching a hundred and forty-two metres, though on our dives you only make out the first forty or so.",
-          "On the way up is when the sunbeams come into their own, coming down and dancing under the water.",
-          "The ceiling carries an enormous number of stalactites, some over two or three metres. A stalactite takes about four thousand years to grow a metre, and it only grows in a semi-dry environment: once it is underwater it stops growing for good.",
-          "When archaeologists explored this place they found human remains some eight thousand years old, from the cave-dweller era. Also animal remains from the end of the last ice age, among them a giant sloth that is still inside one of these caves — that one is only reachable with a cave certification, because it is not in the cavern zone."
+        "sections": [
+          {
+            "h": "Where it is and what it connects to",
+            "p": [
+              "El Pit is inside the Dos Ojos park. In fact, about twelve metres down there is a cave that, dived for some two and a half hours, comes out in Dos Ojos right at the Barbie doll — but only a cave-certified diver can do that."
+            ]
+          },
+          {
+            "h": "The entry and the descent",
+            "p": [
+              "To start you walk down a long platform, a little intimidating to look at but perfectly safe. At the bottom, fins on and a giant stride in. Once everyone is ready we switch on our torches and begin a slow descent."
+            ]
+          },
+          {
+            "h": "The halocline",
+            "p": [
+              "The first fourteen metres are fresh water. Then comes the halocline, where fresh water and salt water meet. Visibility drops a little there: the halocline makes the water look thick — I always compare it to how oil looks in water. Past it, at around fifteen metres, it is salt water the rest of the way."
+            ]
+          },
+          {
+            "h": "The hydrogen sulphide and the island on the bottom",
+            "p": [
+              "As at Angelita, there is an island on the bottom built from trees and rocks that have fallen over thousands of years. There is hydrogen sulphide here too, at thirty metres, though it is not as dense as Angelita's and does not give the same visual effect. It is still well worth seeing."
+            ]
+          },
+          {
+            "h": "How deep we go",
+            "p": [
+              "At thirty metres we begin ascending slowly in a circle: the cenote is close to cylindrical. El Pit is one of the deepest caves in the region, reaching a hundred and forty-two metres, though on our dives you only make out the first forty or so."
+            ]
+          },
+          {
+            "h": "The light beams",
+            "p": [
+              "On the way up is when the sunbeams come into their own, coming down and dancing under the water."
+            ]
+          },
+          {
+            "h": "The stalactites overhead",
+            "p": [
+              "The ceiling carries an enormous number of stalactites, some over two or three metres. A stalactite takes about four thousand years to grow a metre, and it only grows in a semi-dry environment: once it is underwater it stops growing for good."
+            ]
+          },
+          {
+            "h": "What the archaeologists found",
+            "p": [
+              "When archaeologists explored this place they found human remains some eight thousand years old, from the cave-dweller era. Also animal remains from the end of the last ice age, among them a giant sloth that is still inside one of these caves — that one is only reachable with a cave certification, because it is not in the cavern zone."
+            ]
+          }
         ],
         "light": "The sunbeams show between late March and late September, and within the day between 8:30 and 12, because of the angle the sun comes in at. From September to November and from January through most of March you barely see the effect. Worth saying plainly: the dive is beautiful with or without the light, but the light takes it somewhere else.",
         "own": "No snorkelling here. El Pit is for diving and freediving only, and since it also asks for Advanced Open Water as a minimum, it is one of the quietest cenotes in the area.",

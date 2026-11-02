@@ -1016,9 +1016,9 @@
     "items": {
       "casa-cenote": "Un cenote ouvert, en forme de lagune, relié directement à la mer des Caraïbes : l'eau douce et l'eau salée s'y mélangent en un écosystème unique. Sa profondeur maximale tourne autour de 9 mètres, idéale pour les plongeurs débutants et pour qui cherche une plongée détendue. Il est entouré de mangroves et sa visibilité, même variable, permet de nager parmi les poissons, les tortues et, parfois, un crocodile d'eau douce (le crocodile de Morelet, Crocodylus moreletii). Parfait pour allier plongée loisir et rencontre directe avec la faune.",
       "car-wash": "Sous une surface calme et facile d'accès se cache l'un des cenotes les plus photographiés de la Riviera Maya. Des nénuphars flottent sur son eau transparente ; plus bas apparaissent des troncs pétrifiés et une impressionnante galerie de stalactites et de stalagmites. Avec jusqu'à 16 mètres de fond, il se prête aussi bien au snorkeling qu'à la plongée en caverne, et les rayons du soleil filtrés par la végétation font de chaque plongée une expérience presque cinématographique.",
-      "dos-ojos": "L'un des réseaux de grottes noyées les plus célèbres au monde, formé de deux cenotes reliés qui, vus d'en haut, donnent l'illusion de « deux yeux ». On y plonge en caverne sur des parcours comme « The Barbie Line » et « The Bat Cave », dans une eau cristalline à plus de 30 mètres de visibilité, entre stalactites impressionnantes et formations rocheuses millénaires. Sa profondeur maximale est d'environ 10 mètres dans les zones ouvertes. Il fait partie du plus vaste réseau de grottes immergées au monde, environ 369 kilomètres. Une excellente option si vous n'avez jamais plongé en cenote.",
-      "el-pit": "Considéré comme l'un des cenotes les plus profonds et les plus spectaculaires de la Riviera Maya, il descend jusqu'à 119 mètres. Il est célèbre pour sa colonne de lumière qui traverse l'eau, pour sa halocline (le mélange d'eau douce et d'eau salée) et pour un nuage d'hydrogène sulfuré vers 30 mètres, qui lui donne un effet de « brouillard » sous-marin. Recommandé aux plongeurs confirmés ou de niveau technique, c'est l'une des plongées en cenote les plus saisissantes au monde.",
-      "angelita": "Profond d'environ 60 mètres, ce cenote abrite l'un des phénomènes les plus saisissants de la plongée en caverne : un nuage d'hydrogène sulfuré posé sur l'eau salée vers 30 mètres, qui crée l'illusion d'une rivière souterraine où troncs et feuilles mortes « flottent » dans les airs. Le traverser, c'est franchir un seuil vers une autre dimension et découvrir un paysage englouti, voilé d'une brume spectrale. Une expérience mystique et bouleversante, réservée aux plongeurs confirmés en quête de quelque chose de vraiment unique.",
+      "dos-ojos": "Deux plans d'eau reliés qui, vus d'en haut, ressemblent à une paire d'yeux. Ils font partie du plus vaste réseau de grottes noyées au monde — environ 369 kilomètres — et se plongent en caverne : la lumière du jour toujours présente, la sortie toujours en vue. C'est le cenote par lequel presque tout le monde commence, et le Open Water suffit.",
+      "el-pit": "Un puits presque cylindrique qui s'enfonce bien au-delà de la plongée loisir. On y trouve une halocline, de l'hydrogène sulfuré, des stalactites de plusieurs mètres et, aux bons mois, des rayons de soleil qui descendent jusqu'au fond. L'Advanced Open Water est exigé, ce qui en fait l'un des cenotes les moins fréquentés.",
+      "angelita": "Le cenote le plus étrange que nous plongeons. Une couche d'hydrogène sulfuré transforme le fond en ce qui ressemble à une rivière avec une île au milieu, et la traverser change complètement la plongée. Profond, vertical, relié à aucune autre grotte : il demande l'Advanced Open Water.",
       "dreamgate": "Un cenote de type caverne à l'entrée circulaire, connu pour la clarté extraordinaire de son eau et pour ses colonnes et formations rocheuses imposantes qui descendent jusqu'au fond. La lumière naturelle qui filtre par l'ouverture crée des effets spectaculaires. Idéal pour la plongée en caverne, avec des parcours dans de vastes salles et une atmosphère presque cérémonielle.",
       "tak-be-luum": "Un cenote moins connu, et donc plus préservé, situé dans le parc de Dos Ojos. Il offre des passages de caverne aux formations bien conservées, une eau calme et une plongée plus intime, car il reçoit moins de visiteurs. Idéal pour explorer les cenotes hors des circuits les plus touristiques.",
       "tak-be-ha": "Un réseau de grottes aux vastes salles, aux stalactites et stalagmites bien dessinées, avec une halocline marquée qui brouille la vue là où l'eau douce et l'eau salée se mélangent. Une ambiance sereine, idéale pour les plongeurs certifiés en quête de formations spectaculaires, loin de la foule.",
@@ -1036,18 +1036,37 @@
       "nohoch-nah-chich": "L'eau turquoise du cenote Nohoch Nah Chich sous une voûte de roche, un escalier de bois qui descend vers l'eau"
     },
     "artAlt": "Illustration : {name}",
-    "diveTag": "Comment on le plonge",
     "lightTag": "Quand y aller",
     "ownTag": "Si vous y allez seul",
     "faqTag": "Questions",
     "deep": {
       "dos-ojos": {
-        "dive": [
-          "C'est un cenote semi-ouvert. Au niveau de l'eau, une plateforme sépare la zone en deux : un côté pour les plongeurs, l'autre pour le snorkeling. Elle se trouve dans l'œil est — l'autre est l'œil ouest, et c'est de là que vient le nom : au Mexique, on appelle ojo de agua, œil d'eau, un plan d'eau arrondi d'une certaine taille.",
-          "Nous nous équipons en haut, près du parking, et descendons prêts à entrer. Deux façons de se mettre à l'eau : s'asseoir sur l'escalier, chausser les palmes et entrer de là, ou les chausser debout au bord de la plateforme et faire un pas de géant.",
-          "Avant de commencer, nous faisons un contrôle de flottabilité. Nous le faisons à chaque première plongée en cenote, sans exception : l'eau douce ne porte pas comme l'eau salée, et la plupart des gens doivent ajuster le lestage qu'ils utilisent en mer.",
-          "Il y a deux plongées différentes ici. Toutes deux partent de l'œil est et finissent à l'œil ouest, mais parcourent des parties différentes de la caverne. La Barbie Line doit son nom à la poupée Barbie attachée au fil à mi-parcours : c'est le repère qui vous dit que vous êtes exactement à la moitié. C'est la plus lumineuse des deux, et la plus longue.",
-          "La Bat Cave est plus sombre et bien moins exposée à la lumière. Au dernier tiers, on fait surface dans une salle peuplée de chauves-souris et de stalactites — des chauves-souris frugivores, celles qui se nourrissent de fruits. D'où le nom. Les deux plongées sont belles et les deux restent en mémoire."
+        "sections": [
+          {
+            "h": "Les deux yeux",
+            "p": [
+              "C'est un cenote semi-ouvert. Au niveau de l'eau, une plateforme sépare la zone en deux : un côté pour les plongeurs, l'autre pour le snorkeling. Elle se trouve dans l'œil est — l'autre est l'œil ouest, et c'est de là que vient le nom : au Mexique, on appelle ojo de agua, œil d'eau, un plan d'eau arrondi d'une certaine taille."
+            ]
+          },
+          {
+            "h": "L'entrée dans l'eau",
+            "p": [
+              "Nous nous équipons en haut, près du parking, et descendons prêts à entrer. Deux façons de se mettre à l'eau : s'asseoir sur l'escalier, chausser les palmes et entrer de là, ou les chausser debout au bord de la plateforme et faire un pas de géant.",
+              "Avant de commencer, nous faisons un contrôle de flottabilité. Nous le faisons à chaque première plongée en cenote, sans exception : l'eau douce ne porte pas comme l'eau salée, et la plupart des gens doivent ajuster le lestage qu'ils utilisent en mer."
+            ]
+          },
+          {
+            "h": "La Barbie Line",
+            "p": [
+              "Il y a deux plongées différentes ici. Toutes deux partent de l'œil est et finissent à l'œil ouest, mais parcourent des parties différentes de la caverne. La Barbie Line doit son nom à la poupée Barbie attachée au fil à mi-parcours : c'est le repère qui vous dit que vous êtes exactement à la moitié. C'est la plus lumineuse des deux, et la plus longue."
+            ]
+          },
+          {
+            "h": "La Bat Cave",
+            "p": [
+              "La Bat Cave est plus sombre et bien moins exposée à la lumière. Au dernier tiers, on fait surface dans une salle peuplée de chauves-souris et de stalactites — des chauves-souris frugivores, celles qui se nourrissent de fruits. D'où le nom. Les deux plongées sont belles et les deux restent en mémoire."
+            ]
+          }
         ],
         "light": "Plongez-le tôt. C'est l'un des cenotes les plus fréquentés de la région, et en milieu de matinée il y a nettement plus de monde dans l'eau — surtout en haute saison.",
         "own": "Oui, on peut y faire du snorkeling, dans la zone que la plateforme sépare des plongeurs. Le règlement du parc a changé au fil des ans : la nage n'est désormais autorisée qu'avec un gilet de sauvetage. La salle aux chauves-souris s'explore aussi en snorkeling.",
@@ -1079,15 +1098,50 @@
         ]
       },
       "angelita": {
-        "dive": [
-          "On entre en descendant une petite plateforme en bois jusqu'à l'eau. On y chausse les palmes et on part d'un pas de géant.",
-          "La visibilité d'Angelita a quelque chose de particulier. L'eau tire sur le vert, à cause de la végétation du dehors qui s'y reflète et surtout parce que ce cenote n'est relié à aucune autre grotte : il n'a pas le flux d'eau constant de Dos Ojos ou d'El Pit, et c'est ce flux qui rend leur eau si limpide. Celle d'Angelita est bonne — simplement moins que la plupart des autres.",
-          "Nous aimons descendre près de la plateforme pour que vous puissiez vous servir de la paroi comme repère. Au début il n'y a que de l'eau autour de vous, rien d'évident où accrocher le regard.",
-          "En approchant du fond, l'île apparaît. C'est une montagne de débris tombés au fil de milliers d'années, dont le sommet se trouve juste au-dessus du nuage d'hydrogène sulfuré. Le nuage ressemble à une rivière qui recouvre tout le cenote et ne laisse dépasser que ce sommet — d'où l'île. Avec le gaz, la montagne et les arbres tombés en dessous, l'image est complètement surréaliste.",
-          "Le nuage commence vers vingt-huit mètres. Notre plongée est planifiée à trente. À qui le demande et en a l'expérience, nous pouvons descendre le traverser — il se termine vers trente-trois — et cela se décide avec vous sur place, pas sur internet. En dessous la visibilité est bonne mais il fait sombre, car le nuage absorbe la lumière du jour ; à la lampe, tout est parfaitement net. Nous y restons deux minutes et nous remontons. Repasser le nuage vers le haut est l'un des moments les plus étranges de la plongée. Au-dessus, l'eau est douce ; en dessous, salée.",
-          "Nous continuons à remonter lentement, en cercle, jusqu'à une petite caverne en U vers quatorze mètres, avec une seule entrée et une seule sortie. Elle est étroite, et elle donne au milieu de la plongée un très joli relief.",
-          "En sortant, nous remontons doucement jusqu'à cinq mètres pour le palier de sécurité. Sur cette dernière partie on voit des formations de roche très particulières et quelques arbres tombés dans le cenote qui se sont coincés dans les rochers sans atteindre le fond. Certains semblent suspendus dans l'eau.",
-          "Une anecdote que j'aime raconter : Angelita est passée il y a des années dans Alien Theory, sur History Channel, parce que le cenote correspond à une légende toltèque qui décrit un lieu de ce genre. Dans ce monde-là des théories, certains pensent que les Toltèques auraient été en contact avec d'autres civilisations. C'est de la culture populaire et du mythe, rien de plus, mais cela fait partie de ce dont on parle ici."
+        "sections": [
+          {
+            "h": "L'entrée et la descente",
+            "p": [
+              "On entre en descendant une petite plateforme en bois jusqu'à l'eau. On y chausse les palmes et on part d'un pas de géant.",
+              "Nous aimons descendre près de la plateforme pour que vous puissiez vous servir de la paroi comme repère. Au début il n'y a que de l'eau autour de vous, rien d'évident où accrocher le regard."
+            ]
+          },
+          {
+            "h": "Pourquoi l'eau paraît verdâtre",
+            "p": [
+              "La visibilité d'Angelita a quelque chose de particulier. L'eau tire sur le vert, à cause de la végétation du dehors qui s'y reflète et surtout parce que ce cenote n'est relié à aucune autre grotte : il n'a pas le flux d'eau constant de Dos Ojos ou d'El Pit, et c'est ce flux qui rend leur eau si limpide. Celle d'Angelita est bonne — simplement moins que la plupart des autres."
+            ]
+          },
+          {
+            "h": "Le nuage et l'île",
+            "p": [
+              "En approchant du fond, l'île apparaît. C'est une montagne de débris tombés au fil de milliers d'années, dont le sommet se trouve juste au-dessus du nuage d'hydrogène sulfuré. Le nuage ressemble à une rivière qui recouvre tout le cenote et ne laisse dépasser que ce sommet — d'où l'île. Avec le gaz, la montagne et les arbres tombés en dessous, l'image est complètement surréaliste."
+            ]
+          },
+          {
+            "h": "Traverser le nuage",
+            "p": [
+              "Le nuage commence vers vingt-huit mètres. Notre plongée est planifiée à trente. À qui le demande et en a l'expérience, nous pouvons descendre le traverser — il se termine vers trente-trois — et cela se décide avec vous sur place, pas sur internet. En dessous la visibilité est bonne mais il fait sombre, car le nuage absorbe la lumière du jour ; à la lampe, tout est parfaitement net. Nous y restons deux minutes et nous remontons. Repasser le nuage vers le haut est l'un des moments les plus étranges de la plongée. Au-dessus, l'eau est douce ; en dessous, salée."
+            ]
+          },
+          {
+            "h": "La caverne en forme de U",
+            "p": [
+              "Nous continuons à remonter lentement, en cercle, jusqu'à une petite caverne en U vers quatorze mètres, avec une seule entrée et une seule sortie. Elle est étroite, et elle donne au milieu de la plongée un très joli relief."
+            ]
+          },
+          {
+            "h": "La remontée et les arbres suspendus",
+            "p": [
+              "En sortant, nous remontons doucement jusqu'à cinq mètres pour le palier de sécurité. Sur cette dernière partie on voit des formations de roche très particulières et quelques arbres tombés dans le cenote qui se sont coincés dans les rochers sans atteindre le fond. Certains semblent suspendus dans l'eau."
+            ]
+          },
+          {
+            "h": "Angelita dans la culture populaire",
+            "p": [
+              "Une anecdote que j'aime raconter : Angelita est passée il y a des années dans Alien Theory, sur History Channel, parce que le cenote correspond à une légende toltèque qui décrit un lieu de ce genre. Dans ce monde-là des théories, certains pensent que les Toltèques auraient été en contact avec d'autres civilisations. C'est de la culture populaire et du mythe, rien de plus, mais cela fait partie de ce dont on parle ici."
+            ]
+          }
         ],
         "light": "La meilleure lumière se situe à peu près entre neuf heures et midi. Et si vous arrivez tôt, vous pouvez avoir le site presque pour vous pendant une heure.",
         "own": "On peut y faire du snorkeling, mais honnêtement je ne le conseille pas. Ce qui fait Angelita est à trente mètres, et pour le snorkeling il y a bien mieux près de Tulum.",
@@ -1119,15 +1173,55 @@
         ]
       },
       "el-pit": {
-        "dive": [
-          "El Pit se trouve dans le parc de Dos Ojos. À une douzaine de mètres, il y a d'ailleurs une grotte qui, plongée pendant environ deux heures et demie, débouche dans Dos Ojos juste à hauteur de la poupée Barbie — mais seul un plongeur certifié grotte peut le faire.",
-          "Pour commencer, on descend une plateforme assez longue, un peu impressionnante à regarder mais parfaitement sûre. En bas, palmes aux pieds et pas de géant. Quand tout le monde est prêt, nous allumons les lampes et entamons une descente lente.",
-          "Les quatorze premiers mètres sont en eau douce. Puis vient l'halocline, là où l'eau douce et l'eau salée se rencontrent. La visibilité y baisse un peu : l'halocline donne à l'eau un aspect épais — je le compare toujours à l'huile dans l'eau. Une fois passée, vers quinze mètres, c'est de l'eau salée jusqu'en bas.",
-          "Comme à Angelita, il y a au fond une île formée par les arbres et les pierres tombés au fil de milliers d'années. Il y a aussi de l'hydrogène sulfuré ici, à trente mètres, mais moins dense qu'à Angelita et sans le même effet visuel. Cela vaut tout de même largement le regard.",
-          "À trente mètres, nous commençons à remonter lentement en cercle : le cenote est presque cylindrique. El Pit est l'une des grottes les plus profondes de la région, jusqu'à cent quarante-deux mètres, même si nos plongées n'en laissent percevoir que les quarante premiers environ.",
-          "C'est à la remontée que les rayons du soleil prennent toute leur place, descendant et dansant sous l'eau.",
-          "Le plafond porte une quantité impressionnante de stalactites, certaines de plus de deux ou trois mètres. Une stalactite met environ quatre mille ans à gagner un mètre, et elle ne pousse qu'en milieu semi-sec : une fois sous l'eau, elle cesse de grandir pour de bon.",
-          "Quand les archéologues ont exploré ce lieu, ils y ont trouvé des restes humains vieux d'environ huit mille ans, de l'époque des hommes des cavernes. Et des restes d'animaux de la fin de la dernière glaciation, dont un paresseux géant qui s'y trouve toujours — celui-là n'est accessible qu'avec une certification grotte, car il n'est pas dans la zone de caverne."
+        "sections": [
+          {
+            "h": "Où il se trouve et à quoi il est relié",
+            "p": [
+              "El Pit se trouve dans le parc de Dos Ojos. À une douzaine de mètres, il y a d'ailleurs une grotte qui, plongée pendant environ deux heures et demie, débouche dans Dos Ojos juste à hauteur de la poupée Barbie — mais seul un plongeur certifié grotte peut le faire."
+            ]
+          },
+          {
+            "h": "L'entrée et la descente",
+            "p": [
+              "Pour commencer, on descend une plateforme assez longue, un peu impressionnante à regarder mais parfaitement sûre. En bas, palmes aux pieds et pas de géant. Quand tout le monde est prêt, nous allumons les lampes et entamons une descente lente."
+            ]
+          },
+          {
+            "h": "La halocline",
+            "p": [
+              "Les quatorze premiers mètres sont en eau douce. Puis vient l'halocline, là où l'eau douce et l'eau salée se rencontrent. La visibilité y baisse un peu : l'halocline donne à l'eau un aspect épais — je le compare toujours à l'huile dans l'eau. Une fois passée, vers quinze mètres, c'est de l'eau salée jusqu'en bas."
+            ]
+          },
+          {
+            "h": "L'hydrogène sulfuré et l'île du fond",
+            "p": [
+              "Comme à Angelita, il y a au fond une île formée par les arbres et les pierres tombés au fil de milliers d'années. Il y a aussi de l'hydrogène sulfuré ici, à trente mètres, mais moins dense qu'à Angelita et sans le même effet visuel. Cela vaut tout de même largement le regard."
+            ]
+          },
+          {
+            "h": "Jusqu'où nous descendons",
+            "p": [
+              "À trente mètres, nous commençons à remonter lentement en cercle : le cenote est presque cylindrique. El Pit est l'une des grottes les plus profondes de la région, jusqu'à cent quarante-deux mètres, même si nos plongées n'en laissent percevoir que les quarante premiers environ."
+            ]
+          },
+          {
+            "h": "Les rayons de lumière",
+            "p": [
+              "C'est à la remontée que les rayons du soleil prennent toute leur place, descendant et dansant sous l'eau."
+            ]
+          },
+          {
+            "h": "Les stalactites du plafond",
+            "p": [
+              "Le plafond porte une quantité impressionnante de stalactites, certaines de plus de deux ou trois mètres. Une stalactite met environ quatre mille ans à gagner un mètre, et elle ne pousse qu'en milieu semi-sec : une fois sous l'eau, elle cesse de grandir pour de bon."
+            ]
+          },
+          {
+            "h": "Ce que les archéologues ont trouvé",
+            "p": [
+              "Quand les archéologues ont exploré ce lieu, ils y ont trouvé des restes humains vieux d'environ huit mille ans, de l'époque des hommes des cavernes. Et des restes d'animaux de la fin de la dernière glaciation, dont un paresseux géant qui s'y trouve toujours — celui-là n'est accessible qu'avec une certification grotte, car il n'est pas dans la zone de caverne."
+            ]
+          }
         ],
         "light": "Les rayons se voient entre fin mars et fin septembre, et dans la journée entre 8h30 et midi, à cause de l'angle du soleil. De septembre à novembre et de janvier à presque tout mars, on ne perçoit presque pas le phénomène. Autant le dire clairement : la plongée reste magnifique avec ou sans la lumière, mais la lumière l'emmène ailleurs.",
         "own": "Pas de snorkeling ici. El Pit est réservé à la plongée et à l'apnée, et comme il demande en plus l'Advanced Open Water au minimum, c'est l'un des cenotes les plus calmes de la région.",

@@ -129,10 +129,12 @@ export default async function CenotePage({ params }: Params) {
           crawler nothing to hold on to. */}
       {deep && (
         <article className="bay shell guide__deep">
-          <section>
-            <h2 className="dsp dsp-md">{g.diveTag}</h2>
-            {deep.dive.map((para, i) => <p className="lede" key={i}>{para}</p>)}
-          </section>
+          {deep.sections.map((sec) => (
+            <section key={sec.h}>
+              <h2 className="dsp dsp-md">{sec.h}</h2>
+              {sec.p.map((para, i) => <p className="lede" key={i}>{para}</p>)}
+            </section>
+          ))}
 
           {deep.light && (
             <section>
