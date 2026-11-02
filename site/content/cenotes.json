@@ -32,7 +32,7 @@
       "slug": "el-pit", "name": "Cenote El Pit", "short": "El Pit",
       "lat": 20.32318, "lon": -87.40978, "approx": false,
       "type": "deep", "level": "advanced", "snorkel": false,
-      "depthM": 119, "diveMinM": null, "diveMaxM": 30,
+      "depthM": 142, "diveMinM": null, "diveMaxM": 30,
       "products": ["cenote-diving", "advanced-ow"],
       "photo": "cenote-el-pit", "art": "the-pit"
     },
