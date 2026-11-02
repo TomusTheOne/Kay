@@ -1035,6 +1035,49 @@
       "nicte-ha": "L'eau turquoise et limpide du cenote Nicte-Ha, couverte de nénuphars, au pied d'une paroi de roche et de jungle",
       "nohoch-nah-chich": "L'eau turquoise du cenote Nohoch Nah Chich sous une voûte de roche, un escalier de bois qui descend vers l'eau"
     },
-    "artAlt": "Illustration : {name}"
+    "artAlt": "Illustration : {name}",
+    "diveTag": "Comment on le plonge",
+    "lightTag": "Quand y aller",
+    "ownTag": "Si vous y allez seul",
+    "faqTag": "Questions",
+    "deep": {
+      "dos-ojos": {
+        "dive": [
+          "C'est un cenote semi-ouvert. Au niveau de l'eau, une plateforme sépare la zone en deux : un côté pour les plongeurs, l'autre pour le snorkeling. Elle se trouve dans l'œil est — l'autre est l'œil ouest, et c'est de là que vient le nom : au Mexique, on appelle ojo de agua, œil d'eau, un plan d'eau arrondi d'une certaine taille.",
+          "Nous nous équipons en haut, près du parking, et descendons prêts à entrer. Deux façons de se mettre à l'eau : s'asseoir sur l'escalier, chausser les palmes et entrer de là, ou les chausser debout au bord de la plateforme et faire un pas de géant.",
+          "Avant de commencer, nous faisons un contrôle de flottabilité. Nous le faisons à chaque première plongée en cenote, sans exception : l'eau douce ne porte pas comme l'eau salée, et la plupart des gens doivent ajuster le lestage qu'ils utilisent en mer.",
+          "Il y a deux plongées différentes ici. Toutes deux partent de l'œil est et finissent à l'œil ouest, mais parcourent des parties différentes de la caverne. La Barbie Line doit son nom à la poupée Barbie attachée au fil à mi-parcours : c'est le repère qui vous dit que vous êtes exactement à la moitié. C'est la plus lumineuse des deux, et la plus longue.",
+          "La Bat Cave est plus sombre et bien moins exposée à la lumière. Au dernier tiers, on fait surface dans une salle peuplée de chauves-souris et de stalactites — des chauves-souris frugivores, celles qui se nourrissent de fruits. D'où le nom. Les deux plongées sont belles et les deux restent en mémoire."
+        ],
+        "light": "Plongez-le tôt. C'est l'un des cenotes les plus fréquentés de la région, et en milieu de matinée il y a nettement plus de monde dans l'eau — surtout en haute saison.",
+        "own": "Oui, on peut y faire du snorkeling, dans la zone que la plateforme sépare des plongeurs. Le règlement du parc a changé au fil des ans : la nage n'est désormais autorisée qu'avec un gilet de sauvetage. La salle aux chauves-souris s'explore aussi en snorkeling.",
+        "faq": [
+          {
+            "q": "Faut-il une certification pour plonger à Dos Ojos ?",
+            "a": "L'Open Water suffit. C'est de la plongée en caverne, pas en grotte : la lumière du jour est la source principale et la sortie reste toujours en vue, le long du fil."
+          },
+          {
+            "q": "Pourquoi « Dos Ojos » ?",
+            "a": "Pour les deux plans d'eau reliés qui forment le site, l'œil est et l'œil ouest. Au Mexique, on appelle ojo de agua — œil d'eau — un plan d'eau arrondi d'une certaine taille."
+          },
+          {
+            "q": "Quelle différence entre la Barbie Line et la Bat Cave ?",
+            "a": "La Barbie Line est le parcours le plus lumineux et le plus long ; une poupée Barbie est attachée au fil à mi-chemin, comme repère. La Bat Cave est plus sombre, et au dernier tiers on fait surface dans une salle aux chauves-souris frugivores et aux stalactites."
+          },
+          {
+            "q": "Quelle profondeur ?",
+            "a": "Les plongées restent dans les dix mètres. C'est une plongée de lumière et de formations, pas de profondeur."
+          },
+          {
+            "q": "Peut-on faire du snorkeling à Dos Ojos ?",
+            "a": "Oui, dans la zone séparée des plongeurs. Le parc a changé son règlement : la nage n'est autorisée qu'avec un gilet de sauvetage. La salle aux chauves-souris se visite aussi en snorkeling."
+          },
+          {
+            "q": "À quelle heure arriver ?",
+            "a": "Tôt. C'est l'un des cenotes les plus visités et il se remplit vite, surtout en haute saison."
+          }
+        ]
+      }
+    }
   }
 }

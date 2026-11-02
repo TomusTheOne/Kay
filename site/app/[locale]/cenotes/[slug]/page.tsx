@@ -43,6 +43,9 @@ export default async function CenotePage({ params }: Params) {
     return g.alts[o.slug] ?? (p ? t.products.items[p.slug].alt : o.name);
   };
   const url = `${SHOP.domain}${pathFor(locale, `/cenotes/${slug}/`)}`;
+  // Kay's own write-up, if this cenote has one. Without it the page stays
+  // exactly as it was: short, and true.
+  const deep = g.deep?.[slug];
   const ld = {
     "@context": "https://schema.org",
     "@type": "TouristAttraction",
@@ -59,10 +62,26 @@ export default async function CenotePage({ params }: Params) {
     provider: { "@id": `${SHOP.domain}/#business` },
   };
 
+  /* The page's own questions, which are the half of it a search engine can
+     show directly. Kept out of the TouristAttraction node: they are a
+     separate thing and schema.org wants them that way. */
+  const faqLd = deep && deep.faq.length > 0 ? {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "@id": `${url}#faq`,
+    mainEntity: deep.faq.map((qa) => ({
+      "@type": "Question", name: qa.q,
+      acceptedAnswer: { "@type": "Answer", text: qa.a },
+    })),
+  } : null;
+
   return (
     <GuideFrame t={t} locale={locale} path={`/cenotes/${slug}/`}>
       {GUIDE_PUBLISHED && (
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ld) }} />
+      )}
+      {GUIDE_PUBLISHED && faqLd && (
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
       )}
       <article className="bay shell guide__cenote">
         <a className="guide__back data" href={guide}>← {g.back}</a>
@@ -104,6 +123,46 @@ export default async function CenotePage({ params }: Params) {
           </figure>
         </div>
       </article>
+
+      {/* Kay's write-up, where there is one. Headings of its own, because a
+          page with a single h1 and three hundred words gives a reader and a
+          crawler nothing to hold on to. */}
+      {deep && (
+        <article className="bay shell guide__deep">
+          <section>
+            <h2 className="dsp dsp-md">{g.diveTag}</h2>
+            {deep.dive.map((para, i) => <p className="lede" key={i}>{para}</p>)}
+          </section>
+
+          {deep.light && (
+            <section>
+              <h2 className="dsp dsp-md">{g.lightTag}</h2>
+              <p className="lede">{deep.light}</p>
+            </section>
+          )}
+
+          {deep.own && (
+            <section>
+              <h2 className="dsp dsp-md">{g.ownTag}</h2>
+              <p className="lede">{deep.own}</p>
+            </section>
+          )}
+
+          {deep.faq.length > 0 && (
+            <section>
+              <h2 className="dsp dsp-md">{g.faqTag}</h2>
+              <div className="faq">
+                {deep.faq.map((qa) => (
+                  <details key={qa.q}>
+                    <summary>{qa.q}<i aria-hidden="true" /></summary>
+                    <p>{qa.a}</p>
+                  </details>
+                ))}
+              </div>
+            </section>
+          )}
+        </article>
+      )}
 
       <section className="wide guide__map" aria-label={g.mapLabel}>
         <CenoteMap t={mapCopy(g)} base={guide} focus={slug} preview={!GUIDE_PUBLISHED} tall={false} />

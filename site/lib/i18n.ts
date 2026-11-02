@@ -63,7 +63,8 @@ export type CenoteCopy = Record<
   | "gestureWin" | "gestureMac" | "gestureTouch" | "cluster" | "close"
   | "filter" | "all" | "count" | "none" | "diveDepth" | "cenoteDepth" | "upTo"
   | "levelTag" | "fromTulum" | "snorkelToo" | "see" | "divesTag" | "nearbyTag"
-  | "back" | "illustration" | "artAlt" | "homeTag" | "homeH2" | "homeIntro" | "homeCta", string
+  | "back" | "illustration" | "artAlt" | "homeTag" | "homeH2" | "homeIntro" | "homeCta"
+  | "diveTag" | "lightTag" | "ownTag" | "faqTag", string
 > & {
   compass: string[];
   types: Record<"open" | "cavern" | "deep", string>;
@@ -72,13 +73,28 @@ export type CenoteCopy = Record<
   items: Record<string, string>;
   /** Alt text for each cenote's own photograph, keyed by slug. */
   alts: Record<string, string>;
+  /**
+   * Kay's own write-up of a cenote, keyed by slug: how the dive goes, when to
+   * come, what it is like if you turn up on your own, and its questions.
+   *
+   * Only the cenotes he has described are in here. A cenote with no entry
+   * keeps the short page it has today, which is honest — the alternative is
+   * padding ten pages to a word count, and a cenote page padded with guesses
+   * is a safety problem before it is an SEO one.
+   */
+  deep: Record<string, {
+    dive: string[];
+    light?: string;
+    own?: string;
+    faq: Qa[];
+  }>;
 };
 
 /** The guide's strings without Kay's texts — all the map needs on the client. */
-export type MapCopy = Omit<CenoteCopy, "items" | "alts">;
+export type MapCopy = Omit<CenoteCopy, "items" | "alts" | "deep">;
 export function mapCopy(c: CenoteCopy): MapCopy {
-  const { items, alts, ...rest } = c;
-  void items; void alts;
+  const { items, alts, deep, ...rest } = c;
+  void items; void alts; void deep;
   return rest;
 }
 
