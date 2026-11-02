@@ -143,8 +143,15 @@ check('divers clamp high', kay_quote(['divers' => 9999] + $base)['total_usd'],
 
 echo "\nDepths match what Kay confirmed\n";
 check('discover scuba is 7 m, not 9',  kay_find_product('discover-scuba')['maxDepthM'], 7);
-check('cenote diving reaches 38 m',    kay_find_product('cenote-diving')['maxDepthM'], 38);
-check('angelita is the deep one',      kay_catalogue()['maxDepthM'], 38);
+// 30, not 38. Angelita bottoms out around 57 m and El Pit at 119, but Kay
+// plans both dives to 30: the deeper water is shown to a diver in person,
+// not sold on a page. These two said 38 because the catalogue did.
+check('the deep cenotes are dived to 30 m', kay_find_product('cenote-diving')['maxDepthM'], 30);
+check('and nothing we sell goes deeper',    kay_catalogue()['maxDepthM'], 30);
+// Dos Ojos takes snorkellers — with a life jacket, since the park changed
+// its rules. The catalogue said it did not.
+$dosOjos = array_values(array_filter(kay_cenotes(), static fn($c) => $c['slug'] === 'dos-ojos'))[0];
+check('Dos Ojos is open to snorkellers', $dosOjos['snorkel'], true);
 
 echo "\nValidation refuses a past date and a malformed email\n";
 $ok = ['product' => 'reef-cenote', 'option' => 2, 'date' => '2099-01-01', 'cert' => 'OW',

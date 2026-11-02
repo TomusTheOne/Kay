@@ -123,12 +123,12 @@
     "sites": {
       "angelita": {
         "name": "Cenote Angelita",
-        "depth": "35–38 m",
+        "depth": "30 m",
         "note": "La nube de ácido sulfhídrico, con ramas muertas que la atraviesan hacia arriba."
       },
       "el-pit": {
         "name": "Cenote El Pit",
-        "depth": "30–32 m",
+        "depth": "30 m",
         "note": "La luz baja por todo el tiro y se queda ahí, quieta."
       },
       "others": {
@@ -160,7 +160,7 @@
         "description": "Buceo guiado en los cenotes de Tulum: dos o tres inmersiones, equipo, entradas y transporte a los sitios incluidos. Desde $200 USD. Se requiere Open Water.",
         "h1": "Buceo en cenotes en Tulum",
         "lede": "Dos o tres inmersiones dentro de las cavernas inundadas de la Riviera Maya, con un guía que conoce cada una. Los cenotes del día los eliges con nosotros.",
-        "who": "Esta salida es para buzos certificados. Con Open Water entras a los cenotes que se quedan dentro de los dieciocho metros, que son la mayoría y los más bonitos en cuanto a luz. Angelita y El Pit bajan de los treinta, y ésos piden Advanced Open Water o Deep Diver — no es una regla nuestra, es la profundidad. Si nunca has buceado, lo tuyo no es esto todavía: empieza por el Discover Scuba, que existe exactamente para eso. Vamos cuatro buzos por guía como máximo, y la proporción no se negocia: si son más, van más guías — un grupo de ocho se lleva junto, con dos.",
+        "who": "Esta salida es para buzos certificados. Con Open Water entras a los cenotes que se quedan dentro de los dieciocho metros, que son la mayoría y los más bonitos en cuanto a luz. Angelita y El Pit se bucean a treinta metros, y ésos piden Advanced Open Water o Deep Diver — no es una regla nuestra, es la profundidad. Si nunca has buceado, lo tuyo no es esto todavía: empieza por el Discover Scuba, que existe exactamente para eso. Vamos cuatro buzos por guía como máximo, y la proporción no se negocia: si son más, van más guías — un grupo de ocho se lleva junto, con dos.",
         "day": [
           "Salimos a las 8:00, 8:30 o 9:00 de la mañana. Si te recogemos en Tulum pueblo o un poco afuera, el transporte se agrega al reservar; si llegas por tu cuenta, nos vemos en el punto de encuentro.",
           "Antes de la primera inmersión ajustamos el equipo contigo y hacemos el briefing: por dónde entra la línea, qué vas a ver, cuánto va a durar. En un cenote eso no es trámite — la orientación es lo que hace que el buceo sea tranquilo.",
@@ -179,11 +179,11 @@
           },
           {
             "q": "¿Es buceo en cueva?",
-            "a": "No. Es buceo en caverna: siempre dentro de la zona donde la luz del día se ve y con la salida a la vista, siguiendo la línea guía. El buceo en cueva propiamente dicho es otra certificación y otra cosa."
+            "a": "No, es buceo en caverna, y la diferencia es precisa. En una caverna la fuente principal de luz es el sol: usamos lámpara en algunos tramos, pero nunca como luz primaria. En una cueva la luz primaria es la lámpara. La otra diferencia es la distancia a la superficie: hasta sesenta metros de recorrido y con algo de luz del día, es caverna. Pasados esos sesenta metros ya es cueva aunque siga entrando luz, y también lo es si antes de los sesenta ya no hay luz del día. Para cueva hace falta la certificación Full Cave; para caverna, Open Water como mínimo."
           },
           {
             "q": "¿Qué tan profundo se baja?",
-            "a": "La mayoría de los cenotes se quedan dentro de los dieciocho metros. Angelita llega a treinta y ocho y El Pit a treinta y dos, y ésos piden Advanced o Deep."
+            "a": "La mayoría de los cenotes se planean a dieciocho metros. Angelita y El Pit se bucean a treinta, y ésos piden Advanced o Deep. Los dos cenotes son bastante más profundos que eso; treinta metros es hasta donde bajamos."
           },
           {
             "q": "¿Hace frío en el agua?",
@@ -744,7 +744,7 @@
       },
       {
         "q": "¿Hasta qué profundidad van las inmersiones?",
-        "a": "Discover Scuba se queda en siete metros (25 ft). El curso Open Water y el arrecife rondan los nueve metros. La mayoría de las inmersiones en cenote se planean a dieciocho metros. Las dos profundas van más allá: el Cenote Angelita llega a 35–38 metros y el Cenote El Pit a 30–32. El curso Advanced trabaja hasta 27 metros (90 ft)."
+        "a": "Discover Scuba se queda en siete metros (25 ft). El curso Open Water y el arrecife rondan los nueve metros. La mayoría de las inmersiones en cenote se planean a dieciocho metros. Las dos profundas van más allá: el Cenote Angelita y el Cenote El Pit se bucean a 30 metros. El curso Advanced trabaja hasta 27 metros (90 ft)."
       },
       {
         "q": "¿Qué incluye realmente el precio?",

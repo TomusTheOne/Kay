@@ -123,12 +123,12 @@
     "sites": {
       "angelita": {
         "name": "Cenote Angelita",
-        "depth": "35–38 m",
+        "depth": "30 m",
         "note": "Le nuage d'hydrogène sulfuré, traversé de branches mortes qui le percent."
       },
       "el-pit": {
         "name": "Cenote El Pit",
-        "depth": "30–32 m",
+        "depth": "30 m",
         "note": "La lumière descend tout le puits et reste là, suspendue."
       },
       "others": {
@@ -160,7 +160,7 @@
         "description": "Plongée guidée dans les cenotes de Tulum : deux ou trois plongées, équipement, entrées et transport sur les sites compris. Dès 200 $ US. Open Water exigé.",
         "h1": "Plongée en cenote à Tulum",
         "lede": "Deux ou trois plongées dans les cavernes noyées de la Riviera Maya, avec un guide qui les connaît une par une. Les cenotes de la journée, vous les choisissez avec nous.",
-        "who": "Cette sortie s'adresse aux plongeurs certifiés. Avec un Open Water, vous plongez les cenotes qui restent dans les dix-huit mètres, c'est-à-dire la plupart, et les plus beaux pour la lumière. Angelita et El Pit descendent au-delà de trente : ceux-là demandent un Advanced Open Water ou un Deep Diver — ce n'est pas notre règle, c'est la profondeur. Si vous n'avez jamais plongé, ce n'est pas encore pour vous : commencez par le Discover Scuba, qui existe précisément pour ça. Nous plongeons quatre plongeurs par guide au maximum, et la proportion ne se négocie pas : plus de monde, plus de guides — un groupe de huit part ensemble, avec deux.",
+        "who": "Cette sortie s'adresse aux plongeurs certifiés. Avec un Open Water, vous plongez les cenotes qui restent dans les dix-huit mètres, c'est-à-dire la plupart, et les plus beaux pour la lumière. Angelita et El Pit se plongent à trente mètres : ceux-là demandent un Advanced Open Water ou un Deep Diver — ce n'est pas notre règle, c'est la profondeur. Si vous n'avez jamais plongé, ce n'est pas encore pour vous : commencez par le Discover Scuba, qui existe précisément pour ça. Nous plongeons quatre plongeurs par guide au maximum, et la proportion ne se négocie pas : plus de monde, plus de guides — un groupe de huit part ensemble, avec deux.",
         "day": [
           "Départ à 8h00, 8h30 ou 9h00. Si nous venons vous chercher à Tulum ou un peu en dehors, le transport s'ajoute à la réservation ; si vous venez par vos propres moyens, rendez-vous au point de rencontre.",
           "Avant la première plongée, nous ajustons l'équipement avec vous et faisons le briefing : où passe le fil, ce que vous allez voir, combien de temps cela dure. Dans un cenote ce n'est pas une formalité — c'est l'orientation qui rend la plongée tranquille.",
@@ -179,11 +179,11 @@
           },
           {
             "q": "Est-ce de la plongée souterraine ?",
-            "a": "Non. C'est de la plongée en caverne : toujours dans la zone où la lumière du jour est visible et la sortie en vue, en suivant le fil. La plongée en grotte à proprement parler est une autre certification et autre chose."
+            "a": "Non, c'est de la plongée en caverne, et la limite entre les deux est précise. En caverne, la source de lumière principale est le soleil : nous utilisons une lampe par endroits, jamais comme lumière première. En grotte, la lumière première est la lampe. L'autre différence est la distance jusqu'à la surface : jusqu'à soixante mètres de progression avec un peu de lumière du jour, c'est une caverne. Au-delà de ces soixante mètres c'est une grotte même si la lumière passe encore, et c'en est une aussi en deçà dès que la lumière du jour a disparu. La grotte exige une certification Full Cave ; la caverne, l'Open Water au minimum."
           },
           {
             "q": "Jusqu'à quelle profondeur ?",
-            "a": "La plupart des cenotes restent dans les dix-huit mètres. Angelita atteint trente-huit et El Pit trente-deux : ceux-là demandent un Advanced ou un Deep."
+            "a": "La plupart des cenotes se planifient à dix-huit mètres. Angelita et El Pit se plongent à trente, et ceux-là demandent un Advanced ou un Deep. Les deux cenotes descendent bien plus bas ; trente mètres, c'est jusqu'où nous allons."
           },
           {
             "q": "L'eau est-elle froide ?",
@@ -744,7 +744,7 @@
       },
       {
         "q": "Jusqu'à quelle profondeur descendent les plongées ?",
-        "a": "Discover Scuba reste à sept mètres (25 ft). La formation Open Water et le récif tournent autour de neuf mètres. La plupart des plongées en cenote sont planifiées à dix-huit mètres. Les deux profondes vont plus loin : le Cenote Angelita atteint 35–38 mètres et le Cenote El Pit 30–32. La formation Advanced travaille jusqu'à 27 mètres (90 ft)."
+        "a": "Discover Scuba reste à sept mètres (25 ft). La formation Open Water et le récif tournent autour de neuf mètres. La plupart des plongées en cenote sont planifiées à dix-huit mètres. Les deux profondes vont plus loin : le Cenote Angelita et le Cenote El Pit se plongent à 30 mètres. La formation Advanced travaille jusqu'à 27 mètres (90 ft)."
       },
       {
         "q": "Qu'est-ce que le tarif comprend vraiment ?",

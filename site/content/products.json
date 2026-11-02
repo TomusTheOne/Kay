@@ -8,7 +8,7 @@
     "es",
     "fr"
   ],
-  "maxDepthM": 38,
+  "maxDepthM": 30,
   "depositRate": 0.3,
   "shop": {
     "lat": 20.2114,
@@ -84,8 +84,8 @@
       "slug": "cenote-diving",
       "kind": "dive",
       "level": "open-water-plus",
-      "maxDepthFt": 125,
-      "maxDepthM": 38,
+      "maxDepthFt": 100,
+      "maxDepthM": 30,
       "diveTime": "30–45 min",
       "locations": [
         "by-level"
@@ -108,14 +108,14 @@
       "sites": [
         {
           "slug": "angelita",
-          "minM": 35,
-          "maxM": 38,
+          "minM": null,
+          "maxM": 30,
           "deep": true
         },
         {
           "slug": "el-pit",
-          "minM": 30,
-          "maxM": 32,
+          "minM": null,
+          "maxM": 30,
           "deep": true
         },
         {
