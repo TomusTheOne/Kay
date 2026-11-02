@@ -1033,6 +1033,49 @@
       "nicte-ha": "The clear turquoise water of Cenote Nicte-Ha, dotted with water lilies, below a wall of rock and jungle",
       "nohoch-nah-chich": "The turquoise water of Cenote Nohoch Nah Chich under a rock overhang, wooden steps leading down into it"
     },
-    "artAlt": "Illustration: {name}"
+    "artAlt": "Illustration: {name}",
+    "diveTag": "What the dive is like",
+    "lightTag": "When to go",
+    "ownTag": "Going on your own",
+    "faqTag": "Questions",
+    "deep": {
+      "dos-ojos": {
+        "dive": [
+          "It is a semi-open cenote. At water level there is a platform that splits the area in two: one side for divers, the other for snorkellers. The platform sits in the east eye — the other is the west eye, and that is where the name comes from, because in Mexico a roundish body of water of a certain size is called an ojo de agua, an eye of water.",
+          "We kit up at the parking area above and walk down ready to get in. There are two ways into the water: sit on the steps, put your fins on and enter from there, or put them on standing at the edge of the platform and take a giant stride forward.",
+          "Before we start we run a buoyancy check. We do it on anyone's first cenote dive, without exception: fresh water does not hold you the way salt water does, and most people need to adjust the weight they would use in the sea.",
+          "There are two different dives here. Both start in the east eye and finish in the west eye, but they take in different parts of the cavern. The Barbie Line is named for the Barbie doll tied to the line at the halfway point — it is the marker that tells you you are exactly half way. It is the brighter of the two, and the longer.",
+          "The Bat Cave is darker and far less exposed to the light. With about a third of the dive left we surface inside a chamber with bats and stalactite formations — fruit bats, the ones that live on fruit. Hence the name. Both dives are beautiful and both stay with you."
+        ],
+        "light": "Dive it early. It is one of the most popular cenotes in the area, and by mid-morning there are considerably more people in the water — especially in high season.",
+        "own": "Yes, you can snorkel here, in the area the platform keeps separate from the divers. The park's rules have changed over the years: swimming is now only allowed with a life jacket. The bat chamber can be explored on snorkel too.",
+        "faq": [
+          {
+            "q": "Do I need a certification to dive Dos Ojos?",
+            "a": "Open Water is enough. This is cavern diving, not cave diving: daylight is the primary light source and the exit is always in sight, following the guideline."
+          },
+          {
+            "q": "Why is it called Dos Ojos?",
+            "a": "For the two connected bodies of water that make up the site, the east eye and the west eye. In Mexico a roundish body of water of a certain size is called an ojo de agua — an eye of water."
+          },
+          {
+            "q": "What is the difference between the Barbie Line and the Bat Cave?",
+            "a": "The Barbie Line is the brighter route and the longer one; a Barbie doll is tied to the line at the halfway point as a marker. The Bat Cave is darker, and a third from the end you surface in a chamber with fruit bats and stalactites."
+          },
+          {
+            "q": "How deep is it?",
+            "a": "The dives stay within ten metres. This is a dive about light and formations, not about depth."
+          },
+          {
+            "q": "Can you snorkel at Dos Ojos?",
+            "a": "Yes, in the area kept separate from the divers. The park changed its rules and swimming is now only allowed with a life jacket. The bat chamber can be seen on snorkel as well."
+          },
+          {
+            "q": "What time should I get there?",
+            "a": "Early. It is one of the most visited cenotes and it fills up quickly, especially in high season."
+          }
+        ]
+      }
+    }
   }
 }

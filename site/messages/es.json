@@ -1035,6 +1035,49 @@
       "nicte-ha": "El agua turquesa y cristalina del Cenote Nicte-Ha, cubierta de nenúfares, al pie de una pared de roca y selva",
       "nohoch-nah-chich": "El agua turquesa del Cenote Nohoch Nah Chich bajo una bóveda de roca, con una escalera de madera que baja al agua"
     },
-    "artAlt": "Ilustración: {name}"
+    "artAlt": "Ilustración: {name}",
+    "diveTag": "Cómo es bucearlo",
+    "lightTag": "Cuándo ir",
+    "ownTag": "Si vas por tu cuenta",
+    "faqTag": "Preguntas",
+    "deep": {
+      "dos-ojos": {
+        "dive": [
+          "Es un cenote semiabierto. Al llegar al nivel del agua hay una plataforma que parte la zona en dos: un lado para buzos y otro para quien va a hacer snorkel. La plataforma está en el ojo este — el otro es el ojo oeste, y de ahí viene el nombre, porque en México a un cuerpo de agua redondeado de cierto tamaño se le llama un ojo de agua.",
+          "Nos equipamos arriba, en la zona del estacionamiento, y bajamos ya listos para entrar. Hay dos maneras de meterse al agua: sentarse en la escalera, ponerse las aletas y entrar desde ahí, o ponérselas de pie al borde de la plataforma y dar un paso de gigante hacia delante.",
+          "Antes de arrancar hacemos un chequeo de flotabilidad. Lo hacemos en cualquier primer buceo en cenote, sin excepción: el agua dulce no sostiene como la salada, y mucha gente necesita ajustar el plomo que usaría en el mar.",
+          "Hacemos dos buceos distintos. Los dos empiezan en el ojo este y terminan en el ojo oeste, pero recorren partes diferentes de la caverna. La Barbie Line se llama así porque a la mitad del recorrido hay una muñeca Barbie amarrada a la línea: es la referencia que te dice que vas justo por la mitad. Es el más luminoso de los dos, y también el más largo.",
+          "La Bat Cave es más oscuro y está menos expuesto a la luz. Cuando queda alrededor de un tercio del buceo salimos a la superficie dentro de una cueva con murciélagos y formaciones de estalactitas — son murciélagos frugívoros, de los que comen fruta. De ahí el nombre. Los dos buceos son bonitos y los dos se quedan contigo."
+        ],
+        "light": "Conviene bucearlo temprano. Es uno de los cenotes más populares de la zona, y a media mañana hay bastante más gente en el agua — sobre todo en temporada alta.",
+        "own": "Sí se puede hacer snorkel, y la zona está separada de la de buzos por esa misma plataforma. El reglamento del parque ha cambiado con los años: ahora solo dejan nadar con chaleco salvavidas. La cueva de los murciélagos también se puede explorar haciendo snorkel.",
+        "faq": [
+          {
+            "q": "¿Necesito certificación para bucear en Dos Ojos?",
+            "a": "Open Water es suficiente. Es buceo en caverna, no en cueva: la luz del día es la fuente principal y la salida está siempre a la vista, siguiendo la línea guía."
+          },
+          {
+            "q": "¿Por qué se llama Dos Ojos?",
+            "a": "Por los dos cuerpos de agua conectados que forman el sitio, el ojo este y el ojo oeste. En México, a un cuerpo de agua redondeado de cierto tamaño se le llama un ojo de agua."
+          },
+          {
+            "q": "¿Cuál es la diferencia entre la Barbie Line y la Bat Cave?",
+            "a": "La Barbie Line es el recorrido más luminoso y el más largo; tiene una muñeca Barbie amarrada a la línea a la mitad, como referencia. La Bat Cave es más oscuro, y a un tercio del final se sale a la superficie dentro de una cueva con murciélagos frugívoros y estalactitas."
+          },
+          {
+            "q": "¿Qué profundidad tiene?",
+            "a": "Las inmersiones se quedan dentro de los diez metros. Es un buceo de luz y de formaciones, no de profundidad."
+          },
+          {
+            "q": "¿Se puede hacer snorkel en Dos Ojos?",
+            "a": "Sí, en la zona separada de la de buzos. El parque cambió su reglamento y ahora solo se puede nadar con chaleco salvavidas. La cueva de los murciélagos también se puede ver haciendo snorkel."
+          },
+          {
+            "q": "¿A qué hora conviene llegar?",
+            "a": "Temprano. Es de los cenotes más visitados y llena pronto, sobre todo en temporada alta."
+          }
+        ]
+      }
+    }
   }
 }
