@@ -23,7 +23,7 @@
     {
       "slug": "dos-ojos", "name": "Cenote Dos Ojos", "short": "Dos Ojos",
       "lat": 20.32473, "lon": -87.39061, "approx": false,
-      "type": "cavern", "level": "open-water", "snorkel": false,
+      "type": "cavern", "level": "open-water", "snorkel": true,
       "depthM": 10, "diveMinM": null, "diveMaxM": 10,
       "products": ["cenote-diving"],
       "photo": "cenote-dos-ojos", "art": "cavern"
@@ -32,7 +32,7 @@
       "slug": "el-pit", "name": "Cenote El Pit", "short": "El Pit",
       "lat": 20.32318, "lon": -87.40978, "approx": false,
       "type": "deep", "level": "advanced", "snorkel": false,
-      "depthM": 119, "diveMinM": 30, "diveMaxM": 32,
+      "depthM": 119, "diveMinM": null, "diveMaxM": 30,
       "products": ["cenote-diving", "advanced-ow"],
       "photo": "cenote-el-pit", "art": "the-pit"
     },
@@ -40,7 +40,7 @@
       "slug": "angelita", "name": "Cenote Angelita", "short": "Angelita",
       "lat": 20.13746, "lon": -87.57825, "approx": false,
       "type": "deep", "level": "advanced", "snorkel": false,
-      "depthM": 60, "diveMinM": 35, "diveMaxM": 38,
+      "depthM": 57, "diveMinM": null, "diveMaxM": 30,
       "products": ["cenote-diving", "advanced-ow"],
       "photo": "cenote-angelita", "art": "halocline"
     },

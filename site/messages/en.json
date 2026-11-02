@@ -123,12 +123,12 @@
     "sites": {
       "angelita": {
         "name": "Cenote Angelita",
-        "depth": "35–38 m",
+        "depth": "30 m",
         "note": "The hydrogen sulphide cloud, with dead branches rising through it."
       },
       "el-pit": {
         "name": "Cenote El Pit",
-        "depth": "30–32 m",
+        "depth": "30 m",
         "note": "Light falls the whole way down the shaft and simply stands there."
       },
       "others": {
@@ -160,7 +160,7 @@
         "description": "Guided cenote diving in Tulum: two or three dives, equipment, cenote entrance and transport to the sites included. From $200 USD. Open Water required.",
         "h1": "Cenote diving in Tulum",
         "lede": "Two or three dives inside the flooded caverns of the Riviera Maya, with a guide who knows each one. You pick the day's cenotes with us.",
-        "who": "This one is for certified divers. With Open Water you dive the cenotes that stay inside eighteen metres, which is most of them and the finest for light. Angelita and El Pit drop past thirty, and those ask for Advanced Open Water or Deep Diver — that is not our rule, it is the depth. If you have never dived, this is not yours yet: start with the Discover Scuba, which exists for exactly that. We dive four divers per guide at most, and the ratio is not negotiable: more people means more guides — a group of eight goes together, with two.",
+        "who": "This one is for certified divers. With Open Water you dive the cenotes that stay inside eighteen metres, which is most of them and the finest for light. Angelita and El Pit are dived to thirty metres, and those ask for Advanced Open Water or Deep Diver — that is not our rule, it is the depth. If you have never dived, this is not yours yet: start with the Discover Scuba, which exists for exactly that. We dive four divers per guide at most, and the ratio is not negotiable: more people means more guides — a group of eight goes together, with two.",
         "day": [
           "We leave at 8:00, 8:30 or 9:00 in the morning. If we pick you up in Tulum town or a little outside it, the transport is added when you book; if you make your own way, we meet at the meeting point.",
           "Before the first dive we fit your gear with you and run the briefing: where the line goes, what you will see, how long it lasts. In a cenote that is not a formality — the orientation is what makes the dive a calm one.",
@@ -179,11 +179,11 @@
           },
           {
             "q": "Is this cave diving?",
-            "a": "No. It is cavern diving: always within the zone where daylight is visible and the exit is in sight, following the guideline. Cave diving proper is a different certification and a different thing."
+            "a": "No, it is cavern diving, and the line between them is precise. In a cavern the primary light source is the sun: we use torches in places, but never as the primary light. In a cave the primary light is the torch. The other difference is the distance back to the surface: up to sixty metres of penetration with some daylight is cavern. Past those sixty metres it is cave even if daylight still reaches, and so is anything inside sixty metres where the daylight has gone. Cave diving needs a Full Cave certification; cavern diving needs Open Water as a minimum."
           },
           {
             "q": "How deep does it go?",
-            "a": "Most of the cenotes stay inside eighteen metres. Angelita reaches thirty-eight and El Pit thirty-two, and those ask for Advanced or Deep."
+            "a": "Most of the cenotes are planned to eighteen metres. Angelita and El Pit are dived to thirty, and those ask for Advanced or Deep. Both cenotes go a great deal deeper than that; thirty metres is how far we take you."
           },
           {
             "q": "Is the water cold?",
@@ -744,7 +744,7 @@
       },
       {
         "q": "How deep do the dives go?",
-        "a": "Discover Scuba stays at seven metres (25 ft). The Open Water course and the reef stay around nine metres. Most cenote dives are planned to eighteen metres. The two deep ones go further: Cenote Angelita reaches 35–38 metres and Cenote El Pit 30–32. The Advanced course works to 27 metres (90 ft)."
+        "a": "Discover Scuba stays at seven metres (25 ft). The Open Water course and the reef stay around nine metres. Most cenote dives are planned to eighteen metres. The two deep ones go further: Cenote Angelita and Cenote El Pit are dived to 30 metres. The Advanced course works to 27 metres (90 ft)."
       },
       {
         "q": "What is actually included in the price?",
