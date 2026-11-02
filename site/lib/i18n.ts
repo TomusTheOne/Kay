@@ -64,7 +64,7 @@ export type CenoteCopy = Record<
   | "filter" | "all" | "count" | "none" | "diveDepth" | "cenoteDepth" | "upTo"
   | "levelTag" | "fromTulum" | "snorkelToo" | "see" | "divesTag" | "nearbyTag"
   | "back" | "illustration" | "artAlt" | "homeTag" | "homeH2" | "homeIntro" | "homeCta"
-  | "diveTag" | "lightTag" | "ownTag" | "faqTag", string
+  | "lightTag" | "ownTag" | "faqTag", string
 > & {
   compass: string[];
   types: Record<"open" | "cavern" | "deep", string>;
@@ -83,7 +83,13 @@ export type CenoteCopy = Record<
    * is a safety problem before it is an SEO one.
    */
   deep: Record<string, {
-    dive: string[];
+    /**
+     * The dive itself, in the order it happens, cut into sections that carry
+     * their own heading. Free-form on purpose: what is worth a heading differs
+     * per cenote — Angelita's cloud, El Pit's halocline — and a fixed shape
+     * would force every write-up through the same four boxes.
+     */
+    sections: Array<{ h: string; p: string[] }>;
     light?: string;
     own?: string;
     faq: Qa[];

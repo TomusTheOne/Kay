@@ -1016,9 +1016,9 @@
     "items": {
       "casa-cenote": "Un cenote abierto tipo laguna, conectado directamente al mar Caribe, lo que genera un ecosistema único donde se mezclan el agua dulce y la salada. Su profundidad máxima ronda los 9 metros, ideal para buceadores principiantes y para quienes buscan una inmersión relajada. Está rodeado de manglares y su visibilidad, aunque variable, ofrece la oportunidad de nadar junto a peces, tortugas y, en ocasiones, un cocodrilo de agua dulce (de la especie Crocodylus moreletii). Perfecto para combinar el buceo recreativo con el contacto directo con la vida silvestre.",
       "car-wash": "Bajo una superficie tranquila y accesible se esconde uno de los cenotes más fotografiados de la Riviera Maya. Sus aguas transparentes están decoradas con lirios acuáticos que flotan en la superficie, mientras que en las profundidades aparecen troncos petrificados y una impresionante galería de estalactitas y estalagmitas. Con hasta 16 metros de profundidad, es perfecto tanto para snorkel como para buceo en caverna, y los rayos de sol que se filtran entre la vegetación crean juegos de luz que hacen de cada inmersión una experiencia casi cinematográfica.",
-      "dos-ojos": "Uno de los sistemas de cuevas inundadas más famosos del mundo, formado por dos cenotes conectados que, vistos desde arriba, dan la ilusión de “dos ojos”. Ofrece rutas de buceo en caverna como “The Barbie Line” y “The Bat Cave”, con aguas cristalinas de visibilidad superior a 30 metros, impresionantes estalactitas y formaciones rocosas milenarias. Su profundidad máxima es de aproximadamente 10 metros en las zonas abiertas. Forma parte del sistema de cuevas sumergidas más extenso del mundo, con alrededor de 369 kilómetros. Una excelente opción para quienes nunca han buceado en un cenote.",
-      "el-pit": "Considerado uno de los cenotes más profundos y dramáticos de la Riviera Maya, con una profundidad de hasta 119 metros. Es famoso por su columna de luz que atraviesa el agua, por su haloclina (la mezcla de agua dulce y salada) y por una nube de ácido sulfhídrico a unos 30 metros, que le da un efecto visual de “niebla” submarina. Recomendado para buceadores avanzados o con certificación técnica, ofrece una de las experiencias de buceo en cenotes más impactantes del mundo.",
-      "angelita": "Con aproximadamente 60 metros de profundidad, este cenote guarda uno de los fenómenos más impactantes del buceo en cavernas: una nube de ácido sulfhídrico que flota sobre el agua salada a unos 30 metros, creando la ilusión óptica de un río subterráneo con troncos y hojarasca “flotando” en el aire. Atravesar esa capa es como cruzar un umbral hacia otra dimensión, que revela un paisaje sumergido envuelto en una bruma espectral. Una experiencia mística y sobrecogedora, reservada para buceadores avanzados que buscan algo verdaderamente único.",
+      "dos-ojos": "Dos cuerpos de agua conectados que, vistos desde arriba, parecen un par de ojos. Forman parte del sistema de cuevas inundadas más largo del mundo —unos 369 kilómetros— y se bucean en caverna: la luz del día siempre presente y la salida a la vista. Es el cenote con el que casi todo el mundo empieza, y basta el Open Water.",
+      "el-pit": "Un pozo casi cilíndrico que se hunde mucho más allá de donde llega el buceo recreativo. Tiene haloclina, ácido sulfhídrico, estalactitas de varios metros y, en los meses correctos, rayos de sol que bajan hasta el fondo. Pide Advanced Open Water, y por eso es de los cenotes con menos gente al día.",
+      "angelita": "El cenote más extraño de los que buceamos. Una capa de ácido sulfhídrico convierte el fondo en lo que parece un río con una isla en medio, y cruzarla cambia por completo el buceo. Es profundo, vertical y no está conectado a ninguna otra cueva; pide Advanced Open Water.",
       "dreamgate": "Un cenote de tipo caverna con entrada circular, conocido por la extraordinaria claridad de su agua y por las imponentes columnas y formaciones rocosas que descienden hasta el fondo. La luz natural que se filtra por la abertura superior crea efectos visuales espectaculares. Es ideal para el buceo en caverna, con recorridos que muestran salas amplias y una atmósfera casi ceremonial.",
       "tak-be-luum": "Un cenote menos conocido y, por eso, más virgen, ubicado en la zona del Parque Dos Ojos. Ofrece pasajes de caverna con formaciones geológicas bien conservadas, aguas tranquilas y una experiencia más íntima, porque recibe menos visitantes. Ideal para quienes buscan explorar cenotes fuera de las rutas más turísticas.",
       "tak-be-ha": "Sistema de cuevas con salas amplias, estalactitas y estalagmitas bien definidas, y una marcada haloclina que produce efectos visuales de distorsión donde se mezclan el agua dulce y la salada. Ofrece un ambiente sereno, ideal para buceadores certificados que buscan formaciones geológicas espectaculares en un entorno poco masificado.",
@@ -1036,18 +1036,37 @@
       "nohoch-nah-chich": "El agua turquesa del Cenote Nohoch Nah Chich bajo una bóveda de roca, con una escalera de madera que baja al agua"
     },
     "artAlt": "Ilustración: {name}",
-    "diveTag": "Cómo es bucearlo",
     "lightTag": "Cuándo ir",
     "ownTag": "Si vas por tu cuenta",
     "faqTag": "Preguntas",
     "deep": {
       "dos-ojos": {
-        "dive": [
-          "Es un cenote semiabierto. Al llegar al nivel del agua hay una plataforma que parte la zona en dos: un lado para buzos y otro para quien va a hacer snorkel. La plataforma está en el ojo este — el otro es el ojo oeste, y de ahí viene el nombre, porque en México a un cuerpo de agua redondeado de cierto tamaño se le llama un ojo de agua.",
-          "Nos equipamos arriba, en la zona del estacionamiento, y bajamos ya listos para entrar. Hay dos maneras de meterse al agua: sentarse en la escalera, ponerse las aletas y entrar desde ahí, o ponérselas de pie al borde de la plataforma y dar un paso de gigante hacia delante.",
-          "Antes de arrancar hacemos un chequeo de flotabilidad. Lo hacemos en cualquier primer buceo en cenote, sin excepción: el agua dulce no sostiene como la salada, y mucha gente necesita ajustar el plomo que usaría en el mar.",
-          "Hacemos dos buceos distintos. Los dos empiezan en el ojo este y terminan en el ojo oeste, pero recorren partes diferentes de la caverna. La Barbie Line se llama así porque a la mitad del recorrido hay una muñeca Barbie amarrada a la línea: es la referencia que te dice que vas justo por la mitad. Es el más luminoso de los dos, y también el más largo.",
-          "La Bat Cave es más oscuro y está menos expuesto a la luz. Cuando queda alrededor de un tercio del buceo salimos a la superficie dentro de una cueva con murciélagos y formaciones de estalactitas — son murciélagos frugívoros, de los que comen fruta. De ahí el nombre. Los dos buceos son bonitos y los dos se quedan contigo."
+        "sections": [
+          {
+            "h": "Los dos ojos",
+            "p": [
+              "Es un cenote semiabierto. Al llegar al nivel del agua hay una plataforma que parte la zona en dos: un lado para buzos y otro para quien va a hacer snorkel. La plataforma está en el ojo este — el otro es el ojo oeste, y de ahí viene el nombre, porque en México a un cuerpo de agua redondeado de cierto tamaño se le llama un ojo de agua."
+            ]
+          },
+          {
+            "h": "Cómo se entra al agua",
+            "p": [
+              "Nos equipamos arriba, en la zona del estacionamiento, y bajamos ya listos para entrar. Hay dos maneras de meterse al agua: sentarse en la escalera, ponerse las aletas y entrar desde ahí, o ponérselas de pie al borde de la plataforma y dar un paso de gigante hacia delante.",
+              "Antes de arrancar hacemos un chequeo de flotabilidad. Lo hacemos en cualquier primer buceo en cenote, sin excepción: el agua dulce no sostiene como la salada, y mucha gente necesita ajustar el plomo que usaría en el mar."
+            ]
+          },
+          {
+            "h": "La Barbie Line",
+            "p": [
+              "Hacemos dos buceos distintos. Los dos empiezan en el ojo este y terminan en el ojo oeste, pero recorren partes diferentes de la caverna. La Barbie Line se llama así porque a la mitad del recorrido hay una muñeca Barbie amarrada a la línea: es la referencia que te dice que vas justo por la mitad. Es el más luminoso de los dos, y también el más largo."
+            ]
+          },
+          {
+            "h": "La Bat Cave",
+            "p": [
+              "La Bat Cave es más oscuro y está menos expuesto a la luz. Cuando queda alrededor de un tercio del buceo salimos a la superficie dentro de una cueva con murciélagos y formaciones de estalactitas — son murciélagos frugívoros, de los que comen fruta. De ahí el nombre. Los dos buceos son bonitos y los dos se quedan contigo."
+            ]
+          }
         ],
         "light": "Conviene bucearlo temprano. Es uno de los cenotes más populares de la zona, y a media mañana hay bastante más gente en el agua — sobre todo en temporada alta.",
         "own": "Sí se puede hacer snorkel, y la zona está separada de la de buzos por esa misma plataforma. El reglamento del parque ha cambiado con los años: ahora solo dejan nadar con chaleco salvavidas. La cueva de los murciélagos también se puede explorar haciendo snorkel.",
@@ -1079,15 +1098,50 @@
         ]
       },
       "angelita": {
-        "dive": [
-          "Se entra bajando una plataforma pequeña de madera hasta el agua. Ahí te pones las aletas y entras con un paso de gigante.",
-          "La visibilidad de Angelita es particular. El agua tira a verdosa, por el reflejo de la vegetación de afuera y sobre todo porque este cenote no está conectado a ninguna otra cueva: no tiene el flujo constante de agua que sí tienen Dos Ojos o El Pit, y eso les da a ellos un agua más cristalina. La de Angelita es buena, solo que no tanto como la de la mayoría.",
-          "Nos gusta descender pegados a la plataforma para que puedas usar la pared como referencia. Al principio solo hay agua alrededor, sin nada obvio a lo que agarrarse con la vista.",
-          "Conforme te acercas al fondo empieza a aparecer la isla. Es una montaña de escombros caídos a lo largo de miles de años, y su cima queda justo por encima de la nube de ácido sulfhídrico. La nube parece un río que cubre el cenote entero y deja solo esa cima afuera: de ahí la ilusión de una isla. Con el gas, la montaña y los árboles caídos al fondo, la imagen es completamente surreal.",
-          "La nube empieza alrededor de los veintiocho metros. Nuestro buceo se planea a treinta. A quien lo pide y tiene la experiencia se le puede bajar a atravesarla —termina hacia los treinta y tres metros—, y eso se habla en el sitio, contigo, no se vende por internet. Por debajo la visibilidad es buena pero está oscuro, porque la nube se come la luz del día; con la lámpara se ve todo perfectamente. Nos quedamos ahí un par de minutos y empezamos a subir. Volver de la nube hacia arriba es de los momentos más particulares del buceo. Por encima de ella el agua es dulce; por debajo, salada.",
-          "Seguimos subiendo despacio, en círculo, hasta una pequeña caverna en forma de U a unos catorce metros, con una sola entrada y una sola salida. Es estrecha y le da un toque muy agradable a la mitad del buceo.",
-          "Al salir de ahí ascendemos lentamente hasta los cinco metros, donde hacemos la parada de seguridad. En esa última parte se ven formaciones de piedra muy particulares y algunos árboles que cayeron al cenote pero se quedaron atorados arriba, entre las rocas, sin llegar al fondo. Algunos parecen suspendidos en el agua.",
-          "Un dato que me gusta contar: hace años Angelita salió en el programa de Alienígenas Ancestrales del History Channel, porque el cenote encaja con una leyenda tolteca que habla de un lugar así. En ese mundo de las teorías hay quien cree que los toltecas tuvieron contacto con otras civilizaciones. Es cultura popular y mito, nada más, pero es parte de lo que se platica aquí abajo."
+        "sections": [
+          {
+            "h": "La entrada y el descenso",
+            "p": [
+              "Se entra bajando una plataforma pequeña de madera hasta el agua. Ahí te pones las aletas y entras con un paso de gigante.",
+              "Nos gusta descender pegados a la plataforma para que puedas usar la pared como referencia. Al principio solo hay agua alrededor, sin nada obvio a lo que agarrarse con la vista."
+            ]
+          },
+          {
+            "h": "Por qué el agua se ve verdosa",
+            "p": [
+              "La visibilidad de Angelita es particular. El agua tira a verdosa, por el reflejo de la vegetación de afuera y sobre todo porque este cenote no está conectado a ninguna otra cueva: no tiene el flujo constante de agua que sí tienen Dos Ojos o El Pit, y eso les da a ellos un agua más cristalina. La de Angelita es buena, solo que no tanto como la de la mayoría."
+            ]
+          },
+          {
+            "h": "La nube y la isla",
+            "p": [
+              "Conforme te acercas al fondo empieza a aparecer la isla. Es una montaña de escombros caídos a lo largo de miles de años, y su cima queda justo por encima de la nube de ácido sulfhídrico. La nube parece un río que cubre el cenote entero y deja solo esa cima afuera: de ahí la ilusión de una isla. Con el gas, la montaña y los árboles caídos al fondo, la imagen es completamente surreal."
+            ]
+          },
+          {
+            "h": "Atravesar la nube",
+            "p": [
+              "La nube empieza alrededor de los veintiocho metros. Nuestro buceo se planea a treinta. A quien lo pide y tiene la experiencia se le puede bajar a atravesarla —termina hacia los treinta y tres metros—, y eso se habla en el sitio, contigo, no se vende por internet. Por debajo la visibilidad es buena pero está oscuro, porque la nube se come la luz del día; con la lámpara se ve todo perfectamente. Nos quedamos ahí un par de minutos y empezamos a subir. Volver de la nube hacia arriba es de los momentos más particulares del buceo. Por encima de ella el agua es dulce; por debajo, salada."
+            ]
+          },
+          {
+            "h": "La caverna en forma de U",
+            "p": [
+              "Seguimos subiendo despacio, en círculo, hasta una pequeña caverna en forma de U a unos catorce metros, con una sola entrada y una sola salida. Es estrecha y le da un toque muy agradable a la mitad del buceo."
+            ]
+          },
+          {
+            "h": "El ascenso y los árboles suspendidos",
+            "p": [
+              "Al salir de ahí ascendemos lentamente hasta los cinco metros, donde hacemos la parada de seguridad. En esa última parte se ven formaciones de piedra muy particulares y algunos árboles que cayeron al cenote pero se quedaron atorados arriba, entre las rocas, sin llegar al fondo. Algunos parecen suspendidos en el agua."
+            ]
+          },
+          {
+            "h": "Angelita en la cultura popular",
+            "p": [
+              "Un dato que me gusta contar: hace años Angelita salió en el programa de Alienígenas Ancestrales del History Channel, porque el cenote encaja con una leyenda tolteca que habla de un lugar así. En ese mundo de las teorías hay quien cree que los toltecas tuvieron contacto con otras civilizaciones. Es cultura popular y mito, nada más, pero es parte de lo que se platica aquí abajo."
+            ]
+          }
         ],
         "light": "La mejor luz para bucearlo es más o menos entre las nueve y las doce de la mañana. Y si llegas temprano, puedes tener el sitio prácticamente para ti durante una hora.",
         "own": "Se puede hacer snorkel, pero honestamente no lo recomiendo. Lo que hace especial a Angelita está a treinta metros, y para snorkel hay sitios mucho mejores cerca de Tulum.",
@@ -1119,15 +1173,55 @@
         ]
       },
       "el-pit": {
-        "dive": [
-          "El Pit está dentro del parque Dos Ojos. De hecho, a unos doce metros hay una cueva que, buceándola unas dos horas y media, sale en el cenote Dos Ojos justo a la altura de la muñeca Barbie — pero eso solo lo puede hacer un buzo certificado en cueva.",
-          "Para empezar se baja una plataforma bastante larga, algo intimidante de ver, pero segura. Abajo te pones las aletas y entras con un paso de gigante. Cuando todos están listos, encendemos las lámparas y empezamos a descender despacio.",
-          "Los primeros catorce metros son agua dulce. Después aparece la haloclina, que es donde se encuentran el agua dulce y la salada. Ahí se pierde algo de visibilidad: la haloclina hace que el agua se vea densa, yo siempre lo comparo con cómo se ve el aceite dentro del agua. Pasada la haloclina, hacia los quince metros, ya es agua salada hasta el fondo.",
-          "Igual que en Angelita, en el fondo hay una isla formada por los árboles y las piedras que han caído a lo largo de miles de años. Aquí también hay ácido sulfhídrico, a los treinta metros, aunque no es tan denso como el de Angelita y no produce el mismo efecto visual. Sigue siendo muy interesante de ver.",
-          "Al llegar a los treinta metros empezamos a ascender lentamente, en círculo: el cenote tiene una forma bastante cilíndrica. El Pit es una de las cuevas más profundas de la región, llega a los ciento cuarenta y dos metros, pero en nuestros buceos solo se alcanzan a percibir los primeros cuarenta.",
-          "Subiendo es cuando se aprecian los rayos de sol entrando y bailando debajo del agua.",
-          "En el techo hay una cantidad enorme de estalactitas, algunas de más de dos o tres metros. Una estalactita tarda unos cuatro mil años en crecer un metro, y solo crece en ambiente semiseco: una vez sumergida deja de crecer para siempre.",
-          "Cuando los arqueólogos exploraron este lugar encontraron restos humanos de unos ocho mil años de antigüedad, de la época de los hombres de las cavernas. También restos de animales del final de la última era glaciar, entre ellos un perezoso gigante que sigue dentro de una de estas cuevas — a ése solo se llega con certificación de cueva, porque no está en la zona de caverna."
+        "sections": [
+          {
+            "h": "Dónde está y con qué conecta",
+            "p": [
+              "El Pit está dentro del parque Dos Ojos. De hecho, a unos doce metros hay una cueva que, buceándola unas dos horas y media, sale en el cenote Dos Ojos justo a la altura de la muñeca Barbie — pero eso solo lo puede hacer un buzo certificado en cueva."
+            ]
+          },
+          {
+            "h": "La entrada y el descenso",
+            "p": [
+              "Para empezar se baja una plataforma bastante larga, algo intimidante de ver, pero segura. Abajo te pones las aletas y entras con un paso de gigante. Cuando todos están listos, encendemos las lámparas y empezamos a descender despacio."
+            ]
+          },
+          {
+            "h": "La haloclina",
+            "p": [
+              "Los primeros catorce metros son agua dulce. Después aparece la haloclina, que es donde se encuentran el agua dulce y la salada. Ahí se pierde algo de visibilidad: la haloclina hace que el agua se vea densa, yo siempre lo comparo con cómo se ve el aceite dentro del agua. Pasada la haloclina, hacia los quince metros, ya es agua salada hasta el fondo."
+            ]
+          },
+          {
+            "h": "El ácido sulfhídrico y la isla del fondo",
+            "p": [
+              "Igual que en Angelita, en el fondo hay una isla formada por los árboles y las piedras que han caído a lo largo de miles de años. Aquí también hay ácido sulfhídrico, a los treinta metros, aunque no es tan denso como el de Angelita y no produce el mismo efecto visual. Sigue siendo muy interesante de ver."
+            ]
+          },
+          {
+            "h": "Hasta dónde bajamos",
+            "p": [
+              "Al llegar a los treinta metros empezamos a ascender lentamente, en círculo: el cenote tiene una forma bastante cilíndrica. El Pit es una de las cuevas más profundas de la región, llega a los ciento cuarenta y dos metros, pero en nuestros buceos solo se alcanzan a percibir los primeros cuarenta."
+            ]
+          },
+          {
+            "h": "Los rayos de luz",
+            "p": [
+              "Subiendo es cuando se aprecian los rayos de sol entrando y bailando debajo del agua."
+            ]
+          },
+          {
+            "h": "Las estalactitas del techo",
+            "p": [
+              "En el techo hay una cantidad enorme de estalactitas, algunas de más de dos o tres metros. Una estalactita tarda unos cuatro mil años en crecer un metro, y solo crece en ambiente semiseco: una vez sumergida deja de crecer para siempre."
+            ]
+          },
+          {
+            "h": "Lo que encontraron los arqueólogos",
+            "p": [
+              "Cuando los arqueólogos exploraron este lugar encontraron restos humanos de unos ocho mil años de antigüedad, de la época de los hombres de las cavernas. También restos de animales del final de la última era glaciar, entre ellos un perezoso gigante que sigue dentro de una de estas cuevas — a ése solo se llega con certificación de cueva, porque no está en la zona de caverna."
+            ]
+          }
         ],
         "light": "Los rayos de luz se ven entre finales de marzo y finales de septiembre, y dentro del día entre las 8:30 y las 12, por el ángulo con el que entra el sol. De septiembre a noviembre y de enero a casi todo marzo el fenómeno casi no se aprecia. Vale la pena decirlo claro: el buceo sigue siendo precioso con o sin luz, pero la luz le da otro nivel.",
         "own": "Aquí no se puede hacer snorkel. El Pit es exclusivamente para buceo y apnea, y como además pide Advanced Open Water como mínimo, es de los cenotes con menos gente al día.",
