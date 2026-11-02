@@ -1015,7 +1015,7 @@
     },
     "items": {
       "casa-cenote": "Un cenote ouvert, en forme de lagune, relié directement à la mer des Caraïbes : l'eau douce et l'eau salée s'y mélangent en un écosystème unique. Sa profondeur maximale tourne autour de 9 mètres, idéale pour les plongeurs débutants et pour qui cherche une plongée détendue. Il est entouré de mangroves et sa visibilité, même variable, permet de nager parmi les poissons, les tortues et, parfois, un crocodile d'eau douce (le crocodile de Morelet, Crocodylus moreletii). Parfait pour allier plongée loisir et rencontre directe avec la faune.",
-      "car-wash": "Sous une surface calme et facile d'accès se cache l'un des cenotes les plus photographiés de la Riviera Maya. Des nénuphars flottent sur son eau transparente ; plus bas apparaissent des troncs pétrifiés et une impressionnante galerie de stalactites et de stalagmites. Avec jusqu'à 16 mètres de fond, il se prête aussi bien au snorkeling qu'à la plongée en caverne, et les rayons du soleil filtrés par la végétation font de chaque plongée une expérience presque cinématographique.",
+      "car-wash": "Le cenote préféré de Kay, et l'un des meilleurs pour commencer. Une plongée courte et peu profonde qui offre la plus belle carte postale de toutes : la zone ouverte vue de l'intérieur de la caverne, en regardant vers la lumière. Son nom maya est Aktun Ha ; celui de Car Wash lui vient des voitures qui s'arrêtaient se laver au bord de la route.",
       "dos-ojos": "Deux plans d'eau reliés qui, vus d'en haut, ressemblent à une paire d'yeux. Ils font partie du plus vaste réseau de grottes noyées au monde — environ 369 kilomètres — et se plongent en caverne : la lumière du jour toujours présente, la sortie toujours en vue. C'est le cenote par lequel presque tout le monde commence, et le Open Water suffit.",
       "el-pit": "Un puits presque cylindrique qui s'enfonce bien au-delà de la plongée loisir. On y trouve une halocline, de l'hydrogène sulfuré, des stalactites de plusieurs mètres et, aux bons mois, des rayons de soleil qui descendent jusqu'au fond. L'Advanced Open Water est exigé, ce qui en fait l'un des cenotes les moins fréquentés.",
       "angelita": "Le cenote le plus étrange que nous plongeons. Une couche d'hydrogène sulfuré transforme le fond en ce qui ressemble à une rivière avec une île au milieu, et la traverser change complètement la plongée. Profond, vertical, relié à aucune autre grotte : il demande l'Advanced Open Water.",
@@ -1249,6 +1249,82 @@
           {
             "q": "Le paresseux géant, c'est vrai ?",
             "a": "Oui. On a trouvé dans ces grottes des restes d'animaux de la fin de la dernière glaciation, dont un paresseux géant qui s'y trouve encore. Il n'est pas dans la zone de caverne : on n'y accède qu'avec une certification grotte."
+          }
+        ]
+      },
+      "car-wash": {
+        "sections": [
+          {
+            "h": "D'où vient le nom",
+            "p": [
+              "Son nom maya est Aktun Ha, qui signifie grotte inondée, ou grotte avec de l'eau. Celui que tout le monde emploie est bien plus récent et bien plus prosaïque : le cenote se trouve au bord de la route et, il y a des années, bien avant que Tulum ne devienne une destination touristique, les gens du village et ceux qui passaient par là s'arrêtaient pour puiser des seaux d'eau et laver leur voiture. Le nom est resté."
+            ]
+          },
+          {
+            "h": "À quoi ressemble la plongée",
+            "p": [
+              "C'est une plongée courte, et autant le dire tout de suite : ce n'est pas la plus longue que nous proposons. Sa profondeur maximale est de seize mètres, elle demande donc un palier de sécurité à la fin, mais elle se tient en moyenne bien plus haut. Peu profonde, courte, avec la zone ouverte jamais loin : cette combinaison en fait l'un des meilleurs cenotes pour qui découvre la plongée en cenote. Le Open Water suffit."
+            ]
+          },
+          {
+            "h": "La carte postale depuis la caverne",
+            "p": [
+              "Il y a un moment qui, pour Kay, justifie le cenote tout entier. Vous êtes à l'intérieur de la caverne, l'obscurité dans le dos, et vous regardez vers la zone ouverte : la lumière du jour entre dans une seule direction et découpe la silhouette de l'entrée sur l'eau. C'est l'une des plus belles images que donne un cenote dans la région, et c'est la raison pour laquelle celui-ci est son préféré."
+            ]
+          },
+          {
+            "h": "Les formations",
+            "p": [
+              "Car Wash possède des stalactites et des stalagmites de très belle taille, parmi les plus grandes que l'on voie sur une plongée en caverne peu profonde. Elles se sont formées quand la grotte était sèche ; une fois immergées, elles ont cessé de croître pour toujours, et ce que l'on voit aujourd'hui est exactement ce qui restait quand la mer est montée."
+            ]
+          },
+          {
+            "h": "La poterie maya",
+            "p": [
+              "Les restes d'une poterie maya ont été trouvés dans le cenote, et ils y sont toujours. Ils n'ont été ni remontés ni mis en vitrine : ils reposent là où on les a découverts, et on passe à côté pendant la plongée. C'est l'une des rares occasions de voir une pièce de ce genre à sa place, sous l'eau, plutôt que derrière une vitre."
+            ]
+          },
+          {
+            "h": "La vie dans la zone ouverte",
+            "p": [
+              "La zone ouverte offre une végétation superbe et nettement plus de poissons que la plupart des cenotes du coin, souvent plus vides. On y voit parfois des cormorans descendre pêcher sous l'eau, une scène très étrange à observer d'en bas. Des tortues terrestres vivent aussi sur les berges, parmi d'autres espèces."
+            ]
+          },
+          {
+            "h": "Avec quoi il se combine",
+            "p": [
+              "La combinaison la plus courante est Car Wash avec Angelita : l'une courte, lumineuse et peu profonde, l'autre profonde et étrange. Elles fonctionnent bien ensemble précisément parce qu'elles n'ont rien en commun."
+            ]
+          }
+        ],
+        "faq": [
+          {
+            "q": "Que signifie Aktun Ha ?",
+            "a": "Grotte inondée, ou grotte avec de l'eau, en maya. C'est le nom d'origine du cenote ; Car Wash est le surnom qui lui est resté ensuite."
+          },
+          {
+            "q": "Pourquoi s'appelle-t-il Car Wash ?",
+            "a": "Parce qu'il se trouve au bord de la route. Il y a des années, avant que Tulum ne soit touristique, les habitants et les gens de passage s'arrêtaient y puiser des seaux d'eau pour laver leur voiture."
+          },
+          {
+            "q": "Quelle est la profondeur de Car Wash ?",
+            "a": "Seize mètres au maximum. C'est pourquoi elle demande un palier de sécurité à la fin, même si la plongée reste en moyenne bien plus haut."
+          },
+          {
+            "q": "Faut-il de l'expérience pour le plonger ?",
+            "a": "Pas beaucoup. Le Open Water suffit, et c'est l'un des cenotes que nous recommandons le plus aux débutants : peu profond, court, et avec la zone ouverte jamais loin."
+          },
+          {
+            "q": "Y a-t-il vraiment une poterie maya à l'intérieur ?",
+            "a": "Oui. Les restes d'une poterie maya ont été trouvés dans le cenote et sont toujours en place, visibles pendant la plongée."
+          },
+          {
+            "q": "Quels animaux voit-on à Car Wash ?",
+            "a": "Plus de poissons que dans la plupart des cenotes. Des cormorans descendent parfois pêcher sous l'eau, et des tortues terrestres vivent sur les berges, parmi d'autres espèces."
+          },
+          {
+            "q": "Avec quel autre cenote le combine-t-on ?",
+            "a": "Avec Angelita. C'est la combinaison la plus demandée : une plongée courte et lumineuse suivie d'une plongée profonde et totalement différente."
           }
         ]
       }

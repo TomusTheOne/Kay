@@ -1015,7 +1015,7 @@
     },
     "items": {
       "casa-cenote": "Un cenote abierto tipo laguna, conectado directamente al mar Caribe, lo que genera un ecosistema único donde se mezclan el agua dulce y la salada. Su profundidad máxima ronda los 9 metros, ideal para buceadores principiantes y para quienes buscan una inmersión relajada. Está rodeado de manglares y su visibilidad, aunque variable, ofrece la oportunidad de nadar junto a peces, tortugas y, en ocasiones, un cocodrilo de agua dulce (de la especie Crocodylus moreletii). Perfecto para combinar el buceo recreativo con el contacto directo con la vida silvestre.",
-      "car-wash": "Bajo una superficie tranquila y accesible se esconde uno de los cenotes más fotografiados de la Riviera Maya. Sus aguas transparentes están decoradas con lirios acuáticos que flotan en la superficie, mientras que en las profundidades aparecen troncos petrificados y una impresionante galería de estalactitas y estalagmitas. Con hasta 16 metros de profundidad, es perfecto tanto para snorkel como para buceo en caverna, y los rayos de sol que se filtran entre la vegetación crean juegos de luz que hacen de cada inmersión una experiencia casi cinematográfica.",
+      "car-wash": "El cenote favorito de Kay, y uno de los mejores para empezar. Es un buceo corto y poco profundo que regala la postal más bonita de todas: la de mirar hacia el área abierta desde dentro de la caverna. Su nombre maya es Aktun Ha; el de Car Wash se lo pusieron los coches que paraban a lavarse al pie de la carretera.",
       "dos-ojos": "Dos cuerpos de agua conectados que, vistos desde arriba, parecen un par de ojos. Forman parte del sistema de cuevas inundadas más largo del mundo —unos 369 kilómetros— y se bucean en caverna: la luz del día siempre presente y la salida a la vista. Es el cenote con el que casi todo el mundo empieza, y basta el Open Water.",
       "el-pit": "Un pozo casi cilíndrico que se hunde mucho más allá de donde llega el buceo recreativo. Tiene haloclina, ácido sulfhídrico, estalactitas de varios metros y, en los meses correctos, rayos de sol que bajan hasta el fondo. Pide Advanced Open Water, y por eso es de los cenotes con menos gente al día.",
       "angelita": "El cenote más extraño de los que buceamos. Una capa de ácido sulfhídrico convierte el fondo en lo que parece un río con una isla en medio, y cruzarla cambia por completo el buceo. Es profundo, vertical y no está conectado a ninguna otra cueva; pide Advanced Open Water.",
@@ -1249,6 +1249,82 @@
           {
             "q": "¿Es verdad lo del perezoso gigante?",
             "a": "Sí. En estas cuevas se han encontrado restos de animales del final de la última era glaciar, entre ellos un perezoso gigante que sigue ahí dentro. No está en la zona de caverna, así que solo se llega con certificación de cueva."
+          }
+        ]
+      },
+      "car-wash": {
+        "sections": [
+          {
+            "h": "Por qué se llama Car Wash",
+            "p": [
+              "Su nombre maya es Aktun Ha, que quiere decir cueva inundada, o cueva con agua. El que todo el mundo usa es más reciente y mucho más prosaico: el cenote está al pie de la carretera, y hace muchos años, antes de que Tulum fuera un destino turístico, la gente del pueblo y quien pasaba por ahí paraban a sacar cubetas de agua para lavar el coche. El nombre se quedó."
+            ]
+          },
+          {
+            "h": "Cómo es el buceo",
+            "p": [
+              "Es un buceo corto, y eso hay que decirlo de entrada: no es el más largo de los que hacemos. Su profundidad máxima es de dieciséis metros, así que lleva parada de seguridad al final, pero en promedio se mantiene bastante arriba. Esa combinación —poco profundo, corto, con el área abierta siempre cerca— lo convierte en uno de los mejores cenotes para alguien que apenas se está asomando al buceo en cenotes. Basta el Open Water."
+            ]
+          },
+          {
+            "h": "La postal desde dentro de la caverna",
+            "p": [
+              "Hay un momento que para Kay justifica el cenote entero. Estás dentro de la caverna, de espaldas a la oscuridad, y miras hacia el área abierta: la luz del día entra en una sola dirección y recorta la silueta de la entrada contra el agua. Es una de las imágenes más bonitas que da cualquier cenote de la zona, y es la razón por la que éste es su favorito."
+            ]
+          },
+          {
+            "h": "Las formaciones",
+            "p": [
+              "Car Wash tiene estalactitas y estalagmitas de muy buen tamaño, de las más grandes que se ven en un buceo de caverna poco profundo. Se formaron cuando la cueva estaba seca; una vez bajo el agua dejaron de crecer, así que lo que se ve hoy es exactamente lo que quedó cuando subió el mar."
+            ]
+          },
+          {
+            "h": "La vasija maya",
+            "p": [
+              "Dentro del cenote se encontraron los restos de una vasija maya, y siguen ahí. No se sacaron ni se pusieron en una vitrina: están en el sitio donde aparecieron, y se pasa junto a ellos durante el buceo. Es de las pocas veces que se ve una pieza así en su lugar, bajo el agua, y no detrás de un cristal."
+            ]
+          },
+          {
+            "h": "La vida en el área abierta",
+            "p": [
+              "El área abierta tiene una vegetación preciosa y bastantes más peces que la mayoría de los cenotes de la zona, que suelen ser más vacíos. A veces se ven cormoranes bajando a pescar debajo del agua, desde dentro, lo cual es una escena rarísima de presenciar. También hay tortugas terrestres viviendo alrededor, entre otras especies."
+            ]
+          },
+          {
+            "h": "Con qué se combina",
+            "p": [
+              "La combinación más común es Car Wash con Angelita: uno corto, luminoso y poco profundo, el otro profundo y extraño. Funcionan bien juntos precisamente porque no se parecen en nada."
+            ]
+          }
+        ],
+        "faq": [
+          {
+            "q": "¿Qué significa Aktun Ha?",
+            "a": "Cueva inundada, o cueva con agua, en maya. Es el nombre original del cenote; Car Wash es el apodo que se le quedó después."
+          },
+          {
+            "q": "¿Por qué se llama Car Wash?",
+            "a": "Porque está al pie de la carretera. Hace muchos años, antes de que Tulum fuera turístico, la gente local y quien iba de paso paraban a sacar cubetas de agua para lavar el coche."
+          },
+          {
+            "q": "¿Qué profundidad tiene Car Wash?",
+            "a": "Dieciséis metros como máximo. Por eso lleva parada de seguridad al final, aunque en promedio el buceo se mantiene bastante más arriba."
+          },
+          {
+            "q": "¿Necesito experiencia para bucearlo?",
+            "a": "No mucha. El Open Water es suficiente, y es de los cenotes que más recomendamos a quien apenas empieza: poco profundo, corto y con el área abierta siempre cerca."
+          },
+          {
+            "q": "¿Es verdad que hay una vasija maya dentro?",
+            "a": "Sí. Se encontraron restos de una vasija maya en el cenote y siguen en el sitio, a la vista, durante el buceo."
+          },
+          {
+            "q": "¿Qué animales se ven en Car Wash?",
+            "a": "Tiene más peces que la mayoría de los cenotes. A veces se ven cormoranes bajando a pescar bajo el agua, y alrededor viven tortugas terrestres, entre otras especies."
+          },
+          {
+            "q": "¿Con qué otro cenote se suele combinar?",
+            "a": "Con Angelita. Es la combinación más pedida: un buceo corto y luminoso seguido de uno profundo y completamente distinto."
           }
         ]
       }

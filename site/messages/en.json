@@ -1013,7 +1013,7 @@
     },
     "items": {
       "casa-cenote": "An open, lagoon-like cenote connected directly to the Caribbean Sea, where fresh and salt water mix into an ecosystem of its own. It is about 9 metres deep at most — ideal for new divers and for anyone after a relaxed dive. Mangroves surround it, and the visibility, though it varies, puts you alongside fish, turtles and now and then a freshwater crocodile (Morelet's crocodile, Crocodylus moreletii). The perfect way to combine recreational diving with wildlife up close.",
-      "car-wash": "Under a calm, easy-to-reach surface hides one of the most photographed cenotes on the Riviera Maya. Water lilies float on its clear water; further down there are petrified trunks and a striking gallery of stalactites and stalagmites. Up to 16 metres deep, it suits snorkelling as well as cavern diving, and the sunbeams filtering through the trees turn every dive into something almost cinematic.",
+      "car-wash": "Kay's favourite cenote, and one of the best to start with. A short, shallow dive that gives you the loveliest postcard of them all: the open water seen from inside the cavern, looking out. Its Maya name is Aktun Ha; the name Car Wash came from the cars that used to stop and get washed at the roadside.",
       "dos-ojos": "Two connected bodies of water that, seen from above, look like a pair of eyes. They belong to the longest flooded cave system in the world — some 369 kilometres of it — and are dived as cavern: daylight always present, the exit always in sight. This is the cenote most people start with, and Open Water is enough.",
       "el-pit": "An almost cylindrical shaft that drops far beyond where recreational diving goes. It has a halocline, hydrogen sulphide, stalactites several metres long and, in the right months, sunbeams that reach all the way down. Advanced Open Water is required, which is why it is one of the quietest cenotes of the day.",
       "angelita": "The strangest cenote we dive. A layer of hydrogen sulphide turns the bottom into what looks like a river with an island in the middle, and crossing it changes the dive completely. Deep, vertical, connected to no other cave — it calls for Advanced Open Water.",
@@ -1247,6 +1247,82 @@
           {
             "q": "Is the giant sloth real?",
             "a": "Yes. Animal remains from the end of the last ice age have been found in these caves, among them a giant sloth that is still in there. It is not in the cavern zone, so it can only be reached with a cave certification."
+          }
+        ]
+      },
+      "car-wash": {
+        "sections": [
+          {
+            "h": "Where the name comes from",
+            "p": [
+              "Its Maya name is Aktun Ha, which means flooded cave, or cave with water. The name everybody uses is much more recent and far more prosaic: the cenote sits right beside the highway, and years ago, long before Tulum was a tourist destination, locals and people driving past would stop to fetch buckets of water and wash their cars. The name stuck."
+            ]
+          },
+          {
+            "h": "What the dive is like",
+            "p": [
+              "It is a short dive, and that is worth saying up front: it is not the longest we run. Maximum depth is sixteen metres, so it does take a safety stop at the end, but on average it stays well above that. Shallow, short, with the open water never far away — that combination makes it one of the best cenotes for someone just getting into cenote diving. Open Water is enough."
+            ]
+          },
+          {
+            "h": "The postcard from inside the cavern",
+            "p": [
+              "There is one moment that, for Kay, justifies the whole cenote. You are inside the cavern with the darkness behind you, looking back out towards the open area: daylight comes in from a single direction and cuts the silhouette of the entrance out against the water. It is one of the finest images any cenote around here gives you, and it is the reason this one is his favourite."
+            ]
+          },
+          {
+            "h": "The formations",
+            "p": [
+              "Car Wash has very large stalactites and stalagmites — among the biggest you will see on a shallow cavern dive. They formed while the cave was dry; once it flooded they stopped growing for good, so what you see today is exactly what was left when the sea came up."
+            ]
+          },
+          {
+            "h": "The Maya pot",
+            "p": [
+              "The remains of a Maya pot were found inside the cenote, and they are still there. They were not lifted out or put in a display case: they lie where they were found, and you pass beside them during the dive. It is one of the rare chances to see a piece like that in place, underwater, rather than behind glass."
+            ]
+          },
+          {
+            "h": "Life in the open area",
+            "p": [
+              "The open area has beautiful vegetation and noticeably more fish than most cenotes around here, which tend to be emptier. Cormorants sometimes come down to fish underwater, and watching that from below is a strange thing to witness. Land turtles live around the edges too, among other species."
+            ]
+          },
+          {
+            "h": "What it pairs with",
+            "p": [
+              "The usual pairing is Car Wash with Angelita: one short, bright and shallow, the other deep and strange. They work well together precisely because they have nothing in common."
+            ]
+          }
+        ],
+        "faq": [
+          {
+            "q": "What does Aktun Ha mean?",
+            "a": "Flooded cave, or cave with water, in Maya. It is the cenote's original name; Car Wash is the nickname that stuck later."
+          },
+          {
+            "q": "Why is it called Car Wash?",
+            "a": "Because it sits right by the highway. Years ago, before Tulum was a tourist town, locals and passers-by would stop to fetch buckets of water and wash their cars there."
+          },
+          {
+            "q": "How deep is Car Wash?",
+            "a": "Sixteen metres at most. That is why it takes a safety stop at the end, although the dive stays well above that depth on average."
+          },
+          {
+            "q": "Do I need experience to dive it?",
+            "a": "Not much. Open Water is enough, and it is one of the cenotes we most recommend to people just starting out: shallow, short, and with the open water never far away."
+          },
+          {
+            "q": "Is there really a Maya pot inside?",
+            "a": "Yes. The remains of a Maya pot were found in the cenote and are still in place, visible during the dive."
+          },
+          {
+            "q": "What animals will I see at Car Wash?",
+            "a": "More fish than in most cenotes. Cormorants sometimes dive down to fish underwater, and land turtles live around the edges, among other species."
+          },
+          {
+            "q": "Which other cenote is it usually combined with?",
+            "a": "Angelita. It is the pairing people ask for most: a short, bright dive followed by a deep and completely different one."
           }
         ]
       }
