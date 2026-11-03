@@ -1014,7 +1014,7 @@
       "advanced": "Advanced Open Water ou Deep"
     },
     "items": {
-      "casa-cenote": "Un cenote ouvert, en forme de lagune, relié directement à la mer des Caraïbes : l'eau douce et l'eau salée s'y mélangent en un écosystème unique. Sa profondeur maximale tourne autour de 9 mètres, idéale pour les plongeurs débutants et pour qui cherche une plongée détendue. Il est entouré de mangroves et sa visibilité, même variable, permet de nager parmi les poissons, les tortues et, parfois, un crocodile d'eau douce (le crocodile de Morelet, Crocodylus moreletii). Parfait pour allier plongée loisir et rencontre directe avec la faune.",
+      "casa-cenote": "Le plus à part de tous. Casa Cenote est l'extrémité d'un réseau de rivières souterraines qui se jette dans la mer : son eau est saumâtre — douce mêlée de salée — et un degré plus chaude que partout ailleurs. D'où une faune qu'aucun autre cenote ne possède, crocodile compris. Il se plonge sans certification et c'est un excellent spot de snorkeling.",
       "car-wash": "Le cenote préféré de Kay, et l'un des meilleurs pour commencer. Une plongée courte et peu profonde qui offre la plus belle carte postale de toutes : la zone ouverte vue de l'intérieur de la caverne, en regardant vers la lumière. Son nom maya est Aktun Ha ; celui de Car Wash lui vient des voitures qui s'arrêtaient se laver au bord de la route.",
       "dos-ojos": "Deux plans d'eau reliés qui, vus d'en haut, ressemblent à une paire d'yeux. Ils font partie du plus vaste réseau de grottes noyées au monde — environ 369 kilomètres — et se plongent en caverne : la lumière du jour toujours présente, la sortie toujours en vue. C'est le cenote par lequel presque tout le monde commence, et le Open Water suffit.",
       "el-pit": "Un puits presque cylindrique qui s'enfonce bien au-delà de la plongée loisir. On y trouve une halocline, de l'hydrogène sulfuré, des stalactites de plusieurs mètres et, aux bons mois, des rayons de soleil qui descendent jusqu'au fond. L'Advanced Open Water est exigé, ce qui en fait l'un des cenotes les moins fréquentés.",
@@ -1325,6 +1325,94 @@
           {
             "q": "Avec quel autre cenote le combine-t-on ?",
             "a": "Avec Angelita. C'est la combinaison la plus demandée : une plongée courte et lumineuse suivie d'une plongée profonde et totalement différente."
+          }
+        ]
+      },
+      "casa-cenote": {
+        "sections": [
+          {
+            "h": "Là où finit une rivière souterraine",
+            "p": [
+              "Casa Cenote ne ressemble pas aux autres parce que ce n'est ni un puits ni une grotte : c'est l'endroit où un réseau de rivières souterraines s'achève et remet son eau à la mer. Seule une piste en terre sépare le cenote de la plage, et la connexion passe dessous, poussant l'eau douce vers les Caraïbes.",
+              "Cette connexion si directe explique tout le reste. L'eau est saumâtre — douce mêlée de salée — et cela change ce qui y vit, l'aspect du lieu et jusqu'à sa température."
+            ]
+          },
+          {
+            "h": "Un degré de plus",
+            "p": [
+              "Presque tous les cenotes de la région sont à vingt-cinq degrés. Casa Cenote est à vingt-six. Un degré paraît dérisoire et se sent plus qu'on ne le croit sur la durée d'une plongée.",
+              "Certains jours, on distingue aussi la halocline, la bande où se rencontrent l'eau douce et l'eau salée. Ce n'est pas constant : cela dépend du niveau de la mer ce jour-là, et de la quantité d'eau salée qui entre face à celle d'eau douce qui pousse vers l'extérieur."
+            ]
+          },
+          {
+            "h": "Panchita",
+            "p": [
+              "L'animal le plus singulier du cenote est un crocodile d'eau douce, un Crocodylus moreletii. Il est arrivé de lui-même, naturellement, et vit ici depuis environ neuf ans. Dans un endroit pareil il n'y en aura normalement qu'un : ces animaux sont très territoriaux et défendent leur espace.",
+              "Il s'appelle Panchita et est devenu l'emblème du lieu, et d'une certaine manière son attraction principale. Cela dit, il s'agit d'un habitat sauvage et non d'un enclos : l'observation n'est jamais garantie."
+            ]
+          },
+          {
+            "h": "Ce qui vit ici",
+            "p": [
+              "Si près de la mer, la végétation et la faune n'ont rien à voir avec celles des autres cenotes. Dans l'eau, on croise des mollys des cenotes, des cichlidés mayas, des tarpons et des crabes bleus.",
+              "Au-dessus, les oiseaux sont nombreux : cormorans, hérons gris et bleus, et de temps à autre un blanc."
+            ]
+          },
+          {
+            "h": "Une nurserie à poissons reliée à la mer",
+            "p": [
+              "La mangrove qui entoure le cenote sert de nurserie : un endroit abrité où les alevins peuvent grandir. Et comme le cenote est relié à la mer, il est fréquent d'y voir aussi des espèces marines — vivaneaux, murènes et autres — qui entrent par la grotte quand le niveau d'eau salée monte.",
+              "C'est un lieu où la mer et la rivière se rendent visite, et selon le jour on voit davantage de l'une ou de l'autre."
+            ]
+          },
+          {
+            "h": "Plus grand qu'il n'y paraît",
+            "p": [
+              "À l'arrivée, le cenote trompe : on ne voit qu'un petit œil d'eau. Mais il s'étend vers l'arrière sur quelque deux cent cinquante mètres.",
+              "L'essentiel du parcours est à ciel ouvert. Un quart de la plongée environ entre dans la zone de caverne."
+            ]
+          },
+          {
+            "h": "Pour qui",
+            "p": [
+              "C'est le cenote que nous recommandons le plus pour un Discover Scuba, pour un cours eaux libres, pour un refresher après une période sans plonger, ou simplement pour une première plongée en cenote.",
+              "Lors des Discover Scuba et des cours Open Water, nous n'entrons pas du tout dans la caverne : nous restons là où l'accès direct à la surface est possible, par règlement et pour la sécurité des plongeurs. C'est une plongée magnifique et simple, et selon nous elle a sa place dans l'itinéraire de quiconque prépare ses plongées autour de Tulum."
+            ]
+          }
+        ],
+        "own": "Oui, et c'est vivement recommandé. Casa Cenote est un excellent spot de snorkeling : la majeure partie est ouverte et peu profonde, et presque toute la faune qui en fait un lieu à part — les poissons, les crabes, les oiseaux et, avec de la chance, Panchita — se voit depuis la surface.",
+        "faq": [
+          {
+            "q": "Pourquoi l'eau de Casa Cenote est-elle saumâtre ?",
+            "a": "Parce que le cenote est l'extrémité d'un réseau de rivières souterraines qui se jette dans la mer. La connexion passe sous la piste en terre qui sépare le cenote de la plage : l'eau douce sort vers les Caraïbes et l'eau salée entre. Le résultat est une eau saumâtre, douce mêlée de salée."
+          },
+          {
+            "q": "Y a-t-il un crocodile à Casa Cenote ?",
+            "a": "Oui. Il s'appelle Panchita, c'est un Crocodylus moreletii. Il est arrivé naturellement et vit dans le cenote depuis environ neuf ans. Il n'y en a normalement qu'un par site, car ces animaux sont très territoriaux. C'est un habitat sauvage : l'observation n'est jamais garantie."
+          },
+          {
+            "q": "Quelle est la température de l'eau ?",
+            "a": "Vingt-six degrés, un de plus que la plupart des cenotes de la région, qui sont à vingt-cinq. C'est la connexion avec la mer qui l'explique."
+          },
+          {
+            "q": "Faut-il une certification pour plonger à Casa Cenote ?",
+            "a": "Non. C'est l'un des meilleurs endroits pour un Discover Scuba ou un cours eaux libres. Dans ces cas-là, nous restons dans les zones à accès direct à la surface et n'entrons pas dans la caverne."
+          },
+          {
+            "q": "Peut-on faire du snorkeling à Casa Cenote ?",
+            "a": "Oui, et c'est l'un des meilleurs spots du coin pour cela. La majeure partie du cenote est ouverte et peu profonde, et la faune qui en fait sa singularité se voit depuis la surface."
+          },
+          {
+            "q": "Quelle est sa taille ?",
+            "a": "Il paraît petit à l'arrivée, car on ne voit qu'un modeste œil d'eau, mais il s'étend vers l'arrière sur quelque deux cent cinquante mètres."
+          },
+          {
+            "q": "Entre-t-on dans des grottes ici ?",
+            "a": "En partie seulement. Par sa géographie, l'essentiel de la plongée est à ciel ouvert ; à peine un quart entre dans la zone de caverne. Et lors des Discover Scuba et des cours Open Water, on n'y entre pas du tout."
+          },
+          {
+            "q": "Voit-on la halocline ?",
+            "a": "Certains jours. Cela dépend du niveau de la mer et de la quantité d'eau salée qui entre face à celle d'eau douce qui pousse vers l'extérieur : ce n'est donc pas quelque chose que l'on puisse promettre à l'avance."
           }
         ]
       }

@@ -1014,7 +1014,7 @@
       "advanced": "Advanced Open Water o Deep"
     },
     "items": {
-      "casa-cenote": "Un cenote abierto tipo laguna, conectado directamente al mar Caribe, lo que genera un ecosistema único donde se mezclan el agua dulce y la salada. Su profundidad máxima ronda los 9 metros, ideal para buceadores principiantes y para quienes buscan una inmersión relajada. Está rodeado de manglares y su visibilidad, aunque variable, ofrece la oportunidad de nadar junto a peces, tortugas y, en ocasiones, un cocodrilo de agua dulce (de la especie Crocodylus moreletii). Perfecto para combinar el buceo recreativo con el contacto directo con la vida silvestre.",
+      "casa-cenote": "El más distinto de todos. Casa Cenote es el final de un sistema de ríos subterráneos que desemboca en el mar, así que su agua es salobre —dulce mezclada con salada— y un grado más templada que la del resto. Eso le da una fauna que no existe en ningún otro cenote, cocodrilo incluido. Se bucea sin certificación y es un sitio excelente para snorkel.",
       "car-wash": "El cenote favorito de Kay, y uno de los mejores para empezar. Es un buceo corto y poco profundo que regala la postal más bonita de todas: la de mirar hacia el área abierta desde dentro de la caverna. Su nombre maya es Aktun Ha; el de Car Wash se lo pusieron los coches que paraban a lavarse al pie de la carretera.",
       "dos-ojos": "Dos cuerpos de agua conectados que, vistos desde arriba, parecen un par de ojos. Forman parte del sistema de cuevas inundadas más largo del mundo —unos 369 kilómetros— y se bucean en caverna: la luz del día siempre presente y la salida a la vista. Es el cenote con el que casi todo el mundo empieza, y basta el Open Water.",
       "el-pit": "Un pozo casi cilíndrico que se hunde mucho más allá de donde llega el buceo recreativo. Tiene haloclina, ácido sulfhídrico, estalactitas de varios metros y, en los meses correctos, rayos de sol que bajan hasta el fondo. Pide Advanced Open Water, y por eso es de los cenotes con menos gente al día.",
@@ -1325,6 +1325,94 @@
           {
             "q": "¿Con qué otro cenote se suele combinar?",
             "a": "Con Angelita. Es la combinación más pedida: un buceo corto y luminoso seguido de uno profundo y completamente distinto."
+          }
+        ]
+      },
+      "casa-cenote": {
+        "sections": [
+          {
+            "h": "El final de un río subterráneo",
+            "p": [
+              "Casa Cenote no se parece a los demás porque no es un pozo ni una cueva: es el punto donde un sistema de ríos subterráneos termina y entrega su agua al mar. Entre el cenote y la playa solo hay una carretera de terracería, y por debajo de ella pasa la conexión que empuja el agua dulce hacia el Caribe.",
+              "Esa conexión tan directa es lo que define todo lo demás. El agua es salobre —brackish, en inglés—, dulce mezclada con salada, y eso cambia qué vive aquí, cómo se ve y hasta a qué temperatura está."
+            ]
+          },
+          {
+            "h": "Un grado más templado",
+            "p": [
+              "Casi todos los cenotes de la zona están a veinticinco grados. Casa Cenote está a veintiséis. Un grado suena a poco y se nota más de lo que parece a lo largo de un buceo entero.",
+              "Hay días en los que también se alcanza a ver la haloclina, la franja donde se encuentran el agua dulce y la salada. No es constante: depende del nivel del mar ese día y de cuánta agua salada está entrando frente a cuánta agua dulce está empujando hacia afuera."
+            ]
+          },
+          {
+            "h": "Panchita",
+            "p": [
+              "El animal más particular del cenote es un cocodrilo de agua dulce de la especie Crocodylus moreletii. Llegó por su cuenta, de manera natural, y lleva unos nueve años viviendo aquí. En un cenote así normalmente solo habrá uno: son muy territoriales y defienden su espacio.",
+              "Se llama Panchita y se ha convertido en el emblema del sitio, y de alguna manera en su atracción principal. Dicho esto, está en su hábitat natural y no en un recinto: verla no está garantizado en cada buceo."
+            ]
+          },
+          {
+            "h": "Qué más vive aquí",
+            "p": [
+              "Al estar tan cerca del mar, la vegetación y la fauna no se parecen a las del resto de los cenotes. En el agua se ven cenote mollys, mojarras mayas, sábalos —tarpon en inglés— y cangrejos azules.",
+              "Arriba hay bastantes aves: cormoranes, garzas grises y azules, y de vez en cuando alguna blanca."
+            ]
+          },
+          {
+            "h": "Un criadero de peces conectado al mar",
+            "p": [
+              "El manglar que rodea el cenote funciona como guardería de peces: un lugar protegido donde las crías pueden desarrollarse. Y como el cenote está conectado al mar, es normal ver también especies marinas —pargos, morenas y otras— que entran por la cueva cuando sube el nivel del agua salada.",
+              "Es un sitio donde el mar y el río se visitan mutuamente, y según el día se ve más de uno o del otro."
+            ]
+          },
+          {
+            "h": "Más grande de lo que parece",
+            "p": [
+              "Al llegar, el cenote engaña: lo que se ve es un ojo de agua pequeño. Pero se extiende hacia atrás unos doscientos cincuenta metros.",
+              "La mayor parte del recorrido es abierta, con el cielo encima. Solo alrededor de una cuarta parte del buceo entra en la zona de caverna."
+            ]
+          },
+          {
+            "h": "Para quién es",
+            "p": [
+              "Es el cenote que más recomendamos para un Discover Scuba, para un curso de aguas abiertas, para un refresher después de tiempo sin bucear, o simplemente para quien va a bucear un cenote por primera vez.",
+              "En los Discover Scuba y en los cursos de Open Water no entramos a la zona de caverna: nos quedamos en las partes con acceso directo a la superficie, por reglamento y por la seguridad de los buceadores. Es un buceo hermoso y sencillo, y para nosotros no debería faltar en el itinerario de nadie que esté planeando sus inmersiones en Tulum."
+            ]
+          }
+        ],
+        "own": "Sí, y muy recomendado. Casa Cenote es un sitio excelente para snorkel: la mayor parte es abierta y poco profunda, y casi toda la fauna que hace especial al cenote —los peces, los cangrejos, las aves, y con suerte Panchita— está donde la ves desde la superficie.",
+        "faq": [
+          {
+            "q": "¿Por qué el agua de Casa Cenote es salobre?",
+            "a": "Porque el cenote es el final de un sistema de ríos subterráneos que desemboca en el mar. La conexión pasa por debajo de la carretera de terracería que separa el cenote de la playa, y por ahí el agua dulce sale hacia el Caribe y la salada entra. El resultado es agua salobre: dulce mezclada con salada."
+          },
+          {
+            "q": "¿Hay un cocodrilo en Casa Cenote?",
+            "a": "Sí. Se llama Panchita, es un Crocodylus moreletii, llegó de manera natural y lleva unos nueve años en el cenote. Normalmente solo hay uno por sitio, porque son muy territoriales. Está en su hábitat natural, así que verlo no está garantizado en cada buceo."
+          },
+          {
+            "q": "¿Qué temperatura tiene el agua?",
+            "a": "Veintiséis grados, un grado más que la mayoría de los cenotes de la zona, que están a veinticinco. Es la conexión con el mar la que lo explica."
+          },
+          {
+            "q": "¿Necesito certificación para bucear Casa Cenote?",
+            "a": "No. Es de los mejores sitios para un Discover Scuba o para un curso de aguas abiertas. En esos casos nos quedamos en las zonas con acceso directo a la superficie y no entramos a la caverna."
+          },
+          {
+            "q": "¿Se puede hacer snorkel en Casa Cenote?",
+            "a": "Sí, y es de los mejores de la zona para eso. La mayor parte del cenote es abierta y poco profunda, y la fauna que lo hace especial se ve desde la superficie."
+          },
+          {
+            "q": "¿Qué tan grande es?",
+            "a": "Parece pequeño al llegar, porque lo que se ve es un ojo de agua de poco tamaño, pero se extiende hacia atrás unos doscientos cincuenta metros."
+          },
+          {
+            "q": "¿Se entra a cuevas en este cenote?",
+            "a": "Solo en parte. Por su geografía, la mayor parte del buceo es abierto; apenas una cuarta parte entra en la zona de caverna. Y en Discover Scuba y cursos de Open Water no se entra en absoluto."
+          },
+          {
+            "q": "¿Se ve la haloclina?",
+            "a": "Algunos días sí. Depende del nivel del mar y de cuánta agua salada esté entrando frente a cuánta agua dulce esté empujando hacia afuera, así que no es algo que se pueda prometer de antemano."
           }
         ]
       }

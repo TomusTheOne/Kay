@@ -1012,7 +1012,7 @@
       "advanced": "Advanced Open Water or Deep"
     },
     "items": {
-      "casa-cenote": "An open, lagoon-like cenote connected directly to the Caribbean Sea, where fresh and salt water mix into an ecosystem of its own. It is about 9 metres deep at most — ideal for new divers and for anyone after a relaxed dive. Mangroves surround it, and the visibility, though it varies, puts you alongside fish, turtles and now and then a freshwater crocodile (Morelet's crocodile, Crocodylus moreletii). The perfect way to combine recreational diving with wildlife up close.",
+      "casa-cenote": "The odd one out. Casa Cenote is where a system of underground rivers ends and empties into the sea, so its water is brackish — fresh mixed with salt — and a degree warmer than anywhere else. That gives it wildlife no other cenote has, a crocodile among it. No certification needed, and it is an excellent place to snorkel.",
       "car-wash": "Kay's favourite cenote, and one of the best to start with. A short, shallow dive that gives you the loveliest postcard of them all: the open water seen from inside the cavern, looking out. Its Maya name is Aktun Ha; the name Car Wash came from the cars that used to stop and get washed at the roadside.",
       "dos-ojos": "Two connected bodies of water that, seen from above, look like a pair of eyes. They belong to the longest flooded cave system in the world — some 369 kilometres of it — and are dived as cavern: daylight always present, the exit always in sight. This is the cenote most people start with, and Open Water is enough.",
       "el-pit": "An almost cylindrical shaft that drops far beyond where recreational diving goes. It has a halocline, hydrogen sulphide, stalactites several metres long and, in the right months, sunbeams that reach all the way down. Advanced Open Water is required, which is why it is one of the quietest cenotes of the day.",
@@ -1323,6 +1323,94 @@
           {
             "q": "Which other cenote is it usually combined with?",
             "a": "Angelita. It is the pairing people ask for most: a short, bright dive followed by a deep and completely different one."
+          }
+        ]
+      },
+      "casa-cenote": {
+        "sections": [
+          {
+            "h": "Where an underground river ends",
+            "p": [
+              "Casa Cenote is unlike the others because it is neither a shaft nor a cave: it is the point where a system of underground rivers ends and hands its water to the sea. Only a dirt road separates the cenote from the beach, and the connection runs underneath it, pushing fresh water out towards the Caribbean.",
+              "That direct connection explains everything else. The water is brackish — fresh mixed with salt — and that changes what lives here, how it looks, and even what temperature it is."
+            ]
+          },
+          {
+            "h": "A degree warmer",
+            "p": [
+              "Almost every cenote around here sits at twenty-five degrees. Casa Cenote sits at twenty-six. One degree sounds like nothing and tells over the course of a whole dive.",
+              "On some days you can also make out the halocline, the band where fresh and salt water meet. It is not constant: it depends on the sea level that day, and on how much salt water is coming in against how much fresh water is pushing out."
+            ]
+          },
+          {
+            "h": "Panchita",
+            "p": [
+              "The most remarkable animal here is a freshwater crocodile, a Crocodylus moreletii. It arrived on its own, naturally, and has been living in the cenote for some nine years. In a place like this there will normally be only one: they are highly territorial and defend their ground.",
+              "Its name is Panchita, and it has become the emblem of the site and, in a way, its main attraction. That said, this is wild habitat and not an enclosure: a sighting is never guaranteed."
+            ]
+          },
+          {
+            "h": "What else lives here",
+            "p": [
+              "Being this close to the sea, the plants and animals look nothing like those of other cenotes. In the water you will find cenote mollies, Mayan cichlids, tarpon and blue crabs.",
+              "Above the surface there are plenty of birds: cormorants, grey and blue herons, and the occasional white one."
+            ]
+          },
+          {
+            "h": "A fish nursery connected to the sea",
+            "p": [
+              "The mangrove around the cenote works as a nursery: a sheltered place where young fish can grow. And because the cenote is connected to the sea, it is common to see marine species too — snapper, moray eels and others — coming in through the cave when the salt water rises.",
+              "It is a place where the sea and the river visit each other, and depending on the day you see more of one or the other."
+            ]
+          },
+          {
+            "h": "Bigger than it looks",
+            "p": [
+              "The cenote is deceiving when you arrive: what you see is a small eye of water. But it reaches back some two hundred and fifty metres.",
+              "Most of that is open, with sky overhead. Only about a quarter of the dive goes into the cavern zone."
+            ]
+          },
+          {
+            "h": "Who it is for",
+            "p": [
+              "This is the cenote we recommend most for a Discover Scuba, for an open water course, for a refresher after time out of the water, or simply for a first cenote dive.",
+              "On Discover Scuba dives and Open Water courses we do not enter the cavern at all: we stay where there is direct access to the surface, by regulation and for the divers' safety. It is a beautiful, straightforward dive, and in our view it belongs on the itinerary of anyone planning their diving around Tulum."
+            ]
+          }
+        ],
+        "own": "Yes, and we recommend it. Casa Cenote is an excellent place to snorkel: most of it is open and shallow, and nearly all the wildlife that makes it special — the fish, the crabs, the birds and, with luck, Panchita — is within sight of the surface.",
+        "faq": [
+          {
+            "q": "Why is the water at Casa Cenote brackish?",
+            "a": "Because the cenote is where a system of underground rivers ends and empties into the sea. The connection runs under the dirt road that separates the cenote from the beach: fresh water goes out towards the Caribbean and salt water comes in. The result is brackish water, fresh mixed with salt."
+          },
+          {
+            "q": "Is there a crocodile in Casa Cenote?",
+            "a": "Yes. Its name is Panchita, a Crocodylus moreletii. It arrived naturally and has lived in the cenote for about nine years. There is normally only one per site, because they are highly territorial. This is wild habitat, so a sighting is never guaranteed."
+          },
+          {
+            "q": "What temperature is the water?",
+            "a": "Twenty-six degrees — one degree warmer than most cenotes around here, which sit at twenty-five. The connection to the sea is what explains it."
+          },
+          {
+            "q": "Do I need a certification to dive Casa Cenote?",
+            "a": "No. It is one of the best places for a Discover Scuba dive or an open water course. On those we stay in the areas with direct access to the surface and do not enter the cavern."
+          },
+          {
+            "q": "Can you snorkel at Casa Cenote?",
+            "a": "Yes, and it is one of the best spots around for it. Most of the cenote is open and shallow, and the wildlife that makes it special is visible from the surface."
+          },
+          {
+            "q": "How big is it?",
+            "a": "It looks small when you arrive, because what you see is a modest eye of water, but it reaches back some two hundred and fifty metres."
+          },
+          {
+            "q": "Do you go into caves here?",
+            "a": "Only partly. Because of its shape most of the dive is open; barely a quarter goes into the cavern zone. And on Discover Scuba dives and Open Water courses we do not go in at all."
+          },
+          {
+            "q": "Can you see the halocline?",
+            "a": "On some days. It depends on the sea level and on how much salt water is coming in against how much fresh water is pushing out, so it is not something anyone can promise in advance."
           }
         ]
       }
