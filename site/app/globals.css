@@ -995,5 +995,11 @@ select.field{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xml
 .guide__dives a{display:inline-block;font-size:.86rem;padding:.55em .95em;border:1px solid var(--line);border-radius:999px;
   background:var(--glass);transition:border-color .25s,color .25s}
 .guide__dives a:hover{border-color:var(--turq);color:var(--turq)}
-.guide__plate{margin:0;position:sticky;top:6rem}
-@media (max-width:880px){.guide__plate{position:relative;top:0;order:-1;aspect-ratio:16/11}}
+/* The same frame as the card in the grid, deliberately: .plate's 4/5 turned
+   a 3:2 photograph into a portrait slab and threw away half its width, so
+   El Pit's cavern mouth survived the card and vanished on its own page.
+   16/11 is what .dive__media uses, so the picture you click is the picture
+   you land on. Centred in the column rather than pinned to the top, because
+   a short image stuck to the ceiling of a tall column reads as a mistake. */
+.guide__plate{margin:0;aspect-ratio:16/11;align-self:center}
+@media (max-width:880px){.guide__plate{order:-1}}
