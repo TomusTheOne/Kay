@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Instrument_Serif, Inter, IBM_Plex_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import { notFound } from "next/navigation";
 import { LIVE_LOCALES, DEFAULT_LOCALE, OG_LOCALE, isLocale, getDictionary, pathFor, type Locale } from "@/lib/i18n";
 import { SHOP, FROM_USD } from "@/content/products";
@@ -7,17 +7,31 @@ import Analytics from "@/components/Analytics";
 import Beacon from "@/components/Beacon";
 import "../globals.css";
 
-/* Self-hosted at build time: no third-party request, no flash, no layout shift. */
-const display = Instrument_Serif({
-  subsets: ["latin"], weight: "400", style: ["normal", "italic"],
+/* Checked in, not fetched. next/font/google downloads from fonts.gstatic.com
+   during the build, and a half-finished download there broke two deploys in a
+   row. These are the same latin woff2 files, in assets/fonts/, so the build
+   never touches the network. See that folder's README. */
+const display = localFont({
+  src: [
+    { path: "../../assets/fonts/instrumentserif-400.woff2", weight: "400", style: "normal" },
+    { path: "../../assets/fonts/instrumentserif-400-italic.woff2", weight: "400", style: "italic" },
+  ],
   variable: "--font-display", display: "swap",
 });
-const body = Inter({
-  subsets: ["latin"], weight: ["400", "500", "600"],
+const body = localFont({
+  src: [
+    { path: "../../assets/fonts/inter-400.woff2", weight: "400", style: "normal" },
+    { path: "../../assets/fonts/inter-500.woff2", weight: "500", style: "normal" },
+    { path: "../../assets/fonts/inter-600.woff2", weight: "600", style: "normal" },
+  ],
   variable: "--font-body", display: "swap",
 });
-const mono = IBM_Plex_Mono({
-  subsets: ["latin"], weight: ["400", "500", "600"],
+const mono = localFont({
+  src: [
+    { path: "../../assets/fonts/plexmono-400.woff2", weight: "400", style: "normal" },
+    { path: "../../assets/fonts/plexmono-500.woff2", weight: "500", style: "normal" },
+    { path: "../../assets/fonts/plexmono-600.woff2", weight: "600", style: "normal" },
+  ],
   variable: "--font-mono", display: "swap",
 });
 
