@@ -3,7 +3,7 @@ import { useState } from "react";
 import CenoteMap from "@/components/CenoteMap";
 import CenoteCard from "@/components/CenoteCard";
 import { CENOTES, type Cenote } from "@/content/cenotes";
-import { mapCopy, type CenoteCopy } from "@/lib/i18n";
+import { mapCopy, type CardCopy } from "@/lib/i18n";
 
 type Filter = "all" | "open" | "cavern" | "deep" | "snorkel";
 const FILTERS: Filter[] = ["all", "open", "cavern", "deep", "snorkel"];
@@ -13,7 +13,7 @@ const keep = (f: Filter) => (c: Cenote) =>
 
 /** The guide's index: one row of filters driving both the map and the cards. */
 export default function CenoteExplorer({ t, base, alts, preview }: {
-  t: CenoteCopy;
+  t: CardCopy;
   base: string;
   /** Alt text for the cenotes that have a real photograph, by slug */
   alts: Record<string, string>;

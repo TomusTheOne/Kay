@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { isLocale, getDictionary, pathFor } from "@/lib/i18n";
+import { isLocale, getDictionary, pathFor, cardCopy } from "@/lib/i18n";
 import { guideMetadata } from "@/lib/guide";
 import { PRODUCTS } from "@/content/products";
 import { CENOTES, GUIDE_PUBLISHED } from "@/content/cenotes";
@@ -33,7 +33,7 @@ export default async function Guide({ params }: { params: Promise<{ locale: stri
         <p className="lede">{t.cenotes.intro}</p>
       </section>
       <section className="guide__explore" aria-label={t.cenotes.mapLabel}>
-        <CenoteExplorer t={t.cenotes} base={pathFor(locale, "/cenotes/")} alts={alts} preview={!GUIDE_PUBLISHED} />
+        <CenoteExplorer t={cardCopy(t.cenotes)} base={pathFor(locale, "/cenotes/")} alts={alts} preview={!GUIDE_PUBLISHED} />
       </section>
     </GuideFrame>
   );

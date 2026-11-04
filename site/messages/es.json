@@ -1035,6 +1035,15 @@
       "nicte-ha": "El agua turquesa y cristalina del Cenote Nicte-Ha, cubierta de nenúfares, al pie de una pared de roca y selva",
       "nohoch-nah-chich": "El agua turquesa del Cenote Nohoch Nah Chich bajo una bóveda de roca, con una escalera de madera que baja al agua"
     },
+    "arts": {
+      "cavern": "Buceo en caverna: estalactitas y estalagmitas enmarcando la salida azul a lo lejos. La luz del día nunca se pierde de vista.",
+      "cenote-shaft": "Rayos de sol atravesando el agua turquesa, las paredes de piedra caliza y un buzo descendiendo.",
+      "halocline": "Un buzo cruzando la haloclina, la capa temblorosa donde el agua dulce se encuentra con la salada.",
+      "the-pit": "Una sola columna de luz cayendo por el pozo profundo de El Pit.",
+      "casa-cenote": "Agua somera y soleada entre raíces de manglar, con peces pequeños alrededor.",
+      "reef": "El arrecife mesoamericano frente a Tulum: cabezas de coral, una tortuga y un banco de peces bajo los rayos de luz."
+    },
+    "artNote": "Ilustración del tipo de buceo, no un plano de este cenote.",
     "artAlt": "Ilustración: {name}",
     "lightTag": "Cuándo ir",
     "ownTag": "Si vas por tu cuenta",

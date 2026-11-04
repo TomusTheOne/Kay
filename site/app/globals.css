@@ -986,6 +986,20 @@ select.field{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xml
 .guide__deep section{padding-block:clamp(1.6rem,3vw,2.4rem);border-top:1px solid var(--line-soft)}
 .guide__deep h2{margin-bottom:1.3rem}
 .guide__deep .lede + .lede{margin-top:1.1rem}
+/* The typological drawing, between Kay's write-up and the location map: the
+   page is a long run of prose by then and wants a visual beat, and the break
+   lands where the subject turns from what the dive is like to where it is.
+   No crop — the art is drawn at 3:2 and is shown at 3:2. */
+.guide__art{margin:0;padding-top:0}
+/* Capped and centred rather than filling the shell: at 3:2 the full reading
+   width is 800 px tall, which eats a laptop viewport whole and turns a beat
+   into an interruption. */
+.guide__art img{display:block;width:100%;max-width:980px;margin-inline:auto;
+  height:auto;border-radius:var(--r-lg);border:1px solid var(--line-soft)}
+.guide__art figcaption{max-width:980px;margin:.9rem auto 0;color:var(--foam-52);font-size:.92rem;line-height:1.7}
+/* Italic, not fainter: --foam-34 sits at 2.96:1 and fails AA, and a
+   caveat nobody can read is a caveat that is not there. */
+.guide__art-note{font-style:italic}
 .guide__back{display:inline-block;margin-bottom:1.8rem;color:var(--turq);padding-block:.3rem}
 .guide__back:hover{color:var(--foam)}
 .guide__split{align-items:start}

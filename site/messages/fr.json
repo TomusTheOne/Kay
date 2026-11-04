@@ -1035,6 +1035,15 @@
       "nicte-ha": "L'eau turquoise et limpide du cenote Nicte-Ha, couverte de nénuphars, au pied d'une paroi de roche et de jungle",
       "nohoch-nah-chich": "L'eau turquoise du cenote Nohoch Nah Chich sous une voûte de roche, un escalier de bois qui descend vers l'eau"
     },
+    "arts": {
+      "cavern": "Une plongée en caverne : stalactites et stalagmites encadrant la sortie bleue au loin. La lumière du jour reste toujours en vue.",
+      "cenote-shaft": "Des rayons de soleil traversant l'eau turquoise, les parois calcaires et un plongeur en descente.",
+      "halocline": "Un plongeur traversant l'halocline, la couche tremblante où l'eau douce rencontre l'eau salée.",
+      "the-pit": "Une unique colonne de lumière tombant dans le puits profond d'El Pit.",
+      "casa-cenote": "Une eau peu profonde et ensoleillée entre les racines de mangrove, avec de petits poissons.",
+      "reef": "Le récif mésoaméricain au large de Tulum : patates de corail, une tortue et un banc de poissons sous les rais de lumière."
+    },
+    "artNote": "Une illustration du type de plongée, pas un plan de ce cenote.",
     "artAlt": "Illustration : {name}",
     "lightTag": "Quand y aller",
     "ownTag": "Si vous y allez seul",

@@ -74,6 +74,15 @@ export type CenoteCopy = Record<
   /** Alt text for each cenote's own photograph, keyed by slug. */
   alts: Record<string, string>;
   /**
+   * What each illustration shows, keyed by the art file's name — not by slug,
+   * because the drawings are typological: one cavern scene serves Dos Ojos,
+   * Tak Be Luum and Nohoch Nah Chich. Captioning one of those "a plan of this
+   * cenote" would be a lie, so the text describes the kind of dive and
+   * artNote says so outright.
+   */
+  arts: Record<string, string>;
+  artNote: string;
+  /**
    * Kay's own write-up of a cenote, keyed by slug: how the dive goes, when to
    * come, what it is like if you turn up on your own, and its questions.
    *
@@ -96,11 +105,24 @@ export type CenoteCopy = Record<
   }>;
 };
 
-/** The guide's strings without Kay's texts — all the map needs on the client. */
-export type MapCopy = Omit<CenoteCopy, "items" | "alts" | "deep">;
-export function mapCopy(c: CenoteCopy): MapCopy {
-  const { items, alts, deep, ...rest } = c;
-  void items; void alts; void deep;
+/**
+ * The guide's strings without Kay's write-ups. The index is a client
+ * component, so whatever it is handed is serialised into the page: passing
+ * the whole dictionary shipped fifteen thousand words of prose that the index
+ * never renders. The cards need `items`; nothing on that page needs `deep`.
+ */
+export type CardCopy = Omit<CenoteCopy, "deep">;
+export function cardCopy(c: CenoteCopy): CardCopy {
+  const { deep, ...rest } = c;
+  void deep;
+  return rest;
+}
+
+/** Less again: all the map itself needs, with no per-cenote prose at all. */
+export type MapCopy = Omit<CardCopy, "items" | "alts" | "arts">;
+export function mapCopy(c: CardCopy): MapCopy {
+  const { items, alts, arts, ...rest } = c;
+  void items; void alts; void arts;
   return rest;
 }
 

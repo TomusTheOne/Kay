@@ -1033,6 +1033,15 @@
       "nicte-ha": "The clear turquoise water of Cenote Nicte-Ha, dotted with water lilies, below a wall of rock and jungle",
       "nohoch-nah-chich": "The turquoise water of Cenote Nohoch Nah Chich under a rock overhang, wooden steps leading down into it"
     },
+    "arts": {
+      "cavern": "A cavern dive: stalactites and stalagmites framing the blue exit in the distance. Daylight is never out of sight.",
+      "cenote-shaft": "Sunbeams piercing turquoise water, limestone walls and a diver on the way down.",
+      "halocline": "A diver crossing the halocline, the shimmering layer where fresh water meets salt.",
+      "the-pit": "A single column of light falling down the deep shaft of El Pit.",
+      "casa-cenote": "Shallow, sunlit water among mangrove roots, with small fish around it.",
+      "reef": "The Mesoamerican reef off Tulum: coral heads, a turtle and a school of fish under shafts of light."
+    },
+    "artNote": "An illustration of the kind of dive, not a map of this cenote.",
     "artAlt": "Illustration: {name}",
     "lightTag": "When to go",
     "ownTag": "Going on your own",

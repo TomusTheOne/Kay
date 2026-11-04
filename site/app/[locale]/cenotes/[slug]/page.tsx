@@ -38,7 +38,9 @@ export default async function CenotePage({ params }: Params) {
   const away = fromTulum(c);
   const guide = pathFor(locale, "/cenotes/");
   const photoAlt = (o: Cenote) => {
-    if (!o.photo) return g.artAlt.replace("{name}", o.name);
+    // The drawing's own description beats "Illustration: Dreamgate", which
+    // tells a screen reader nothing it did not already have from the heading.
+    if (!o.photo) return g.arts[o.art] ?? g.artAlt.replace("{name}", o.name);
     const p = PRODUCTS.find((x) => x.photo === o.photo);
     return g.alts[o.slug] ?? (p ? t.products.items[p.slug].alt : o.name);
   };
@@ -164,6 +166,21 @@ export default async function CenotePage({ params }: Params) {
             </section>
           )}
         </article>
+      )}
+
+      {/* The illustration, for the cenotes whose plate is a photograph — where
+          there is no photo the plate IS this drawing, and showing it twice
+          would be padding. Captioned with what it actually depicts: these are
+          typological, one cavern scene across three cenotes, so the caption
+          says "the kind of dive" and never "a plan of this one". */}
+      {c.photo && g.arts[c.art] && (
+        <figure className="bay shell guide__art">
+          <img src={`/assets/art/${c.art}.svg`} alt={g.arts[c.art]}
+               loading="lazy" width={1200} height={800} />
+          <figcaption>
+            {g.arts[c.art]} <span className="guide__art-note">{g.artNote}</span>
+          </figcaption>
+        </figure>
       )}
 
       <section className="wide guide__map" aria-label={g.mapLabel}>
