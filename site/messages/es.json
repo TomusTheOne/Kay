@@ -109,7 +109,7 @@
       "snorkel": {
         "name": "Tour de snorkel",
         "tagline": "Conecta con la naturaleza.",
-        "text": "Para quien quiere un poco de aventura y mucha calma. Tres cenotes distintos en medio día, terminando en una de las mejores taquerías del pueblo. Sin experiencia y sin tanque.",
+        "text": "Para quien quiere un poco de aventura y mucha calma. Tres cenotes distintos en medio día, terminando con una comida, incluida, en una de las mejores taquerías del pueblo. Sin experiencia y sin tanque.",
         "alt": "Una persona haciendo snorkel, con máscara y aletas, vista desde arriba en agua turquesa"
       },
       "bull-sharks": {
@@ -372,7 +372,7 @@
         "lede": "Cada invierno las hembras de tiburón toro llegan a la costa de Playa del Carmen. Manejamos los cuarenta y cinco minutos y nos metemos a verlas.",
         "who": "Para buzos con Advanced Open Water o equivalente, sin excepciones — es buceo desde barco, en mar abierto, con animales grandes. Si tienes el Open Water y quieres hacer esto, el camino es el Advanced primero.",
         "day": [
-          "Salimos de Tulum temprano y manejamos los cuarenta y cinco minutos hasta Playa del Carmen. De ahí, al barco.",
+          "Salimos temprano desde un punto de salida que acordamos contigo antes —Easy Chango Dive Center, en Tulum, u otro— y manejamos los cuarenta y cinco minutos hasta Playa del Carmen. De ahí, al barco.",
           "La primera inmersión es la de los tiburones. La segunda, en un arrecife bajo, entre ocho y veinte metros.",
           "Son animales salvajes y en libertad: vienen porque la temporada los trae, no porque alguien los llame. Eso es exactamente lo que hace que valga la pena, y también lo que significa que nadie puede prometerte cuántos vas a ver.",
           "La temporada va de noviembre a marzo. Fuera de esos meses no están, y no lo vendemos."
@@ -403,15 +403,15 @@
       },
       "snorkel": {
         "title": "Tour de snorkel en cenotes de Tulum | Kay Diving",
-        "description": "Medio día de snorkel en tres cenotes cerca de Tulum, sin certificación ni experiencia. Equipo, entradas y transporte incluidos. $125 USD por persona.",
+        "description": "Medio día de snorkel en tres cenotes cerca de Tulum, sin experiencia. Equipo, entradas, transporte y comida en la taquería incluidos. $125 USD por persona.",
         "h1": "Snorkel en cenotes de Tulum",
-        "lede": "Tres cenotes distintos en medio día, sin tanque, sin curso y sin prisa. Terminamos en una de las mejores taquerías del pueblo.",
+        "lede": "Tres cenotes distintos en medio día, sin tanque, sin curso y sin prisa. Terminamos con una comida, incluida, en una de las mejores taquerías del pueblo.",
         "who": "Para quien quiere ver los cenotes por dentro sin meterse en el buceo: familias, acompañantes de alguien que sí va a bucear, o cualquiera que prefiera la superficie. No hace falta experiencia ni certificación, y el equipo de snorkel va incluido. No hay edad mínima.",
         "day": [
           "Medio día, tres cenotes. Cada uno es distinto del anterior a propósito: cambian la forma, la luz y lo que se ve desde arriba.",
           "Desde la superficie se ve más de lo que la gente espera. En agua clara y poco profunda, con la luz entrando desde arriba, el fondo y las formaciones se ven enteros.",
           "Entre uno y otro hay traslado y snacks, incluidos, y el ritmo lo pone el grupo.",
-          "Y al final, tacos. No es parte del precio, es parte del día."
+          "Y al final, tacos: la comida está incluida en el precio, como el resto del día."
         ],
         "sites": "Tres de nuestros cenotes favoritos cerca de Tulum, elegidos el mismo día según cómo esté el agua y qué quiera ver el grupo.",
         "faq": [
@@ -421,7 +421,7 @@
           },
           {
             "q": "¿Qué incluye?",
-            "a": "El visor y el snorkel, la entrada a los tres cenotes, el transporte entre ellos y los snacks. $125 USD por persona."
+            "a": "El visor y el snorkel, la entrada a los tres cenotes, el transporte entre ellos, los snacks y la comida en la taquería al final. $125 USD por persona."
           },
           {
             "q": "¿Cuánto dura?",
@@ -796,7 +796,9 @@
     "email": "Correo",
     "place": "Tulum, Quintana Roo, MX",
     "phone": "Teléfono",
-    "meet": "Punto de encuentro"
+    "meet": "Punto de encuentro",
+    "hoursTag": "Horario",
+    "hours": "De 8:00 a 23:00. Si no contestamos de inmediato, seguramente estamos buceando o sin señal: te escribimos en cuanto podamos."
   },
   "booking": {
     "thanks": {
@@ -823,7 +825,7 @@
     "tag": "Cómo llegar",
     "h2": "Dónde nos vemos,<br>y a qué hora.",
     "meetTag": "Punto de encuentro",
-    "meetText": "Nos vemos en Easy Chango Dive Center, en Tulum. Llegar con nosotros no cuesta nada, y es donde empieza el día.",
+    "meetText": "Nos vemos en Easy Chango Dive Center, en Tulum, el centro que nos surte los tanques. Llegar con nosotros no cuesta nada, y es donde empieza el día.",
     "pickupTag": "Si prefieres que pasemos por ti",
     "pickups": {
       "meeting-point": {
@@ -1143,7 +1145,7 @@
           {
             "h": "Atravesar la nube",
             "p": [
-              "La nube empieza alrededor de los veintiocho metros. Nuestro buceo se planea a treinta. A quien lo pide y tiene la experiencia se le puede bajar a atravesarla —termina hacia los treinta y tres metros—, y eso se habla en el sitio, contigo, no se vende por internet. Por debajo la visibilidad es buena pero está oscuro, porque la nube se come la luz del día; con la lámpara se ve todo perfectamente. Nos quedamos ahí un par de minutos y empezamos a subir. Volver de la nube hacia arriba es de los momentos más particulares del buceo. Por encima de ella el agua es dulce; por debajo, salada."
+              "La nube empieza alrededor de los veintiocho metros. Nuestro buceo se planea a treinta. A quien lo pide y tiene la experiencia se le puede bajar a atravesarla —termina hacia los treinta y dos metros—, y eso se habla en el sitio, contigo, no se vende por internet. Por debajo la visibilidad es buena pero está oscuro, porque la nube se come la luz del día; con la lámpara se ve todo perfectamente. Nos quedamos ahí un par de minutos y empezamos a subir. Volver de la nube hacia arriba es de los momentos más particulares del buceo. Por encima de ella el agua es dulce; por debajo, salada."
             ]
           },
           {
@@ -1174,7 +1176,7 @@
           },
           {
             "q": "¿Se puede atravesar la nube?",
-            "a": "El buceo se planea a treinta metros. A quien lo pide y tiene la experiencia se le puede bajar a cruzarla; termina hacia los treinta y tres. Eso se decide contigo en el sitio, no por internet. Debajo está oscuro porque la nube absorbe la luz del día, pero con la lámpara se ve todo, y nos quedamos solo un par de minutos."
+            "a": "El buceo se planea a treinta metros. A quien lo pide y tiene la experiencia se le puede bajar a cruzarla; termina hacia los treinta y dos. Eso se decide contigo en el sitio, no por internet. Debajo está oscuro porque la nube absorbe la luz del día, pero con la lámpara se ve todo, y nos quedamos solo un par de minutos."
           },
           {
             "q": "¿Qué certificación necesito?",

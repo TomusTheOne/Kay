@@ -211,7 +211,7 @@ export interface Dictionary {
   faq: { tag: string; h2: string; items: Qa[] };
   cta: Record<"kicker" | "h2" | "lede" | "instagram" | "bandAlt", string>;
   footer: Record<"blurb" | "explore" | "learn" | "find" | "whatsapp" | "email"
-                | "place" | "phone" | "meet", string>;
+                | "place" | "phone" | "meet" | "hoursTag" | "hours", string>;
   booking: Record<"thanks" | "pending" | "failed", Outcome>;
   /** The equipment-sizes questionnaire behind the link in the confirmation email. */
   gear: Record<string, string>;

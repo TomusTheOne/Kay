@@ -109,7 +109,7 @@
       "snorkel": {
         "name": "Sortie snorkeling",
         "tagline": "Reconnectez-vous à la nature.",
-        "text": "Pour qui veut un peu d'aventure et beaucoup de calme. Trois cenotes différents sur une demi-journée, avec un arrêt final dans l'une des meilleures taquerías du coin. Sans expérience et sans bloc.",
+        "text": "Pour qui veut un peu d'aventure et beaucoup de calme. Trois cenotes différents sur une demi-journée, avec pour finir un repas, compris, dans l'une des meilleures taquerías du coin. Sans expérience et sans bloc.",
         "alt": "Un nageur en snorkeling, masque et palmes, vu d'en haut dans une eau turquoise"
       },
       "bull-sharks": {
@@ -372,7 +372,7 @@
         "lede": "Chaque hiver, les femelles requins-bouledogues remontent vers la côte au large de Playa del Carmen. Nous faisons les quarante-cinq minutes de route et nous allons les voir.",
         "who": "Pour les plongeurs Advanced Open Water ou équivalent, sans exception — c'est de la plongée depuis un bateau, en pleine eau, avec de grands animaux. Si vous avez l'Open Water et que vous voulez faire cela, le chemin passe d'abord par l'Advanced.",
         "day": [
-          "Départ de Tulum tôt et quarante-cinq minutes de route jusqu'à Playa del Carmen. De là, on embarque.",
+          "Départ tôt d'un point convenu avec vous à l'avance — le Easy Chango Dive Center, à Tulum, ou un autre — et quarante-cinq minutes de route jusqu'à Playa del Carmen. De là, on embarque.",
           "La première plongée est celle des requins. La seconde se fait sur un récif bas, entre huit et vingt mètres.",
           "Ce sont des animaux sauvages et libres : ils viennent parce que la saison les amène, pas parce qu'on les appelle. C'est exactement ce qui en fait l'intérêt, et c'est aussi ce qui fait que personne ne peut vous promettre combien vous en verrez.",
           "La saison va de novembre à mars. En dehors de ces mois ils ne sont pas là, et nous ne le vendons pas."
@@ -403,15 +403,15 @@
       },
       "snorkel": {
         "title": "Sortie snorkeling dans les cenotes de Tulum | Kay Diving",
-        "description": "Une demi-journée de snorkeling dans trois cenotes près de Tulum, sans certification ni expérience. Matériel, entrées et transport compris. 125 $ US.",
+        "description": "Une demi-journée de snorkeling dans trois cenotes près de Tulum, sans expérience. Matériel, entrées, transport et repas à la taquería compris. 125 $ US.",
         "h1": "Snorkeling dans les cenotes de Tulum",
-        "lede": "Trois cenotes différents en une demi-journée, sans bloc, sans formation et sans se presser. On finit dans l'une des meilleures taquerías du village.",
+        "lede": "Trois cenotes différents en une demi-journée, sans bloc, sans formation et sans se presser. On finit par un repas, compris, dans l'une des meilleures taquerías du village.",
         "who": "Pour qui veut voir les cenotes de l'intérieur sans se mettre à la plongée : les familles, celui ou celle qui accompagne un plongeur, ou simplement qui préfère la surface. Ni expérience ni certification, et le matériel de snorkeling est compris. Il n'y a pas d'âge minimum.",
         "day": [
           "Une demi-journée, trois cenotes. Chacun différent du précédent à dessein : la forme, la lumière et ce que l'on voit d'en haut changent.",
           "Depuis la surface, on voit bien plus que ce que les gens imaginent. En eau claire et peu profonde, avec la lumière qui descend, le fond et les formations se voient entièrement.",
           "Entre l'un et l'autre, la route et les collations, comprises, et le rythme est celui du groupe.",
-          "Et à la fin, des tacos. Pas compris dans le prix — compris dans la journée."
+          "Et à la fin, des tacos : le repas est compris dans le prix, comme le reste de la journée."
         ],
         "sites": "Trois de nos cenotes préférés près de Tulum, choisis le jour même selon l'état de l'eau et ce que le groupe veut voir.",
         "faq": [
@@ -421,7 +421,7 @@
           },
           {
             "q": "Que comprend la sortie ?",
-            "a": "Le masque et le tuba, l'entrée des trois cenotes, le transport entre eux et les collations. 125 $ US par personne."
+            "a": "Le masque et le tuba, l'entrée des trois cenotes, le transport entre eux, les collations et le repas à la taquería pour finir. 125 $ US par personne."
           },
           {
             "q": "Combien de temps dure-t-elle ?",
@@ -796,7 +796,9 @@
     "email": "E-mail",
     "place": "Tulum, Quintana Roo, MX",
     "phone": "Téléphone",
-    "meet": "Point de rendez-vous"
+    "meet": "Point de rendez-vous",
+    "hoursTag": "Horaires",
+    "hours": "De 8h00 à 23h00. Si nous ne répondons pas tout de suite, c'est sans doute que nous sommes sous l'eau ou sans réseau : nous vous recontactons dès que possible."
   },
   "booking": {
     "thanks": {
@@ -823,7 +825,7 @@
     "tag": "Le rendez-vous",
     "h2": "Où l'on se retrouve,<br>et à quelle heure.",
     "meetTag": "Point de rendez-vous",
-    "meetText": "On se retrouve au Easy Chango Dive Center, à Tulum. Venir jusqu'à nous ne coûte rien, et c'est là que la journée commence.",
+    "meetText": "On se retrouve au Easy Chango Dive Center, à Tulum, le centre qui nous fournit les blocs. Venir jusqu'à nous ne coûte rien, et c'est là que la journée commence.",
     "pickupTag": "Si vous préférez qu'on passe vous prendre",
     "pickups": {
       "meeting-point": {
@@ -1143,7 +1145,7 @@
           {
             "h": "Traverser le nuage",
             "p": [
-              "Le nuage commence vers vingt-huit mètres. Notre plongée est planifiée à trente. À qui le demande et en a l'expérience, nous pouvons descendre le traverser — il se termine vers trente-trois — et cela se décide avec vous sur place, pas sur internet. En dessous la visibilité est bonne mais il fait sombre, car le nuage absorbe la lumière du jour ; à la lampe, tout est parfaitement net. Nous y restons deux minutes et nous remontons. Repasser le nuage vers le haut est l'un des moments les plus étranges de la plongée. Au-dessus, l'eau est douce ; en dessous, salée."
+              "Le nuage commence vers vingt-huit mètres. Notre plongée est planifiée à trente. À qui le demande et en a l'expérience, nous pouvons descendre le traverser — il se termine vers trente-deux — et cela se décide avec vous sur place, pas sur internet. En dessous la visibilité est bonne mais il fait sombre, car le nuage absorbe la lumière du jour ; à la lampe, tout est parfaitement net. Nous y restons deux minutes et nous remontons. Repasser le nuage vers le haut est l'un des moments les plus étranges de la plongée. Au-dessus, l'eau est douce ; en dessous, salée."
             ]
           },
           {
@@ -1174,7 +1176,7 @@
           },
           {
             "q": "Peut-on traverser le nuage ?",
-            "a": "La plongée est planifiée à trente mètres. À qui le demande et en a l'expérience, nous pouvons descendre le traverser ; il se termine vers trente-trois. Cela se décide avec vous sur place, pas sur internet. En dessous il fait sombre car le nuage absorbe la lumière du jour, mais la lampe montre tout, et nous n'y restons que deux minutes."
+            "a": "La plongée est planifiée à trente mètres. À qui le demande et en a l'expérience, nous pouvons descendre le traverser ; il se termine vers trente-deux. Cela se décide avec vous sur place, pas sur internet. En dessous il fait sombre car le nuage absorbe la lumière du jour, mais la lampe montre tout, et nous n'y restons que deux minutes."
           },
           {
             "q": "Quelle certification faut-il ?",
