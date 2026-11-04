@@ -37,6 +37,8 @@ export interface Cenote {
   products: string[];
   photo: string | null;
   art: string;
+  /** The dive map in public/assets/maps/, where there is one: its version, its size, and whose map it redraws. */
+  plan?: { v: number; w: number; h: number; credit: string | null };
 }
 
 export interface Town { name: string; lat: number; lon: number; home?: boolean }
@@ -53,6 +55,11 @@ export const MAP_BOUNDS = data.bounds as [number, number, number, number];
  * the menu, and the home page shows no map.
  */
 export const GUIDE_PUBLISHED = data.published as boolean;
+
+/** One file of a cenote's dive map: /assets/maps/dos-ojos-v1-fr-1600.webp. */
+export function mapFile(c: Cenote, locale: string, w: number, ext: "webp" | "avif") {
+  return `/assets/maps/${c.slug}-v${c.plan?.v ?? 1}-${locale}-${w}.${ext}`;
+}
 
 export function cenoteBySlug(slug: string) {
   return CENOTES.find((c) => c.slug === slug);

@@ -8,6 +8,7 @@ import GuideFrame from "@/components/GuideFrame";
 import CenoteMap from "@/components/CenoteMap";
 import CenoteCard from "@/components/CenoteCard";
 import Plate from "@/components/Plate";
+import CenotePlan, { planCredit } from "@/components/CenotePlan";
 
 export function generateStaticParams() {
   return CENOTES.map((c) => ({ slug: c.slug }));
@@ -125,6 +126,23 @@ export default async function CenotePage({ params }: Params) {
           </figure>
         </div>
       </article>
+
+      {/* The dive map, for the six cenotes that have one: a plan from above,
+          or a section for the two deep ones, redrawn in the site's palette from
+          a published survey and labelled in the page's language. Unlike the
+          illustration below, this one IS of this cenote. */}
+      {c.plan && (
+        <section className="bay shell guide__plan" aria-labelledby="plan-h">
+          <h2 className="dsp dsp-md" id="plan-h">{g.planTag}</h2>
+          <figure>
+            <CenotePlan c={c} plan={c.plan} locale={locale} open={g.planOpen}
+                        alt={g.planAlts[slug] ?? `${g.planTag} · ${c.name}`} />
+            <figcaption className="data guide__plan-note">
+              {g.planNote} {planCredit(g, locale, c.plan.credit)}
+            </figcaption>
+          </figure>
+        </section>
+      )}
 
       {/* Kay's write-up, where there is one. Headings of its own, because a
           page with a single h1 and three hundred words gives a reader and a

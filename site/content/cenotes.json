@@ -10,7 +10,8 @@
       "type": "open", "level": "none", "snorkel": true,
       "depthM": 9, "diveMinM": null, "diveMaxM": 9,
       "products": ["discover-scuba", "reef-cenote", "open-water", "cenote-diving"],
-      "photo": "cenote-casa-surface", "art": "casa-cenote"
+      "photo": "cenote-casa-surface", "art": "casa-cenote",
+      "plan": { "v": 1, "w": 1616, "h": 1140, "credit": "Gerardo Aizpuru (Underwater Editions, 2004)" }
     },
     {
       "slug": "car-wash", "name": "Cenote Car Wash", "short": "Car Wash", "aka": "Aktun Ha",
@@ -18,7 +19,8 @@
       "type": "cavern", "level": "open-water", "snorkel": true,
       "depthM": 16, "diveMinM": null, "diveMaxM": 16,
       "products": ["cenote-diving"],
-      "photo": "card-casa", "art": "cenote-shaft"
+      "photo": "card-casa", "art": "cenote-shaft",
+      "plan": { "v": 1, "w": 1600, "h": 1137, "credit": "Underwater Editions" }
     },
     {
       "slug": "dos-ojos", "name": "Cenote Dos Ojos", "short": "Dos Ojos",
@@ -26,7 +28,8 @@
       "type": "cavern", "level": "open-water", "snorkel": true,
       "depthM": 10, "diveMinM": null, "diveMaxM": 10,
       "products": ["cenote-diving"],
-      "photo": "cenote-dos-ojos", "art": "cavern"
+      "photo": "cenote-dos-ojos", "art": "cavern",
+      "plan": { "v": 1, "w": 1600, "h": 1897, "credit": "Sebastián Maza (Fisheye Adventures, 2011)" }
     },
     {
       "slug": "el-pit", "name": "Cenote El Pit", "short": "El Pit",
@@ -34,7 +37,8 @@
       "type": "deep", "level": "advanced", "snorkel": false,
       "depthM": 142, "diveMinM": null, "diveMaxM": 30,
       "products": ["cenote-diving", "advanced-ow"],
-      "photo": "cenote-el-pit", "art": "the-pit"
+      "photo": "cenote-el-pit", "art": "the-pit",
+      "plan": { "v": 1, "w": 1300, "h": 1833, "credit": "Alejandro Elizondo (Underwater Editions)" }
     },
     {
       "slug": "angelita", "name": "Cenote Angelita", "short": "Angelita",
@@ -42,7 +46,8 @@
       "type": "deep", "level": "advanced", "snorkel": false,
       "depthM": 57, "diveMinM": null, "diveMaxM": 30,
       "products": ["cenote-diving", "advanced-ow"],
-      "photo": "cenote-angelita", "art": "halocline"
+      "photo": "cenote-angelita", "art": "halocline",
+      "plan": { "v": 1, "w": 1600, "h": 1464, "credit": "Underwater Expeditions México" }
     },
     {
       "slug": "dreamgate", "name": "Cenote Dreamgate", "short": "Dreamgate",
@@ -50,7 +55,8 @@
       "type": "cavern", "level": "open-water", "snorkel": false,
       "depthM": null, "diveMinM": null, "diveMaxM": 7,
       "products": ["cenote-diving"],
-      "photo": null, "art": "cenote-shaft"
+      "photo": null, "art": "cenote-shaft",
+      "plan": { "v": 1, "w": 1600, "h": 866, "credit": null }
     },
     {
       "slug": "tak-be-luum", "name": "Cenote Tak Be Luum", "short": "Tak Be Luum",

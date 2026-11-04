@@ -109,7 +109,7 @@
       "snorkel": {
         "name": "Snorkel tour",
         "tagline": "Connect with nature.",
-        "text": "For anyone who wants a little adventure and a lot of calm. Three different cenotes across half a day, finishing at one of the best local taquerías in town. No experience needed, and no tank.",
+        "text": "For anyone who wants a little adventure and a lot of calm. Three different cenotes across half a day, finishing with a meal, included, at one of the best local taquerías in town. No experience needed, and no tank.",
         "alt": "A snorkeller seen from above, mask and fins on, in turquoise water"
       },
       "bull-sharks": {
@@ -372,7 +372,7 @@
         "lede": "Every winter female bull sharks come in to the coast off Playa del Carmen. We drive the forty-five minutes and get in with them.",
         "who": "For divers with Advanced Open Water or the equivalent, no exceptions — this is boat diving, in open water, with large animals. If you hold the Open Water and want to do this, the way there is the Advanced first.",
         "day": [
-          "We leave Tulum early and drive the forty-five minutes to Playa del Carmen. From there, onto the boat.",
+          "We leave early from a starting point agreed with you beforehand — Easy Chango Dive Center in Tulum or another — and drive the forty-five minutes to Playa del Carmen. From there, onto the boat.",
           "The first dive is the shark dive. The second is on a low reef, between eight and twenty metres.",
           "These are wild animals, free: they come because the season brings them, not because anyone calls them. That is exactly what makes it worth doing, and also what means nobody can promise you how many you will see.",
           "The season runs November to March. Outside those months they are not there, and we do not sell it."
@@ -403,15 +403,15 @@
       },
       "snorkel": {
         "title": "Cenote snorkelling tour in Tulum | Kay Diving",
-        "description": "Half a day snorkelling three cenotes near Tulum, no certification and no experience needed. Gear, entrance and transport included. $125 USD per person.",
+        "description": "Half a day snorkelling three cenotes near Tulum, no experience needed. Gear, entrance, transport and a taquería lunch included. $125 USD per person.",
         "h1": "Snorkelling the cenotes of Tulum",
-        "lede": "Three different cenotes in half a day, no tank, no course and no rush. We finish at one of the best taquerías in town.",
+        "lede": "Three different cenotes in half a day, no tank, no course and no rush. We finish with a meal, included, at one of the best taquerías in town.",
         "who": "For anyone who wants to see the cenotes from the inside without taking up diving: families, someone along with a diver, or anyone who would rather stay at the surface. No experience and no certification, and the snorkelling gear is included. There is no minimum age.",
         "day": [
           "Half a day, three cenotes. Each one different from the last on purpose: the shape, the light and what you see from above all change.",
           "From the surface you see more than people expect. In clear, shallow water with light coming down from above, the bottom and the formations are there in full.",
           "Between one and the next there is the drive and snacks, included, and the pace is whatever the group's is.",
-          "And at the end, tacos. Not part of the price — part of the day."
+          "And at the end, tacos: the meal is in the price, like the rest of the day."
         ],
         "sites": "Three of our favourite cenotes near Tulum, chosen on the day according to the water and what the group wants to see.",
         "faq": [
@@ -421,7 +421,7 @@
           },
           {
             "q": "What is included?",
-            "a": "Mask and snorkel, entrance to all three cenotes, transport between them and snacks. $125 USD per person."
+            "a": "Mask and snorkel, entrance to all three cenotes, transport between them, snacks, and the meal at the taquería at the end. $125 USD per person."
           },
           {
             "q": "How long is it?",
@@ -471,6 +471,10 @@
       "padi-licence": {
         "name": "PADI licence",
         "text": "Both courses end with a certification recognised worldwide, included in the price."
+      },
+      "taqueria-meal": {
+        "name": "Taquería meal",
+        "text": "On the snorkel tour, the meal at the end, at one of the best taquerías in town, is in the price."
       }
     }
   },
@@ -748,7 +752,7 @@
       },
       {
         "q": "What is actually included in the price?",
-        "a": "High quality equipment, the cenote entrance fees, transport from the meeting point to every site and back, and snacks and water. Both courses also include the learning materials. Hotel pickup is the one thing charged separately — see below. Prices are quoted in dollars and pesos; if you settle the balance in dollars, the exchange rate of the day applies."
+        "a": "High quality equipment, the cenote entrance fees, transport from the meeting point to every site and back, and snacks and water. Both courses also include the learning materials, and the snorkel tour the meal at the taquería at the end. Hotel pickup is the one thing charged separately — see below. Prices are quoted in dollars and pesos; if you settle the balance in dollars, the exchange rate of the day applies."
       },
       {
         "q": "Can you pick me up from my hotel?",
@@ -796,7 +800,9 @@
     "email": "Email",
     "place": "Tulum, Quintana Roo, MX",
     "phone": "Phone",
-    "meet": "Meeting point"
+    "meet": "Meeting point",
+    "hoursTag": "Hours",
+    "hours": "From 8:00 to 23:00. If we do not answer straight away, we are probably underwater or out of signal — we write back as soon as we can."
   },
   "booking": {
     "thanks": {
@@ -823,7 +829,7 @@
     "tag": "Getting there",
     "h2": "Where we meet,<br>and when.",
     "meetTag": "Meeting point",
-    "meetText": "We meet at Easy Chango Dive Center in Tulum. Coming to us costs nothing, and it is where the day starts.",
+    "meetText": "We meet at Easy Chango Dive Center in Tulum, the centre that supplies our tanks. Coming to us costs nothing, and it is where the day starts.",
     "pickupTag": "If you would rather be collected",
     "pickups": {
       "meeting-point": {
@@ -1042,6 +1048,19 @@
       "reef": "The Mesoamerican reef off Tulum: coral heads, a turtle and a school of fish under shafts of light."
     },
     "artNote": "An illustration of the kind of dive, not a map of this cenote.",
+    "planTag": "Dive map",
+    "planNote": "Drawn for orientation, not navigation: your guide briefs the route at the cenote.",
+    "planCredit": "Redrawn from the map by {credit}.",
+    "planCreditCentre": "Redrawn from the dive centre's own map.",
+    "planOpen": "Open full size",
+    "planAlts": {
+      "casa-cenote": "Dive map of Casa Cenote: snorkel areas, depths of 2 to 6 m, the crack and cavern passages, cavern limits and the main entrance",
+      "car-wash": "Dive map of Cenote Car Wash: depths of 5 to 16 m, formations, the two cavern limits and the main entrance",
+      "dos-ojos": "Dive map of Cenote Dos Ojos: the dive lines, the Barbie Line and the Bat Cave, depths, formations and cavern limits",
+      "dreamgate": "Dive map of Cenote Dreamgate: the cavern line, formations, the open-water pool and its entrance, and the passages for cave divers only",
+      "el-pit": "Cross-section of Cenote El Pit: the entrance shaft, depths to 40 m, the halocline and hydrogen sulphide cloud, and the cavern limit",
+      "angelita": "Cross-section of Cenote Angelita: the entrance, depths to 55 m, the hydrogen sulphide cloud at 30 m and the sunken trees"
+    },
     "artAlt": "Illustration: {name}",
     "lightTag": "When to go",
     "ownTag": "Going on your own",
@@ -1128,7 +1147,7 @@
           {
             "h": "Going through the cloud",
             "p": [
-              "The cloud starts around twenty-eight metres. Our dive is planned to thirty. For anyone who asks and has the experience, we can go down through it — it ends around thirty-three — and that is settled with you on site, not sold over the internet. Below it visibility is good but dark, because the cloud eats the daylight; with a torch everything is perfectly clear. We stay a couple of minutes and start back up. Coming back up through the cloud is one of the strangest moments of the dive. Above it the water is fresh; below it, salt."
+              "The cloud starts around twenty-eight metres. Our dive is planned to thirty. For anyone who asks and has the experience, we can go down through it — it ends around thirty-two — and that is settled with you on site, not sold over the internet. Below it visibility is good but dark, because the cloud eats the daylight; with a torch everything is perfectly clear. We stay a couple of minutes and start back up. Coming back up through the cloud is one of the strangest moments of the dive. Above it the water is fresh; below it, salt."
             ]
           },
           {
@@ -1159,7 +1178,7 @@
           },
           {
             "q": "Can you go through the cloud?",
-            "a": "The dive is planned to thirty metres. For anyone who asks and has the experience we can go down through it; it ends around thirty-three. That is decided with you on site, not over the internet. Below it is dark because the cloud absorbs daylight, but a torch shows everything, and we stay only a couple of minutes."
+            "a": "The dive is planned to thirty metres. For anyone who asks and has the experience we can go down through it; it ends around thirty-two. That is decided with you on site, not over the internet. Below it is dark because the cloud absorbs daylight, but a torch shows everything, and we stay only a couple of minutes."
           },
           {
             "q": "What certification do I need?",
