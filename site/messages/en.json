@@ -471,6 +471,10 @@
       "padi-licence": {
         "name": "PADI licence",
         "text": "Both courses end with a certification recognised worldwide, included in the price."
+      },
+      "taqueria-meal": {
+        "name": "Taquería meal",
+        "text": "On the snorkel tour, the meal at the end, at one of the best taquerías in town, is in the price."
       }
     }
   },
@@ -748,7 +752,7 @@
       },
       {
         "q": "What is actually included in the price?",
-        "a": "High quality equipment, the cenote entrance fees, transport from the meeting point to every site and back, and snacks and water. Both courses also include the learning materials. Hotel pickup is the one thing charged separately — see below. Prices are quoted in dollars and pesos; if you settle the balance in dollars, the exchange rate of the day applies."
+        "a": "High quality equipment, the cenote entrance fees, transport from the meeting point to every site and back, and snacks and water. Both courses also include the learning materials, and the snorkel tour the meal at the taquería at the end. Hotel pickup is the one thing charged separately — see below. Prices are quoted in dollars and pesos; if you settle the balance in dollars, the exchange rate of the day applies."
       },
       {
         "q": "Can you pick me up from my hotel?",

@@ -471,6 +471,10 @@
       "padi-licence": {
         "name": "Brevet PADI",
         "text": "Les deux formations se terminent par une certification reconnue dans le monde entier, comprise dans le prix."
+      },
+      "taqueria-meal": {
+        "name": "Repas à la taquería",
+        "text": "Pour la sortie snorkeling, le repas pour finir, dans l'une des meilleures taquerías du coin, est compris dans le prix."
       }
     }
   },
@@ -748,7 +752,7 @@
       },
       {
         "q": "Qu'est-ce que le tarif comprend vraiment ?",
-        "a": "Du matériel de qualité, les entrées des cenotes, le transport du point de rendez-vous à chaque site et retour, les collations et l'eau. Les deux formations incluent en plus les supports de cours. La prise en charge à l'hôtel est la seule chose facturée à part — voir plus bas. Les tarifs sont donnés en dollars et en pesos ; si vous réglez le solde en dollars, c'est le taux de change du jour qui s'applique."
+        "a": "Du matériel de qualité, les entrées des cenotes, le transport du point de rendez-vous à chaque site et retour, les collations et l'eau. Les deux formations incluent en plus les supports de cours, et la sortie snorkeling le repas à la taquería pour finir. La prise en charge à l'hôtel est la seule chose facturée à part — voir plus bas. Les tarifs sont donnés en dollars et en pesos ; si vous réglez le solde en dollars, c'est le taux de change du jour qui s'applique."
       },
       {
         "q": "Pouvez-vous venir me chercher à mon hôtel ?",
@@ -1046,16 +1050,16 @@
       "reef": "Le récif mésoaméricain au large de Tulum : patates de corail, une tortue et un banc de poissons sous les rais de lumière."
     },
     "artNote": "Une illustration du type de plongée, pas un plan de ce cenote.",
-    "planTag": "Plan de plongée",
+    "planTag": "Plan du cenote",
     "planNote": "Dessiné pour vous orienter, pas pour naviguer : votre guide vous présente le parcours sur place.",
     "planCredit": "Redessiné d'après le plan de {credit}.",
     "planCreditCentre": "Redessiné d'après le plan du centre de plongée.",
     "planOpen": "Voir en grand",
     "planAlts": {
-      "casa-cenote": "Plan de plongée de Casa Cenote : zones de snorkeling, profondeurs de 2 à 6 m, passages de la faille et de la caverne, limites de la caverne et entrée principale",
-      "car-wash": "Plan de plongée du Cenote Car Wash : profondeurs de 5 à 16 m, concrétions, les deux limites de la caverne et l'entrée principale",
-      "dos-ojos": "Plan de plongée du Cenote Dos Ojos : les fils guides, la Barbie Line et la Bat Cave, profondeurs, concrétions et limites de la caverne",
-      "dreamgate": "Plan de plongée du Cenote Dreamgate : le fil guide de la caverne, les concrétions, le bassin d'eau libre et son entrée, et les passages réservés aux plongeurs spéléo",
+      "casa-cenote": "Plan de Casa Cenote : zones de snorkeling, profondeurs de 2 à 6 m, passages de la faille et de la caverne, limites de la caverne et entrée principale",
+      "car-wash": "Plan du Cenote Car Wash : profondeurs de 5 à 16 m, concrétions, les deux limites de la caverne et l'entrée principale",
+      "dos-ojos": "Plan du Cenote Dos Ojos : les fils guides, la Barbie Line et la Bat Cave, profondeurs, concrétions et limites de la caverne",
+      "dreamgate": "Plan du Cenote Dreamgate : le fil guide de la caverne, les concrétions, le bassin d'eau libre et son entrée, et les passages réservés aux plongeurs spéléo",
       "el-pit": "Coupe du Cenote El Pit : le puits d'entrée, les profondeurs jusqu'à 40 m, l'halocline et le nuage d'hydrogène sulfuré, et la limite de la caverne",
       "angelita": "Coupe du Cenote Angelita : l'entrée, les profondeurs jusqu'à 55 m, le nuage d'hydrogène sulfuré à 30 m et les arbres engloutis"
     },

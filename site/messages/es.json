@@ -372,7 +372,7 @@
         "lede": "Cada invierno las hembras de tiburón toro llegan a la costa de Playa del Carmen. Manejamos los cuarenta y cinco minutos y nos metemos a verlas.",
         "who": "Para buzos con Advanced Open Water o equivalente, sin excepciones — es buceo desde barco, en mar abierto, con animales grandes. Si tienes el Open Water y quieres hacer esto, el camino es el Advanced primero.",
         "day": [
-          "Salimos temprano desde un punto de salida que acordamos contigo antes —Easy Chango Dive Center, en Tulum, u otro— y manejamos los cuarenta y cinco minutos hasta Playa del Carmen. De ahí, al barco.",
+          "Salimos temprano de un punto que acordamos contigo de antemano —Easy Chango Dive Center, en Tulum, u otro— y manejamos los cuarenta y cinco minutos hasta Playa del Carmen. De ahí, al barco.",
           "La primera inmersión es la de los tiburones. La segunda, en un arrecife bajo, entre ocho y veinte metros.",
           "Son animales salvajes y en libertad: vienen porque la temporada los trae, no porque alguien los llame. Eso es exactamente lo que hace que valga la pena, y también lo que significa que nadie puede prometerte cuántos vas a ver.",
           "La temporada va de noviembre a marzo. Fuera de esos meses no están, y no lo vendemos."
@@ -471,6 +471,10 @@
       "padi-licence": {
         "name": "Certificación PADI",
         "text": "Los dos cursos terminan con una certificación reconocida en todo el mundo, incluida en el precio."
+      },
+      "taqueria-meal": {
+        "name": "Comida en la taquería",
+        "text": "En el tour de snorkel, la comida al final, en una de las mejores taquerías del pueblo, va incluida en el precio."
       }
     }
   },
@@ -748,7 +752,7 @@
       },
       {
         "q": "¿Qué incluye realmente el precio?",
-        "a": "Equipo de calidad, las entradas a los cenotes, el transporte del punto de encuentro a cada sitio y de regreso, y snacks y agua. Los dos cursos incluyen además el material de estudio. El pickup en hotel es lo único que se cobra aparte — mira abajo. Los precios están en dólares y en pesos; si pagas el resto en dólares, se toma el tipo de cambio de ese día."
+        "a": "Equipo de calidad, las entradas a los cenotes, el transporte del punto de encuentro a cada sitio y de regreso, y snacks y agua. Los dos cursos incluyen además el material de estudio, y el tour de snorkel, la comida en la taquería al final. El pickup en hotel es lo único que se cobra aparte — mira abajo. Los precios están en dólares y en pesos; si pagas el resto en dólares, se toma el tipo de cambio de ese día."
       },
       {
         "q": "¿Pueden pasar por mí a mi hotel?",

@@ -45,6 +45,4 @@ Images are cached for a year as immutable (`public-htaccess`), so the files
 are named `<slug>-v<version>-<locale>-<width>.<ext>`, the version being
 `plan.v` in `content/cenotes.json`. A map changed after it went live goes out
 as the next version: bump `plan.v`, run `tools/build.sh`, delete the old
-version's files. The social card of a cenote
-without a photograph is cut from its map by `scripts/og-cenotes.py` — rerun it
-after a rebuild.
+version's files.
