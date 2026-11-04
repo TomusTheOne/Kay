@@ -1,14 +1,14 @@
 {
   "meta": {
-    "title": "Buceo en cenotes y arrecife en Tulum · PADI | Kay Diving",
-    "description": "Buceo guiado en cenotes y arrecife en Tulum, del primer buceo a PADI Open Water y Advanced. Equipo, entradas, transporte y snacks incluidos. Desde US${from}."
+    "title": "Buceo en cenotes y arrecife en Tulum | Kay Diving — Cursos PADI",
+    "description": "Buceo guiado en cenotes y arrecife en Tulum, desde tu primera inmersión hasta PADI Open Water y Advanced. Equipo, entrada a los cenotes, transporte a los sitios y snacks incluidos. Desde ${from}."
   },
   "nav": {
     "about": "Nosotros",
     "products": "Buceos y cursos",
     "included": "Qué incluye",
     "gallery": "Galería",
-    "faq": "Preguntas",
+    "faq": "FAQ",
     "reserve": "Reservar",
     "reserveLong": "Reservar un buceo",
     "menu": "Menú",
@@ -27,7 +27,8 @@
     "alt": "Un buzo en silueta contra el resplandor turquesa de un cenote de Tulum, entre ramas desnudas que suben por el agua",
     "water": "AGUA",
     "viz": "VIS",
-    "from": "DESDE",
+    "fromDive": "BUCEO DESDE",
+    "fromSnorkel": "SNORKEL",
     "agency": "PADI",
     "agencyLabel": "CURSOS"
   },
@@ -122,23 +123,324 @@
     "sites": {
       "angelita": {
         "name": "Cenote Angelita",
-        "depth": "35–38 m",
+        "depth": "30 m",
         "note": "La nube de ácido sulfhídrico, con ramas muertas que la atraviesan hacia arriba."
       },
       "el-pit": {
         "name": "Cenote El Pit",
-        "depth": "30–32 m",
+        "depth": "30 m",
         "note": "La luz baja por todo el tiro y se queda ahí, quieta."
       },
       "others": {
         "name": "Los demás cenotes",
-        "depth": "6–16 m",
+        "depth": "hasta 18 m",
         "note": "Elegidos contigo según tu nivel y lo que quieras del día."
       }
     },
     "seasonTag": "Temporada",
     "seasonValue": {
       "bull-sharks": "de noviembre a marzo"
+    }
+  },
+  "exp": {
+    "crumb": "Buceos y cursos",
+    "bookTag": "Reservar",
+    "bookH2": "Aparta tu lugar.",
+    "whoTag": "Para quién es",
+    "dayTag": "Cómo es el día",
+    "includedTag": "Qué incluye",
+    "sitesTag": "Dónde se bucea",
+    "faqTag": "Preguntas",
+    "moreTag": "Seguir leyendo",
+    "more": "Ver todos los buceos y cursos →",
+    "more2": "Ver detalles →",
+    "items": {
+      "cenote-diving": {
+        "title": "Buceo en cenotes en Tulum — precios y requisitos | Kay Diving",
+        "description": "Buceo guiado en los cenotes de Tulum: dos o tres inmersiones, equipo, entradas y transporte a los sitios incluidos. Desde $200 USD. Se requiere Open Water.",
+        "h1": "Buceo en cenotes en Tulum",
+        "lede": "Dos o tres inmersiones dentro de las cavernas inundadas de la Riviera Maya, con un guía que conoce cada una. Los cenotes del día los eliges con nosotros.",
+        "who": "Esta salida es para buzos certificados. Con Open Water entras a los cenotes que se quedan dentro de los dieciocho metros, que son la mayoría y los más bonitos en cuanto a luz. Angelita y El Pit se bucean a treinta metros, y ésos piden Advanced Open Water o Deep Diver — no es una regla nuestra, es la profundidad. Si nunca has buceado, lo tuyo no es esto todavía: empieza por el Discover Scuba, que existe exactamente para eso. Vamos cuatro buzos por guía como máximo, y la proporción no se negocia: si son más, van más guías — un grupo de ocho se lleva junto, con dos.",
+        "day": [
+          "Salimos a las 8:00, 8:30 o 9:00 de la mañana. Si te recogemos en Tulum pueblo o un poco afuera, el transporte se agrega al reservar; si llegas por tu cuenta, nos vemos en el punto de encuentro.",
+          "Antes de la primera inmersión ajustamos el equipo contigo y hacemos el briefing: por dónde entra la línea, qué vas a ver, cuánto va a durar. En un cenote eso no es trámite — la orientación es lo que hace que el buceo sea tranquilo.",
+          "Cada inmersión dura entre treinta y cuarenta y cinco minutos. Entre una y otra hay un descanso con snacks, que van incluidos, y el traslado al siguiente cenote si el día lleva dos distintos.",
+          "Si eliges tres inmersiones, las dos primeras son en Dos Ojos y la tercera en otro cenote que escoges tú. Con dos inmersiones el día se arma completo alrededor de lo que quieras ver."
+        ],
+        "sites": "Los cenotes del día se eligen contigo, y lo que está abierto para ti depende de tu certificación. Cada uno tiene su ficha con profundidad, cómo es por dentro y a qué distancia de Tulum queda.",
+        "faq": [
+          {
+            "q": "¿Necesito certificación para bucear en cenotes?",
+            "a": "Sí. Para esta salida necesitas Open Water o superior. Si no tienes certificación, puedes bucear igual con el Discover Scuba, que es una inmersión guiada pensada para la primera vez."
+          },
+          {
+            "q": "¿Cuántos buzos van por guía?",
+            "a": "Cuatro como máximo. Si vienen más, van más guías: un grupo de ocho personas se lleva junto, con dos guías. La proporción no se toca."
+          },
+          {
+            "q": "¿Es buceo en cueva?",
+            "a": "No, es buceo en caverna, y la diferencia es precisa. En una caverna la fuente principal de luz es el sol: usamos lámpara en algunos tramos, pero nunca como luz primaria. En una cueva la luz primaria es la lámpara. La otra diferencia es la distancia a la superficie: hasta sesenta metros de recorrido y con algo de luz del día, es caverna. Pasados esos sesenta metros ya es cueva aunque siga entrando luz, y también lo es si antes de los sesenta ya no hay luz del día. Para cueva hace falta la certificación Full Cave; para caverna, Open Water como mínimo."
+          },
+          {
+            "q": "¿Qué tan profundo se baja?",
+            "a": "La mayoría de los cenotes se planean a dieciocho metros. Angelita y El Pit se bucean a treinta, y ésos piden Advanced o Deep. Los dos cenotes son bastante más profundos que eso; treinta metros es hasta donde bajamos."
+          },
+          {
+            "q": "¿Hace frío en el agua?",
+            "a": "El agua de los cenotes ronda los veinticinco grados todo el año. El traje va incluido."
+          },
+          {
+            "q": "¿Puedo elegir a qué cenotes vamos?",
+            "a": "Sí, y es parte de cómo armamos el día. Nos dices qué quieres ver y te decimos qué está dentro de tu nivel; la elección final la haces tú al reservar."
+          },
+          {
+            "q": "¿Cuánto cuesta?",
+            "a": "Dos inmersiones $200 USD por persona, tres inmersiones $250 USD. Equipo, entrada a los cenotes, traslado entre sitios y snacks van incluidos; el transporte desde tu hotel se agrega aparte."
+          }
+        ]
+      },
+      "open-water": {
+        "title": "Curso PADI Open Water en Tulum — precio y duración | Kay Diving",
+        "description": "Certifícate como buzo PADI Open Water en Tulum: tres días, cinco inmersiones entre Casa Cenote y el arrecife de Tankah, material y licencia incluidos. $600 USD.",
+        "h1": "Curso PADI Open Water en Tulum",
+        "lede": "La certificación que te deja bucear en cualquier parte del mundo, en tres días y cinco inmersiones, entre un cenote abierto y el arrecife. No necesitas experiencia previa.",
+        "who": "Para quien nunca ha buceado, o ha buceado una vez de prueba y quiere la certificación de verdad. No pedimos experiencia: lo que sí hace falta es sentirte cómodo en el agua y poder nadar. El curso es la misma certificación PADI que se imparte en todo el mundo, y la credencial que te llevas no caduca.",
+        "day": [
+          "El curso son tres días. Cada uno empieza entre las ocho y las nueve de la mañana y termina entre las tres y las cuatro de la tarde.",
+          "La teoría se puede hacer de dos maneras, y las dos llevan exactamente a la misma certificación: en línea antes de llegar, y entonces los tres días aquí son solo agua; o repartida entre esos mismos tres días, entre una inmersión y la siguiente. La primera te deja más tiempo libre en Tulum; la segunda no te obliga a ponerte a estudiar antes de las vacaciones.",
+          "El agua empieza en Casa Cenote, a siete metros. Abierto, poco profundo y claro: ahí se practican las habilidades —vaciar la máscara, recuperar el regulador, controlar la flotabilidad— hasta que salen sin pensarlas. Es el mejor salón de clases que hay.",
+          "El último día son dos inmersiones en el arrecife de Tankah, una a once metros y otra a dieciocho. Con ésas se cierra el curso: las mismas habilidades, ya donde de verdad importan.",
+          "Al terminar te registramos con PADI y la credencial queda a tu nombre. La licencia va incluida en el precio: no hay un cobro sorpresa al final."
+        ],
+        "sites": "El curso se hace entre Casa Cenote, un cenote abierto de agua salobre junto al mar, y el arrecife de Tankah. Dos entornos distintos a propósito: lo que aprendes en uno lo aplicas en el otro.",
+        "faq": [
+          {
+            "q": "¿Cuánto dura el curso?",
+            "a": "Tres días. Cada día empieza entre las ocho y las nueve de la mañana y termina entre las tres y las cuatro de la tarde."
+          },
+          {
+            "q": "¿Necesito saber bucear?",
+            "a": "No. El curso está hecho para quien empieza de cero. Lo único que pedimos es que estés cómodo en el agua y sepas nadar."
+          },
+          {
+            "q": "¿Tengo que estudiar antes de venir?",
+            "a": "Como prefieras. La teoría se puede hacer en línea antes de llegar, y entonces los tres días de aquí son solo buceo; o se hace durante esos tres días, entre inmersión e inmersión. La certificación es la misma en los dos casos."
+          },
+          {
+            "q": "¿Hasta qué profundidad se baja?",
+            "a": "Los primeros buceos, en Casa Cenote, son a siete metros. El último día son dos inmersiones en el arrecife de Tankah, una a once metros y otra a dieciocho, y con ésas se cierra el curso."
+          },
+          {
+            "q": "¿Qué incluye el precio?",
+            "a": "Las cinco inmersiones, el equipo completo, el material del curso, la entrada a los sitios, los snacks, el traslado entre sitios y la licencia PADI. $600 USD por persona."
+          },
+          {
+            "q": "¿La certificación sirve en otros países?",
+            "a": "Sí. Open Water es la certificación de entrada de PADI y se reconoce en cualquier centro de buceo del mundo. No caduca."
+          },
+          {
+            "q": "¿Qué puedo bucear después?",
+            "a": "Hasta dieciocho metros, con un compañero certificado y sin guía si así lo quieres. Para los cenotes profundos de Tulum — Angelita, El Pit — el siguiente paso es el Advanced."
+          }
+        ]
+      },
+      "discover-scuba": {
+        "title": "Discover Scuba en Tulum — bucea sin certificación | Kay Diving",
+        "description": "Tu primera inmersión en Tulum, sin certificación y con guía, en el agua clara de Casa Cenote. Cuenta como la primera del curso Open Water. Desde $140 USD.",
+        "h1": "Discover Scuba en Tulum",
+        "lede": "La primera vez bajo el agua, guiada de principio a fin, en un cenote abierto de agua clara y poco profunda. No hace falta certificación ni experiencia.",
+        "who": "Para quien nunca ha respirado bajo el agua y quiere saber qué se siente antes de meterse en un curso. No pedimos nada previo más que estar cómodo en el agua. No es una certificación: es una inmersión guiada, con un instructor al lado todo el tiempo y sin pasar de siete metros. En los cenotes vamos cuatro buzos por guía como máximo, y la proporción no se negocia: si son más, van más guías.",
+        "day": [
+          "Primero, en tierra, lo esencial: cómo respirar con el regulador, cómo igualar los oídos, las pocas señas que vas a usar abajo. Es corto a propósito — lo que hace falta para estar tranquilo, no un examen.",
+          "Después practicamos esas mismas cosas de pie, en la parte baja de Casa Cenote, hasta que te salgan sin pensarlas.",
+          "Y entonces la inmersión, unos cuarenta y cinco minutos, con el instructor a tu lado. Casa Cenote es abierto, de agua clara y poco profundo: se ve el cielo desde abajo y los manglares entran en el agua.",
+          "Si eliges dos inmersiones, la segunda es muy distinta de la primera — ya no estás pendiente de respirar, estás mirando."
+        ],
+        "sites": "Casa Cenote, a unos minutos de Tulum. Es un cenote abierto de agua salobre junto al mar, con manglares a los lados: poco profundo, claro y tranquilo, que es exactamente lo que hace falta la primera vez.",
+        "faq": [
+          {
+            "q": "¿Necesito certificación?",
+            "a": "No. Para eso existe esta inmersión: es guiada de principio a fin y no pide nada previo."
+          },
+          {
+            "q": "¿Qué tan profundo se baja?",
+            "a": "Hasta siete metros, que es el límite de este tipo de inmersión. Casa Cenote es poco profundo justamente por eso."
+          },
+          {
+            "q": "¿Cuántos buzos van por guía?",
+            "a": "Cuatro como máximo en los cenotes. Si vienen más personas, van más guías."
+          },
+          {
+            "q": "¿Cuánto dura la inmersión?",
+            "a": "Unos cuarenta y cinco minutos bajo el agua, más el tiempo de la explicación y la práctica antes."
+          },
+          {
+            "q": "¿Cuánto cuesta?",
+            "a": "Una inmersión $140 USD por persona, dos inmersiones $200 USD. Equipo, entrada al cenote, traslado al sitio y snacks van incluidos."
+          },
+          {
+            "q": "¿Y si después quiero certificarme?",
+            "a": "Cuenta a tu favor: esta inmersión se considera la primera de las cinco del curso Open Water. El siguiente paso son tres días y te vas con una certificación válida en todo el mundo."
+          }
+        ]
+      },
+      "reef-cenote": {
+        "title": "Arrecife y cenote en un día, en Tulum | Kay Diving",
+        "description": "Dos inmersiones en un día: el arrecife de Tankah en agua salada y Casa Cenote en agua dulce. Equipo, entradas y traslados incluidos. $200 USD. Open Water.",
+        "h1": "Arrecife y cenote en un día",
+        "lede": "Las dos mitades de lo que hace especial a esta costa, en la misma mañana: el arrecife frente a Tankah y el agua dulce de Casa Cenote.",
+        "who": "Para buzos certificados Open Water que tienen un solo día y no quieren elegir entre las dos cosas. Es también la mejor manera de entender por qué la gente viene a bucear aquí: en pocos kilómetros cambian el agua, la luz, la vida y la sensación. En los cenotes vamos cuatro buzos por guía como máximo, y la proporción no se negocia: si son más, van más guías.",
+        "day": [
+          "Empezamos por el arrecife de Tankah, en agua salada. Es un arrecife bajo y tranquilo, de los que se bucean sin corriente y con buena visibilidad.",
+          "Después, el agua dulce. Casa Cenote está a unos minutos: abierto, con manglares que entran al agua y la luz cayendo entre las raíces. La diferencia con lo de hace una hora es completa.",
+          "Entre una y otra hay un descanso con snacks, incluidos, y el traslado entre los dos sitios.",
+          "Cada inmersión dura unos cuarenta y cinco minutos y ninguna pasa de nueve metros, así que el día es exigente para los ojos y no para los pulmones."
+        ],
+        "sites": "El arrecife de Tankah y Casa Cenote, los dos a pocos minutos de Tulum y a pocos minutos uno del otro.",
+        "faq": [
+          {
+            "q": "¿Qué certificación necesito?",
+            "a": "Open Water o superior. Ninguna de las dos inmersiones pasa de nueve metros."
+          },
+          {
+            "q": "¿Por qué un arrecife y un cenote el mismo día?",
+            "a": "Porque son dos mundos distintos a quince minutos de distancia, y verlos seguidos es lo que hace que se entienda esta costa."
+          },
+          {
+            "q": "¿Cuántos buzos van por guía?",
+            "a": "Cuatro como máximo en el cenote. Si vienen más personas, van más guías."
+          },
+          {
+            "q": "¿Qué incluye?",
+            "a": "Las dos inmersiones, el equipo, la entrada al cenote, el traslado entre los sitios y los snacks. $200 USD por persona."
+          },
+          {
+            "q": "¿Hay corriente en el arrecife?",
+            "a": "Tankah es un arrecife bajo y resguardado. No es un buceo de corriente ni de profundidad."
+          }
+        ]
+      },
+      "advanced-ow": {
+        "title": "Curso PADI Advanced Open Water en Tulum — dos días | Kay Diving",
+        "description": "Certificación PADI Advanced Open Water en Tulum, en dos días: cinco inmersiones de especialidad hasta treinta metros, en Angelita o El Pit. $550 USD.",
+        "h1": "Curso PADI Advanced Open Water en Tulum",
+        "lede": "Cinco inmersiones de especialidad en dos días, que te llevan a treinta metros y te abren los dos cenotes profundos de Tulum. Material y certificación incluidos.",
+        "who": "Para quien ya tiene el Open Water y quiere dos cosas: profundidad y los cenotes que la piden. Angelita y El Pit están cerrados para un Open Water — no por una regla nuestra, sino porque pasan de los treinta metros — y este curso es la puerta. En los cenotes vamos cuatro buzos por guía como máximo, y la proporción no se negocia: si son más, van más guías.",
+        "day": [
+          "El Advanced no es teoría con un examen al final: son cinco inmersiones de especialidad, y aprendes haciéndolas. El material de estudio va incluido.",
+          "Lo normal son dos días: dos inmersiones el primero y tres el segundo. Si prefieres no llenar tanto el día, se reparte en tres — dos, dos y una. Tú eliges.",
+          "Cuatro de las cinco especialidades están fijadas: buceo profundo, navegación subacuática, flotabilidad de máximo rendimiento y buceo nocturno. La quinta la escoges tú entre buceo con corriente, nitrox y buceo en cavernas.",
+          "Las de profundidad se hacen en el Cenote Angelita o en El Pit, que son los dos cenotes profundos de la zona y de los sitios más impresionantes que vas a bucear. En Angelita hay una nube de ácido sulfhídrico a unos treinta metros, con ramas muertas que la atraviesan hacia arriba; en El Pit la luz baja por todo el tiro y se queda ahí, quieta.",
+          "Al terminar quedas certificado hasta treinta metros, y esos dos cenotes dejan de estar cerrados para ti."
+        ],
+        "sites": "El Cenote Angelita y el Cenote El Pit, los dos cenotes profundos cerca de Tulum. Cada uno tiene su ficha con la profundidad y cómo es por dentro.",
+        "faq": [
+          {
+            "q": "¿Cuánto dura el curso?",
+            "a": "Normalmente dos días: dos inmersiones el primero y tres el segundo. También se puede hacer en tres días, con dos, dos y una. Lo decides tú."
+          },
+          {
+            "q": "¿Qué especialidades se hacen?",
+            "a": "Cuatro son fijas: buceo profundo, navegación subacuática, flotabilidad de máximo rendimiento y buceo nocturno. La quinta la eliges entre buceo con corriente, nitrox y buceo en cavernas."
+          },
+          {
+            "q": "¿Qué necesito para entrar al curso?",
+            "a": "La certificación Open Water, o equivalente de otra organización."
+          },
+          {
+            "q": "¿Hasta qué profundidad llega?",
+            "a": "Hasta treinta metros, que es el límite del Advanced y lo que abre Angelita y El Pit."
+          },
+          {
+            "q": "¿Dónde se hace?",
+            "a": "Las inmersiones de profundidad, en el Cenote Angelita o en El Pit."
+          },
+          {
+            "q": "¿Cuántos buzos van por guía?",
+            "a": "Cuatro como máximo en los cenotes. Si vienen más personas, van más guías."
+          },
+          {
+            "q": "¿Qué incluye el precio?",
+            "a": "Las cinco inmersiones de especialidad, el equipo, el material de estudio, la entrada a los cenotes, el traslado, los snacks y la certificación Advanced Open Water. $550 USD por persona."
+          }
+        ]
+      },
+      "bull-sharks": {
+        "title": "Buceo con tiburones toro en Playa del Carmen | Kay Diving",
+        "description": "Dos inmersiones desde barco con tiburones toro frente a Playa del Carmen, de noviembre a marzo. Salimos de Tulum. $250 USD. Advanced Open Water.",
+        "h1": "Buceo con tiburones toro",
+        "lede": "Cada invierno las hembras de tiburón toro llegan a la costa de Playa del Carmen. Manejamos los cuarenta y cinco minutos y nos metemos a verlas.",
+        "who": "Para buzos con Advanced Open Water o equivalente, sin excepciones — es buceo desde barco, en mar abierto, con animales grandes. Si tienes el Open Water y quieres hacer esto, el camino es el Advanced primero.",
+        "day": [
+          "Salimos de Tulum temprano y manejamos los cuarenta y cinco minutos hasta Playa del Carmen. De ahí, al barco.",
+          "La primera inmersión es la de los tiburones. La segunda, en un arrecife bajo, entre ocho y veinte metros.",
+          "Son animales salvajes y en libertad: vienen porque la temporada los trae, no porque alguien los llame. Eso es exactamente lo que hace que valga la pena, y también lo que significa que nadie puede prometerte cuántos vas a ver.",
+          "La temporada va de noviembre a marzo. Fuera de esos meses no están, y no lo vendemos."
+        ],
+        "sites": "Frente a Playa del Carmen, a cuarenta y cinco minutos de Tulum, desde barco.",
+        "faq": [
+          {
+            "q": "¿Cuándo es la temporada?",
+            "a": "De noviembre a marzo. Fuera de esos meses los tiburones toro no están en la costa y no ofrecemos la salida."
+          },
+          {
+            "q": "¿Qué certificación necesito?",
+            "a": "Advanced Open Water o equivalente, sin excepciones."
+          },
+          {
+            "q": "¿Se ven siempre?",
+            "a": "No se puede garantizar. Son animales salvajes en libertad; la temporada es muy fiable, pero un avistamiento nunca es una promesa."
+          },
+          {
+            "q": "¿Es buceo en jaula?",
+            "a": "No. Es buceo en mar abierto, desde barco, con guía."
+          },
+          {
+            "q": "¿Qué incluye?",
+            "a": "Las dos inmersiones, el equipo, el traslado desde Tulum y los snacks. $250 USD por persona."
+          }
+        ]
+      },
+      "snorkel": {
+        "title": "Tour de snorkel en cenotes de Tulum | Kay Diving",
+        "description": "Medio día de snorkel en tres cenotes cerca de Tulum, sin certificación ni experiencia. Equipo, entradas y transporte incluidos. $125 USD por persona.",
+        "h1": "Snorkel en cenotes de Tulum",
+        "lede": "Tres cenotes distintos en medio día, sin tanque, sin curso y sin prisa. Terminamos en una de las mejores taquerías del pueblo.",
+        "who": "Para quien quiere ver los cenotes por dentro sin meterse en el buceo: familias, acompañantes de alguien que sí va a bucear, o cualquiera que prefiera la superficie. No hace falta experiencia ni certificación, y el equipo de snorkel va incluido. No hay edad mínima.",
+        "day": [
+          "Medio día, tres cenotes. Cada uno es distinto del anterior a propósito: cambian la forma, la luz y lo que se ve desde arriba.",
+          "Desde la superficie se ve más de lo que la gente espera. En agua clara y poco profunda, con la luz entrando desde arriba, el fondo y las formaciones se ven enteros.",
+          "Entre uno y otro hay traslado y snacks, incluidos, y el ritmo lo pone el grupo.",
+          "Y al final, tacos. No es parte del precio, es parte del día."
+        ],
+        "sites": "Tres de nuestros cenotes favoritos cerca de Tulum, elegidos el mismo día según cómo esté el agua y qué quiera ver el grupo.",
+        "faq": [
+          {
+            "q": "¿Necesito saber bucear?",
+            "a": "No. Es snorkel: se respira en la superficie, con visor y snorkel. No hace falta ninguna certificación."
+          },
+          {
+            "q": "¿Qué incluye?",
+            "a": "El visor y el snorkel, la entrada a los tres cenotes, el transporte entre ellos y los snacks. $125 USD por persona."
+          },
+          {
+            "q": "¿Cuánto dura?",
+            "a": "Empieza entre las ocho y las nueve de la mañana y termina entre la una y las dos de la tarde. Medio día, sin prisa."
+          },
+          {
+            "q": "¿Hay edad mínima?",
+            "a": "No. Dinos las edades al reservar y armamos el día alrededor del grupo."
+          },
+          {
+            "q": "¿Sirve para quien no nada bien?",
+            "a": "Dinos antes de reservar y lo armamos alrededor de eso. Hay chalecos, y los cenotes del tour se eligen el mismo día."
+          },
+          {
+            "q": "¿Qué llevo?",
+            "a": "Traje de baño, toalla y bloqueador biodegradable. El resto lo ponemos nosotros."
+          }
+        ]
+      }
     }
   },
   "included": {
@@ -168,7 +470,7 @@
       },
       "padi-licence": {
         "name": "Certificación PADI",
-        "text": "El curso Open Water termina con una certificación reconocida en todo el mundo."
+        "text": "Los dos cursos terminan con una certificación reconocida en todo el mundo, incluida en el precio."
       }
     }
   },
@@ -181,6 +483,15 @@
       "gallery-3": "Bajo la plataforma · Casa Cenote",
       "gallery-bull-shark": "Tiburón toro frente a Playa del Carmen"
     }
+  },
+  "reviews": {
+    "tag": "Reseñas",
+    "h2": "Lo que dicen los buzos cuando vuelven a tierra firme.",
+    "intro": "Cinco de las reseñas que Kay Diving tiene en Google, palabra por palabra, en el idioma en que las escribió cada quien.",
+    "stars": "{n} de 5",
+    "score": "{rating} en Google · {n} reseñas",
+    "onGoogle": "Google",
+    "all": "Leerlas en Google ↗"
   },
   "visit": {
     "tag": "Día libre",
@@ -198,7 +509,7 @@
       "dive": "Buceo"
     },
     "weDive": "Buceamos aquí",
-    "weDiveCta": "Guía de buceo: {name}",
+    "weDiveCta": "Ver la ficha",
     "goodLabel": "Ideal para",
     "tipLabel": "Consejo",
     "note": "Horarios, tarifas y reglas cambian sin aviso, y cada cenote tiene su propia administración: confírmalos el mismo día antes de desplazarte. El buceo en caverna exige formación, equipo y guía especializados — no se improvisa.",
@@ -358,220 +669,6 @@
     "text": "Tu seguridad es lo primero — y con eso asegurado, solo queda disfrutar cada minuto bajo el agua.",
     "cite": "Kay Diving · Tulum"
   },
-  "reviews": {
-    "tag": "Reseñas de Google",
-    "h2": "<span class=\"ital grad\">{rating}</span> de 5<br>en Google.",
-    "h2Plain": "En sus propias<br>palabras.",
-    "intro": "Tal como las escribieron, en su idioma original: algunas de las {count} reseñas de nuestro perfil de Google.",
-    "introPlain": "Tal como las escribieron, en su idioma original, desde nuestro perfil de Google.",
-    "all": "Leer todas las reseñas en Google",
-    "stars": "{n} de 5 estrellas",
-    "badge": "Calificación de {rating} de 5 en Google",
-    "cenoteH2": "Lo que dicen los buzos {of}"
-  },
-  "product": {
-    "kinds": {
-      "dive": "Buceo guiado",
-      "course": "Curso PADI",
-      "snorkel": "Tour de snorkel"
-    },
-    "bookKind": {
-      "dive": "Reservar esta inmersión",
-      "course": "Reservar este curso",
-      "snorkel": "Reservar este tour"
-    },
-    "ask": "Pregúntanos por WhatsApp",
-    "whatsappText": "¡Hola, Kay Diving! Tengo una pregunta sobre {the}.",
-    "more": "Detalles",
-    "back": "Todos nuestros buceos y cursos",
-    "priceTag": "Precio por persona",
-    "includedTag": "Incluido en el precio",
-    "whereTag": "A dónde vamos",
-    "snorkelWhere": "Cenotes buenos para snorkel",
-    "faqTag": "Preguntas",
-    "faqH2": "Lo que nos preguntan",
-    "otherTag": "Más formas de entrar al agua",
-    "qPrice": "¿Cuánto cuesta {the}?",
-    "aPrice": "{prices} por persona, en dólares estadounidenses. El precio incluye {included}. Lo único que se cobra aparte es pasar por ti al hotel en el pueblo de Tulum: +{pickup} por toda la reservación.",
-    "qMeet": "¿Dónde nos vemos y a qué hora?",
-    "aMeet": "En {place}, en Tulum, sin costo extra. Salidas a las {times}, y puedes proponer otro horario al reservar: lo revisamos antes de confirmar.",
-    "qBook": "¿Cómo reservo?",
-    "aBook": "En línea, desde esta página. {intro}",
-    "items": {
-      "discover-scuba": {
-        "the": "el Discover Scuba",
-        "h1": "Bautismo de buceo en Tulum: Discover Scuba",
-        "title": "Bautismo de buceo en Tulum, sin certificación | Kay Diving",
-        "meta": "Bucea por primera vez en Casa Cenote, Tulum: un cenote a cielo abierto de máximo 7 m, con un instructor PADI a tu lado. Sin experiencia previa. Desde US$140.",
-        "body": [
-          "Discover Scuba es el bautismo de buceo de PADI, pensado para quien nunca ha respirado bajo el agua. Tu guía te enseña lo básico del buceo y después te lleva a Casa Cenote: un cenote a cielo abierto rodeado de manglares, donde se mezclan el agua dulce y la salada, con peces, tortugas y luz natural hasta el fondo, a no más de siete metros.",
-          "Una inmersión, o dos si quieres más tiempo bajo el agua; la segunda solo se hace si las condiciones del mar son buenas ese día. No hay examen ni certificación al final: solo una primera mirada al mundo submarino, con un guía a tu lado, y una muy buena mañana. Si quieres seguir, el siguiente paso es nuestro curso Open Water."
-        ],
-        "faq": [
-          {
-            "q": "¿Necesito experiencia?",
-            "a": "Ninguna. Discover Scuba está pensado para quien nunca ha buceado: sin certificación ni experiencia previa, solo un guía y agua poco profunda."
-          },
-          {
-            "q": "¿Qué tan profundo es un Discover Scuba?",
-            "a": "No más de siete metros, en Casa Cenote, un cenote a cielo abierto con luz natural hasta el fondo."
-          },
-          {
-            "q": "¿Recibo una certificación?",
-            "a": "No: Discover Scuba es una primera experiencia guiada, no un curso. Para bucear con tu propia certificación, toma el curso Open Water: cinco inmersiones entre Casa Cenote y el arrecife de Tankah."
-          }
-        ]
-      },
-      "reef-cenote": {
-        "the": "el buceo Arrecife y Cenote",
-        "h1": "Buceo en arrecife y cenote en Tulum",
-        "title": "Arrecife y cenote en Tulum: dos inmersiones | Kay Diving",
-        "meta": "Dos inmersiones en una mañana cerca de Tulum: el Arrecife Mesoamericano frente a Tankah, con tortugas, y luego el agua dulce de Casa Cenote. Open Water. US$200.",
-        "body": [
-          "Las dos mitades de lo que hace que valga la pena bucear esta costa, en una sola mañana. Primero el Arrecife Mesoamericano frente a Tankah, al norte de Tulum: una inmersión poco profunda, de unos nueve metros, con tortugas y peces de arrecife, en un agua algo más cálida que la de los cenotes. Después Casa Cenote, un cenote a cielo abierto rodeado de manglares, donde se mezclan el agua dulce y la salada.",
-          "Agua salada y agua dulce, tortugas y raíces, con tu certificación Open Water. El equipo, la entrada al cenote, los snacks y el agua, y el transporte entre los dos sitios están incluidos."
-        ],
-        "faq": [
-          {
-            "q": "¿Qué certificación necesito?",
-            "a": "Open Water o equivalente. Las dos inmersiones son poco profundas, de unos nueve metros como máximo."
-          },
-          {
-            "q": "¿Cuándo está mejor el arrecife?",
-            "a": "Las mejores condiciones en el arrecife se dan en primavera y a principios del verano. El cenote, protegido del viento y del oleaje, se bucea bien todo el año."
-          }
-        ]
-      },
-      "cenote-diving": {
-        "the": "el buceo en cenotes",
-        "h1": "Buceo en cenotes en Tulum",
-        "title": "Buceo en cenotes en Tulum: Dos Ojos y El Pit | Kay Diving",
-        "meta": "Buceo guiado en los cenotes de Tulum: Dos Ojos, Car Wash, Angelita, El Pit y más, elegidos contigo según tu nivel. 2 inmersiones por US$200, 3 por US$250.",
-        "body": [
-          "Algunas de las cavernas inundadas más bonitas del mundo están alrededor de Tulum. Los cenotes los eliges con nosotros, y cuáles puedes bucear depende de tu certificación. Con Open Water: cenotes como Dos Ojos, Car Wash, Tak Be Ha y Nicte-Ha, en su mayoría de seis a dieciséis metros. Con Advanced Open Water o la especialidad Deep: los dos cenotes profundos, Angelita y El Pit, a más de treinta metros.",
-          "El buceo en caverna se queda dentro de la zona de luz natural, siempre cerca de la entrada: no es buceo en cueva, y tu certificación Open Water lo cubre. Con dos inmersiones eliges los dos cenotes; con tres, las dos primeras son en Dos Ojos y la tercera en otro cenote que tú elijas."
-        ],
-        "faq": [
-          {
-            "q": "¿Qué cenote bucear primero?",
-            "a": "Dos Ojos es la clásica primera caverna: de nueve a diez metros, agua cristalina y luz natural en todo el recorrido. Casa Cenote, a cielo abierto y de siete metros como máximo, es todavía más tranquilo."
-          },
-          {
-            "q": "¿Puedo bucear Angelita o El Pit con Open Water?",
-            "a": "No en un buceo guiado: los dos pasan de 30 metros y piden Advanced Open Water o la especialidad Deep. Con Open Water sí puedes bucearlos en nuestro curso Advanced, hasta 30 metros."
-          },
-          {
-            "q": "¿El buceo en cenotes es buceo en cueva?",
-            "a": "No. El buceo en caverna se queda dentro de la zona de luz natural, cerca de la entrada y con una ruta directa a la superficie. El buceo en cueva va más allá de la luz del día y necesita su propia certificación."
-          }
-        ]
-      },
-      "open-water": {
-        "the": "el curso Open Water",
-        "h1": "Curso PADI Open Water en Tulum",
-        "title": "Curso PADI Open Water en Tulum, cenote y mar | Kay Diving",
-        "meta": "Certifícate en Tulum: el curso PADI Open Water en cinco inmersiones, primero en Casa Cenote y luego en el arrecife de Tankah, hasta 18 m. US$600 con material.",
-        "body": [
-          "El curso PADI Open Water es la certificación que te permite bucear en cualquier parte del mundo, hasta dieciocho metros. No necesitas experiencia previa. Lo damos en cinco inmersiones: primero en Casa Cenote, un cenote a cielo abierto de siete metros como máximo, ideal para principiantes, y después en el mar, en el arrecife de Tankah, donde el curso termina a dieciocho metros.",
-          "El material de estudio y tu certificación PADI están incluidos, junto con el equipo, las entradas a los cenotes, los snacks y el agua. Ya certificado, tienes a tu alcance la mayoría de los cenotes de Tulum: van de seis a dieciséis metros."
-        ],
-        "faq": [
-          {
-            "q": "¿Necesito experiencia para empezar?",
-            "a": "No. El curso empieza desde cero: no necesitas certificación ni inmersiones previas."
-          },
-          {
-            "q": "¿Dónde son las inmersiones del curso?",
-            "a": "Las primeras en Casa Cenote, un cenote a cielo abierto de siete metros, y las últimas en el mar frente a Tankah, donde el curso termina a dieciocho metros."
-          },
-          {
-            "q": "¿Qué puedo bucear ya certificado?",
-            "a": "Cualquier inmersión de hasta dieciocho metros, en cualquier parte del mundo. Aquí, eso incluye el arrecife y la mayoría de los cenotes, entre ellos Dos Ojos y Car Wash; Angelita y El Pit piden Advanced."
-          }
-        ]
-      },
-      "advanced-ow": {
-        "the": "el curso Advanced",
-        "h1": "Curso PADI Advanced Open Water en Tulum",
-        "title": "Curso PADI Advanced Open Water en Tulum, a 30 m | Kay Diving",
-        "meta": "El siguiente paso tras el Open Water: el curso PADI Advanced en Tulum, cinco inmersiones de especialidad hasta 30 m en Angelita o El Pit. US$550 con material.",
-        "body": [
-          "El siguiente paso después del Open Water: cinco inmersiones de especialidad que te llevan a treinta metros, en el Cenote Angelita o el Cenote El Pit, los dos cenotes profundos cerca de Tulum a los que una certificación Open Water por sí sola no da acceso.",
-          "En Angelita, una nube de ácido sulfhídrico flota en el agua, con ramas muertas que la atraviesan; en El Pit, la luz baja por todo el tiro. El material de estudio está incluido, junto con el equipo, la entrada al cenote, los snacks y el agua."
-        ],
-        "faq": [
-          {
-            "q": "¿Quién puede tomar el curso Advanced?",
-            "a": "Cualquier buzo con Open Water o una certificación equivalente."
-          },
-          {
-            "q": "¿Hasta qué profundidad llega el curso Advanced?",
-            "a": "Hasta treinta metros, en Angelita o El Pit: la profundidad para la que te certifica Advanced Open Water."
-          },
-          {
-            "q": "¿A qué te da acceso el Advanced después?",
-            "a": "A los cenotes profundos en nuestros días de cenotes y al buceo con tiburón toro frente a Playa del Carmen, que pide Advanced Open Water."
-          }
-        ]
-      },
-      "snorkel": {
-        "the": "el tour de snorkel",
-        "h1": "Tour de snorkel en cenotes de Tulum",
-        "title": "Tour de snorkel en cenotes de Tulum, 3 cenotes | Kay Diving",
-        "meta": "Snorkel en tres cenotes cerca de Tulum en medio día: sin experiencia, con visor, snorkel y entradas incluidos, y al final una de las mejores taquerías. US$125.",
-        "body": [
-          "Para quien quiere un poco de aventura y mucha calma: tres cenotes distintos en medio día, sin experiencia y sin tanque. Te damos visor y snorkel, y las entradas a los cenotes, los snacks y el agua están incluidos.",
-          "Entre los cenotes buenos para snorkel están Casa Cenote, a cielo abierto y rodeado de manglares, y Dos Ojos, con agua cristalina y más de treinta metros de visibilidad. El tour termina en una de las mejores taquerías locales del pueblo."
-        ],
-        "faq": [
-          {
-            "q": "¿Necesito experiencia?",
-            "a": "No. Sin experiencia y sin tanque: solo visor y snorkel, que nosotros te damos."
-          },
-          {
-            "q": "¿Qué tengo que llevar?",
-            "a": "Traje de baño y bloqueador biodegradable. El visor y el snorkel te los damos nosotros."
-          },
-          {
-            "q": "¿Cuánto dura el tour?",
-            "a": "Medio día, en tres cenotes distintos, y termina en una de las mejores taquerías locales del pueblo."
-          }
-        ]
-      },
-      "bull-sharks": {
-        "the": "el buceo con tiburón toro",
-        "h1": "Buceo con tiburón toro en Playa del Carmen",
-        "title": "Buceo con tiburón toro en Playa del Carmen | Kay Diving",
-        "meta": "De noviembre a marzo, los tiburones toro llegan frente a Playa del Carmen, a 45 min de Tulum. Dos inmersiones desde barco. Advanced Open Water. US$250.",
-        "body": [
-          "Cada invierno los tiburones toro llegan a la costa frente a Playa del Carmen, y manejamos los cuarenta y cinco minutos desde Tulum para ir a verlos. La temporada va de noviembre a marzo.",
-          "Dos inmersiones desde el barco: la primera con los tiburones, la segunda en un arrecife poco profundo, de entre ocho y veinte metros. Pide Advanced Open Water o equivalente, sin excepciones."
-        ],
-        "faq": [
-          {
-            "q": "¿Cuándo es la temporada de tiburón toro?",
-            "a": "De noviembre a marzo, cuando los tiburones toro se juntan frente a Playa del Carmen. Fuera de esos meses no hay salida."
-          },
-          {
-            "q": "¿Qué certificación necesito?",
-            "a": "Advanced Open Water o equivalente, sin excepciones."
-          },
-          {
-            "q": "¿Qué tan lejos está de Tulum?",
-            "a": "A unos cuarenta y cinco minutos por carretera, en Playa del Carmen; las inmersiones son desde barco."
-          }
-        ]
-      }
-    },
-    "includedInline": {
-      "equipment": "el equipo",
-      "entrance": "las entradas a los cenotes",
-      "snacks": "los snacks, el agua",
-      "site-transport": "el transporte a los sitios",
-      "materials": "el material de estudio",
-      "padi-licence": "tu certificación PADI"
-    }
-  },
   "book": {
     "tag": "Reservaciones",
     "h2": "Reserva tu<br>día en el agua.",
@@ -605,8 +702,9 @@
     "rDeposit": "Anticipo ahora",
     "halfDayLabel": "Medio día",
     "fine": "Equipo, entrada a los cenotes, transporte a los sitios y snacks incluidos. Precios por persona en USD; el pickup es por reservación. El anticipo se cobra en pesos mexicanos y el resto se liquida el mismo día. Si pagas el resto en dólares, se toma el tipo de cambio de ese día.",
-    "certNote": "El día del buceo muéstrale tu certificación a tu guía — la tarjeta o una copia en tu celular. Sin ella no podemos llevarte a bucear. Hasta 18 m: Open Water o equivalente. Más profundo: al menos Advanced Open Water o equivalente.",
+    "certNote": "El día del buceo muéstrale tu certificación a tu guía — la tarjeta o una copia en tu celular. Sin ella no podemos llevarte a bucear. Hasta 20 m: Open Water o equivalente. Más profundo: al menos Advanced Open Water o equivalente.",
     "mpDescription": "Anticipo del {percent}% — el resto se liquida el mismo día.",
+    "mpDescriptionFull": "Pago completo — no queda nada por liquidar el día del buceo.",
     "submit": "Reservar con anticipo",
     "submitting": "Abriendo el pago…",
     "error": "Algo falló al abrir el pago. Inténtalo de nuevo o escríbenos por WhatsApp.",
@@ -629,7 +727,12 @@
     "siteBase": "Con tres inmersiones, las dos primeras son en Dos Ojos y tú eliges el cenote de la tercera.",
     "siteDeep": "Advanced o Deep",
     "rSites": "Sitios",
-    "errSites": "Elige un cenote para cada inmersión."
+    "errSites": "Elige un cenote para cada inmersión.",
+    "payLabel": "Cómo quieres pagar",
+    "payDeposit": "Anticipo {percent}%",
+    "payFull": "Pagar todo ahora",
+    "payDepositNote": "El resto en efectivo o con tarjeta el mismo día.",
+    "payFullNote": "No queda nada por pagar el día del buceo."
   },
   "faq": {
     "tag": "Antes de venir",
@@ -637,19 +740,11 @@
     "items": [
       {
         "q": "¿Necesito estar certificado para bucear aquí?",
-        "a": "No para empezar. Discover Scuba recibe a gente que nunca ha respirado bajo el agua, y para el tour de snorkel no necesitas nada. Si ya tienes certificación, Open Water o equivalente cubre cualquier inmersión de hasta 18 metros: el arrecife y los cenotes, que en su mayoría van de seis a dieciséis metros. Los dos cenotes profundos, Angelita y El Pit, piden al menos Advanced Open Water o equivalente —la especialidad Deep cuenta—, igual que la inmersión con tiburones toro; con Open Water también puedes bucearlos en nuestro curso Advanced, hasta 30 metros. Trae la tarjeta o una copia digital y muéstrasela a tu guía el día del buceo: sin ella no podemos llevarte a bucear."
+        "a": "No para empezar. Discover Scuba recibe a gente que nunca ha respirado bajo el agua, y el tour de snorkel no necesita nada. Cualquier inmersión de 20 metros o menos — el arrecife y la mayoría de los cenotes — pide Open Water o equivalente. Todo lo que sea más profundo — Angelita y El Pit — pide al menos Advanced Open Water o equivalente; la especialidad Deep cuenta. Trae la tarjeta o una copia digital y muéstrasela a tu guía el día del buceo: sin ella no podemos llevarte a bucear."
       },
       {
         "q": "¿Hasta qué profundidad van las inmersiones?",
-        "a": "Discover Scuba se queda en siete metros (25 ft). El curso Open Water se entrena primero en Casa Cenote, de siete metros de profundidad, y termina en el mar a dieciocho metros (60 ft); el arrecife ronda los nueve. La mayoría de las inmersiones en cenote son poco profundas, entre seis y dieciséis metros: Dos Ojos tiene de nueve a diez y Car Wash llega a dieciséis. Las dos profundas van más allá: el Cenote Angelita llega a 35–38 metros y el Cenote El Pit a 30–32. El curso Advanced llega hasta 30 metros (100 ft)."
-      },
-      {
-        "q": "¿Hay buen buceo de arrecife en Tulum?",
-        "a": "Sí. A lo largo de la costa de Tulum corre el Arrecife Mesoamericano, la barrera de coral más grande del hemisferio occidental. Lo buceamos frente a Tankah, al norte del pueblo: nuestra inmersión de arrecife es poco profunda, de unos nueve metros, con tortugas y peces de arrecife, en un agua algo más cálida que la de los cenotes. Nuestro día Arrecife y Cenote lo combina con Casa Cenote en una sola mañana, y el curso Open Water termina en el mar a dieciocho metros. Las mejores condiciones en el arrecife se dan en primavera y a principios del verano; en invierno, la otra gran inmersión de la costa es la de los tiburones toro frente a Playa del Carmen, a 45 minutos."
-      },
-      {
-        "q": "Es mi primera vez buceando en cenotes. ¿Cuáles son los mejores para empezar?",
-        "a": "Empieza por lo abierto y poco profundo, y después pasa a las cavernas. Casa Cenote está a cielo abierto, rodeado de manglares, con peces y tortugas y un máximo de siete metros de profundidad: no hay una primera inmersión más tranquila, y sin certificación puedes probarlo con Discover Scuba. Dos Ojos es la clásica primera caverna: agua cristalina con más de 30 metros de visibilidad, de nueve a diez metros de profundidad, siempre en la zona de luz natural y con salida directa a la superficie. Nicte-Ha, poco profundo y con lirios acuáticos, y Car Wash, de fácil acceso y hasta dieciséis metros, son buenas opciones para el siguiente paso. Deja Angelita y El Pit para más adelante: pasan de 30 metros y piden Advanced Open Water o la especialidad Deep, aunque con Open Water puedes bucearlos en nuestro curso Advanced, hasta 30 metros. Y cuéntanos en el cuestionario previo al buceo qué experiencia tienes y qué te pone nervioso: armamos el día en torno a eso."
+        "a": "Discover Scuba se queda en siete metros (25 ft). El curso Open Water y el arrecife rondan los nueve metros. La mayoría de las inmersiones en cenote se planean a dieciocho metros. Las dos profundas van más allá: el Cenote Angelita y el Cenote El Pit se bucean a 30 metros. El curso Advanced trabaja hasta 27 metros (90 ft)."
       },
       {
         "q": "¿Qué incluye realmente el precio?",
@@ -701,14 +796,14 @@
     "email": "Correo",
     "place": "Tulum, Quintana Roo, MX",
     "phone": "Teléfono",
-    "meet": "Punto de encuentro:"
+    "meet": "Punto de encuentro"
   },
   "booking": {
     "thanks": {
       "tag": "Pago recibido",
       "h2": "Ya estás dentro.",
       "p": "Tu anticipo entró y la fecha está apartada. Un guía te escribe por WhatsApp en unas horas con el punto de encuentro, la hora y las pocas preguntas que hacemos antes de cada buceo. El resto se liquida el mismo día. En tu correo de confirmación viene un formulario corto para tus tallas de equipo.",
-      "note": "Trae tu certificación de buceo el día del tour — la tarjeta o una copia digital — y muéstrasela a tu guía. Hasta 18 metros necesitas Open Water o equivalente; más profundo, al menos Advanced Open Water o equivalente. Sin ella no podemos llevarte a bucear. Discover Scuba, el curso Open Water y el tour de snorkel no piden ninguna.",
+      "note": "Trae tu certificación de buceo el día del tour — la tarjeta o una copia digital — y muéstrasela a tu guía. Hasta 20 metros necesitas Open Water o equivalente; más profundo, al menos Advanced Open Water o equivalente. Sin ella no podemos llevarte a bucear. Discover Scuba, el curso Open Water y el tour de snorkel no piden ninguna.",
       "cta": "Volver al sitio"
     },
     "pending": {
@@ -768,6 +863,7 @@
       "kicker": "Reservación confirmada",
       "hi": "Hola {name}:",
       "lede": "Tu anticipo pasó y el {date} queda apartado para ti. Esto es exactamente lo que tenemos registrado.",
+      "ledeFull": "Tu pago pasó y el {date} queda apartado para ti. Esto es exactamente lo que tenemos registrado.",
       "detailsTag": "Tu reservación",
       "whatLabel": "Qué",
       "dateLabel": "Fecha",
@@ -781,9 +877,11 @@
       "paidLabel": "Anticipo pagado",
       "balanceLabel": "Resto el mismo día",
       "balanceNote": "Se liquida en efectivo o con tarjeta al llegar. Si pagas en dólares, se toma el tipo de cambio de ese día.",
+      "fullLabel": "Pagado por completo",
+      "fullNote": "No queda nada por pagar. Preséntate a la hora de salida y listo.",
       "certTag": "Tu certificación",
-      "certOpenWater": "Trae tu certificación Open Water, o una equivalente, y muéstrasela a tu guía el día del buceo — la tarjeta física o una copia digital en tu celular. Es obligatoria para cualquier inmersión de 18 metros o menos.",
-      "certOpenWaterPlus": "Trae tu certificación y muéstrasela a tu guía el día del buceo — la tarjeta física o una copia digital en tu celular. Para inmersiones de 18 metros o menos necesitas Open Water o equivalente; para Angelita y El Pit, a más de 18 metros, al menos Advanced Open Water o equivalente, como la especialidad Deep.",
+      "certOpenWater": "Trae tu certificación Open Water, o una equivalente, y muéstrasela a tu guía el día del buceo — la tarjeta física o una copia digital en tu celular. Es obligatoria para cualquier inmersión de 20 metros o menos.",
+      "certOpenWaterPlus": "Trae tu certificación y muéstrasela a tu guía el día del buceo — la tarjeta física o una copia digital en tu celular. Para inmersiones de 20 metros o menos necesitas Open Water o equivalente; para Angelita y El Pit, a más de 20 metros, al menos Advanced Open Water o equivalente, como la especialidad Deep.",
       "certAdvanced": "Trae tu certificación y muéstrasela a tu guía el día del buceo — la tarjeta física o una copia digital en tu celular. Esta inmersión pide al menos Advanced Open Water o equivalente, como la especialidad Deep.",
       "certNoShow": "Si no muestras la certificación requerida, física o digital, no podrás hacer este tour de buceo.",
       "gearTag": "Tus tallas de equipo",
@@ -852,8 +950,8 @@
     "back": "Volver al sitio"
   },
   "cenotes": {
-    "metaTitle": "Guía de buceo en cenotes: Tulum y Riviera Maya | Kay Diving",
-    "metaDescription": "Los cenotes que buceamos cerca de Tulum (Angelita, El Pit, Dos Ojos, Casa Cenote y más): hasta dónde llega el buceo, la certificación, mapas y ubicación.",
+    "metaTitle": "Guía de cenotes: Tulum y la Riviera Maya | Kay Diving",
+    "metaDescription": "Los cenotes que buceamos alrededor de Tulum, uno por uno: Angelita, El Pit, Dos Ojos, Casa Cenote y más — hasta dónde llega el buceo, la certificación necesaria y dónde está cada uno en el mapa.",
     "tag": "Guía de cenotes",
     "h1": "Los cenotes que buceamos,<br>uno por uno.",
     "intro": "Cada cenote de este mapa es uno que buceamos, con la profundidad a la que llega el buceo y la certificación que muestras el día del tour. Toca un punto en el mapa o elige un tipo abajo.",
@@ -885,43 +983,6 @@
     "nearbyTag": "Cerca",
     "back": "Todos los cenotes",
     "illustration": "Ilustración — foto próximamente",
-    "planTag": "Mapa de buceo",
-    "planAlt": "Mapa de buceo {of}: profundidades, entrada y límites de caverna",
-    "planNote": "Dibujado para orientarte, no para navegar: tu guía explica la ruta en el cenote.",
-    "planCredit": "Redibujado a partir del mapa de {credit}.",
-    "planCreditCentre": "Redibujado a partir del mapa del propio centro de buceo.",
-    "planOpen": "Ver en grande",
-    "pageTitle": "{name}: buceo en Tulum",
-    "pageTitleMore": ", profundidad y mapa",
-    "faqTag": "Preguntas",
-    "faqH2": "{name}, en breve",
-    "qDepth": "¿A qué profundidad se bucea {at}?",
-    "aDepth": "La inmersión llega hasta {dive}.",
-    "aDepthMore": "El cenote en sí tiene {depth} m de profundidad.",
-    "qLevel": "¿Qué certificación necesito para bucear {at}?",
-    "aLevel": {
-      "none": "Ninguna: puedes probarlo con Discover Scuba, una primera inmersión junto a un instructor.",
-      "open-water": "Una certificación Open Water o equivalente, que se muestra el día del buceo.",
-      "advanced": "Advanced Open Water o la especialidad Deep, porque la inmersión pasa de los 30 metros."
-    },
-    "aLevelCourse": "Con Open Water también puedes bucearlo en el curso Advanced Open Water, hasta {depth} m.",
-    "qWhere": "¿A qué distancia de Tulum está {the}?",
-    "aWhere": "A unos {km} km {dir} de Tulum, en línea recta.",
-    "compassAt": [
-      "al norte",
-      "al noreste",
-      "al este",
-      "al sureste",
-      "al sur",
-      "al suroeste",
-      "al oeste",
-      "al noroeste"
-    ],
-    "qSnorkel": "¿Se puede hacer snorkel {at}?",
-    "aSnorkel": "Sí: {the} se presta al snorkel tanto como al buceo.",
-    "qTrips": "¿Qué salidas de Kay Diving van {to}?",
-    "breadcrumbHome": "Inicio",
-    "touristType": "Buceadores",
     "homeTag": "Mapa de cenotes",
     "homeH2": "Dónde buceamos,<br>alrededor de Tulum.",
     "homeIntro": "Todos los cenotes que buceamos, en un solo mapa: desde Casa Cenote, junto al mar, hasta la nube de Angelita, a 30 m en plena selva. Toca uno para ver hasta dónde baja y qué nivel pide.",
@@ -953,13 +1014,13 @@
       "advanced": "Advanced Open Water o Deep"
     },
     "items": {
-      "casa-cenote": "Un cenote abierto tipo laguna, conectado directamente al mar Caribe, lo que genera un ecosistema único donde se mezclan el agua dulce y la salada. Su profundidad máxima ronda los 7 metros, ideal para buceadores principiantes y para quienes buscan una inmersión relajada. Está rodeado de manglares y su visibilidad, aunque variable, ofrece la oportunidad de nadar junto a peces, tortugas y, en ocasiones, un cocodrilo de agua dulce (de la especie Crocodylus moreletii). Perfecto para combinar el buceo recreativo con el contacto directo con la vida silvestre.",
-      "car-wash": "Bajo una superficie tranquila y accesible se esconde uno de los cenotes más fotografiados de la Riviera Maya. Sus aguas transparentes están decoradas con lirios acuáticos que flotan en la superficie, mientras que en las profundidades aparecen troncos petrificados y una impresionante galería de estalactitas y estalagmitas. Con hasta 16 metros de profundidad, es perfecto tanto para snorkel como para buceo en caverna, y los rayos de sol que se filtran entre la vegetación crean juegos de luz que hacen de cada inmersión una experiencia casi cinematográfica.",
-      "dos-ojos": "Uno de los sistemas de cuevas inundadas más famosos del mundo, formado por dos cenotes conectados que, vistos desde arriba, dan la ilusión de “dos ojos”. Ofrece rutas de buceo en caverna como “The Barbie Line” y “The Bat Cave”, con aguas cristalinas de visibilidad superior a 30 metros, impresionantes estalactitas y formaciones rocosas milenarias. Su profundidad máxima es de aproximadamente 10 metros en las zonas abiertas. Forma parte del sistema de cuevas sumergidas más extenso del mundo, con alrededor de 369 kilómetros. Una excelente opción para quienes nunca han buceado en un cenote.",
-      "el-pit": "Considerado uno de los cenotes más profundos y dramáticos de la Riviera Maya, con una profundidad de hasta 119 metros. Es famoso por su columna de luz que atraviesa el agua, por su haloclina (la mezcla de agua dulce y salada) y por una nube de ácido sulfhídrico a unos 30 metros, que le da un efecto visual de “niebla” submarina. Recomendado para buceadores avanzados o con certificación técnica, ofrece una de las experiencias de buceo en cenotes más impactantes del mundo.",
-      "angelita": "Con aproximadamente 60 metros de profundidad, este cenote guarda uno de los fenómenos más impactantes del buceo en cavernas: una nube de ácido sulfhídrico que flota sobre el agua salada a unos 30 metros, creando la ilusión óptica de un río subterráneo con troncos y hojarasca “flotando” en el aire. Atravesar esa capa es como cruzar un umbral hacia otra dimensión, que revela un paisaje sumergido envuelto en una bruma espectral. Una experiencia mística y sobrecogedora, reservada para buceadores avanzados que buscan algo verdaderamente único.",
+      "casa-cenote": "El más distinto de todos. Casa Cenote es el final de un sistema de ríos subterráneos que desemboca en el mar, así que su agua es salobre —dulce mezclada con salada— y un grado más templada que la del resto. Eso le da una fauna que no existe en ningún otro cenote, cocodrilo incluido. Se bucea sin certificación y es un sitio excelente para snorkel.",
+      "car-wash": "El cenote favorito de Kay, y uno de los mejores para empezar. Es un buceo corto y poco profundo que regala la postal más bonita de todas: la de mirar hacia el área abierta desde dentro de la caverna. Su nombre maya es Aktun Ha; el de Car Wash se lo pusieron los coches que paraban a lavarse al pie de la carretera.",
+      "dos-ojos": "Dos cuerpos de agua conectados que, vistos desde arriba, parecen un par de ojos. Forman parte del sistema de cuevas inundadas más largo del mundo —unos 369 kilómetros— y se bucean en caverna: la luz del día siempre presente y la salida a la vista. Es el cenote con el que casi todo el mundo empieza, y basta el Open Water.",
+      "el-pit": "Un pozo casi cilíndrico que se hunde mucho más allá de donde llega el buceo recreativo. Tiene haloclina, ácido sulfhídrico, estalactitas de varios metros y, en los meses correctos, rayos de sol que bajan hasta el fondo. Pide Advanced Open Water, y por eso es de los cenotes con menos gente al día.",
+      "angelita": "El cenote más extraño de los que buceamos. Una capa de ácido sulfhídrico convierte el fondo en lo que parece un río con una isla en medio, y cruzarla cambia por completo el buceo. Es profundo, vertical y no está conectado a ninguna otra cueva; pide Advanced Open Water.",
       "dreamgate": "Un cenote de tipo caverna con entrada circular, conocido por la extraordinaria claridad de su agua y por las imponentes columnas y formaciones rocosas que descienden hasta el fondo. La luz natural que se filtra por la abertura superior crea efectos visuales espectaculares. Es ideal para el buceo en caverna, con recorridos que muestran salas amplias y una atmósfera casi ceremonial.",
-      "tak-be-luum": "Un cenote menos conocido y, por eso, más virgen, ubicado en la zona del Parque Dos Ojos. Ofrece pasajes de caverna con formaciones geológicas bien conservadas, aguas tranquilas y una experiencia más íntima, porque recibe menos visitantes. Ideal para quienes buscan explorar cenotes fuera de las rutas más turísticas. Está dentro del Parque Dos Ojos, cerca de El Pit: justo antes de llegar a El Pit, una desviación a la izquierda lleva al cenote.",
+      "tak-be-luum": "Un cenote menos conocido y, por eso, más virgen, ubicado en la zona del Parque Dos Ojos. Ofrece pasajes de caverna con formaciones geológicas bien conservadas, aguas tranquilas y una experiencia más íntima, porque recibe menos visitantes. Ideal para quienes buscan explorar cenotes fuera de las rutas más turísticas.",
       "tak-be-ha": "Sistema de cuevas con salas amplias, estalactitas y estalagmitas bien definidas, y una marcada haloclina que produce efectos visuales de distorsión donde se mezclan el agua dulce y la salada. Ofrece un ambiente sereno, ideal para buceadores certificados que buscan formaciones geológicas espectaculares en un entorno poco masificado.",
       "nicte-ha": "Ubicado cerca de Dos Ojos, destaca por su vegetación acuática y por sus aguas de color esmeralda, debidas a la presencia de lirios y plantas subacuáticas. Es menos profundo que otros cenotes de la zona, lo que lo hace ideal para el snorkel y el buceo ligero, con buena visibilidad y una atmósfera natural muy fotogénica.",
       "nohoch-nah-chich": "Parte de uno de los sistemas de cuevas subacuáticas más extensos del mundo. Se caracteriza por una asombrosa concentración de estalactitas y estalagmitas, muchas de gran tamaño, que forman auténticos “bosques” de piedra bajo el agua. Sus aguas cristalinas y sus pasajes intrincados lo convierten en un destino imprescindible para buceadores de cavernas experimentados que buscan formaciones geológicas de otro nivel."
@@ -969,24 +1030,25 @@
       "car-wash": "Una cuerda colgando sobre el agua cristalina del Cenote Car Wash, rodeado de selva, cerca de Tulum",
       "dos-ojos": "Buzos en la caverna de Dos Ojos, con la luz del día atravesando el agua azul",
       "el-pit": "Haces de luz cayendo en el pozo de El Pit, con buzos a contraluz",
-      "angelita": "Un buzo sobre la nube de ácido sulfhídrico del Cenote Angelita, entre ramas muertas",
+      "angelita": "Un buzo sobre la nube de sulfuro del Cenote Angelita, entre ramas muertas",
       "tak-be-luum": "Un buzo con la linterna encendida recorriendo una galería de roca clara en el Cenote Tak Be Luum",
       "nicte-ha": "El agua turquesa y cristalina del Cenote Nicte-Ha, cubierta de nenúfares, al pie de una pared de roca y selva",
       "nohoch-nah-chich": "El agua turquesa del Cenote Nohoch Nah Chich bajo una bóveda de roca, con una escalera de madera que baja al agua"
     },
-    "artAlt": "Ilustración: {name}",
-    "metas": {
-      "casa-cenote": "Casa Cenote, Tulum: cenote abierto conectado al Caribe, entre manglares, de 7 m como máximo. Peces, tortugas, agua tranquila; sin certificación para probarlo.",
-      "car-wash": "Cenote Car Wash (Aktun Ha), Tulum: nenúfares, troncos petrificados y una galería de estalactitas, hasta 16 m. Buceo en caverna con Open Water, o snorkel.",
-      "dos-ojos": "Cenote Dos Ojos, Tulum: buceo en caverna por la Barbie Line y la Bat Cave, más de 30 m de visibilidad y unos 10 m de fondo. Open Water. Con mapa de buceo.",
-      "el-pit": "Cenote El Pit, Tulum: un pozo de 119 m con columna de luz, haloclina y una nube de ácido sulfhídrico hacia los 30 m. Buceo a 30–32 m, Advanced o Deep.",
-      "angelita": "Cenote Angelita, Tulum: el “río subterráneo”, una nube de ácido sulfhídrico a 30 m entre árboles hundidos. Buceo a 35–38 m con Advanced o Deep.",
-      "dreamgate": "Cenote Dreamgate, cerca de Tulum: una caverna de columnas y formaciones en agua de una claridad extraordinaria, con entrada circular. Open Water. Con mapa.",
-      "tak-be-luum": "Cenote Tak Be Luum, en el Parque Dos Ojos: pasajes de caverna tranquilos con formaciones bien conservadas, lejos de las multitudes. Open Water, hasta 7 m.",
-      "tak-be-ha": "Cenote Tak Be Ha, cerca de Tulum: salas amplias, estalactitas y estalagmitas bien definidas, haloclina marcada. Poco concurrido. Open Water, hasta 16 m.",
-      "nicte-ha": "Cenote Nicte-Ha, junto a Dos Ojos: agua esmeralda, nenúfares y plantas acuáticas. Poco profundo y fotogénico: buceo fácil y snorkel, hasta 8 m.",
-      "nohoch-nah-chich": "Cenote Nohoch Nah Chich, cerca de Tulum: “bosques” de enormes estalactitas en agua cristalina, dentro de uno de los sistemas de cuevas más largos del mundo."
+    "arts": {
+      "cavern": "Buceo en caverna: estalactitas y estalagmitas enmarcando la salida azul a lo lejos. La luz del día nunca se pierde de vista.",
+      "cenote-shaft": "Rayos de sol atravesando el agua turquesa, las paredes de piedra caliza y un buzo descendiendo.",
+      "halocline": "Un buzo cruzando la haloclina, la capa temblorosa donde el agua dulce se encuentra con la salada.",
+      "the-pit": "Una sola columna de luz cayendo por el pozo profundo de El Pit.",
+      "casa-cenote": "Agua somera y soleada entre raíces de manglar, con peces pequeños alrededor.",
+      "reef": "El arrecife mesoamericano frente a Tulum: cabezas de coral, una tortuga y un banco de peces bajo los rayos de luz."
     },
+    "artNote": "Ilustración del tipo de buceo, no un plano de este cenote.",
+    "planTag": "Mapa de buceo",
+    "planNote": "Dibujado para orientarte, no para navegar: tu guía explica la ruta en el cenote.",
+    "planCredit": "Redibujado a partir del mapa de {credit}.",
+    "planCreditCentre": "Redibujado a partir del mapa del propio centro de buceo.",
+    "planOpen": "Ver en grande",
     "planAlts": {
       "casa-cenote": "Mapa de buceo de Casa Cenote: zonas de snorkel, profundidades de 2 a 6 m, el paso de la grieta y el paso de caverna, los límites de caverna y la entrada principal",
       "car-wash": "Mapa de buceo del Cenote Car Wash: profundidades de 5 a 16 m, formaciones, los dos límites de caverna y la entrada principal",
@@ -994,6 +1056,388 @@
       "dreamgate": "Mapa de buceo del Cenote Dreamgate: la línea de caverna, formaciones, la poza de aguas abiertas con su entrada y los pasos solo para buzos de cueva",
       "el-pit": "Corte del Cenote El Pit: el pozo de entrada, profundidades de hasta 40 m, la haloclina y la nube de ácido sulfhídrico, y el límite de caverna",
       "angelita": "Corte del Cenote Angelita: la entrada, profundidades de hasta 55 m, la nube de ácido sulfhídrico a 30 m y los árboles hundidos"
+    },
+    "artAlt": "Ilustración: {name}",
+    "lightTag": "Cuándo ir",
+    "ownTag": "Si vas por tu cuenta",
+    "faqTag": "Preguntas",
+    "deep": {
+      "dos-ojos": {
+        "sections": [
+          {
+            "h": "Los dos ojos",
+            "p": [
+              "Es un cenote semiabierto. Al llegar al nivel del agua hay una plataforma que parte la zona en dos: un lado para buzos y otro para quien va a hacer snorkel. La plataforma está en el ojo este — el otro es el ojo oeste, y de ahí viene el nombre, porque en México a un cuerpo de agua redondeado de cierto tamaño se le llama un ojo de agua."
+            ]
+          },
+          {
+            "h": "Cómo se entra al agua",
+            "p": [
+              "Nos equipamos arriba, en la zona del estacionamiento, y bajamos ya listos para entrar. Hay dos maneras de meterse al agua: sentarse en la escalera, ponerse las aletas y entrar desde ahí, o ponérselas de pie al borde de la plataforma y dar un paso de gigante hacia delante.",
+              "Antes de arrancar hacemos un chequeo de flotabilidad. Lo hacemos en cualquier primer buceo en cenote, sin excepción: el agua dulce no sostiene como la salada, y mucha gente necesita ajustar el plomo que usaría en el mar."
+            ]
+          },
+          {
+            "h": "La Barbie Line",
+            "p": [
+              "Hacemos dos buceos distintos. Los dos empiezan en el ojo este y terminan en el ojo oeste, pero recorren partes diferentes de la caverna. La Barbie Line se llama así porque a la mitad del recorrido hay una muñeca Barbie amarrada a la línea: es la referencia que te dice que vas justo por la mitad. Es el más luminoso de los dos, y también el más largo."
+            ]
+          },
+          {
+            "h": "La Bat Cave",
+            "p": [
+              "La Bat Cave es más oscuro y está menos expuesto a la luz. Cuando queda alrededor de un tercio del buceo salimos a la superficie dentro de una cueva con murciélagos y formaciones de estalactitas — son murciélagos frugívoros, de los que comen fruta. De ahí el nombre. Los dos buceos son bonitos y los dos se quedan contigo."
+            ]
+          }
+        ],
+        "light": "Conviene bucearlo temprano. Es uno de los cenotes más populares de la zona, y a media mañana hay bastante más gente en el agua — sobre todo en temporada alta.",
+        "own": "Sí se puede hacer snorkel, y la zona está separada de la de buzos por esa misma plataforma. El reglamento del parque ha cambiado con los años: ahora solo dejan nadar con chaleco salvavidas. La cueva de los murciélagos también se puede explorar haciendo snorkel.",
+        "faq": [
+          {
+            "q": "¿Necesito certificación para bucear en Dos Ojos?",
+            "a": "Open Water es suficiente. Es buceo en caverna, no en cueva: la luz del día es la fuente principal y la salida está siempre a la vista, siguiendo la línea guía."
+          },
+          {
+            "q": "¿Por qué se llama Dos Ojos?",
+            "a": "Por los dos cuerpos de agua conectados que forman el sitio, el ojo este y el ojo oeste. En México, a un cuerpo de agua redondeado de cierto tamaño se le llama un ojo de agua."
+          },
+          {
+            "q": "¿Cuál es la diferencia entre la Barbie Line y la Bat Cave?",
+            "a": "La Barbie Line es el recorrido más luminoso y el más largo; tiene una muñeca Barbie amarrada a la línea a la mitad, como referencia. La Bat Cave es más oscuro, y a un tercio del final se sale a la superficie dentro de una cueva con murciélagos frugívoros y estalactitas."
+          },
+          {
+            "q": "¿Qué profundidad tiene?",
+            "a": "Las inmersiones se quedan dentro de los diez metros. Es un buceo de luz y de formaciones, no de profundidad."
+          },
+          {
+            "q": "¿Se puede hacer snorkel en Dos Ojos?",
+            "a": "Sí, en la zona separada de la de buzos. El parque cambió su reglamento y ahora solo se puede nadar con chaleco salvavidas. La cueva de los murciélagos también se puede ver haciendo snorkel."
+          },
+          {
+            "q": "¿A qué hora conviene llegar?",
+            "a": "Temprano. Es de los cenotes más visitados y llena pronto, sobre todo en temporada alta."
+          }
+        ]
+      },
+      "angelita": {
+        "sections": [
+          {
+            "h": "La entrada y el descenso",
+            "p": [
+              "Se entra bajando una plataforma pequeña de madera hasta el agua. Ahí te pones las aletas y entras con un paso de gigante.",
+              "Nos gusta descender pegados a la plataforma para que puedas usar la pared como referencia. Al principio solo hay agua alrededor, sin nada obvio a lo que agarrarse con la vista."
+            ]
+          },
+          {
+            "h": "Por qué el agua se ve verdosa",
+            "p": [
+              "La visibilidad de Angelita es particular. El agua tira a verdosa, por el reflejo de la vegetación de afuera y sobre todo porque este cenote no está conectado a ninguna otra cueva: no tiene el flujo constante de agua que sí tienen Dos Ojos o El Pit, y eso les da a ellos un agua más cristalina. La de Angelita es buena, solo que no tanto como la de la mayoría."
+            ]
+          },
+          {
+            "h": "La nube y la isla",
+            "p": [
+              "Conforme te acercas al fondo empieza a aparecer la isla. Es una montaña de escombros caídos a lo largo de miles de años, y su cima queda justo por encima de la nube de ácido sulfhídrico. La nube parece un río que cubre el cenote entero y deja solo esa cima afuera: de ahí la ilusión de una isla. Con el gas, la montaña y los árboles caídos al fondo, la imagen es completamente surreal."
+            ]
+          },
+          {
+            "h": "Atravesar la nube",
+            "p": [
+              "La nube empieza alrededor de los veintiocho metros. Nuestro buceo se planea a treinta. A quien lo pide y tiene la experiencia se le puede bajar a atravesarla —termina hacia los treinta y tres metros—, y eso se habla en el sitio, contigo, no se vende por internet. Por debajo la visibilidad es buena pero está oscuro, porque la nube se come la luz del día; con la lámpara se ve todo perfectamente. Nos quedamos ahí un par de minutos y empezamos a subir. Volver de la nube hacia arriba es de los momentos más particulares del buceo. Por encima de ella el agua es dulce; por debajo, salada."
+            ]
+          },
+          {
+            "h": "La caverna en forma de U",
+            "p": [
+              "Seguimos subiendo despacio, en círculo, hasta una pequeña caverna en forma de U a unos catorce metros, con una sola entrada y una sola salida. Es estrecha y le da un toque muy agradable a la mitad del buceo."
+            ]
+          },
+          {
+            "h": "El ascenso y los árboles suspendidos",
+            "p": [
+              "Al salir de ahí ascendemos lentamente hasta los cinco metros, donde hacemos la parada de seguridad. En esa última parte se ven formaciones de piedra muy particulares y algunos árboles que cayeron al cenote pero se quedaron atorados arriba, entre las rocas, sin llegar al fondo. Algunos parecen suspendidos en el agua."
+            ]
+          },
+          {
+            "h": "Angelita en la cultura popular",
+            "p": [
+              "Un dato que me gusta contar: hace años Angelita salió en el programa de Alienígenas Ancestrales del History Channel, porque el cenote encaja con una leyenda olmeca que habla de un lugar así. En ese mundo de las teorías hay quien cree que los olmecas tuvieron contacto con otras civilizaciones. Es cultura popular y mito, nada más, pero es parte de lo que se platica aquí abajo."
+            ]
+          }
+        ],
+        "light": "La mejor luz para bucearlo es más o menos entre las nueve y las doce de la mañana. Y si llegas temprano, puedes tener el sitio prácticamente para ti durante una hora.",
+        "own": "Se puede hacer snorkel, pero honestamente no lo recomiendo. Lo que hace especial a Angelita está a treinta metros, y para snorkel hay sitios mucho mejores cerca de Tulum.",
+        "faq": [
+          {
+            "q": "¿Qué es la nube de Angelita?",
+            "a": "Una capa de ácido sulfhídrico que empieza alrededor de los veintiocho metros. Vista desde arriba parece un río que cubre el cenote entero, y deja fuera solo la cima de la montaña de escombros del fondo — de ahí que se le llame la isla."
+          },
+          {
+            "q": "¿Se puede atravesar la nube?",
+            "a": "El buceo se planea a treinta metros. A quien lo pide y tiene la experiencia se le puede bajar a cruzarla; termina hacia los treinta y tres. Eso se decide contigo en el sitio, no por internet. Debajo está oscuro porque la nube absorbe la luz del día, pero con la lámpara se ve todo, y nos quedamos solo un par de minutos."
+          },
+          {
+            "q": "¿Qué certificación necesito?",
+            "a": "Advanced Open Water o Deep Diver. No es una regla nuestra: es la profundidad."
+          },
+          {
+            "q": "¿Por qué el agua se ve verdosa?",
+            "a": "Por el reflejo de la vegetación de afuera y, sobre todo, porque Angelita no está conectada a ninguna otra cueva. Sin flujo constante de agua no se aclara como Dos Ojos o El Pit. La visibilidad es buena de todos modos, solo no tanto como en los demás."
+          },
+          {
+            "q": "¿A qué hora conviene bucearlo?",
+            "a": "Entre las nueve y las doce para la luz. Si llegas temprano, puede que tengas el cenote casi solo durante una hora."
+          },
+          {
+            "q": "¿Se puede hacer snorkel en Angelita?",
+            "a": "Se puede, pero no lo recomiendo. Lo que vale la pena está a treinta metros; para snorkel hay mejores cenotes cerca."
+          }
+        ]
+      },
+      "el-pit": {
+        "sections": [
+          {
+            "h": "Dónde está y con qué conecta",
+            "p": [
+              "El Pit está dentro del parque Dos Ojos. De hecho, a unos doce metros hay una cueva que, buceándola unas dos horas y media, sale en el cenote Dos Ojos justo a la altura de la muñeca Barbie — pero eso solo lo puede hacer un buzo certificado en cueva."
+            ]
+          },
+          {
+            "h": "La entrada y el descenso",
+            "p": [
+              "Para empezar se baja una plataforma bastante larga, algo intimidante de ver, pero segura. Abajo te pones las aletas y entras con un paso de gigante. Cuando todos están listos, encendemos las lámparas y empezamos a descender despacio."
+            ]
+          },
+          {
+            "h": "La haloclina",
+            "p": [
+              "Los primeros catorce metros son agua dulce. Después aparece la haloclina, que es donde se encuentran el agua dulce y la salada. Ahí se pierde algo de visibilidad: la haloclina hace que el agua se vea densa, yo siempre lo comparo con cómo se ve el aceite dentro del agua. Pasada la haloclina, hacia los quince metros, ya es agua salada hasta el fondo."
+            ]
+          },
+          {
+            "h": "El ácido sulfhídrico y la isla del fondo",
+            "p": [
+              "Igual que en Angelita, en el fondo hay una isla formada por los árboles y las piedras que han caído a lo largo de miles de años. Aquí también hay ácido sulfhídrico, a los treinta metros, aunque no es tan denso como el de Angelita y no produce el mismo efecto visual. Sigue siendo muy interesante de ver."
+            ]
+          },
+          {
+            "h": "Hasta dónde bajamos",
+            "p": [
+              "Al llegar a los treinta metros empezamos a ascender lentamente, en círculo: el cenote tiene una forma bastante cilíndrica. El Pit es una de las cuevas más profundas de la región, llega a los ciento cuarenta y dos metros, pero en nuestros buceos solo se alcanzan a percibir los primeros cuarenta."
+            ]
+          },
+          {
+            "h": "Los rayos de luz",
+            "p": [
+              "Subiendo es cuando se aprecian los rayos de sol entrando y bailando debajo del agua."
+            ]
+          },
+          {
+            "h": "Las estalactitas del techo",
+            "p": [
+              "En el techo hay una cantidad enorme de estalactitas, algunas de más de dos o tres metros. Una estalactita tarda unos cuatro mil años en crecer un metro, y solo crece en ambiente semiseco: una vez sumergida deja de crecer para siempre."
+            ]
+          },
+          {
+            "h": "Lo que encontraron los arqueólogos",
+            "p": [
+              "Cuando los arqueólogos exploraron este lugar encontraron restos humanos de unos ocho mil años de antigüedad, de la época de los hombres de las cavernas. También restos de animales del final de la última era glaciar, entre ellos un perezoso gigante que sigue dentro de una de estas cuevas — a ése solo se llega con certificación de cueva, porque no está en la zona de caverna."
+            ]
+          }
+        ],
+        "light": "Los rayos de luz se ven entre finales de marzo y finales de septiembre, y dentro del día entre las 8:30 y las 12, por el ángulo con el que entra el sol. De septiembre a noviembre y de enero a casi todo marzo el fenómeno casi no se aprecia. Vale la pena decirlo claro: el buceo sigue siendo precioso con o sin luz, pero la luz le da otro nivel.",
+        "own": "Aquí no se puede hacer snorkel. El Pit es exclusivamente para buceo y apnea, y como además pide Advanced Open Water como mínimo, es de los cenotes con menos gente al día.",
+        "faq": [
+          {
+            "q": "¿Qué profundidad tiene El Pit?",
+            "a": "Ciento cuarenta y dos metros: es una de las cuevas más profundas de la región. Nuestras inmersiones se planean a treinta, y desde ahí se alcanzan a percibir unos cuarenta."
+          },
+          {
+            "q": "¿Cuándo se ven los rayos de luz?",
+            "a": "Entre finales de marzo y finales de septiembre, y entre las 8:30 y las 12 del día. De septiembre a noviembre y de enero a casi todo marzo apenas se aprecian. El buceo es precioso igual, pero la luz le da otro nivel."
+          },
+          {
+            "q": "¿Qué es la haloclina?",
+            "a": "El punto donde se encuentran el agua dulce y la salada, hacia los catorce o quince metros. Hace que el agua se vea densa y se pierda algo de visibilidad: se parece a cómo se ve el aceite dentro del agua. Al cruzarla, todo vuelve a verse nítido."
+          },
+          {
+            "q": "¿Qué certificación necesito?",
+            "a": "Advanced Open Water como mínimo. Es un buceo profundo y esa exigencia es también la razón de que haya tan poca gente aquí."
+          },
+          {
+            "q": "¿Se puede hacer snorkel en El Pit?",
+            "a": "No. Es exclusivamente para buceo y apnea."
+          },
+          {
+            "q": "¿Es verdad lo del perezoso gigante?",
+            "a": "Sí. En estas cuevas se han encontrado restos de animales del final de la última era glaciar, entre ellos un perezoso gigante que sigue ahí dentro. No está en la zona de caverna, así que solo se llega con certificación de cueva."
+          }
+        ]
+      },
+      "car-wash": {
+        "sections": [
+          {
+            "h": "Por qué se llama Car Wash",
+            "p": [
+              "Su nombre maya es Aktun Ha, que quiere decir cueva inundada, o cueva con agua. El que todo el mundo usa es más reciente y mucho más prosaico: el cenote está al pie de la carretera, y hace muchos años, antes de que Tulum fuera un destino turístico, la gente del pueblo y quien pasaba por ahí paraban a sacar cubetas de agua para lavar el coche. El nombre se quedó."
+            ]
+          },
+          {
+            "h": "Cómo es el buceo",
+            "p": [
+              "Es un buceo corto, y eso hay que decirlo de entrada: no es el más largo de los que hacemos. Su profundidad máxima es de dieciséis metros, así que lleva parada de seguridad al final, pero en promedio se mantiene bastante arriba. Esa combinación —poco profundo, corto, con el área abierta siempre cerca— lo convierte en uno de los mejores cenotes para alguien que apenas se está asomando al buceo en cenotes. Basta el Open Water."
+            ]
+          },
+          {
+            "h": "La postal desde dentro de la caverna",
+            "p": [
+              "Hay un momento que para Kay justifica el cenote entero. Estás dentro de la caverna, de espaldas a la oscuridad, y miras hacia el área abierta: la luz del día entra en una sola dirección y recorta la silueta de la entrada contra el agua. Es una de las imágenes más bonitas que da cualquier cenote de la zona, y es la razón por la que éste es su favorito."
+            ]
+          },
+          {
+            "h": "Las formaciones",
+            "p": [
+              "Car Wash tiene estalactitas y estalagmitas de muy buen tamaño, de las más grandes que se ven en un buceo de caverna poco profundo. Se formaron cuando la cueva estaba seca; una vez bajo el agua dejaron de crecer, así que lo que se ve hoy es exactamente lo que quedó cuando subió el mar."
+            ]
+          },
+          {
+            "h": "La vasija maya",
+            "p": [
+              "Dentro del cenote se encontraron los restos de una vasija maya, y siguen ahí. No se sacaron ni se pusieron en una vitrina: están en el sitio donde aparecieron, y se pasa junto a ellos durante el buceo. Es de las pocas veces que se ve una pieza así en su lugar, bajo el agua, y no detrás de un cristal."
+            ]
+          },
+          {
+            "h": "La vida en el área abierta",
+            "p": [
+              "El área abierta tiene una vegetación preciosa y bastantes más peces que la mayoría de los cenotes de la zona, que suelen ser más vacíos. A veces se ven cormoranes bajando a pescar debajo del agua, desde dentro, lo cual es una escena rarísima de presenciar. También hay tortugas terrestres viviendo alrededor, entre otras especies."
+            ]
+          },
+          {
+            "h": "Con qué se combina",
+            "p": [
+              "La combinación más común es Car Wash con Angelita: uno corto, luminoso y poco profundo, el otro profundo y extraño. Funcionan bien juntos precisamente porque no se parecen en nada."
+            ]
+          }
+        ],
+        "faq": [
+          {
+            "q": "¿Qué significa Aktun Ha?",
+            "a": "Cueva inundada, o cueva con agua, en maya. Es el nombre original del cenote; Car Wash es el apodo que se le quedó después."
+          },
+          {
+            "q": "¿Por qué se llama Car Wash?",
+            "a": "Porque está al pie de la carretera. Hace muchos años, antes de que Tulum fuera turístico, la gente local y quien iba de paso paraban a sacar cubetas de agua para lavar el coche."
+          },
+          {
+            "q": "¿Qué profundidad tiene Car Wash?",
+            "a": "Dieciséis metros como máximo. Por eso lleva parada de seguridad al final, aunque en promedio el buceo se mantiene bastante más arriba."
+          },
+          {
+            "q": "¿Necesito experiencia para bucearlo?",
+            "a": "No mucha. El Open Water es suficiente, y es de los cenotes que más recomendamos a quien apenas empieza: poco profundo, corto y con el área abierta siempre cerca."
+          },
+          {
+            "q": "¿Es verdad que hay una vasija maya dentro?",
+            "a": "Sí. Se encontraron restos de una vasija maya en el cenote y siguen en el sitio, a la vista, durante el buceo."
+          },
+          {
+            "q": "¿Qué animales se ven en Car Wash?",
+            "a": "Tiene más peces que la mayoría de los cenotes. A veces se ven cormoranes bajando a pescar bajo el agua, y alrededor viven tortugas terrestres, entre otras especies."
+          },
+          {
+            "q": "¿Con qué otro cenote se suele combinar?",
+            "a": "Con Angelita. Es la combinación más pedida: un buceo corto y luminoso seguido de uno profundo y completamente distinto."
+          }
+        ]
+      },
+      "casa-cenote": {
+        "sections": [
+          {
+            "h": "El final de un río subterráneo",
+            "p": [
+              "Casa Cenote no se parece a los demás porque no es un pozo ni una cueva: es el punto donde un sistema de ríos subterráneos termina y entrega su agua al mar. Entre el cenote y la playa solo hay una carretera de terracería, y por debajo de ella pasa la conexión que empuja el agua dulce hacia el Caribe.",
+              "Esa conexión tan directa es lo que define todo lo demás. El agua es salobre —brackish, en inglés—, dulce mezclada con salada, y eso cambia qué vive aquí, cómo se ve y hasta a qué temperatura está."
+            ]
+          },
+          {
+            "h": "Un grado más templado",
+            "p": [
+              "Casi todos los cenotes de la zona están a veinticinco grados. Casa Cenote está a veintiséis. Un grado suena a poco y se nota más de lo que parece a lo largo de un buceo entero.",
+              "Hay días en los que también se alcanza a ver la haloclina, la franja donde se encuentran el agua dulce y la salada. No es constante: depende del nivel del mar ese día y de cuánta agua salada está entrando frente a cuánta agua dulce está empujando hacia afuera."
+            ]
+          },
+          {
+            "h": "Panchita",
+            "p": [
+              "El animal más particular del cenote es un cocodrilo de agua dulce de la especie Crocodylus moreletii. Llegó por su cuenta, de manera natural, y lleva unos nueve años viviendo aquí. En un cenote así normalmente solo habrá uno: son muy territoriales y defienden su espacio.",
+              "Se llama Panchita y se ha convertido en el emblema del sitio, y de alguna manera en su atracción principal. Dicho esto, está en su hábitat natural y no en un recinto: verla no está garantizado en cada buceo."
+            ]
+          },
+          {
+            "h": "Qué más vive aquí",
+            "p": [
+              "Al estar tan cerca del mar, la vegetación y la fauna no se parecen a las del resto de los cenotes. En el agua se ven cenote mollys, mojarras mayas, sábalos —tarpon en inglés— y cangrejos azules.",
+              "Arriba hay bastantes aves: cormoranes, garzas grises y azules, y de vez en cuando alguna blanca."
+            ]
+          },
+          {
+            "h": "Un criadero de peces conectado al mar",
+            "p": [
+              "El manglar que rodea el cenote funciona como guardería de peces: un lugar protegido donde las crías pueden desarrollarse. Y como el cenote está conectado al mar, es normal ver también especies marinas —pargos, morenas y otras— que entran por la cueva cuando sube el nivel del agua salada.",
+              "Es un sitio donde el mar y el río se visitan mutuamente, y según el día se ve más de uno o del otro."
+            ]
+          },
+          {
+            "h": "Más grande de lo que parece",
+            "p": [
+              "Al llegar, el cenote engaña: lo que se ve es un ojo de agua pequeño. Pero se extiende hacia atrás unos doscientos cincuenta metros.",
+              "La mayor parte del recorrido es abierta, con el cielo encima. Solo alrededor de una cuarta parte del buceo entra en la zona de caverna."
+            ]
+          },
+          {
+            "h": "Para quién es",
+            "p": [
+              "Es el cenote que más recomendamos para un Discover Scuba, para un curso de aguas abiertas, para un refresher después de tiempo sin bucear, o simplemente para quien va a bucear un cenote por primera vez.",
+              "En los Discover Scuba y en los cursos de Open Water no entramos a la zona de caverna: nos quedamos en las partes con acceso directo a la superficie, por reglamento y por la seguridad de los buceadores. Es un buceo hermoso y sencillo, y para nosotros no debería faltar en el itinerario de nadie que esté planeando sus inmersiones en Tulum."
+            ]
+          }
+        ],
+        "own": "Sí, y muy recomendado. Casa Cenote es un sitio excelente para snorkel: la mayor parte es abierta y poco profunda, y casi toda la fauna que hace especial al cenote —los peces, los cangrejos, las aves, y con suerte Panchita— está donde la ves desde la superficie.",
+        "faq": [
+          {
+            "q": "¿Por qué el agua de Casa Cenote es salobre?",
+            "a": "Porque el cenote es el final de un sistema de ríos subterráneos que desemboca en el mar. La conexión pasa por debajo de la carretera de terracería que separa el cenote de la playa, y por ahí el agua dulce sale hacia el Caribe y la salada entra. El resultado es agua salobre: dulce mezclada con salada."
+          },
+          {
+            "q": "¿Hay un cocodrilo en Casa Cenote?",
+            "a": "Sí. Se llama Panchita, es un Crocodylus moreletii, llegó de manera natural y lleva unos nueve años en el cenote. Normalmente solo hay uno por sitio, porque son muy territoriales. Está en su hábitat natural, así que verlo no está garantizado en cada buceo."
+          },
+          {
+            "q": "¿Qué temperatura tiene el agua?",
+            "a": "Veintiséis grados, un grado más que la mayoría de los cenotes de la zona, que están a veinticinco. Es la conexión con el mar la que lo explica."
+          },
+          {
+            "q": "¿Necesito certificación para bucear Casa Cenote?",
+            "a": "No. Es de los mejores sitios para un Discover Scuba o para un curso de aguas abiertas. En esos casos nos quedamos en las zonas con acceso directo a la superficie y no entramos a la caverna."
+          },
+          {
+            "q": "¿Se puede hacer snorkel en Casa Cenote?",
+            "a": "Sí, y es de los mejores de la zona para eso. La mayor parte del cenote es abierta y poco profunda, y la fauna que lo hace especial se ve desde la superficie."
+          },
+          {
+            "q": "¿Qué tan grande es?",
+            "a": "Parece pequeño al llegar, porque lo que se ve es un ojo de agua de poco tamaño, pero se extiende hacia atrás unos doscientos cincuenta metros."
+          },
+          {
+            "q": "¿Se entra a cuevas en este cenote?",
+            "a": "Solo en parte. Por su geografía, la mayor parte del buceo es abierto; apenas una cuarta parte entra en la zona de caverna. Y en Discover Scuba y cursos de Open Water no se entra en absoluto."
+          },
+          {
+            "q": "¿Se ve la haloclina?",
+            "a": "Algunos días sí. Depende del nivel del mar y de cuánta agua salada esté entrando frente a cuánta agua dulce esté empujando hacia afuera, así que no es algo que se pueda prometer de antemano."
+          }
+        ]
+      }
     }
   }
 }

@@ -7,7 +7,7 @@
 import data from "./cenotes.json";
 import { SHOP, type Product } from "./products";
 
-/** Open to the sky, a cavern under a roof of rock, or past what an Open Water card allows (18 m). */
+/** Open to the sky, a cavern under a roof of rock, or past the 20 m line. */
 export type CenoteType = "open" | "cavern" | "deep";
 /** The card a diver shows on the day: none, Open Water, or Advanced/Deep. */
 export type CenoteLevel = "none" | "open-water" | "advanced";
@@ -56,9 +56,6 @@ export const MAP_BOUNDS = data.bounds as [number, number, number, number];
  */
 export const GUIDE_PUBLISHED = data.published as boolean;
 
-/** When the guide's pages last changed: their sitemap lastmod and WebPage dateModified. */
-export const GUIDE_UPDATED = data.updated as string;
-
 /** One file of a cenote's dive map: /assets/maps/dos-ojos-v1-fr-1600.webp. */
 export function mapFile(c: Cenote, locale: string, w: number, ext: "webp" | "avif") {
   return `/assets/maps/${c.slug}-v${c.plan?.v ?? 1}-${locale}-${w}.${ext}`;
@@ -104,22 +101,9 @@ export function nearest(c: Cenote, n = 3) {
 }
 
 /**
- * The cenotes a page sends its reader on to: the two closest, and the
- * closest one of the same type that is not already among them — so the two
- * deep cenotes, far apart, still point at each other.
- */
-export function related(c: Cenote) {
-  const near = nearest(c, CENOTES.length);
-  const picked = near.slice(0, 2);
-  const sameType = near.find((o) => o.type === c.type && !picked.includes(o));
-  return [...picked, sameType ?? near[2]].filter(Boolean) as Cenote[];
-}
-
-/**
  * How deep the dive goes, not the cenote: "30–32 m", "16 m". Where Kay has not
- * given the cenote's own depth, diveMaxM is the most his dives there go to —
- * his rule is 6 to 16 m everywhere but Angelita and El Pit — and `upTo` says
- * so in the reader's language ("to {m} m").
+ * given a depth, his rule for every other cenote applies — no deeper than
+ * 18 m — and `upTo` says so in the reader's language ("to {m} m").
  */
 export function diveDepth(c: Cenote, upTo: string) {
   if (c.diveMinM) return `${c.diveMinM}–${c.diveMaxM} m`;

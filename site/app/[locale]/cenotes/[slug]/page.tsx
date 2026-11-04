@@ -1,19 +1,14 @@
 import { notFound } from "next/navigation";
 import { isLocale, getDictionary, pathFor, mapCopy } from "@/lib/i18n";
-import { guideMetadata, type GuideImage } from "@/lib/guide";
-import { cenoteTitle, cenoteQa, cenoteFacts, guideBreadcrumb, planAlt, planCredit, siteNodes, fillName } from "@/lib/seo";
-import { PRODUCTS, SHOP, ogCard, bookHref } from "@/content/products";
-import { productPath } from "@/content/pages";
-import { CENOTES, GUIDE_PUBLISHED, GUIDE_UPDATED, cenoteBySlug, diveDepth, fromTulum, related, mapFile,
-         type Cenote } from "@/content/cenotes";
-import type { Dictionary, Locale } from "@/lib/i18n";
+import { guideMetadata } from "@/lib/guide";
+import { experiencesFor } from "@/lib/exp";
+import { PRODUCTS, SHOP } from "@/content/products";
+import { CENOTES, GUIDE_PUBLISHED, cenoteBySlug, diveDepth, fromTulum, nearest, type Cenote } from "@/content/cenotes";
 import GuideFrame from "@/components/GuideFrame";
 import CenoteMap from "@/components/CenoteMap";
 import CenoteCard from "@/components/CenoteCard";
 import Plate from "@/components/Plate";
-import CenotePlan from "@/components/CenotePlan";
-import { ReviewCards, AllReviews } from "@/components/Reviews";
-import { reviewsFor } from "@/content/reviews";
+import CenotePlan, { planCredit } from "@/components/CenotePlan";
 
 export function generateStaticParams() {
   return CENOTES.map((c) => ({ slug: c.slug }));
@@ -22,30 +17,16 @@ export const dynamicParams = false;
 
 type Params = { params: Promise<{ locale: string; slug: string }> };
 
-/**
- * The card a link to this page travels with: the cenote's photograph, or its
- * dive map where there is no photograph — that one carries words, so it is
- * cut once per language. Built by scripts/og-cenotes.py. A cenote with
- * neither travels with the locale's own card.
- */
-function socialCard(t: Dictionary, locale: Locale, c: Cenote): GuideImage {
-  const g = t.cenotes;
-  if (c.photo) return { url: `/assets/og/cenotes/${c.slug}.jpg`, width: 1200, height: 630,
-                        alt: g.alts[c.slug] ?? c.name };
-  if (c.plan) return { url: `/assets/og/cenotes/${c.slug}-${locale}.jpg`, width: 1200, height: 630,
-                       alt: planAlt(t, locale, c) };
-  return { url: ogCard(locale), width: 1200, height: 630, alt: t.hero.alt };
-}
+/** Kay's text, cut after its first sentence, for the meta description. */
+const firstSentence = (s: string) => s.match(/^.+?[.!?](?=\s|$)/)?.[0] ?? s;
 
 export async function generateMetadata({ params }: Params) {
   const { locale, slug } = await params;
   const c = cenoteBySlug(slug);
   if (!isLocale(locale) || !c) return {};
   const t = await getDictionary(locale);
-  return guideMetadata(locale, `/cenotes/${slug}/`, cenoteTitle(t, c), t.cenotes.metas[slug],
-    /* An approximate position is not published as a coordinate: the page
-       keeps Tulum's until Kay has placed the cenote. */
-    { image: socialCard(t, locale, c), geo: c.approx ? undefined : { lat: c.lat, lon: c.lon, place: c.name } });
+  return guideMetadata(locale, `/cenotes/${slug}/`,
+    `${c.name} — ${t.cenotes.tag} | Kay Diving`, firstSentence(t.cenotes.items[slug]));
 }
 
 export default async function CenotePage({ params }: Params) {
@@ -54,72 +35,56 @@ export default async function CenotePage({ params }: Params) {
   if (!isLocale(locale) || !c) notFound();
   const t = await getDictionary(locale);
   const g = t.cenotes;
+  const hasPage = new Set(await experiencesFor(locale));
   const away = fromTulum(c);
   const guide = pathFor(locale, "/cenotes/");
   const photoAlt = (o: Cenote) => {
-    if (!o.photo) return g.artAlt.replace("{name}", o.name);
+    // The drawing's own description beats "Illustration: Dreamgate", which
+    // tells a screen reader nothing it did not already have from the heading.
+    if (!o.photo) return g.arts[o.art] ?? g.artAlt.replace("{name}", o.name);
     const p = PRODUCTS.find((x) => x.photo === o.photo);
     return g.alts[o.slug] ?? (p ? t.products.items[p.slug].alt : o.name);
   };
   const url = `${SHOP.domain}${pathFor(locale, `/cenotes/${slug}/`)}`;
-  const qa = cenoteQa(t, locale, c);
-  const reviews = reviewsFor(locale, { cenote: c.slug });
-  const card = socialCard(t, locale, c);
-  const images = [
-    ...(c.photo ? [`${SHOP.domain}/assets/photos/${c.photo}.webp`] : []),
-    ...(c.plan ? [`${SHOP.domain}${mapFile(c, locale, c.plan.w * 2, "webp")}`] : []),
-  ];
-  /* One graph, as on the home page: the page, the place it is about, how it
-     sits in the site, and the questions it answers — all tied by @id to the
-     business the home page describes. */
+  // Kay's own write-up, if this cenote has one. Without it the page stays
+  // exactly as it was: short, and true.
+  const deep = g.deep?.[slug];
   const ld = {
     "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "WebPage",
-        "@id": `${url}#page`,
-        url,
-        name: cenoteTitle(t, c),
-        description: g.metas[slug],
-        inLanguage: locale,
-        isPartOf: { "@id": `${SHOP.domain}/#website` },
-        about: { "@id": `${url}#cenote` },
-        breadcrumb: { "@id": `${url}#breadcrumb` },
-        dateModified: GUIDE_UPDATED,
-        primaryImageOfPage: `${SHOP.domain}${card.url}`,
-        publisher: { "@id": `${SHOP.domain}/#business` },
-      },
-      {
-        "@type": "TouristAttraction",
-        "@id": `${url}#cenote`,
-        name: c.name,
-        ...(c.aka ? { alternateName: c.aka } : {}),
-        description: g.items[slug],
-        url,
-        ...(c.approx ? {} : { geo: { "@type": "GeoCoordinates", latitude: c.lat, longitude: c.lon } }),
-        containedInPlace: { "@type": "City", name: "Tulum" },
-        touristType: g.touristType,
-        ...(images.length ? { image: images } : {}),
-        ...(c.plan ? { hasMap: images[images.length - 1] } : {}),
-        additionalProperty: cenoteFacts(t, c),
-      },
-      { ...guideBreadcrumb(t, locale, c), "@id": `${url}#breadcrumb` },
-      ...siteNodes(locale),
-      {
-        "@type": "FAQPage",
-        "@id": `${url}#faq`,
-        mainEntity: qa.map((x) => ({
-          "@type": "Question", name: x.q,
-          acceptedAnswer: { "@type": "Answer", text: x.a },
-        })),
-      },
-    ],
+    "@type": "TouristAttraction",
+    "@id": `${url}#cenote`,
+    name: c.name,
+    ...(c.aka ? { alternateName: c.aka } : {}),
+    description: g.items[slug],
+    url,
+    inLanguage: locale,
+    geo: { "@type": "GeoCoordinates", latitude: c.lat, longitude: c.lon },
+    containedInPlace: { "@type": "City", name: "Tulum" },
+    touristType: "Scuba divers",
+    ...(c.photo ? { image: `${SHOP.domain}/assets/photos/${c.photo}.webp` } : {}),
+    provider: { "@id": `${SHOP.domain}/#business` },
   };
+
+  /* The page's own questions, which are the half of it a search engine can
+     show directly. Kept out of the TouristAttraction node: they are a
+     separate thing and schema.org wants them that way. */
+  const faqLd = deep && deep.faq.length > 0 ? {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "@id": `${url}#faq`,
+    mainEntity: deep.faq.map((qa) => ({
+      "@type": "Question", name: qa.q,
+      acceptedAnswer: { "@type": "Answer", text: qa.a },
+    })),
+  } : null;
 
   return (
     <GuideFrame t={t} locale={locale} path={`/cenotes/${slug}/`}>
       {GUIDE_PUBLISHED && (
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ld) }} />
+      )}
+      {GUIDE_PUBLISHED && faqLd && (
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
       )}
       <article className="bay shell guide__cenote">
         <a className="guide__back data" href={guide}>← {g.back}</a>
@@ -142,14 +107,16 @@ export default async function CenotePage({ params }: Params) {
 
             <p className="tag tag--plain" style={{ marginTop: "1.8rem" }}>{g.divesTag}</p>
             <ul className="guide__dives">
+              {/* To the dive's own page where there is one. Ten cenotes in
+                  three languages, each naming the dives you can do there:
+                  that is thirty links that were all landing on the same
+                  anchor, and they are the most relevant links on the site. */}
               {c.products.map((p) => (
-                <li key={p}><a href={pathFor(locale, productPath(locale, p))}>{t.products.items[p].name}</a></li>
+                <li key={p}><a href={hasPage.has(p) ? pathFor(locale, `/${p}/`) : `${pathFor(locale)}#products`}>
+                  {t.products.items[p].name}</a></li>
               ))}
             </ul>
-            {/* Opens the form on a cenote day with this cenote as the dive to
-                choose — or, for a cenote only a course goes to, on the course. */}
-            <a className="btn btn--lit" style={{ marginTop: "1.6rem" }}
-               href={bookHref(pathFor(locale), c.products.includes("cenote-diving") ? "cenote-diving" : c.products[0], c.slug)}>
+            <a className="btn btn--lit" style={{ marginTop: "1.6rem" }} href={`${pathFor(locale)}#book`}>
               {t.nav.reserveLong}
             </a>
           </div>
@@ -160,55 +127,89 @@ export default async function CenotePage({ params }: Params) {
         </div>
       </article>
 
+      {/* The dive map, for the six cenotes that have one: a plan from above,
+          or a section for the two deep ones, redrawn in the site's palette from
+          a published survey and labelled in the page's language. Unlike the
+          illustration below, this one IS of this cenote. */}
       {c.plan && (
-        <section className="bay shell guide__plan" aria-labelledby="plan-tag">
-          <h2 className="tag" id="plan-tag">{g.planTag}</h2>
+        <section className="bay shell guide__plan" aria-labelledby="plan-h">
+          <h2 className="dsp dsp-md" id="plan-h">{g.planTag}</h2>
           <figure>
             <CenotePlan c={c} plan={c.plan} locale={locale} open={g.planOpen}
-                        alt={planAlt(t, locale, c)} />
+                        alt={g.planAlts[slug] ?? `${g.planTag} · ${c.name}`} />
             <figcaption className="data guide__plan-note">
-              {g.planNote}
-              {" "}{planCredit(t, locale, c.plan.credit)}
+              {g.planNote} {planCredit(g, locale, c.plan.credit)}
             </figcaption>
           </figure>
         </section>
+      )}
+
+      {/* Kay's write-up, where there is one. Headings of its own, because a
+          page with a single h1 and three hundred words gives a reader and a
+          crawler nothing to hold on to. */}
+      {deep && (
+        <article className="bay shell guide__deep">
+          {deep.sections.map((sec) => (
+            <section key={sec.h}>
+              <h2 className="dsp dsp-md">{sec.h}</h2>
+              {sec.p.map((para, i) => <p className="lede" key={i}>{para}</p>)}
+            </section>
+          ))}
+
+          {deep.light && (
+            <section>
+              <h2 className="dsp dsp-md">{g.lightTag}</h2>
+              <p className="lede">{deep.light}</p>
+            </section>
+          )}
+
+          {deep.own && (
+            <section>
+              <h2 className="dsp dsp-md">{g.ownTag}</h2>
+              <p className="lede">{deep.own}</p>
+            </section>
+          )}
+
+          {deep.faq.length > 0 && (
+            <section>
+              <h2 className="dsp dsp-md">{g.faqTag}</h2>
+              <div className="faq">
+                {deep.faq.map((qa) => (
+                  <details key={qa.q}>
+                    <summary>{qa.q}<i aria-hidden="true" /></summary>
+                    <p>{qa.a}</p>
+                  </details>
+                ))}
+              </div>
+            </section>
+          )}
+        </article>
+      )}
+
+      {/* The illustration, for the cenotes whose plate is a photograph — where
+          there is no photo the plate IS this drawing, and showing it twice
+          would be padding. Captioned with what it actually depicts: these are
+          typological, one cavern scene across three cenotes, so the caption
+          says "the kind of dive" and never "a plan of this one". */}
+      {c.photo && g.arts[c.art] && (
+        <figure className="bay shell guide__art">
+          <img src={`/assets/art/${c.art}.svg`} alt={g.arts[c.art]}
+               loading="lazy" width={1200} height={800} />
+          <figcaption>
+            {g.arts[c.art]} <span className="guide__art-note">{g.artNote}</span>
+          </figcaption>
+        </figure>
       )}
 
       <section className="wide guide__map" aria-label={g.mapLabel}>
         <CenoteMap t={mapCopy(g)} base={guide} focus={slug} preview={!GUIDE_PUBLISHED} tall={false} />
       </section>
 
-      <section className="bay shell guide__qa" aria-labelledby="qa-h">
-        <p className="tag">{g.faqTag}</p>
-        <h2 className="dsp dsp-md" id="qa-h" style={{ marginTop: "1rem" }}>{g.faqH2.replace("{name}", c.name)}</h2>
-        <div className="faq" style={{ marginTop: "1.6rem" }}>
-          {qa.map((x) => (
-            <details key={x.q} open>
-              <summary><h3>{x.q}</h3></summary>
-              <p>{x.a}</p>
-            </details>
-          ))}
-        </div>
-      </section>
-
-      {reviews.length > 0 && (
-        <section className="bay shell" aria-labelledby="rev-h">
-          <p className="tag">{t.reviews.tag}</p>
-          <h2 className="dsp dsp-md" id="rev-h" style={{ marginTop: "1rem" }}>
-            {fillName(t.reviews.cenoteH2, locale, c.name)}
-          </h2>
-          <div style={{ marginTop: "1.6rem" }}>
-            <ReviewCards reviews={reviews} t={t.reviews} locale={locale} except={c.slug} />
-          </div>
-          <AllReviews t={t.reviews} />
-        </section>
-      )}
-
       <section className="bay shell">
-        <h2 className="tag">{g.nearbyTag}</h2>
+        <p className="tag">{g.nearbyTag}</p>
         <div className="dives cgrid" style={{ marginTop: "1.6rem" }}>
-          {related(c).map((o) => (
-            <CenoteCard key={o.slug} c={o} t={g} href={`${guide}${o.slug}/`} alt={photoAlt(o)} brief />
+          {nearest(c).map((o) => (
+            <CenoteCard key={o.slug} c={o} t={g} href={`${guide}${o.slug}/`} alt={photoAlt(o)} />
           ))}
         </div>
       </section>

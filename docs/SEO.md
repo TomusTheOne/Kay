@@ -24,21 +24,11 @@ production — le reste est la feuille de route, pas une description.
 | `sitemap.xml` | généré, `<lastmod>` piloté par `contentUpdated` |
 | `robots.txt` | `Disallow: /api/` seulement, et il déclare le sitemap |
 | JSON-LD | `WebSite` + `WebPage` + `SportsActivityLocation` + `ItemList`/`Product`/`Offer` + `FAQPage`, tous liés par `@id` |
-| Open Graph | carte **1200×630 JPEG** par langue, générée par `site/scripts/og.mjs` sous le nom donné par `ogCard` dans `products.json` (un nouveau nom à chaque recoupe : les images sont en cache immuable un an) |
+| Open Graph | carte **1200×630 JPEG** par langue, générée par `site/scripts/og.mjs` |
 | Hôte canonique | `www` → apex en 301 *(dans `.htaccess`)* |
 | HTTPS | forcé en 301, HSTS 2 ans |
 | Manifest + icônes | `site.webmanifest`, apple-touch 180, 192, 512 |
 | Pages de paiement | `noindex, nofollow`, et **volontairement pas** dans `robots.txt` |
-| Guide des cenotes | `/cenotes/` + une page par cenote, ×3 langues. Titre ≤ 60 caractères construit par `cenoteTitle()` (`site/lib/seo.ts`), meta description écrite à la main par page (`cenotes.metas`) |
-| JSON-LD des guides | page cenote : `WebPage` + `TouristAttraction` (faits en `additionalProperty`, `hasMap`, `image`) + `BreadcrumbList` + `FAQPage` ; index : `CollectionPage` + `ItemList` + `BreadcrumbList` — mêmes `@id` que l'accueil |
-| FAQ par cenote | 4–5 questions affichées sur la page, réponses calculées depuis `content/cenotes.json` (profondeur, niveau, distance, sorties) : le balisage et le texte visible sont les mêmes mots |
-| Cartes de plongée | 6 plans/coupes par langue, AVIF/WebP, dans le sitemap image — voir `site/assets/source/maps/README.md` |
-| Cartes de partage | 1200×630 JPEG par cenote (`site/scripts/og-cenotes.py`), Twitter aligné sur Open Graph |
-| GEO (moteurs de réponse) | `/llms.txt` généré au build depuis les données ; crawlers IA nommés dans `robots.txt` (GPTBot, ClaudeBot, PerplexityBot, Google-Extended…) ; `geo.*`/`ICBM` sur chaque page |
-| Pages produit | **une par produit et par langue** (7 × 3), slug traduit (`site/content/pages.ts`) : `/en/padi-open-water-course-tulum/`, `/es/bautismo-de-buceo-tulum/`… Titre et description écrits à la main (`product.items` dans les messages), deux paragraphes de faits, prix, inclus, cenotes, FAQ (celles du produit + prix, rendez-vous, réservation calculées par `productQa()`), `Product` + `FAQPage` + `BreadcrumbList`. Le nœud `Product` est le même que dans le catalogue de l'accueil, dont les offres pointent désormais vers ces pages |
-| Réservation en un clic | chaque carte produit, chaque page produit et chaque page cenote ouvre le formulaire sur le bon produit (et le bon cenote) : `#book?p=…&site=…`, lu par `Booking.tsx`, construit par `bookHref()` |
-| Avis Google | section avant le formulaire, sur les pages cenote et produit qu'ils nomment, note dans le hero et dans `llms.txt` — vide tant que `content/reviews.json` l'est. Pas de balisage `Review`/`AggregateRating` : Google n'en affiche pas pour les avis qu'une entreprise publie sur elle-même |
-| Prix dans les snippets | « à partir de » calculé depuis `products.json` : la description et la carte parlent de plongée, donc le prix de la première plongée (`FROM_DIVE_PRICE`, 140 $) ; le bandeau du hero garde le prix le plus bas du menu (`FROM_PRICE`, le snorkel à 125 $). L'ancienne description et l'ancienne carte annonçaient 80 $ |
 
 **Pas encore livré, et pourquoi :**
 
@@ -47,12 +37,10 @@ production — le reste est la feuille de route, pas une description.
   `build-deploy.mjs` refuse toujours de construire si une locale y figure alors
   que son fichier de messages est encore marqué `_translated: false`. Le garde
   reste utile pour la prochaine langue.
-- ~~**Les pages intérieures**~~ — les pages cenote et les pages produit
-  existent maintenant (voir le tableau). Reste **le journal** (§ 7).
-- **La visibilité hors site** (octobre 2026) : kaydiving.com n'apparaît pas
-  encore dans les moteurs, même sur « Kay Diving Tulum », alors que les
-  concurrents sont référencés via PADI, Yumping et TripAdvisor. Le plan
-  d'action pour Kay (fiche Google, Search Console, avis, annuaires) est au § 6.
+- **Les pages intérieures** (`/cenote-diving/angelita/`, `/courses/...`,
+  `/journal/...`) décrites plus bas n'existent pas. Le site est une page unique
+  avec des ancres. C'est suffisant pour ouvrir ; c'est le principal levier de
+  croissance ensuite.
 - **`AggregateRating` / `Review`** : rien, tant qu'il n'y a pas de vrais avis
   vérifiables. Des avis inventés en JSON-LD sont une violation des règles Google.
 - **`openingHoursSpecification`** : manquant, on n'a pas encore les horaires.
@@ -139,25 +127,16 @@ elle pilote le CTR, qui compte).
 
 ## 4. Données structurées (JSON-LD)
 
-En ligne :
+Déjà implémenté dans les maquettes :
 
 - **`SportsActivityLocation`** (sous-type de `LocalBusiness`) — nom, adresse, `geo`, téléphone,
-  `priceRange`, `sameAs` vers Instagram, `knowsAbout`, `hasMap` vers le guide. Pas
-  d'horaires : on ne les a pas. C'est le socle du SEO local.
-- **`ItemList` / `Product` + `Offer`** — chaque produit avec son prix, sa devise et,
-  pour les produits saisonniers, une vraie fenêtre `availabilityStarts`/`availabilityEnds`.
-- **`FAQPage`** — sur l'accueil et sur chaque page cenote. Google ne l'affiche plus en
-  résultat enrichi que pour quelques sites officiels ; on le garde parce que Bing et
-  les moteurs de réponse le lisent, et parce que le texte balisé est exactement le
-  texte affiché.
-- **`TouristAttraction`** sur chaque page cenote (faits en `additionalProperty`, carte en
-  `hasMap`), dans un `WebPage` publié par `/#business`, avec son **`BreadcrumbList`**.
-  Une position encore approximative (`approx` dans `cenotes.json`) n'est pas publiée en
-  coordonnées.
-- **`CollectionPage` + `ItemList`** sur l'index du guide, avec les mêmes `@id` que les pages.
+  horaires, `priceRange`, `sameAs` vers Instagram. C'est le socle du SEO local.
+- **`FAQPage`** — les questions de la FAQ, éligibles aux résultats enrichis.
+- **`ItemList` / `Product` + `Offer`** (concepts B et C) — chaque plongée avec son prix et sa devise.
 
-À ajouter quand les pages existeront :
+À ajouter lors de la construction du site complet :
 
+- **`BreadcrumbList`** sur toutes les pages intérieures.
 - **`Course`** sur les pages formation.
 - **`Article`** sur le journal, avec `author`, `datePublished`, `dateModified`.
 - **`AggregateRating`** + **`Review`** — **uniquement avec de vrais avis vérifiables**.
@@ -241,25 +220,6 @@ Pour un centre de plongée, le pack local Google pèse souvent plus que le réf�
    mexicains, offices de tourisme de Quintana Roo.
 4. Page **`/contact/`** avec adresse en texte (pas seulement dans une image), carte intégrée en
    `loading="lazy"`, et le même `LocalBusiness` en JSON-LD.
-
-**Plan d'action remis à Kay (13 octobre 2026), par ordre d'impact :**
-
-1. Fiche d'établissement Google : nom exact « Kay Diving », catégorie *Centro de buceo*,
-   **zone desservie** s'il n'y a pas de local à lui (ne pas déclarer l'adresse d'Easy Chango),
-   les 7 produits avec leur prix et leur page, 20 photos puis 2–3 par semaine. Lien du site
-   balisé `?utm_source=gmb&utm_medium=organic&utm_campaign=perfil` — `track.php` le range
-   sous *Google Maps*.
-2. Search Console (propriété de domaine, TXT chez OVH — voir § 8), sitemap envoyé,
-   indexation demandée pour l'accueil et les pages produit ; Bing Webmaster Tools importé
-   depuis Search Console.
-3. Bio Instagram → `?utm_source=ig`.
-4. Un avis demandé à chaque client (lien direct de la fiche, par WhatsApp, et QR dans le van),
-   objectif 30 en 90 jours, réponse à tous.
-5. Annuaires au même NAP : TripAdvisor, PADI, Facebook, Apple Business Connect, Bing Places,
-   Yumping.
-6. Saison des requins bouledogues (nov.–mars) annoncée avant novembre, lien vers sa page.
-7. Partenariats hôtels / hostels / hôtes Airbnb (QR et liens), places de marché en option
-   (GetYourGuide, Viator : 20–30 % de commission), puis le journal.
 
 ---
 

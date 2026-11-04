@@ -137,9 +137,9 @@ MAPS['el-pit'] = dict(
         ('zone', 238, 470, 'debris'),
         ('d', 378, 273, '10 m', dict(cls='r')), ('d', 362, 335, '20 m', dict(cls='r')), ('d', 358, 405, '30 m', dict(cls='r')), ('d', 362, 460, '40 m', dict(cls='r')),
     ],
-    note=dict(en='El Pit goes on down to 119 m. The dive reaches 30–32 m, through the cloud.',
-              es='El Pit sigue bajando hasta 119 m. La inmersión llega a 30–32 m, atravesando la nube.',
-              fr='El Pit descend jusqu’à 119 m. La plongée atteint 30–32 m, à travers le nuage.'),
+    note=dict(en='El Pit goes on down to 142 m. The dive is planned to 30 m, where the cloud lies.',
+              es='El Pit sigue bajando hasta 142 m. La inmersión se planea hasta 30 m, donde está la nube.',
+              fr='El Pit descend jusqu’à 142 m. La plongée est prévue jusqu’à 30 m, là où se trouve le nuage.'),
     note_at='left:44px;top:1650px;max-width:560px',
 )
 
@@ -153,8 +153,8 @@ MAPS['angelita'] = dict(
         ('zone', 238, 335, 'trunks'),
         ('d', 120, 254, '30 m', dict(cls='')), ('d', 92, 301, '40 m'), ('d', 52, 364, '55 m'),
     ],
-    note=dict(en='Angelita is about 60 m deep. The dive reaches 35–38 m, below the cloud.',
-              es='Angelita tiene unos 60 m de profundidad. La inmersión llega a 35–38 m, por debajo de la nube.',
-              fr='Angelita fait environ 60 m de fond. La plongée atteint 35–38 m, sous le nuage.'),
+    note=dict(en='Angelita is about 57 m deep. The dive is planned to 30 m; below the cloud, to about 32 m, only if agreed at the briefing.',
+              es='Angelita tiene unos 57 m de profundidad. La inmersión se planea hasta 30 m; bajo la nube, hasta unos 32 m, solo si se acuerda en el briefing.',
+              fr='Angelita fait environ 57 m de fond. La plongée est prévue jusqu’à 30 m ; sous le nuage, jusqu’à 32 m environ, seulement si on en convient au briefing.'),
     note_at='right:44px;top:1100px;max-width:330px',
 )

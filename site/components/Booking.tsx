@@ -9,13 +9,18 @@ const money = (n: number) => "$" + n.toLocaleString("en-US");
 const tomorrow = () => new Date(Date.now() + 864e5).toISOString().slice(0, 10);
 
 export default function Booking({
-  t, products, logistics, locale,
+  t, products, logistics, locale, initial,
 }: {
   t: Dictionary["book"]; products: Dictionary["products"];
   logistics: Dictionary["logistics"]; locale: string;
+  /** Start on this experience rather than the first. Set by an experience
+      page, so someone who arrived searching for one dive does not have to
+      find it again in the list. An unknown slug falls back, never throws. */
+  initial?: string;
 }) {
-  const [product, setProduct] = useState<Product>(PRODUCTS[0]);
-  const [dives, setDives] = useState<number>(PRODUCTS[0].options[0].dives);
+  const start = PRODUCTS.find((p) => p.slug === initial) ?? PRODUCTS[0];
+  const [product, setProduct] = useState<Product>(start);
+  const [dives, setDives] = useState<number>(start.options[0].dives);
   // The cenote picked for each dive, by position; "" until chosen.
   const [picked, setPicked] = useState<string[]>([]);
   const [date, setDate] = useState("");
@@ -70,10 +75,18 @@ export default function Booking({
   /* Mercado Pago debits PESOS. Sending a diver to a checkout showing a number
      they have never seen — with a currency the page never mentioned — is how a
      booking turns into a chargeback, so the slate says it before they leave. */
-  const deposit = useMemo(
-    () => Math.round((option.priceMxn * divers + pick.priceMxn) * DEPOSIT_RATE),
+  const totalMxn = useMemo(
+    () => option.priceMxn * divers + pick.priceMxn,
     [option, divers, pick],
   );
+  const deposit = useMemo(() => Math.round(totalMxn * DEPOSIT_RATE), [totalMxn]);
+
+  /* Some divers would rather be done with it than carry cash to a cenote.
+     The server recomputes both figures from the catalogue and only charges
+     the larger one when this says exactly "full", so the worst a broken page
+     can do here is take a deposit. */
+  const [pay, setPay] = useState<"deposit" | "full">("deposit");
+  const charge = pay === "full" ? totalMxn : deposit;
 
   function choose(p: Product) {
     setProduct(p);
@@ -85,35 +98,6 @@ export default function Booking({
     setDives(n);
     setPicked([]);                  // two dives and three follow different rules
   }
-
-  /* A "book this" link anywhere on the site lands on #book?p=open-water —
-     from a cenote page, #book?p=cenote-diving&site=angelita — and the form
-     opens on that product, with that cenote as the first dive it can be.
-     The hash then reads #book again, so the same link clicked twice still
-     fires, and a reload does not undo a choice made since. */
-  useEffect(() => {
-    function fromHash() {
-      const m = /^#book\?(.+)$/.exec(window.location.hash);
-      if (!m) return;
-      history.replaceState(null, "", "#book");
-      const q = new URLSearchParams(m[1]);
-      const p = PRODUCTS.find((x) => x.slug === q.get("p"));
-      if (p) {
-        setProduct(p);
-        setDives(p.options[0].dives);
-        const site = q.get("site");
-        const slots0 = siteSlots(p, p.options[0].dives);
-        const at = slots0.findIndex((x) => "choices" in x && x.choices.some((c) => c.slug === site));
-        const next: string[] = [];
-        if (at >= 0 && site) next[at] = site;
-        setPicked(next);
-      }
-      document.getElementById("book")?.scrollIntoView();
-    }
-    fromHash();
-    addEventListener("hashchange", fromHash);
-    return () => removeEventListener("hashchange", fromHash);
-  }, []);
 
   /* The endpoint names what it refused — "date", "email", "name" — and the
      form is noValidate, so the browser never catches these first. Showing one
@@ -139,7 +123,7 @@ export default function Booking({
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify({
-          product: product.slug, option: option.dives, ...(slots.length ? { sites } : {}),
+          product: product.slug, option: option.dives, pay, ...(slots.length ? { sites } : {}),
           date, slot, slotNote,
           cert, divers, pickup, name, email, locale,
         }),
@@ -158,8 +142,10 @@ export default function Booking({
          What was booked, never who booked it. Bounded at 400 ms, and it
          resolves whatever happens, so the redirect below always runs. */
       await track("checkout-opened", {
+        pay,
         product: product.slug, dives: option.dives, divers,
-        depositMxn: deposit, locale,
+        // What is actually being charged, not always the deposit any more.
+        depositMxn: charge, locale,
       });
       // Mercado Pago hosts the card form: no card data ever touches this site.
       window.location.assign(checkoutUrl);
@@ -353,10 +339,22 @@ export default function Booking({
             <span className="k">{t.rTotal}</span>
             <span className="v">{money(total)}<i>USD</i></span>
           </div>
-          <div className="slate__dep">
-            <span className="k">{t.rDeposit}</span>
-            <span className="v">{money(deposit)} MXN</span>
+          <div className="pay" role="radiogroup" aria-label={t.payLabel}>
+            {([
+              ["deposit", t.payDeposit.replace("{percent}", String(Math.round(DEPOSIT_RATE * 100))), deposit],
+              ["full", t.payFull, totalMxn],
+            ] as const).map(([key, label, amount]) => (
+              <label className="pay__opt" key={key} data-on={pay === key || undefined}>
+                <input type="radio" name="pay" checked={pay === key}
+                       onChange={() => setPay(key)} />
+                <span className="pay__k">{label}</span>
+                <span className="pay__v">{money(amount)} MXN</span>
+              </label>
+            ))}
           </div>
+          <p className="slate__fine">
+            {pay === "full" ? t.payFullNote : t.payDepositNote}
+          </p>
           <p className="slate__fine">{t.fine}</p>
           {/* Said before the deposit, not only after it: a diver without the
               card the dive needs should not pay to find that out on the day. */}

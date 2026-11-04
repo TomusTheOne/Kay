@@ -1,20 +1,18 @@
 import { notFound } from "next/navigation";
 import { isLocale, getDictionary, pathFor, mapCopy, LIVE_LOCALES } from "@/lib/i18n";
 import { PRODUCTS, ALWAYS_INCLUDED, GALLERY, PICKUPS, SCHEDULES, SHOP,
-         FROM_PRICE, ogCard, bookHref } from "@/content/products";
+         CONTENT_UPDATED, FROM_USD, SNORKEL_USD } from "@/content/products";
 import Surface from "@/components/Surface";
 import Gauge from "@/components/Gauge";
 import Reveals from "@/components/Reveals";
 import Booking from "@/components/Booking";
 import { Visit, Ruins } from "@/components/Places";
+import { experiencesFor } from "@/lib/exp";
+import Reviews, { ReviewScore } from "@/components/Reviews";
 import Plate from "@/components/Plate";
 import Footer from "@/components/Footer";
 import CenoteMap from "@/components/CenoteMap";
-import { CENOTES, GUIDE_PUBLISHED, cenoteBySlug } from "@/content/cenotes";
-import { homeDescription, productNode } from "@/lib/seo";
-import { productPath } from "@/content/pages";
-import Reviews from "@/components/Reviews";
-import { reviewsFor, ratingText, REVIEWS_RATING, REVIEWS_URL } from "@/content/reviews";
+import { GUIDE_PUBLISHED } from "@/content/cenotes";
 
 const Arrow = () => (
   <svg width="14" height="8" viewBox="0 0 14 8" fill="none" aria-hidden="true">
@@ -42,12 +40,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
     { href: "#faq", label: t.nav.faq },
   ];
 
-  const cheapest = FROM_PRICE;
-  const reviews = reviewsFor(locale);
-  /* The rating in the hero strip leads to the reviews below, or to Google
-     while none are copied here yet. */
-  const ratingHref = reviews.length ? "#reviews" : REVIEWS_URL;
-  const description = homeDescription(t);
+  const cheapest = Math.min(...PRODUCTS.flatMap((p) => p.options.map((o) => o.price)));
 
   /** Every include line on the page, in menu order, without duplicates. */
   const includeKeys = [
@@ -60,6 +53,16 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
      things on a page in three languages — rather than three unrelated blobs. */
   const url = `${SHOP.domain}${pathFor(locale)}`;
   const dearest = Math.max(...PRODUCTS.flatMap((p) => p.options.map((o) => o.price)));
+  // The same sentence the <head> carries, with the same price out of the
+  // catalogue: the structured data and the meta tag must never disagree.
+  const description = t.meta.description.replace("{from}", String(FROM_USD));
+  // Which experiences have a page of their own in this language.
+  const hasPage = new Set(await experiencesFor(locale));
+  /* Google warns on an Offer with no expiry. A year from the last content
+     change is honest: past that the prices genuinely need rechecking. */
+  const priceValidUntil = new Date(
+    new Date(CONTENT_UPDATED).setFullYear(new Date(CONTENT_UPDATED).getFullYear() + 1),
+  ).toISOString().slice(0, 10);
 
   const ld = {
     "@context": "https://schema.org",
@@ -81,7 +84,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         inLanguage: locale,
         isPartOf: { "@id": `${SHOP.domain}/#website` },
         about: { "@id": `${SHOP.domain}/#business` },
-        primaryImageOfPage: `${SHOP.domain}${ogCard(locale)}`,
+        primaryImageOfPage: `${SHOP.domain}/assets/og/${locale}.jpg`,
       },
       {
         "@type": "SportsActivityLocation",
@@ -95,26 +98,24 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         currenciesAccepted: "USD, MXN",
         paymentAccepted: "Cash, Credit Card",
         image: [
-          `${SHOP.domain}${ogCard(locale)}`,
+          `${SHOP.domain}/assets/og/${locale}.jpg`,
           `${SHOP.domain}/assets/photos/hero.webp`,
         ],
+        // Kay Diving has no shop a diver can walk into: the day starts at a
+        // meeting point and goes to the water. So the address stays at the
+        // level that is true — the town — and there is no GeoCoordinates
+        // pin, because a pin says "we are here, come in" and nobody is.
+        // areaServed is the honest shape for a business that travels to its
+        // customers, and it is what Google asks for in that case.
         address: { "@type": "PostalAddress", addressLocality: "Tulum",
                    addressRegion: "Quintana Roo", addressCountry: "MX" },
-        geo: { "@type": "GeoCoordinates", latitude: SHOP.lat, longitude: SHOP.lon },
-        areaServed: [
-          { "@type": "City", name: "Tulum" },
-          { "@type": "AdministrativeArea", name: "Quintana Roo" },
-        ],
+        areaServed: SHOP.areaServed.map((name: string) => ({ "@type": "Place", name })),
         knowsLanguage: LIVE_LOCALES as unknown as string[],
-        /* What the business is an authority on, in the reader's language —
-           the products it sells and the cenotes it dives. */
-        knowsAbout: [
-          ...PRODUCTS.map((p) => t.products.items[p.slug].name),
-          ...(GUIDE_PUBLISHED ? CENOTES.map((c) => c.name) : []),
-        ],
-        ...(GUIDE_PUBLISHED ? { hasMap: `${SHOP.domain}${pathFor(locale, "/cenotes/")}` } : {}),
-        /* The Google profile is the same business: saying so ties the two together. */
-        sameAs: [SHOP.instagram, ...(REVIEWS_URL ? [REVIEWS_URL] : [])],
+        // The listing and the site are the same business, and this is how
+        // Google is told so. Without it they are two entities that happen to
+        // share a name, and the reviews on one do nothing for the other.
+        sameAs: [SHOP.instagram, SHOP.google].filter(Boolean),
+        ...(SHOP.google ? { hasMap: SHOP.google } : {}),
         hasOfferCatalog: {
           "@type": "OfferCatalog",
           name: t.products.tag,
@@ -128,7 +129,24 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         "@type": "ItemList",
         "@id": `${url}#catalogue`,
         itemListElement: PRODUCTS.map((p, i) => ({
-          "@type": "ListItem", position: i + 1, item: productNode(t, locale, p),
+          "@type": "ListItem", position: i + 1,
+          item: {
+            "@type": "Product",
+            "@id": `${SHOP.domain}/#product-${p.slug}`,
+            name: t.products.items[p.slug].name,
+            description: t.products.items[p.slug].text,
+            ...(p.photo ? { image: `${SHOP.domain}/assets/photos/${p.photo}.webp` } : {}),
+            brand: { "@id": `${SHOP.domain}/#business` },
+            offers: p.options.map((o) => ({
+              "@type": "Offer", price: String(o.price), priceCurrency: "USD",
+              ...(p.season ? { availabilityStarts: `--${String(p.season.fromMonth).padStart(2, "0")}-01` } : {}),
+              availability: "https://schema.org/InStock",
+              url: `${url}#book`,
+              priceValidUntil,
+              seller: { "@id": `${SHOP.domain}/#business` },
+              ...(o.dives ? { name: `${o.dives} ${o.dives === 1 ? t.products.dive : t.products.dives}` } : {}),
+            })),
+          },
         })),
       },
       {
@@ -169,7 +187,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
           <div className="hero__in shell">
             <p className="tag">{t.hero.kicker}</p>
             <h1 className="dsp dsp-xl">
-              <span className="l1">{t.hero.l1}</span>{" "}
+              <span className="l1">{t.hero.l1}</span>
               <span className="l2 ital grad">{t.hero.l2}</span>
             </h1>
             <p className="lede hero__lede">{t.hero.lede}</p>
@@ -182,15 +200,11 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
               <span>{t.hero.water} <b>{SHOP.waterTempC}°C</b></span><i className="dot" />
               <span>{t.hero.viz} <b>{SHOP.visibilityM}</b></span><i className="dot" />
               <span>{t.hero.agencyLabel} <b>{SHOP.agency}</b></span><i className="dot" />
-              <span>{t.hero.from} <b>${cheapest}</b></span>
-              {REVIEWS_RATING !== null && ratingHref && (
-                <><i className="dot" />
-                <a className="strip__rating" href={ratingHref}
-                   aria-label={t.reviews.badge.replace("{rating}", ratingText(locale))}
-                   {...(ratingHref === REVIEWS_URL ? { target: "_blank", rel: "noopener" } : {})}>
-                  Google <b>{ratingText(locale)} ★</b>
-                </a></>
-              )}
+              {/* Two figures, because they are two different things: the
+                  cheapest dive and the snorkel tour. One number covering both
+                  told whoever read it the wrong one. */}
+              <span>{t.hero.fromDive} <b>${FROM_USD}</b></span><i className="dot" />
+              <span>{t.hero.fromSnorkel} <b>${SNORKEL_USD}</b></span>
             </p>
           </div>
         </section>
@@ -232,8 +246,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
               return (
                 <article className="dive" key={p.slug} data-rise data-rise-d={i % 4 || undefined}>
                   <div className="dive__media">
-                    <Plate photo={p.photo} art={p.art} alt={copy.alt} full={960}
-                           sizes="(max-width: 640px) 90vw, (max-width: 1000px) 45vw, 300px" />
+                    <Plate photo={p.photo} art={p.art} alt={copy.alt} />
                     {/* Depth when there is one; "half day" belongs to the snorkel
                         tour alone. A dive whose depth Kay has not given yet shows
                         its season instead of borrowing someone else's label. */}
@@ -244,11 +257,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                     </span>
                   </div>
                   <div className="dive__body">
-                    {/* The name links to the product's own page, as the cenote
-                        cards do, and its ::after stretches over the card. */}
-                    <h3 className="dive__name">
-                      <a className="ccard__hit" href={pathFor(locale, productPath(locale, p.slug))}>{copy.name}</a>
-                    </h3>
+                    <h3 className="dive__name">{copy.name}</h3>
                     <p className="data" style={{ color: "var(--turq)", marginTop: "-.25rem" }}>{copy.tagline}</p>
                     <p className="dive__txt">{copy.text}</p>
 
@@ -257,9 +266,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                         <p className="sites__t">{t.products.sitesTag}</p>
                         {p.sites.filter((x) => x.deep).map((x) => (
                           <div className="sites__r" key={x.slug}>
-                            <span>{GUIDE_PUBLISHED && cenoteBySlug(x.slug)
-                              ? <a href={pathFor(locale, `/cenotes/${x.slug}/`)}>{t.products.sites[x.slug].name}</a>
-                              : t.products.sites[x.slug].name}</span>
+                            <span>{t.products.sites[x.slug].name}</span>
                             <b>{t.products.sites[x.slug].depth}</b>
                           </div>
                         ))}
@@ -286,12 +293,15 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                       ))}
                       <li className="prices__note"><span>{t.products.perDiver}</span></li>
                     </ul>
-                    <div className="dive__foot">
-                      <a className="dive__go" href={pathFor(locale, productPath(locale, p.slug))}>
-                        {t.product.more} <Arrow />
-                      </a>
-                      <a className="btn btn--lit btn--sm dive__book" href={bookHref("", p.slug)}>{t.nav.reserve}</a>
-                    </div>
+
+                    {/* Only where this locale has the page. The link is the
+                        whole point of writing one: the card answers "what is
+                        it", the page answers everything after that. */}
+                    {hasPage.has(p.slug) && (
+                      <p className="dive__more">
+                        <a href={pathFor(locale, `/${p.slug}/`)}>{t.exp.more2}</a>
+                      </p>
+                    )}
                   </div>
                 </article>
               );
@@ -411,17 +421,35 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         </section>
         )}
 
+        {/* --------------------------------------------------------- reviews */}
+        {/* After the gallery and before Kay's own line: five people who have
+            already dived say it, then he answers for safety, then the form.
+            Not marked up as structured data — see content/reviews.ts. */}
+        <section className="bay shell" id="reviews">
+          <div className="head2">
+            <div data-rise>
+              <p className="tag">{t.reviews.tag}</p>
+              <h2 className="dsp dsp-lg" style={{ marginTop: "1.1rem", maxWidth: "20ch" }}>{t.reviews.h2}</h2>
+            </div>
+            <div data-rise data-rise-d="1" style={{ maxWidth: "38ch" }}>
+              <ReviewScore t={t.reviews} />
+              <p className="muted">{t.reviews.intro}</p>
+              {SHOP.google ? (
+                <p style={{ marginTop: ".9rem" }}>
+                  <a className="lnk" href={SHOP.google} target="_blank" rel="noopener nofollow">{t.reviews.all}</a>
+                </p>
+              ) : null}
+            </div>
+          </div>
+          <Reviews t={t.reviews} />
+        </section>
+
         {/* ----------------------------------------------------------- quote */}
         <section className="bay shell">
           <blockquote className="quote" data-rise>
             “{t.quote.text}”<cite>{t.quote.cite}</cite>
           </blockquote>
         </section>
-
-        {/* --------------------------------------------------------- reviews */}
-        {/* Just ahead of the booking form: the last thing a diver reads
-            before deciding is other divers. Absent while there are none. */}
-        <Reviews t={t.reviews} locale={locale} reviews={reviews} />
 
         {/* ------------------------------------------------------------ book */}
         <section className="bay shell" id="book">

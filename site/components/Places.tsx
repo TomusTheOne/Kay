@@ -73,8 +73,7 @@ export function Visit({ t, locale }: { t: Dictionary["visit"]; locale: Locale })
               {c.dived && (
                 <a className="place__dive" href={pathFor(locale, `/cenotes/${c.slug}/`)}>
                   {t.weDive}
-                  {/* The cenote's name in the link, so the anchor says where it goes. */}
-                  <span className="place__diveCta">{t.weDiveCta.replace("{name}", copy.name)}</span>
+                  <span className="place__diveCta">{t.weDiveCta}</span>
                 </a>
               )}
             </div>

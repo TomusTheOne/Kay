@@ -47,6 +47,11 @@ $noSizes    = kay_gear_missing($db, $today, $now->modify('+1 day')->format('Y-m-
 
 $first = explode(' ', trim($admin['name']))[0];
 
+// Whether a confirmation could leave this server at all. Nobody thinks to go
+// looking for this, so when the answer is no it is said here, on the first
+// screen, rather than waiting for a diver to write in.
+$mailHealth = kay_mail_health($db);
+
 kay_page_start(kay_t('Tableau de bord'), 'index.php', $admin);
 ?>
 <header class="head">
@@ -59,6 +64,12 @@ kay_page_start(kay_t('Tableau de bord'), 'index.php', $admin);
 
 <?php if (isset($closed[$today])): ?>
 <p class="note"><?= kay_th('Aujourd’hui est fermé aux réservations en ligne.') ?> <a href="availability.php"><?= kay_th('Disponibilité') ?></a></p>
+<?php endif; ?>
+
+<?php if (!$mailHealth['ready']): ?>
+<p class="alert"><?= kay_th('Les confirmations ne partent pas : l’e-mail n’est pas configuré.') ?> <a href="system.php"><?= kay_th('Système') ?></a></p>
+<?php elseif ($mailHealth['failing']): ?>
+<p class="alert"><?= kay_th('Le dernier e-mail n’est pas parti.') ?> <a href="system.php"><?= kay_th('Système') ?></a></p>
 <?php endif; ?>
 
 <section class="kpis" aria-label="<?= kay_th('Chiffres clés') ?>">
@@ -200,7 +211,10 @@ echo kay_chart_columns($points, ['unit' => 'MXN', 'title' => kay_t('Chiffre d’
 <?php endif; ?>
 
     <section class="card">
-      <header class="card__head"><h2><?= kay_th('Paiements non aboutis') ?></h2></header>
+      <header class="card__head">
+        <h2><?= kay_th('Paiements non aboutis') ?></h2>
+        <a href="system.php"><?= kay_th('Système →') ?></a>
+      </header>
       <p class="small muted"><?= kay_th('Ont ouvert le paiement ces 14 derniers jours sans payer, et n’ont pas réservé depuis. Souvent une question sans réponse : un message suffit.') ?></p>
 <?php if ($abandoned === []): ?>
       <p class="empty"><?= kay_th('Aucun.') ?></p>

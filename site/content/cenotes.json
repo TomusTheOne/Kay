@@ -1,7 +1,6 @@
 {
-  "_comment": "The cenote guide and its map. Texts live in messages/<locale>.json under cenotes.items; everything that is the same in every language lives here. plan.v is the dive map's version, part of its file names: images are cached for a year as immutable, so a map changed after it went live goes out as v+1. updated is the date the guide's pages last changed, for the sitemap and the pages' structured data. Set published to true once Kay has checked every position on the preview pages: the guide then joins the menu, the home page map, the footer and the sitemap, and stops being noindex.",
+  "_comment": "The cenote guide and its map. Texts live in messages/<locale>.json under cenotes.items; everything that is the same in every language lives here. Set published to true once Kay has checked every position on the preview pages: the guide then joins the menu, the home page map, the footer and the sitemap, and stops being noindex.",
   "published": true,
-  "updated": "2026-10-12",
   "basemap": "/tiles/tulum-20260923.pmtiles",
   "bounds": [-88.7, 19.1, -86.3, 21.3],
   "cenotes": [
@@ -9,7 +8,7 @@
       "slug": "casa-cenote", "name": "Casa Cenote", "short": "Casa Cenote",
       "lat": 20.26702, "lon": -87.39227, "approx": false,
       "type": "open", "level": "none", "snorkel": true,
-      "depthM": 7, "diveMinM": null, "diveMaxM": 7,
+      "depthM": 9, "diveMinM": null, "diveMaxM": 9,
       "products": ["discover-scuba", "reef-cenote", "open-water", "cenote-diving"],
       "photo": "cenote-casa-surface", "art": "casa-cenote",
       "plan": { "v": 1, "w": 1616, "h": 1140, "credit": "Gerardo Aizpuru (Underwater Editions, 2004)" }
@@ -20,14 +19,14 @@
       "type": "cavern", "level": "open-water", "snorkel": true,
       "depthM": 16, "diveMinM": null, "diveMaxM": 16,
       "products": ["cenote-diving"],
-      "photo": "cenote-car-wash", "art": "cenote-shaft",
+      "photo": "card-casa", "art": "cenote-shaft",
       "plan": { "v": 1, "w": 1600, "h": 1137, "credit": "Underwater Editions" }
     },
     {
       "slug": "dos-ojos", "name": "Cenote Dos Ojos", "short": "Dos Ojos",
       "lat": 20.32473, "lon": -87.39061, "approx": false,
       "type": "cavern", "level": "open-water", "snorkel": true,
-      "depthM": 10, "diveMinM": 9, "diveMaxM": 10,
+      "depthM": 10, "diveMinM": null, "diveMaxM": 10,
       "products": ["cenote-diving"],
       "photo": "cenote-dos-ojos", "art": "cavern",
       "plan": { "v": 1, "w": 1600, "h": 1897, "credit": "Sebastián Maza (Fisheye Adventures, 2011)" }
@@ -36,7 +35,7 @@
       "slug": "el-pit", "name": "Cenote El Pit", "short": "El Pit",
       "lat": 20.32318, "lon": -87.40978, "approx": false,
       "type": "deep", "level": "advanced", "snorkel": false,
-      "depthM": 119, "diveMinM": 30, "diveMaxM": 32,
+      "depthM": 142, "diveMinM": null, "diveMaxM": 30,
       "products": ["cenote-diving", "advanced-ow"],
       "photo": "cenote-el-pit", "art": "the-pit",
       "plan": { "v": 1, "w": 1300, "h": 1833, "credit": "Alejandro Elizondo (Underwater Editions)" }
@@ -45,7 +44,7 @@
       "slug": "angelita", "name": "Cenote Angelita", "short": "Angelita",
       "lat": 20.13746, "lon": -87.57825, "approx": false,
       "type": "deep", "level": "advanced", "snorkel": false,
-      "depthM": 60, "diveMinM": 35, "diveMaxM": 38,
+      "depthM": 57, "diveMinM": null, "diveMaxM": 30,
       "products": ["cenote-diving", "advanced-ow"],
       "photo": "cenote-angelita", "art": "halocline",
       "plan": { "v": 1, "w": 1600, "h": 1464, "credit": "Underwater Expeditions México" }
@@ -71,7 +70,7 @@
       "slug": "tak-be-ha", "name": "Cenote Tak Be Ha", "short": "Tak Be Ha",
       "lat": 20.32469, "lon": -87.39354, "approx": false,
       "type": "cavern", "level": "open-water", "snorkel": false,
-      "depthM": null, "diveMinM": null, "diveMaxM": 16,
+      "depthM": null, "diveMinM": null, "diveMaxM": 18,
       "products": ["cenote-diving"],
       "photo": null, "art": "halocline"
     },

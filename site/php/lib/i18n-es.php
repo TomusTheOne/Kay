@@ -532,7 +532,14 @@ return [
     'La phrase ne correspond pas à celle du fichier kay-admin-token.txt.'
         => 'La frase no coincide con la del archivo kay-admin-token.txt.',
     'Indiquez votre nom.' => 'Escribe tu nombre.',
-    'Aucun compte admin avec cette adresse.' => 'No hay ninguna cuenta del admin con ese correo.',
+    'Accès à l’admin' => 'Acceso al admin',
+    'Compte admin'    => 'Cuenta del admin',
+    'Continuer'       => 'Continuar',
+    'Seulement pour un nouveau compte.' => 'Solo para una cuenta nueva.',
+    'Pour ajouter un compte ou en reprendre un, il faut d’abord prouver que vous avez accès à l’hébergement :'
+        => 'Para agregar una cuenta o recuperar una, primero hay que comprobar que tienes acceso al hosting:',
+    'Cette adresse a déjà un compte : son mot de passe est remplacé. Sinon, le compte est créé et vous êtes connecté.'
+        => 'Si ese correo ya tiene cuenta, se le cambia la contraseña. Si no, se crea la cuenta y entras con ella.',
     'Premier compte' => 'Primera cuenta',
     'Mot de passe oublié' => 'Contraseña olvidada',
     'Créer le compte admin' => 'Crear la cuenta del admin',
@@ -604,4 +611,100 @@ return [
         => 'Solo para las salidas en las que el cliente elige sus cenotes.',
     'Un cenote par plongée ; à trois plongées, les deux premières à Dos Ojos et un autre cenote pour la troisième.'
         => 'Un cenote por inmersión; con tres inmersiones, las dos primeras en Dos Ojos y otro cenote para la tercera.',
+    // -------------------------------------------------- système : correos y
+    // las llamadas de Mercado Pago, o por qué un buzo no recibió nada.
+    'Système'    => 'Sistema',
+    'Système →'  => 'Sistema →',
+    'E-mails'    => 'Correos',
+    'Ce que le site a envoyé, et ce que Mercado Pago a appelé.'
+        => 'Lo que el sitio envió, y las llamadas de Mercado Pago.',
+    'Fournisseur' => 'Proveedor',
+    'Clé API'     => 'Llave API',
+    'présente'    => 'presente',
+    'absente'     => 'ausente',
+    'Expéditeur'  => 'Remitente',
+    'Avis de commande à' => 'Aviso de reservación a',
+    'Envoyés sur 30 jours' => 'Enviados en 30 días',
+    'Échecs sur 30 jours'  => 'Fallidos en 30 días',
+    'M’envoyer un e-mail de test' => 'Enviarme un correo de prueba',
+    'Essai d’envoi — Kay Diving'  => 'Prueba de envío — Kay Diving',
+    'Si tu lis ceci, les e-mails partent bien de {site}.'
+        => 'Si estás leyendo esto, los correos sí salen de {site}.',
+    'Le test part vers {email}. S’il arrive mais que les plongeurs ne reçoivent rien, le domaine n’est pas vérifié chez le fournisseur : son tableau de bord le dira.'
+        => 'La prueba va a {email}. Si llega pero los buzos no reciben nada, el dominio no está verificado con el proveedor: su panel lo dirá.',
+    '{n} caractères · empreinte {mark}' => '{n} caracteres · huella {mark}',
+    'L’empreinte change dès que la clé change : si elle est la même qu’avant une modification, le fichier n’a pas été enregistré.'
+        => 'La huella cambia en cuanto cambia la llave: si es la misma que antes de una modificación, el archivo no se guardó.',
+    'Cette clé ne ressemble pas à une clé Resend : elle devrait commencer par « re_ ». C’est en général la version masquée du tableau de bord, copiée après coup, qui ne fonctionne pas.'
+        => 'Esta llave no parece una llave de Resend: debería empezar por «re_». Casi siempre es la versión tapada del panel, copiada después, que no funciona.',
+    'La clé contient une espace ou un retour à la ligne au milieu : elle a été coupée au collage.'
+        => 'La llave tiene un espacio o un salto de línea en medio: se partió al pegarla.',
+    'Tester l’adresse des commandes' => 'Probar la dirección de reservaciones',
+    'Le premier part vers {email}, l’adresse de votre compte ; le second vers celle des commandes, ci-dessus.'
+        => 'El primero va a {email}, el correo de tu cuenta; el segundo al de reservaciones, el de arriba.',
+    'Accepté ne veut pas dire reçu : le tableau de bord du fournisseur dit ce qu’il est devenu, et le numéro dans la colonne Détail l’y retrouve.'
+        => 'Aceptado no quiere decir recibido: el panel del proveedor dice qué pasó con él, y el número de la columna Detalle sirve para encontrarlo ahí.',
+    'Aucune adresse valable pour ce test.' => 'No hay una dirección válida para esa prueba.',
+    'Derniers envois' => 'Últimos envíos',
+    'Rien encore. Chaque e-mail que le site tente d’envoyer s’inscrit ici.'
+        => 'Nada todavía. Cada correo que el sitio intenta enviar queda anotado aquí.',
+    'Aucun e-mail envoyé pour cette réservation.'
+        => 'No se ha enviado ningún correo para esta reservación.',
+    'Quand'        => 'Cuándo',
+    'Destinataire' => 'Destinatario',
+    'État'         => 'Estado',
+    'Détail'       => 'Detalle',
+    'Résultat'     => 'Resultado',
+    'la réservation' => 'la reservación',
+    'parti'        => 'salió',
+    'refusé'       => 'rechazado',
+
+    'Aucun e-mail ne peut partir : mail_provider est sur « off » dans kay-config.php, à côté de www/ sur l’hébergement.'
+        => 'Ningún correo puede salir: mail_provider está en «off» en kay-config.php, junto a www/ en el hosting.',
+    'Aucun e-mail ne peut partir : il manque mail_api_key dans kay-config.php, à côté de www/ sur l’hébergement.'
+        => 'Ningún correo puede salir: falta mail_api_key en kay-config.php, junto a www/ en el hosting.',
+    'Le fournisseur a refusé les {n} derniers envois. La raison est dans la colonne Détail.'
+        => 'El proveedor rechazó los últimos {n} envíos. El motivo está en la columna Detalle.',
+    'Les confirmations ne partent pas : l’e-mail n’est pas configuré.'
+        => 'Las confirmaciones no están saliendo: el correo no está configurado.',
+    'Les {n} derniers e-mails ont été refusés par le fournisseur.'
+        => 'El proveedor rechazó los últimos {n} correos.',
+    'Le dernier e-mail n’est pas parti.' => 'El último correo no salió.',
+    'E-mail de test accepté par le fournisseur.' => 'El proveedor aceptó el correo de prueba.',
+    'L’e-mail n’est pas parti — la raison est sur la page Système.'
+        => 'El correo no salió — el motivo está en la página Sistema.',
+
+    'Mercado Pago' => 'Mercado Pago',
+    'Appels de Mercado Pago' => 'Llamadas de Mercado Pago',
+    'Appels non signés'      => 'Llamadas sin firma',
+    'Appel non signé, ignoré' => 'Llamada sin firma, ignorada',
+    'L’adresse du webhook est publique : n’importe qui peut la solliciter. Mercado Pago signe toujours ses appels, donc un appel non signé ne vient pas de lui et n’est pas pris en compte.'
+        => 'La dirección del webhook es pública: cualquiera puede llamarla. Mercado Pago siempre firma sus llamadas, así que una llamada sin firma no viene de él y no se toma en cuenta.',
+    'Les deux journaux ont commencé {when}. Rien n’a été noté avant.'
+        => 'Los dos registros empezaron {when}. Antes de eso no se anotó nada.',
+    'Appels sur 30 jours'   => 'Llamadas en 30 días',
+    'Refusés'               => 'Rechazadas',
+    'Réservations réglées'  => 'Reservaciones pagadas',
+    'Dernier appel'         => 'Última llamada',
+    'Mercado Pago n’a appelé aucune fois en 30 jours. Sans cet appel, un paiement ne devient jamais une réservation réglée et aucune confirmation n’est écrite. À vérifier dans son panneau, Webhooks, mode productif : l’URL doit être {url} et l’événement « Paiements » coché.'
+        => 'Mercado Pago no ha llamado ni una vez en 30 días. Sin esa llamada, un pago nunca se vuelve reservación pagada y no se escribe ninguna confirmación. Revísalo en su panel, Webhooks, modo productivo: la URL debe ser {url} y el evento «Pagos» marcado.',
+    'Mercado Pago appelle, et ses {n} appels ont été refusés : la clé secrète du webhook dans kay-config.php n’est pas celle de son panneau.'
+        => 'Mercado Pago sí llama, y rechazamos sus {n} llamadas: la clave secreta del webhook en kay-config.php no es la de su panel.',
+    'Parties au paiement, jamais revenues' => 'Fueron al pago y nunca volvieron',
+    'Le formulaire a été rempli et le paiement n’est jamais arrivé. C’est normal quand quelqu’un se ravise ; ça ne l’est plus si Mercado Pago dit l’avoir encaissé.'
+        => 'El formulario se llenó y el pago nunca llegó. Es normal cuando alguien se arrepiente; ya no lo es si Mercado Pago dice que sí lo cobró.',
+
+    // Los renglones de los dos registros, KAY_WEBHOOK_OUTCOMES y KAY_MAIL_KINDS.
+    'Réservation réglée'      => 'Reservación pagada',
+    'Déjà traitée'            => 'Ya estaba procesada',
+    'Paiement pas encore réglé' => 'Pago aún no liquidado',
+    'Autre sujet, ignoré'     => 'Otro asunto, ignorado',
+    'Paiement sans réservation' => 'Pago sin reservación',
+    'Paiement introuvable chez Mercado Pago' => 'Pago no encontrado en Mercado Pago',
+    'Signature refusée'       => 'Firma rechazada',
+    'Appel sans numéro de paiement' => 'Llamada sin número de pago',
+    'Confirmation au plongeur' => 'Confirmación al buzo',
+    'Avis de commande'         => 'Aviso de reservación',
+    'Questionnaire des tailles' => 'Cuestionario de tallas',
+    'Envoi de test'            => 'Envío de prueba',
 ];

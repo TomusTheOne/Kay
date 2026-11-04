@@ -1,14 +1,13 @@
 import { notFound } from "next/navigation";
 import { isLocale, getDictionary } from "@/lib/i18n";
 import GearForm from "@/components/GearForm";
-import { PRIVATE_PAGE } from "@/lib/seo";
 
 /* Reached only from the link in a confirmation email: never indexed. */
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   if (!isLocale(locale)) return {};
   const t = await getDictionary(locale);
-  return { ...PRIVATE_PAGE, title: t.gear.metaTitle };
+  return { title: t.gear.metaTitle, robots: { index: false, follow: false } };
 }
 
 export default async function Page({ params }: { params: Promise<{ locale: string }> }) {

@@ -76,6 +76,23 @@ check('discover scuba, one dive, in dollars', $ds1['total_usd'], 140);
 check('...and the 2300 pesos he actually asks', $ds1['total_mxn'], 2300);
 check('which is NOT 140 x 16',                 $ds1['total_mxn'] === 140 * 16, false);
 
+echo "\nA diver may settle the whole thing now, and cannot be charged more\n";
+// 3 cenote dives x 3 divers: 12,000 MXN, deposit 3,600.
+check('a deposit is the default',        kay_quote($base)['charge_mxn'], 3600);
+check('and says so',                     kay_quote($base)['pay'], 'deposit');
+check('paying in full charges the total', kay_quote(['pay' => 'full'] + $base)['charge_mxn'], 12000);
+check('in dollars too',                  kay_quote(['pay' => 'full'] + $base)['charge_usd'], 750);
+check('and says so',                     kay_quote(['pay' => 'full'] + $base)['pay'], 'full');
+check('asking for a deposit explicitly is a deposit',
+      kay_quote(['pay' => 'deposit'] + $base)['charge_mxn'], 3600);
+// The browser picks which of two figures to charge, never what they are.
+check('the full price cannot be sent from the browser',
+      kay_quote(['pay' => 'full', 'total_mxn' => 1, 'priceMxn' => 1] + $base)['charge_mxn'], 12000);
+// Every other value falls through to the deposit, so a stale page or a
+// tampered payload can only ever charge less than the diver agreed to.
+foreach (['FULL', 'full ', 'todo', '1', 'true', ''] as $odd) {
+    check("'" . $odd . "' is not full", kay_quote(['pay' => $odd] + $base)['charge_mxn'], 3600);
+}
 echo "\nPickup is charged per booking, not per diver\n";
 check('meeting point is free',      kay_quote(['pickup' => 'meeting-point'] + $base)['total_usd'], 750);
 check('town pickup adds 20 once',   kay_quote(['pickup' => 'tulum-town'] + $base)['total_usd'], 770);
@@ -126,8 +143,15 @@ check('divers clamp high', kay_quote(['divers' => 9999] + $base)['total_usd'],
 
 echo "\nDepths match what Kay confirmed\n";
 check('discover scuba is 7 m, not 9',  kay_find_product('discover-scuba')['maxDepthM'], 7);
-check('cenote diving reaches 38 m',    kay_find_product('cenote-diving')['maxDepthM'], 38);
-check('angelita is the deep one',      kay_catalogue()['maxDepthM'], 38);
+// 30, not 38. Angelita bottoms out around 57 m and El Pit at 119, but Kay
+// plans both dives to 30: the deeper water is shown to a diver in person,
+// not sold on a page. These two said 38 because the catalogue did.
+check('the deep cenotes are dived to 30 m', kay_find_product('cenote-diving')['maxDepthM'], 30);
+check('and nothing we sell goes deeper',    kay_catalogue()['maxDepthM'], 30);
+// Dos Ojos takes snorkellers — with a life jacket, since the park changed
+// its rules. The catalogue said it did not.
+$dosOjos = array_values(array_filter(kay_cenotes(), static fn($c) => $c['slug'] === 'dos-ojos'))[0];
+check('Dos Ojos is open to snorkellers', $dosOjos['snorkel'], true);
 
 echo "\nValidation refuses a past date and a malformed email\n";
 $ok = ['product' => 'reef-cenote', 'option' => 2, 'date' => '2099-01-01', 'cert' => 'OW',
@@ -137,6 +161,11 @@ check('malformed email',       kay_validate(['email' => 'nope'] + $ok), 'email')
 check('empty name',            kay_validate(['name' => ''] + $ok), 'name');
 check('nonsense date',         kay_validate(['date' => '2099-13-45'] + $ok), 'date');
 check('past date',             kay_validate(['date' => '2000-01-01'] + $ok), 'date-past');
+// The payment choice, validated rather than silently absorbed.
+check('an unknown way to pay is refused', kay_validate(['pay' => 'todo'] + $ok), 'pay');
+check('deposit is accepted',              kay_validate(['pay' => 'deposit'] + $ok), null);
+check('full is accepted',                 kay_validate(['pay' => 'full'] + $ok), null);
+check('and absent means deposit',         kay_validate($ok), null);
 
 echo "\nA seasonal dive cannot be booked out of season\n";
 // The bull sharks are off Playa del Carmen from November to March. The window
@@ -296,6 +325,76 @@ check('an hour-old notification is refused',    kay_mp_signature_valid('PAY-1'),
 $_SERVER['HTTP_X_SIGNATURE'] = '';
 check('an unsigned notification is refused',    kay_mp_signature_valid('PAY-1'), false);
 
+// Mercado Pago signs over the fields it actually sent, and its own
+// documentation says to leave out a part that is absent. A notification with
+// no x-request-id used to be refused, which would strand a paid booking at
+// pending for ever while Mercado Pago retried into a 401.
+$_SERVER['HTTP_X_REQUEST_ID'] = '';
+$bare = static fn(string $id, string $ts, string $key = 'test-secret'): string
+    => hash_hmac('sha256', "id:$id;ts:$ts;", $key);
+$_SERVER['HTTP_X_SIGNATURE'] = "ts=$nowMs,v1=" . $bare('PAY-1', $nowMs);
+check('one signed without a request id passes', kay_mp_signature_valid('PAY-1'), true);
+$_SERVER['HTTP_X_SIGNATURE'] = "ts=$nowMs,v1=" . $bare('PAY-1', $nowMs, 'guessed');
+check('...but still not with a wrong secret',   kay_mp_signature_valid('PAY-1'), false);
+// The empty request id must not become a wildcard: the manifest with the
+// header in it is still the one that has to match when the header is there.
+$_SERVER['HTTP_X_REQUEST_ID'] = 'REQ-1';
+check('a bare signature fails once a request id is sent', kay_mp_signature_valid('PAY-1'), false);
+
+$why = null;
+$_SERVER['HTTP_X_SIGNATURE'] = '';
+kay_mp_signature_valid('PAY-1', $why);
+check('a refusal says it was unsigned', str_contains((string) $why, 'no x-signature'), true);
+$_SERVER['HTTP_X_SIGNATURE'] = "ts=$nowMs,v1=" . $sign('PAY-1', 'REQ-1', $nowMs, 'guessed');
+kay_mp_signature_valid('PAY-1', $why);
+check('and a wrong secret says so',     str_contains((string) $why, 'secret'), true);
+$_SERVER['HTTP_X_SIGNATURE'] = "ts=$nowMs,v1=" . $sign('PAY-1', 'REQ-1', $nowMs);
+kay_mp_signature_valid('PAY-1', $why);
+check('a notification that passes has no reason', $why, null);
+
+echo "\nA notification is read whatever shape Mercado Pago sends it in\n";
+// PHP rewrites dots in parameter NAMES to underscores, so ?data.id=1 can only
+// ever be read as $_GET['data_id'] — the obvious lookup is always empty, and
+// with it the webhook refused every notification that carried the id only in
+// the query string.
+$_GET = [];
+check('from the body',              kay_mp_notification_id(['data' => ['id' => '77']]), '77');
+$_GET = ['data_id' => '88'];
+check('from the query, as PHP mangles it', kay_mp_notification_id([]), '88');
+$_GET = ['topic' => 'payment', 'id' => '99'];
+check('from a legacy IPN call',     kay_mp_notification_id([]), '99');
+check('and its topic reads as the type', kay_mp_notification_type([]), 'payment');
+$_GET = [];
+check('a webhook v2 type',          kay_mp_notification_type(['type' => 'payment']), 'payment');
+check('merchant_order is not a payment', kay_mp_notification_type(['type' => 'merchant_order']), 'merchant_order');
+check('nothing at all reads as nothing', kay_mp_notification_id([]), '');
+check('and as no type',             kay_mp_notification_type([]), '');
+
+echo "\nEvery call Mercado Pago makes is on the record, refusals included\n";
+$db->exec('DELETE FROM webhook_log');
+$_SERVER['HTTP_X_SIGNATURE'] = 'ts=1,v1=nope';
+kay_mp_log_call('PAY-9', null, 'bad-signature', 'v1 does not match');
+kay_mp_log_call('PAY-9', $id, 'settled', 'paid');
+// Anyone can post at a public URL. Only Mercado Pago can sign.
+$_SERVER['HTTP_X_SIGNATURE'] = '';
+kay_mp_log_call('1', null, 'bad-signature', 'no x-signature header');
+$calls = kay_webhook_log($db, 10);
+check('the newest call comes first',   $calls[0]['outcome'], 'bad-signature');
+check('and is marked unsigned',        (int) $calls[0]['signed'], 0);
+check('the settlement carries its booking', $calls[1]['booking_id'], $id);
+check('a signed refusal is kept too',  $calls[2]['outcome'], 'bad-signature');
+check('and says it was signed',        (int) $calls[2]['signed'], 1);
+$hook = kay_webhook_health($db);
+check('every call counted',            $hook['calls_30d'], 3);
+check('two of them from Mercado Pago', $hook['from_mp_30d'], 2);
+check('the stranger counted apart',    $hook['unsigned_30d'], 1);
+// The one that matters: an unsigned call from anyone must never be read as
+// Mercado Pago calling with a secret that does not match, or whoever reads
+// the page goes and changes a key that was never wrong.
+check('and never as a wrong secret',   $hook['wrong_secret_30d'], 1);
+check('one booking settled',           $hook['settled_30d'], 1);
+check('the last settlement is found',  $hook['last_settled']['payment_id'], 'PAY-9');
+
 echo "\nThe confirmation says what was actually booked\n";
 
 // A settled booking exactly as the webhook reads it back out of MySQL.
@@ -417,6 +516,11 @@ check('resend takes recipients as a list',     $body['to'], ['ana@example.com'])
 check('resend spells it reply_to',             $body['reply_to'], 'contact@kaydiving.com');
 check('resend spells the body html',           isset($body['html'], $body['text']), true);
 
+// What a key pasted out of a dashboard actually looks like by the time it
+// reaches a config file.
+[$headers] = kay_mail_payload('resend', $diver, ['mail_api_key' => "  KEY\n"] + $fake);
+check('a pasted key loses its whitespace',    $headers[0], 'Authorization: Bearer KEY');
+
 [$headers, $body] = kay_mail_payload('brevo', $diver, $fake);
 check('brevo authorises with its own header',  $headers[0], 'api-key: KEY');
 check('brevo takes the sender as a pair',      $body['sender'],
@@ -425,7 +529,47 @@ check('brevo names the recipient',             $body['to'][0]['name'], 'Ana Ruiz
 check('brevo spells it htmlContent',           isset($body['htmlContent'], $body['textContent']), true);
 
 echo "\nMail is off until it is configured, and says so rather than failing\n";
+$db->exec('DELETE FROM mail_log');
 check('nothing is sent while unconfigured', kay_send_email($diver), false);
+
+// The whole point of the log: a diver saying "nothing arrived" used to be
+// answerable only from the hosting's error log, which nobody running a dive
+// shop is going to read.
+$logged = kay_mail_log($db, 5);
+check('the attempt is on the record',  count($logged), 1);
+check('it is marked as not sent',      (int) $logged[0]['ok'], 0);
+check('and says why, in one line',     str_contains((string) $logged[0]['error'], 'mail_provider'), true);
+check('the recipient is kept',         $logged[0]['recipient'], 'ana@example.com');
+check('with no booking of its own',    $logged[0]['booking_id'], null);
+
+kay_send_email($diver, ['booking' => $id, 'kind' => 'diver']);
+$mine = kay_mail_log($db, 5, $id);
+check('a send ties to its booking',    count($mine), 1);
+check('and knows what it was',         $mine[0]['kind'], 'diver');
+check('a different booking has none',  kay_mail_log($db, 5, 'no-such-booking'), []);
+
+$health = kay_mail_health($db);
+check('email is reported as not ready', $health['ready'], false);
+check('the provider is named',          $health['provider'], 'off');
+check('and the failures counted',       $health['failed_30d'], 2);
+check('with nothing sent',              $health['sent_30d'], 0);
+check('the last refusal is to hand',    $health['last_fail']['recipient'], 'ana@example.com');
+check('and there is no last success',   $health['last_ok'], null);
+check('so it reads as failing',         $health['failing'], true);
+// Enough to tell a wrong paste from a file that was never saved, and no more.
+check('no key, no fingerprint',         $health['key_mark'], '');
+check('and nothing odd to report',      $health['key_odd'], false);
+
+echo "\nWhat the provider answered is kept in the words it used\n";
+check('resend hands back a message id', kay_mail_ref('{"id":"re_12345"}'), 're_12345');
+check('brevo spells it messageId',      kay_mail_ref('{"messageId":"<a@b>"}'), '<a@b>');
+check('nothing usable is nothing',      kay_mail_ref('not json at all'), '');
+// The one a half-configured domain actually produces.
+check('a refusal keeps its reason',
+      kay_mail_reason('{"statusCode":403,"message":"The kaydiving.com domain is not verified"}'),
+      'The kaydiving.com domain is not verified');
+check('a validation error too',  kay_mail_reason('{"name":"validation_error"}'), 'validation_error');
+check('and plain text survives', kay_mail_reason('Service Unavailable'), 'Service Unavailable');
 
 
 echo "\nThe admin lets in the right password, and nobody who keeps guessing\n";
@@ -851,9 +995,9 @@ $mailRow = [
 $mailFor = static fn(string $product, int $dives, string $locale = 'en'): string =>
     kay_booking_emails(['product' => $product, 'dives' => $dives, 'locale' => $locale] + $mailRow)['diver']['html'];
 check('a cenote day states both rules',
-      str_contains($mailFor('cenote-diving', 2), 'Angelita and El Pit, deeper than 18 metres, need at least Advanced Open Water'), true);
+      str_contains($mailFor('cenote-diving', 2), 'Angelita and El Pit, deeper than 20 metres, need at least Advanced Open Water'), true);
 check('the reef asks for Open Water',
-      str_contains($mailFor('reef-cenote', 2), 'required for every dive to 18 metres or shallower'), true);
+      str_contains($mailFor('reef-cenote', 2), 'required for every dive to 20 metres or shallower'), true);
 check('the sharks ask for Advanced',
       str_contains($mailFor('bull-sharks', 2), 'needs at least Advanced Open Water'), true);
 check('no card, no dive — said plainly',
@@ -867,7 +1011,7 @@ $mailSites = static fn(string $sites): string =>
     kay_booking_emails(['product' => 'cenote-diving', 'dives' => 2, 'locale' => 'en', 'sites' => $sites] + $mailRow)['diver']['html'];
 check('the cenotes are in the confirmation',  str_contains($mailSites('car-wash,dreamgate'), 'Car Wash · Dreamgate'), true);
 check('shallow cenotes ask for Open Water only',
-      str_contains($mailSites('car-wash,dreamgate'), 'required for every dive to 18 metres or shallower'), true);
+      str_contains($mailSites('car-wash,dreamgate'), 'required for every dive to 20 metres or shallower'), true);
 check('and do not mention Angelita',          str_contains($mailSites('car-wash,dreamgate'), 'Angelita and El Pit'), false);
 check('Angelita asks for Advanced',           str_contains($mailSites('car-wash,angelita'), 'needs at least Advanced Open Water'), true);
 check('the shop sees the cenotes too',

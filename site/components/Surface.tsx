@@ -6,14 +6,12 @@ import { LIVE_LOCALES, pathFor, type Locale } from "@/lib/i18n";
 type Nav = { href: string; label: string }[];
 
 export default function Surface({
-  locale, nav, reserve, reserveLong, menuLabel, langLabel, path = "/", paths, scrolls = false,
+  locale, nav, reserve, reserveLong, menuLabel, langLabel, path = "/", scrolls = false,
 }: {
   locale: Locale; nav: Nav; reserve: string; reserveLong: string;
   menuLabel: string; langLabel: string;
   /** This page's path below the locale, so the switcher lands on the same page. */
   path?: string;
-  /** The same, per language, for a page whose address is translated. */
-  paths?: Partial<Record<Locale, string>>;
   /** Pages without the depth gauge darken the bar themselves once scrolled. */
   scrolls?: boolean;
 }) {
@@ -42,9 +40,7 @@ export default function Surface({
   const langs = LIVE_LOCALES.length < 2 ? null : (
     <div className="lang" role="group" aria-label={langLabel}>
       {LIVE_LOCALES.map((l) => (
-        /* No prefetch: each would pull this page in two more languages the
-           reader is not about to open. */
-        <Link key={l} href={pathFor(l, paths?.[l] ?? path)} className={l === locale ? "on" : undefined} prefetch={false}
+        <Link key={l} href={pathFor(l, path)} className={l === locale ? "on" : undefined}
               aria-current={l === locale ? "true" : undefined}>
           {l.toUpperCase()}
         </Link>
@@ -55,7 +51,7 @@ export default function Surface({
   return (
     <>
       <header className="surface">
-        <Link className="mark" href={pathFor(locale)} aria-label="Kay Diving" prefetch={false}>
+        <Link className="mark" href={pathFor(locale)} aria-label="Kay Diving">
           {/* Kay's own emblem, two-tone. Not inlined — 21 KB gzipped of traced
               line art has no business in every page's HTML — so it is an
               <img>, one cached request, gzipped by the .htaccess. Its colours
@@ -64,10 +60,7 @@ export default function Surface({
               page's currentColor. Below about 40px the helmet stops reading
               as a helmet, which is why the mark is larger than the bubble it
               replaces. */}
-          {/* Low priority: 21 KB of line art in the header must not race the
-              hero photograph, and without it React preloads it as the
-              first image of the page. */}
-          <img className="mark__ico" src="/assets/brand/icon.svg" fetchPriority="low"
+          <img className="mark__ico" src="/assets/brand/icon.svg"
                width="40" height="40" alt="Kay Diving" aria-hidden="true" />
           <span className="mark__txt">
             <b className="mark__name">Kay Diving</b>

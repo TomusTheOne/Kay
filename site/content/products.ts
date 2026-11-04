@@ -69,28 +69,7 @@ export interface Schedule {
 }
 
 export const PRODUCTS = data.products as Product[];
-/** The lowest price on the menu, USD — the snorkel tour today. The hero's "from $…". */
-export const FROM_PRICE = Math.min(...PRODUCTS.flatMap((p) => p.options.map((o) => o.price)));
-/** The lowest price of a dive, USD: what a sentence about diving may call "from $…". */
-export const FROM_DIVE_PRICE = Math.min(
-  ...PRODUCTS.filter((p) => p.kind === "dive").flatMap((p) => p.options.map((o) => o.price)),
-);
-/**
- * The locale's link-preview card, cut by scripts/og.mjs. Images are cached
- * for a year as immutable, so a re-cut card gets a new name here, and the
- * script writes whatever name this says.
- */
-export const ogCard = (locale: string) => (data.ogCard as string).replace("{locale}", locale);
 export const BOOKABLE = PRODUCTS;
-
-/**
- * A link that opens the booking form on one product, and on one cenote where
- * the product lets a diver choose. `home` is "" on the home page, where the
- * form is, and the locale's home path everywhere else. Booking reads it.
- */
-export function bookHref(home: string, product: string, site?: string) {
-  return `${home}#book?p=${product}${site ? `&site=${site}` : ""}`;
-}
 export const ALWAYS_INCLUDED = data.alwaysIncluded as string[];
 export const GALLERY = data.gallery as { photo: string; tall: boolean }[];
 export const PICKUPS = data.pickups as Pickup[];
@@ -102,6 +81,19 @@ export const SCHEDULE_LIMITS = data.scheduleLimits as {
 
 /** Deepest site Kay names: Cenote Angelita at 35–38 m. */
 export const MAX_DEPTH_M = data.maxDepthM;
+
+/**
+ * The cheapest dive, for the "from $X" in the meta description and on the
+ * Open Graph card. Dives only: the sentence it sits in is about diving, and
+ * the snorkel tour is a different thing sold beside it.
+ *
+ * Read from the catalogue rather than written into the three translations,
+ * which is how it came to advertise $80 long after the cheapest dive was
+ * $140 — in the one line Google and WhatsApp show the world.
+ */
+export const FROM_USD = Math.min(
+  ...PRODUCTS.filter((p) => p.kind === "dive").flatMap((p) => p.options.map((o) => o.price)),
+);
 
 /**
  * Share taken at booking, the balance settled on the day. The slate and
@@ -127,6 +119,25 @@ export const CONTENT_UPDATED = data.contentUpdated;
  * this list runs ahead of them.
  */
 export const PUBLISHED_LOCALES = data.publishedLocales as string[];
+
+/**
+ * The experiences that have a page of their own, rather than only a card on
+ * the home page. Listed by hand, because a page exists the day its copy is
+ * written and not before: twenty-one thin pages saying the same thing in
+ * three languages would cost ranking rather than earn it.
+ *
+ * A locale builds only the ones it actually has copy for -- see the page's
+ * generateStaticParams. So Spanish can go live while English is still being
+ * translated, and neither ships an empty page.
+ */
+export const EXPERIENCE_PAGES = data.experiencePages as string[];
+
+/** The snorkel tour's price, beside FROM_USD: Kay quotes two "from" figures
+    because they are two different things, and one number for both was always
+    going to be wrong for one of them. */
+export const SNORKEL_USD = Math.min(
+  ...PRODUCTS.filter((p) => p.kind === "snorkel").flatMap((p) => p.options.map((o) => o.price)),
+);
 
 export const SHOP = {
   ...data.shop,

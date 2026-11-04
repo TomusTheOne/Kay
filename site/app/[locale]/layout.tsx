@@ -1,13 +1,39 @@
 import type { Metadata } from "next";
+import localFont from "next/font/local";
 import { notFound } from "next/navigation";
 import { LIVE_LOCALES, DEFAULT_LOCALE, OG_LOCALE, isLocale, getDictionary, pathFor, type Locale } from "@/lib/i18n";
-import { SHOP, ogCard } from "@/content/products";
+import { SHOP, FROM_USD } from "@/content/products";
 import Analytics from "@/components/Analytics";
 import Beacon from "@/components/Beacon";
-import { homeDescription, geoMeta } from "@/lib/seo";
-import { display, body, mono } from "../fonts";
 import "../globals.css";
 
+/* Checked in, not fetched. next/font/google downloads from fonts.gstatic.com
+   during the build, and a half-finished download there broke two deploys in a
+   row. These are the same latin woff2 files, in assets/fonts/, so the build
+   never touches the network. See that folder's README. */
+const display = localFont({
+  src: [
+    { path: "../../assets/fonts/instrumentserif-400.woff2", weight: "400", style: "normal" },
+    { path: "../../assets/fonts/instrumentserif-400-italic.woff2", weight: "400", style: "italic" },
+  ],
+  variable: "--font-display", display: "swap",
+});
+const body = localFont({
+  src: [
+    { path: "../../assets/fonts/inter-400.woff2", weight: "400", style: "normal" },
+    { path: "../../assets/fonts/inter-500.woff2", weight: "500", style: "normal" },
+    { path: "../../assets/fonts/inter-600.woff2", weight: "600", style: "normal" },
+  ],
+  variable: "--font-body", display: "swap",
+});
+const mono = localFont({
+  src: [
+    { path: "../../assets/fonts/plexmono-400.woff2", weight: "400", style: "normal" },
+    { path: "../../assets/fonts/plexmono-500.woff2", weight: "500", style: "normal" },
+    { path: "../../assets/fonts/plexmono-600.woff2", weight: "600", style: "normal" },
+  ],
+  variable: "--font-mono", display: "swap",
+});
 
 /** Only the translated locales are built at all — see LIVE_LOCALES. */
 export function generateStaticParams() {
@@ -21,7 +47,9 @@ export async function generateMetadata(
   if (!isLocale(locale)) return {};
   const t = await getDictionary(locale);
   const url = `${SHOP.domain}${pathFor(locale)}`;
-  const description = homeDescription(t);
+  // The one line Google and WhatsApp show, with the price taken from the
+  // catalogue rather than from three hand-written copies of it.
+  const description = t.meta.description.replace("{from}", String(FROM_USD));
 
   return {
     metadataBase: new URL(SHOP.domain),
@@ -43,15 +71,11 @@ export async function generateMetadata(
       // ask for that size and WhatsApp — where these links actually travel —
       // is unreliable with WebP.
       images: [{
-        url: ogCard(locale), width: 1200, height: 630,
+        url: `/assets/og/${locale}.jpg`, width: 1200, height: 630,
         type: "image/jpeg", alt: t.hero.alt,
       }],
     },
-    twitter: {
-      card: "summary_large_image", title: t.meta.title, description,
-      images: [{ url: ogCard(locale), alt: t.hero.alt }],
-    },
-    other: geoMeta(SHOP.lat, SHOP.lon),
+    twitter: { card: "summary_large_image", images: [`/assets/og/${locale}.jpg`] },
     /* Search Console's meta-tag method, for whoever prefers it to a DNS
        record. Prefer the DNS TXT record: it verifies the whole domain in one
        property — apex, www, http and https, all three languages — and it

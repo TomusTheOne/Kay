@@ -39,7 +39,7 @@ if (kay_posted($admin)) {
                 $error = kay_t('Cette réservation n’a pas d’adresse e-mail : envoyez le lien par WhatsApp.');
                 break;
             }
-            $sent = kay_send_email(kay_gear_email($b));
+            $sent = kay_send_email(kay_gear_email($b), ['booking' => (string) $b['id'], 'kind' => 'gear']);
             kay_note_add($db, $b['customer_id'] !== null ? (int) $b['customer_id'] : null, (string) $b['id'],
                 $admin['id'], 'log', $sent
                     ? kay_t('Questionnaire des tailles envoyé à {email}.', ['{email}' => $b['email']])
@@ -50,7 +50,8 @@ if (kay_posted($admin)) {
                 $error = kay_t('Seule une réservation confirmée, avec une adresse e-mail, reçoit une confirmation.');
                 break;
             }
-            $sent = kay_send_email(kay_booking_emails(kay_booking_email_row($b))['diver']);
+            $sent = kay_send_email(kay_booking_emails(kay_booking_email_row($b))['diver'],
+                ['booking' => (string) $b['id'], 'kind' => 'diver']);
             kay_note_add($db, $b['customer_id'] !== null ? (int) $b['customer_id'] : null, (string) $b['id'],
                 $admin['id'], 'log', $sent
                     ? kay_t('Confirmation renvoyée à {email}.', ['{email}' => $b['email']])
@@ -68,6 +69,8 @@ if (kay_posted($admin)) {
 $m        = kay_booking_money($b);
 $payments = kay_payments_for($db, $b['id']);
 $notes    = kay_notes_for($db, null, $b['id']);
+// What was actually sent to this diver, and what the provider said about it.
+$mails    = kay_mail_log($db, 8, (string) $b['id']);
 $phone    = (string) ($b['customer_phone'] ?? '');
 $wa       = kay_whatsapp_url($phone);
 $online   = $b['paid_at'] !== null && $b['status'] !== 'refunded' ? (int) round($b['deposit_mxn_cents'] / 100) : 0;
@@ -276,6 +279,29 @@ kay_page_start($b['name'], 'bookings.php', $admin);
         <input type="hidden" name="do" value="resend">
         <button class="btn btn--ghost btn--block" data-confirm="<?= kay_th('Renvoyer la confirmation à {email} ?', ['{email}' => $b['email']]) ?>"><?= kay_th('Renvoyer la confirmation') ?></button>
       </form>
+<?php endif; ?>
+    </section>
+
+    <section class="card">
+      <header class="card__head"><h2><?= kay_th('E-mails') ?></h2></header>
+<?php if ($mails === []): ?>
+      <p class="empty"><?= kay_th('Aucun e-mail envoyé pour cette réservation.') ?>
+        <a href="system.php"><?= kay_th('Système →') ?></a></p>
+<?php else: ?>
+      <ul class="rows rows--tight">
+<?php foreach ($mails as $mail): ?>
+        <li class="row">
+          <div class="row__main"><?= kay_h(kay_mail_kind((string) $mail['kind'])) ?>
+            <span class="muted block small"><?= kay_h(kay_when($mail['sent_at'])) ?> · <?= kay_h((string) $mail['recipient']) ?></span>
+<?php if ((int) $mail['ok'] !== 1 && (string) $mail['error'] !== ''): ?>
+            <span class="late block small"><?= kay_h((string) $mail['error']) ?></span>
+<?php endif; ?></div>
+          <div class="row__end"><?= (int) $mail['ok'] === 1
+                ? '<span class="ok">' . kay_th('parti') . '</span>'
+                : '<span class="late">' . kay_th('refusé') . '</span>' ?></div>
+        </li>
+<?php endforeach; ?>
+      </ul>
 <?php endif; ?>
     </section>
   </aside>

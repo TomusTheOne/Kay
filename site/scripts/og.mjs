@@ -7,42 +7,26 @@
  * unreliable with WebP. So the card is a real 1200×630 JPEG, built from the
  * site's own fonts and words so a shared link looks like the site.
  *
- * The file name comes from "ogCard" in content/products.json, which the site
- * reads too: images are cached for a year as immutable, so a card re-cut
- * after a price change must go out under a new name — change it there, run
- * this, and every page points at the new card.
- *
- *   node scripts/og.mjs        (from site/; Playwright is not a dependency of
- *                               the site, so it is found through NODE_PATH:
- *                               NODE_PATH=$(npm root -g) node scripts/og.mjs)
+ *   node scripts/og.mjs        (needs the Chromium at PLAYWRIGHT_BROWSERS_PATH)
  */
-import { createRequire } from "node:module";
+import { chromium } from "playwright-core";
 import { mkdir, writeFile, readFile } from "node:fs/promises";
 import { existsSync } from "node:fs";
-import { dirname } from "node:path";
-
-/* CommonJS resolution, so a global install reached through NODE_PATH works. */
-const load = createRequire(import.meta.url);
-const { chromium } = (() => {
-  for (const name of ["playwright-core", "playwright"]) {
-    try { return load(name); } catch { /* try the next one */ }
-  }
-  console.error("Playwright not found: install it globally and run with NODE_PATH=$(npm root -g).");
-  process.exit(1);
-})();
 
 const LOCALES = ["en", "es", "fr"];
-const CHROME = process.env.CHROME_PATH ?? "/opt/pw-browsers/chromium";
+const OUT = "public/assets/og";
+const CHROME = process.env.CHROME_PATH ?? "/opt/pw-browsers/chromium-1194/chrome-linux/chrome";
 
 const products = JSON.parse(await readFile("content/products.json", "utf8"));
-/* The card sells diving, so "from" is the cheapest dive — FROM_DIVE_PRICE in content/products.ts. */
+/* The cheapest DIVE, not the cheapest anything: this card travels with the
+   meta description, which says "from $140", and the two disagreeing on the
+   same WhatsApp preview is worse than either number alone. The snorkel tour
+   has its own figure on the page itself. */
 const cheapest = Math.min(
-  ...products.products.filter((p) => p.kind === "dive").flatMap((p) => p.options.map((o) => o.price)),
+  ...products.products
+    .filter((p) => p.kind === "dive")
+    .flatMap((p) => p.options.map((o) => o.price)),
 );
-const fileFor = (locale) => `public${products.ogCard.replace("{locale}", locale)}`;
-/* The price as each language writes it, as the meta descriptions do: US$ in
-   Mexico, where $ alone means pesos; the sign after the figure in French. */
-const price = (locale) => ({ es: `US$${cheapest}`, fr: `${cheapest}\u202F$` })[locale] ?? `$${cheapest}`;
 const heroDataUri =
   "data:image/webp;base64," +
   (await readFile("public/assets/photos/hero.webp")).toString("base64");
@@ -88,8 +72,8 @@ const card = (t) => `<!doctype html><html><head><meta charset="utf-8">
       <h1>${t.l1}<br><em>${t.l2}</em></h1>
       <div class="strip" style="margin-top:34px">
         <span>${t.agency} <b>${products.shop.agency}</b></span><span class="sep">•</span>
-        <span>${t.depth} <b>${products.maxDepthM}&nbsp;m</b></span><span class="sep">•</span>
-        <span>${t.from} <b>${t.price}</b></span>
+        <span>${t.depth} <b>${products.maxDepthM} M</b></span><span class="sep">•</span>
+        <span>${t.from} <b>$${cheapest}</b></span>
       </div>
     </div>
   </div>
@@ -99,7 +83,7 @@ if (!existsSync(CHROME)) {
   console.error(`Chromium not found at ${CHROME} — set CHROME_PATH.`);
   process.exit(1);
 }
-await mkdir(dirname(fileFor("en")), { recursive: true });
+await mkdir(OUT, { recursive: true });
 const browser = await chromium.launch({ executablePath: CHROME, args: ["--no-sandbox"] });
 
 for (const locale of LOCALES) {
@@ -111,16 +95,15 @@ for (const locale of LOCALES) {
     agency: m.hero.agencyLabel.toUpperCase(),
     depth: m.products.depth.toUpperCase(),
     from: m.products.from.toUpperCase(),
-    price: price(locale),
   });
   const page = await browser.newPage({ viewport: { width: 1200, height: 630 } });
   await page.setContent(html, { waitUntil: "networkidle" });
   await page.evaluate(() => document.fonts.ready);
   // JPEG, not WebP: WhatsApp previews are unreliable with WebP.
   const buf = await page.screenshot({ type: "jpeg", quality: 88 });
-  await writeFile(fileFor(locale), buf);
+  await writeFile(`${OUT}/${locale}.jpg`, buf);
   await page.close();
-  console.log(`${fileFor(locale)}  1200×630  ${(buf.length / 1024).toFixed(0)} KB`);
+  console.log(`${OUT}/${locale}.jpg  1200×630  ${(buf.length / 1024).toFixed(0)} KB`);
 }
 
 await browser.close();

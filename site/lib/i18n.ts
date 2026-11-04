@@ -46,14 +46,6 @@ export function pathFor(locale: Locale, path = "/") {
 export interface ProductCopy { name: string; tagline: string; text: string; alt: string }
 export interface IncludeCopy { name: string; text: string }
 export interface Qa { q: string; a: string }
-/** One product's own page: its heading, its snippet, its text and its questions. */
-export interface ProductPageCopy {
-  /** The product as a sentence names it, article included: "the Open Water course", "el curso Open Water". */
-  the: string;
-  h1: string; title: string; meta: string;
-  body: string[];
-  faq: Qa[];
-}
 /** A cenote a visitor can drive to on their own — not a dive site, which is CenoteCopy. */
 export interface VisitCopy { name: string; blurb: string; good: string; tip: string }
 /** A Maya site within reach of Tulum. */
@@ -71,11 +63,9 @@ export type CenoteCopy = Record<
   | "gestureWin" | "gestureMac" | "gestureTouch" | "cluster" | "close"
   | "filter" | "all" | "count" | "none" | "diveDepth" | "cenoteDepth" | "upTo"
   | "levelTag" | "fromTulum" | "snorkelToo" | "see" | "divesTag" | "nearbyTag"
-  | "back" | "illustration" | "planTag" | "planAlt" | "planNote" | "planCredit" | "planOpen"
-  | "pageTitle" | "pageTitleMore" | "breadcrumbHome" | "planCreditCentre" | "aLevelCourse" | "touristType"
-  | "faqTag" | "faqH2" | "qDepth" | "aDepth" | "aDepthMore" | "qLevel" | "qWhere" | "aWhere"
-  | "qSnorkel" | "aSnorkel" | "qTrips"
-  | "artAlt" | "homeTag" | "homeH2" | "homeIntro" | "homeCta", string
+  | "back" | "illustration" | "artAlt" | "homeTag" | "homeH2" | "homeIntro" | "homeCta"
+  | "lightTag" | "ownTag" | "faqTag"
+  | "planTag" | "planNote" | "planCredit" | "planCreditCentre" | "planOpen", string
 > & {
   compass: string[];
   types: Record<"open" | "cavern" | "deep", string>;
@@ -84,48 +74,67 @@ export type CenoteCopy = Record<
   items: Record<string, string>;
   /** Alt text for each cenote's own photograph, keyed by slug. */
   alts: Record<string, string>;
-  /** The answer to "what certification do I need", one per level. */
-  aLevel: Record<"none" | "open-water" | "advanced", string>;
-  /** Each cenote page's meta description, written for the search result, keyed by slug. */
-  metas: Record<string, string>;
-  /** Each dive map's alt text, saying what that map shows, keyed by slug. */
+  /**
+   * What each illustration shows, keyed by the art file's name — not by slug,
+   * because the drawings are typological: one cavern scene serves Dos Ojos,
+   * Tak Be Luum and Nohoch Nah Chich. Captioning one of those "a plan of this
+   * cenote" would be a lie, so the text describes the kind of dive and
+   * artNote says so outright.
+   */
+  arts: Record<string, string>;
+  artNote: string;
+  /** What each cenote's dive map shows, for its alt text, keyed by slug. */
   planAlts: Record<string, string>;
-  /** "north-east of Tulum" in a sentence: the eight directions with their preposition, N first. */
-  compassAt: string[];
+  /**
+   * Kay's own write-up of a cenote, keyed by slug: how the dive goes, when to
+   * come, what it is like if you turn up on your own, and its questions.
+   *
+   * Only the cenotes he has described are in here. A cenote with no entry
+   * keeps the short page it has today, which is honest — the alternative is
+   * padding ten pages to a word count, and a cenote page padded with guesses
+   * is a safety problem before it is an SEO one.
+   */
+  deep: Record<string, {
+    /**
+     * The dive itself, in the order it happens, cut into sections that carry
+     * their own heading. Free-form on purpose: what is worth a heading differs
+     * per cenote — Angelita's cloud, El Pit's halocline — and a fixed shape
+     * would force every write-up through the same four boxes.
+     */
+    sections: Array<{ h: string; p: string[] }>;
+    light?: string;
+    own?: string;
+    faq: Qa[];
+  }>;
 };
 
-/*
- * What the client components receive, by name: the map, and the explorer
- * that filters the guide's cards. A list of keys rather than "everything but
- * the server's", so a string added for a server page — a meta description, a
- * map's alt — never ends up in every page's client payload by default.
+/**
+ * The guide's strings without Kay's write-ups. The index is a client
+ * component, so whatever it is handed is serialised into the page: passing
+ * the whole dictionary shipped fifteen thousand words of prose that the index
+ * never renders. The cards need `items`; nothing on that page needs `deep`.
  */
-const MAP_KEYS = [
-  "approx", "cenoteDepth", "close", "cluster", "compass", "diveDepth", "fromTulum",
-  "gestureMac", "gestureTouch", "gestureWin", "levelTag", "levels", "mapError", "mapLabel",
-  "mapLoading", "reset", "see", "snorkelToo", "types", "upTo", "zoomIn", "zoomOut",
-] as const;
-const CARD_KEYS = [
-  ...MAP_KEYS, "artAlt", "illustration", "items", "all", "count", "filter", "filters", "none",
-] as const;
-
-export type MapCopy = Pick<CenoteCopy, (typeof MAP_KEYS)[number]>;
-export type CardCopy = Pick<CenoteCopy, (typeof CARD_KEYS)[number]>;
-
-function pick<K extends keyof CenoteCopy>(c: Pick<CenoteCopy, K>, keys: readonly K[]) {
-  return Object.fromEntries(keys.map((k) => [k, c[k]])) as Pick<CenoteCopy, K>;
+export type CardCopy = Omit<CenoteCopy, "deep">;
+export function cardCopy(c: CenoteCopy): CardCopy {
+  const { deep, ...rest } = c;
+  void deep;
+  return rest;
 }
-/** The guide's strings the explorer and its cards need on the client. */
-export function cardCopy(c: CardCopy): CardCopy { return pick(c, CARD_KEYS); }
-/** The guide's strings the map needs on the client. */
-export function mapCopy(c: MapCopy): MapCopy { return pick(c, MAP_KEYS); }
+
+/** Less again: all the map itself needs, with no per-cenote prose at all. */
+export type MapCopy = Omit<CardCopy, "items" | "alts" | "arts">;
+export function mapCopy(c: CardCopy): MapCopy {
+  const { items, alts, arts, ...rest } = c;
+  void items; void alts; void arts;
+  return rest;
+}
 
 export interface Dictionary {
   meta: { title: string; description: string };
   nav: Record<"about" | "products" | "included" | "logistics" | "gallery" | "faq"
             | "cenotes" | "visit" | "ruins" | "reserve" | "reserveLong" | "menu" | "language", string>;
   hero: Record<"kicker" | "l1" | "l2" | "lede" | "cta2" | "alt"
-             | "water" | "viz" | "from" | "agency" | "agencyLabel", string>;
+             | "water" | "viz" | "fromDive" | "fromSnorkel" | "agency" | "agencyLabel", string>;
   gauge: Record<"surface" | "cavern" | "deep", string>;
   about: Record<"tag" | "h2" | "p1" | "p2" | "questionTag" | "question"
               | "plateAlt" | "plateNote", string>;
@@ -181,23 +190,23 @@ export interface Dictionary {
     priceNote: string; ferryNote: string;
     items: Record<string, RuinCopy>;
   };
-  quote: { text: string; cite: string };
-  /** The product pages (app/[locale]/[page]), and the links to them. */
-  product: {
-    kinds: Record<"dive" | "course" | "snorkel", string>;
-    bookKind: Record<"dive" | "course" | "snorkel", string>;
-    ask: string; whatsappText: string; more: string; back: string;
-    priceTag: string; includedTag: string; whereTag: string; snorkelWhere: string;
-    faqTag: string; faqH2: string; otherTag: string;
-    qPrice: string; aPrice: string; qMeet: string; aMeet: string;
-    /** What a price covers, as a sentence lists it ("the cenote entrance fees"), keyed like included.items. */
-    includedInline: Record<string, string>;
-    qBook: string; aBook: string;
-    items: Record<string, ProductPageCopy>;
+  /** The reviews block. The reviews themselves live in content/reviews.json
+      and are never translated — only this chrome around them is. */
+  reviews: Record<"tag" | "h2" | "intro" | "stars" | "score" | "onGoogle" | "all", string>;
+  /** The page each experience gets of its own. `items` is keyed by product
+      slug and is EMPTY in a locale whose copy is not written yet -- that
+      locale simply builds no experience pages. */
+  exp: {
+    crumb: string; bookTag: string; bookH2: string;
+    whoTag: string; dayTag: string; includedTag: string;
+    sitesTag: string; faqTag: string; moreTag: string; more: string; more2: string;
+    items: Record<string, {
+      title: string; description: string;
+      h1: string; lede: string; who: string;
+      day: string[]; sites: string; faq: Qa[];
+    }>;
   };
-  /** Kay's Google reviews, wherever content/reviews.json has some. */
-  reviews: Record<"tag" | "h2" | "h2Plain" | "intro" | "introPlain" | "all" | "stars"
-                | "badge" | "cenoteH2", string>;
+  quote: { text: string; cite: string };
   book: Record<string, string> & { certs: string[] };
   faq: { tag: string; h2: string; items: Qa[] };
   cta: Record<"kicker" | "h2" | "lede" | "instagram" | "bandAlt", string>;
@@ -218,27 +227,10 @@ export interface Dictionary {
   };
 }
 
-/**
- * French sets a narrow no-break space before : ; ! ? » and after «. The
- * messages are typed with plain spaces, which a browser may break at,
- * leaving a lone "?" at the start of a line; this swaps them for U+202F
- * once, at load. Only the site reads it — the PHP emails read fr.json as is.
- */
-function frenchSpacing<T>(v: T): T {
-  if (typeof v === "string") {
-    return v.replace(/ ([:;!?»])/g, "\u202F$1").replace(/« /g, "«\u202F") as T;
-  }
-  if (Array.isArray(v)) return v.map(frenchSpacing) as T;
-  if (v && typeof v === "object") {
-    return Object.fromEntries(Object.entries(v).map(([k, x]) => [k, frenchSpacing(x)])) as T;
-  }
-  return v;
-}
-
 const dictionaries: Record<Locale, () => Promise<Dictionary>> = {
   en: () => import("../messages/en.json").then((m) => m.default as unknown as Dictionary),
   es: () => import("../messages/es.json").then((m) => m.default as unknown as Dictionary),
-  fr: () => import("../messages/fr.json").then((m) => frenchSpacing(m.default as unknown as Dictionary)),
+  fr: () => import("../messages/fr.json").then((m) => m.default as unknown as Dictionary),
 };
 
 export async function getDictionary(locale: Locale): Promise<Dictionary> {

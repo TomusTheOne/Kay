@@ -28,3 +28,13 @@ export default function CenotePlan({ c, plan, locale, alt, open }: {
     </a>
   );
 }
+
+/**
+ * "Redrawn from the map by …" — or the centre's own map, when no one is
+ * named. French elides "de" before a vowel: "d'après le plan d'Alejandro…".
+ */
+export function planCredit(t: { planCredit: string; planCreditCentre: string }, locale: Locale, credit: string | null) {
+  if (!credit) return t.planCreditCentre;
+  if (locale === "fr" && /^[aeiouyhé]/i.test(credit)) return t.planCredit.replace("de {credit}", `d'${credit}`);
+  return t.planCredit.replace("{credit}", credit);
+}

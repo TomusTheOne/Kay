@@ -561,6 +561,28 @@ select.field{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xml
 .slate__dep{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;margin-top:.6rem}
 .slate__dep .k{font-family:var(--mono);font-size:.64rem;letter-spacing:.2em;text-transform:uppercase;color:var(--foam-52)}
 .slate__dep .v{font-family:var(--mono);font-size:.95rem;color:var(--turq);font-variant-numeric:tabular-nums}
+/* The deposit line became a choice: deposit now, or settle the whole thing.
+   Two rows rather than pills, because the amounts have to line up to be
+   compared, and comparing them is the entire decision. */
+.pay{display:flex;flex-direction:column;gap:.3rem;margin-top:.6rem}
+.pay__opt{
+  display:flex;justify-content:space-between;align-items:baseline;gap:1rem;
+  padding:.5rem .65rem;border:1px solid transparent;border-radius:10px;
+  cursor:pointer;transition:border-color .25s var(--ease),background .25s var(--ease);
+}
+.pay__opt:hover{background:rgba(169,245,236,.04)}
+.pay__opt[data-on]{border-color:rgba(79,224,210,.34);background:rgba(79,224,210,.06)}
+/* The native control is replaced by the row itself, but it stays in the
+   accessibility tree and keeps the keyboard and screen readers working. */
+.pay__opt input{position:absolute;opacity:0;width:0;height:0}
+.pay__opt:has(input:focus-visible){outline:2px solid var(--turq);outline-offset:2px}
+.pay__k{font-family:var(--mono);font-size:.64rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--foam-52)}
+.pay__opt[data-on] .pay__k{color:var(--foam)}
+.pay__v{font-family:var(--mono);font-size:.95rem;color:var(--foam-52);
+  font-variant-numeric:tabular-nums;white-space:nowrap}
+.pay__opt[data-on] .pay__v{color:var(--turq)}
+
 .slate__fine{font-size:.74rem;color:var(--foam-34);margin-top:.7rem;line-height:1.5}
 .slate .btn{width:100%;margin-top:1.2rem}
 
@@ -579,41 +601,42 @@ select.field{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xml
 .quote cite{display:block;margin-top:1.1rem;font:500 .76rem/1.5 var(--mono);letter-spacing:.2em;text-transform:uppercase;color:var(--foam-34);font-style:normal}
 
 /* --------------------------------------------------------------- Reviews */
-/* Columns of uneven height, like the reviews themselves; a swipeable row on
-   a phone, where six cards stacked would be six screens. */
-.revs{columns:3 300px;column-gap:12px}
+/* Same card family as .dive: one border, one radius, the glass fill. What a
+   diver wrote is the only thing here that is not chrome, so it gets the body
+   colour and the room, and everything around it stays quiet. */
+/* Flex rather than grid, and centred: five reviews in a four-column grid
+   leave one card alone in an empty row, which reads as a layout that broke.
+   Wrapped and centred, any number of them lands as a deliberate shape — and
+   the day Kay adds a sixth, nothing here needs touching. */
+.revs__score{display:flex;align-items:center;gap:.7rem;margin:0 0 .9rem;color:var(--foam);font-weight:500}
+.revs__score .rev__stars svg{width:15px;height:15px}
+.revs{display:flex;flex-wrap:wrap;justify-content:center;gap:clamp(1rem,1.9vw,1.5rem)}
 .rev{
-  break-inside:avoid;margin:0 0 12px;display:flex;flex-direction:column;gap:1.05rem;
-  padding:clamp(1.3rem,2.4vw,1.8rem);border:1px solid var(--line-soft);border-radius:var(--r-lg);
-  background:linear-gradient(170deg,rgba(14,50,65,.38),rgba(6,22,32,.5));
-  transition:border-color .3s;
+  /* 320 basis, not 286: four of them fit across the 1220 shell and leave the
+     fifth alone on a row of its own. At 320 only three fit, so five land as
+     three and two — the fuller line, and the longer, easier measure. */
+  flex:1 1 320px;max-width:384px;
+  margin:0;border:1px solid var(--line-soft);border-radius:var(--r-lg);background:var(--glass);
+  padding:clamp(1.25rem,2.2vw,1.7rem);display:flex;flex-direction:column;gap:1.05rem;
+  transition:border-color .4s,transform .5s var(--ease);
 }
-.rev:hover{border-color:var(--line)}
-.rev__stars{display:inline-flex;gap:3px;color:var(--foam-34)}
-.rev__stars svg{fill:none;stroke:currentColor;stroke-width:.9}
-.rev__stars svg.on{fill:var(--turq);stroke:var(--turq);filter:drop-shadow(0 0 4px rgba(79,224,210,.45))}
-.rev blockquote{font-family:var(--display);font-size:clamp(1.12rem,1.5vw,1.3rem);line-height:1.4;color:var(--foam)}
-.rev blockquote p+p{margin-top:.7em}
-.rev:first-child blockquote{font-size:clamp(1.3rem,2vw,1.6rem);line-height:1.32}
-.rev__sites{list-style:none;padding:0}
-.rev__sites a.chip:hover{border-color:var(--turq)}
-.rev figcaption{display:flex;justify-content:space-between;align-items:baseline;gap:.4rem 1rem;flex-wrap:wrap;margin-top:auto;
-  padding-top:.9rem;border-top:1px solid var(--line-soft)}
-.rev__who{font-size:.92rem;color:var(--foam)}
-.rev__all{margin-top:1.4rem}
-.strip__rating{transition:color .25s}
-.strip__rating b{color:var(--turq)}
-.strip__rating:hover{color:var(--foam)}
-@media (max-width:640px){
-  .revs{
-    columns:auto;display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;
-    margin-inline:calc((100vw - var(--shell)) / -2);padding-inline:calc((100vw - var(--shell)) / 2);
-    scroll-padding-inline:calc((100vw - var(--shell)) / 2);padding-bottom:6px;scrollbar-width:none;
-  }
-  .revs::-webkit-scrollbar{display:none}
-  .rev{flex:0 0 84%;margin:0;scroll-snap-align:start}
-  .rev:only-child{flex-basis:100%}
+.rev:hover{border-color:rgba(169,245,236,.22);transform:translateY(-4px)}
+.rev__stars{display:flex;gap:3px;color:var(--turq)}
+.rev__stars svg{width:14px;height:14px;fill:currentColor;flex:none}
+/* flex:1 so the name sits on the baseline of the card whatever the length
+   of the review above it: five cards, one line of names across. */
+.rev__text{margin:0;flex:1;color:var(--foam-72);font-size:.97rem;line-height:1.62}
+.rev__who{display:flex;align-items:center;gap:.72rem}
+.rev__mark{
+  width:34px;height:34px;border-radius:50%;flex:none;display:grid;place-items:center;
+  background:rgba(169,245,236,.1);color:var(--turq);
+  font:500 .88rem/1 var(--mono);text-transform:uppercase;
 }
+.rev__name{display:block;color:var(--foam);font-size:.93rem;font-weight:500;margin-bottom:.15rem}
+
+/* An inline link that reads as one without borrowing the button styles. */
+.lnk{color:var(--foam-72);text-decoration:underline;text-underline-offset:3px;transition:color .25s}
+.lnk:hover{color:var(--turq)}
 
 /* ------------------------------------------------------------------- FAQ */
 .faq{border-top:1px solid var(--line-soft)}
@@ -641,8 +664,7 @@ select.field{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xml
 .foot__grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.2fr;gap:2rem}
 @media (max-width:860px){.foot__grid{grid-template-columns:1fr 1fr}}
 @media (max-width:520px){.foot__grid{grid-template-columns:1fr}}
-/* Column labels, not sections: navigation does not belong in the page outline. */
-.foot .foot__h{font-family:var(--mono);font-size:.62rem;letter-spacing:.24em;text-transform:uppercase;color:var(--turq);font-weight:400;margin-bottom:1rem}
+.foot h4{font-family:var(--mono);font-size:.62rem;letter-spacing:.24em;text-transform:uppercase;color:var(--turq);font-weight:400;margin-bottom:1rem}
 .foot li{margin-bottom:.55rem}
 .foot a{color:var(--foam-52);font-size:.9rem;transition:color .25s}
 .foot a:hover{color:var(--foam)}
@@ -674,8 +696,6 @@ select.field{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xml
   color:var(--turq);margin-bottom:.45rem}
 .sites__r{display:flex;justify-content:space-between;gap:.8rem;align-items:baseline;padding-block:.2rem}
 .sites__r span{font-size:.82rem;color:var(--foam-72)}
-.sites__r a{text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:3px;transition:color .2s}
-.sites__r a:hover{color:var(--turq)}
 .sites__r b{font-family:var(--mono);font-size:.76rem;color:var(--foam);white-space:nowrap}
 
 /* ------------------------------------------------------- Pickup options --- */
@@ -907,6 +927,38 @@ select.field{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xml
 /* ---------------------------------------------------------------------------
    Cenote guide pages (/cenotes/ and /cenotes/<slug>/).
    ------------------------------------------------------------------------- */
+/* ----------------------------------------------------- Experience pages */
+/* One column, read top to bottom: this page is prose with a form at the end,
+   not a dashboard. The measure is held at 62ch by .lede, which is what makes
+   eight hundred words readable rather than a wall. */
+.exp{padding-bottom:var(--bay)}
+.exp__head{padding-block:clamp(1.4rem,3vw,2.2rem) clamp(2rem,4vw,3rem);border-bottom:1px solid var(--line-soft)}
+.exp__head .dsp{margin-top:1.1rem}
+.exp__head .lede{margin-top:1.3rem}
+.exp__facts{display:flex;flex-wrap:wrap;gap:.6rem 2.4rem;margin:2rem 0 0}
+.exp__facts div{display:flex;flex-direction:column;gap:.3rem}
+.exp__facts dt{color:var(--foam-52)}
+.exp__facts dd{margin:0}
+.exp__bay{padding-block:clamp(2rem,4vw,3rem);border-bottom:1px solid var(--line-soft)}
+.exp__bay .tag{margin-bottom:1.3rem}
+.exp__bay .lede + .lede{margin-top:1.1rem}
+.exp__bay .dsp{margin-top:.4rem}
+.exp__inc,.exp__sites{list-style:none;margin:0;padding:0;display:grid;gap:1.1rem}
+.exp__inc{grid-template-columns:repeat(auto-fit,minmax(236px,1fr))}
+.exp__inc b,.exp__sites b{display:block;color:var(--foam);margin-bottom:.3rem}
+.exp__inc .muted,.exp__sites .muted{display:block;font-size:.93rem;line-height:1.6}
+.exp__sites{margin-top:1.6rem}
+.exp__sites li{padding-left:1rem;border-left:2px solid var(--line)}
+.exp__sites a{display:block;transition:border-color .25s}
+.exp__sites li:has(a):hover{border-left-color:var(--turq)}
+.exp__sites .data{color:var(--foam-52)}
+.exp__more{margin-top:clamp(2rem,4vw,3rem)}
+.dive__more{margin:1.1rem 0 0;padding-top:1rem;border-top:1px solid var(--line-soft)}
+.dive__more a{color:var(--turq);font-size:.92rem;font-weight:500}
+.dive__more a:hover{color:var(--foam)}
+.crumbs{padding-top:1.4rem;color:var(--foam-52)}
+.crumbs a:hover{color:var(--turq)}
+
 .guide{padding-top:clamp(4.4rem,7vw,5.6rem)}
 .guide__preview{width:var(--shell);margin:1rem auto 0;padding:.85rem 1.1rem;border-radius:12px;
   border:1px dashed rgba(247,239,227,.45);background:rgba(247,239,227,.05);color:var(--lit);line-height:1.7;letter-spacing:.1em}
@@ -916,10 +968,8 @@ select.field{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xml
 .cfilter{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;margin-bottom:1.2rem}
 .cgrid{margin-top:clamp(2rem,4vw,3rem)}
 .guide__explore{padding-bottom:var(--bay)}
-.ccard__hit{color:inherit}
-.ccard__hit::after{content:"";position:absolute;inset:0;z-index:2;border-radius:inherit}
-.ccard__hit:focus-visible{outline:none}
-.ccard__hit:focus-visible::after{outline:2px solid var(--turq);outline-offset:3px}
+.ccard__hit{position:absolute;inset:0;z-index:2;border-radius:inherit}
+.ccard__hit:focus-visible{outline:2px solid var(--turq);outline-offset:3px}
 .ccard__art{position:absolute;left:.8rem;bottom:.8rem;padding:.4rem .6rem;border-radius:999px;
   background:rgba(3,9,14,.72);backdrop-filter:blur(8px);border:1px solid var(--line-soft);
   font:.54rem/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--foam-52)}
@@ -929,12 +979,27 @@ select.field{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xml
 .ccard__txt{flex:none;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
 .ccard .spec{margin-top:auto}
 .ccard:hover .dive__go svg{transform:translateX(4px)}
-/* A product card's name is stretched over the card like a cenote card's; the
-   links inside it — its cenotes, its booking button — sit above that. */
-.dive .sites__r a,.dive__book{position:relative;z-index:3}
-.dive:hover .dive__go svg{transform:translateX(4px)}
-.dive__foot{margin-top:.4rem}
 .guide__cenote{padding-bottom:clamp(2.4rem,5vw,4rem)}
+/* Kay's write-up. One column at the reading measure .lede already sets —
+   this is prose, and prose in two columns is prose nobody finishes. */
+.guide__deep{padding-top:0}
+.guide__deep section{padding-block:clamp(1.6rem,3vw,2.4rem);border-top:1px solid var(--line-soft)}
+.guide__deep h2{margin-bottom:1.3rem}
+.guide__deep .lede + .lede{margin-top:1.1rem}
+/* The typological drawing, between Kay's write-up and the location map: the
+   page is a long run of prose by then and wants a visual beat, and the break
+   lands where the subject turns from what the dive is like to where it is.
+   No crop — the art is drawn at 3:2 and is shown at 3:2. */
+.guide__art{margin:0;padding-top:0}
+/* Capped and centred rather than filling the shell: at 3:2 the full reading
+   width is 800 px tall, which eats a laptop viewport whole and turns a beat
+   into an interruption. */
+.guide__art img{display:block;width:100%;max-width:980px;margin-inline:auto;
+  height:auto;border-radius:var(--r-lg);border:1px solid var(--line-soft)}
+.guide__art figcaption{max-width:980px;margin:.9rem auto 0;color:var(--foam-52);font-size:.92rem;line-height:1.7}
+/* Italic, not fainter: --foam-34 sits at 2.96:1 and fails AA, and a
+   caveat nobody can read is a caveat that is not there. */
+.guide__art-note{font-style:italic}
 .guide__back{display:inline-block;margin-bottom:1.8rem;color:var(--turq);padding-block:.3rem}
 .guide__back:hover{color:var(--foam)}
 .guide__split{align-items:start}
@@ -944,35 +1009,31 @@ select.field{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xml
 .guide__dives a{display:inline-block;font-size:.86rem;padding:.55em .95em;border:1px solid var(--line);border-radius:999px;
   background:var(--glass);transition:border-color .25s,color .25s}
 .guide__dives a:hover{border-color:var(--turq);color:var(--turq)}
-.guide__plate{margin:0;position:sticky;top:6rem}
-/* The product pages: the guide's cenote layout, with a price list and a
-   second paragraph under the lede. */
-.product__p{margin-top:1rem;max-width:62ch;line-height:1.65}
-.product__prices{margin-top:1.2rem;max-width:26rem}
-/* One or two cards keep a card's width instead of stretching across the row. */
-.cgrid--fill{grid-template-columns:repeat(auto-fill,minmax(272px,1fr))}
-@media (max-width:880px){.guide__plate{position:relative;top:0;order:-1;aspect-ratio:16/11}}
+/* The same frame as the card in the grid, deliberately: .plate's 4/5 turned
+   a 3:2 photograph into a portrait slab and threw away half its width, so
+   El Pit's cavern mouth survived the card and vanished on its own page.
+   16/11 is what .dive__media uses, so the picture you click is the picture
+   you land on. Centred in the column rather than pinned to the top, because
+   a short image stuck to the ceiling of a tall column reads as a mistake. */
+.guide__plate{margin:0;aspect-ratio:16/11;align-self:center}
+@media (max-width:880px){.guide__plate{order:-1}}
+
+
 
 /* The dive map of one cenote (components/CenotePlan.tsx). */
 .guide__plan{padding-top:0}
-.guide__plan figure{margin:1.6rem 0 0}
-.plan{position:relative;display:block;margin-inline:auto;width:min(100%,calc(var(--ar) * 1200px));
-  border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--line-soft);background:#03111A;aspect-ratio:var(--ar)}
+.guide__plan figure{margin:1.4rem 0 0}
+.plan{position:relative;display:block;margin-inline:auto;width:min(100%,calc(var(--ar) * 1200px))}
+.plan picture{display:block;aspect-ratio:var(--ar);border-radius:var(--r-lg);overflow:hidden;
+  border:1px solid var(--line-soft);background:#03111A}
 .plan img{display:block;width:100%;height:100%}
-.plan__open{position:absolute;right:.8rem;bottom:.8rem;padding:.45rem .7rem;border-radius:999px;
-  background:rgba(3,9,14,.72);backdrop-filter:blur(8px);border:1px solid var(--line-soft);
+/* Under the map, not on it: every corner of a map carries something — the
+   credit, a depth, the north arrow. */
+.plan__open{display:table;margin:.7rem 0 0 auto;padding:.45rem .7rem;border-radius:999px;
+  border:1px solid var(--line-soft);
   font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--foam-72);transition:color .2s,border-color .2s}
 .plan:hover .plan__open{color:var(--turq);border-color:var(--turq)}
-/* On a phone the pill would sit on the map itself; it goes under it. */
-@media (max-width:600px){
-  .plan{overflow:visible;border-radius:0;border:0;background:none;aspect-ratio:auto}
-  .plan picture{display:block;aspect-ratio:var(--ar);border-radius:var(--r);overflow:hidden;border:1px solid var(--line-soft)}
-  .plan__open{position:static;display:table;margin:.7rem 0 0 auto}
-}
+@media (max-width:600px){ .plan picture{border-radius:var(--r)} }
 .plan:focus-visible{outline:2px solid var(--turq);outline-offset:4px}
 .guide__plan-note{max-width:70ch;margin:1rem auto 0;text-align:center;color:var(--foam-52);line-height:1.6;
   text-transform:none;letter-spacing:.03em;font-size:.76rem}
-/* The cenote page's questions: headings for the outline, set as the FAQ's summary line. */
-.faq summary h3{font:inherit;margin:0}
-h2.tag{font-weight:inherit}
-.guide__qa{padding-top:0}

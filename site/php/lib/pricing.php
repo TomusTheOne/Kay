@@ -196,6 +196,14 @@ function kay_quote(array $input): ?array
     $totalMxn = $option['priceMxn'] * $divers + $pickup['priceMxn'];
     $rate     = kay_deposit_rate();
 
+    // A diver may settle the whole thing now instead of leaving a deposit.
+    // "full" only when the field says exactly that: a stale page, a typo or a
+    // tampered payload all fall through to the deposit, so the one thing this
+    // can never do is charge someone more than they agreed to. The amounts
+    // themselves are recomputed here from the catalogue, as always — the
+    // browser chooses which of two figures to charge, never what they are.
+    $payFull = ($input['pay'] ?? '') === 'full';
+
     return [
         'product'     => $product,
         'option'      => $option,
@@ -205,6 +213,10 @@ function kay_quote(array $input): ?array
         'total_mxn'   => $totalMxn,
         'deposit_usd' => (int) round($total * $rate),
         'deposit_mxn' => (int) round($totalMxn * $rate),
+        'pay'         => $payFull ? 'full' : 'deposit',
+        // What Mercado Pago is actually asked for.
+        'charge_usd'  => $payFull ? $total    : (int) round($total * $rate),
+        'charge_mxn'  => $payFull ? $totalMxn : (int) round($totalMxn * $rate),
     ];
 }
 
@@ -217,6 +229,13 @@ function kay_validate(array $input): ?string
     }
     if (mb_strlen(trim((string) ($input['name'] ?? ''))) < 2) {
         return 'name';
+    }
+    // kay_quote() already treats anything that is not "full" as a deposit, so
+    // this cannot change what is charged. It is here so a wrong value is seen
+    // rather than silently absorbed: on the money path, a typo that quietly
+    // does something reasonable is how a bug lives for months.
+    if (!in_array($input['pay'] ?? 'deposit', ['deposit', 'full'], true)) {
+        return 'pay';
     }
 
     $date = (string) ($input['date'] ?? '');

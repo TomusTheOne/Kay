@@ -7,12 +7,13 @@ import { GUIDE_PUBLISHED } from "@/content/cenotes";
  * Header, preview notice and footer around every page of the cenote guide.
  * The menu is the home page's, pointing back at its sections.
  */
-export default function GuideFrame({ t, locale, path, paths, preview = !GUIDE_PUBLISHED, children }: {
-  t: Dictionary; locale: Locale; path: string; children: React.ReactNode;
-  /** Per language, where the page's address is translated (the product pages). */
-  paths?: Record<Locale, string>;
-  /** The "preview" notice: the guide's, until it is published. */
+export default function GuideFrame({ t, locale, path, preview = !GUIDE_PUBLISHED, children }: {
+  t: Dictionary; locale: Locale; path: string;
+  /** The cenote guide's preview notice. An experience page is not part of
+      the guide and passes false: whether the guide is published says
+      nothing about whether this page is. */
   preview?: boolean;
+  children: React.ReactNode;
 }) {
   const home = pathFor(locale);
   const nav = [
@@ -26,7 +27,7 @@ export default function GuideFrame({ t, locale, path, paths, preview = !GUIDE_PU
   return (
     <>
       <Surface locale={locale} nav={nav} reserve={t.nav.reserve} reserveLong={t.nav.reserveLong}
-               menuLabel={t.nav.menu} langLabel={t.nav.language} path={path} paths={paths} scrolls />
+               menuLabel={t.nav.menu} langLabel={t.nav.language} path={path} scrolls />
       <main id="main" className="guide">
         {preview && <p className="guide__preview data" role="note">{t.cenotes.preview}</p>}
         {children}

@@ -1,14 +1,14 @@
 {
   "meta": {
-    "title": "Plongée en cenote et sur récif à Tulum · PADI | Kay Diving",
-    "description": "Plongée guidée en cenote et sur le récif à Tulum, du baptême au PADI Open Water et Advanced. Équipement, entrées, transport et collations inclus. Dès {from} $."
+    "title": "Plongée cenote et récif à Tulum | Kay Diving — Formations PADI",
+    "description": "Plongée guidée en cenote et sur le récif à Tulum, du baptême au PADI Open Water et Advanced. Équipement, entrée des cenotes, transport sur les sites et collations inclus. À partir de {from} $."
   },
   "nav": {
     "about": "À propos",
     "products": "Plongées & stages",
     "included": "Ce qui est inclus",
     "gallery": "Galerie",
-    "faq": "Questions",
+    "faq": "FAQ",
     "reserve": "Réserver",
     "reserveLong": "Réserver une plongée",
     "menu": "Menu",
@@ -27,7 +27,8 @@
     "alt": "Un plongeur en silhouette sur la lueur turquoise d'un cenote de Tulum, parmi des branches nues qui montent dans l'eau",
     "water": "EAU",
     "viz": "VISI",
-    "from": "DÈS",
+    "fromDive": "PLONGÉE DÈS",
+    "fromSnorkel": "SNORKELING",
     "agency": "PADI",
     "agencyLabel": "FORMATIONS"
   },
@@ -122,23 +123,324 @@
     "sites": {
       "angelita": {
         "name": "Cenote Angelita",
-        "depth": "35–38 m",
+        "depth": "30 m",
         "note": "Le nuage d'hydrogène sulfuré, traversé de branches mortes qui le percent."
       },
       "el-pit": {
         "name": "Cenote El Pit",
-        "depth": "30–32 m",
+        "depth": "30 m",
         "note": "La lumière descend tout le puits et reste là, suspendue."
       },
       "others": {
         "name": "Les autres cenotes",
-        "depth": "6–16 m",
+        "depth": "jusqu'à 18 m",
         "note": "Choisis avec vous selon votre niveau et ce que vous attendez de la journée."
       }
     },
     "seasonTag": "Saison",
     "seasonValue": {
       "bull-sharks": "de novembre à mars"
+    }
+  },
+  "exp": {
+    "crumb": "Plongées et formations",
+    "bookTag": "Réserver",
+    "bookH2": "Réservez votre place.",
+    "whoTag": "Pour qui",
+    "dayTag": "Le déroulé de la journée",
+    "includedTag": "Ce qui est compris",
+    "sitesTag": "Où l'on plonge",
+    "faqTag": "Questions",
+    "moreTag": "Lire la suite",
+    "more": "Voir toutes les plongées et formations →",
+    "more2": "Voir le détail →",
+    "items": {
+      "cenote-diving": {
+        "title": "Plongée en cenote à Tulum — tarifs et prérequis | Kay Diving",
+        "description": "Plongée guidée dans les cenotes de Tulum : deux ou trois plongées, équipement, entrées et transport sur les sites compris. Dès 200 $ US. Open Water exigé.",
+        "h1": "Plongée en cenote à Tulum",
+        "lede": "Deux ou trois plongées dans les cavernes noyées de la Riviera Maya, avec un guide qui les connaît une par une. Les cenotes de la journée, vous les choisissez avec nous.",
+        "who": "Cette sortie s'adresse aux plongeurs certifiés. Avec un Open Water, vous plongez les cenotes qui restent dans les dix-huit mètres, c'est-à-dire la plupart, et les plus beaux pour la lumière. Angelita et El Pit se plongent à trente mètres : ceux-là demandent un Advanced Open Water ou un Deep Diver — ce n'est pas notre règle, c'est la profondeur. Si vous n'avez jamais plongé, ce n'est pas encore pour vous : commencez par le Discover Scuba, qui existe précisément pour ça. Nous plongeons quatre plongeurs par guide au maximum, et la proportion ne se négocie pas : plus de monde, plus de guides — un groupe de huit part ensemble, avec deux.",
+        "day": [
+          "Départ à 8h00, 8h30 ou 9h00. Si nous venons vous chercher à Tulum ou un peu en dehors, le transport s'ajoute à la réservation ; si vous venez par vos propres moyens, rendez-vous au point de rencontre.",
+          "Avant la première plongée, nous ajustons l'équipement avec vous et faisons le briefing : où passe le fil, ce que vous allez voir, combien de temps cela dure. Dans un cenote ce n'est pas une formalité — c'est l'orientation qui rend la plongée tranquille.",
+          "Chaque plongée dure de trente à quarante-cinq minutes. Entre les deux, une pause avec des collations, comprises, et la route vers le cenote suivant si la journée en compte deux.",
+          "Avec trois plongées, les deux premières se font à Dos Ojos et la troisième dans un autre cenote que vous choisissez. Avec deux, toute la journée se construit autour de ce que vous voulez voir."
+        ],
+        "sites": "Les cenotes de la journée se choisissent avec vous, et ceux qui vous sont ouverts dépendent de votre niveau. Chacun a sa fiche : profondeur, ce à quoi il ressemble à l'intérieur, distance depuis Tulum.",
+        "faq": [
+          {
+            "q": "Faut-il être certifié pour plonger en cenote ?",
+            "a": "Oui. Cette sortie demande un Open Water ou plus. Sans certification, vous pouvez tout de même plonger avec nous en Discover Scuba, une plongée guidée pensée pour une première fois."
+          },
+          {
+            "q": "Combien de plongeurs par guide ?",
+            "a": "Quatre au maximum. S'il y a plus de monde, il y a plus de guides : un groupe de huit part ensemble, avec deux guides. La proportion ne bouge pas."
+          },
+          {
+            "q": "Est-ce de la plongée souterraine ?",
+            "a": "Non, c'est de la plongée en caverne, et la limite entre les deux est précise. En caverne, la source de lumière principale est le soleil : nous utilisons une lampe par endroits, jamais comme lumière première. En grotte, la lumière première est la lampe. L'autre différence est la distance jusqu'à la surface : jusqu'à soixante mètres de progression avec un peu de lumière du jour, c'est une caverne. Au-delà de ces soixante mètres c'est une grotte même si la lumière passe encore, et c'en est une aussi en deçà dès que la lumière du jour a disparu. La grotte exige une certification Full Cave ; la caverne, l'Open Water au minimum."
+          },
+          {
+            "q": "Jusqu'à quelle profondeur ?",
+            "a": "La plupart des cenotes se planifient à dix-huit mètres. Angelita et El Pit se plongent à trente, et ceux-là demandent un Advanced ou un Deep. Les deux cenotes descendent bien plus bas ; trente mètres, c'est jusqu'où nous allons."
+          },
+          {
+            "q": "L'eau est-elle froide ?",
+            "a": "L'eau des cenotes tourne autour de vingt-cinq degrés toute l'année. La combinaison est comprise."
+          },
+          {
+            "q": "Puis-je choisir les cenotes ?",
+            "a": "Oui, et cela fait partie de la façon dont la journée se construit. Vous nous dites ce que vous voulez voir, nous vous disons ce qui est dans votre niveau, et le choix final est le vôtre au moment de réserver."
+          },
+          {
+            "q": "Combien ça coûte ?",
+            "a": "Deux plongées 200 $ US par personne, trois plongées 250 $ US. Équipement, entrée des cenotes, transport entre les sites et collations compris ; la prise en charge à l'hôtel s'ajoute à part."
+          }
+        ]
+      },
+      "open-water": {
+        "title": "Formation PADI Open Water à Tulum — tarif et durée | Kay Diving",
+        "description": "Devenez plongeur certifié PADI Open Water à Tulum : trois jours, cinq plongées entre Casa Cenote et le récif de Tankah, matériel et licence compris. 600 $ US.",
+        "h1": "Formation PADI Open Water à Tulum",
+        "lede": "La certification qui vous ouvre la plongée dans le monde entier, en trois jours et cinq plongées, entre un cenote ouvert et le récif. Aucune expérience préalable.",
+        "who": "Pour qui n'a jamais plongé, ou a fait un baptême et veut la vraie certification. Nous ne demandons aucune expérience : ce qu'il faut, c'est être à l'aise dans l'eau et savoir nager. La formation est la même certification PADI qu'ailleurs dans le monde, et la carte que vous repartez avec n'expire pas.",
+        "day": [
+          "La formation se déroule sur trois jours. Chacun commence entre huit et neuf heures du matin et se termine entre trois et quatre heures de l'après-midi.",
+          "La théorie peut se faire de deux façons, et les deux mènent exactement à la même certification : en ligne avant d'arriver, et les trois jours ici ne sont alors que de l'eau ; ou répartie sur ces mêmes trois jours, entre une plongée et la suivante. La première vous laisse plus de temps libre à Tulum ; la seconde vous évite de réviser avant les vacances.",
+          "L'eau commence à Casa Cenote, à sept mètres. Ouvert, peu profond et clair : c'est là que se travaillent les exercices — vider son masque, récupérer son détendeur, contrôler sa flottabilité — jusqu'à ce qu'ils viennent sans y penser. La meilleure salle de classe qui soit.",
+          "Le dernier jour, deux plongées sur le récif de Tankah, l'une à onze mètres et l'autre à dix-huit. Ce sont elles qui closent la formation : les mêmes exercices, là où ils comptent vraiment.",
+          "À la fin, nous vous enregistrons auprès de PADI et la carte est établie à votre nom. La licence est dans le prix : pas de frais surprise à l'arrivée."
+        ],
+        "sites": "La formation se déroule entre Casa Cenote, un cenote ouvert d'eau saumâtre au bord de la mer, et le récif de Tankah. Deux milieux différents à dessein : ce que vous apprenez dans l'un vous sert dans l'autre.",
+        "faq": [
+          {
+            "q": "Combien de temps dure la formation ?",
+            "a": "Trois jours. Chaque jour commence entre huit et neuf heures du matin et se termine entre trois et quatre heures de l'après-midi."
+          },
+          {
+            "q": "Faut-il savoir plonger ?",
+            "a": "Non. La formation est faite pour qui part de zéro. Tout ce que nous demandons, c'est d'être à l'aise dans l'eau et de savoir nager."
+          },
+          {
+            "q": "Dois-je réviser avant d'arriver ?",
+            "a": "Comme vous préférez. La théorie peut se faire en ligne avant d'arriver, et les trois jours ici ne sont alors que de la plongée ; ou pendant ces trois jours, entre une plongée et la suivante. La certification est la même dans les deux cas."
+          },
+          {
+            "q": "Jusqu'à quelle profondeur va la formation ?",
+            "a": "Les premières plongées, à Casa Cenote, sont à sept mètres. Le dernier jour, deux plongées sur le récif de Tankah, l'une à onze mètres et l'autre à dix-huit, et ce sont elles qui closent la formation."
+          },
+          {
+            "q": "Que comprend le tarif ?",
+            "a": "Les cinq plongées, l'équipement complet, le matériel de formation, l'entrée des sites, les collations, le transport entre les sites et la licence PADI. 600 $ US par personne."
+          },
+          {
+            "q": "La certification est-elle valable ailleurs ?",
+            "a": "Oui. L'Open Water est la certification d'entrée de PADI, reconnue dans n'importe quel centre de plongée au monde. Elle n'expire pas."
+          },
+          {
+            "q": "Que puis-je plonger ensuite ?",
+            "a": "Jusqu'à dix-huit mètres, avec un binôme certifié et sans guide si vous le souhaitez. Pour les cenotes profonds de Tulum — Angelita, El Pit — l'étape suivante est l'Advanced."
+          }
+        ]
+      },
+      "discover-scuba": {
+        "title": "Baptême de plongée à Tulum — sans certification | Kay Diving",
+        "description": "Votre première plongée à Tulum, encadrée et sans certification, dans l'eau claire de Casa Cenote. Elle compte comme la première de la formation Open Water. Dès 140 $.",
+        "h1": "Baptême de plongée à Tulum",
+        "lede": "Une première fois sous l'eau, encadrée du début à la fin, dans un cenote ouvert d'eau claire et peu profonde. Ni certification ni expérience.",
+        "who": "Pour qui n'a jamais respiré sous l'eau et veut savoir ce que cela fait avant de s'engager dans une formation. Nous ne demandons rien au préalable, sinon d'être à l'aise dans l'eau. Ce n'est pas une certification : c'est une plongée encadrée, avec un instructeur à côté de vous en permanence, et jamais au-delà de sept mètres. Dans les cenotes nous plongeons quatre plongeurs par guide au maximum, et la proportion ne se négocie pas : plus de monde, plus de guides.",
+        "day": [
+          "À terre d'abord, l'essentiel : respirer au détendeur, équilibrer ses oreilles, les quelques signes que vous utiliserez en bas. Court à dessein — ce qu'il faut pour être tranquille, pas un examen.",
+          "Puis on répète ces mêmes gestes debout, dans la partie basse de Casa Cenote, jusqu'à ce qu'ils viennent sans y penser.",
+          "Et ensuite la plongée, environ quarante-cinq minutes, l'instructeur à côté de vous. Casa Cenote est ouvert, clair et peu profond : on voit le ciel d'en bas et les mangroves entrent dans l'eau.",
+          "Avec deux plongées, la seconde n'a rien à voir avec la première — vous ne pensez plus à respirer, vous regardez."
+        ],
+        "sites": "Casa Cenote, à quelques minutes de Tulum. Un cenote ouvert d'eau saumâtre au bord de la mer, bordé de mangroves : peu profond, clair et calme, exactement ce qu'il faut pour une première fois.",
+        "faq": [
+          {
+            "q": "Faut-il une certification ?",
+            "a": "Non. C'est précisément à cela que sert cette plongée : elle est encadrée du début à la fin et ne demande rien au préalable."
+          },
+          {
+            "q": "Jusqu'à quelle profondeur ?",
+            "a": "Sept mètres, la limite de ce type de plongée. Casa Cenote est peu profond pour cette raison même."
+          },
+          {
+            "q": "Combien de plongeurs par guide ?",
+            "a": "Quatre au maximum dans les cenotes. S'il y a plus de monde, il y a plus de guides."
+          },
+          {
+            "q": "Combien de temps dure la plongée ?",
+            "a": "Environ quarante-cinq minutes sous l'eau, plus l'explication et la pratique avant."
+          },
+          {
+            "q": "Combien ça coûte ?",
+            "a": "Une plongée 140 $ US par personne, deux plongées 200 $ US. Matériel, entrée du cenote, transport sur le site et collations compris."
+          },
+          {
+            "q": "Et si je veux me certifier ensuite ?",
+            "a": "Cela compte pour vous : cette plongée est prise comme la première des cinq de la formation Open Water. L'étape suivante, c'est trois jours, et vous repartez avec une certification valable dans le monde entier."
+          }
+        ]
+      },
+      "reef-cenote": {
+        "title": "Récif et cenote dans la même journée, à Tulum | Kay Diving",
+        "description": "Deux plongées en une journée : le récif de Tankah en eau salée et Casa Cenote en eau douce. Matériel, entrées et transferts compris. 200 $ US. Open Water.",
+        "h1": "Récif et cenote dans la même journée",
+        "lede": "Les deux moitiés de ce qui rend cette côte unique, dans la même matinée : le récif au large de Tankah et l'eau douce de Casa Cenote.",
+        "who": "Pour les plongeurs Open Water qui n'ont qu'une journée et préfèrent ne pas choisir. C'est aussi la meilleure façon de comprendre pourquoi on vient plonger ici : en quelques kilomètres, l'eau, la lumière, la vie et la sensation changent entièrement. Dans les cenotes nous plongeons quatre plongeurs par guide au maximum, et la proportion ne se négocie pas : plus de monde, plus de guides.",
+        "day": [
+          "On commence par le récif de Tankah, en eau salée. Un récif bas et tranquille, de ceux que l'on plonge sans courant et avec une bonne visibilité.",
+          "Puis l'eau douce. Casa Cenote est à quelques minutes : ouvert, avec les mangroves qui entrent dans l'eau et la lumière qui tombe entre les racines. La différence avec l'heure précédente est totale.",
+          "Entre les deux, une pause avec des collations, comprises, et la route entre les sites.",
+          "Chaque plongée dure environ quarante-cinq minutes et aucune ne dépasse neuf mètres : la journée demande beaucoup aux yeux et rien aux poumons."
+        ],
+        "sites": "Le récif de Tankah et Casa Cenote, tous deux à quelques minutes de Tulum et l'un de l'autre.",
+        "faq": [
+          {
+            "q": "Quelle certification faut-il ?",
+            "a": "Open Water ou plus. Aucune des deux plongées ne dépasse neuf mètres."
+          },
+          {
+            "q": "Pourquoi un récif et un cenote le même jour ?",
+            "a": "Parce que ce sont deux mondes à quinze minutes l'un de l'autre, et que les voir à la suite est ce qui rend cette côte compréhensible."
+          },
+          {
+            "q": "Combien de plongeurs par guide ?",
+            "a": "Quatre au maximum dans le cenote. S'il y a plus de monde, il y a plus de guides."
+          },
+          {
+            "q": "Que comprend la sortie ?",
+            "a": "Les deux plongées, le matériel, l'entrée du cenote, le transport entre les sites et les collations. 200 $ US par personne."
+          },
+          {
+            "q": "Y a-t-il du courant sur le récif ?",
+            "a": "Tankah est un récif bas et abrité. Ce n'est ni une plongée de courant ni une plongée profonde."
+          }
+        ]
+      },
+      "advanced-ow": {
+        "title": "Formation PADI Advanced Open Water à Tulum — deux jours | Kay Diving",
+        "description": "Certification PADI Advanced Open Water à Tulum en deux jours : cinq plongées de spécialité jusqu'à trente mètres, à Angelita ou El Pit. Brevet compris.",
+        "h1": "Formation PADI Advanced Open Water à Tulum",
+        "lede": "Cinq plongées de spécialité en deux jours, qui vous emmènent à trente mètres et vous ouvrent les deux cenotes profonds de Tulum. Matériel et brevet compris.",
+        "who": "Pour les plongeurs qui ont déjà l'Open Water et veulent deux choses : la profondeur, et les cenotes qui l'exigent. Angelita et El Pit sont fermés à un Open Water — non par une règle de notre fait, mais parce qu'ils passent trente mètres — et cette formation est la porte. Dans les cenotes nous plongeons quatre plongeurs par guide au maximum, et la proportion ne se négocie pas : plus de monde, plus de guides.",
+        "day": [
+          "L'Advanced n'est pas de la théorie avec un examen à la fin : ce sont cinq plongées de spécialité, et l'on apprend en les faisant. Le matériel d'étude est compris.",
+          "Deux jours, en général : deux plongées le premier, trois le second. Si vous préférez des journées moins chargées, cela s'étale sur trois — deux, deux et une. À vous de voir.",
+          "Quatre des cinq spécialités sont fixées : plongée profonde, navigation subaquatique, flottabilité de haute performance et plongée de nuit. La cinquième, vous la choisissez entre plongée dérivante, nitrox et plongée en caverne.",
+          "Les plongées profondes se font au Cenote Angelita ou à El Pit, les deux cenotes profonds de la région et parmi les sites les plus saisissants que vous plongerez. À Angelita, un nuage d'hydrogène sulfuré vers trente mètres, traversé de branches mortes qui montent ; à El Pit, la lumière descend tout le puits et y reste, immobile.",
+          "Vous terminez certifié jusqu'à trente mètres, et ces deux cenotes cessent de vous être fermés."
+        ],
+        "sites": "Le Cenote Angelita et le Cenote El Pit, les deux cenotes profonds près de Tulum. Chacun a sa fiche, avec la profondeur et ce à quoi il ressemble à l'intérieur.",
+        "faq": [
+          {
+            "q": "Combien de temps dure la formation ?",
+            "a": "En général deux jours : deux plongées le premier, trois le second. Elle peut aussi se faire sur trois jours, avec deux, deux et une. C'est vous qui décidez."
+          },
+          {
+            "q": "Quelles sont les spécialités ?",
+            "a": "Quatre sont fixées : plongée profonde, navigation subaquatique, flottabilité de haute performance et plongée de nuit. La cinquième est au choix, entre plongée dérivante, nitrox et plongée en caverne."
+          },
+          {
+            "q": "Que faut-il pour commencer ?",
+            "a": "La certification Open Water, ou son équivalent d'une autre organisation."
+          },
+          {
+            "q": "Jusqu'à quelle profondeur ?",
+            "a": "Trente mètres, la limite de l'Advanced et ce qui ouvre Angelita et El Pit."
+          },
+          {
+            "q": "Où cela se passe-t-il ?",
+            "a": "Les plongées profondes, au Cenote Angelita ou à El Pit."
+          },
+          {
+            "q": "Combien de plongeurs par guide ?",
+            "a": "Quatre au maximum dans les cenotes. S'il y a plus de monde, il y a plus de guides."
+          },
+          {
+            "q": "Que comprend le tarif ?",
+            "a": "Les cinq plongées de spécialité, le matériel, le support d'étude, l'entrée des cenotes, le transport, les collations et la certification Advanced Open Water elle-même. 550 $ US par personne."
+          }
+        ]
+      },
+      "bull-sharks": {
+        "title": "Plongée avec les requins-bouledogues à Playa del Carmen | Kay Diving",
+        "description": "Deux plongées depuis le bateau avec les requins-bouledogues au large de Playa del Carmen, de novembre à mars. Départ de Tulum. 250 $ US. Advanced exigé.",
+        "h1": "Plongée avec les requins-bouledogues",
+        "lede": "Chaque hiver, les femelles requins-bouledogues remontent vers la côte au large de Playa del Carmen. Nous faisons les quarante-cinq minutes de route et nous allons les voir.",
+        "who": "Pour les plongeurs Advanced Open Water ou équivalent, sans exception — c'est de la plongée depuis un bateau, en pleine eau, avec de grands animaux. Si vous avez l'Open Water et que vous voulez faire cela, le chemin passe d'abord par l'Advanced.",
+        "day": [
+          "Départ de Tulum tôt et quarante-cinq minutes de route jusqu'à Playa del Carmen. De là, on embarque.",
+          "La première plongée est celle des requins. La seconde se fait sur un récif bas, entre huit et vingt mètres.",
+          "Ce sont des animaux sauvages et libres : ils viennent parce que la saison les amène, pas parce qu'on les appelle. C'est exactement ce qui en fait l'intérêt, et c'est aussi ce qui fait que personne ne peut vous promettre combien vous en verrez.",
+          "La saison va de novembre à mars. En dehors de ces mois ils ne sont pas là, et nous ne le vendons pas."
+        ],
+        "sites": "Au large de Playa del Carmen, à quarante-cinq minutes de Tulum, depuis un bateau.",
+        "faq": [
+          {
+            "q": "Quand est la saison ?",
+            "a": "De novembre à mars. En dehors de ces mois, les requins-bouledogues ne sont pas sur la côte et nous ne proposons pas la sortie."
+          },
+          {
+            "q": "Quelle certification faut-il ?",
+            "a": "Advanced Open Water ou équivalent, sans exception."
+          },
+          {
+            "q": "Les voit-on à coup sûr ?",
+            "a": "Cela ne peut pas être garanti. Ce sont des animaux sauvages en liberté ; la saison est très fiable, mais une observation n'est jamais une promesse."
+          },
+          {
+            "q": "Est-ce de la plongée en cage ?",
+            "a": "Non. C'est de la plongée en pleine eau, depuis un bateau, avec un guide."
+          },
+          {
+            "q": "Que comprend la sortie ?",
+            "a": "Les deux plongées, le matériel, le transport depuis Tulum et les collations. 250 $ US par personne."
+          }
+        ]
+      },
+      "snorkel": {
+        "title": "Sortie snorkeling dans les cenotes de Tulum | Kay Diving",
+        "description": "Une demi-journée de snorkeling dans trois cenotes près de Tulum, sans certification ni expérience. Matériel, entrées et transport compris. 125 $ US.",
+        "h1": "Snorkeling dans les cenotes de Tulum",
+        "lede": "Trois cenotes différents en une demi-journée, sans bloc, sans formation et sans se presser. On finit dans l'une des meilleures taquerías du village.",
+        "who": "Pour qui veut voir les cenotes de l'intérieur sans se mettre à la plongée : les familles, celui ou celle qui accompagne un plongeur, ou simplement qui préfère la surface. Ni expérience ni certification, et le matériel de snorkeling est compris. Il n'y a pas d'âge minimum.",
+        "day": [
+          "Une demi-journée, trois cenotes. Chacun différent du précédent à dessein : la forme, la lumière et ce que l'on voit d'en haut changent.",
+          "Depuis la surface, on voit bien plus que ce que les gens imaginent. En eau claire et peu profonde, avec la lumière qui descend, le fond et les formations se voient entièrement.",
+          "Entre l'un et l'autre, la route et les collations, comprises, et le rythme est celui du groupe.",
+          "Et à la fin, des tacos. Pas compris dans le prix — compris dans la journée."
+        ],
+        "sites": "Trois de nos cenotes préférés près de Tulum, choisis le jour même selon l'état de l'eau et ce que le groupe veut voir.",
+        "faq": [
+          {
+            "q": "Faut-il savoir plonger ?",
+            "a": "Non. C'est du snorkeling : on respire en surface, avec masque et tuba. Aucune certification."
+          },
+          {
+            "q": "Que comprend la sortie ?",
+            "a": "Le masque et le tuba, l'entrée des trois cenotes, le transport entre eux et les collations. 125 $ US par personne."
+          },
+          {
+            "q": "Combien de temps dure-t-elle ?",
+            "a": "Elle commence entre huit et neuf heures du matin et se termine entre une et deux heures de l'après-midi. Une demi-journée, sans se presser."
+          },
+          {
+            "q": "Y a-t-il un âge minimum ?",
+            "a": "Non. Dites-nous les âges à la réservation et nous construisons la journée autour du groupe."
+          },
+          {
+            "q": "Est-ce adapté à qui nage mal ?",
+            "a": "Dites-le-nous avant de réserver et nous construisons la journée autour. Il y a des gilets, et les cenotes sont choisis le jour même."
+          },
+          {
+            "q": "Que faut-il apporter ?",
+            "a": "Maillot, serviette et crème solaire biodégradable. Nous apportons le reste."
+          }
+        ]
+      }
     }
   },
   "included": {
@@ -168,7 +470,7 @@
       },
       "padi-licence": {
         "name": "Brevet PADI",
-        "text": "La formation Open Water se termine par une certification reconnue dans le monde entier."
+        "text": "Les deux formations se terminent par une certification reconnue dans le monde entier, comprise dans le prix."
       }
     }
   },
@@ -181,6 +483,15 @@
       "gallery-3": "Sous le ponton · Casa Cenote",
       "gallery-bull-shark": "Requin bouledogue au large de Playa del Carmen"
     }
+  },
+  "reviews": {
+    "tag": "Avis",
+    "h2": "Ce que disent les plongeurs une fois revenus sur la terre ferme.",
+    "intro": "Cinq des avis de Kay Diving sur Google, mot pour mot, dans la langue où chacun les a écrits.",
+    "stars": "{n} sur 5",
+    "score": "{rating} sur Google · {n} avis",
+    "onGoogle": "Google",
+    "all": "Les lire sur Google ↗"
   },
   "visit": {
     "tag": "Jour sans plongée",
@@ -198,7 +509,7 @@
       "dive": "Plongée"
     },
     "weDive": "On y plonge",
-    "weDiveCta": "Guide de plongée : {name}",
+    "weDiveCta": "Voir la fiche",
     "goodLabel": "Parfait pour",
     "tipLabel": "Bon à savoir",
     "note": "Horaires, tarifs et règles changent sans prévenir, et chaque cénote a sa propre gestion : vérifiez le jour même avant de vous déplacer. La plongée en caverne demande une formation, un équipement et un guide spécialisés — cela ne s'improvise pas.",
@@ -358,220 +669,6 @@
     "text": "Votre sécurité passe avant tout — et une fois qu'elle est assurée, il ne reste qu'à profiter de chaque minute sous l'eau.",
     "cite": "Kay Diving · Tulum"
   },
-  "reviews": {
-    "tag": "Avis Google",
-    "h2": "<span class=\"ital grad\">{rating}</span> sur 5<br>dans les avis Google.",
-    "h2Plain": "Avec leurs<br>propres mots.",
-    "intro": "Mot pour mot, dans la langue où ils ont été écrits : quelques-uns des {count} avis laissés sur notre fiche Google.",
-    "introPlain": "Mot pour mot, dans la langue où ils ont été écrits, depuis notre fiche Google.",
-    "all": "Lire tous les avis sur Google",
-    "stars": "{n} étoiles sur 5",
-    "badge": "Note Google : {rating} sur 5",
-    "cenoteH2": "Ce que les plongeurs disent {of}"
-  },
-  "product": {
-    "kinds": {
-      "dive": "Plongée guidée",
-      "course": "Formation PADI",
-      "snorkel": "Sortie snorkeling"
-    },
-    "bookKind": {
-      "dive": "Réserver cette plongée",
-      "course": "Réserver cette formation",
-      "snorkel": "Réserver cette sortie"
-    },
-    "ask": "Nous écrire sur WhatsApp",
-    "whatsappText": "Bonjour Kay Diving ! J'ai une question sur {the}.",
-    "more": "Détails",
-    "back": "Toutes nos plongées et formations",
-    "priceTag": "Prix par personne",
-    "includedTag": "Compris dans le prix",
-    "whereTag": "Où l'on va",
-    "snorkelWhere": "Des cenotes qui se prêtent au snorkeling",
-    "faqTag": "Questions",
-    "faqH2": "Ce qu'on nous demande",
-    "otherTag": "D'autres façons d'aller sous l'eau",
-    "qPrice": "Combien coûte {the} ?",
-    "aPrice": "{prices} par personne, en dollars américains. Le prix comprend {included}. Seul supplément : la prise en charge à l'hôtel dans le village de Tulum, +{pickup} pour toute la réservation.",
-    "qMeet": "Où se retrouve-t-on, et à quelle heure ?",
-    "aMeet": "Au {place}, à Tulum, sans supplément. Départs à {times} ; vous pouvez proposer un autre horaire en réservant, on vérifie avant de confirmer.",
-    "qBook": "Comment réserver ?",
-    "aBook": "En ligne, depuis cette page. {intro}",
-    "items": {
-      "discover-scuba": {
-        "the": "le baptême Discover Scuba",
-        "h1": "Baptême de plongée à Tulum : Discover Scuba",
-        "title": "Baptême de plongée à Tulum, sans niveau requis | Kay Diving",
-        "meta": "Votre première plongée à Casa Cenote, Tulum : un cenote à ciel ouvert de 7 m au plus, avec un moniteur PADI à vos côtés. Aucune expérience requise. Dès 140 $.",
-        "body": [
-          "Discover Scuba est le baptême de plongée de PADI, pensé pour ceux qui n'ont jamais respiré sous l'eau. Votre guide vous apprend les bases de la plongée, puis vous emmène à Casa Cenote : un cenote à ciel ouvert entouré de mangroves, où l'eau douce et l'eau salée se mélangent, avec des poissons, des tortues et la lumière du jour jusqu'au fond, à sept mètres au plus.",
-          "Une plongée, ou deux si vous voulez rester plus longtemps sous l'eau ; la deuxième n'a lieu que si l'état de la mer le permet ce jour-là. Ni examen ni brevet à la clé : juste un premier aperçu du monde sous-marin, un guide à vos côtés, et une très belle matinée. Pour aller plus loin, l'étape suivante est notre formation Open Water."
-        ],
-        "faq": [
-          {
-            "q": "Faut-il de l'expérience ?",
-            "a": "Aucune. Discover Scuba est fait pour ceux qui n'ont jamais plongé : ni brevet ni expérience, juste un guide et une eau peu profonde."
-          },
-          {
-            "q": "À quelle profondeur descend-on ?",
-            "a": "Sept mètres au plus, à Casa Cenote, un cenote à ciel ouvert où la lumière du jour descend jusqu'au fond."
-          },
-          {
-            "q": "Obtient-on un brevet ?",
-            "a": "Non : Discover Scuba est une première expérience encadrée, pas une formation. Pour plonger avec votre propre brevet, suivez la formation Open Water, cinq plongées entre Casa Cenote et le récif de Tankah."
-          }
-        ]
-      },
-      "reef-cenote": {
-        "the": "la plongée Récif & Cenote",
-        "h1": "Plongée récif et cenote à Tulum",
-        "title": "Plongée récif et cenote à Tulum, en une matinée | Kay Diving",
-        "meta": "Deux plongées en une matinée près de Tulum : le récif mésoaméricain au large de Tankah, avec ses tortues, puis l'eau douce de Casa Cenote. Open Water. 200 $.",
-        "body": [
-          "Les deux moitiés de ce qui fait tout l'intérêt de cette côte, en une seule matinée. D'abord le récif mésoaméricain au large de Tankah, au nord de Tulum : une plongée peu profonde, autour de neuf mètres, avec des tortues et des poissons de récif, dans une eau un peu plus chaude que celle des cenotes. Puis Casa Cenote, un cenote à ciel ouvert entouré de mangroves, où l'eau douce et l'eau salée se mélangent.",
-          "Eau salée et eau douce, tortues et racines, avec un niveau Open Water. L'équipement, l'entrée du cenote, les collations et l'eau, et le transport entre les deux sites sont compris dans le prix."
-        ],
-        "faq": [
-          {
-            "q": "Quel niveau faut-il ?",
-            "a": "L'Open Water ou un équivalent. Les deux plongées restent peu profondes, autour de neuf mètres au plus."
-          },
-          {
-            "q": "Quand le récif est-il le plus beau ?",
-            "a": "Les conditions sur le récif sont généralement meilleures au printemps et au début de l'été. Le cenote, à l'abri du vent et de la houle, se plonge bien toute l'année."
-          }
-        ]
-      },
-      "cenote-diving": {
-        "the": "la plongée en cenote",
-        "h1": "Plongée en cenote à Tulum",
-        "title": "Plongée en cenote à Tulum : Dos Ojos et El Pit | Kay Diving",
-        "meta": "Plongées guidées dans les cenotes de Tulum : Dos Ojos, Car Wash, Angelita, El Pit, choisis avec vous selon votre niveau. 2 plongées pour 200 $, 3 pour 250 $.",
-        "body": [
-          "Certaines des plus belles cavernes noyées du monde se trouvent autour de Tulum. Les cenotes, vous les choisissez avec nous, et ceux qui vous sont ouverts dépendent de votre niveau. Avec l'Open Water : des cenotes comme Dos Ojos, Car Wash, Tak Be Ha et Nicte-Ha, pour la plupart entre six et seize mètres. Avec l'Advanced Open Water ou la spécialité Deep : les deux cenotes profonds, Angelita et El Pit, au-delà de trente mètres.",
-          "La plongée en cavern reste dans la zone de lumière naturelle, toujours à portée de l'entrée : ce n'est pas de la plongée en cave, et votre niveau Open Water la couvre. Avec deux plongées, vous choisissez les deux cenotes ; avec trois, les deux premières ont lieu à Dos Ojos et la troisième dans un autre cenote de votre choix."
-        ],
-        "faq": [
-          {
-            "q": "Quel cenote plonger en premier ?",
-            "a": "Dos Ojos est le grand classique pour une première caverne : neuf à dix mètres, une eau cristalline et la lumière du jour tout du long. Casa Cenote, à ciel ouvert et profond de sept mètres au plus, est plus doux encore."
-          },
-          {
-            "q": "Peut-on plonger Angelita ou El Pit avec l'Open Water ?",
-            "a": "Pas en plongée guidée : les deux dépassent 30 mètres et demandent l'Advanced Open Water ou la spécialité Deep. Avec l'Open Water, vous pouvez quand même les plonger pendant notre formation Advanced, jusqu'à 30 mètres."
-          },
-          {
-            "q": "La plongée en cenote, est-ce de la plongée en cave ?",
-            "a": "Non. La plongée en cavern reste dans la zone de lumière naturelle, à portée de l'entrée et toujours avec une remontée directe vers la surface. La plongée en cave dépasse la lumière du jour et demande sa propre certification."
-          }
-        ]
-      },
-      "open-water": {
-        "the": "la formation Open Water",
-        "h1": "Formation PADI Open Water à Tulum",
-        "title": "Formation PADI Open Water à Tulum, cenote & mer | Kay Diving",
-        "meta": "Devenez plongeur à Tulum : la formation PADI Open Water en cinq plongées, à Casa Cenote puis sur le récif de Tankah, jusqu'à 18 m. 600 $, supports inclus.",
-        "body": [
-          "La formation PADI Open Water mène au brevet qui vous permet de plonger partout dans le monde, jusqu'à dix-huit mètres. Aucune expérience n'est nécessaire. Nous l'enseignons en cinq plongées : d'abord à Casa Cenote, un cenote à ciel ouvert de sept mètres au plus, idéal pour débuter, puis en mer, sur le récif de Tankah, où la formation se termine à dix-huit mètres.",
-          "Les supports de cours et votre brevet PADI sont compris, avec l'équipement, les entrées des cenotes, les collations et l'eau. Une fois breveté, vous avez accès à la plupart des cenotes autour de Tulum : ils restent entre six et seize mètres."
-        ],
-        "faq": [
-          {
-            "q": "Faut-il de l'expérience pour commencer ?",
-            "a": "Non. La formation part de zéro : ni brevet ni plongée préalable."
-          },
-          {
-            "q": "Où ont lieu les plongées de la formation ?",
-            "a": "Les premières à Casa Cenote, un cenote à ciel ouvert de sept mètres, et les dernières en mer au large de Tankah, où la formation se termine à dix-huit mètres."
-          },
-          {
-            "q": "Que peut-on plonger une fois breveté ?",
-            "a": "Toute plongée jusqu'à dix-huit mètres, partout dans le monde. Ici, cela veut dire le récif et la plupart des cenotes, dont Dos Ojos et Car Wash ; Angelita et El Pit demandent l'Advanced."
-          }
-        ]
-      },
-      "advanced-ow": {
-        "the": "la formation Advanced",
-        "h1": "Formation PADI Advanced Open Water à Tulum",
-        "title": "Formation PADI Advanced Open Water à Tulum | Kay Diving",
-        "meta": "L'étape après l'Open Water : la formation PADI Advanced à Tulum, cinq plongées de spécialité jusqu'à 30 m à Angelita ou El Pit. 550 $, supports inclus.",
-        "body": [
-          "L'étape après l'Open Water : cinq plongées de spécialité qui vous emmènent à trente mètres, au Cenote Angelita ou au Cenote El Pit, les deux cenotes profonds près de Tulum auxquels l'Open Water seul ne donne pas accès.",
-          "À Angelita, un nuage d'hydrogène sulfuré flotte dans l'eau, traversé de branches mortes ; à El Pit, la lumière descend jusqu'au fond du puits. Les supports de cours sont compris, avec l'équipement, l'entrée du cenote, les collations et l'eau."
-        ],
-        "faq": [
-          {
-            "q": "Qui peut suivre la formation Advanced ?",
-            "a": "Tout plongeur titulaire de l'Open Water ou d'un brevet équivalent."
-          },
-          {
-            "q": "Jusqu'où descend la formation Advanced ?",
-            "a": "Jusqu'à trente mètres, à Angelita ou à El Pit : la profondeur que certifie l'Advanced Open Water."
-          },
-          {
-            "q": "À quoi l'Advanced donne-t-il accès ensuite ?",
-            "a": "Aux cenotes profonds lors de nos journées en cenote, et à la plongée avec les requins bouledogues au large de Playa del Carmen, qui demande l'Advanced Open Water."
-          }
-        ]
-      },
-      "snorkel": {
-        "the": "la sortie snorkeling",
-        "h1": "Snorkeling dans les cenotes de Tulum",
-        "title": "Snorkeling dans les cenotes de Tulum, 3 cenotes | Kay Diving",
-        "meta": "Trois cenotes près de Tulum en une demi-journée, sans expérience : masque, tuba et entrées compris, et pour finir l'une des meilleures taquerías. 125 $.",
-        "body": [
-          "Pour ceux qui veulent un peu d'aventure et beaucoup de calme : trois cenotes différents en une demi-journée, sans expérience et sans bloc. Masque et tuba sont fournis, et les entrées des cenotes, les collations et l'eau sont comprises dans le prix.",
-          "Parmi les cenotes qui se prêtent au snorkeling : Casa Cenote, à ciel ouvert et entouré de mangroves, et Dos Ojos, à l'eau cristalline, avec plus de trente mètres de visibilité. La sortie se termine dans l'une des meilleures taquerías du coin."
-        ],
-        "faq": [
-          {
-            "q": "Faut-il de l'expérience ?",
-            "a": "Non. Ni expérience ni bloc : juste un masque et un tuba, que nous fournissons."
-          },
-          {
-            "q": "Que faut-il apporter ?",
-            "a": "Un maillot de bain et une crème solaire respectueuse du milieu. Masque et tuba sont fournis."
-          },
-          {
-            "q": "Combien de temps dure la sortie ?",
-            "a": "Une demi-journée, dans trois cenotes différents, avec un arrêt final dans l'une des meilleures taquerías du coin."
-          }
-        ]
-      },
-      "bull-sharks": {
-        "the": "la plongée avec les requins bouledogues",
-        "h1": "Plongée avec les requins bouledogues à Playa del Carmen",
-        "title": "Plongée requins bouledogues, Playa del Carmen | Kay Diving",
-        "meta": "De novembre à mars, les requins bouledogues se rassemblent au large de Playa del Carmen, à 45 min de Tulum. Deux plongées en bateau. Niveau Advanced. 250 $.",
-        "body": [
-          "Chaque hiver, les requins bouledogues remontent le long de la côte au large de Playa del Carmen, et nous faisons les quarante-cinq minutes de route depuis Tulum pour aller à leur rencontre. La saison va de novembre à mars.",
-          "Deux plongées depuis le bateau : la première avec les requins, la seconde sur un récif peu profond, entre huit et vingt mètres. Niveau Advanced Open Water ou équivalent exigé, sans exception."
-        ],
-        "faq": [
-          {
-            "q": "Quand est la saison des requins bouledogues ?",
-            "a": "De novembre à mars, quand les requins bouledogues se rassemblent au large de Playa del Carmen. En dehors de ces mois, la sortie n'a pas lieu."
-          },
-          {
-            "q": "Quel niveau faut-il ?",
-            "a": "L'Advanced Open Water ou un équivalent, sans exception."
-          },
-          {
-            "q": "C'est loin de Tulum ?",
-            "a": "Environ quarante-cinq minutes de route jusqu'à Playa del Carmen ; les plongées se font depuis un bateau."
-          }
-        ]
-      }
-    },
-    "includedInline": {
-      "equipment": "l'équipement",
-      "entrance": "les entrées des cenotes",
-      "snacks": "les collations, l'eau",
-      "site-transport": "le transport sur les sites",
-      "materials": "les supports de cours",
-      "padi-licence": "votre brevet PADI"
-    }
-  },
   "book": {
     "tag": "Réservations",
     "h2": "Réservez votre<br>journée dans l'eau.",
@@ -605,8 +702,9 @@
     "rDeposit": "Acompte",
     "halfDayLabel": "Demi-journée",
     "fine": "Équipement, entrée des cenotes, transport sur les sites et collations inclus. Tarifs par personne en USD ; la prise en charge est par réservation. L’acompte est débité en pesos mexicains et le solde se règle sur place le jour même. Si vous réglez le solde en dollars, c'est le taux de change du jour qui s'applique.",
-    "certNote": "Le jour J, montrez votre certification à votre guide — la carte ou une copie sur votre téléphone. Sans elle, nous ne pouvons pas vous emmener plonger. Jusqu'à 18 m : Open Water ou équivalent. Au-delà : au moins Advanced Open Water ou équivalent.",
+    "certNote": "Le jour J, montrez votre certification à votre guide — la carte ou une copie sur votre téléphone. Sans elle, nous ne pouvons pas vous emmener plonger. Jusqu'à 20 m : Open Water ou équivalent. Au-delà : au moins Advanced Open Water ou équivalent.",
     "mpDescription": "Acompte de {percent} % — le solde se règle sur place le jour même.",
+    "mpDescriptionFull": "Payé en totalité — plus rien à régler le jour même.",
     "submit": "Réserver avec un acompte",
     "submitting": "Ouverture du paiement…",
     "error": "L'ouverture du paiement a échoué. Réessayez, ou écrivez-nous sur WhatsApp.",
@@ -629,7 +727,12 @@
     "siteBase": "Avec trois plongées, les deux premières se font à Dos Ojos et vous choisissez le cenote de la troisième.",
     "siteDeep": "Advanced ou Deep",
     "rSites": "Sites",
-    "errSites": "Choisissez un cenote pour chaque plongée."
+    "errSites": "Choisissez un cenote pour chaque plongée.",
+    "payLabel": "Comment vous voulez payer",
+    "payDeposit": "Acompte de {percent} %",
+    "payFull": "Tout régler maintenant",
+    "payDepositNote": "Le solde en espèces ou par carte le jour même.",
+    "payFullNote": "Plus rien à régler le jour de la plongée."
   },
   "faq": {
     "tag": "Avant de venir",
@@ -637,19 +740,11 @@
     "items": [
       {
         "q": "Faut-il être certifié pour plonger ici ?",
-        "a": "Pas pour commencer. Discover Scuba accueille des gens qui n'ont jamais respiré sous l'eau, et la sortie snorkeling ne demande rien du tout. Si vous êtes déjà breveté, l'Open Water ou un équivalent couvre toutes les plongées jusqu'à 18 mètres : le récif et les cenotes, qui restent pour la plupart entre six et seize mètres. Les deux cenotes profonds, Angelita et El Pit, demandent au moins un Advanced Open Water ou un équivalent — la spécialité Deep compte —, tout comme la plongée avec les requins bouledogues ; avec l'Open Water, vous pouvez aussi les plonger pendant notre formation Advanced, jusqu'à 30 mètres. Apportez votre carte de niveau ou une copie numérique et montrez-la à votre guide le jour J : sans elle, nous ne pouvons pas vous emmener plonger."
+        "a": "Pas pour commencer. Discover Scuba accueille des gens qui n'ont jamais respiré sous l'eau, et la sortie snorkeling ne demande rien du tout. Toute plongée jusqu'à 20 mètres — le récif et la plupart des cenotes — demande un Open Water ou un équivalent. Au-delà — Angelita et El Pit — il faut au moins un Advanced Open Water ou un équivalent ; la spécialité Deep compte. Apportez la carte ou une copie numérique et montrez-la à votre guide le jour J : sans elle, nous ne pouvons pas vous emmener plonger."
       },
       {
         "q": "Jusqu'à quelle profondeur descendent les plongées ?",
-        "a": "Discover Scuba reste à sept mètres (25 ft). La formation Open Water commence à Casa Cenote, profond de sept mètres, puis se termine en mer à dix-huit mètres (60 ft) ; le récif tourne autour de neuf mètres. La plupart des plongées en cenote sont peu profondes, entre six et seize mètres : Dos Ojos fait neuf à dix mètres, Car Wash descend à seize. Les deux profondes vont plus loin : le Cenote Angelita atteint 35–38 mètres et le Cenote El Pit 30–32. La formation Advanced va jusqu'à 30 mètres (100 ft)."
-      },
-      {
-        "q": "Peut-on faire de belles plongées sur le récif à Tulum ?",
-        "a": "Oui. Tulum borde le récif mésoaméricain, la plus grande barrière de corail de l'hémisphère occidental. Nous le plongeons au large de Tankah, au nord de la ville : notre plongée récif reste peu profonde, autour de neuf mètres, avec des tortues et des poissons de récif, dans une eau un peu plus chaude que celle des cenotes. Notre journée Récif & Cenote l'associe à Casa Cenote en une seule matinée, et la formation Open Water se termine en mer à dix-huit mètres. Les meilleures conditions sur le récif vont du printemps au début de l'été ; en hiver, l'autre grande plongée de la côte est celle des requins bouledogues, au large de Playa del Carmen, à 45 minutes."
-      },
-      {
-        "q": "C'est ma première plongée en cenote. Par quels cenotes commencer ?",
-        "a": "Commencez à ciel ouvert et en eau peu profonde, puis passez sous la voûte. Casa Cenote est ouvert sur le ciel, profond de sept mètres au plus, entouré de mangroves, avec des poissons et des tortues : difficile d'imaginer une première plongée plus douce, et, sans niveau, vous pouvez l'essayer avec Discover Scuba. Dos Ojos est le grand classique pour une première caverne : une eau cristalline avec plus de 30 mètres de visibilité, neuf à dix mètres de fond, toujours dans la zone de lumière naturelle et avec une sortie directe vers la surface. Nicte-Ha, peu profond et parsemé de nénuphars, et Car Wash, facile d'accès et jusqu'à seize mètres, sont de bonnes étapes pour la suite. Gardez Angelita et El Pit pour plus tard : ils dépassent 30 mètres et demandent l'Advanced Open Water ou la spécialité Deep — ou venez-y avec l'Open Water pendant notre formation Advanced, jusqu'à 30 mètres. Et dites-nous dans le questionnaire que nous vous envoyons avant la plongée ce que vous avez déjà fait et ce qui vous inquiète : nous construisons la journée autour de vos réponses."
+        "a": "Discover Scuba reste à sept mètres (25 ft). La formation Open Water et le récif tournent autour de neuf mètres. La plupart des plongées en cenote sont planifiées à dix-huit mètres. Les deux profondes vont plus loin : le Cenote Angelita et le Cenote El Pit se plongent à 30 mètres. La formation Advanced travaille jusqu'à 27 mètres (90 ft)."
       },
       {
         "q": "Qu'est-ce que le tarif comprend vraiment ?",
@@ -701,14 +796,14 @@
     "email": "E-mail",
     "place": "Tulum, Quintana Roo, MX",
     "phone": "Téléphone",
-    "meet": "Point de rendez-vous :"
+    "meet": "Point de rendez-vous"
   },
   "booking": {
     "thanks": {
       "tag": "Paiement reçu",
       "h2": "C'est réservé.",
       "p": "Votre acompte est passé et la date est bloquée. Un guide vous écrit sur WhatsApp dans les heures qui suivent avec le point de rendez-vous, l'heure et les quelques questions que l'on pose avant chaque plongée. Le solde se règle sur place. Un court formulaire pour vos tailles d'équipement vous attend dans l'e-mail de confirmation.",
-      "note": "Apportez votre certification de plongée le jour J — la carte ou une copie numérique — et montrez-la à votre guide. Jusqu'à 18 mètres, il faut l'Open Water ou un équivalent ; au-delà, au moins l'Advanced Open Water ou un équivalent. Sans elle, nous ne pouvons pas vous emmener plonger. Discover Scuba, la formation Open Water et la sortie snorkeling n'en demandent aucune.",
+      "note": "Apportez votre certification de plongée le jour J — la carte ou une copie numérique — et montrez-la à votre guide. Jusqu'à 20 mètres, il faut l'Open Water ou un équivalent ; au-delà, au moins l'Advanced Open Water ou un équivalent. Sans elle, nous ne pouvons pas vous emmener plonger. Discover Scuba, la formation Open Water et la sortie snorkeling n'en demandent aucune.",
       "cta": "Retour au site"
     },
     "pending": {
@@ -768,6 +863,7 @@
       "kicker": "Réservation confirmée",
       "hi": "Bonjour {name},",
       "lede": "Votre acompte est passé et le {date} vous est réservé. Voici exactement ce que nous avons noté.",
+      "ledeFull": "Votre paiement est passé et le {date} vous est réservé. Voici exactement ce que nous avons.",
       "detailsTag": "Votre réservation",
       "whatLabel": "Quoi",
       "dateLabel": "Date",
@@ -781,9 +877,11 @@
       "paidLabel": "Acompte réglé",
       "balanceLabel": "Solde sur place",
       "balanceNote": "À régler en espèces ou par carte à votre arrivée. Si vous payez en dollars, c'est le taux de change du jour qui s'applique.",
+      "fullLabel": "Payé en totalité",
+      "fullNote": "Plus rien à régler. Présentez-vous à l'heure du départ, c'est tout.",
       "certTag": "Votre certification",
-      "certOpenWater": "Apportez votre certification Open Water, ou une équivalente, et montrez-la à votre guide le jour de la plongée — la carte ou une copie numérique sur votre téléphone. Elle est obligatoire pour toute plongée jusqu'à 18 mètres.",
-      "certOpenWaterPlus": "Apportez votre certification et montrez-la à votre guide le jour de la plongée — la carte ou une copie numérique sur votre téléphone. Jusqu'à 18 mètres, il faut l'Open Water ou un équivalent ; pour Angelita et El Pit, au-delà de 18 mètres, au moins l'Advanced Open Water ou un équivalent, comme la spécialité Deep.",
+      "certOpenWater": "Apportez votre certification Open Water, ou une équivalente, et montrez-la à votre guide le jour de la plongée — la carte ou une copie numérique sur votre téléphone. Elle est obligatoire pour toute plongée jusqu'à 20 mètres.",
+      "certOpenWaterPlus": "Apportez votre certification et montrez-la à votre guide le jour de la plongée — la carte ou une copie numérique sur votre téléphone. Jusqu'à 20 mètres, il faut l'Open Water ou un équivalent ; pour Angelita et El Pit, au-delà de 20 mètres, au moins l'Advanced Open Water ou un équivalent, comme la spécialité Deep.",
       "certAdvanced": "Apportez votre certification et montrez-la à votre guide le jour de la plongée — la carte ou une copie numérique sur votre téléphone. Cette plongée demande au moins l'Advanced Open Water ou un équivalent, comme la spécialité Deep.",
       "certNoShow": "Sans la certification requise, papier ou numérique, nous ne pourrons pas vous emmener sur cette plongée.",
       "gearTag": "Vos tailles d'équipement",
@@ -852,8 +950,8 @@
     "back": "Retour au site"
   },
   "cenotes": {
-    "metaTitle": "Plongée en cenote : le guide de Tulum | Kay Diving",
-    "metaDescription": "Les cenotes que nous plongeons autour de Tulum (Angelita, El Pit, Dos Ojos, Casa Cenote, etc.) : profondeur de plongée, niveau requis, plans et emplacement.",
+    "metaTitle": "Guide des cenotes : Tulum et la Riviera Maya | Kay Diving",
+    "metaDescription": "Les cenotes que nous plongeons autour de Tulum, un par un : Angelita, El Pit, Dos Ojos, Casa Cenote et d'autres — la profondeur de la plongée, le niveau demandé et l'emplacement de chacun sur la carte.",
     "tag": "Guide des cenotes",
     "h1": "Les cenotes que nous plongeons,<br>un par un.",
     "intro": "Chaque cenote de cette carte est un cenote que nous plongeons, avec la profondeur de la plongée et la carte de niveau à présenter le jour J. Touchez un point sur la carte, ou choisissez un type ci-dessous.",
@@ -885,43 +983,6 @@
     "nearbyTag": "À proximité",
     "back": "Tous les cenotes",
     "illustration": "Illustration — photo à venir",
-    "planTag": "Plan de plongée",
-    "planAlt": "Plan de plongée {of} : profondeurs, entrée et limites de la caverne",
-    "planNote": "Dessiné pour vous orienter, pas pour naviguer : votre guide vous présente le parcours sur place.",
-    "planCredit": "Redessiné d'après le plan de {credit}.",
-    "planCreditCentre": "Redessiné d'après le plan du centre de plongée.",
-    "planOpen": "Voir en grand",
-    "pageTitle": "{name} : plongée à Tulum",
-    "pageTitleMore": ", profondeur et plan",
-    "faqTag": "Questions",
-    "faqH2": "{name}, en bref",
-    "qDepth": "Jusqu'où descend la plongée {at} ?",
-    "aDepth": "La plongée descend jusqu'à {dive}.",
-    "aDepthMore": "Le cenote lui-même fait {depth} m de profondeur.",
-    "qLevel": "Quel niveau faut-il pour plonger {at} ?",
-    "aLevel": {
-      "none": "Aucun : vous pouvez l'essayer avec Discover Scuba, un baptême aux côtés d'un instructeur.",
-      "open-water": "Un niveau Open Water ou équivalent, à présenter le jour de la plongée.",
-      "advanced": "Advanced Open Water ou la spécialité Deep, car la plongée dépasse 30 mètres."
-    },
-    "aLevelCourse": "Avec l'Open Water, vous pouvez aussi le plonger pendant la formation Advanced Open Water, jusqu'à {depth} m.",
-    "qWhere": "À quelle distance de Tulum se trouve {the} ?",
-    "aWhere": "À environ {km} km {dir} de Tulum, à vol d'oiseau.",
-    "compassAt": [
-      "au nord",
-      "au nord-est",
-      "à l'est",
-      "au sud-est",
-      "au sud",
-      "au sud-ouest",
-      "à l'ouest",
-      "au nord-ouest"
-    ],
-    "qSnorkel": "Peut-on faire du snorkeling {at} ?",
-    "aSnorkel": "Oui : {the} se prête au snorkeling autant qu'à la plongée.",
-    "qTrips": "Quelles sorties Kay Diving vont {to} ?",
-    "breadcrumbHome": "Accueil",
-    "touristType": "Plongeurs",
     "homeTag": "Carte des cenotes",
     "homeH2": "Là où nous plongeons,<br>autour de Tulum.",
     "homeIntro": "Tous les cenotes que nous plongeons, sur une seule carte : de Casa Cenote, au bord de la mer, au nuage d'Angelita, à 30 m en pleine jungle. Touchez-en un pour voir sa profondeur et le niveau demandé.",
@@ -953,13 +1014,13 @@
       "advanced": "Advanced Open Water ou Deep"
     },
     "items": {
-      "casa-cenote": "Un cenote ouvert, en forme de lagune, relié directement à la mer des Caraïbes : l'eau douce et l'eau salée s'y mélangent en un écosystème unique. Sa profondeur maximale tourne autour de 7 mètres, idéale pour les plongeurs débutants et pour qui cherche une plongée détendue. Il est entouré de mangroves et sa visibilité, même variable, permet de nager parmi les poissons, les tortues et, parfois, un crocodile d'eau douce (le crocodile de Morelet, Crocodylus moreletii). Parfait pour allier plongée loisir et rencontre directe avec la faune.",
-      "car-wash": "Sous une surface calme et facile d'accès se cache l'un des cenotes les plus photographiés de la Riviera Maya. Des nénuphars flottent sur son eau transparente ; plus bas apparaissent des troncs pétrifiés et une impressionnante galerie de stalactites et de stalagmites. Avec jusqu'à 16 mètres de fond, il se prête aussi bien au snorkeling qu'à la plongée en caverne, et les rayons du soleil filtrés par la végétation font de chaque plongée une expérience presque cinématographique.",
-      "dos-ojos": "L'un des réseaux de grottes noyées les plus célèbres au monde, formé de deux cenotes reliés qui, vus d'en haut, donnent l'illusion de « deux yeux ». On y plonge en caverne sur des parcours comme « The Barbie Line » et « The Bat Cave », dans une eau cristalline à plus de 30 mètres de visibilité, entre stalactites impressionnantes et formations rocheuses millénaires. Sa profondeur maximale est d'environ 10 mètres dans les zones ouvertes. Il fait partie du plus vaste réseau de grottes immergées au monde, environ 369 kilomètres. Une excellente option si vous n'avez jamais plongé en cenote.",
-      "el-pit": "Considéré comme l'un des cenotes les plus profonds et les plus spectaculaires de la Riviera Maya, il descend jusqu'à 119 mètres. Il est célèbre pour sa colonne de lumière qui traverse l'eau, pour son halocline (le mélange d'eau douce et d'eau salée) et pour un nuage d'hydrogène sulfuré vers 30 mètres, qui lui donne un effet de « brouillard » sous-marin. Recommandé aux plongeurs confirmés ou de niveau technique, c'est l'une des plongées en cenote les plus saisissantes au monde.",
-      "angelita": "Profond d'environ 60 mètres, ce cenote abrite l'un des phénomènes les plus saisissants de la plongée en caverne : un nuage d'hydrogène sulfuré posé sur l'eau salée vers 30 mètres, qui crée l'illusion d'une rivière souterraine où troncs et feuilles mortes « flottent » dans les airs. Le traverser, c'est franchir un seuil vers une autre dimension et découvrir un paysage englouti, voilé d'une brume spectrale. Une expérience mystique et bouleversante, réservée aux plongeurs confirmés en quête de quelque chose de vraiment unique.",
+      "casa-cenote": "Le plus à part de tous. Casa Cenote est l'extrémité d'un réseau de rivières souterraines qui se jette dans la mer : son eau est saumâtre — douce mêlée de salée — et un degré plus chaude que partout ailleurs. D'où une faune qu'aucun autre cenote ne possède, crocodile compris. Il se plonge sans certification et c'est un excellent spot de snorkeling.",
+      "car-wash": "Le cenote préféré de Kay, et l'un des meilleurs pour commencer. Une plongée courte et peu profonde qui offre la plus belle carte postale de toutes : la zone ouverte vue de l'intérieur de la caverne, en regardant vers la lumière. Son nom maya est Aktun Ha ; celui de Car Wash lui vient des voitures qui s'arrêtaient se laver au bord de la route.",
+      "dos-ojos": "Deux plans d'eau reliés qui, vus d'en haut, ressemblent à une paire d'yeux. Ils font partie du plus vaste réseau de grottes noyées au monde — environ 369 kilomètres — et se plongent en caverne : la lumière du jour toujours présente, la sortie toujours en vue. C'est le cenote par lequel presque tout le monde commence, et le Open Water suffit.",
+      "el-pit": "Un puits presque cylindrique qui s'enfonce bien au-delà de la plongée loisir. On y trouve une halocline, de l'hydrogène sulfuré, des stalactites de plusieurs mètres et, aux bons mois, des rayons de soleil qui descendent jusqu'au fond. L'Advanced Open Water est exigé, ce qui en fait l'un des cenotes les moins fréquentés.",
+      "angelita": "Le cenote le plus étrange que nous plongeons. Une couche d'hydrogène sulfuré transforme le fond en ce qui ressemble à une rivière avec une île au milieu, et la traverser change complètement la plongée. Profond, vertical, relié à aucune autre grotte : il demande l'Advanced Open Water.",
       "dreamgate": "Un cenote de type caverne à l'entrée circulaire, connu pour la clarté extraordinaire de son eau et pour ses colonnes et formations rocheuses imposantes qui descendent jusqu'au fond. La lumière naturelle qui filtre par l'ouverture crée des effets spectaculaires. Idéal pour la plongée en caverne, avec des parcours dans de vastes salles et une atmosphère presque cérémonielle.",
-      "tak-be-luum": "Un cenote moins connu, et donc plus préservé, situé dans le parc de Dos Ojos. Il offre des passages de caverne aux formations bien conservées, une eau calme et une plongée plus intime, car il reçoit moins de visiteurs. Idéal pour explorer les cenotes hors des circuits les plus touristiques. Il se trouve dans le parc Dos Ojos, près d'El Pit : juste avant d'arriver à El Pit, une bifurcation sur la gauche mène au cenote.",
+      "tak-be-luum": "Un cenote moins connu, et donc plus préservé, situé dans le parc de Dos Ojos. Il offre des passages de caverne aux formations bien conservées, une eau calme et une plongée plus intime, car il reçoit moins de visiteurs. Idéal pour explorer les cenotes hors des circuits les plus touristiques.",
       "tak-be-ha": "Un réseau de grottes aux vastes salles, aux stalactites et stalagmites bien dessinées, avec une halocline marquée qui brouille la vue là où l'eau douce et l'eau salée se mélangent. Une ambiance sereine, idéale pour les plongeurs certifiés en quête de formations spectaculaires, loin de la foule.",
       "nicte-ha": "Situé près de Dos Ojos, il se distingue par sa végétation aquatique et son eau vert émeraude, due aux nénuphars et aux plantes subaquatiques. Moins profond que les autres cenotes du secteur, il est idéal pour le snorkeling et la plongée tranquille, avec une bonne visibilité et un cadre naturel très photogénique.",
       "nohoch-nah-chich": "Il fait partie de l'un des plus vastes réseaux de grottes subaquatiques au monde. Il se distingue par une concentration étonnante de stalactites et de stalagmites, souvent immenses, qui forment de véritables « forêts » de pierre sous l'eau. Son eau cristalline et ses passages complexes en font une destination incontournable pour les plongeurs de caverne expérimentés en quête de formations d'un autre niveau."
@@ -969,24 +1030,25 @@
       "car-wash": "Une corde suspendue au-dessus de l'eau claire du cenote Car Wash, bordé de jungle, près de Tulum",
       "dos-ojos": "Des plongeurs dans la caverne de Dos Ojos, la lumière du jour perçant l'eau bleue",
       "el-pit": "Des rais de lumière plongeant dans le puits d'El Pit, des plongeurs en silhouette",
-      "angelita": "Un plongeur au-dessus du nuage d'hydrogène sulfuré du cenote Angelita, parmi les branches mortes",
+      "angelita": "Un plongeur au-dessus du nuage de sulfure du cenote Angelita, parmi les branches mortes",
       "tak-be-luum": "Un plongeur, lampe allumée, dans une galerie de roche claire du cenote Tak Be Luum",
       "nicte-ha": "L'eau turquoise et limpide du cenote Nicte-Ha, couverte de nénuphars, au pied d'une paroi de roche et de jungle",
       "nohoch-nah-chich": "L'eau turquoise du cenote Nohoch Nah Chich sous une voûte de roche, un escalier de bois qui descend vers l'eau"
     },
-    "artAlt": "Illustration : {name}",
-    "metas": {
-      "casa-cenote": "Casa Cenote, Tulum : cenote ouvert relié à la mer des Caraïbes et bordé de mangroves, 7 m au plus. Poissons, tortues, eau calme ; aucun niveau requis.",
-      "car-wash": "Cenote Car Wash (Aktun Ha), Tulum : nénuphars, troncs pétrifiés et galerie de stalactites, jusqu'à 16 m. Plongée en caverne avec l'Open Water, ou snorkeling.",
-      "dos-ojos": "Cenote Dos Ojos, Tulum : plongée en caverne sur la Barbie Line et dans la Bat Cave, plus de 30 m de visibilité, environ 10 m de fond. Open Water. Avec plan.",
-      "el-pit": "Cenote El Pit, Tulum : un puits de 119 m, une colonne de lumière, une halocline et un nuage d'hydrogène sulfuré vers 30 m. Plongée à 30–32 m, Advanced ou Deep.",
-      "angelita": "Cenote Angelita, Tulum : la « rivière souterraine », un nuage d'hydrogène sulfuré à 30 m parmi les arbres engloutis. Plongée à 35–38 m, Advanced ou Deep.",
-      "dreamgate": "Cenote Dreamgate, près de Tulum : une caverne de colonnes et de concrétions, eau d'une clarté extraordinaire, entrée circulaire. Open Water. Avec plan.",
-      "tak-be-luum": "Cenote Tak Be Luum, parc Dos Ojos : des passages de caverne calmes aux concrétions bien conservées, loin des circuits fréquentés. Open Water, jusqu'à 7 m.",
-      "tak-be-ha": "Cenote Tak Be Ha, près de Tulum : vastes salles, stalactites et stalagmites bien dessinées, halocline marquée. Calme, jamais bondé. Open Water, jusqu'à 16 m.",
-      "nicte-ha": "Cenote Nicte-Ha, près de Dos Ojos : eau émeraude, nénuphars et plantes aquatiques. Peu profond et photogénique : plongée facile et snorkeling, jusqu'à 8 m.",
-      "nohoch-nah-chich": "Cenote Nohoch Nah Chich, près de Tulum : des « forêts » de stalactites géantes dans une eau cristalline, au cœur de l'un des plus longs réseaux noyés du monde."
+    "arts": {
+      "cavern": "Une plongée en caverne : stalactites et stalagmites encadrant la sortie bleue au loin. La lumière du jour reste toujours en vue.",
+      "cenote-shaft": "Des rayons de soleil traversant l'eau turquoise, les parois calcaires et un plongeur en descente.",
+      "halocline": "Un plongeur traversant l'halocline, la couche tremblante où l'eau douce rencontre l'eau salée.",
+      "the-pit": "Une unique colonne de lumière tombant dans le puits profond d'El Pit.",
+      "casa-cenote": "Une eau peu profonde et ensoleillée entre les racines de mangrove, avec de petits poissons.",
+      "reef": "Le récif mésoaméricain au large de Tulum : patates de corail, une tortue et un banc de poissons sous les rais de lumière."
     },
+    "artNote": "Une illustration du type de plongée, pas un plan de ce cenote.",
+    "planTag": "Plan de plongée",
+    "planNote": "Dessiné pour vous orienter, pas pour naviguer : votre guide vous présente le parcours sur place.",
+    "planCredit": "Redessiné d'après le plan de {credit}.",
+    "planCreditCentre": "Redessiné d'après le plan du centre de plongée.",
+    "planOpen": "Voir en grand",
     "planAlts": {
       "casa-cenote": "Plan de plongée de Casa Cenote : zones de snorkeling, profondeurs de 2 à 6 m, passages de la faille et de la caverne, limites de la caverne et entrée principale",
       "car-wash": "Plan de plongée du Cenote Car Wash : profondeurs de 5 à 16 m, concrétions, les deux limites de la caverne et l'entrée principale",
@@ -994,6 +1056,388 @@
       "dreamgate": "Plan de plongée du Cenote Dreamgate : le fil guide de la caverne, les concrétions, le bassin d'eau libre et son entrée, et les passages réservés aux plongeurs spéléo",
       "el-pit": "Coupe du Cenote El Pit : le puits d'entrée, les profondeurs jusqu'à 40 m, l'halocline et le nuage d'hydrogène sulfuré, et la limite de la caverne",
       "angelita": "Coupe du Cenote Angelita : l'entrée, les profondeurs jusqu'à 55 m, le nuage d'hydrogène sulfuré à 30 m et les arbres engloutis"
+    },
+    "artAlt": "Illustration : {name}",
+    "lightTag": "Quand y aller",
+    "ownTag": "Si vous y allez seul",
+    "faqTag": "Questions",
+    "deep": {
+      "dos-ojos": {
+        "sections": [
+          {
+            "h": "Les deux yeux",
+            "p": [
+              "C'est un cenote semi-ouvert. Au niveau de l'eau, une plateforme sépare la zone en deux : un côté pour les plongeurs, l'autre pour le snorkeling. Elle se trouve dans l'œil est — l'autre est l'œil ouest, et c'est de là que vient le nom : au Mexique, on appelle ojo de agua, œil d'eau, un plan d'eau arrondi d'une certaine taille."
+            ]
+          },
+          {
+            "h": "L'entrée dans l'eau",
+            "p": [
+              "Nous nous équipons en haut, près du parking, et descendons prêts à entrer. Deux façons de se mettre à l'eau : s'asseoir sur l'escalier, chausser les palmes et entrer de là, ou les chausser debout au bord de la plateforme et faire un pas de géant.",
+              "Avant de commencer, nous faisons un contrôle de flottabilité. Nous le faisons à chaque première plongée en cenote, sans exception : l'eau douce ne porte pas comme l'eau salée, et la plupart des gens doivent ajuster le lestage qu'ils utilisent en mer."
+            ]
+          },
+          {
+            "h": "La Barbie Line",
+            "p": [
+              "Il y a deux plongées différentes ici. Toutes deux partent de l'œil est et finissent à l'œil ouest, mais parcourent des parties différentes de la caverne. La Barbie Line doit son nom à la poupée Barbie attachée au fil à mi-parcours : c'est le repère qui vous dit que vous êtes exactement à la moitié. C'est la plus lumineuse des deux, et la plus longue."
+            ]
+          },
+          {
+            "h": "La Bat Cave",
+            "p": [
+              "La Bat Cave est plus sombre et bien moins exposée à la lumière. Au dernier tiers, on fait surface dans une salle peuplée de chauves-souris et de stalactites — des chauves-souris frugivores, celles qui se nourrissent de fruits. D'où le nom. Les deux plongées sont belles et les deux restent en mémoire."
+            ]
+          }
+        ],
+        "light": "Plongez-le tôt. C'est l'un des cenotes les plus fréquentés de la région, et en milieu de matinée il y a nettement plus de monde dans l'eau — surtout en haute saison.",
+        "own": "Oui, on peut y faire du snorkeling, dans la zone que la plateforme sépare des plongeurs. Le règlement du parc a changé au fil des ans : la nage n'est désormais autorisée qu'avec un gilet de sauvetage. La salle aux chauves-souris s'explore aussi en snorkeling.",
+        "faq": [
+          {
+            "q": "Faut-il une certification pour plonger à Dos Ojos ?",
+            "a": "L'Open Water suffit. C'est de la plongée en caverne, pas en grotte : la lumière du jour est la source principale et la sortie reste toujours en vue, le long du fil."
+          },
+          {
+            "q": "Pourquoi « Dos Ojos » ?",
+            "a": "Pour les deux plans d'eau reliés qui forment le site, l'œil est et l'œil ouest. Au Mexique, on appelle ojo de agua — œil d'eau — un plan d'eau arrondi d'une certaine taille."
+          },
+          {
+            "q": "Quelle différence entre la Barbie Line et la Bat Cave ?",
+            "a": "La Barbie Line est le parcours le plus lumineux et le plus long ; une poupée Barbie est attachée au fil à mi-chemin, comme repère. La Bat Cave est plus sombre, et au dernier tiers on fait surface dans une salle aux chauves-souris frugivores et aux stalactites."
+          },
+          {
+            "q": "Quelle profondeur ?",
+            "a": "Les plongées restent dans les dix mètres. C'est une plongée de lumière et de formations, pas de profondeur."
+          },
+          {
+            "q": "Peut-on faire du snorkeling à Dos Ojos ?",
+            "a": "Oui, dans la zone séparée des plongeurs. Le parc a changé son règlement : la nage n'est autorisée qu'avec un gilet de sauvetage. La salle aux chauves-souris se visite aussi en snorkeling."
+          },
+          {
+            "q": "À quelle heure arriver ?",
+            "a": "Tôt. C'est l'un des cenotes les plus visités et il se remplit vite, surtout en haute saison."
+          }
+        ]
+      },
+      "angelita": {
+        "sections": [
+          {
+            "h": "L'entrée et la descente",
+            "p": [
+              "On entre en descendant une petite plateforme en bois jusqu'à l'eau. On y chausse les palmes et on part d'un pas de géant.",
+              "Nous aimons descendre près de la plateforme pour que vous puissiez vous servir de la paroi comme repère. Au début il n'y a que de l'eau autour de vous, rien d'évident où accrocher le regard."
+            ]
+          },
+          {
+            "h": "Pourquoi l'eau paraît verdâtre",
+            "p": [
+              "La visibilité d'Angelita a quelque chose de particulier. L'eau tire sur le vert, à cause de la végétation du dehors qui s'y reflète et surtout parce que ce cenote n'est relié à aucune autre grotte : il n'a pas le flux d'eau constant de Dos Ojos ou d'El Pit, et c'est ce flux qui rend leur eau si limpide. Celle d'Angelita est bonne — simplement moins que la plupart des autres."
+            ]
+          },
+          {
+            "h": "Le nuage et l'île",
+            "p": [
+              "En approchant du fond, l'île apparaît. C'est une montagne de débris tombés au fil de milliers d'années, dont le sommet se trouve juste au-dessus du nuage d'hydrogène sulfuré. Le nuage ressemble à une rivière qui recouvre tout le cenote et ne laisse dépasser que ce sommet — d'où l'île. Avec le gaz, la montagne et les arbres tombés en dessous, l'image est complètement surréaliste."
+            ]
+          },
+          {
+            "h": "Traverser le nuage",
+            "p": [
+              "Le nuage commence vers vingt-huit mètres. Notre plongée est planifiée à trente. À qui le demande et en a l'expérience, nous pouvons descendre le traverser — il se termine vers trente-trois — et cela se décide avec vous sur place, pas sur internet. En dessous la visibilité est bonne mais il fait sombre, car le nuage absorbe la lumière du jour ; à la lampe, tout est parfaitement net. Nous y restons deux minutes et nous remontons. Repasser le nuage vers le haut est l'un des moments les plus étranges de la plongée. Au-dessus, l'eau est douce ; en dessous, salée."
+            ]
+          },
+          {
+            "h": "La caverne en forme de U",
+            "p": [
+              "Nous continuons à remonter lentement, en cercle, jusqu'à une petite caverne en U vers quatorze mètres, avec une seule entrée et une seule sortie. Elle est étroite, et elle donne au milieu de la plongée un très joli relief."
+            ]
+          },
+          {
+            "h": "La remontée et les arbres suspendus",
+            "p": [
+              "En sortant, nous remontons doucement jusqu'à cinq mètres pour le palier de sécurité. Sur cette dernière partie on voit des formations de roche très particulières et quelques arbres tombés dans le cenote qui se sont coincés dans les rochers sans atteindre le fond. Certains semblent suspendus dans l'eau."
+            ]
+          },
+          {
+            "h": "Angelita dans la culture populaire",
+            "p": [
+              "Une anecdote que j'aime raconter : Angelita est passée il y a des années dans Alien Theory, sur History Channel, parce que le cenote correspond à une légende olmèque qui décrit un lieu de ce genre. Dans ce monde-là des théories, certains pensent que les Olmèques auraient été en contact avec d'autres civilisations. C'est de la culture populaire et du mythe, rien de plus, mais cela fait partie de ce dont on parle ici."
+            ]
+          }
+        ],
+        "light": "La meilleure lumière se situe à peu près entre neuf heures et midi. Et si vous arrivez tôt, vous pouvez avoir le site presque pour vous pendant une heure.",
+        "own": "On peut y faire du snorkeling, mais honnêtement je ne le conseille pas. Ce qui fait Angelita est à trente mètres, et pour le snorkeling il y a bien mieux près de Tulum.",
+        "faq": [
+          {
+            "q": "Qu'est-ce que le nuage d'Angelita ?",
+            "a": "Une couche d'hydrogène sulfuré qui commence vers vingt-huit mètres. Vue d'en haut, elle ressemble à une rivière recouvrant tout le cenote et ne laissant dépasser que le sommet du monticule de débris du fond — d'où le nom d'île."
+          },
+          {
+            "q": "Peut-on traverser le nuage ?",
+            "a": "La plongée est planifiée à trente mètres. À qui le demande et en a l'expérience, nous pouvons descendre le traverser ; il se termine vers trente-trois. Cela se décide avec vous sur place, pas sur internet. En dessous il fait sombre car le nuage absorbe la lumière du jour, mais la lampe montre tout, et nous n'y restons que deux minutes."
+          },
+          {
+            "q": "Quelle certification faut-il ?",
+            "a": "Advanced Open Water ou Deep Diver. Ce n'est pas notre règle, c'est la profondeur."
+          },
+          {
+            "q": "Pourquoi l'eau est-elle verte ?",
+            "a": "La végétation du dehors s'y reflète et, surtout, Angelita n'est relié à aucune autre grotte. Sans flux d'eau constant, elle ne s'éclaircit pas comme Dos Ojos ou El Pit. La visibilité reste bonne, simplement moins que les autres."
+          },
+          {
+            "q": "À quelle heure la plonger ?",
+            "a": "Entre neuf heures et midi pour la lumière. En arrivant tôt, vous aurez peut-être le cenote presque pour vous pendant une heure."
+          },
+          {
+            "q": "Peut-on faire du snorkeling à Angelita ?",
+            "a": "C'est possible, mais je ne le conseille pas. Ce qui vaut le détour est à trente mètres ; pour le snorkeling, il y a de meilleurs cenotes à côté."
+          }
+        ]
+      },
+      "el-pit": {
+        "sections": [
+          {
+            "h": "Où il se trouve et à quoi il est relié",
+            "p": [
+              "El Pit se trouve dans le parc de Dos Ojos. À une douzaine de mètres, il y a d'ailleurs une grotte qui, plongée pendant environ deux heures et demie, débouche dans Dos Ojos juste à hauteur de la poupée Barbie — mais seul un plongeur certifié grotte peut le faire."
+            ]
+          },
+          {
+            "h": "L'entrée et la descente",
+            "p": [
+              "Pour commencer, on descend une plateforme assez longue, un peu impressionnante à regarder mais parfaitement sûre. En bas, palmes aux pieds et pas de géant. Quand tout le monde est prêt, nous allumons les lampes et entamons une descente lente."
+            ]
+          },
+          {
+            "h": "La halocline",
+            "p": [
+              "Les quatorze premiers mètres sont en eau douce. Puis vient l'halocline, là où l'eau douce et l'eau salée se rencontrent. La visibilité y baisse un peu : l'halocline donne à l'eau un aspect épais — je le compare toujours à l'huile dans l'eau. Une fois passée, vers quinze mètres, c'est de l'eau salée jusqu'en bas."
+            ]
+          },
+          {
+            "h": "L'hydrogène sulfuré et l'île du fond",
+            "p": [
+              "Comme à Angelita, il y a au fond une île formée par les arbres et les pierres tombés au fil de milliers d'années. Il y a aussi de l'hydrogène sulfuré ici, à trente mètres, mais moins dense qu'à Angelita et sans le même effet visuel. Cela vaut tout de même largement le regard."
+            ]
+          },
+          {
+            "h": "Jusqu'où nous descendons",
+            "p": [
+              "À trente mètres, nous commençons à remonter lentement en cercle : le cenote est presque cylindrique. El Pit est l'une des grottes les plus profondes de la région, jusqu'à cent quarante-deux mètres, même si nos plongées n'en laissent percevoir que les quarante premiers environ."
+            ]
+          },
+          {
+            "h": "Les rayons de lumière",
+            "p": [
+              "C'est à la remontée que les rayons du soleil prennent toute leur place, descendant et dansant sous l'eau."
+            ]
+          },
+          {
+            "h": "Les stalactites du plafond",
+            "p": [
+              "Le plafond porte une quantité impressionnante de stalactites, certaines de plus de deux ou trois mètres. Une stalactite met environ quatre mille ans à gagner un mètre, et elle ne pousse qu'en milieu semi-sec : une fois sous l'eau, elle cesse de grandir pour de bon."
+            ]
+          },
+          {
+            "h": "Ce que les archéologues ont trouvé",
+            "p": [
+              "Quand les archéologues ont exploré ce lieu, ils y ont trouvé des restes humains vieux d'environ huit mille ans, de l'époque des hommes des cavernes. Et des restes d'animaux de la fin de la dernière glaciation, dont un paresseux géant qui s'y trouve toujours — celui-là n'est accessible qu'avec une certification grotte, car il n'est pas dans la zone de caverne."
+            ]
+          }
+        ],
+        "light": "Les rayons se voient entre fin mars et fin septembre, et dans la journée entre 8h30 et midi, à cause de l'angle du soleil. De septembre à novembre et de janvier à presque tout mars, on ne perçoit presque pas le phénomène. Autant le dire clairement : la plongée reste magnifique avec ou sans la lumière, mais la lumière l'emmène ailleurs.",
+        "own": "Pas de snorkeling ici. El Pit est réservé à la plongée et à l'apnée, et comme il demande en plus l'Advanced Open Water au minimum, c'est l'un des cenotes les plus calmes de la région.",
+        "faq": [
+          {
+            "q": "Quelle est la profondeur d'El Pit ?",
+            "a": "Cent quarante-deux mètres : c'est l'une des grottes les plus profondes de la région. Nos plongées sont planifiées à trente, et de là on en perçoit une quarantaine."
+          },
+          {
+            "q": "Quand voit-on les rayons de lumière ?",
+            "a": "Entre fin mars et fin septembre, et entre 8h30 et midi. De septembre à novembre et de janvier à presque tout mars, on ne les voit quasiment pas. La plongée est belle dans tous les cas, mais la lumière l'emmène ailleurs."
+          },
+          {
+            "q": "Qu'est-ce que l'halocline ?",
+            "a": "L'endroit où l'eau douce rencontre l'eau salée, vers quatorze ou quinze mètres. Elle donne à l'eau un aspect épais et fait perdre un peu de visibilité : cela ressemble à de l'huile dans l'eau. Une fois traversée, tout redevient net."
+          },
+          {
+            "q": "Quelle certification faut-il ?",
+            "a": "Advanced Open Water au minimum. C'est une plongée profonde, et cette exigence explique aussi pourquoi il y a si peu de monde ici."
+          },
+          {
+            "q": "Peut-on faire du snorkeling à El Pit ?",
+            "a": "Non. C'est réservé à la plongée et à l'apnée."
+          },
+          {
+            "q": "Le paresseux géant, c'est vrai ?",
+            "a": "Oui. On a trouvé dans ces grottes des restes d'animaux de la fin de la dernière glaciation, dont un paresseux géant qui s'y trouve encore. Il n'est pas dans la zone de caverne : on n'y accède qu'avec une certification grotte."
+          }
+        ]
+      },
+      "car-wash": {
+        "sections": [
+          {
+            "h": "D'où vient le nom",
+            "p": [
+              "Son nom maya est Aktun Ha, qui signifie grotte inondée, ou grotte avec de l'eau. Celui que tout le monde emploie est bien plus récent et bien plus prosaïque : le cenote se trouve au bord de la route et, il y a des années, bien avant que Tulum ne devienne une destination touristique, les gens du village et ceux qui passaient par là s'arrêtaient pour puiser des seaux d'eau et laver leur voiture. Le nom est resté."
+            ]
+          },
+          {
+            "h": "À quoi ressemble la plongée",
+            "p": [
+              "C'est une plongée courte, et autant le dire tout de suite : ce n'est pas la plus longue que nous proposons. Sa profondeur maximale est de seize mètres, elle demande donc un palier de sécurité à la fin, mais elle se tient en moyenne bien plus haut. Peu profonde, courte, avec la zone ouverte jamais loin : cette combinaison en fait l'un des meilleurs cenotes pour qui découvre la plongée en cenote. Le Open Water suffit."
+            ]
+          },
+          {
+            "h": "La carte postale depuis la caverne",
+            "p": [
+              "Il y a un moment qui, pour Kay, justifie le cenote tout entier. Vous êtes à l'intérieur de la caverne, l'obscurité dans le dos, et vous regardez vers la zone ouverte : la lumière du jour entre dans une seule direction et découpe la silhouette de l'entrée sur l'eau. C'est l'une des plus belles images que donne un cenote dans la région, et c'est la raison pour laquelle celui-ci est son préféré."
+            ]
+          },
+          {
+            "h": "Les formations",
+            "p": [
+              "Car Wash possède des stalactites et des stalagmites de très belle taille, parmi les plus grandes que l'on voie sur une plongée en caverne peu profonde. Elles se sont formées quand la grotte était sèche ; une fois immergées, elles ont cessé de croître pour toujours, et ce que l'on voit aujourd'hui est exactement ce qui restait quand la mer est montée."
+            ]
+          },
+          {
+            "h": "La poterie maya",
+            "p": [
+              "Les restes d'une poterie maya ont été trouvés dans le cenote, et ils y sont toujours. Ils n'ont été ni remontés ni mis en vitrine : ils reposent là où on les a découverts, et on passe à côté pendant la plongée. C'est l'une des rares occasions de voir une pièce de ce genre à sa place, sous l'eau, plutôt que derrière une vitre."
+            ]
+          },
+          {
+            "h": "La vie dans la zone ouverte",
+            "p": [
+              "La zone ouverte offre une végétation superbe et nettement plus de poissons que la plupart des cenotes du coin, souvent plus vides. On y voit parfois des cormorans descendre pêcher sous l'eau, une scène très étrange à observer d'en bas. Des tortues terrestres vivent aussi sur les berges, parmi d'autres espèces."
+            ]
+          },
+          {
+            "h": "Avec quoi il se combine",
+            "p": [
+              "La combinaison la plus courante est Car Wash avec Angelita : l'une courte, lumineuse et peu profonde, l'autre profonde et étrange. Elles fonctionnent bien ensemble précisément parce qu'elles n'ont rien en commun."
+            ]
+          }
+        ],
+        "faq": [
+          {
+            "q": "Que signifie Aktun Ha ?",
+            "a": "Grotte inondée, ou grotte avec de l'eau, en maya. C'est le nom d'origine du cenote ; Car Wash est le surnom qui lui est resté ensuite."
+          },
+          {
+            "q": "Pourquoi s'appelle-t-il Car Wash ?",
+            "a": "Parce qu'il se trouve au bord de la route. Il y a des années, avant que Tulum ne soit touristique, les habitants et les gens de passage s'arrêtaient y puiser des seaux d'eau pour laver leur voiture."
+          },
+          {
+            "q": "Quelle est la profondeur de Car Wash ?",
+            "a": "Seize mètres au maximum. C'est pourquoi elle demande un palier de sécurité à la fin, même si la plongée reste en moyenne bien plus haut."
+          },
+          {
+            "q": "Faut-il de l'expérience pour le plonger ?",
+            "a": "Pas beaucoup. Le Open Water suffit, et c'est l'un des cenotes que nous recommandons le plus aux débutants : peu profond, court, et avec la zone ouverte jamais loin."
+          },
+          {
+            "q": "Y a-t-il vraiment une poterie maya à l'intérieur ?",
+            "a": "Oui. Les restes d'une poterie maya ont été trouvés dans le cenote et sont toujours en place, visibles pendant la plongée."
+          },
+          {
+            "q": "Quels animaux voit-on à Car Wash ?",
+            "a": "Plus de poissons que dans la plupart des cenotes. Des cormorans descendent parfois pêcher sous l'eau, et des tortues terrestres vivent sur les berges, parmi d'autres espèces."
+          },
+          {
+            "q": "Avec quel autre cenote le combine-t-on ?",
+            "a": "Avec Angelita. C'est la combinaison la plus demandée : une plongée courte et lumineuse suivie d'une plongée profonde et totalement différente."
+          }
+        ]
+      },
+      "casa-cenote": {
+        "sections": [
+          {
+            "h": "Là où finit une rivière souterraine",
+            "p": [
+              "Casa Cenote ne ressemble pas aux autres parce que ce n'est ni un puits ni une grotte : c'est l'endroit où un réseau de rivières souterraines s'achève et remet son eau à la mer. Seule une piste en terre sépare le cenote de la plage, et la connexion passe dessous, poussant l'eau douce vers les Caraïbes.",
+              "Cette connexion si directe explique tout le reste. L'eau est saumâtre — douce mêlée de salée — et cela change ce qui y vit, l'aspect du lieu et jusqu'à sa température."
+            ]
+          },
+          {
+            "h": "Un degré de plus",
+            "p": [
+              "Presque tous les cenotes de la région sont à vingt-cinq degrés. Casa Cenote est à vingt-six. Un degré paraît dérisoire et se sent plus qu'on ne le croit sur la durée d'une plongée.",
+              "Certains jours, on distingue aussi la halocline, la bande où se rencontrent l'eau douce et l'eau salée. Ce n'est pas constant : cela dépend du niveau de la mer ce jour-là, et de la quantité d'eau salée qui entre face à celle d'eau douce qui pousse vers l'extérieur."
+            ]
+          },
+          {
+            "h": "Panchita",
+            "p": [
+              "L'animal le plus singulier du cenote est un crocodile d'eau douce, un Crocodylus moreletii. Il est arrivé de lui-même, naturellement, et vit ici depuis environ neuf ans. Dans un endroit pareil il n'y en aura normalement qu'un : ces animaux sont très territoriaux et défendent leur espace.",
+              "Il s'appelle Panchita et est devenu l'emblème du lieu, et d'une certaine manière son attraction principale. Cela dit, il s'agit d'un habitat sauvage et non d'un enclos : l'observation n'est jamais garantie."
+            ]
+          },
+          {
+            "h": "Ce qui vit ici",
+            "p": [
+              "Si près de la mer, la végétation et la faune n'ont rien à voir avec celles des autres cenotes. Dans l'eau, on croise des mollys des cenotes, des cichlidés mayas, des tarpons et des crabes bleus.",
+              "Au-dessus, les oiseaux sont nombreux : cormorans, hérons gris et bleus, et de temps à autre un blanc."
+            ]
+          },
+          {
+            "h": "Une nurserie à poissons reliée à la mer",
+            "p": [
+              "La mangrove qui entoure le cenote sert de nurserie : un endroit abrité où les alevins peuvent grandir. Et comme le cenote est relié à la mer, il est fréquent d'y voir aussi des espèces marines — vivaneaux, murènes et autres — qui entrent par la grotte quand le niveau d'eau salée monte.",
+              "C'est un lieu où la mer et la rivière se rendent visite, et selon le jour on voit davantage de l'une ou de l'autre."
+            ]
+          },
+          {
+            "h": "Plus grand qu'il n'y paraît",
+            "p": [
+              "À l'arrivée, le cenote trompe : on ne voit qu'un petit œil d'eau. Mais il s'étend vers l'arrière sur quelque deux cent cinquante mètres.",
+              "L'essentiel du parcours est à ciel ouvert. Un quart de la plongée environ entre dans la zone de caverne."
+            ]
+          },
+          {
+            "h": "Pour qui",
+            "p": [
+              "C'est le cenote que nous recommandons le plus pour un Discover Scuba, pour un cours eaux libres, pour un refresher après une période sans plonger, ou simplement pour une première plongée en cenote.",
+              "Lors des Discover Scuba et des cours Open Water, nous n'entrons pas du tout dans la caverne : nous restons là où l'accès direct à la surface est possible, par règlement et pour la sécurité des plongeurs. C'est une plongée magnifique et simple, et selon nous elle a sa place dans l'itinéraire de quiconque prépare ses plongées autour de Tulum."
+            ]
+          }
+        ],
+        "own": "Oui, et c'est vivement recommandé. Casa Cenote est un excellent spot de snorkeling : la majeure partie est ouverte et peu profonde, et presque toute la faune qui en fait un lieu à part — les poissons, les crabes, les oiseaux et, avec de la chance, Panchita — se voit depuis la surface.",
+        "faq": [
+          {
+            "q": "Pourquoi l'eau de Casa Cenote est-elle saumâtre ?",
+            "a": "Parce que le cenote est l'extrémité d'un réseau de rivières souterraines qui se jette dans la mer. La connexion passe sous la piste en terre qui sépare le cenote de la plage : l'eau douce sort vers les Caraïbes et l'eau salée entre. Le résultat est une eau saumâtre, douce mêlée de salée."
+          },
+          {
+            "q": "Y a-t-il un crocodile à Casa Cenote ?",
+            "a": "Oui. Il s'appelle Panchita, c'est un Crocodylus moreletii. Il est arrivé naturellement et vit dans le cenote depuis environ neuf ans. Il n'y en a normalement qu'un par site, car ces animaux sont très territoriaux. C'est un habitat sauvage : l'observation n'est jamais garantie."
+          },
+          {
+            "q": "Quelle est la température de l'eau ?",
+            "a": "Vingt-six degrés, un de plus que la plupart des cenotes de la région, qui sont à vingt-cinq. C'est la connexion avec la mer qui l'explique."
+          },
+          {
+            "q": "Faut-il une certification pour plonger à Casa Cenote ?",
+            "a": "Non. C'est l'un des meilleurs endroits pour un Discover Scuba ou un cours eaux libres. Dans ces cas-là, nous restons dans les zones à accès direct à la surface et n'entrons pas dans la caverne."
+          },
+          {
+            "q": "Peut-on faire du snorkeling à Casa Cenote ?",
+            "a": "Oui, et c'est l'un des meilleurs spots du coin pour cela. La majeure partie du cenote est ouverte et peu profonde, et la faune qui en fait sa singularité se voit depuis la surface."
+          },
+          {
+            "q": "Quelle est sa taille ?",
+            "a": "Il paraît petit à l'arrivée, car on ne voit qu'un modeste œil d'eau, mais il s'étend vers l'arrière sur quelque deux cent cinquante mètres."
+          },
+          {
+            "q": "Entre-t-on dans des grottes ici ?",
+            "a": "En partie seulement. Par sa géographie, l'essentiel de la plongée est à ciel ouvert ; à peine un quart entre dans la zone de caverne. Et lors des Discover Scuba et des cours Open Water, on n'y entre pas du tout."
+          },
+          {
+            "q": "Voit-on la halocline ?",
+            "a": "Certains jours. Cela dépend du niveau de la mer et de la quantité d'eau salée qui entre face à celle d'eau douce qui pousse vers l'extérieur : ce n'est donc pas quelque chose que l'on puisse promettre à l'avance."
+          }
+        ]
+      }
     }
   }
 }

@@ -1,14 +1,14 @@
 {
   "meta": {
-    "title": "Cenote & Reef Diving in Tulum · PADI Courses | Kay Diving",
-    "description": "Guided cenote and reef dives in Tulum, from a first try dive to PADI Open Water and Advanced. Gear, cenote fees, transport and snacks included. From ${from}."
+    "title": "Cenote & Reef Diving in Tulum | Kay Diving — PADI Courses & Guided Dives",
+    "description": "Guided cenote and reef diving in Tulum, from a first try dive to PADI Open Water and Advanced. Equipment, cenote entrance, transport to the dive sites and snacks included. From ${from}."
   },
   "nav": {
     "about": "About",
     "products": "Dives & courses",
     "included": "What's included",
     "gallery": "Gallery",
-    "faq": "Questions",
+    "faq": "FAQ",
     "reserve": "Reserve",
     "reserveLong": "Reserve a dive",
     "menu": "Menu",
@@ -27,7 +27,8 @@
     "alt": "A diver silhouetted against the turquoise glow of a Tulum cenote, among bare branches rising through the water",
     "water": "WATER",
     "viz": "VIZ",
-    "from": "FROM",
+    "fromDive": "DIVING FROM",
+    "fromSnorkel": "SNORKELLING",
     "agency": "PADI",
     "agencyLabel": "COURSES"
   },
@@ -122,23 +123,324 @@
     "sites": {
       "angelita": {
         "name": "Cenote Angelita",
-        "depth": "35–38 m",
+        "depth": "30 m",
         "note": "The hydrogen sulphide cloud, with dead branches rising through it."
       },
       "el-pit": {
         "name": "Cenote El Pit",
-        "depth": "30–32 m",
+        "depth": "30 m",
         "note": "Light falls the whole way down the shaft and simply stands there."
       },
       "others": {
         "name": "The other cenotes",
-        "depth": "6–16 m",
+        "depth": "to 18 m",
         "note": "Chosen with you to match your level and what you want from the day."
       }
     },
     "seasonTag": "Season",
     "seasonValue": {
       "bull-sharks": "November to March"
+    }
+  },
+  "exp": {
+    "crumb": "Dives & courses",
+    "bookTag": "Book",
+    "bookH2": "Hold your place.",
+    "whoTag": "Who it is for",
+    "dayTag": "How the day goes",
+    "includedTag": "What is included",
+    "sitesTag": "Where you dive",
+    "faqTag": "Questions",
+    "moreTag": "Keep reading",
+    "more": "See every dive and course →",
+    "more2": "See the details →",
+    "items": {
+      "cenote-diving": {
+        "title": "Cenote diving in Tulum — prices and requirements | Kay Diving",
+        "description": "Guided cenote diving in Tulum: two or three dives, equipment, cenote entrance and transport to the sites included. From $200 USD. Open Water required.",
+        "h1": "Cenote diving in Tulum",
+        "lede": "Two or three dives inside the flooded caverns of the Riviera Maya, with a guide who knows each one. You pick the day's cenotes with us.",
+        "who": "This one is for certified divers. With Open Water you dive the cenotes that stay inside eighteen metres, which is most of them and the finest for light. Angelita and El Pit are dived to thirty metres, and those ask for Advanced Open Water or Deep Diver — that is not our rule, it is the depth. If you have never dived, this is not yours yet: start with the Discover Scuba, which exists for exactly that. We dive four divers per guide at most, and the ratio is not negotiable: more people means more guides — a group of eight goes together, with two.",
+        "day": [
+          "We leave at 8:00, 8:30 or 9:00 in the morning. If we pick you up in Tulum town or a little outside it, the transport is added when you book; if you make your own way, we meet at the meeting point.",
+          "Before the first dive we fit your gear with you and run the briefing: where the line goes, what you will see, how long it lasts. In a cenote that is not a formality — the orientation is what makes the dive a calm one.",
+          "Each dive runs thirty to forty-five minutes. Between them there is a break with snacks, which are included, and the drive to the next cenote if the day takes in two.",
+          "Choose three dives and the first two are at Dos Ojos, with the third at another cenote you pick. With two, the whole day is built around whatever you want to see."
+        ],
+        "sites": "The day's cenotes are chosen with you, and which ones are open to you depends on your certification. Each has its own page with the depth, what it is like inside, and how far it is from Tulum.",
+        "faq": [
+          {
+            "q": "Do I need a certification to dive cenotes?",
+            "a": "Yes. This dive asks for Open Water or above. Without a certification you can still dive with us on the Discover Scuba, a guided dive made for a first time."
+          },
+          {
+            "q": "How many divers per guide?",
+            "a": "Four at most. More people means more guides: a group of eight goes together, with two guides. The ratio does not move."
+          },
+          {
+            "q": "Is this cave diving?",
+            "a": "No, it is cavern diving, and the line between them is precise. In a cavern the primary light source is the sun: we use torches in places, but never as the primary light. In a cave the primary light is the torch. The other difference is the distance back to the surface: up to sixty metres of penetration with some daylight is cavern. Past those sixty metres it is cave even if daylight still reaches, and so is anything inside sixty metres where the daylight has gone. Cave diving needs a Full Cave certification; cavern diving needs Open Water as a minimum."
+          },
+          {
+            "q": "How deep does it go?",
+            "a": "Most of the cenotes are planned to eighteen metres. Angelita and El Pit are dived to thirty, and those ask for Advanced or Deep. Both cenotes go a great deal deeper than that; thirty metres is how far we take you."
+          },
+          {
+            "q": "Is the water cold?",
+            "a": "Cenote water sits around twenty-five degrees all year. The wetsuit is included."
+          },
+          {
+            "q": "Can I choose which cenotes we dive?",
+            "a": "Yes, and it is part of how the day is built. You tell us what you want to see, we tell you what is within your level, and you make the final pick when you book."
+          },
+          {
+            "q": "What does it cost?",
+            "a": "Two dives $200 USD per person, three dives $250 USD. Equipment, cenote entrance, transport between sites and snacks are included; hotel pickup is added separately."
+          }
+        ]
+      },
+      "open-water": {
+        "title": "PADI Open Water course in Tulum — price and length | Kay Diving",
+        "description": "Get certified as a PADI Open Water diver in Tulum: three days, five dives between Casa Cenote and the Tankah reef, materials and licence included. $600 USD.",
+        "h1": "PADI Open Water course in Tulum",
+        "lede": "The certification that lets you dive anywhere in the world, over three days and five dives, between an open cenote and the reef. No previous experience needed.",
+        "who": "For anyone who has never dived, or who has done one try dive and wants the real certification. We ask for no experience: what you do need is to be comfortable in water and able to swim. The course is the same PADI certification taught everywhere in the world, and the card you leave with does not expire.",
+        "day": [
+          "The course runs over three days. Each one starts between eight and nine in the morning and ends between three and four in the afternoon.",
+          "The theory can be done two ways, and both lead to exactly the same certification: online before you arrive, in which case the three days here are water only; or spread across those same three days, between one dive and the next. The first leaves you more free time in Tulum; the second spares you studying before your holiday.",
+          "The water starts at Casa Cenote, at seven metres. Open, shallow and clear: that is where the skills are practised — clearing a mask, recovering a regulator, controlling buoyancy — until they come without thinking. It is the best classroom there is.",
+          "The last day is two dives on the Tankah reef, one at eleven metres and one at eighteen. Those close the course: the same skills, now where they actually matter.",
+          "At the end we register you with PADI and the card is issued in your name. The licence is in the price: there is no surprise charge at the finish."
+        ],
+        "sites": "The course runs between Casa Cenote, an open brackish cenote beside the sea, and the Tankah reef. Two different settings on purpose: what you learn in one you use in the other.",
+        "faq": [
+          {
+            "q": "How long does the course take?",
+            "a": "Three days. Each day starts between eight and nine in the morning and ends between three and four in the afternoon."
+          },
+          {
+            "q": "Do I need to know how to dive?",
+            "a": "No. The course is built for someone starting from nothing. All we ask is that you are comfortable in water and can swim."
+          },
+          {
+            "q": "Do I have to study before I arrive?",
+            "a": "Whichever you prefer. The theory can be done online beforehand, in which case the three days here are diving only; or during those three days, between one dive and the next. The certification is the same either way."
+          },
+          {
+            "q": "How deep does the course go?",
+            "a": "The first dives, at Casa Cenote, are at seven metres. The last day is two dives on the Tankah reef, one at eleven metres and one at eighteen, and those close the course."
+          },
+          {
+            "q": "What does the price include?",
+            "a": "The five dives, full equipment, the course materials, site entrance, snacks, transport between sites and the PADI licence. $600 USD per person."
+          },
+          {
+            "q": "Is the certification valid in other countries?",
+            "a": "Yes. Open Water is PADI's entry certification and is recognised at any dive centre in the world. It does not expire."
+          },
+          {
+            "q": "What can I dive afterwards?",
+            "a": "To eighteen metres, with a certified buddy and without a guide if you want. For Tulum's deep cenotes — Angelita, El Pit — the next step is the Advanced."
+          }
+        ]
+      },
+      "discover-scuba": {
+        "title": "Discover Scuba in Tulum — dive without a certification | Kay Diving",
+        "description": "Your first dive in Tulum, guided and with no certification, in the clear water of Casa Cenote. It counts as the first dive of the Open Water course. From $140 USD.",
+        "h1": "Discover Scuba in Tulum",
+        "lede": "A first time underwater, guided from start to finish, in an open cenote of clear and shallow water. No certification, no experience.",
+        "who": "For anyone who has never breathed underwater and wants to know what it feels like before committing to a course. We ask for nothing beforehand beyond being comfortable in water. It is not a certification: it is a guided dive, with an instructor beside you the whole time, and never past seven metres. In the cenotes we dive four divers per guide at most, and the ratio is not negotiable: more people means more guides.",
+        "day": [
+          "On land first, the essentials: how to breathe through the regulator, how to equalise your ears, the few hand signals you will use down there. Short on purpose — what you need to be calm, not an exam.",
+          "Then we practise those same things standing up, in the shallow part of Casa Cenote, until they come without thinking.",
+          "And then the dive, around forty-five minutes, with the instructor beside you. Casa Cenote is open, clear and shallow: you can see the sky from below and the mangroves reach into the water.",
+          "Choose two dives and the second is nothing like the first — you are no longer thinking about breathing, you are looking."
+        ],
+        "sites": "Casa Cenote, a few minutes from Tulum. An open brackish cenote beside the sea, mangroves along its edges: shallow, clear and calm, which is exactly what a first time needs.",
+        "faq": [
+          {
+            "q": "Do I need a certification?",
+            "a": "No. That is what this dive is for: it is guided from start to finish and asks for nothing beforehand."
+          },
+          {
+            "q": "How deep does it go?",
+            "a": "To seven metres, the limit for this kind of dive. Casa Cenote is shallow for exactly that reason."
+          },
+          {
+            "q": "How many divers per guide?",
+            "a": "Four at most in the cenotes. More people means more guides."
+          },
+          {
+            "q": "How long is the dive?",
+            "a": "About forty-five minutes underwater, plus the briefing and practice before it."
+          },
+          {
+            "q": "What does it cost?",
+            "a": "One dive $140 USD per person, two dives $200 USD. Gear, cenote entrance, transport to the site and snacks are included."
+          },
+          {
+            "q": "And if I want to certify afterwards?",
+            "a": "It counts in your favour: this dive is taken as the first of the five on the Open Water course. The next step is three days, and you leave with a certification valid anywhere in the world."
+          }
+        ]
+      },
+      "reef-cenote": {
+        "title": "Reef and cenote in one day, in Tulum | Kay Diving",
+        "description": "Two dives in a day: the Tankah reef in salt water and Casa Cenote in fresh. Gear, entrance and transfers included. $200 USD. Open Water required.",
+        "h1": "Reef and cenote in one day",
+        "lede": "The two halves of what makes this coast worth diving, in the same morning: the reef off Tankah and the fresh water of Casa Cenote.",
+        "who": "For Open Water divers with one day who would rather not choose between the two. It is also the best way to understand why people come to dive here: within a few kilometres the water, the light, the life and the feeling all change. In the cenotes we dive four divers per guide at most, and the ratio is not negotiable: more people means more guides.",
+        "day": [
+          "We start on the Tankah reef, in salt water. A low, calm reef, the kind you dive without current and with good visibility.",
+          "Then the fresh water. Casa Cenote is minutes away: open, with mangroves reaching into the water and light falling between the roots. The difference with an hour ago is total.",
+          "Between the two there is a break with snacks, included, and the drive between the sites.",
+          "Each dive runs about forty-five minutes and neither goes past nine metres, so the day asks a lot of your eyes and nothing of your lungs."
+        ],
+        "sites": "The Tankah reef and Casa Cenote, both minutes from Tulum and minutes from each other.",
+        "faq": [
+          {
+            "q": "What certification do I need?",
+            "a": "Open Water or above. Neither dive goes past nine metres."
+          },
+          {
+            "q": "Why a reef and a cenote on the same day?",
+            "a": "Because they are two different worlds fifteen minutes apart, and seeing them back to back is what makes this coast make sense."
+          },
+          {
+            "q": "How many divers per guide?",
+            "a": "Four at most in the cenote. More people means more guides."
+          },
+          {
+            "q": "What is included?",
+            "a": "Both dives, the gear, the cenote entrance, transport between the sites and snacks. $200 USD per person."
+          },
+          {
+            "q": "Is there current on the reef?",
+            "a": "Tankah is a low, sheltered reef. This is not a current dive or a deep one."
+          }
+        ]
+      },
+      "advanced-ow": {
+        "title": "PADI Advanced Open Water course in Tulum — two days | Kay Diving",
+        "description": "PADI Advanced Open Water certification in Tulum over two days: five specialty dives to thirty metres, at Angelita or El Pit. Certification included. $550.",
+        "h1": "PADI Advanced Open Water course in Tulum",
+        "lede": "Five specialty dives across two days, taking you to thirty metres and opening Tulum's two deep cenotes. Materials and certification included.",
+        "who": "For divers who already hold the Open Water and want two things: depth, and the cenotes that ask for it. Angelita and El Pit are closed to an Open Water diver — not by a rule of ours, but because they go past thirty metres — and this course is the door. In the cenotes we dive four divers per guide at most, and the ratio is not negotiable: more people means more guides.",
+        "day": [
+          "The Advanced is not theory with an exam at the end: it is five specialty dives, and you learn by doing them. The study materials are included.",
+          "Two days is the usual shape: two dives on the first, three on the second. If you would rather not fill the day, it spreads over three — two, two and one. Your call.",
+          "Four of the five specialties are fixed: deep diving, underwater navigation, peak performance buoyancy and night diving. The fifth is yours to pick, between drift diving, nitrox and cavern diving.",
+          "The deep dives are done at Cenote Angelita or El Pit, the two deep cenotes in the area and among the most striking sites you will ever dive. At Angelita there is a cloud of hydrogen sulphide at around thirty metres, with dead branches rising through it; at El Pit the light comes down the whole shaft and simply stays there.",
+          "You finish certified to thirty metres, and those two cenotes stop being closed to you."
+        ],
+        "sites": "Cenote Angelita and Cenote El Pit, the two deep cenotes near Tulum. Each has its own page with the depth and what it is like inside.",
+        "faq": [
+          {
+            "q": "How long does the course take?",
+            "a": "Usually two days: two dives on the first, three on the second. It can also be done over three, with two, two and one. You decide."
+          },
+          {
+            "q": "Which specialties are they?",
+            "a": "Four are fixed: deep diving, underwater navigation, peak performance buoyancy and night diving. The fifth is your pick, between drift diving, nitrox and cavern diving."
+          },
+          {
+            "q": "What do I need to start the course?",
+            "a": "The Open Water certification, or the equivalent from another agency."
+          },
+          {
+            "q": "How deep does it go?",
+            "a": "To thirty metres, which is the Advanced limit and what opens Angelita and El Pit."
+          },
+          {
+            "q": "Where is it done?",
+            "a": "The deep dives, at Cenote Angelita or El Pit."
+          },
+          {
+            "q": "How many divers per guide?",
+            "a": "Four at most in the cenotes. More people means more guides."
+          },
+          {
+            "q": "What does the price include?",
+            "a": "The five specialty dives, the gear, the study materials, cenote entrance, transport, snacks and the Advanced Open Water certification itself. $550 USD per person."
+          }
+        ]
+      },
+      "bull-sharks": {
+        "title": "Bull shark diving in Playa del Carmen | Kay Diving",
+        "description": "Two boat dives with bull sharks off Playa del Carmen, November to March. We leave from Tulum. $250 USD. Advanced Open Water required.",
+        "h1": "Bull shark diving",
+        "lede": "Every winter female bull sharks come in to the coast off Playa del Carmen. We drive the forty-five minutes and get in with them.",
+        "who": "For divers with Advanced Open Water or the equivalent, no exceptions — this is boat diving, in open water, with large animals. If you hold the Open Water and want to do this, the way there is the Advanced first.",
+        "day": [
+          "We leave Tulum early and drive the forty-five minutes to Playa del Carmen. From there, onto the boat.",
+          "The first dive is the shark dive. The second is on a low reef, between eight and twenty metres.",
+          "These are wild animals, free: they come because the season brings them, not because anyone calls them. That is exactly what makes it worth doing, and also what means nobody can promise you how many you will see.",
+          "The season runs November to March. Outside those months they are not there, and we do not sell it."
+        ],
+        "sites": "Off Playa del Carmen, forty-five minutes from Tulum, from a boat.",
+        "faq": [
+          {
+            "q": "When is the season?",
+            "a": "November to March. Outside those months the bull sharks are not on the coast and we do not run the trip."
+          },
+          {
+            "q": "What certification do I need?",
+            "a": "Advanced Open Water or the equivalent, no exceptions."
+          },
+          {
+            "q": "Are they always there?",
+            "a": "It cannot be guaranteed. These are wild animals in open water; the season is very reliable, but a sighting is never a promise."
+          },
+          {
+            "q": "Is this cage diving?",
+            "a": "No. It is open-water diving from a boat, with a guide."
+          },
+          {
+            "q": "What is included?",
+            "a": "Both dives, the gear, transport from Tulum and snacks. $250 USD per person."
+          }
+        ]
+      },
+      "snorkel": {
+        "title": "Cenote snorkelling tour in Tulum | Kay Diving",
+        "description": "Half a day snorkelling three cenotes near Tulum, no certification and no experience needed. Gear, entrance and transport included. $125 USD per person.",
+        "h1": "Snorkelling the cenotes of Tulum",
+        "lede": "Three different cenotes in half a day, no tank, no course and no rush. We finish at one of the best taquerías in town.",
+        "who": "For anyone who wants to see the cenotes from the inside without taking up diving: families, someone along with a diver, or anyone who would rather stay at the surface. No experience and no certification, and the snorkelling gear is included. There is no minimum age.",
+        "day": [
+          "Half a day, three cenotes. Each one different from the last on purpose: the shape, the light and what you see from above all change.",
+          "From the surface you see more than people expect. In clear, shallow water with light coming down from above, the bottom and the formations are there in full.",
+          "Between one and the next there is the drive and snacks, included, and the pace is whatever the group's is.",
+          "And at the end, tacos. Not part of the price — part of the day."
+        ],
+        "sites": "Three of our favourite cenotes near Tulum, chosen on the day according to the water and what the group wants to see.",
+        "faq": [
+          {
+            "q": "Do I need to know how to dive?",
+            "a": "No. This is snorkelling: you breathe at the surface, with a mask and snorkel. No certification of any kind."
+          },
+          {
+            "q": "What is included?",
+            "a": "Mask and snorkel, entrance to all three cenotes, transport between them and snacks. $125 USD per person."
+          },
+          {
+            "q": "How long is it?",
+            "a": "It starts between eight and nine in the morning and ends between one and two in the afternoon. Half a day, unhurried."
+          },
+          {
+            "q": "Is there a minimum age?",
+            "a": "No. Tell us the ages when you book and we build the day around the group."
+          },
+          {
+            "q": "Is it alright for a weak swimmer?",
+            "a": "Tell us before you book and we build the day around it. There are vests, and the cenotes are chosen on the day."
+          },
+          {
+            "q": "What should I bring?",
+            "a": "Swimwear, a towel and biodegradable sunscreen. We bring the rest."
+          }
+        ]
+      }
     }
   },
   "included": {
@@ -168,7 +470,7 @@
       },
       "padi-licence": {
         "name": "PADI licence",
-        "text": "The Open Water course ends with a certification recognised worldwide."
+        "text": "Both courses end with a certification recognised worldwide, included in the price."
       }
     }
   },
@@ -181,6 +483,15 @@
       "gallery-3": "Under the platform · Casa Cenote",
       "gallery-bull-shark": "A bull shark off Playa del Carmen"
     }
+  },
+  "reviews": {
+    "tag": "Reviews",
+    "h2": "What divers say once they are back on dry land.",
+    "intro": "Five of the reviews Kay Diving has on Google, word for word, in the language each diver wrote them in.",
+    "stars": "{n} out of 5",
+    "score": "{rating} on Google · {n} reviews",
+    "onGoogle": "Google",
+    "all": "Read them on Google ↗"
   },
   "visit": {
     "tag": "Day off",
@@ -198,7 +509,7 @@
       "dive": "Dive"
     },
     "weDive": "We dive here",
-    "weDiveCta": "Dive guide: {name}",
+    "weDiveCta": "See its page",
     "goodLabel": "Good for",
     "tipLabel": "Worth knowing",
     "note": "Hours, prices and rules change without notice, and every cenote is run by someone different: check on the day before you set off. Cavern diving needs specific training, equipment and a guide — it is not something to improvise.",
@@ -358,220 +669,6 @@
     "text": "Your safety comes first — and once it is taken care of, all that is left is to enjoy every minute underwater.",
     "cite": "Kay Diving · Tulum"
   },
-  "reviews": {
-    "tag": "Google reviews",
-    "h2": "<span class=\"ital grad\">{rating}</span> out of 5<br>on Google.",
-    "h2Plain": "In their<br>own words.",
-    "intro": "Word for word, in the language each was written in: a few of the {count} reviews on our Google profile.",
-    "introPlain": "Word for word, in the language each was written in, from our Google profile.",
-    "all": "Read every review on Google",
-    "stars": "{n} out of 5 stars",
-    "badge": "Rated {rating} out of 5 on Google",
-    "cenoteH2": "What divers say about {the}"
-  },
-  "product": {
-    "kinds": {
-      "dive": "Guided dive",
-      "course": "PADI course",
-      "snorkel": "Snorkel tour"
-    },
-    "bookKind": {
-      "dive": "Book this dive",
-      "course": "Book this course",
-      "snorkel": "Book this tour"
-    },
-    "ask": "Ask us on WhatsApp",
-    "whatsappText": "Hello Kay Diving! I have a question about {the}.",
-    "more": "Details",
-    "back": "All our dives and courses",
-    "priceTag": "Price per person",
-    "includedTag": "In the price",
-    "whereTag": "Where we go",
-    "snorkelWhere": "Cenotes that suit snorkelling",
-    "faqTag": "Questions",
-    "faqH2": "What people ask us",
-    "otherTag": "More ways into the water",
-    "qPrice": "How much does {the} cost?",
-    "aPrice": "{prices} per person, in US dollars. The price includes {included}. The one extra is hotel pickup in Tulum town: +{pickup} for the whole booking.",
-    "qMeet": "Where do we meet, and when?",
-    "aMeet": "At {place} in Tulum, at no extra cost. Departures at {times}, and you can suggest another time when you book; we check it before confirming.",
-    "qBook": "How do I book?",
-    "aBook": "Online, from this page. {intro}",
-    "items": {
-      "discover-scuba": {
-        "the": "Discover Scuba",
-        "h1": "Discover Scuba Diving in Tulum",
-        "title": "Discover Scuba Diving in Tulum, No Card Needed | Kay Diving",
-        "meta": "Try scuba for the first time in Casa Cenote, Tulum: an open-air cenote no deeper than 7 m, with a PADI instructor beside you. No experience needed. From $140.",
-        "body": [
-          "Discover Scuba is PADI's first taste of diving, made for people who have never breathed underwater. Your guide teaches you the basics of scuba, then takes you into Casa Cenote: an open-air cenote ringed by mangroves, where fresh and salt water mix, with fish, turtles and daylight all the way down, no deeper than seven metres.",
-          "One dive, or two if you want more time underwater; the second runs only if the sea is right that day. There is no exam and no card at the end — just a first look at the underwater world with a guide beside you, and a very good morning. If you want to keep going, the next step is our Open Water course."
-        ],
-        "faq": [
-          {
-            "q": "Do I need any experience?",
-            "a": "None. Discover Scuba is made for people who have never dived: no certification and no previous experience, just a guide and shallow water."
-          },
-          {
-            "q": "How deep is a Discover Scuba dive?",
-            "a": "No deeper than seven metres, in Casa Cenote, an open-air cenote with daylight all the way down."
-          },
-          {
-            "q": "Do I get a certification?",
-            "a": "No: Discover Scuba is a guided first experience, not a course. To dive on your own card, take the Open Water course, five dives between Casa Cenote and the Tankah reef."
-          }
-        ]
-      },
-      "reef-cenote": {
-        "the": "the Reef & Cenote dive",
-        "h1": "Reef & Cenote Diving in Tulum",
-        "title": "Reef and Cenote Diving in Tulum, One Morning | Kay Diving",
-        "meta": "Two dives in one morning near Tulum: the Mesoamerican Reef off Tankah, with turtles, then the fresh water of Casa Cenote. Open Water card. $200, gear included.",
-        "body": [
-          "Both halves of what makes this coast worth diving, in a single morning. First the Mesoamerican Reef off Tankah, north of Tulum: a shallow dive, around nine metres, with turtles and reef fish, in water a little warmer than the cenotes. Then Casa Cenote, an open-air cenote ringed by mangroves, where fresh and salt water mix.",
-          "Salt water and fresh, turtles and roots, on an Open Water card. Equipment, the cenote entrance fee, snacks and water, and the transport between the two sites are in the price."
-        ],
-        "faq": [
-          {
-            "q": "What certification do I need?",
-            "a": "Open Water or an equivalent. Both dives stay shallow, around nine metres at most."
-          },
-          {
-            "q": "When is the reef at its best?",
-            "a": "Reef conditions are generally best in spring and early summer. The cenote, sheltered from wind and swell, dives well all year."
-          }
-        ]
-      },
-      "cenote-diving": {
-        "the": "cenote diving",
-        "h1": "Cenote Diving in Tulum",
-        "title": "Cenote Diving in Tulum: Caverns & Deep Cenotes | Kay Diving",
-        "meta": "Guided cenote dives near Tulum: Dos Ojos, Car Wash, Angelita, El Pit and more, chosen with you to match your card. 2 dives $200, 3 dives $250, entry included.",
-        "body": [
-          "Some of the most beautiful flooded caverns in the world are around Tulum. You choose the cenotes with us, and which ones are open to you depends on your card. With Open Water: cenotes such as Dos Ojos, Car Wash, Tak Be Ha and Nicte-Ha, mostly between six and sixteen metres. With Advanced Open Water or a Deep speciality: the two deep cenotes, Angelita and El Pit, past thirty metres.",
-          "Cavern diving stays inside the natural daylight zone, always within reach of the entrance — it is not cave diving, and your Open Water card covers it. With two dives you pick both cenotes; with three, the first two are at Dos Ojos and the third is another cenote of your choice."
-        ],
-        "faq": [
-          {
-            "q": "Which cenote should I dive first?",
-            "a": "Dos Ojos is the classic first cavern: nine to ten metres, crystal-clear water and daylight the whole way. Casa Cenote, open to the sky and seven metres at most, is gentler still."
-          },
-          {
-            "q": "Can I dive Angelita or El Pit with an Open Water card?",
-            "a": "Not on a guided dive: both go past 30 metres and need Advanced Open Water or a Deep speciality. With Open Water you can still reach them on our Advanced course, to 30 metres."
-          },
-          {
-            "q": "Is cenote diving the same as cave diving?",
-            "a": "No. Cavern diving stays inside the daylight zone, within reach of the entrance and with a direct route out to the surface. Cave diving goes beyond daylight and needs its own certification."
-          }
-        ]
-      },
-      "open-water": {
-        "the": "the Open Water course",
-        "h1": "PADI Open Water Course in Tulum",
-        "title": "PADI Open Water Course in Tulum, Cenote & Reef | Kay Diving",
-        "meta": "Become a certified diver in Tulum: the PADI Open Water course over five dives, first in Casa Cenote, then on the Tankah reef to 18 m. $600, materials included.",
-        "body": [
-          "The PADI Open Water course is the certification that lets you dive anywhere in the world, to eighteen metres. No previous experience needed. We teach it over five dives: first in Casa Cenote, an open-air cenote no deeper than seven metres, ideal for new divers, then in the sea on the Tankah reef, where the course finishes at eighteen metres.",
-          "The learning materials and your PADI licence are in the price, with the equipment, the cenote entrance fees, snacks and water. Once certified, most of the cenotes around Tulum are open to you: they sit between six and sixteen metres."
-        ],
-        "faq": [
-          {
-            "q": "Do I need any experience to start?",
-            "a": "No. The course starts from zero: no certification and no previous dives needed."
-          },
-          {
-            "q": "Where do the course dives take place?",
-            "a": "The first ones in Casa Cenote, an open-air cenote seven metres deep, and the last in the sea off Tankah, where the course finishes at eighteen metres."
-          },
-          {
-            "q": "What can I dive once I am certified?",
-            "a": "Any dive to eighteen metres, anywhere in the world. Here that means the reef and most cenotes, Dos Ojos and Car Wash among them; Angelita and El Pit need Advanced."
-          }
-        ]
-      },
-      "advanced-ow": {
-        "the": "the Advanced course",
-        "h1": "PADI Advanced Open Water in Tulum",
-        "title": "PADI Advanced Open Water in Tulum, to 30 m | Kay Diving",
-        "meta": "The next step after Open Water: the PADI Advanced course in Tulum, five specialty dives to 30 m in Cenote Angelita or El Pit. $550, materials included.",
-        "body": [
-          "The next step after Open Water: five specialty dives that take you to thirty metres, in Cenote Angelita or Cenote El Pit, the two deep cenotes near Tulum that an Open Water card alone does not open.",
-          "At Angelita a cloud of hydrogen sulphide hangs in the water, with dead branches rising through it; at El Pit, light falls the whole way down the shaft. The learning materials are included, with the equipment, the cenote entrance fee, snacks and water."
-        ],
-        "faq": [
-          {
-            "q": "Who can take the Advanced course?",
-            "a": "Any diver with Open Water or an equivalent certification."
-          },
-          {
-            "q": "How deep does the Advanced course go?",
-            "a": "To thirty metres, in Angelita or El Pit: the depth an Advanced Open Water card certifies you for."
-          },
-          {
-            "q": "What does Advanced open up afterwards?",
-            "a": "The deep cenotes on our cenote days, and the bull shark dive off Playa del Carmen, which asks for Advanced Open Water."
-          }
-        ]
-      },
-      "snorkel": {
-        "the": "the snorkel tour",
-        "h1": "Cenote Snorkel Tour in Tulum",
-        "title": "Cenote Snorkeling Tour in Tulum, 3 Cenotes | Kay Diving",
-        "meta": "Snorkel three cenotes near Tulum in half a day: no experience needed, mask, snorkel and entry fees included, ending at one of the best taquerías in town. $125.",
-        "body": [
-          "For anyone who wants a little adventure and a lot of calm: three different cenotes across half a day, no experience needed and no tank. Mask and snorkel are provided, and the cenote entrance fees, snacks and water are in the price.",
-          "Among the cenotes that suit snorkelling are Casa Cenote, open to the sky and ringed by mangroves, and Dos Ojos, with crystal-clear water and more than thirty metres of visibility. The tour finishes at one of the best local taquerías in town."
-        ],
-        "faq": [
-          {
-            "q": "Do I need any experience?",
-            "a": "No. No experience and no tank: just a mask and a snorkel, which we provide."
-          },
-          {
-            "q": "What should I bring?",
-            "a": "A swimsuit and reef-safe sunscreen. Mask and snorkel are provided."
-          },
-          {
-            "q": "How long is the tour?",
-            "a": "Half a day, across three different cenotes, finishing at one of the best local taquerías in town."
-          }
-        ]
-      },
-      "bull-sharks": {
-        "the": "the bull shark dive",
-        "h1": "Bull Shark Diving in Playa del Carmen",
-        "title": "Bull Shark Diving in Playa del Carmen, Nov–Mar | Kay Diving",
-        "meta": "From November to March, bull sharks gather off Playa del Carmen, 45 minutes from Tulum. Two boat dives: the sharks, then a reef. Advanced Open Water. $250.",
-        "body": [
-          "Every winter the bull sharks come to the coast off Playa del Carmen, and we drive the forty-five minutes from Tulum to meet them. The season runs from November to March.",
-          "Two dives from the boat: the first with the sharks, the second on a shallow reef between eight and twenty metres. It asks for Advanced Open Water or an equivalent, no exceptions."
-        ],
-        "faq": [
-          {
-            "q": "When is bull shark season?",
-            "a": "From November to March, when the bull sharks gather off Playa del Carmen. Outside those months the dive does not run."
-          },
-          {
-            "q": "What certification do I need?",
-            "a": "Advanced Open Water or an equivalent, no exceptions."
-          },
-          {
-            "q": "How far is it from Tulum?",
-            "a": "About forty-five minutes by road to Playa del Carmen; the dives are from a boat."
-          }
-        ]
-      }
-    },
-    "includedInline": {
-      "equipment": "equipment",
-      "entrance": "the cenote entrance fees",
-      "snacks": "snacks, water",
-      "site-transport": "transport to the sites",
-      "materials": "the learning materials",
-      "padi-licence": "your PADI licence"
-    }
-  },
   "book": {
     "tag": "Reservations",
     "h2": "Book your<br>day in the water.",
@@ -605,8 +702,9 @@
     "rDeposit": "Deposit now",
     "halfDayLabel": "Half day",
     "fine": "Equipment, cenote entrance, transport to the sites and snacks included. Prices per person in USD; pickup is per booking. The deposit is charged in Mexican pesos and the balance is settled on the day. If you pay the balance in dollars, the exchange rate of the day applies.",
-    "certNote": "On the day, show your guide your certification — the card or a copy on your phone. Without it we cannot take you diving. To 18 m: Open Water or equivalent. Deeper: at least Advanced Open Water or equivalent.",
+    "certNote": "On the day, show your guide your certification — the card or a copy on your phone. Without it we cannot take you diving. To 20 m: Open Water or equivalent. Deeper: at least Advanced Open Water or equivalent.",
     "mpDescription": "Deposit of {percent}% — the balance is settled on the day.",
+    "mpDescriptionFull": "Paid in full — nothing to settle on the day.",
     "submit": "Reserve with a deposit",
     "submitting": "Opening checkout…",
     "error": "Something went wrong opening the checkout. Try again, or write to us on WhatsApp.",
@@ -629,7 +727,12 @@
     "siteBase": "With three dives, the first two are at Dos Ojos and you choose the cenote for the third.",
     "siteDeep": "Advanced or Deep",
     "rSites": "Sites",
-    "errSites": "Choose a cenote for each dive."
+    "errSites": "Choose a cenote for each dive.",
+    "payLabel": "How you want to pay",
+    "payDeposit": "{percent}% deposit",
+    "payFull": "Pay in full now",
+    "payDepositNote": "The balance in cash or by card on the day.",
+    "payFullNote": "Nothing left to pay on the day of the dive."
   },
   "faq": {
     "tag": "Before you come",
@@ -637,19 +740,11 @@
     "items": [
       {
         "q": "Do I need to be certified to dive here?",
-        "a": "Not to start. Discover Scuba takes people who have never breathed underwater, and the snorkel tour needs nothing at all. With your own card, Open Water or an equivalent covers every dive to 18 metres: the reef and the cenotes, which mostly stay between six and sixteen metres. The two deep cenotes, Angelita and El Pit, need at least Advanced Open Water or an equivalent — a Deep speciality counts — and so does the bull shark dive; with Open Water you can still reach them on our Advanced course, to 30 metres. Bring the card or a digital copy and show it to your guide on the day: without it, we cannot take you on the dive."
+        "a": "Not to start. Discover Scuba takes people who have never breathed underwater, and the snorkel tour needs nothing at all. Every dive to 20 metres or shallower — the reef and most cenotes — needs Open Water or an equivalent. Anything deeper — Angelita and El Pit — needs at least Advanced Open Water or an equivalent; a Deep speciality counts. Bring the card or a digital copy and show it to your guide on the day: without it, we cannot take you on the dive."
       },
       {
         "q": "How deep do the dives go?",
-        "a": "Discover Scuba stays at seven metres (25 ft). The Open Water course trains first in Casa Cenote, seven metres deep, then finishes in the sea at eighteen metres (60 ft); the reef dive stays around nine. Most cenote dives are shallow, between six and sixteen metres: Dos Ojos is nine to ten, Car Wash reaches sixteen. The two deep ones go further: Cenote Angelita reaches 35–38 metres and Cenote El Pit 30–32. The Advanced course works to 30 metres (100 ft)."
-      },
-      {
-        "q": "Is there good reef diving in Tulum?",
-        "a": "Yes. Tulum lies along the Mesoamerican Reef, the largest barrier reef in the Western Hemisphere. We dive it off Tankah, north of town: our reef dive stays shallow, around nine metres, with turtles and reef fish, in water a little warmer than the cenotes. Our Reef & Cenote day pairs it with Casa Cenote in a single morning, and the Open Water course finishes in the sea at eighteen metres. Reef conditions are best in spring and early summer; in winter, the coast's other big dive is the bull sharks off Playa del Carmen, 45 minutes away."
-      },
-      {
-        "q": "It's my first time diving a cenote. Which ones are best to start with?",
-        "a": "Start open and shallow, then go under the roof. Casa Cenote is open to the sky, seven metres at most, ringed by mangroves, with fish and turtles: the gentlest first dive there is, and without a certification you can try it with Discover Scuba. Dos Ojos is the classic first cavern: crystal-clear water with more than 30 metres of visibility, nine to ten metres deep, always within the daylight zone and with a direct route out to the surface. Nicte-Ha, shallow and dotted with water lilies, and Car Wash, easy to reach and down to sixteen metres, make good next steps. Leave Angelita and El Pit for later: they go past 30 metres and need Advanced Open Water or a Deep speciality — or come on our Advanced course, which takes Open Water divers there to 30 metres. And tell us in the questionnaire before the dive what you have done and what makes you uneasy — we build the day around it."
+        "a": "Discover Scuba stays at seven metres (25 ft). The Open Water course and the reef stay around nine metres. Most cenote dives are planned to eighteen metres. The two deep ones go further: Cenote Angelita and Cenote El Pit are dived to 30 metres. The Advanced course works to 27 metres (90 ft)."
       },
       {
         "q": "What is actually included in the price?",
@@ -701,14 +796,14 @@
     "email": "Email",
     "place": "Tulum, Quintana Roo, MX",
     "phone": "Phone",
-    "meet": "Meeting point:"
+    "meet": "Meeting point"
   },
   "booking": {
     "thanks": {
       "tag": "Payment received",
       "h2": "You are on the boat.",
       "p": "Your deposit is in and the date is held. A guide will message you on WhatsApp within a few hours with the meeting point, the time, and the few questions we ask before every dive. The balance is settled on the day. A short form for your equipment sizes is in your confirmation email.",
-      "note": "Bring your dive certification on the day — the card or a digital copy — and show it to your guide. To 18 metres you need Open Water or an equivalent; deeper, at least Advanced Open Water or an equivalent. Without it we cannot take you diving. Discover Scuba, the Open Water course and the snorkel tour need none.",
+      "note": "Bring your dive certification on the day — the card or a digital copy — and show it to your guide. To 20 metres you need Open Water or an equivalent; deeper, at least Advanced Open Water or an equivalent. Without it we cannot take you diving. Discover Scuba, the Open Water course and the snorkel tour need none.",
       "cta": "Back to the site"
     },
     "pending": {
@@ -768,6 +863,7 @@
       "kicker": "Booking confirmed",
       "hi": "Hi {name},",
       "lede": "Your deposit has gone through and {date} is held for you. Here is exactly what we have on file.",
+      "ledeFull": "Your payment went through and {date} is held for you. This is exactly what we have on file.",
       "detailsTag": "Your booking",
       "whatLabel": "What",
       "dateLabel": "Date",
@@ -781,9 +877,11 @@
       "paidLabel": "Deposit paid",
       "balanceLabel": "Balance on the day",
       "balanceNote": "Settled in cash or by card when you arrive. If you pay in dollars, the exchange rate of that day applies.",
+      "fullLabel": "Paid in full",
+      "fullNote": "Nothing left to pay. Turn up at the departure time and that is it.",
       "certTag": "Your certification",
-      "certOpenWater": "Bring your Open Water certification, or an equivalent, and show it to your guide on the day — the card or a digital copy on your phone. It is required for every dive to 18 metres or shallower.",
-      "certOpenWaterPlus": "Bring your certification and show it to your guide on the day — the card or a digital copy on your phone. Dives to 18 metres need Open Water or an equivalent; Angelita and El Pit, deeper than 18 metres, need at least Advanced Open Water or an equivalent, such as the Deep speciality.",
+      "certOpenWater": "Bring your Open Water certification, or an equivalent, and show it to your guide on the day — the card or a digital copy on your phone. It is required for every dive to 20 metres or shallower.",
+      "certOpenWaterPlus": "Bring your certification and show it to your guide on the day — the card or a digital copy on your phone. Dives to 20 metres need Open Water or an equivalent; Angelita and El Pit, deeper than 20 metres, need at least Advanced Open Water or an equivalent, such as the Deep speciality.",
       "certAdvanced": "Bring your certification and show it to your guide on the day — the card or a digital copy on your phone. This dive needs at least Advanced Open Water or an equivalent, such as the Deep speciality.",
       "certNoShow": "Without the certification this dive requires, on paper or digital, we cannot take you on it.",
       "gearTag": "Your equipment sizes",
@@ -850,8 +948,8 @@
     "back": "Back to the site"
   },
   "cenotes": {
-    "metaTitle": "Cenote Diving Guide: Tulum & Riviera Maya | Kay Diving",
-    "metaDescription": "The cenotes we dive around Tulum — Angelita, El Pit, Dos Ojos, Casa Cenote and more: how deep the dive goes, the card you need, dive maps and locations.",
+    "metaTitle": "Cenote guide: Tulum & the Riviera Maya | Kay Diving",
+    "metaDescription": "The cenotes we dive around Tulum, one by one: Angelita, El Pit, Dos Ojos, Casa Cenote and more — how deep the dive goes, the certification you need, and where each one is on the map.",
     "tag": "Cenote guide",
     "h1": "The cenotes we dive,<br>one by one.",
     "intro": "Every cenote on this map is one we dive, with the depth the dive goes to and the certification card you show on the day. Tap a point on the map, or pick a type below.",
@@ -883,43 +981,6 @@
     "nearbyTag": "Nearby",
     "back": "All cenotes",
     "illustration": "Illustration — photo coming soon",
-    "planTag": "Dive map",
-    "planAlt": "Dive map of {name}: depths, entrance and cavern limits",
-    "planNote": "Drawn for orientation, not navigation: your guide briefs the route at the cenote.",
-    "planCredit": "Redrawn from the map by {credit}.",
-    "planCreditCentre": "Redrawn from the dive centre's own map.",
-    "planOpen": "Open full size",
-    "pageTitle": "{name} Diving in Tulum",
-    "pageTitleMore": ": Depth & Map",
-    "faqTag": "Questions",
-    "faqH2": "{name}, in short",
-    "qDepth": "How deep is the dive at {name}?",
-    "aDepth": "The dive goes down to {dive}.",
-    "aDepthMore": "The cenote itself is {depth} m deep.",
-    "qLevel": "What certification do I need to dive {name}?",
-    "aLevel": {
-      "none": "None: you can try it with Discover Scuba, a first dive alongside an instructor.",
-      "open-water": "An Open Water certification or equivalent, to show on the day.",
-      "advanced": "Advanced Open Water or a Deep speciality, because the dive goes past 30 metres."
-    },
-    "aLevelCourse": "Open Water divers can still dive it on the Advanced Open Water course, to {depth} m.",
-    "qWhere": "How far is {name} from Tulum?",
-    "aWhere": "About {km} km {dir} of Tulum, as the crow flies.",
-    "compassAt": [
-      "north",
-      "north-east",
-      "east",
-      "south-east",
-      "south",
-      "south-west",
-      "west",
-      "north-west"
-    ],
-    "qSnorkel": "Can you snorkel at {name}?",
-    "aSnorkel": "Yes: {name} suits snorkelling as well as diving.",
-    "qTrips": "Which Kay Diving trips go to {name}?",
-    "breadcrumbHome": "Home",
-    "touristType": "Scuba divers",
     "homeTag": "Cenote map",
     "homeH2": "Where we dive,<br>around Tulum.",
     "homeIntro": "Every cenote we dive, on one map — from Casa Cenote by the sea to the cloud in Angelita, 30 m down in the jungle. Tap one to see how deep it goes and the level it asks for.",
@@ -951,13 +1012,13 @@
       "advanced": "Advanced Open Water or Deep"
     },
     "items": {
-      "casa-cenote": "An open, lagoon-like cenote connected directly to the Caribbean Sea, where fresh and salt water mix into an ecosystem of its own. It is about 7 metres deep at most — ideal for new divers and for anyone after a relaxed dive. Mangroves surround it, and the visibility, though it varies, puts you alongside fish, turtles and now and then a freshwater crocodile (Morelet's crocodile, Crocodylus moreletii). The perfect way to combine recreational diving with wildlife up close.",
-      "car-wash": "Under a calm, easy-to-reach surface hides one of the most photographed cenotes on the Riviera Maya. Water lilies float on its clear water; further down there are petrified trunks and a striking gallery of stalactites and stalagmites. Up to 16 metres deep, it suits snorkelling as well as cavern diving, and the sunbeams filtering through the trees turn every dive into something almost cinematic.",
-      "dos-ojos": "One of the most famous flooded cave systems in the world: two connected cenotes that, seen from above, look like a pair of eyes. Its cavern routes, such as “The Barbie Line” and “The Bat Cave”, run through crystal-clear water with more than 30 metres of visibility, past striking stalactites and ancient rock formations. The open areas are about 10 metres deep at most. It belongs to the longest underwater cave system in the world, some 369 kilometres of it. An excellent choice if you have never dived a cenote before.",
-      "el-pit": "One of the deepest and most dramatic cenotes on the Riviera Maya, going down to 119 metres. It is famous for the column of light that pierces the water, for its halocline — where fresh and salt water meet — and for a cloud of hydrogen sulphide at about 30 metres that looks like fog underwater. Recommended for advanced or technical divers, it is one of the most striking cenote dives in the world.",
-      "angelita": "About 60 metres deep, this cenote holds one of the most striking sights in cavern diving: a cloud of hydrogen sulphide lying on the salt water at around 30 metres, which creates the illusion of an underground river, with trunks and fallen leaves “floating” in mid-air. Passing through it feels like crossing a threshold into another dimension, onto a sunken landscape wrapped in a ghostly haze. A mystical, overwhelming experience, reserved for advanced divers looking for something truly unique.",
+      "casa-cenote": "The odd one out. Casa Cenote is where a system of underground rivers ends and empties into the sea, so its water is brackish — fresh mixed with salt — and a degree warmer than anywhere else. That gives it wildlife no other cenote has, a crocodile among it. No certification needed, and it is an excellent place to snorkel.",
+      "car-wash": "Kay's favourite cenote, and one of the best to start with. A short, shallow dive that gives you the loveliest postcard of them all: the open water seen from inside the cavern, looking out. Its Maya name is Aktun Ha; the name Car Wash came from the cars that used to stop and get washed at the roadside.",
+      "dos-ojos": "Two connected bodies of water that, seen from above, look like a pair of eyes. They belong to the longest flooded cave system in the world — some 369 kilometres of it — and are dived as cavern: daylight always present, the exit always in sight. This is the cenote most people start with, and Open Water is enough.",
+      "el-pit": "An almost cylindrical shaft that drops far beyond where recreational diving goes. It has a halocline, hydrogen sulphide, stalactites several metres long and, in the right months, sunbeams that reach all the way down. Advanced Open Water is required, which is why it is one of the quietest cenotes of the day.",
+      "angelita": "The strangest cenote we dive. A layer of hydrogen sulphide turns the bottom into what looks like a river with an island in the middle, and crossing it changes the dive completely. Deep, vertical, connected to no other cave — it calls for Advanced Open Water.",
       "dreamgate": "A cavern cenote with a round entrance, known for its extraordinarily clear water and for the imposing columns and rock formations that reach down to the bottom. Natural light filtering through the opening above creates spectacular effects. Ideal for cavern diving, with routes through wide chambers and an almost ceremonial atmosphere.",
-      "tak-be-luum": "Less known, and so less touched, this cenote lies in the Dos Ojos park area. It offers cavern passages with well-preserved formations, calm water and a more intimate dive, since it sees fewer visitors. Ideal if you want to explore cenotes off the busiest routes. It lies inside the Dos Ojos park, near El Pit: just before you reach El Pit, a turn-off to the left leads to it.",
+      "tak-be-luum": "Less known, and so less touched, this cenote lies in the Dos Ojos park area. It offers cavern passages with well-preserved formations, calm water and a more intimate dive, since it sees fewer visitors. Ideal if you want to explore cenotes off the busiest routes.",
       "tak-be-ha": "A cave system with wide chambers, sharply defined stalactites and stalagmites, and a strong halocline that blurs the view where fresh and salt water mix. Calm and never crowded, it is ideal for certified divers looking for spectacular formations.",
       "nicte-ha": "Close to Dos Ojos, it stands out for its aquatic plants and its emerald water, coloured by water lilies and underwater vegetation. Shallower than the other cenotes around it, it is ideal for snorkelling and easy dives, with good visibility and a very photogenic, natural setting.",
       "nohoch-nah-chich": "Part of one of the longest underwater cave systems in the world. It is known for an astonishing concentration of stalactites and stalagmites, many of them huge, forming real stone “forests” underwater. Its crystal-clear water and intricate passages make it a must for experienced cavern divers looking for formations on another level."
@@ -972,19 +1033,20 @@
       "nicte-ha": "The clear turquoise water of Cenote Nicte-Ha, dotted with water lilies, below a wall of rock and jungle",
       "nohoch-nah-chich": "The turquoise water of Cenote Nohoch Nah Chich under a rock overhang, wooden steps leading down into it"
     },
-    "artAlt": "Illustration: {name}",
-    "metas": {
-      "casa-cenote": "Casa Cenote, Tulum: an open cenote joined to the Caribbean and ringed by mangroves, 7 m at most. Fish, turtles, calm water — no card needed to try it.",
-      "car-wash": "Cenote Car Wash (Aktun Ha), Tulum: water lilies, petrified trunks and a gallery of stalactites, down to 16 m. Cavern diving with Open Water, or snorkel.",
-      "dos-ojos": "Cenote Dos Ojos, Tulum: cavern dives on the Barbie Line and the Bat Cave in 30 m+ visibility, about 10 m deep. Open Water card. With a dive map.",
-      "el-pit": "Cenote El Pit, Tulum: a 119 m shaft with a column of light, a halocline and a hydrogen sulphide cloud near 30 m. Dive to 30–32 m, Advanced or Deep.",
-      "angelita": "Cenote Angelita, Tulum: the “underground river”, a hydrogen sulphide cloud at 30 m among sunken trees. Dive to 35–38 m with Advanced or Deep.",
-      "dreamgate": "Cenote Dreamgate, near Tulum: a cavern of columns and formations in extraordinarily clear water, lit through a round opening. Open Water. Dive map.",
-      "tak-be-luum": "Cenote Tak Be Luum, in the Dos Ojos park: quiet cavern passages with well-preserved formations, off the busy routes. Open Water card, to 7 m.",
-      "tak-be-ha": "Cenote Tak Be Ha, near Tulum: wide chambers, sharp stalactites and stalagmites and a strong halocline. Calm, never crowded. Open Water, to 16 m.",
-      "nicte-ha": "Cenote Nicte-Ha, next to Dos Ojos: emerald water, water lilies and aquatic plants. Shallow and photogenic — easy dives and snorkelling, to 8 m.",
-      "nohoch-nah-chich": "Cenote Nohoch Nah Chich, near Tulum: underwater “forests” of huge stalactites in crystal-clear water, in one of the longest cave systems on Earth."
+    "arts": {
+      "cavern": "A cavern dive: stalactites and stalagmites framing the blue exit in the distance. Daylight is never out of sight.",
+      "cenote-shaft": "Sunbeams piercing turquoise water, limestone walls and a diver on the way down.",
+      "halocline": "A diver crossing the halocline, the shimmering layer where fresh water meets salt.",
+      "the-pit": "A single column of light falling down the deep shaft of El Pit.",
+      "casa-cenote": "Shallow, sunlit water among mangrove roots, with small fish around it.",
+      "reef": "The Mesoamerican reef off Tulum: coral heads, a turtle and a school of fish under shafts of light."
     },
+    "artNote": "An illustration of the kind of dive, not a map of this cenote.",
+    "planTag": "Dive map",
+    "planNote": "Drawn for orientation, not navigation: your guide briefs the route at the cenote.",
+    "planCredit": "Redrawn from the map by {credit}.",
+    "planCreditCentre": "Redrawn from the dive centre's own map.",
+    "planOpen": "Open full size",
     "planAlts": {
       "casa-cenote": "Dive map of Casa Cenote: snorkel areas, depths of 2 to 6 m, the crack and cavern passages, cavern limits and the main entrance",
       "car-wash": "Dive map of Cenote Car Wash: depths of 5 to 16 m, formations, the two cavern limits and the main entrance",
@@ -992,6 +1054,388 @@
       "dreamgate": "Dive map of Cenote Dreamgate: the cavern line, formations, the open-water pool and its entrance, and the passages for cave divers only",
       "el-pit": "Cross-section of Cenote El Pit: the entrance shaft, depths to 40 m, the halocline and hydrogen sulphide cloud, and the cavern limit",
       "angelita": "Cross-section of Cenote Angelita: the entrance, depths to 55 m, the hydrogen sulphide cloud at 30 m and the sunken trees"
+    },
+    "artAlt": "Illustration: {name}",
+    "lightTag": "When to go",
+    "ownTag": "Going on your own",
+    "faqTag": "Questions",
+    "deep": {
+      "dos-ojos": {
+        "sections": [
+          {
+            "h": "The two eyes",
+            "p": [
+              "It is a semi-open cenote. At water level there is a platform that splits the area in two: one side for divers, the other for snorkellers. The platform sits in the east eye — the other is the west eye, and that is where the name comes from, because in Mexico a roundish body of water of a certain size is called an ojo de agua, an eye of water."
+            ]
+          },
+          {
+            "h": "Getting into the water",
+            "p": [
+              "We kit up at the parking area above and walk down ready to get in. There are two ways into the water: sit on the steps, put your fins on and enter from there, or put them on standing at the edge of the platform and take a giant stride forward.",
+              "Before we start we run a buoyancy check. We do it on anyone's first cenote dive, without exception: fresh water does not hold you the way salt water does, and most people need to adjust the weight they would use in the sea."
+            ]
+          },
+          {
+            "h": "The Barbie Line",
+            "p": [
+              "There are two different dives here. Both start in the east eye and finish in the west eye, but they take in different parts of the cavern. The Barbie Line is named for the Barbie doll tied to the line at the halfway point — it is the marker that tells you you are exactly half way. It is the brighter of the two, and the longer."
+            ]
+          },
+          {
+            "h": "The Bat Cave",
+            "p": [
+              "The Bat Cave is darker and far less exposed to the light. With about a third of the dive left we surface inside a chamber with bats and stalactite formations — fruit bats, the ones that live on fruit. Hence the name. Both dives are beautiful and both stay with you."
+            ]
+          }
+        ],
+        "light": "Dive it early. It is one of the most popular cenotes in the area, and by mid-morning there are considerably more people in the water — especially in high season.",
+        "own": "Yes, you can snorkel here, in the area the platform keeps separate from the divers. The park's rules have changed over the years: swimming is now only allowed with a life jacket. The bat chamber can be explored on snorkel too.",
+        "faq": [
+          {
+            "q": "Do I need a certification to dive Dos Ojos?",
+            "a": "Open Water is enough. This is cavern diving, not cave diving: daylight is the primary light source and the exit is always in sight, following the guideline."
+          },
+          {
+            "q": "Why is it called Dos Ojos?",
+            "a": "For the two connected bodies of water that make up the site, the east eye and the west eye. In Mexico a roundish body of water of a certain size is called an ojo de agua — an eye of water."
+          },
+          {
+            "q": "What is the difference between the Barbie Line and the Bat Cave?",
+            "a": "The Barbie Line is the brighter route and the longer one; a Barbie doll is tied to the line at the halfway point as a marker. The Bat Cave is darker, and a third from the end you surface in a chamber with fruit bats and stalactites."
+          },
+          {
+            "q": "How deep is it?",
+            "a": "The dives stay within ten metres. This is a dive about light and formations, not about depth."
+          },
+          {
+            "q": "Can you snorkel at Dos Ojos?",
+            "a": "Yes, in the area kept separate from the divers. The park changed its rules and swimming is now only allowed with a life jacket. The bat chamber can be seen on snorkel as well."
+          },
+          {
+            "q": "What time should I get there?",
+            "a": "Early. It is one of the most visited cenotes and it fills up quickly, especially in high season."
+          }
+        ]
+      },
+      "angelita": {
+        "sections": [
+          {
+            "h": "The entry and the descent",
+            "p": [
+              "You get in by walking down a small wooden platform to the water. Fins on there, and a giant stride in.",
+              "We like to descend close to the platform so you can use the wall as a reference. At the start there is only water around you, nothing obvious for your eyes to hold on to."
+            ]
+          },
+          {
+            "h": "Why the water looks green",
+            "p": [
+              "Visibility at Angelita is its own thing. The water runs green, from the vegetation reflecting in from outside and above all because this cenote is not connected to any other cave: it has none of the constant water flow that Dos Ojos or El Pit have, and that flow is what makes theirs so clear. Angelita's is good — just not as good as most of the others."
+            ]
+          },
+          {
+            "h": "The cloud and the island",
+            "p": [
+              "As you near the bottom the island starts to appear. It is a mound of debris fallen over thousands of years, and its summit sits just above the hydrogen sulphide cloud. The cloud looks like a river covering the whole cenote, leaving only that summit out of it — hence the island. With the gas, the mountain and the fallen trees below, the image is completely surreal."
+            ]
+          },
+          {
+            "h": "Going through the cloud",
+            "p": [
+              "The cloud starts around twenty-eight metres. Our dive is planned to thirty. For anyone who asks and has the experience, we can go down through it — it ends around thirty-three — and that is settled with you on site, not sold over the internet. Below it visibility is good but dark, because the cloud eats the daylight; with a torch everything is perfectly clear. We stay a couple of minutes and start back up. Coming back up through the cloud is one of the strangest moments of the dive. Above it the water is fresh; below it, salt."
+            ]
+          },
+          {
+            "h": "The U-shaped cavern",
+            "p": [
+              "We carry on up slowly, circling, to a small U-shaped cavern at about fourteen metres with one way in and one way out. It is narrow, and it gives the middle of the dive a lovely touch."
+            ]
+          },
+          {
+            "h": "The ascent and the suspended trees",
+            "p": [
+              "Out of there we ascend slowly to five metres for the safety stop. That last stretch has very particular rock formations and some trees that fell into the cenote but caught in the rocks on the way down and never reached the bottom. A few of them look suspended in the water."
+            ]
+          },
+          {
+            "h": "Angelita in popular culture",
+            "p": [
+              "A piece of trivia I enjoy: years ago Angelita was on the History Channel's Ancient Aliens, because the cenote fits an Olmec legend that describes a place like it. In that world of theories, some believe the Olmecs were in contact with other civilisations. It is popular culture and myth, nothing more, but it is part of what gets talked about down here."
+            ]
+          }
+        ],
+        "light": "The best light is roughly between nine and twelve in the morning. And if you arrive early, you can have the place almost to yourself for an hour.",
+        "own": "You can snorkel here, but honestly I would not recommend it. What makes Angelita special is at thirty metres, and for snorkelling there are far better places near Tulum.",
+        "faq": [
+          {
+            "q": "What is the cloud at Angelita?",
+            "a": "A layer of hydrogen sulphide that begins around twenty-eight metres. From above it looks like a river covering the whole cenote, leaving out only the summit of the debris mound on the bottom — which is why it is called the island."
+          },
+          {
+            "q": "Can you go through the cloud?",
+            "a": "The dive is planned to thirty metres. For anyone who asks and has the experience we can go down through it; it ends around thirty-three. That is decided with you on site, not over the internet. Below it is dark because the cloud absorbs daylight, but a torch shows everything, and we stay only a couple of minutes."
+          },
+          {
+            "q": "What certification do I need?",
+            "a": "Advanced Open Water or Deep Diver. That is not our rule — it is the depth."
+          },
+          {
+            "q": "Why is the water green?",
+            "a": "The vegetation outside reflects in, and above all Angelita is not connected to any other cave. Without constant water flow it does not clear the way Dos Ojos or El Pit do. Visibility is still good, just not as good as the others."
+          },
+          {
+            "q": "What time should I dive it?",
+            "a": "Between nine and twelve for the light. Arrive early and you may have the cenote almost to yourself for an hour."
+          },
+          {
+            "q": "Can you snorkel at Angelita?",
+            "a": "You can, but I would not recommend it. What is worth seeing is at thirty metres; for snorkelling there are better cenotes nearby."
+          }
+        ]
+      },
+      "el-pit": {
+        "sections": [
+          {
+            "h": "Where it is and what it connects to",
+            "p": [
+              "El Pit is inside the Dos Ojos park. In fact, about twelve metres down there is a cave that, dived for some two and a half hours, comes out in Dos Ojos right at the Barbie doll — but only a cave-certified diver can do that."
+            ]
+          },
+          {
+            "h": "The entry and the descent",
+            "p": [
+              "To start you walk down a long platform, a little intimidating to look at but perfectly safe. At the bottom, fins on and a giant stride in. Once everyone is ready we switch on our torches and begin a slow descent."
+            ]
+          },
+          {
+            "h": "The halocline",
+            "p": [
+              "The first fourteen metres are fresh water. Then comes the halocline, where fresh water and salt water meet. Visibility drops a little there: the halocline makes the water look thick — I always compare it to how oil looks in water. Past it, at around fifteen metres, it is salt water the rest of the way."
+            ]
+          },
+          {
+            "h": "The hydrogen sulphide and the island on the bottom",
+            "p": [
+              "As at Angelita, there is an island on the bottom built from trees and rocks that have fallen over thousands of years. There is hydrogen sulphide here too, at thirty metres, though it is not as dense as Angelita's and does not give the same visual effect. It is still well worth seeing."
+            ]
+          },
+          {
+            "h": "How deep we go",
+            "p": [
+              "At thirty metres we begin ascending slowly in a circle: the cenote is close to cylindrical. El Pit is one of the deepest caves in the region, reaching a hundred and forty-two metres, though on our dives you only make out the first forty or so."
+            ]
+          },
+          {
+            "h": "The light beams",
+            "p": [
+              "On the way up is when the sunbeams come into their own, coming down and dancing under the water."
+            ]
+          },
+          {
+            "h": "The stalactites overhead",
+            "p": [
+              "The ceiling carries an enormous number of stalactites, some over two or three metres. A stalactite takes about four thousand years to grow a metre, and it only grows in a semi-dry environment: once it is underwater it stops growing for good."
+            ]
+          },
+          {
+            "h": "What the archaeologists found",
+            "p": [
+              "When archaeologists explored this place they found human remains some eight thousand years old, from the cave-dweller era. Also animal remains from the end of the last ice age, among them a giant sloth that is still inside one of these caves — that one is only reachable with a cave certification, because it is not in the cavern zone."
+            ]
+          }
+        ],
+        "light": "The sunbeams show between late March and late September, and within the day between 8:30 and 12, because of the angle the sun comes in at. From September to November and from January through most of March you barely see the effect. Worth saying plainly: the dive is beautiful with or without the light, but the light takes it somewhere else.",
+        "own": "No snorkelling here. El Pit is for diving and freediving only, and since it also asks for Advanced Open Water as a minimum, it is one of the quietest cenotes in the area.",
+        "faq": [
+          {
+            "q": "How deep is El Pit?",
+            "a": "A hundred and forty-two metres — one of the deepest caves in the region. Our dives are planned to thirty, and from there you make out about forty."
+          },
+          {
+            "q": "When can you see the light beams?",
+            "a": "Between late March and late September, and between 8:30 and 12 in the day. From September to November and from January through most of March you barely see them. The dive is beautiful either way, but the light takes it somewhere else."
+          },
+          {
+            "q": "What is the halocline?",
+            "a": "The point where fresh water meets salt water, around fourteen or fifteen metres. It makes the water look thick and costs you some visibility — it looks the way oil looks in water. Once you are through it, everything is sharp again."
+          },
+          {
+            "q": "What certification do I need?",
+            "a": "Advanced Open Water as a minimum. It is a deep dive, and that requirement is also why there are so few people here."
+          },
+          {
+            "q": "Can you snorkel at El Pit?",
+            "a": "No. It is for diving and freediving only."
+          },
+          {
+            "q": "Is the giant sloth real?",
+            "a": "Yes. Animal remains from the end of the last ice age have been found in these caves, among them a giant sloth that is still in there. It is not in the cavern zone, so it can only be reached with a cave certification."
+          }
+        ]
+      },
+      "car-wash": {
+        "sections": [
+          {
+            "h": "Where the name comes from",
+            "p": [
+              "Its Maya name is Aktun Ha, which means flooded cave, or cave with water. The name everybody uses is much more recent and far more prosaic: the cenote sits right beside the highway, and years ago, long before Tulum was a tourist destination, locals and people driving past would stop to fetch buckets of water and wash their cars. The name stuck."
+            ]
+          },
+          {
+            "h": "What the dive is like",
+            "p": [
+              "It is a short dive, and that is worth saying up front: it is not the longest we run. Maximum depth is sixteen metres, so it does take a safety stop at the end, but on average it stays well above that. Shallow, short, with the open water never far away — that combination makes it one of the best cenotes for someone just getting into cenote diving. Open Water is enough."
+            ]
+          },
+          {
+            "h": "The postcard from inside the cavern",
+            "p": [
+              "There is one moment that, for Kay, justifies the whole cenote. You are inside the cavern with the darkness behind you, looking back out towards the open area: daylight comes in from a single direction and cuts the silhouette of the entrance out against the water. It is one of the finest images any cenote around here gives you, and it is the reason this one is his favourite."
+            ]
+          },
+          {
+            "h": "The formations",
+            "p": [
+              "Car Wash has very large stalactites and stalagmites — among the biggest you will see on a shallow cavern dive. They formed while the cave was dry; once it flooded they stopped growing for good, so what you see today is exactly what was left when the sea came up."
+            ]
+          },
+          {
+            "h": "The Maya pot",
+            "p": [
+              "The remains of a Maya pot were found inside the cenote, and they are still there. They were not lifted out or put in a display case: they lie where they were found, and you pass beside them during the dive. It is one of the rare chances to see a piece like that in place, underwater, rather than behind glass."
+            ]
+          },
+          {
+            "h": "Life in the open area",
+            "p": [
+              "The open area has beautiful vegetation and noticeably more fish than most cenotes around here, which tend to be emptier. Cormorants sometimes come down to fish underwater, and watching that from below is a strange thing to witness. Land turtles live around the edges too, among other species."
+            ]
+          },
+          {
+            "h": "What it pairs with",
+            "p": [
+              "The usual pairing is Car Wash with Angelita: one short, bright and shallow, the other deep and strange. They work well together precisely because they have nothing in common."
+            ]
+          }
+        ],
+        "faq": [
+          {
+            "q": "What does Aktun Ha mean?",
+            "a": "Flooded cave, or cave with water, in Maya. It is the cenote's original name; Car Wash is the nickname that stuck later."
+          },
+          {
+            "q": "Why is it called Car Wash?",
+            "a": "Because it sits right by the highway. Years ago, before Tulum was a tourist town, locals and passers-by would stop to fetch buckets of water and wash their cars there."
+          },
+          {
+            "q": "How deep is Car Wash?",
+            "a": "Sixteen metres at most. That is why it takes a safety stop at the end, although the dive stays well above that depth on average."
+          },
+          {
+            "q": "Do I need experience to dive it?",
+            "a": "Not much. Open Water is enough, and it is one of the cenotes we most recommend to people just starting out: shallow, short, and with the open water never far away."
+          },
+          {
+            "q": "Is there really a Maya pot inside?",
+            "a": "Yes. The remains of a Maya pot were found in the cenote and are still in place, visible during the dive."
+          },
+          {
+            "q": "What animals will I see at Car Wash?",
+            "a": "More fish than in most cenotes. Cormorants sometimes dive down to fish underwater, and land turtles live around the edges, among other species."
+          },
+          {
+            "q": "Which other cenote is it usually combined with?",
+            "a": "Angelita. It is the pairing people ask for most: a short, bright dive followed by a deep and completely different one."
+          }
+        ]
+      },
+      "casa-cenote": {
+        "sections": [
+          {
+            "h": "Where an underground river ends",
+            "p": [
+              "Casa Cenote is unlike the others because it is neither a shaft nor a cave: it is the point where a system of underground rivers ends and hands its water to the sea. Only a dirt road separates the cenote from the beach, and the connection runs underneath it, pushing fresh water out towards the Caribbean.",
+              "That direct connection explains everything else. The water is brackish — fresh mixed with salt — and that changes what lives here, how it looks, and even what temperature it is."
+            ]
+          },
+          {
+            "h": "A degree warmer",
+            "p": [
+              "Almost every cenote around here sits at twenty-five degrees. Casa Cenote sits at twenty-six. One degree sounds like nothing and tells over the course of a whole dive.",
+              "On some days you can also make out the halocline, the band where fresh and salt water meet. It is not constant: it depends on the sea level that day, and on how much salt water is coming in against how much fresh water is pushing out."
+            ]
+          },
+          {
+            "h": "Panchita",
+            "p": [
+              "The most remarkable animal here is a freshwater crocodile, a Crocodylus moreletii. It arrived on its own, naturally, and has been living in the cenote for some nine years. In a place like this there will normally be only one: they are highly territorial and defend their ground.",
+              "Its name is Panchita, and it has become the emblem of the site and, in a way, its main attraction. That said, this is wild habitat and not an enclosure: a sighting is never guaranteed."
+            ]
+          },
+          {
+            "h": "What else lives here",
+            "p": [
+              "Being this close to the sea, the plants and animals look nothing like those of other cenotes. In the water you will find cenote mollies, Mayan cichlids, tarpon and blue crabs.",
+              "Above the surface there are plenty of birds: cormorants, grey and blue herons, and the occasional white one."
+            ]
+          },
+          {
+            "h": "A fish nursery connected to the sea",
+            "p": [
+              "The mangrove around the cenote works as a nursery: a sheltered place where young fish can grow. And because the cenote is connected to the sea, it is common to see marine species too — snapper, moray eels and others — coming in through the cave when the salt water rises.",
+              "It is a place where the sea and the river visit each other, and depending on the day you see more of one or the other."
+            ]
+          },
+          {
+            "h": "Bigger than it looks",
+            "p": [
+              "The cenote is deceiving when you arrive: what you see is a small eye of water. But it reaches back some two hundred and fifty metres.",
+              "Most of that is open, with sky overhead. Only about a quarter of the dive goes into the cavern zone."
+            ]
+          },
+          {
+            "h": "Who it is for",
+            "p": [
+              "This is the cenote we recommend most for a Discover Scuba, for an open water course, for a refresher after time out of the water, or simply for a first cenote dive.",
+              "On Discover Scuba dives and Open Water courses we do not enter the cavern at all: we stay where there is direct access to the surface, by regulation and for the divers' safety. It is a beautiful, straightforward dive, and in our view it belongs on the itinerary of anyone planning their diving around Tulum."
+            ]
+          }
+        ],
+        "own": "Yes, and we recommend it. Casa Cenote is an excellent place to snorkel: most of it is open and shallow, and nearly all the wildlife that makes it special — the fish, the crabs, the birds and, with luck, Panchita — is within sight of the surface.",
+        "faq": [
+          {
+            "q": "Why is the water at Casa Cenote brackish?",
+            "a": "Because the cenote is where a system of underground rivers ends and empties into the sea. The connection runs under the dirt road that separates the cenote from the beach: fresh water goes out towards the Caribbean and salt water comes in. The result is brackish water, fresh mixed with salt."
+          },
+          {
+            "q": "Is there a crocodile in Casa Cenote?",
+            "a": "Yes. Its name is Panchita, a Crocodylus moreletii. It arrived naturally and has lived in the cenote for about nine years. There is normally only one per site, because they are highly territorial. This is wild habitat, so a sighting is never guaranteed."
+          },
+          {
+            "q": "What temperature is the water?",
+            "a": "Twenty-six degrees — one degree warmer than most cenotes around here, which sit at twenty-five. The connection to the sea is what explains it."
+          },
+          {
+            "q": "Do I need a certification to dive Casa Cenote?",
+            "a": "No. It is one of the best places for a Discover Scuba dive or an open water course. On those we stay in the areas with direct access to the surface and do not enter the cavern."
+          },
+          {
+            "q": "Can you snorkel at Casa Cenote?",
+            "a": "Yes, and it is one of the best spots around for it. Most of the cenote is open and shallow, and the wildlife that makes it special is visible from the surface."
+          },
+          {
+            "q": "How big is it?",
+            "a": "It looks small when you arrive, because what you see is a modest eye of water, but it reaches back some two hundred and fifty metres."
+          },
+          {
+            "q": "Do you go into caves here?",
+            "a": "Only partly. Because of its shape most of the dive is open; barely a quarter goes into the cavern zone. And on Discover Scuba dives and Open Water courses we do not go in at all."
+          },
+          {
+            "q": "Can you see the halocline?",
+            "a": "On some days. It depends on the sea level and on how much salt water is coming in against how much fresh water is pushing out, so it is not something anyone can promise in advance."
+          }
+        ]
+      }
     }
   }
 }
