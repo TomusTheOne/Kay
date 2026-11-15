@@ -19,6 +19,20 @@ import { beacon } from "@/lib/analytics";
 export default function Beacon() {
   const pathname = usePathname();
 
+  /* A partner's link — kaydiving.com/es/?ref=jashita — is remembered the
+     moment it is opened, on whatever page it lands. Concierges hand out a
+     link to the experience the guest asked about, not to the booking form,
+     so by the time the form is reached the query string is long gone and
+     the guest is left trying to recall a hotel's name. Session storage, not
+     a cookie: it belongs to this visit, it never leaves the browser, and it
+     is read by one field. */
+  useEffect(() => {
+    try {
+      const ref = new URLSearchParams(window.location.search).get("ref");
+      if (ref) sessionStorage.setItem("kay_ref", ref.slice(0, 64));
+    } catch { /* private window, storage disabled: the field just stays empty */ }
+  }, [pathname]);
+
   useEffect(() => {
     beacon("pageview");
 

@@ -123,6 +123,13 @@ kay_page_start($b['name'], 'bookings.php', $admin);
         <div><dt><?= kay_th('Niveau') ?></dt><dd><?= kay_h($b['certification'] !== '' ? $b['certification'] : '—') ?></dd></div>
         <div><dt><?= kay_th('Transport') ?></dt><dd><?= kay_h(kay_pickup_name($b['pickup'])) ?></dd></div>
         <div><dt><?= kay_th('Langue') ?></dt><dd><?= kay_h(strtoupper($b['locale'])) ?></dd></div>
+<?php
+/* Who sent them, when anyone did. Hidden rather than shown as a dash: most
+   bookings name nobody, and a row of empty dashes buries the ones that do. */
+$refName = kay_referral_name($db, (string) ($b['referral_slug'] ?? ''), (string) ($b['referral_text'] ?? ''));
+if ($refName !== ''): ?>
+        <div><dt><?= kay_th('Recommandé par') ?></dt><dd><?= kay_h($refName) ?></dd></div>
+<?php endif; ?>
         <div><dt><?= kay_th('Origine') ?></dt><dd><?= $b['source'] === 'manual' ? kay_th('Saisie dans l’admin') : kay_th('Site web') ?></dd></div>
         <div><dt><?= kay_th('Reçue') ?></dt><dd><?= kay_h(kay_when($b['created_at'])) ?></dd></div>
         <div><dt><?= kay_th('Référence') ?></dt><dd><code><?= kay_h($b['id']) ?></code></dd></div>

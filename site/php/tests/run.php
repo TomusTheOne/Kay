@@ -1073,5 +1073,77 @@ check('a cancelled booking takes no sizes', kay_gear_save($db, kay_booking_get($
 $db->prepare('DELETE FROM crm_notes WHERE booking_id = ?')->execute([$gid]);
 $db->prepare('DELETE FROM bookings WHERE id = ?')->execute([$gid]);
 
+/* ------------------------------------------------------- who sent them -- */
+
+echo "\nA referral is only worth keeping if it can be added up\n";
+require __DIR__ . '/../lib/referrals.php';
+
+check('a hotel name becomes a slug',      kay_partner_slug('Hotel Jashita'), 'hotel-jashita');
+check('accents are folded, not dropped',  kay_partner_slug('Posada Muñeca'), 'posada-muneca');
+check('punctuation collapses',            kay_partner_slug('  Ana & Co. — Tulum  '), 'ana-co-tulum');
+check('nothing usable gives nothing',     kay_partner_slug('!!!'), '');
+
+kay_partner_save($db, 'hotel-jashita', 'Hotel Jashita', 'Front desk', true);
+kay_partner_save($db, 'closed-shop',   'Closed Shop',   '',           false);
+
+check('a saved partner comes back',       kay_partner($db, 'hotel-jashita')['name'] ?? null, 'Hotel Jashita');
+check('saving again updates, not duplicates', (static function () use ($db): int {
+    kay_partner_save($db, 'hotel-jashita', 'Hotel Jashita Tulum', 'Front desk', true);
+    return count(array_filter(kay_partners($db), static fn($p) => $p['slug'] === 'hotel-jashita'));
+})(), 1);
+check('the form is offered only the active ones',
+      in_array('closed-shop', array_column(kay_partners($db, true), 'slug'), true), false);
+check('...while the full list keeps them',
+      in_array('closed-shop', array_column(kay_partners($db), 'slug'), true), true);
+
+// A link that matches a partner credits the partner.
+check('a known ?ref= credits the partner',
+      kay_referral_clean($db, 'hotel-jashita', '')['slug'], 'hotel-jashita');
+// One that matches nobody is NOT thrown away: a concierge handing out a card
+// with a typo would otherwise produce bookings that credit no one, silently.
+$unknown = kay_referral_clean($db, 'hotel-jashitaa', '');
+check('an unknown ?ref= credits nobody',  $unknown['slug'], '');
+check('...but is kept as written',        $unknown['text'], 'hotel-jashitaa');
+check('free text alone stays free text',  kay_referral_clean($db, '', 'la chica del hotel'), ['slug' => '', 'text' => 'la chica del hotel']);
+check('nothing in, nothing out',          kay_referral_clean($db, '', ''), ['slug' => '', 'text' => '']);
+
+$refId = static function (string $slug, string $text, string $status, int $divers) use ($db): string {
+    $id = sprintf('ref-%s', bin2hex(random_bytes(8)));
+    $db->prepare(
+        'INSERT INTO bookings (id, product, dives, dive_date, divers, pickup, name, email,
+                               total_usd_cents, total_mxn_cents, deposit_usd_cents, deposit_mxn_cents,
+                               status, referral_slug, referral_text)
+         VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)'
+    )->execute([$id, 'cenote-diving', 2, '2099-07-15', $divers, 'tulum-town', 'T', 't@example.com',
+                28000, 500000, 8400, 150000, $status, $slug, $text]);
+    return $id;
+};
+$ids = [
+    $refId('hotel-jashita', '', 'paid', 2),
+    $refId('hotel-jashita', '', 'paid', 3),
+    $refId('hotel-jashita', '', 'pending', 4),   // never paid: never owed
+    $refId('', 'mi amigo Luis', 'paid', 1),
+];
+$rep = kay_referral_report($db, '2099-07-01', '2099-07-31');
+check('the report groups by partner',     count($rep['rows']), 1);
+check('it counts the bookings',           (int) $rep['rows'][0]['bookings'], 2);
+check('it counts the divers',             (int) $rep['rows'][0]['divers'], 5);
+check('a pending booking is owed nothing',(int) $rep['totals']['bookings'], 2);
+check('it names the partner',             $rep['rows'][0]['name'], 'Hotel Jashita Tulum');
+check('outside the range it is silent',   kay_referral_report($db, '2099-08-01', '2099-08-31')['rows'], []);
+
+$loose = kay_referral_freetext($db, '2099-07-01', '2099-07-31');
+check('hand-written answers are listed apart', $loose[0]['text'] ?? null, 'mi amigo Luis');
+check('and never counted as a partner',   array_column($rep['rows'], 'slug'), ['hotel-jashita']);
+
+check('a deleted partner still reads',    kay_referral_name($db, 'gone-away', ''), 'gone-away');
+check('a live one reads by name',         kay_referral_name($db, 'hotel-jashita', ''), 'Hotel Jashita Tulum');
+check('free text reads as written',       kay_referral_name($db, '', 'mi amigo Luis'), 'mi amigo Luis');
+
+foreach ($ids as $gone) {
+    $db->prepare('DELETE FROM bookings WHERE id = ?')->execute([$gone]);
+}
+$db->exec("DELETE FROM partners WHERE slug IN ('hotel-jashita','closed-shop')");
+
 printf("\n%d passed, %d failed\n\n", $passed, $failed);
 exit($failed === 0 ? 0 : 1);

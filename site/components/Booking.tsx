@@ -58,6 +58,40 @@ export default function Booking({
   /* Days Kay closed in the admin. The page is static, so it asks when it
      loads; if that fails — or under `next dev`, with no PHP behind it —
      every day looks open, and booking.php still refuses a closed one. */
+  /* Who sent them. Optional, and it stays optional: a required referral
+     field is a field people answer at random, and Kay pays commission on
+     these — a wrong name costs him money and an argument. */
+  const [partners, setPartners] = useState<{ slug: string; name: string }[]>([]);
+  const [ref, setRef] = useState("");
+  const [refText, setRefText] = useState("");
+  useEffect(() => {
+    /* The URL wins over what was stored. Beacon saves ?ref= on every page so
+       it survives the walk from a cenote page to the form, but both run as
+       effects of the same render and neither is guaranteed to go first —
+       reading the query string here means this never depends on that order,
+       and a second partner's link in the same visit replaces the first. */
+    let remembered = "";
+    try {
+      remembered = new URLSearchParams(window.location.search).get("ref")
+        ?? sessionStorage.getItem("kay_ref") ?? "";
+    } catch { /* no storage, or an exotic URL: the field just stays empty */ }
+    fetch("/api/partners.php")
+      .then((res) => (res.ok ? res.json() : null))
+      .then((body) => {
+        const list = Array.isArray(body?.partners) ? body.partners : [];
+        setPartners(list);
+        /* A link whose slug is nobody we know still counts: it is a partner
+           Kay has not added yet, or a typo on a card in a lobby, and either
+           way the booking should say so rather than credit no one. */
+        if (!remembered) return;
+        if (list.some((p: { slug: string }) => p.slug === remembered)) setRef(remembered);
+        else { setRef("other"); setRefText(remembered); }
+      })
+      .catch(() => {
+        if (remembered) { setRef("other"); setRefText(remembered); }
+      });
+  }, []);
+
   const [closedDays, setClosedDays] = useState<ReadonlySet<string>>(new Set());
   useEffect(() => {
     fetch("/api/availability.php")
@@ -126,6 +160,7 @@ export default function Booking({
           product: product.slug, option: option.dives, pay, ...(slots.length ? { sites } : {}),
           date, slot, slotNote,
           cert, divers, pickup, name, email, locale,
+          ref: ref === "other" ? "" : ref, refText: ref === "other" ? refText : "",
         }),
       });
       if (!res.ok) {
@@ -170,7 +205,7 @@ export default function Booking({
      option, no cenotes to pick) still reads 01, 02, 03 without a gap. */
   const steps = [
     "s1", ...(product.options.length > 1 ? ["s2"] : []), ...(slots.length ? ["sSites"] : []),
-    "s3", "s4", "s5", "s6", "s7", "s8", "s9",
+    "s3", "s4", "s5", "s6", "s7", "s8", "s9", "s10",
   ];
   const step = (key: string) =>
     t[key].replace(/^\d+/, String(steps.indexOf(key) + 1).padStart(2, "0"));
@@ -307,6 +342,29 @@ export default function Booking({
               <input className="field" id="mail" type="email" autoComplete="email" placeholder={t.mailPh}
                      value={email} onChange={(e) => setEmail(e.target.value)} />
             </div>
+          </div>
+
+          {/* With no partner list — the request failed, or none is set up —
+              this is a plain text box. Never nothing: word of mouth is worth
+              knowing about even when there is no one to pay. */}
+          <div className="fgroup">
+            <label className="flabel" htmlFor="ref">{step("s10")}</label>
+            {partners.length > 0 ? (
+              <select className="field" id="ref" value={ref} onChange={(e) => setRef(e.target.value)}>
+                <option value="">{t.refNone}</option>
+                {partners.map((p) => <option key={p.slug} value={p.slug}>{p.name}</option>)}
+                <option value="other">{t.refOther}</option>
+              </select>
+            ) : (
+              <input className="field" id="ref" placeholder={t.refPh}
+                     value={refText} onChange={(e) => { setRefText(e.target.value); setRef("other"); }} />
+            )}
+            {partners.length > 0 && ref === "other" && (
+              <input className="field" style={{ marginTop: ".6rem" }} aria-label={t.refOther}
+                     placeholder={t.refPh} value={refText}
+                     onChange={(e) => setRefText(e.target.value)} />
+            )}
+            <p className="divesites__note">{t.refNote}</p>
           </div>
         </div>
 

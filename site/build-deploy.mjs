@@ -67,7 +67,7 @@ await mkdir(`${OUT}/api/lib`, { recursive: true });
 // track.php is the traffic beacon every page posts to; availability.php
 // tells the booking form which days Kay closed.
 // gear.php takes the equipment sizes divers send from their confirmation link.
-for (const f of ["booking.php", "webhook.php", "send-live.php", "track.php", "availability.php", "gear.php"]) {
+for (const f of ["booking.php", "webhook.php", "send-live.php", "track.php", "availability.php", "gear.php", "partners.php"]) {
   await cp(`php/${f}`, `${OUT}/api/${f}`);
 }
 for (const f of await readdir("php/lib")) {

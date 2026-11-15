@@ -716,6 +716,7 @@
     "dateClosed": "Ese día no salimos al agua. Elige otra fecha o escríbenos por WhatsApp.",
     "s8": "09 — Nombre",
     "s9": "10 — Correo",
+    "s10": "11 — Recomendado por",
     "rPickup": "Cómo llegas",
     "rTime": "Salida",
     "timeOther": "Otra hora — la revisamos",
@@ -732,7 +733,11 @@
     "payDeposit": "Anticipo {percent}%",
     "payFull": "Pagar todo ahora",
     "payDepositNote": "El resto en efectivo o con tarjeta el mismo día.",
-    "payFullNote": "No queda nada por pagar el día del buceo."
+    "payFullNote": "No queda nada por pagar el día del buceo.",
+    "refNone": "Nadie, llegué por mi cuenta",
+    "refOther": "Otro (escríbelo)",
+    "refPh": "Hotel, agencia o persona",
+    "refNote": "Opcional. Si alguien te recomendó con nosotros, dínoslo y se lo agradecemos."
   },
   "faq": {
     "tag": "Antes de venir",

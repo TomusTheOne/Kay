@@ -295,6 +295,7 @@ const KAY_NAV = [
     'bookings.php'     => ['Réservations',    'Résas',    'M5 4h14v16H5zM9 9h6M9 13h6M9 17h3'],
     'availability.php' => ['Disponibilité',   'Dates',    'M4 6h16v14H4zM4 10h16M8 3v4M16 3v4M9 14l6 4M15 14l-6 4'],
     'customers.php'    => ['Clients',         'Clients',  'M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM2 21a7 7 0 0 1 14 0M17 11a3 3 0 1 0 0-6M22 20a5 5 0 0 0-4-5'],
+    'referrals.php'    => ['Recommandations', 'Recos',    'M12 3l2.3 4.7 5.2.8-3.8 3.6.9 5.1-4.6-2.4-4.6 2.4.9-5.1L4.5 8.5l5.2-.8z'],
     'traffic.php'      => ['Trafic',          'Trafic',   'M4 20V10M10 20V4M16 20v-7M22 20H2'],
 ];
 

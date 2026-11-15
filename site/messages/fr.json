@@ -716,6 +716,7 @@
     "dateClosed": "Nous ne sortons pas ce jour-là. Choisissez une autre date, ou écrivez-nous sur WhatsApp.",
     "s8": "09 — Nom",
     "s9": "10 — E-mail",
+    "s10": "11 — Recommandé par",
     "rPickup": "Le rendez-vous",
     "rTime": "Départ",
     "timeOther": "Autre horaire — on vérifie",
@@ -732,7 +733,11 @@
     "payDeposit": "Acompte de {percent} %",
     "payFull": "Tout régler maintenant",
     "payDepositNote": "Le solde en espèces ou par carte le jour même.",
-    "payFullNote": "Plus rien à régler le jour de la plongée."
+    "payFullNote": "Plus rien à régler le jour de la plongée.",
+    "refNone": "Personne, je vous ai trouvés seul",
+    "refOther": "Quelqu'un d'autre (précisez)",
+    "refPh": "Hôtel, agence ou personne",
+    "refNote": "Facultatif. Si quelqu'un vous a envoyé chez nous, dites-le-nous : nous le remercierons."
   },
   "faq": {
     "tag": "Avant de venir",

@@ -90,4 +90,16 @@
     }
     update();
   }
+
+  /* Copy a partner's link. Kay sends these over WhatsApp one at a time, and
+     selecting a long URL by hand on a phone is the step where people give up. */
+  document.addEventListener("click", function (e) {
+    const btn = e.target.closest && e.target.closest("[data-copy]");
+    if (!btn || !navigator.clipboard) return;
+    navigator.clipboard.writeText(btn.dataset.copy).then(function () {
+      const was = btn.textContent;
+      btn.textContent = btn.dataset.copied || was;
+      setTimeout(function () { btn.textContent = was; }, 1600);
+    }, function () {});
+  });
 })();

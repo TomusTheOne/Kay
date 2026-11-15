@@ -22,7 +22,7 @@ if (($_GET['format'] ?? '') === 'csv') {
         kay_t('Départ'), kay_t('Sortie'), kay_t('Plongées'), kay_t('Sites'), kay_t('Plongeurs'), kay_t('Niveau'),
         kay_t('Transport'), kay_t('Client'), kay_t('E-mail'), kay_t('Téléphone'), kay_t('Langue'),
         kay_t('Total MXN'), kay_t('Total USD'), kay_t('Encaissé MXN'), kay_t('Reste MXN'),
-        kay_t('Paiement Mercado Pago'),
+        kay_t('Paiement Mercado Pago'), kay_t('Recommandé par'),
     ], array_map(static function (array $b): array {
         $m = kay_booking_money($b);
         return [
@@ -31,6 +31,7 @@ if (($_GET['format'] ?? '') === 'csv') {
             kay_product_name($b['product']), $b['dives'], kay_sites_label((string) ($b['sites'] ?? '')), $b['divers'], $b['certification'],
             kay_pickup_name($b['pickup']), $b['name'], $b['email'], $b['customer_phone'] ?? '', $b['locale'],
             $m['total'], (int) round($b['total_usd_cents'] / 100), $m['received'], $m['balance'], $b['payment_id'] ?? '',
+            kay_referral_name(kay_db(), (string) ($b['referral_slug'] ?? ''), (string) ($b['referral_text'] ?? '')),
         ];
     }, $all));
 }

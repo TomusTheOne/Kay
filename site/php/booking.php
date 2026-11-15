@@ -9,6 +9,7 @@ require __DIR__ . '/lib/mercadopago.php';
 // diver reads that screen while deciding whether to hand over a card.
 require __DIR__ . '/lib/notify.php';
 require __DIR__ . '/lib/availability.php';
+require __DIR__ . '/lib/referrals.php';
 // Only for a database the admin has not migrated yet: see the sites below.
 require __DIR__ . '/lib/migrate.php';
 
@@ -64,6 +65,11 @@ $bookingId   = sprintf(
 // abandoned pending booking, which is harmless; the reverse — a payment with
 // nothing to attach it to — is not.
 $db = kay_db();
+
+// Who sent them. Optional, always: a required referral field is a field
+// people answer at random, and an invented answer is worse than a blank one.
+$referral = kay_referral_clean($db, $input['ref'] ?? null, $input['refText'] ?? null);
+
 $slots = array_column(kay_catalogue()['schedules'], 'slug');
 $slot  = in_array($input['slot'] ?? '', $slots, true) ? (string) $input['slot'] : '0800';
 
@@ -97,6 +103,22 @@ $db->prepare(
 // migrated the database. If the column is not there yet, this is the moment
 // to add it (as gear.php does) — and if even that fails, the booking stands
 // and only the choice is lost, to the error log.
+if ($referral['slug'] !== '' || $referral['text'] !== '') {
+    $saveRef = static fn() => $db
+        ->prepare('UPDATE bookings SET referral_slug = ?, referral_text = ? WHERE id = ?')
+        ->execute([$referral['slug'], $referral['text'], $bookingId]);
+    try {
+        $saveRef();
+    } catch (Throwable) {
+        try {
+            kay_migrate($db);
+            $saveRef();
+        } catch (Throwable $e) {
+            error_log("kay: referral not saved for $bookingId: " . $e->getMessage());
+        }
+    }
+}
+
 [$sites] = kay_sites_check($quote['product'], (int) $quote['option']['dives'], $input['sites'] ?? null, true);
 if ($sites !== []) {
     $saveSites = static fn() => $db->prepare('UPDATE bookings SET sites = ? WHERE id = ?')

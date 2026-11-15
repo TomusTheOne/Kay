@@ -272,6 +272,26 @@ function kay_migrations(): array
                KEY webhook_log_called_idx (called_at)
              ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
         ],
+
+        // Who sent the diver. Kay pays concierges a commission per tour, and
+        // a free-text box cannot be added up: "Jashita", "hotel jashita" and
+        // "la chica de la recepcion" are one partner and three rows. So the
+        // partners are a table and the booking keeps the slug, which totals
+        // exactly; referral_text keeps whatever was typed under "other", so
+        // word of mouth is not thrown away either.
+        11 => [
+            "CREATE TABLE IF NOT EXISTS partners (
+               slug        VARCHAR(64)  NOT NULL PRIMARY KEY,
+               name        VARCHAR(120) NOT NULL,
+               note        VARCHAR(190) NOT NULL DEFAULT '',
+               active      TINYINT(1)   NOT NULL DEFAULT 1,
+               created_at  DATETIME     NOT NULL DEFAULT CURRENT_TIMESTAMP,
+               KEY partners_active_idx (active, name)
+             ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
+            "ALTER TABLE bookings ADD COLUMN referral_slug VARCHAR(64) NOT NULL DEFAULT ''",
+            "ALTER TABLE bookings ADD COLUMN referral_text VARCHAR(120) NOT NULL DEFAULT ''",
+            "ALTER TABLE bookings ADD KEY bookings_referral_idx (referral_slug)",
+        ],
     ];
 }
 

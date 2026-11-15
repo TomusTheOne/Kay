@@ -716,6 +716,7 @@
     "dateClosed": "We're not out on the water that day. Pick another date, or message us on WhatsApp.",
     "s8": "09 — Name",
     "s9": "10 — Email",
+    "s10": "11 — Recommended by",
     "rPickup": "Getting there",
     "rTime": "Start",
     "timeOther": "Another time — we will check",
@@ -732,7 +733,11 @@
     "payDeposit": "{percent}% deposit",
     "payFull": "Pay in full now",
     "payDepositNote": "The balance in cash or by card on the day.",
-    "payFullNote": "Nothing left to pay on the day of the dive."
+    "payFullNote": "Nothing left to pay on the day of the dive.",
+    "refNone": "Nobody, I found you myself",
+    "refOther": "Someone else (type it)",
+    "refPh": "Hotel, agency or person",
+    "refNote": "Optional. If someone sent you our way, tell us and we will thank them."
   },
   "faq": {
     "tag": "Before you come",
