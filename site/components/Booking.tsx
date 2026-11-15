@@ -5,6 +5,14 @@ import { siteSlots, sitesLabel } from "@/content/cenotes";
 import type { Dictionary } from "@/lib/i18n";
 import { track } from "@/lib/analytics";
 
+/* The name and email fields ask the browser to autofill, because filling
+   those in is a kindness. This one must not: there is nothing in anyone's
+   browser that is the name of the hotel that recommended Kay, so Chrome
+   offers the nearest thing it has saved — a stray code, someone's postcode —
+   and a password manager offers worse. Off, and the two managers that ignore
+   "off" are told by name. */
+const noAutofill = { "data-1p-ignore": true, "data-lpignore": "true", "data-bwignore": true } as const;
+
 const money = (n: number) => "$" + n.toLocaleString("en-US");
 const tomorrow = () => new Date(Date.now() + 864e5).toISOString().slice(0, 10);
 
@@ -350,18 +358,19 @@ export default function Booking({
           <div className="fgroup">
             <label className="flabel" htmlFor="ref">{step("s10")}</label>
             {partners.length > 0 ? (
-              <select className="field" id="ref" value={ref} onChange={(e) => setRef(e.target.value)}>
+              <select className="field" id="ref" value={ref} autoComplete="off" {...noAutofill}
+                      onChange={(e) => setRef(e.target.value)}>
                 <option value="">{t.refNone}</option>
                 {partners.map((p) => <option key={p.slug} value={p.slug}>{p.name}</option>)}
                 <option value="other">{t.refOther}</option>
               </select>
             ) : (
-              <input className="field" id="ref" placeholder={t.refPh}
+              <input className="field" id="ref" placeholder={t.refPh} autoComplete="off" spellCheck={false} {...noAutofill}
                      value={refText} onChange={(e) => { setRefText(e.target.value); setRef("other"); }} />
             )}
             {partners.length > 0 && ref === "other" && (
               <input className="field" style={{ marginTop: ".6rem" }} aria-label={t.refOther}
-                     placeholder={t.refPh} value={refText}
+                     placeholder={t.refPh} value={refText} autoComplete="off" spellCheck={false} {...noAutofill}
                      onChange={(e) => setRefText(e.target.value)} />
             )}
             <p className="divesites__note">{t.refNote}</p>
