@@ -42,6 +42,9 @@ export default async function Footer({ t, locale, home = "" }: { t: Dictionary; 
             <li><a href={`https://wa.me/${SHOP.phone.replace(/\D/g, "")}`} rel="noopener">{t.footer.whatsapp}</a></li>
             <li><a href={`mailto:${SHOP.email}`}>{SHOP.email}</a></li>
             <li><span className="muted" style={{ fontSize: ".9rem" }}>{t.footer.meet}: {SHOP.meetingPoint}</span></li>
+            {/* Kay's hours, and why a message can wait: half the day is spent
+                underwater or on jungle roads with no signal. */}
+            <li><span className="muted" style={{ fontSize: ".9rem" }}>{t.footer.hoursTag}: {t.footer.hours}</span></li>
             <li><span className="muted" style={{ fontSize: ".9rem" }}>{t.footer.place}</span></li>
           </ul></div>
         </div>

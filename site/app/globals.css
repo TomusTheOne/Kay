@@ -1017,3 +1017,23 @@ select.field{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xml
    a short image stuck to the ceiling of a tall column reads as a mistake. */
 .guide__plate{margin:0;aspect-ratio:16/11;align-self:center}
 @media (max-width:880px){.guide__plate{order:-1}}
+
+
+
+/* The dive map of one cenote (components/CenotePlan.tsx). */
+.guide__plan{padding-top:0}
+.guide__plan figure{margin:1.4rem 0 0}
+.plan{position:relative;display:block;margin-inline:auto;width:min(100%,calc(var(--ar) * 1200px))}
+.plan picture{display:block;aspect-ratio:var(--ar);border-radius:var(--r-lg);overflow:hidden;
+  border:1px solid var(--line-soft);background:#03111A}
+.plan img{display:block;width:100%;height:100%}
+/* Under the map, not on it: every corner of a map carries something — the
+   credit, a depth, the north arrow. */
+.plan__open{display:table;margin:.7rem 0 0 auto;padding:.45rem .7rem;border-radius:999px;
+  border:1px solid var(--line-soft);
+  font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--foam-72);transition:color .2s,border-color .2s}
+.plan:hover .plan__open{color:var(--turq);border-color:var(--turq)}
+@media (max-width:600px){ .plan picture{border-radius:var(--r)} }
+.plan:focus-visible{outline:2px solid var(--turq);outline-offset:4px}
+.guide__plan-note{max-width:70ch;margin:1rem auto 0;text-align:center;color:var(--foam-52);line-height:1.6;
+  text-transform:none;letter-spacing:.03em;font-size:.76rem}

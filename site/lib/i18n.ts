@@ -64,7 +64,8 @@ export type CenoteCopy = Record<
   | "filter" | "all" | "count" | "none" | "diveDepth" | "cenoteDepth" | "upTo"
   | "levelTag" | "fromTulum" | "snorkelToo" | "see" | "divesTag" | "nearbyTag"
   | "back" | "illustration" | "artAlt" | "homeTag" | "homeH2" | "homeIntro" | "homeCta"
-  | "lightTag" | "ownTag" | "faqTag", string
+  | "lightTag" | "ownTag" | "faqTag"
+  | "planTag" | "planNote" | "planCredit" | "planCreditCentre" | "planOpen", string
 > & {
   compass: string[];
   types: Record<"open" | "cavern" | "deep", string>;
@@ -82,6 +83,8 @@ export type CenoteCopy = Record<
    */
   arts: Record<string, string>;
   artNote: string;
+  /** What each cenote's dive map shows, for its alt text, keyed by slug. */
+  planAlts: Record<string, string>;
   /**
    * Kay's own write-up of a cenote, keyed by slug: how the dive goes, when to
    * come, what it is like if you turn up on your own, and its questions.
@@ -208,7 +211,7 @@ export interface Dictionary {
   faq: { tag: string; h2: string; items: Qa[] };
   cta: Record<"kicker" | "h2" | "lede" | "instagram" | "bandAlt", string>;
   footer: Record<"blurb" | "explore" | "learn" | "find" | "whatsapp" | "email"
-                | "place" | "phone" | "meet", string>;
+                | "place" | "phone" | "meet" | "hoursTag" | "hours", string>;
   booking: Record<"thanks" | "pending" | "failed", Outcome>;
   /** The equipment-sizes questionnaire behind the link in the confirmation email. */
   gear: Record<string, string>;
