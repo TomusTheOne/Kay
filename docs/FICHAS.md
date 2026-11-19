@@ -25,6 +25,7 @@ Por eso existe este archivo: **copia de aquí, no de memoria.**
 | **Sitio web** | https://kaydiving.com |
 | **Instagram** | https://www.instagram.com/kaydivingtulum |
 | **Google Maps** | https://maps.app.goo.gl/A3ZYngpgKYSFxaZQ7 |
+| **TripAdvisor** | https://www.tripadvisor.com/Attraction_Review-g150813-d23330931-Reviews-Kay_Diving-Tulum_Yucatan_Peninsula.html |
 | **Ciudad** | Tulum, Quintana Roo, México |
 | **Zona de servicio** | Tulum · Playa del Carmen · Riviera Maya · Quintana Roo |
 | **Punto de encuentro** | Easy Chango Dive Center, Tulum |
@@ -155,7 +156,7 @@ Marca cada uno al terminarlo. El orden es por valor, de más a menos.
 | # | Directorio | Estado hoy | ¿Enlace a la web? | Nota |
 |---|---|---|---|---|
 | 1 | Google Business Profile | **creada, web ya puesta** · falta área de servicio y corregir el horario | sí | lo que más pesa |
-| 2 | TripAdvisor | **ya existe, sin reclamar, 1 reseña** | sí (pero `nofollow`) | reclamarla, no crearla |
+| 2 | TripAdvisor | **ya existe, ya enlazada desde el sitio** · falta reclamarla | sí (pero `nofollow`) | reclamarla, no crearla |
 | 3 | Zentacle | pendiente | **sí, y es seguible** | un correo en inglés |
 | 4 | dive.site | pendiente | sin verificar | formulario y luego enlace para reclamar |
 | 5 | Yumping | pendiente | **no da ningún enlace** | comisión no publicada: pedirla por escrito |

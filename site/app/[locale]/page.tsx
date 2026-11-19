@@ -125,7 +125,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         // The listing and the site are the same business, and this is how
         // Google is told so. Without it they are two entities that happen to
         // share a name, and the reviews on one do nothing for the other.
-        sameAs: [SHOP.instagram, SHOP.google].filter(Boolean),
+        sameAs: [SHOP.instagram, SHOP.google, SHOP.tripadvisor].filter(Boolean),
         ...(SHOP.google ? { hasMap: SHOP.google } : {}),
         hasOfferCatalog: {
           "@type": "OfferCatalog",
