@@ -28,6 +28,7 @@
       "type": "cavern", "level": "open-water", "snorkel": true,
       "depthM": 10, "diveMinM": null, "diveMaxM": 10,
       "products": ["cenote-diving"],
+      "media": { "video": "dos-ojos-dive", "photos": ["dos-ojos-dive-1", "dos-ojos-dive-2", "dos-ojos-dive-3", "dos-ojos-dive-4", "dos-ojos-dive-5", "dos-ojos-dive-6"] },
       "photo": "cenote-dos-ojos", "art": "cavern",
       "plan": { "v": 1, "w": 1600, "h": 1897, "credit": "Sebastián Maza (Fisheye Adventures, 2011)" }
     },

@@ -483,7 +483,7 @@
     "h2": "Cómo se ve<br>realmente allá abajo.",
     "captions": {
       "gallery-1": "Bajando · un cenote de Tulum",
-      "gallery-2": "La boca de la caverna, desde abajo",
+      "gallery-dos-ojos": "Luz en la caverna · Dos Ojos",
       "gallery-3": "Bajo la plataforma · Casa Cenote",
       "gallery-bull-shark": "Tiburón toro frente a Playa del Carmen"
     }
@@ -1447,6 +1447,21 @@
             "q": "¿Se ve la haloclina?",
             "a": "Algunos días sí. Depende del nivel del mar y de cuánta agua salada esté entrando frente a cuánta agua dulce esté empujando hacia afuera, así que no es algo que se pueda prometer de antemano."
           }
+        ]
+      }
+    },
+    "media": {
+      "dos-ojos": {
+        "h": "En el agua: Barbie Line y Bat Cave",
+        "intro": "Fotos y video de nuestra última inmersión en Dos Ojos.",
+        "video": "Nuestra última inmersión en Dos Ojos: siguiendo la línea guía con linternas, entre las formaciones",
+        "alts": [
+          "Un buzo cruza el fondo de arena de Dos Ojos, con la linterna encendida, bajo los haces de luz del día",
+          "Un buzo enmarcado por un arco de roca y columnas en Dos Ojos, siguiendo la línea guía",
+          "Una aleta azul en primer plano y la linterna de otro buzo detrás, en los pasajes oscuros de Dos Ojos",
+          "Un buzo ilumina la roca clara con su linterna, con burbujas que suben, en Dos Ojos",
+          "Un buzo junto a un gran bloque de roca blanca, al lado de la línea guía, en Dos Ojos",
+          "La linterna de un buzo entre estalactitas y columnas en la caverna de Dos Ojos"
         ]
       }
     }
