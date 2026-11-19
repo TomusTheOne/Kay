@@ -481,9 +481,12 @@
   "gallery": {
     "tag": "Photo Gallery",
     "h2": "What it actually<br>looks like down there.",
+    "play": "Play the video",
+    "pause": "Pause the video",
     "captions": {
+      "gallery-dos-ojos-passage": "Between the rocks · Dos Ojos",
       "gallery-1": "Going down · a Tulum cenote",
-      "gallery-2": "The cavern mouth, from below",
+      "gallery-dos-ojos": "Light in the cavern · Dos Ojos",
       "gallery-3": "Under the platform · Casa Cenote",
       "gallery-bull-shark": "A bull shark off Playa del Carmen"
     }
@@ -1445,6 +1448,21 @@
             "q": "Can you see the halocline?",
             "a": "On some days. It depends on the sea level and on how much salt water is coming in against how much fresh water is pushing out, so it is not something anyone can promise in advance."
           }
+        ]
+      }
+    },
+    "media": {
+      "dos-ojos": {
+        "h": "In the water: Barbie Line and Bat Cave",
+        "intro": "Photos and video from our latest dive at Dos Ojos.",
+        "video": "Our latest dive at Dos Ojos: along the guideline with torches, through the formations",
+        "alts": [
+          "A diver crossing the sandy floor of Dos Ojos, torch lit, under shafts of daylight",
+          "A diver framed by a rock arch and columns in Dos Ojos, following the guideline",
+          "A blue fin in the foreground and another diver's torch behind it, in the darker passages of Dos Ojos",
+          "A diver lighting up the pale rock with a torch, bubbles rising, in Dos Ojos",
+          "A diver beside a great block of white rock, next to the guideline, in Dos Ojos",
+          "A diver's torch among stalactites and columns in the cavern of Dos Ojos"
         ]
       }
     }

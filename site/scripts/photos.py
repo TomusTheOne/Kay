@@ -63,11 +63,21 @@ SLOTS = {
     "cenote-tak-be-luum": ("cenote-tak-be-luum", 1200, 800, 0.55, 0.55),
     "cenote-nicte-ha":    ("cenote-nicte-ha",    1200, 800, 0.50, 0.50),
     "cenote-nohoch-nah-chich": ("cenote-nohoch-nah-chich", 1200, 800, 0.50, 0.58),
+    # Kay's latest dive at Dos Ojos, Barbie Line and Bat Cave, for the
+    # cenote's own page. The sources arrived at 1280 px, so the slots stop
+    # short of that rather than upscale.
+    "dos-ojos-dive-1": ("dos-ojos-dive-1", 1200, 800, 0.40, 0.55),
+    "dos-ojos-dive-2": ("dos-ojos-dive-2", 1200, 800, 0.50, 0.50),
+    "dos-ojos-dive-3": ("dos-ojos-dive-3", 1200, 800, 0.55, 0.50),
+    "dos-ojos-dive-4": ("dos-ojos-dive-4", 1200, 800, 0.55, 0.55),
+    "dos-ojos-dive-5": ("dos-ojos-dive-5", 1200, 800, 0.55, 0.50),
+    "dos-ojos-dive-6": ("dos-ojos-dive-6", 1200, 800, 0.45, 0.50),
     # The gallery, carrying only photographs the page has not used above.
     # Five tiles is what the grid was drawn for: one tall on the left, four
     # filling the two columns beside it.
     "gallery-1":     ("deep-descent",      880, 1180, 0.50, 0.50),  # la tuile haute
-    "gallery-2":     ("cavern-silhouette", 900,  600, 0.52, 0.48),
+    # Shafts of daylight in Dos Ojos, from that same dive.
+    "gallery-dos-ojos": ("dos-ojos-dive-1", 900, 600, 0.42, 0.50),
     "gallery-3":     ("cavern-posts",      900,  600, 0.50, 0.52),
     # Large, sur deux colonnes. As wide as the frame allows while the small
     # shark low on the left stays out: anchored top-right, stopping just above

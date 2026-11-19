@@ -39,6 +39,12 @@ export interface Cenote {
   art: string;
   /** The dive map in public/assets/maps/, where there is one: its version, its size, and whose map it redraws. */
   plan?: { v: number; w: number; h: number; credit: string | null };
+  /**
+   * Photographs and a video from one of Kay's own dives there, shown on the
+   * cenote's page: slots of scripts/photos.py, and a file in
+   * public/assets/video/ with a .webp poster of the same name.
+   */
+  media?: { video?: string; photos: string[] };
 }
 
 export interface Town { name: string; lat: number; lon: number; home?: boolean }

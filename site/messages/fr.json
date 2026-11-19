@@ -481,9 +481,12 @@
   "gallery": {
     "tag": "Galerie photos",
     "h2": "À quoi ça ressemble<br>vraiment, en bas.",
+    "play": "Lire la vidéo",
+    "pause": "Mettre la vidéo en pause",
     "captions": {
+      "gallery-dos-ojos-passage": "Entre les rochers · Dos Ojos",
       "gallery-1": "La descente · un cenote de Tulum",
-      "gallery-2": "La bouche de la caverne, vue d'en bas",
+      "gallery-dos-ojos": "Lumière dans la caverne · Dos Ojos",
       "gallery-3": "Sous le ponton · Casa Cenote",
       "gallery-bull-shark": "Requin bouledogue au large de Playa del Carmen"
     }
@@ -1447,6 +1450,21 @@
             "q": "Voit-on la halocline ?",
             "a": "Certains jours. Cela dépend du niveau de la mer et de la quantité d'eau salée qui entre face à celle d'eau douce qui pousse vers l'extérieur : ce n'est donc pas quelque chose que l'on puisse promettre à l'avance."
           }
+        ]
+      }
+    },
+    "media": {
+      "dos-ojos": {
+        "h": "Dans l'eau : Barbie Line et Bat Cave",
+        "intro": "Photos et vidéo de notre dernière plongée à Dos Ojos.",
+        "video": "Notre dernière plongée à Dos Ojos : le long du fil d'Ariane, lampes allumées, entre les formations",
+        "alts": [
+          "Un plongeur traverse le fond de sable de Dos Ojos, lampe allumée, sous les rais de lumière du jour",
+          "Un plongeur encadré par une arche de roche et des colonnes à Dos Ojos, le long du fil d'Ariane",
+          "Une palme bleue au premier plan et la lampe d'un autre plongeur derrière, dans les passages sombres de Dos Ojos",
+          "Un plongeur éclaire la roche claire de sa lampe, des bulles qui montent, à Dos Ojos",
+          "Un plongeur à côté d'un grand bloc de roche blanche, près du fil d'Ariane, à Dos Ojos",
+          "La lampe d'un plongeur parmi les stalactites et les colonnes de la caverne de Dos Ojos"
         ]
       }
     }

@@ -71,7 +71,11 @@ export interface Schedule {
 export const PRODUCTS = data.products as Product[];
 export const BOOKABLE = PRODUCTS;
 export const ALWAYS_INCLUDED = data.alwaysIncluded as string[];
-export const GALLERY = data.gallery as { photo: string; tall: boolean }[];
+/**
+ * The home page's gallery tiles: a photograph slot, or a video in
+ * public/assets/video/ (with a .webp poster of the same name).
+ */
+export const GALLERY = data.gallery as { photo?: string; video?: string; tall: boolean }[];
 export const PICKUPS = data.pickups as Pickup[];
 export const SCHEDULES = data.schedules as Schedule[];
 export const SCHEDULE_LIMITS = data.scheduleLimits as {

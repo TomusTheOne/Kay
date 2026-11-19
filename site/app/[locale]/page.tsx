@@ -10,6 +10,7 @@ import { Visit, Ruins } from "@/components/Places";
 import { experiencesFor } from "@/lib/exp";
 import Reviews, { ReviewScore } from "@/components/Reviews";
 import Plate from "@/components/Plate";
+import GalleryVideo from "@/components/GalleryVideo";
 import Footer from "@/components/Footer";
 import CenoteMap from "@/components/CenoteMap";
 import { GUIDE_PUBLISHED } from "@/content/cenotes";
@@ -421,12 +422,18 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
             </div>
           </div>
           <div className="gal" data-count={GALLERY.length} data-rise>
-            {GALLERY.map((g) => (
-              <figure className="gal__t" key={g.photo}>
-                <Plate photo={g.photo} art="cenote-shaft" alt={t.gallery.captions[g.photo]} />
-                <figcaption>{t.gallery.captions[g.photo]}</figcaption>
-              </figure>
-            ))}
+            {GALLERY.map((g) => {
+              const key = g.video ?? g.photo!;
+              return (
+                <figure className="gal__t" key={key}>
+                  {g.video
+                    ? <GalleryVideo src={`/assets/video/${g.video}.mp4`} poster={`/assets/video/${g.video}.webp`}
+                                    label={t.gallery.captions[key]} play={t.gallery.play} pause={t.gallery.pause} />
+                    : <Plate photo={g.photo!} art="cenote-shaft" alt={t.gallery.captions[key]} />}
+                  <figcaption>{t.gallery.captions[key]}</figcaption>
+                </figure>
+              );
+            })}
           </div>
         </section>
         )}

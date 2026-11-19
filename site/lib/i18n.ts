@@ -106,6 +106,12 @@ export type CenoteCopy = Record<
     own?: string;
     faq: Qa[];
   }>;
+  /**
+   * The words around a cenote's own photographs and video, keyed by slug:
+   * a heading, a line under it, the video's caption, and one alt text per
+   * photograph, in the order content/cenotes.json lists them.
+   */
+  media?: Record<string, { h: string; intro: string; video: string; alts: string[] }>;
 };
 
 /**
@@ -114,10 +120,10 @@ export type CenoteCopy = Record<
  * the whole dictionary shipped fifteen thousand words of prose that the index
  * never renders. The cards need `items`; nothing on that page needs `deep`.
  */
-export type CardCopy = Omit<CenoteCopy, "deep">;
+export type CardCopy = Omit<CenoteCopy, "deep" | "media">;
 export function cardCopy(c: CenoteCopy): CardCopy {
-  const { deep, ...rest } = c;
-  void deep;
+  const { deep, media, ...rest } = c;
+  void deep; void media;
   return rest;
 }
 
@@ -163,7 +169,7 @@ export interface Dictionary {
     tag: string; h2: string; intro: string;
     items: Record<string, IncludeCopy>;
   };
-  gallery: { tag: string; h2: string; captions: Record<string, string> };
+  gallery: { tag: string; h2: string; play: string; pause: string; captions: Record<string, string> };
   /* The two reference sections on the home page. "visit" is cenotes a visitor
      can reach on their own — deliberately not `cenotes`, which the dive guide
      owns. Their label maps are keyed by the values in content/places.json, so
