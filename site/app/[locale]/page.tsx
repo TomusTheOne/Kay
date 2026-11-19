@@ -111,6 +111,16 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                    addressRegion: "Quintana Roo", addressCountry: "MX" },
         areaServed: SHOP.areaServed.map((name: string) => ({ "@type": "Place", name })),
         knowsLanguage: LIVE_LOCALES as unknown as string[],
+        // Every day, 08:00 to 22:00. Not the dive hours — a cenote day is out
+        // by early afternoon — but the hours someone can reach Kay, which is
+        // what this field answers and what decides whether Google shows the
+        // profile to a person searching at nine at night.
+        openingHoursSpecification: {
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+          opens: SHOP.opens,
+          closes: SHOP.closes,
+        },
         // The listing and the site are the same business, and this is how
         // Google is told so. Without it they are two entities that happen to
         // share a name, and the reviews on one do nothing for the other.

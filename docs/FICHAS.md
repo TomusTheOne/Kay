@@ -31,6 +31,7 @@ Por eso existe este archivo: **copia de aquí, no de memoria.**
 | **Coordenadas** | 20.2114, -87.4654 |
 | **Certificadora** | PADI |
 | **Idiomas** | Español · Inglés · Francés |
+| **Horario** | Todos los días, 08:00 – 22:00 |
 
 > **La dirección es la de otro negocio.** El punto de encuentro es Easy Chango
 > Dive Center. Eso significa que Kay Diving es una **empresa con área de
@@ -38,13 +39,24 @@ Por eso existe este archivo: **copia de aquí, no de memoria.**
 > directorio que pida domicilio hay que poner la ciudad, nunca una calle que no
 > es nuestra.
 
-### Falta por confirmar
+### Sobre el nombre
 
-- [ ] **Horario de atención** (los directorios lo piden; en el sitio no está)
-- [ ] **Nombre exacto** tal como aparece hoy en la ficha de Google
-- [ ] **Si Kay es PADI Dive Center / Resort** (membresía de negocio) o
-      **instructor PADI a título individual** — cambia por completo si se puede
-      entrar al localizador de PADI
+El nombre oficial es **«Kay Diving»**, sin ciudad. Así está en la ficha de
+Google, en el título del sitio y en el dominio. Google pide que el nombre sea
+«el nombre real del negocio, tal como se usa de forma consistente» y dice que
+añadir información innecesaria «puede provocar la suspensión del perfil».
+
+Instagram usa `@kaydivingtulum`, pero el identificador de una red social no es
+el nombre del negocio. **No cambiar el nombre de la ficha sin cambiar antes la
+marca entera** — rótulo, tarjetas, web, Instagram. Si algún día se hace, se
+hace en ese orden.
+
+### PADI
+
+Kay es **instructor PADI a título individual**, no PADI Dive Center ni Resort.
+El localizador de tiendas de PADI solo lista centros con membresía de negocio,
+que es una afiliación anual de pago. **Esa ficha no está disponible hoy**, y no
+tiene sentido buscarla hasta que exista esa membresía.
 
 ---
 
@@ -140,14 +152,14 @@ sitios y snacks.
 
 Marca cada uno al terminarlo. El orden es por valor, de más a menos.
 
-| # | Directorio | Estado | Enlace a la web | Nota |
+| # | Directorio | Estado hoy | ¿Enlace a la web? | Nota |
 |---|---|---|---|---|
-| 1 | Google Business Profile | ficha creada, **sin web ni área de servicio** | sí | lo más importante |
-| 2 | PADI Dive Center locator | **por confirmar si aplica** | sí | depende de la membresía |
-| 3 | TripAdvisor | pendiente | sí | |
-| 4 | Zentacle | pendiente | | |
-| 5 | dive.site | pendiente | | |
-| 6 | Yumping | pendiente | | comisión, revisar |
+| 1 | Google Business Profile | **creada, web ya puesta** · falta área de servicio y corregir el horario | sí | lo que más pesa |
+| 2 | TripAdvisor | **ya existe, sin reclamar, 1 reseña** | sí (pero `nofollow`) | reclamarla, no crearla |
+| 3 | Zentacle | pendiente | **sí, y es seguible** | un correo en inglés |
+| 4 | dive.site | pendiente | sin verificar | formulario y luego enlace para reclamar |
+| 5 | Yumping | pendiente | **no da ningún enlace** | comisión no publicada: pedirla por escrito |
+| — | PADI Dive Shop Locator | **no aplica** | — | solo para centros con membresía de negocio |
 
 Cada ficha nueva es además un **enlace hacia kaydiving.com**, que hoy no tiene
 ninguno. Por eso esto vale aunque nadie llegue por el directorio.
