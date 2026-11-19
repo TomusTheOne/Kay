@@ -481,7 +481,10 @@
   "gallery": {
     "tag": "Galería de fotos",
     "h2": "Cómo se ve<br>realmente allá abajo.",
+    "play": "Reproducir el video",
+    "pause": "Pausar el video",
     "captions": {
+      "gallery-dos-ojos-passage": "Entre las rocas · Dos Ojos",
       "gallery-1": "Bajando · un cenote de Tulum",
       "gallery-dos-ojos": "Luz en la caverna · Dos Ojos",
       "gallery-3": "Bajo la plataforma · Casa Cenote",

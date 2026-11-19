@@ -468,8 +468,23 @@ body.open .drawer{opacity:1;visibility:visible}
 /* Four: the tall one on the left, two beside it, and the fourth stretched
    across both columns underneath. Still no hole. */
 .gal[data-count="4"] .gal__t:nth-child(4){grid-column:span 2}
+/* Five: two tall tiles at the edges (the video on the left, the descent on
+   the right), two stacked between them, and the wide one across the whole
+   width underneath, two rows high so its proportions survive. */
+.gal[data-count="5"] .gal__t:nth-child(1){grid-column:1;grid-row:1/span 2}
+.gal[data-count="5"] .gal__t:nth-child(2){grid-column:2;grid-row:1}
+.gal[data-count="5"] .gal__t:nth-child(3){grid-column:2;grid-row:2}
+.gal[data-count="5"] .gal__t:nth-child(4){grid-column:3;grid-row:1/span 2}
+.gal[data-count="5"] .gal__t:nth-child(5){grid-column:1/-1;grid-row:3/span 2}
 .gal__t img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
 .gal__t:hover img{transform:scale(1.06)}
+.gal__t video{display:block;width:100%;height:100%;object-fit:cover}
+.gal__play{
+  position:absolute;top:.6rem;right:.6rem;z-index:1;width:2.1rem;height:2.1rem;border-radius:50%;
+  display:grid;place-items:center;cursor:pointer;color:var(--foam);
+  background:rgba(3,9,14,.6);border:1px solid var(--line-soft);
+}
+.gal__play:focus-visible{outline:2px solid var(--turq);outline-offset:2px}
 .gal__t figcaption{
   position:absolute;inset:auto 0 0 0;padding:2rem .85rem .75rem;
   background:linear-gradient(transparent,rgba(3,9,14,.88));
@@ -481,6 +496,13 @@ body.open .drawer{opacity:1;visibility:visible}
 @media (max-width:620px){
   .gal{grid-template-columns:repeat(2,1fr);gap:7px}
   .gal__t figcaption{display:none}
+  /* Two columns: the two tall tiles side by side, the pair under them, the
+     wide one last. */
+  .gal[data-count="5"] .gal__t:nth-child(1){grid-column:1;grid-row:1/span 2}
+  .gal[data-count="5"] .gal__t:nth-child(4){grid-column:2;grid-row:1/span 2}
+  .gal[data-count="5"] .gal__t:nth-child(2){grid-column:1;grid-row:3}
+  .gal[data-count="5"] .gal__t:nth-child(3){grid-column:2;grid-row:3}
+  .gal[data-count="5"] .gal__t:nth-child(5){grid-column:1/-1;grid-row:4}
 }
 
 /* ---------------------------------------------------------------- Booking */

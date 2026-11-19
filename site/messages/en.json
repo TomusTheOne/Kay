@@ -481,7 +481,10 @@
   "gallery": {
     "tag": "Photo Gallery",
     "h2": "What it actually<br>looks like down there.",
+    "play": "Play the video",
+    "pause": "Pause the video",
     "captions": {
+      "gallery-dos-ojos-passage": "Between the rocks · Dos Ojos",
       "gallery-1": "Going down · a Tulum cenote",
       "gallery-dos-ojos": "Light in the cavern · Dos Ojos",
       "gallery-3": "Under the platform · Casa Cenote",
