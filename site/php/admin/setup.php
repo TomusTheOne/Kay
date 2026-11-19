@@ -73,7 +73,7 @@ if ($token !== null && ($_SERVER['REQUEST_METHOD'] ?? '') === 'POST') {
 kay_page_start($first ? kay_t('Premier compte') : kay_t('Accès à l’admin'), '', null);
 ?>
 <section class="auth">
-  <img class="auth__mark" src="/assets/brand/icon.svg" alt="" width="56" height="53">
+  <img class="auth__mark" src="/assets/brand/v2/app-icon.svg" alt="" width="64" height="64">
   <h1><?= $first ? kay_th('Créer le compte admin') : kay_th('Compte admin') ?></h1>
 
 <?php if ($misplaced): ?>

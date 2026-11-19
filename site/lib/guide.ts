@@ -22,7 +22,7 @@ export function guideMetadata(locale: Locale, path: string, title: string, descr
     openGraph: {
       type: "website", siteName: "Kay Diving Tulum", url, title, description,
       locale: OG_LOCALE[locale],
-      images: [{ url: `/assets/og/${locale}.jpg`, width: 1200, height: 630, type: "image/jpeg" }],
+      images: [{ url: `/assets/og/v2/${locale}.jpg`, width: 1200, height: 630, type: "image/jpeg" }],
     },
     ...(GUIDE_PUBLISHED ? {} : { robots: { index: false, follow: false } }),
   };

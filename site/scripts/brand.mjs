@@ -1,38 +1,30 @@
 /**
  * Builds the brand files the site actually serves, from the vectorised kit in
- * assets/source/brand/.
+ * assets/source/brand/ (made by scripts/trace-logo.py from Kay's logo).
  *
  *   node scripts/brand.mjs
  *
- * One thing changes: the emblem's blue becomes the site's turquoise. The kit's
- * #4D85C4 is a soft mid-blue, and against this site's near-black it sits at
- * almost the same value as the background — at header size it reads as a grey
- * smudge. The white half stays white, so the logo keeps the two-tone split it
- * was drawn with. Changing BRAND_FROM/TO below re-tints everything at once.
+ * They go to public/assets/brand/v2/: the .htaccess serves images as
+ * immutable for a year, so a new logo needs new addresses, or every returning
+ * visitor keeps the old one. The next logo goes to v3/.
  *
- * The PNG icons are rendered from the re-tinted SVGs rather than recoloured as
- * bitmaps: repainting antialiased pixels leaves a blue fringe on every edge.
+ * The PNG icons are rendered from the SVGs by Chromium, not resampled from a
+ * bitmap, so every size is drawn sharp from the curves.
  */
 import { chromium } from "playwright-core";
 import { readFile, writeFile, mkdir } from "node:fs/promises";
 
 const SRC = "assets/source/brand";
-const OUT = "public/assets/brand";
+const OUT = "public/assets/brand/v2";
 const CHROME = process.env.CHROME_PATH ?? "/opt/pw-browsers/chromium-1194/chrome-linux/chrome";
 
-const BRAND_FROM = /#4D85C4/gi;   // the kit's blue
-const BRAND_TO   = "#4FE0D2";     // --turq
-
-const tint = (svg) => svg.replace(BRAND_FROM, BRAND_TO);
-
-/** SVGs the site serves, re-tinted. */
+/** SVGs the site serves, copied as they are. */
 const SVGS = {
-  "icon.svg":            "kay-diving-icon.svg",             // two-tone, for the header
-  "icon-white.svg":      "kay-diving-icon-mono-white.svg",  // one colour, for masks
-  "logo.svg":            "kay-diving-logo.svg",             // emblem + wordmark
-  "favicon.svg":         "favicon.svg",                     // cropped, for the tab
-  "app-icon.svg":        "app-icon.svg",
-  "icon-maskable.svg":   "icon-maskable.svg",
+  "logo.svg":            "kay-diving-logo.svg",             // the whole lockup, for the header
+  "icon.svg":            "kay-diving-icon.svg",             // the emblem alone, on dark
+  "favicon.svg":         "favicon.svg",                     // the emblem on navy, for the tab
+  "app-icon.svg":        "app-icon.svg",                    // the emblem on navy, square
+  "icon-maskable.svg":   "icon-maskable.svg",               // inside Android's safe zone
 };
 
 /** PNGs rendered from those, at the sizes each platform asks for. */
@@ -49,7 +41,7 @@ const ICO = [16, 32, 48, 64];
 await mkdir(OUT, { recursive: true });
 
 for (const [out, src] of Object.entries(SVGS)) {
-  const svg = tint(await readFile(`${SRC}/${src}`, "utf8"));
+  const svg = await readFile(`${SRC}/${src}`, "utf8");
   await writeFile(`${OUT}/${out}`, svg);
   console.log(`  ${out.padEnd(22)} <- ${src}`);
 }

@@ -1,5 +1,7 @@
 /**
- * Renders the Open Graph card, one per locale, into public/assets/og/.
+ * Renders the Open Graph card, one per locale, into public/assets/og/v2/.
+ * A new card needs a new folder: the .htaccess caches images for a year, and
+ * WhatsApp and Facebook keep a preview per address.
  *
  * It exists because the hero photo is 861×531 WebP, and that is the wrong
  * thing to hand a link preview: Facebook and LinkedIn want at least
@@ -14,7 +16,7 @@ import { mkdir, writeFile, readFile } from "node:fs/promises";
 import { existsSync } from "node:fs";
 
 const LOCALES = ["en", "es", "fr"];
-const OUT = "public/assets/og";
+const OUT = "public/assets/og/v2";
 const CHROME = process.env.CHROME_PATH ?? "/opt/pw-browsers/chromium-1194/chrome-linux/chrome";
 
 const products = JSON.parse(await readFile("content/products.json", "utf8"));
@@ -30,10 +32,10 @@ const cheapest = Math.min(
 const heroDataUri =
   "data:image/webp;base64," +
   (await readFile("public/assets/photos/hero.webp")).toString("base64");
-// The emblem, two-tone, inlined so the card renders without a network fetch.
+// Kay's whole logo, inlined so the card renders without a network fetch.
 const markDataUri =
   "data:image/svg+xml;base64," +
-  (await readFile("public/assets/brand/icon.svg")).toString("base64");
+  (await readFile("public/assets/brand/v2/logo.svg")).toString("base64");
 
 /** The card, at exactly the size the crawlers ask for. */
 const card = (t) => `<!doctype html><html><head><meta charset="utf-8">
@@ -49,10 +51,9 @@ const card = (t) => `<!doctype html><html><head><meta charset="utf-8">
       linear-gradient(180deg,rgba(3,9,14,.55) 0%,rgba(3,9,14,.12) 32%,rgba(3,9,14,.88) 78%,#03090E 100%)}
   .frame{position:absolute;inset:34px;border:1px solid rgba(169,245,236,.18);border-radius:10px}
   .pad{position:absolute;inset:74px;display:flex;flex-direction:column;justify-content:space-between}
-  .mark{display:flex;align-items:center;gap:16px}
-  .dot{width:66px;height:66px;flex:none;background:url('${markDataUri}') center/contain no-repeat}
-  .name{font-family:'Instrument Serif',serif;font-size:34px;letter-spacing:.01em;line-height:1}
-  .place{font-size:12px;letter-spacing:.22em;color:#4FE0D2;margin-top:5px}
+  /* The logo as Kay drew it, "TULUM - MÉXICO" included: on a 1200px card a
+     334px-wide lockup keeps its tagline readable in a WhatsApp preview. */
+  .mark{display:block;width:334px;height:90px;background:url('${markDataUri}') left center/contain no-repeat}
   h1{font-family:'Instrument Serif',serif;font-weight:400;font-size:74px;line-height:1.02;
      letter-spacing:-.01em;max-width:15ch}
   h1 em{font-style:italic;color:#A9F5EC}
@@ -64,10 +65,7 @@ const card = (t) => `<!doctype html><html><head><meta charset="utf-8">
   <img class="shot" src="${heroDataUri}" alt="">
   <div class="veil"></div><div class="frame"></div>
   <div class="pad">
-    <div class="mark"><span class="dot"></span><div>
-      <div class="name">Kay Diving</div>
-      <div class="place">TULUM · QUINTANA ROO · MÉXICO</div>
-    </div></div>
+    <div class="mark" role="img" aria-label="Kay Diving · Tulum, México"></div>
     <div>
       <h1>${t.l1}<br><em>${t.l2}</em></h1>
       <div class="strip" style="margin-top:34px">
