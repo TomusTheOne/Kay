@@ -49,6 +49,8 @@ export default async function CenotePage({ params }: Params) {
   // Kay's own write-up, if this cenote has one. Without it the page stays
   // exactly as it was: short, and true.
   const deep = g.deep?.[slug];
+  // Photographs and video from one of Kay's dives there, where there are some.
+  const media = c.media && g.media?.[slug];
   const ld = {
     "@context": "https://schema.org",
     "@type": "TouristAttraction",
@@ -184,6 +186,31 @@ export default async function CenotePage({ params }: Params) {
             </section>
           )}
         </article>
+      )}
+
+      {/* From one of Kay's own dives there. The video plays muted and on a
+          loop, like a moving photograph, with controls so it can be stopped:
+          moving content longer than five seconds has to be. */}
+      {c.media && media && (
+        <section className="bay shell guide__media" aria-labelledby="media-h">
+          <h2 className="dsp dsp-md" id="media-h">{media.h}</h2>
+          <p className="lede">{media.intro}</p>
+          {c.media.video && (
+            <figure className="guide__video">
+              <video src={`/assets/video/${c.media.video}.mp4`} poster={`/assets/video/${c.media.video}.webp`}
+                     autoPlay muted loop playsInline controls preload="metadata"
+                     width={1024} height={576} aria-label={media.video} />
+              <figcaption>{media.video}</figcaption>
+            </figure>
+          )}
+          <div className="guide__shots">
+            {c.media.photos.map((photo, i) => (
+              <figure key={photo}>
+                <Plate photo={photo} art={c.art} alt={media.alts[i] ?? c.name} />
+              </figure>
+            ))}
+          </div>
+        </section>
       )}
 
       {/* The illustration, for the cenotes whose plate is a photograph — where

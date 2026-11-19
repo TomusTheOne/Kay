@@ -990,6 +990,16 @@ select.field{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xml
    page is a long run of prose by then and wants a visual beat, and the break
    lands where the subject turns from what the dive is like to where it is.
    No crop — the art is drawn at 3:2 and is shown at 3:2. */
+/* A cenote's own photographs and video, from one of Kay's dives there. */
+.guide__media{padding-top:0;display:grid;gap:1.4rem}
+.guide__media h2{margin:0}
+.guide__video{margin:0}
+.guide__video video{display:block;width:100%;height:auto;border-radius:16px;background:#000;border:1px solid var(--line-soft)}
+.guide__video figcaption{margin-top:.8rem;color:var(--foam-52);font-size:.92rem;line-height:1.7}
+.guide__shots{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.guide__shots figure{margin:0;aspect-ratio:3/2;overflow:hidden;border-radius:14px;border:1px solid var(--line-soft)}
+.guide__shots img{display:block;width:100%;height:100%;object-fit:cover}
+@media (max-width:620px){.guide__shots{grid-template-columns:repeat(2,1fr);gap:7px}}
 .guide__art{margin:0;padding-top:0}
 /* Capped and centred rather than filling the shell: at 3:2 the full reading
    width is 800 px tall, which eats a laptop viewport whole and turns a beat
