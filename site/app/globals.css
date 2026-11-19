@@ -198,13 +198,9 @@ ul{list-style:none;padding:0}
 }
 .surface.is-deep{background:rgba(3,9,14,.74);backdrop-filter:blur(18px) saturate(1.2);border-bottom-color:var(--line-soft)}
 .mark{display:flex;align-items:center;gap:.62rem}
-/* The emblem is line art: under ~40px it stops reading as a diving helmet.
-   Its two tones live in the file — scripts/brand.mjs writes them — because an
-   SVG in an <img> cannot take a colour from here. */
-.mark__ico{width:40px;height:40px;flex:none}
-.mark__txt{display:flex;flex-direction:column;line-height:1}
-.mark__name{font-family:var(--display);font-size:1.32rem;letter-spacing:.015em;white-space:nowrap}
-.mark__sub{font-family:var(--mono);font-size:.5rem;letter-spacing:.34em;color:var(--turq);margin-top:.28rem;white-space:nowrap}
+/* The whole logo, tall enough that "TULUM - MÉXICO" under the wordmark can
+   still be read: 72px, and 50px on phones. */
+.mark__logo{display:block;height:72px;width:auto;flex:none}
 
 .nav{display:flex;gap:clamp(1rem,2vw,1.9rem);align-items:center}
 .nav a{font-size:.88rem;color:var(--foam-72);position:relative;padding-block:.3rem;transition:color .25s;white-space:nowrap}
@@ -230,9 +226,7 @@ body.open .burger span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
 @media (max-width:1120px){.burger{display:block}}
 @media (max-width:620px){
   .surface__side .lang{display:none}
-  .mark__ico{width:34px;height:34px}
-  .mark__name{font-size:1.14rem}
-  .mark__sub{font-size:.44rem;letter-spacing:.26em}
+  .mark__logo{height:50px}
 }
 
 .drawer{
@@ -751,15 +745,6 @@ select.field{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xml
   .step button{width:44px;height:44px;border-radius:11px}
 }
 
-/* The location line under the wordmark was 7px on phones — below anything
-   legible. Slightly larger, slightly tighter tracking, so it still fits on a
-   320px screen and still reads as a small mono caption. */
-@media (max-width:620px){
-  .mark__sub{font-size:.56rem;letter-spacing:.22em}
-}
-/* Pin the line box: without a line-height this caption is sized by whichever
-   font is loaded, so it changes height when IBM Plex Mono swaps in. */
-.mark__sub{line-height:1}
 
 /* Its own compositor layer, so the drift never touches layout or paint. */
 .caustics{will-change:transform}

@@ -32,7 +32,7 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST') {
 kay_page_start(kay_t('Connexion'), '', null);
 ?>
 <section class="auth">
-  <img class="auth__mark" src="/assets/brand/icon.svg" alt="" width="56" height="53">
+  <img class="auth__mark" src="/assets/brand/v2/app-icon.svg" alt="" width="64" height="64">
   <h1>Kay Diving <span>admin</span></h1>
   <?= kay_error_box($error) ?>
   <form method="post" class="stack">

@@ -71,11 +71,11 @@ export async function generateMetadata(
       // ask for that size and WhatsApp — where these links actually travel —
       // is unreliable with WebP.
       images: [{
-        url: `/assets/og/${locale}.jpg`, width: 1200, height: 630,
+        url: `/assets/og/v2/${locale}.jpg`, width: 1200, height: 630,
         type: "image/jpeg", alt: t.hero.alt,
       }],
     },
-    twitter: { card: "summary_large_image", images: [`/assets/og/${locale}.jpg`] },
+    twitter: { card: "summary_large_image", images: [`/assets/og/v2/${locale}.jpg`] },
     /* Search Console's meta-tag method, for whoever prefers it to a DNS
        record. Prefer the DNS TXT record: it verifies the whole domain in one
        property — apex, www, http and https, all three languages — and it
@@ -95,10 +95,11 @@ export async function generateMetadata(
       // a modern browser scale it, and the emblem is cropped to the helmet
       // below 48px — the full line art is unreadable at tab size.
       icon: [
-        { url: "/favicon.ico", sizes: "any" },
-        { url: "/assets/brand/favicon.svg", type: "image/svg+xml" },
+        // ?v=2: the .ico is cached for a year, and its address cannot move.
+        { url: "/favicon.ico?v=2", sizes: "any" },
+        { url: "/assets/brand/v2/favicon.svg", type: "image/svg+xml" },
       ],
-      apple: "/assets/brand/apple-touch-icon.png",
+      apple: "/assets/brand/v2/apple-touch-icon.png",
     },
     manifest: "/site.webmanifest",
   };

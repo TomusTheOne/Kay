@@ -1,96 +1,54 @@
 # Kay Diving — logo vectorisé
 
-Vectorisation du logo Kay Diving à partir du PNG/WebP d'origine (1333 × 2000).
-Tous les fichiers SVG sont en courbes pures (aucune image bitmap embarquée, aucune
-police requise) et se redimensionnent sans perte.
+Le logo de Kay (`kay-diving-logo-source.jpg`, JPEG 1600 × 567 sur fond navy),
+vectorisé par `scripts/trace-logo.py`. Tous les SVG sont en courbes pures :
+aucune image bitmap embarquée, aucune police requise, net à toute taille.
 
-## Couleurs de marque
+    python3 scripts/trace-logo.py     # le JPEG → les SVG de ce dossier
+    node scripts/brand.mjs            # ces SVG → ce que le site sert (public/assets/brand/v2/)
 
-| Rôle | Hex | Usage |
-|---|---|---|
-| Bleu | `#4D85C4` | couleur principale de la marque |
-| Blanc | `#FFFFFF` | demi-teinte claire, sur fond sombre |
-| Navy | `#13202A` | fond de la charte / demi-teinte sur fond clair |
+## Couleurs
 
-## Contenu
+| Rôle | Hex |
+|---|---|
+| Cyan (cercle, vagues, bulles, « TULUM - MÉXICO », poisson) | `#08E3F6` |
+| Blanc (plongeur, « Kay Diving ») | `#FFFFFF` |
+| Bleu du masque | `#106D98` |
+| Navy (fond d'origine ; le blanc sur fond clair) | `#012D40` |
 
-### `svg/` — logo vectoriel
+Le dégradé léger du cyan dans le JPEG devient un aplat : c'est ce qui tient
+à 16 px comme sur un t-shirt.
+
+## Fichiers
 
 | Fichier | Pour |
 |---|---|
-| `kay-diving-logo.svg` | lockup complet (emblème + texte), bleu + blanc → **fond sombre** |
-| `kay-diving-logo-light.svg` | lockup complet, bleu + navy → **fond clair** |
-| `kay-diving-logo-mono-white/navy/blue.svg` | lockup une seule couleur |
-| `kay-diving-logo-currentcolor.svg` | lockup en `currentColor` (couleur pilotée en CSS) |
-| `kay-diving-icon*.svg` | emblème seul, mêmes déclinaisons |
-| `kay-diving-wordmark*.svg` | « KAY DIVING » seul |
+| `kay-diving-logo.svg` | logo complet, **fond sombre**, transparent |
+| `kay-diving-logo-light.svg` | logo complet, **fond clair** (le blanc devient navy) |
+| `kay-diving-logo-navy.svg` | logo complet sur son fond navy, comme l'original |
+| `kay-diving-icon.svg` / `-light.svg` | l'emblème seul (le plongeur dans son cercle) |
+| `favicon.svg` | emblème sur carré navy arrondi — onglet du navigateur |
+| `app-icon.svg` | emblème sur carré navy — iPhone, Android, PWA |
+| `icon-maskable.svg` | emblème dans la zone de sécurité Android (80 %) |
 
-Fond **transparent** partout : le logo se pose sur n'importe quelle couleur.
+Le texte du logo complet est illisible en dessous d'environ 50 px de haut :
+c'est pourquoi l'en-tête le montre à 72 px (50 px sur téléphone), et pourquoi
+l'onglet et les icônes d'application n'utilisent que l'emblème.
 
-### `png/` — exports raster (fond transparent)
+## Où il sert sur le site
 
-`kay-diving-logo`, `kay-diving-logo-light`, `kay-diving-icon`, `kay-diving-wordmark`
-en 400 / 800 / 1600 px de large, plus `kay-diving-og.png` (1200 × 630) pour les
-partages Open Graph / réseaux sociaux.
+- en-tête : `v2/logo.svg` ;
+- onglet : `favicon.ico?v=2` et `v2/favicon.svg` ;
+- iPhone / Android : `v2/apple-touch-icon.png`, `v2/icon-192.png`, `v2/icon-512.png`, `v2/icon-maskable-512.png` ;
+- aperçu WhatsApp / réseaux : `public/assets/og/v2/*.jpg`, rendu par `scripts/og.mjs` ;
+- admin : `v2/icon.svg` (barre latérale), `v2/app-icon.svg` (connexion).
 
-### `favicon/` — onglet, PWA, iOS
+Les images sont servies « immutable » pendant un an : un nouveau logo va dans
+`v3/`, sinon les visiteurs gardent l'ancien.
 
-| Fichier | Pour |
-|---|---|
-| `favicon.svg`, `favicon.ico`, `favicon-16/32/48.png` | onglet navigateur (marque recadrée, voir note) |
-| `app-icon.svg`, `apple-touch-icon.png` (180) | raccourci iOS / Android |
-| `icon-192.png`, `icon-512.png` | manifest PWA |
-| `icon-maskable.svg`, `icon-maskable-512.png` | icône *maskable* Android (zone de sécurité 20 %) |
+## Fidélité
 
-## Intégration
-
-```html
-<link rel="icon" href="/favicon.ico" sizes="32x32">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="manifest" href="/site.webmanifest">
-<meta property="og:image" content="https://kaydiving.com/kay-diving-og.png">
-```
-
-Logo dans la page — inline pour pouvoir le colorer en CSS :
-
-```html
-<a class="logo" href="/"><!-- contenu de kay-diving-logo-currentcolor.svg --></a>
-```
-```css
-.logo { color: #fff; width: 180px; display: inline-block; }
-.logo svg { width: 100%; height: auto; }
-```
-
-Ou en `<img>`, le plus simple :
-
-```html
-<img src="/kay-diving-logo.svg" alt="Kay Diving" width="180" height="206">
-```
-
-Bascule clair / sombre sans JavaScript :
-
-```html
-<picture>
-  <source srcset="/kay-diving-logo.svg" media="(prefers-color-scheme: dark)">
-  <img src="/kay-diving-logo-light.svg" alt="Kay Diving" width="180" height="206">
-</picture>
-```
-
-## Notes techniques
-
-- **Poids** : `kay-diving-logo.svg` = 75 Ko brut, **27 Ko transférés** une fois gzippé.
-  Activez la compression (gzip/brotli) sur les `.svg`, c'est le réglage qui compte ici.
-- **Structure** : chaque logo bicolore = 2 tracés, `#base` (bleu, silhouette complète)
-  et `#light` / `#dark` (demi-teinte par-dessus). Pour recolorer, il suffit de changer
-  deux attributs `fill`. La demi-teinte déborde de 0,7 px sur le bleu pour éviter tout
-  filet parasite au raccord — c'est volontaire.
-- **Texte** : « KAY DIVING » est vectorisé en contours, pas en texte vivant. La police
-  d'origine n'était pas fournie ; si vous la retrouvez (géométrique sans-serif type
-  Montserrat / Poppins), un remontage typographique donnerait des lettres parfaitement
-  lisses. En l'état les contours sont fidèles au fichier source.
-- **Favicon 16 px** : le dessin d'origine est du trait fin très détaillé, illisible à
-  16 px. Le favicon livré est donc recadré sur le casque et les lunettes ; l'emblème
-  complet est conservé pour les grandes tailles (`app-icon.svg`, 180 px et plus).
-- **Fidélité** : écart mesuré avec la source nettoyée = 0,86 % des pixels d'encre,
-  uniquement sur le lissé des bords. Aucune forme perdue.
+Vectorisation automatique d'un JPEG : très fidèle aux formes, avec de petites
+irrégularités sur les détails les plus fins (le verre du masque). Si
+l'original existe en SVG, PDF ou AI, il le remplacera avantageusement : le
+poser à la place de ces fichiers et relancer `node scripts/brand.mjs`.

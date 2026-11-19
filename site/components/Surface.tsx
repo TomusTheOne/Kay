@@ -52,20 +52,14 @@ export default function Surface({
     <>
       <header className="surface">
         <Link className="mark" href={pathFor(locale)} aria-label="Kay Diving">
-          {/* Kay's own emblem, two-tone. Not inlined — 21 KB gzipped of traced
-              line art has no business in every page's HTML — so it is an
-              <img>, one cached request, gzipped by the .htaccess. Its colours
-              are baked in by scripts/brand.mjs rather than set in CSS: an SVG
-              loaded through <img> is its own document and never sees the
-              page's currentColor. Below about 40px the helmet stops reading
-              as a helmet, which is why the mark is larger than the bubble it
-              replaces. */}
-          <img className="mark__ico" src="/assets/brand/icon.svg"
-               width="40" height="40" alt="Kay Diving" aria-hidden="true" />
-          <span className="mark__txt">
-            <b className="mark__name">Kay Diving</b>
-            <span className="mark__sub">TULUM · MÉXICO</span>
-          </span>
+          {/* Kay's logo, whole: emblem, wordmark, "TULUM - MÉXICO" and the
+              fish. Vector (scripts/trace-logo.py), so the tagline stays sharp
+              at the 72px it is shown at, and on phones at 50px — below that
+              it stops being legible, which is what sets the header's height.
+              An <img>, not inlined: 25 KB gzipped of curves has no business
+              in every page's HTML when one cached request will do. */}
+          <img className="mark__logo" src="/assets/brand/v2/logo.svg"
+               width="1380" height="374" alt="Kay Diving · Tulum, México" />
         </Link>
 
         <nav className="nav" aria-label="Main">

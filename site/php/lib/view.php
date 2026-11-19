@@ -322,7 +322,7 @@ function kay_page_start(string $title, string $current, ?array $admin): void
         . '<meta name="robots" content="noindex,nofollow">'
         . '<meta name="color-scheme" content="light dark">'
         . '<title>' . kay_h($title) . ' · Kay Diving admin</title>'
-        . '<link rel="icon" href="/assets/brand/favicon.svg" type="image/svg+xml">'
+        . '<link rel="icon" href="/assets/brand/v2/favicon.svg" type="image/svg+xml">'
         . '<link rel="stylesheet" href="' . kay_h(kay_asset('admin.css')) . '">'
         . '<script src="' . kay_h(kay_asset('admin.js')) . '" defer></script>'
         . '</head><body' . ($admin === null ? ' class="is-bare"' : '') . '>';
@@ -330,7 +330,7 @@ function kay_page_start(string $title, string $current, ?array $admin): void
     if ($admin !== null) {
         echo '<a class="skip" href="#main">' . kay_th('Aller au contenu') . '</a>'
             . '<header class="side"><a class="brand" href="index.php">'
-            . '<img src="/assets/brand/icon.svg" alt="" width="34" height="32">'
+            . '<img src="/assets/brand/v2/icon.svg" alt="" width="34" height="34">'
             . '<span>Kay Diving<small>Admin</small></span></a>'
             . '<nav class="nav" aria-label="' . kay_th('Sections') . '">';
         foreach (KAY_NAV as $page => [$label, $short, $icon]) {

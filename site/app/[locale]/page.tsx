@@ -85,7 +85,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         inLanguage: locale,
         isPartOf: { "@id": `${SHOP.domain}/#website` },
         about: { "@id": `${SHOP.domain}/#business` },
-        primaryImageOfPage: `${SHOP.domain}/assets/og/${locale}.jpg`,
+        primaryImageOfPage: `${SHOP.domain}/assets/og/v2/${locale}.jpg`,
       },
       {
         "@type": "SportsActivityLocation",
@@ -99,7 +99,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         currenciesAccepted: "USD, MXN",
         paymentAccepted: "Cash, Credit Card",
         image: [
-          `${SHOP.domain}/assets/og/${locale}.jpg`,
+          `${SHOP.domain}/assets/og/v2/${locale}.jpg`,
           `${SHOP.domain}/assets/photos/hero.webp`,
         ],
         // Kay Diving has no shop a diver can walk into: the day starts at a
