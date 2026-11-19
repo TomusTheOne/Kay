@@ -169,7 +169,7 @@ export interface Dictionary {
     tag: string; h2: string; intro: string;
     items: Record<string, IncludeCopy>;
   };
-  gallery: { tag: string; h2: string; captions: Record<string, string> };
+  gallery: { tag: string; h2: string; play: string; pause: string; captions: Record<string, string> };
   /* The two reference sections on the home page. "visit" is cenotes a visitor
      can reach on their own — deliberately not `cenotes`, which the dive guide
      owns. Their label maps are keyed by the values in content/places.json, so

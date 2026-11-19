@@ -1,8 +1,15 @@
 {
   "_comment": "Single source of truth for what Kay sells. Read by the TypeScript site AND by the PHP endpoints, so a price can never disagree between the page and the charge. Figures come from the 2026 menu PDF, corrected by Kay's own answers where the menu was wrong or silent.",
   "contentUpdated": "2026-09-24",
-  "experiencePages": ["discover-scuba", "reef-cenote", "cenote-diving",
-                      "open-water", "advanced-ow", "snorkel", "bull-sharks"],
+  "experiencePages": [
+    "discover-scuba",
+    "reef-cenote",
+    "cenote-diving",
+    "open-water",
+    "advanced-ow",
+    "snorkel",
+    "bull-sharks"
+  ],
   "publishedLocales": [
     "en",
     "es",
@@ -18,7 +25,12 @@
     "sacActunKm": 369,
     "instagram": "https://www.instagram.com/kaydivingtulum",
     "google": "https://maps.app.goo.gl/A3ZYngpgKYSFxaZQ7",
-    "areaServed": ["Tulum", "Playa del Carmen", "Riviera Maya", "Quintana Roo"],
+    "areaServed": [
+      "Tulum",
+      "Playa del Carmen",
+      "Riviera Maya",
+      "Quintana Roo"
+    ],
     "agency": "PADI",
     "phone": "+525554547479",
     "phoneDisplay": "+52 55 5454 7479",
@@ -171,7 +183,10 @@
       ],
       "photo": "card-advanced-ok",
       "art": "the-pit",
-      "extraIncludes": ["materials", "padi-licence"]
+      "extraIncludes": [
+        "materials",
+        "padi-licence"
+      ]
     },
     {
       "slug": "snorkel",
@@ -192,7 +207,9 @@
       ],
       "photo": "card-snorkel-top",
       "art": "casa-cenote",
-      "extraIncludes": ["taqueria-meal"]
+      "extraIncludes": [
+        "taqueria-meal"
+      ]
     },
     {
       "slug": "bull-sharks",
@@ -222,7 +239,7 @@
   ],
   "gallery": [
     {
-      "photo": "gallery-1",
+      "video": "gallery-dos-ojos-passage",
       "tall": true
     },
     {
@@ -232,6 +249,10 @@
     {
       "photo": "gallery-3",
       "tall": false
+    },
+    {
+      "photo": "gallery-1",
+      "tall": true
     },
     {
       "photo": "gallery-bull-shark",
